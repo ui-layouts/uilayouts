@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "clip-path-text-overlay-video-masking",
+  "type": "registry:component",
+  "dependencies": [
+    "react"
+  ],
+  "files": [
+    {
+      "type": "registry:component",
+      "target": "components/clip-path/text-overlay-video-masking.tsx",
+      "content": "import React from 'react';\n\nfunction index() {\n  return (\n    <>\n      <section className='gap-2 dark:bg-black bg-white border rounded-lg p-5'>\n        <figure className=' relative w-full h-full bg-black'>\n          <svg\n            viewBox='0 0 285 80'\n            preserveAspectRatio='xMidYMid slice'\n            className='w-full absolute top-0 left-0 h-full '\n          >\n            <defs>\n              <mask id='mask' x='0' y='0' width={'100%'} height={'100%'}>\n                <rect\n                  x='0'\n                  y='0'\n                  width={'100%'}\n                  height={'100'}\n                  style={{ fill: 'white', mask: 'url(#mask)' }}\n                />\n                <text\n                  x='50%'\n                  y='50%'\n                  fill='red'\n                  textAnchor='middle'\n                  className=' italic underline font-bold'\n                >\n                  UI-LAYOUT\n                </text>\n              </mask>\n            </defs>\n            <rect\n              x='0'\n              y='0'\n              width={'100%'}\n              height={'100'}\n              style={{ fill: '#000105', mask: 'url(#mask)' }}\n            />\n          </svg>\n          <video autoPlay muted loop className='w-[80%] h-full '>\n            <source\n              src='https://videos.pexels.com/video-files/7710243/7710243-uhd_2560_1440_30fps.mp4'\n              type='video/mp4'\n            />\n          </video>\n        </figure>\n      </section>\n    </>\n  );\n}\n\nexport default index;\n",
+      "path": "registry/components/clip-path/text-overlay-video-masking.tsx"
+    }
+  ]
+}

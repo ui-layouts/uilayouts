@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card-gradient-border",
+  "type": "registry:component",
+  "dependencies": [
+    "next",
+    "react"
+  ],
+  "files": [
+    {
+      "type": "registry:component",
+      "target": "components/card/gradient-border.tsx",
+      "content": "// https://cruip-tutorials.vercel.app/cards-hover-effect/\nimport Image from 'next/image';\nimport React from 'react';\n\nfunction index() {\n  return (\n    <>\n      <div className='w-full max-w-[422px] mx-auto [background:linear-gradient(45deg,#080b11,theme(colors.slate.800)_50%,#172033)_padding-box,conic-gradient(from_var(--border-angle),theme(colors.slate.600/.48)_80%,_theme(colors.indigo.500)_86%,_theme(colors.indigo.300)_90%,_theme(colors.indigo.500)_94%,_theme(colors.slate.600/.48))_border-box] rounded-2xl border border-transparent animate-border '>\n        <div className=\"relative text-center z-10 px-0 py-16 rounded-2xl  w-fit bg-[url('https://res.cloudinary.com/dzl9yxixg/image/upload/new-grid_ng16tf.png')]  h-full mx-auto\">\n          <>\n            <Image\n              src={'/chat_zinhdw.webp'}\n              alt='grid'\n              width={600}\n              className='mx-auto w-[85%]'\n              height={600}\n            />\n            <h1 className='text-xl font-semibold tracking-tight text-white'>\n              Create Group Effortlessly\n            </h1>\n            <p className='text-base pt-2  text-gray-300 capitalize'>\n              Seamless chats, crystal-clear videos, and <br />\n              premium audio quality\n            </p>\n          </>\n        </div>\n      </div>\n    </>\n  );\n}\n\nexport default index;\n",
+      "path": "registry/components/card/gradient-border.tsx"
+    }
+  ]
+}

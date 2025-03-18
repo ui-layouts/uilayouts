@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "clip-path-hexagon-video-masking",
+  "type": "registry:component",
+  "dependencies": [
+    "react"
+  ],
+  "files": [
+    {
+      "type": "registry:component",
+      "target": "components/clip-path/hexagon-video-masking.tsx",
+      "content": "import React from 'react';\n\nfunction index() {\n  return (\n    <>\n      <section className='gap-2 dark:bg-black bg-white border rounded-lg p-5'>\n        <figure className='relative   '>\n          <video\n            autoPlay\n            muted\n            loop\n            style={{\n              maskImage: \"url('/hexagon.svg')\",\n              maskSize: 'contain',\n              maskRepeat: 'no-repeat',\n              maskPosition: 'center',\n            }}\n            className='w-full relative h-full object-cover  aspect-square '\n          >\n            <source\n              src='https://videos.pexels.com/video-files/7710243/7710243-uhd_2560_1440_30fps.mp4'\n              type='video/mp4'\n            />\n          </video>\n        </figure>\n      </section>\n    </>\n  );\n}\n\nexport default index;\n",
+      "path": "registry/components/clip-path/hexagon-video-masking.tsx"
+    }
+  ]
+}

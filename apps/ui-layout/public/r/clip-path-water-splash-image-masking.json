@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "clip-path-water-splash-image-masking",
+  "type": "registry:component",
+  "dependencies": [
+    "react"
+  ],
+  "files": [
+    {
+      "type": "registry:component",
+      "target": "components/clip-path/water-splash-image-masking.tsx",
+      "content": "import React from 'react';\n\nfunction index() {\n  return (\n    <>\n      <section className='gap-2 dark:bg-black bg-white border rounded-lg p-5'>\n        <figure className='relative h-[80vh] '>\n          <img\n            src='https://images.unsplash.com/photo-1523612192437-66de9804ac3c?q=80&w=2070&auto=format&fit=crop'\n            alt=''\n            className='w-full h-full object-cover  aspect-square'\n            style={{\n              maskImage: \"url('/splash.svg')\",\n              maskSize: 'cover',\n              maskRepeat: 'no-repeat',\n              maskPosition: 'center',\n            }}\n          />\n        </figure>\n      </section>\n    </>\n  );\n}\n\nexport default index;\n",
+      "path": "registry/components/clip-path/water-splash-image-masking.tsx"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card-product-card4",
+  "type": "registry:component",
+  "dependencies": [
+    "framer-motion",
+    "lucide-react",
+    "next",
+    "react"
+  ],
+  "files": [
+    {
+      "type": "registry:component",
+      "target": "components/card/product-card4.tsx",
+      "content": "'use client';\nimport React, { useState } from 'react';\nimport Image from 'next/image';\nimport { Heart } from 'lucide-react';\nimport { motion } from 'framer-motion';\nfunction Card2() {\n  const [isActive, setIsActive] = useState(false);\n\n  const handleClick = () => {\n    setIsActive((prevState) => !prevState);\n  };\n\n  return (\n    <div className='w-[350px] mx-auto '>\n      <div className='dark:bg-white bg-gray-50 border dark:border-none  rounded-2xl'>\n        <div className='w-full h-56 relative'>\n          <motion.button\n            className='absolute top-2 right-3 z-20 text-2xl text-white'\n            onClick={handleClick}\n            animate={{ scale: isActive ? 1.2 : 1 }}\n            transition={{ type: 'spring', stiffness: 1000, damping: 10 }}\n          >\n            {isActive ? (\n              <>\n                <Heart className=' fill-white' />\n              </>\n            ) : (\n              <>\n                <Heart />\n              </>\n            )}\n          </motion.button>\n          <Image\n            src={\n              'https://images.unsplash.com/photo-1605733160314-4fc7dac4bb16?q=80&w=2090&auto=format&fit=crop'\n            }\n            alt='shoes'\n            width={1000}\n            height={1000}\n            className={`h-56 w-full rounded-2xl object-cover `}\n          />\n        </div>\n        <article className='text-black space-y-2 p-2 pb-3'>\n          <div className='flex justify-between'>\n            <h1 className='font-semibold text-xl text-base-dark'>\n              Nike Air Max\n            </h1>\n            <span className='font-medium text-xl text-base-dark'>$394</span>\n          </div>\n          <p className='text-xs  text-black'>\n            Lorem ipsum, dolor sit amet consectetur adipisicing\n          </p>\n\n          <button className='w-full hover:text-white flex justify-center items-center gap-2 border-black border-2 text-black hover:bg-gradient-to-r dark:from-[#070e41] dark:to-[#263381] from-[#3e5068] to-[#0c1970] py-2  rounded-md'>\n            Add to cart\n          </button>\n        </article>\n      </div>\n    </div>\n  );\n}\n\nexport default Card2;\n",
+      "path": "registry/components/card/product-card4.tsx"
+    }
+  ]
+}

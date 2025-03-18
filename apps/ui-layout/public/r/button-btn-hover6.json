@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-btn-hover6",
+  "type": "registry:component",
+  "files": [
+    {
+      "type": "registry:component",
+      "target": "components/button/btn-hover6.tsx",
+      "content": "const ButtonHover6 = () => {\n  return (\n    <>\n      <button\n        className='relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 dark:after:bg-white \n      after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100'\n      >\n        Contact me\n      </button>\n    </>\n  );\n};\n\nexport default ButtonHover6;\n",
+      "path": "registry/components/button/btn-hover6.tsx"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "marquee-3d-marquee",
+  "type": "registry:component",
+  "dependencies": [
+    "clsx",
+    "tailwind-merge"
+  ],
+  "files": [
+    {
+      "type": "registry:component",
+      "target": "components/marquee/3d-marquee.tsx",
+      "content": "import Marquee from '@/components/core/marquee';\n\nconst logos = [\n  {\n    name: 'Microsoft',\n    img: 'https://images.unsplash.com/photo-1718954572423-2780fe600028?w=500&auto=format&fit=crop',\n  },\n  {\n    name: 'Apple',\n    img: 'https://images.unsplash.com/photo-1718954572423-2780fe600028?w=500&auto=format&fit=crop',\n  },\n  {\n    name: 'Google',\n    img: 'https://images.unsplash.com/photo-1718954572423-2780fe600028?w=500&auto=format&fit=crop',\n  },\n  {\n    name: 'Facebook',\n    img: 'https://images.unsplash.com/photo-1718954572423-2780fe600028?w=500&auto=format&fit=crop',\n  },\n  {\n    name: 'LinkedIn',\n    img: 'https://images.unsplash.com/photo-1718954572423-2780fe600028?w=500&auto=format&fit=crop',\n  },\n  {\n    name: 'Twitter',\n    img: 'https://images.unsplash.com/photo-1718954572423-2780fe600028?w=500&auto=format&fit=crop',\n  },\n];\n\nconst Marquee3D = () => {\n  return (\n    <div className='relative flex h-full w-96 mx-auto flex-col items-center justify-center gap-4 overflow-hidden rounded-lg border bg-background px-20 md:shadow-xl'>\n      <div className='flex flex-row gap-4 [perspective:300px]'>\n        <Marquee\n          className='h-96 justify-center overflow-hidden [--duration:60s] [--gap:1rem]'\n          vertical\n          style={{\n            transform:\n              'translateX(0px) translateY(0px) translateZ(-50px) rotateX(0deg) rotateY(-20deg) rotateZ(10deg) scale(1.5)',\n          }}\n        >\n          {logos.map((data, idx) => (\n            <img\n              key={idx}\n              src={data.img}\n              alt={data.name}\n              className='mx-auto h-full w-3/4 cursor-pointer rounded-xl border border-neutral-300 transition-all duration-300 hover:ring-1 hover:ring-neutral-300'\n            />\n          ))}\n        </Marquee>\n      </div>\n\n      <div className='pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white dark:from-background'></div>\n      <div className='pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-white dark:from-background'></div>\n    </div>\n  );\n};\n\nexport default Marquee3D;\n",
+      "path": "registry/components/marquee/3d-marquee.tsx"
+    },
+    {
+      "type": "registry:component",
+      "target": "components/core/marquee.tsx",
+      "content": "import { cn } from '@/lib/utils'\n\ninterface MarqueeProps {\n  className?: string\n  reverse?: boolean\n  pauseOnHover?: boolean\n  children?: React.ReactNode\n  vertical?: boolean\n  repeat?: number\n  [key: string]: any\n}\n\nexport default function Marquee({\n  className,\n  reverse,\n  pauseOnHover = false,\n  children,\n  vertical = false,\n  repeat = 4,\n  ...props\n}: MarqueeProps) {\n  return (\n    <div\n      {...props}\n      className={cn(\n        'group flex overflow-hidden p-2 [--duration:40s] [--gap:1rem] [gap:var(--gap)]',\n        {\n          'flex-row': !vertical,\n          'flex-col': vertical,\n        },\n        className\n      )}\n    >\n      {Array(repeat)\n        .fill(0)\n        .map((_, i) => (\n          <div\n            key={i}\n            className={cn('flex shrink-0 justify-around [gap:var(--gap)]', {\n              'animate-marquee flex-row': !vertical,\n              'animate-marquee-vertical flex-col': vertical,\n              'group-hover:[animation-play-state:paused]': pauseOnHover,\n              '[animation-direction:reverse]': reverse,\n            })}\n          >\n            {children}\n          </div>\n        ))}\n    </div>\n  )\n}\n",
+      "path": "components/core/marquee.tsx"
+    },
+    {
+      "type": "registry:lib",
+      "target": "lib/utils.ts",
+      "content": "import { ClassValue, clsx } from 'clsx';\nimport { twMerge } from 'tailwind-merge';\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs));\n}\n\nexport function debounce(\n  func: (...args: any[]) => any,\n  wait: number,\n  immediate: boolean = false\n) {\n  let timeout: number | undefined;\n\n  return function executedFunction(this: any, ...args: any[]) {\n    const context: any = this;\n\n    const later = () => {\n      timeout = undefined;\n      if (!immediate) {\n        func.apply(context, args);\n      }\n    };\n\n    const callNow: boolean = immediate && !timeout;\n\n    clearTimeout(timeout);\n\n    timeout = window.setTimeout(later, wait);\n\n    if (callNow) {\n      func.apply(context, args);\n    }\n  };\n}\n\nexport function throttle(fn: (...args: any[]) => any, wait: number) {\n  let shouldWait = false;\n\n  return function throttledFunction(this: any, ...args: any[]) {\n    if (!shouldWait) {\n      fn.apply(this, args);\n      shouldWait = true;\n      setTimeout(() => (shouldWait = false), wait);\n    }\n  };\n}\n\nexport const siteConfig = {\n  name: 'ui-layouts',\n  url: 'https://ui-layouts.com',\n  ogImage: 'https://www.ui-layouts.com/og.jpg',\n  description:\n    'Beautifully designed components that you can copy and paste into your apps. Accessible. Customizable. Open Source.',\n  links: {\n    twitter: 'https://twitter.com/naymur_dev',\n    linkedin: 'https://www.linkedin.com/in/naymur-rahman',\n    github: 'https://github.com/naymurdev',\n  },\n};\n\nexport type SiteConfig = typeof siteConfig;\n",
+      "path": "lib/utils.ts"
+    }
+  ]
+}

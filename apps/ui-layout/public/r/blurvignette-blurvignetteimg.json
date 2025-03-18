@@ -1,0 +1,31 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "blurvignette-blurvignetteimg",
+  "type": "registry:component",
+  "dependencies": [
+    "clsx",
+    "next",
+    "react",
+    "tailwind-merge"
+  ],
+  "files": [
+    {
+      "type": "registry:component",
+      "target": "components/blurvignette/blurvignetteimg.tsx",
+      "content": "import { cn } from '@/lib/utils';\nimport Image from 'next/image';\nimport React from 'react';\nimport {\n  BlurVignette,\n  BlurVignetteArticle,\n} from '@/components/core/blur-vignette';\n\nfunction index() {\n  return (\n    <>\n      <div className='w-fit  mx-auto sm:flex gap-2 justify-center '>\n        <BlurVignette\n          radius='24px'\n          inset='10px'\n          transitionLength='80px'\n          blur='15px'\n        >\n          <Image\n            src='https://img.freepik.com/free-photo/african-kid-enjoying-life_23-2151447718.jpg'\n            alt='grid'\n            width={600}\n            className='mx-auto w-full relative h-full object-cover'\n            height={600}\n          />\n          <BlurVignetteArticle />\n        </BlurVignette>\n        <BlurVignette\n          radius='24px'\n          inset='10px'\n          transitionLength='80px'\n          blur='15px'\n        >\n          <Image\n            src='https://img.freepik.com/free-photo/portrait-middle-aged-man-taking-photos-with-device-world-photography-day_23-2151672359.jpg'\n            alt='grid'\n            width={600}\n            className='mx-auto w-full relative h-full object-cover'\n            height={600}\n          />\n          <BlurVignetteArticle />\n        </BlurVignette>\n      </div>\n    </>\n  );\n}\n\nexport default index;\n",
+      "path": "registry/components/blurvignette/blurvignetteimg.tsx"
+    },
+    {
+      "type": "registry:component",
+      "target": "components/core/blur-vignette.tsx",
+      "content": "'use client';\nimport React, { createContext, useContext } from 'react';\nimport { cn } from '@/lib/utils';\ninterface BlurVignetteContextProps {\n  radius?: string;\n  inset?: string;\n  transitionLength?: string;\n  blur?: string;\n}\n\nconst BlurVignetteContext = createContext<BlurVignetteContextProps>({\n  radius: '24px',\n  inset: '20px',\n  transitionLength: '44px',\n  blur: '6px',\n});\n\nexport const useBlurVignetteContext = () => useContext(BlurVignetteContext);\n\ninterface BlurVignetteProps {\n  classname?: string;\n  children: React.ReactNode;\n  radius?: string;\n  inset?: string;\n  transitionLength?: string;\n  blur?: string;\n  blurclassname?: string;\n}\n\nexport const BlurVignette: React.FC<BlurVignetteProps> = ({\n  classname,\n  children,\n  radius = '24px',\n  inset = '20px',\n  transitionLength = '44px',\n  blur = '6px',\n}) => {\n  return (\n    <BlurVignetteContext.Provider\n      value={{ radius, inset, transitionLength, blur }}\n    >\n      <div\n        className={cn('relative aspect-square overflow-hidden', classname)}\n        style={{ borderRadius: radius }}\n      >\n        {children}\n      </div>\n    </BlurVignetteContext.Provider>\n  );\n};\ninterface BlurVignetteArticleProps {\n  children?: React.ReactNode;\n  classname?: string;\n}\n\nexport const BlurVignetteArticle: React.FC<BlurVignetteArticleProps> = ({\n  children,\n  classname,\n}) => {\n  const { radius, inset, transitionLength, blur } = useBlurVignetteContext();\n\n  return (\n    <div\n      className={cn(\n        'blur-vignette bottom-0 left-0 w-full h-full z-[1]',\n        classname\n      )}\n      style={\n        {\n          '--radius': radius,\n          '--inset': inset,\n          '--transition-length': transitionLength,\n          '--blur': blur,\n        } as React.CSSProperties\n      }\n    >\n      {children}\n    </div>\n  );\n};\n",
+      "path": "components/core/blur-vignette.tsx"
+    },
+    {
+      "type": "registry:lib",
+      "target": "lib/utils.ts",
+      "content": "import { ClassValue, clsx } from 'clsx';\nimport { twMerge } from 'tailwind-merge';\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs));\n}\n\nexport function debounce(\n  func: (...args: any[]) => any,\n  wait: number,\n  immediate: boolean = false\n) {\n  let timeout: number | undefined;\n\n  return function executedFunction(this: any, ...args: any[]) {\n    const context: any = this;\n\n    const later = () => {\n      timeout = undefined;\n      if (!immediate) {\n        func.apply(context, args);\n      }\n    };\n\n    const callNow: boolean = immediate && !timeout;\n\n    clearTimeout(timeout);\n\n    timeout = window.setTimeout(later, wait);\n\n    if (callNow) {\n      func.apply(context, args);\n    }\n  };\n}\n\nexport function throttle(fn: (...args: any[]) => any, wait: number) {\n  let shouldWait = false;\n\n  return function throttledFunction(this: any, ...args: any[]) {\n    if (!shouldWait) {\n      fn.apply(this, args);\n      shouldWait = true;\n      setTimeout(() => (shouldWait = false), wait);\n    }\n  };\n}\n\nexport const siteConfig = {\n  name: 'ui-layouts',\n  url: 'https://ui-layouts.com',\n  ogImage: 'https://www.ui-layouts.com/og.jpg',\n  description:\n    'Beautifully designed components that you can copy and paste into your apps. Accessible. Customizable. Open Source.',\n  links: {\n    twitter: 'https://twitter.com/naymur_dev',\n    linkedin: 'https://www.linkedin.com/in/naymur-rahman',\n    github: 'https://github.com/naymurdev',\n  },\n};\n\nexport type SiteConfig = typeof siteConfig;\n",
+      "path": "lib/utils.ts"
+    }
+  ]
+}
