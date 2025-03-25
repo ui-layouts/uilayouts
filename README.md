@@ -7,7 +7,7 @@
 
 UI LAYOUT is an open-source component library that makes easier for developers and designers to build websites. It's focused on creative designs. I love to create comopnent that really matter or need your site and I belive in future I'll bring more as i kept bringing more just support me
 
-<img alt="UI-Layout - Design That Really Makes Sense" src="uilayout.gif" width="100%">
+<img alt="UI-Layout - Design That Really Makes Sense" src="ui-layouts.gif" width="100%">
 <!-- <h3 align="center">UI-Layout</h3>
 <p align="center">
     Design That Really Makes Sense
@@ -18,7 +18,7 @@ UI LAYOUT is an open-source component library that makes easier for developers a
 You must install `tailwindcss`. As most of our components use `framer-motion` install it too.
 
 ```bash
-npm install framer-motion clsx tailwind-merge
+npm install motion clsx tailwind-merge
 ```
 
 Must Add it in the `utils.ts`:
@@ -60,27 +60,28 @@ export function useMediaQuery(query: string) {
 
 ## Most Used Components
 
-- [Image Ripple Effect](https://ui-layout.com/components/image-ripple-effect)
-- [Buy Me Coffee](https://ui-layout.com/components/buy-me-coffee)
-- [Youtube Tags](https://ui-layout.com/components/tags-input)
-- [File Upload](https://ui-layout.com/components/file-upload)
-- [Password](https://ui-layout.com/components/password)
-- [Range Slider](https://ui-layout.com/components/range-slider)
-- [Motion Number](https://ui-layout.com/components/motion-number)
-- [Embla Carousel](https://ui-layout.com/components/embla-carousel)
-- [Sparkles](https://ui-layout.com/components/sparkles)
-- [Drag Items](https://ui-layout.com/components/drag-items)
-- [Timeline Animation](https://ui-layout.com/components/timeline-animation)
-- [Clip Path Image](https://ui-layout.com/components/clip-path-image)
-- [Buttons](https://ui-layout.com/components/buttons)
-- [Image Mousetrail](https://ui-layout.com/components/image-mousetrail)
-- [Image Reveal](https://ui-layout.com/components/image-reveal)
+- [R3F Blob Effect](https://ui-layouts.com/components/r3f-blob)
+- [Image Ripple Effect](https://ui-layouts.com/components/image-ripple-effect)
+- [Buy Me Coffee](https://ui-layouts.com/components/buy-me-coffee)
+- [Youtube Tags](https://ui-layouts.com/components/tags-input)
+- [File Upload](https://ui-layouts.com/components/file-upload)
+- [Password](https://ui-layouts.com/components/password)
+- [Range Slider](https://ui-layouts.com/components/range-slider)
+- [Motion Number](https://ui-layouts.com/components/motion-number)
+- [Embla Carousel](https://ui-layouts.com/components/embla-carousel)
+- [Sparkles](https://ui-layouts.com/components/sparkles)
+- [Drag Items](https://ui-layouts.com/components/drag-items)
+- [Timeline Animation](https://ui-layouts.com/components/timeline-animation)
+- [Clip Path Image](https://ui-layouts.com/components/clip-path-image)
+- [Buttons](https://ui-layouts.com/components/buttons)
+- [Image Mousetrail](https://ui-layouts.com/components/image-mousetrail)
+- [Image Reveal](https://ui-layouts.com/components/image-reveal)
 
-Visit all the [components](https://www.ui-layout.com/components).
+Visit all the [components](https://www.ui-layouts.com/components).
 
 ## Labs
 
-Visit [Labs](https://www.ui-layout.com/labs) to explore more experiments and ideas.
+Visit [Labs](https://www.ui-layouts.com/labs) to explore more experiments and ideas.
 
 ## 👤 Author (Naymur)
 
