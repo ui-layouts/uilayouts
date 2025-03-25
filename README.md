@@ -18,7 +18,7 @@ UI LAYOUT is an open-source component library that makes easier for developers a
 You must install `tailwindcss`. As most of our components use `framer-motion` install it too.
 
 ```bash
-npm install framer-motion clsx tailwind-merge
+npm install motion clsx tailwind-merge
 ```
 
 Must Add it in the `utils.ts`:
