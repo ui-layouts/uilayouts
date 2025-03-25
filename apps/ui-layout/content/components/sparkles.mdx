@@ -55,7 +55,6 @@ npm install @tsparticles/react @tsparticles/slim
 ```
 
 ```tsx sparkles.tsx
-// @ts-nocheck
 'use client';
 
 import { useEffect, useId, useState } from 'react';
@@ -205,7 +204,9 @@ export function Sparkles({
   };
   return (
     isReady && (
-      <Particles id={id} options={defaultOptions} className={className} />
+      <Particles id={id} 
+      // @ts-nocheck
+      options={defaultOptions} className={className} />
     )
   );
 }

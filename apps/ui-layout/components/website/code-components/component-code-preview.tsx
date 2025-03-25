@@ -14,7 +14,7 @@ import { Code, Eye } from 'lucide-react';
 import { PreCoded } from './pre-coded';
 
 type ComponentCodePreview = {
-  component: React.ReactElement;
+  component: React.ReactElement<any>;
   hasReTrigger?: boolean;
   name: string;
   children: React.ReactNode; //

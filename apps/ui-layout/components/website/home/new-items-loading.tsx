@@ -3,20 +3,8 @@ import React, { useEffect, useState } from 'react';
 
 const newComponent = [
   {
-    href: '/components/buy-me-coffee',
-    title: 'Buy Me Coffee',
-  },
-  {
-    href: '/components/bg-mesh-gradient',
-    title: 'BG Mesh Gradient',
-  },
-  {
-    href: '/components/image-ripple-effect',
-    title: 'Image Ripple Effect',
-  },
-  {
-    href: '/components/animated-slider',
-    title: 'Forms',
+    href: '/components/r3f-blob',
+    title: 'R3F Blob',
   },
 ];
 

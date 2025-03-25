@@ -30,7 +30,7 @@ export type SearchItem = {
 };
 // import { componentsArr } from './sidebar';
 
-export function SearchDialog({ classname }: { classname?: string }) {
+export function SearchDialog({ classname, searchBar = false }: { classname?: string, searchBar?: boolean }) {
   const router = useRouter();
   const { setTheme } = useTheme();
   const searchbardata: SearchItem[] = [
@@ -71,16 +71,20 @@ export function SearchDialog({ classname }: { classname?: string }) {
     <>
       <button
         className={cn(
-          'relative inline-flex w-full items-center justify-start gap-2 whitespace-nowrap rounded-[0.5rem] border border-input bg-white px-4 py-2 text-sm font-normal text-muted-foreground shadow-none transition-colors hover:border-accent-foreground hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 dark:bg-black sm:pr-12',
+          'relative inline-flex w-full items-center justify-start gap-2 whitespace-nowrap rounded-[0.5rem] border border-input bg-white px-4 py-2 text-sm font-normal text-muted-foreground shadow-none transition-colors hover:border-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 dark:bg-black sm:pr-12',
           classname
         )}
         onClick={() => setSearchOpen(true)}
       >
         <SearchIcon />
+        {!searchBar &&
+        <>
         <span className='hidden sm:inline-flex'>Search...</span>
         <kbd className='pointer-events-none absolute right-[0.3rem] top-[0.3rem] hidden h-7 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex'>
           <span className='text-xs'>⌘</span>K
         </kbd>
+        </>
+        }
       </button>
 
       <Dialog open={searchOpen} onOpenChange={setSearchOpen}>

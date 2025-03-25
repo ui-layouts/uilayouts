@@ -8,7 +8,7 @@ import {
   AnimatePresence,
   LayoutGroup,
   MotionConfig,
-} from 'framer-motion';
+} from 'motion/react';
 import Image from 'next/image';
 import preview from '@/assets/preview';
 import { Plus, X } from 'lucide-react';

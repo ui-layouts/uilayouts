@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import Link from 'next/link';
 import * as AspectRatio from '@radix-ui/react-aspect-ratio';
 import Image from 'next/image';
@@ -14,6 +14,13 @@ const appsDesign = [
     url: '/components/image-ripple-effect',
     imgclass: 'object-contain',
     imgSrc: preview.ripple,
+  },
+  {
+    id: 'r3f-blob',
+    name: 'R3F Blob',
+    url: '/components/r3f-blob',
+    imgclass: 'object-contain',
+    imgSrc: preview.blob,
   },
   {
     id: 'rangeSlider',
@@ -55,17 +62,136 @@ const appsDesign = [
     ),
   },
   {
-    id: 'password',
-    name: 'Password Input',
-    url: '/components/password',
-    imgSrc: preview.password,
-  },
-  {
     id: 'motionNumber',
     name: 'motion number',
     url: '/components/motion-number',
     imgSrc: preview.motionNumber,
   },
+  
+  {
+    id: 'dragItems',
+    name: 'Drag Items',
+    url: '/components/drag-items',
+    imgSrc: preview.dragitems,
+  },
+  {
+    id: 'carousel',
+    name: 'carousel',
+    url: '/components/carousel',
+    imgSrc: preview.carousel,
+  },
+  {
+    id: 'tabs',
+    url: '/components/tabs',
+    name: 'tabs',
+    imgSrc: preview.tabs,
+  },
+  {
+    id: 'sparkles',
+    url: '/components/sparkles',
+    name: 'Sparkles',
+    imgSrc: preview.sparkles,
+  },
+  {
+    id: 'accordion',
+    url: '/components/accordion',
+    name: 'accordion',
+    imgSrc: preview.faqs,
+  },
+  {
+    id: 'grid',
+    url: '/components/grid',
+    name: 'grid',
+    imgSrc: preview.grid,
+  },
+  {
+    id: 'buttons',
+    url: '/components/buttons',
+    name: 'buttons',
+    imgSrc: preview.buttons,
+  },
+  {
+    id: 'horizontal-scrolling',
+    url: '/components/horizontal-scroll',
+    name: 'scrolling',
+    imgSrc: preview.horizontascroll,
+  },
+  {
+    id: 'masking',
+    url: '/components/video-masking',
+    name: 'video-masking',
+    imgSrc: preview.image_masking,
+  },
+  {
+    id: 'clip-path',
+    url: '/components/clip-path',
+    name: 'Clip-Path',
+    imgSrc: preview.clippath,
+  },
+  {
+    id: 'mouseTrail',
+    url: '/components/image-mousetrail',
+    name: 'image-mousetrail',
+    imgSrc: preview.mousetrail,
+  },
+  {
+    id: 'sticky',
+    url: '/components/sticky-scroll',
+    name: 'sticky-scroll',
+    imgSrc: preview.sticky,
+  },
+
+  {
+    id: 'image-accordion',
+    url: '/components/image-accordions',
+    name: 'image-accordion',
+    imgSrc: preview.galleryNew,
+  },
+  {
+    id: 'globe',
+    url: '/components/globe',
+    name: 'Globe',
+    imgSrc: preview.globe,
+  },
+
+  {
+    id: 'modal',
+    url: '/components/linear-card',
+    name: 'Modal',
+    imgSrc: preview.modal,
+  },
+  {
+    id: 'image-reveal',
+    url: '/components/image-reveal',
+    name: 'Image Reveal',
+    imgSrc: preview.imagereveal,
+  },
+  {
+    id: 'drawer',
+    url: '/components/responsive-drawer',
+    name: 'Drawer',
+    imgSrc: preview.responsive_drawer,
+  },
+
+  {
+    id: 'hover-card',
+    url: '/components/hover-cards',
+    name: 'Card',
+    imgSrc: preview.card,
+  },
+  {
+    id: 'stacking-card',
+    url: '/components/stacking-card',
+    name: 'Stacking Card',
+    imgSrc: preview.stackingcard,
+  },
+  {
+    id: 'password',
+    name: 'Password Input',
+    url: '/components/password',
+    imgSrc: preview.password,
+  },
+
   {
     id: 'tagsInput',
     name: 'Tags Input',
@@ -450,123 +576,6 @@ const appsDesign = [
     imgSrc: preview.coffee,
   },
 
-  {
-    id: 'dragItems',
-    name: 'Drag Items',
-    url: '/components/drag-items',
-    imgSrc: preview.dragitems,
-  },
-  {
-    id: 'carousel',
-    name: 'carousel',
-    url: '/components/carousel',
-    imgSrc: preview.carousel,
-  },
-  {
-    id: 'tabs',
-    url: '/components/tabs',
-    name: 'tabs',
-    imgSrc: preview.tabs,
-  },
-  {
-    id: 'sparkles',
-    url: '/components/sparkles',
-    name: 'Sparkles',
-    imgSrc: preview.sparkles,
-  },
-  {
-    id: 'accordion',
-    url: '/components/accordion',
-    name: 'accordion',
-    imgSrc: preview.faqs,
-  },
-  {
-    id: 'grid',
-    url: '/components/grid',
-    name: 'grid',
-    imgSrc: preview.grid,
-  },
-  {
-    id: 'buttons',
-    url: '/components/buttons',
-    name: 'buttons',
-    imgSrc: preview.buttons,
-  },
-  {
-    id: 'horizontal-scrolling',
-    url: '/components/horizontal-scroll',
-    name: 'scrolling',
-    imgSrc: preview.horizontascroll,
-  },
-  {
-    id: 'masking',
-    url: '/components/video-masking',
-    name: 'video-masking',
-    imgSrc: preview.image_masking,
-  },
-  {
-    id: 'clip-path',
-    url: '/components/clip-path',
-    name: 'Clip-Path',
-    imgSrc: preview.clippath,
-  },
-  {
-    id: 'mouseTrail',
-    url: '/components/image-mousetrail',
-    name: 'image-mousetrail',
-    imgSrc: preview.mousetrail,
-  },
-  {
-    id: 'sticky',
-    url: '/components/sticky-scroll',
-    name: 'sticky-scroll',
-    imgSrc: preview.sticky,
-  },
-
-  {
-    id: 'image-accordion',
-    url: '/components/image-accordions',
-    name: 'image-accordion',
-    imgSrc: preview.galleryNew,
-  },
-  {
-    id: 'globe',
-    url: '/components/globe',
-    name: 'Globe',
-    imgSrc: preview.globe,
-  },
-
-  {
-    id: 'modal',
-    url: '/components/linear-card',
-    name: 'Modal',
-    imgSrc: preview.modal,
-  },
-  {
-    id: 'image-reveal',
-    url: '/components/image-reveal',
-    name: 'Image Reveal',
-    imgSrc: preview.imagereveal,
-  },
-  {
-    id: 'drawer',
-    url: '/components/responsive-drawer',
-    name: 'Drawer',
-    imgSrc: preview.responsive_drawer,
-  },
-
-  {
-    id: 'hover-card',
-    url: '/components/hover-cards',
-    name: 'Card',
-    imgSrc: preview.card,
-  },
-  {
-    id: 'stacking-card',
-    url: '/components/stacking-card',
-    name: 'Stacking Card',
-    imgSrc: preview.stackingcard,
-  },
 ];
 
 export default function Home() {

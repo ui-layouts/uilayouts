@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { getDocBySlug, getAllDocs } from '@/lib/docs';
-import { cn } from '@/lib/utils';
+import { absoluteUrl, cn } from '@/lib/utils';
 import { Component } from 'lucide-react';
 import TableOfContents from '@/components/website/tableof-compoents';
 import { ComponentPagination } from '@/components/website/code-components/pagination';
@@ -9,34 +9,48 @@ import Footer from '@/components/website/footer';
 
 export async function generateStaticParams() {
   const docs = await getAllDocs();
-  console.log(docs);
 
   return docs.map((doc) => ({
     slug: doc.slug === 'index' ? [] : doc.slug.split('/'),
   }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug?: string[] };
-}): Promise<Metadata> {
+export async function generateMetadata(
+  props: {
+    params: Promise<{ slug?: string[] }>;
+  }
+): Promise<Metadata> {
+  const params = await props.params;
   const slug = params.slug?.join('/') || '';
   const doc = await getDocBySlug(slug);
   if (!doc) {
     return {};
   }
   return {
-    title: `${doc.content.metadata.title}`,
+    title: `${doc.content.metadata.title} | Magic UI`,
     description: doc.content.metadata.description,
+    openGraph: {
+      title: doc.content.metadata.title,
+      description: doc.content.metadata.description,
+      type: "article",
+      url: absoluteUrl(doc.slug),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: doc.content.metadata.title,
+      description: doc.content.metadata.description,
+      creator: "@naymur_dev",
+    },
   };
+
 }
 
-export default async function DocPage({
-  params,
-}: {
-  params: { slug?: string[] };
-}) {
+export default async function DocPage(
+  props: {
+    params: Promise<{ slug?: string[] }>;
+  }
+) {
+  const params = await props.params;
   const slug = params.slug?.join('/') || '';
   const doc = await getDocBySlug(slug);
   // console.log(doc);

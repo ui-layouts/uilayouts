@@ -89,13 +89,12 @@ const config: Config = {
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
         background: 'hsl(var(--background))',
-        'base-dark': '#020817',
-        'home-dark': '#03050c',
         codebg: 'var(--codebg)',
         foreground: 'hsl(var(--foreground))',
         primary: {
           DEFAULT: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))',
+          base:'var(--primary-base)',
         },
         muted: {
           DEFAULT: 'hsl(var(--muted))',

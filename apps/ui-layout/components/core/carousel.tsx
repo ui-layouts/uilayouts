@@ -11,7 +11,7 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 import Autoplay from 'embla-carousel-autoplay';
 import {
   EmblaCarouselType,

@@ -25,7 +25,7 @@ body {
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
     --codebg: #f1f1f1f0;
-
+    --primary-base:#fcfcfc;
     --accent: 210 40% 96.1%;
     --accent-foreground: 222.2 47.4% 11.2%;
 
@@ -86,7 +86,8 @@ body {
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
     --codebg: #030608;
-
+    --primary-base:#0a0a0a;
+    
     --accent: 217.2 32.6% 17.5%;
     --accent-foreground: 210 40% 98%;
     --ch-0: dark;

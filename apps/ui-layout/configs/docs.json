@@ -225,6 +225,12 @@
           "iframelink": "img-ripple-effect",
           "parentlink": "img-ripple-effect",
           "parentName": "Img Ripple Effect"
+        },
+        {
+          "componentName": "r3f-blob",
+          "iframelink": "r3f-blob",
+          "parentlink": "r3f-blob",
+          "parentName": "R3F Blob"
         }
       ],
       "type": "threejs"
@@ -885,7 +891,7 @@
         },
         {
           "componentName": "timeline-animation",
-          "filesrc": "components/scroll-animation/timeline-animation.tsx",
+          "filesrc": "components/timeline-animation/index.tsx",
           "iframeSrc": "live-components/timeline-animation",
           "parentlink": "timeline-animation",
           "parentName": "Timeline Animation"

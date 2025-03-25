@@ -8,7 +8,7 @@ import {
   useVelocity,
   useAnimationFrame,
   useMotionValue,
-} from 'framer-motion';
+} from 'motion/react';
 import { wrap } from '@motionone/utils';
 import { cn } from '@/lib/utils';
 

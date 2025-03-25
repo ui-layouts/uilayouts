@@ -8,7 +8,7 @@ import {
   MotionValue,
   animate,
   DragControls,
-} from 'framer-motion';
+} from 'motion/react';
 
 export default function index() {
   const [items, setItems] = useState([

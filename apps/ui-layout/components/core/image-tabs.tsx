@@ -1,6 +1,6 @@
 'use client'
 import React, { ReactNode, useState, createContext, useContext } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'motion/react'
 import { cn } from '@/lib/utils'
 import { useMediaQuery } from '@/hooks/use-media-query'
 

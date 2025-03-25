@@ -7,7 +7,7 @@ import {
   LayoutGroup,
   motion,
   useMotionValue,
-} from 'framer-motion';
+} from 'motion/react';
 import Image from 'next/image';
 import { X } from 'lucide-react';
 import { items } from '@/components/website/constant';

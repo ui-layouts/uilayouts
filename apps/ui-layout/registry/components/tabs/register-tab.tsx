@@ -119,7 +119,7 @@ function index() {
               />
               <button
                 type='submit'
-                className='dark:bg-gray-50 mt-2 bg-base-dark flex gap-1 items-center justify-center p-3 text-center w-full dark:text-black text-white rounded-md font-medium'
+                className='dark:bg-gray-50 mt-2 bg-primary-base flex gap-1 items-center justify-center p-3 text-center w-full dark:text-black text-white rounded-md font-medium'
               >
                 Sign in
                 <Lock className='w-4 h-4' />
@@ -177,7 +177,7 @@ function index() {
               />
               <button
                 type='submit'
-                className='dark:bg-gray-50 bg-base-dark flex gap-1 items-center justify-center p-3 text-center w-full dark:text-black text-white rounded-md font-medium'
+                className='dark:bg-gray-50 bg-primary-base flex gap-1 items-center justify-center p-3 text-center w-full dark:text-black text-white rounded-md font-medium'
               >
                 Sign up
               </button>

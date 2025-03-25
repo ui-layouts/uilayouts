@@ -7,7 +7,7 @@ import React, {
   ReactNode,
   FC,
 } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '@/lib/utils';
 
 // Define the type for the context value
@@ -84,12 +84,12 @@ export const ProgressSlider: FC<ProgressSliderProps> = ({
 
   useEffect(() => {
     const getChildren = React.Children.toArray(children).find(
-      (child) => (child as React.ReactElement).type === SliderContent
-    ) as React.ReactElement | undefined;
+      (child) => (child as React.ReactElement<any>).type === SliderContent
+    ) as React.ReactElement<any> | undefined;
 
     if (getChildren) {
       const values = React.Children.toArray(getChildren.props.children).map(
-        (child) => (child as React.ReactElement).props.value as string
+        (child) => (child as React.ReactElement<any>).props.value as string
       );
       setSliderValues(values);
     }

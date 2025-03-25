@@ -15,7 +15,7 @@ import {
   useSpring,
   useTransform,
   AnimatePresence,
-} from 'framer-motion';
+} from 'motion/react';
 import Image from 'next/image';
 import React, { useState } from 'react';
 import { useRef } from 'react';

@@ -1,5 +1,5 @@
 'use client'
-import { motion, AnimatePresence, MotionConfig } from 'framer-motion'
+import { motion, AnimatePresence, MotionConfig } from 'motion/react'
 import { Plus, PlusIcon, XIcon } from 'lucide-react'
 import React, { useEffect, useId, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'

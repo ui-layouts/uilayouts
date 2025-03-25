@@ -286,7 +286,7 @@ const ComponentSection = () => {
                   >
                     <Component />
                   </TooltipTrigger>
-                  <TooltipContent className='dark:bg-base-dark bg-gray-50 text-primary border p-2 rounded-md -translate-y-1'>
+                  <TooltipContent className='dark:bg-primary-base bg-gray-50 text-primary border p-2 rounded-md -translate-y-1'>
                     <p className='capitalize'>Components</p>
                   </TooltipContent>
                 </Tooltip>
@@ -320,7 +320,7 @@ const ComponentSection = () => {
                       <path d='M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z' />
                     </svg>
                   </TooltipTrigger>
-                  <TooltipContent className='dark:bg-base-dark bg-gray-50 text-primary border p-2 rounded-md -translate-y-1'>
+                  <TooltipContent className='dark:bg-primary-base bg-gray-50 text-primary border p-2 rounded-md -translate-y-1'>
                     <p className='capitalize'>Home</p>
                   </TooltipContent>
                 </Tooltip>
@@ -360,7 +360,7 @@ const ComponentSection = () => {
                   >
                     View Component
                   </TooltipTrigger>
-                  <TooltipContent className='dark:bg-base-dark bg-gray-50 text-primary border p-2 rounded-md -translate-y-1'>
+                  <TooltipContent className='dark:bg-primary-base bg-gray-50 text-primary border p-2 rounded-md -translate-y-1'>
                     <p className='capitalize'>
                       {currentComponentData?.componentName}
                     </p>
@@ -375,7 +375,7 @@ const ComponentSection = () => {
                   >
                     <Settings2 />
                   </TooltipTrigger>
-                  <TooltipContent className='dark:bg-base-dark bg-gray-50 text-primary border p-2 rounded-md -translate-y-1'>
+                  <TooltipContent className='dark:bg-primary-base bg-gray-50 text-primary border p-2 rounded-md -translate-y-1'>
                     <p className='capitalized'>Style Component</p>
                   </TooltipContent>
                 </Tooltip>
@@ -394,7 +394,7 @@ const ComponentSection = () => {
                       </>
                     )}
                   </TooltipTrigger>
-                  <TooltipContent className='dark:bg-base-dark bg-gray-50 text-primary  border p-2 rounded-md -translate-y-1'>
+                  <TooltipContent className='dark:bg-primary-base bg-gray-50 text-primary  border p-2 rounded-md -translate-y-1'>
                     <p className='capitalized'>
                       {isSidebarOpen ? <>Get Sidebar</> : <>Close Sidebar</>}
                     </p>

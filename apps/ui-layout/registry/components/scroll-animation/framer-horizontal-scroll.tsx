@@ -5,7 +5,7 @@ import {
   useMotionValueEvent,
   useScroll,
   useTransform,
-} from 'framer-motion';
+} from 'motion/react';
 
 // * based on: https://gist.github.com/coleturner/34396fb826c12fbd88d6591173d178c2
 import { useEffect, useRef, useState } from 'react';
@@ -81,7 +81,7 @@ export const items = [
 ];
 
 // * based on: https://gist.github.com/coleturner/34396fb826c12fbd88d6591173d178c2
-function useElementViewportPosition(ref: React.RefObject<HTMLElement>) {
+function useElementViewportPosition(ref: React.RefObject<HTMLElement | null>) {
   const [position, setPosition] = useState<[number, number]>([0, 0]);
 
   useEffect(() => {

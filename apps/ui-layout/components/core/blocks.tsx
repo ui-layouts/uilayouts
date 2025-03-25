@@ -1,6 +1,6 @@
 'use client';
 import { cn } from '@/lib/utils';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, type JSX } from 'react';
 
 function Blocks({
   activeDivs,
@@ -13,7 +13,7 @@ function Blocks({
   activeDivs?: any;
   divClass?: string;
   classname?: string;
-  containerRef: React.RefObject<HTMLDivElement>;
+  containerRef: React.RefObject<HTMLDivElement | null>;
 }) {
   const [blocks, setBlocks] = useState<JSX.Element[]>([]);
 

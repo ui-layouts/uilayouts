@@ -1,7 +1,7 @@
 'use client';
 // inspired by tom is loading
 import React, { useRef, useState } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView } from 'motion/react';
 import { items } from '@/components/website/constant';
 
 function UnsplashGrid() {

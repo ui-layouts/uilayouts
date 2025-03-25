@@ -98,7 +98,7 @@ export default Tab;
 ## Installation
 
 ```bash
-npm install framer-motion
+npm install motion
 ```
 
 ```tsx tab.tsx
@@ -106,7 +106,7 @@ npm install framer-motion
 'use client';
 
 import { cn } from '@/lib/utils';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'motion/react';
 import React, {
   ReactNode,
   createContext,
@@ -226,7 +226,7 @@ export const TabsBtn = ({ children, className, value }: any) => {
                   },
                 }}
                 layoutId={defaultValue}
-                className='absolute w-full h-full left-0 top-0 dark:bg-base-dark bg-white rounded-md  z-[1]'
+                className='absolute w-full h-full left-0 top-0 dark:bg-primary-base bg-white rounded-md  z-[1]'
               />
             </AnimatePresence>
           )}
@@ -244,7 +244,7 @@ export const TabsBtn = ({ children, className, value }: any) => {
                       },
                     }}
                     layoutId={defaultValue}
-                    className='absolute w-full h-full left-0 top-0 dark:bg-base-dark bg-white rounded-md  z-[1] tab-shadow'
+                    className='absolute w-full h-full left-0 top-0 dark:bg-primary-base bg-white rounded-md  z-[1] tab-shadow'
                   />
                 </AnimatePresence>
               )}
@@ -259,7 +259,7 @@ export const TabsBtn = ({ children, className, value }: any) => {
                       },
                     }}
                     layoutId={`${defaultValue}b`}
-                    className='absolute w-full h-full left-0 top-0 dark:bg-base-dark bg-white rounded-md  z-[1] tab-shadow'
+                    className='absolute w-full h-full left-0 top-0 dark:bg-primary-base bg-white rounded-md  z-[1] tab-shadow'
                   />
                 </AnimatePresence>
               )}

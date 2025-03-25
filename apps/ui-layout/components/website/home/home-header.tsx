@@ -5,28 +5,18 @@ import { SearchDialog } from '@/components/website/searchbar';
 import GitHubButton from '@/registry/components/github-repo-btn';
 import MobileHeader from '../moibile-header';
 import ThemeSwitch from '../theme-switch';
-import { NavigationMenuDemo } from './home-header-dropdown';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/components/website/ui/dropdown';
-import { ChevronDown } from 'lucide-react';
+
 function HomeHeader() {
   return (
     <>
       <header className=' w-full fixed z-20 top-0  left-0 pt-1.5 xl:px-0 px-2 '>
-        <div className='lg:container  p-1 h-full relative mx-auto flex justify-between dark:bg-black bg-white  rounded-lg items-center  border '>
+        <div className='lg:container  p-1 h-full relative mx-auto flex justify-between bg-primary-base  rounded-lg items-center  border '>
           <MobileHeader classname='xl:hidden block' />
-          <DropdownMenu>
-            <DropdownMenuTrigger className='bg-primary-foreground rounded-lg p-2 border outline-none focus:outline-none'>
+    
               {/* <Image src="/logo.png" alt="logo" width={35} height={35} /> */}
               <Link
                 href='/'
-                className='relative xl:flex hidden items-center gap-2 '
+                className='relative xl:flex hidden items-center gap-2 dark:bg-black bg-gray-100   p-2 rounded-md'
               >
                 <svg
                   width='288'
@@ -46,9 +36,8 @@ function HomeHeader() {
                   <path d='M251.958 32.5328H263.03V42.9864C263.03 43.9637 262.667 44.8136 261.942 45.536C261.217 46.2584 260.342 46.6196 259.318 46.6196H244.47C243.446 46.6196 242.571 46.2584 241.846 45.536C241.121 44.8136 240.758 43.9637 240.758 42.9864V38.5245C240.758 37.5046 240.395 36.6335 239.67 35.9111C238.945 35.1462 238.07 34.7638 237.046 34.7638H233.206C232.225 34.7638 231.371 34.4238 230.646 33.7439C229.921 33.0215 229.558 32.1504 229.558 31.1305V2.00098H240.63V18.3824H249.91C250.209 18.3824 250.465 18.4886 250.678 18.7011C250.891 18.9136 250.998 19.1685 250.998 19.466V29.1546C250.998 29.452 250.891 29.707 250.678 29.9195C250.465 30.1319 250.209 30.2382 249.91 30.2382H240.63V33.6164C240.63 33.9139 240.737 34.1689 240.95 34.3813C241.163 34.5938 241.419 34.7 241.718 34.7H250.87C251.169 34.7 251.425 34.5938 251.638 34.3813C251.851 34.1689 251.958 33.9139 251.958 33.6164V32.5328Z' />
                   <path d='M271.328 22.7168V14.7492H287.328V22.7168H279.328V30.6844H263.328V22.7168H271.328ZM287.328 38.652H279.328V30.6844H287.328V38.652ZM279.328 38.652V46.6196H263.328V38.652H279.328Z' />
                 </svg>
-                <ChevronDown />
               </Link>
-            </DropdownMenuTrigger>
+            {/* </DropdownMenuTrigger>
             <DropdownMenuContent className='w-48 bg-primary-foreground '>
               <DropdownMenuItem>
                 <a href='https://cursify.vercel.app/' target='_blank'>
@@ -66,36 +55,14 @@ function HomeHeader() {
                 </a>
               </DropdownMenuItem>
             </DropdownMenuContent>
-          </DropdownMenu>
+          </DropdownMenu> */}
 
           <div className='flex gap-2'>
-            <div className='lg:block hidden'>
-              <NavigationMenuDemo />
-            </div>
-
-            <SearchDialog classname='md:w-72' />
-
-            <GitHubButton />
-            <a
-              target='_blank'
-              href='https://x.com/naymur_dev'
-              className='border bg-primary flex-shrink-0   text-primary-foreground text-2xl w-14   grid  place-content-center    rounded-md'
-            >
-              <svg
-                width='120'
-                height='109'
-                viewBox='0 0 120 109'
-                fill='none'
-                xmlns='http://www.w3.org/2000/svg'
-                className=' fill-primary-foreground w-6 h-5'
-              >
-                <path d='M94.5068 0H112.907L72.7076 46.172L120 109H82.9692L53.9674 70.8942L20.7818 109H2.3693L45.3666 59.6147L0 0H37.9685L64.1848 34.8292L94.5068 0ZM88.0484 97.9318H98.2448L32.4288 10.4872H21.4882L88.0484 97.9318Z' />
-              </svg>
-            </a>
+            <SearchDialog classname='md:w-72'  />
             <ThemeSwitch
-              className='bg-background border w-12 rounded-md h-11 flex-shrink-0
-          '
+              className='dark:bg-black bg-white border w-12 rounded-md h-11 flex-shrink-0'
             />
+            <GitHubButton />
           </div>
         </div>
       </header>

@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { Heart } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 function Card2() {
   const [isActive, setIsActive] = useState(false);
 
@@ -42,10 +42,10 @@ function Card2() {
         </div>
         <article className='text-black space-y-2 p-2 pb-3'>
           <div className='flex justify-between'>
-            <h1 className='font-semibold text-xl text-base-dark'>
+            <h1 className='font-semibold text-xl text-primary-dark'>
               Nike Air Max
             </h1>
-            <span className='font-medium text-xl text-base-dark'>$394</span>
+            <span className='font-medium text-xl text-primary-dark'>$394</span>
           </div>
           <p className='text-xs  text-black'>
             Lorem ipsum, dolor sit amet consectetur adipisicing

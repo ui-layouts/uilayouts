@@ -2,7 +2,7 @@
 import React, { ReactNode, useState } from 'react';
 import Image from 'next/image';
 import { Heart, ShoppingCart } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 const sizes = ['7', '7.5', '8', '8.5'];
 function Card() {
   const [isActive, setIsActive] = useState(false);

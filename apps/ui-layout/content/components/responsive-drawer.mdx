@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'Drawer ',
+  title: 'Drawer',
   description:
     'A responsive drawer that opens like an app drawer on mobile devices and functions as a standard dialog or drawer on desktop',
 };
@@ -9,7 +9,7 @@ export const metadata = {
 ## Installation
 
 ```bash
-npm install framer-motion vaul
+npm install motion vaul
 ```
 
 please add this property in your layout.js or app.js
@@ -40,7 +40,7 @@ import React, {
   useEffect,
   ReactNode,
 } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'motion/react';
 import { X } from 'lucide-react';
 import { Drawer as VaulDrawer } from 'vaul';
 import { cn } from '@/lib/utils';

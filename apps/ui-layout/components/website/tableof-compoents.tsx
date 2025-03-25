@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { useMediaQuery } from '@/hooks/use-media-query';
 import BuyMeCoffee from '@/registry/components/buy-me-acoffee';
-import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
+import { motion, useScroll, useSpring, useTransform } from 'motion/react';
 import { ScrollArea } from './ui/scroll-area';
 
 interface TocItem {
@@ -99,10 +99,7 @@ export default function TableOfContents({ toc }: TableOfContentsProps) {
                     <hr />
                     <ul className=' list-none m-0 ml-0  text-[0.8em] space-y-0.5 pt-2 pl-0'>
                       {tocItems?.map((item) => {
-                        // console.log(item);
-
                         return (
-                          <>
                             <li key={item.url}>
                               <a
                                 href={item.url}
@@ -133,7 +130,6 @@ export default function TableOfContents({ toc }: TableOfContentsProps) {
                                 </ul>
                               )}
                             </li>
-                          </>
                         );
                       })}
                     </ul>

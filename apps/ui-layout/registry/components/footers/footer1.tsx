@@ -1,7 +1,7 @@
 'use client';
 import React, { FormEvent, useLayoutEffect, useRef, useState } from 'react';
 import { MoveRight } from 'lucide-react';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView } from 'motion/react';
 
 // import useNewsLetter, { ClientData } from '@/lab/hooks/useNewsLetter'
 import Link from 'next/link';

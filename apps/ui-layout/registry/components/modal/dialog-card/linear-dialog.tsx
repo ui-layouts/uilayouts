@@ -15,7 +15,7 @@ import {
   MotionConfig,
   Transition,
   Variant,
-} from 'framer-motion';
+} from 'motion/react';
 import { createPortal } from 'react-dom';
 import { cn } from '@/lib/utils';
 // import useClickOutside from '@/hooks/useClickOutside';
@@ -25,7 +25,7 @@ interface DialogContextType {
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
   uniqueId: string;
-  triggerRef: React.RefObject<HTMLDivElement>;
+  triggerRef: React.RefObject<HTMLDivElement | null>;
 }
 
 const DialogContext = React.createContext<DialogContextType | null>(null);
@@ -77,7 +77,7 @@ type DialogTriggerProps = {
   children: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
-  triggerRef?: React.RefObject<HTMLDivElement>;
+  triggerRef?: React.RefObject<HTMLDivElement | null>;
 };
 
 function DialogTrigger({

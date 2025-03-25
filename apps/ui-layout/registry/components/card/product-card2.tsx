@@ -10,7 +10,7 @@ import {
 } from 'lucide-react';
 import * as Select from '@radix-ui/react-select';
 import { cn } from '@/lib/utils';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { CardArr } from '@/components/website/constant';
 
 function Card2() {

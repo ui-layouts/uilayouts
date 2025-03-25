@@ -1,5 +1,5 @@
 declare module '*.svg' {
-  const SVG: React.VFC<React.SVGProps<SVGSVGElement>>;
+  const SVG: React.FC<React.SVGProps<SVGSVGElement>>;
 }
 // declaration.d.ts
 declare module '*.svg' {

@@ -1,7 +1,7 @@
 'use client';
 import React, { SetStateAction } from 'react';
 import { useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'motion/react';
 import { items } from '@/components/website/constant';
 
 const article = {

@@ -58,7 +58,7 @@ const HomeFileUpload = () => {
       dropzoneOptions={dropzone}
       className='relative  rounded-lg p-2 w-[90%] h-full content-center mx-auto'
     >
-      <FileInput className='outline-dashed bg-background outline-2 outline-primary/40'>
+      <FileInput className='outline-dashed bg-primary-base outline-2 outline-primary/40'>
         <div className='flex items-center justify-center flex-col pt-3 pb-4 w-full '>
           <FileSvgDraw />
         </div>

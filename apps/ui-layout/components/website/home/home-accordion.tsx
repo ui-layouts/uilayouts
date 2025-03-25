@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import { AnimatePresence, motion, useAnimate } from 'framer-motion';
+import { AnimatePresence, motion, useAnimate } from 'motion/react';
 import { Plus } from 'lucide-react';
 
 const tabs = [

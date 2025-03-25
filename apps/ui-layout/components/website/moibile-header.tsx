@@ -103,8 +103,8 @@ function MobileHeader({ classname }: { classname?: string }) {
                         {React.cloneElement(link?.icon, {
                           className: `${
                             link.href === pathname
-                              ? 'dark:text-base-dark dark:bg-white bg-base-dark text-white'
-                              : 'dark:bg-gray-800 dark:text-white group-hover:bg-base-dark group-hover:text-white  dark:group-hover:bg-white dark:group-hover:text-base-dark'
+                              ? 'dark:text-primary-dark dark:bg-white bg-primary-base text-white'
+                              : 'dark:bg-gray-800 dark:text-white group-hover:bg-primary-base group-hover:text-white  dark:group-hover:bg-white dark:group-hover:text-primary-dark'
                           } h-7 w-7 border transition-all  rounded-sm p-1.5`,
                         })}
 

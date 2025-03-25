@@ -13,9 +13,9 @@ interface CodePreviewProps {
 }
 
 export default function TabCodePreview({ children }: CodePreviewProps) {
-  const Codes = React.Children.toArray(children) as React.ReactElement[];
+  const Codes = React.Children.toArray(children) as React.ReactElement<any>[];
 
-  const parsedCodes = Codes.map((code: React.ReactElement) => {
+  const parsedCodes = Codes.map((code: React.ReactElement<any>) => {
     const props = code.props;
 
     // Check if the codeblock exists and parse the value if necessary

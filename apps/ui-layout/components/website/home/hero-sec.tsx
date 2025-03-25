@@ -304,7 +304,8 @@ function HeroSec() {
       <section className='min-h-screen sm:py-24 pb-24 pt-16 overflow-hidden  relative  '>
         <div className='absolute inset-0 -z-0 h-screen w-full  dark:bg-[radial-gradient(#1b1b1b_1px,transparent_1px)] bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]'></div>
         <div className='absolute inset-0 top-0 left-0  h-screen w-full items-center px-5 py-24  bg-gradient-to-t dark:from-black from-white from-0% to-transparent to-60%'></div>
-        <div className='absolute inset-0 top-0 left-0  h-screen w-full items-center px-5 py-24 dark:[background:radial-gradient(87.03%_87.03%_at_50.05%_12.97%,rgba(217,217,217,0)_40%,#000000_100%)] [background:radial-gradient(87.03%_87.03%_at_50.05%_12.97%,rgba(217,217,217,0)_40%,#ffffff_100%)]'></div>
+        <div className='absolute inset-0 top-0 left-0  h-screen w-full items-center px-5 py-24 dark:[background:radial-gradient(87.03%_87.03%_at_50.05%_12.97%,rgba(217,217,217,0)_40%,#000000_100%)] [background:radial-gradient(87.03%_87.03%_at_50.05%_12.97%,rgba(217,217,217,0)_40%,#fafafa_100%)]'></div>
+
         <div className='lg:container xl:px-0 px-3 mx-auto  gap-2'>
           <article className='grid gap-4 pt-20 relative z-10 xl:pb-0 pb-2 sm:px-0 px-4'>
             <NewItemsLoading />
@@ -324,7 +325,7 @@ function HeroSec() {
             <div className='flex gap-2 justify-center items-center'>
               <a
                 href='/components'
-                className='flex items-center gap-2 w-fit  text-white bg-gradient-to-l from-[#6175f8]  to-[#334cec] border sm:px-4 px-2 rounded-sm py-2 '
+                className='flex items-center gap-2 w-fit rounded-md  text-white bg-gradient-to-l from-[#6175f8]  to-[#334cec] border sm:px-4 px-2 py-2 '
               >
                 Browse Component
                 <MoveRight />

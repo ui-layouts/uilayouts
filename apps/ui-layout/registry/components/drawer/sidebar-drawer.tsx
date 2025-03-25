@@ -1,6 +1,6 @@
 'use client';
 import { Drawer } from 'vaul';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { useState } from 'react';
 import { Edit, X } from 'lucide-react';
 import { useMediaQuery } from '@/hooks/use-media-query';

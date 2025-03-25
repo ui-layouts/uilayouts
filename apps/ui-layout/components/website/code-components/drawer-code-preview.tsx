@@ -36,7 +36,7 @@ const LoadingFallback = () => (
   </div>
 );
 type ComponentCodePreview = {
-  component: React.ReactElement;
+  component: React.ReactElement<any>;
   hasReTrigger?: boolean;
   name: string;
   children: React.ReactNode; //
@@ -65,7 +65,7 @@ export default async function DrawerCodePreview({
 }: ComponentCodePreview) {
   // console.log(children);
 
-  const Codes = React.Children.toArray(children) as React.ReactElement[];
+  const Codes = React.Children.toArray(children) as React.ReactElement<any>[];
   const parsedCodeblock = Codes[0]?.props;
   // console.log(parsedCodeblock);
 

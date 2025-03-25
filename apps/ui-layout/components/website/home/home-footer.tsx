@@ -2,7 +2,7 @@
 import React, { FormEvent, useEffect, useRef, useState } from 'react';
 import AnimatedText from '@/components/core/cursor-follow-text';
 import Link from 'next/link';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView } from 'motion/react';
 import useNewsLetter, { ClientData } from '@/hooks/useNewsLetter';
 import { toast } from 'sonner';
 

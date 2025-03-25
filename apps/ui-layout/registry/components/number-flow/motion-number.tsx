@@ -1,6 +1,6 @@
 'use client';
 import NumberFlow from '@number-flow/react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { ArrowDown, ArrowUp } from 'lucide-react';
 import React, { useState } from 'react';
 

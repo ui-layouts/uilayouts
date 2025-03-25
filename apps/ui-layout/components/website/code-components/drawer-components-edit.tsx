@@ -15,7 +15,7 @@ import { Panel, PanelGroup, PanelResizeHandle } from 'react-resizable-panels';
 
 // @ts-ignore
 // import CardArr from '!!raw-loader!../constant.tsx';
-import * as FramerMotion from 'framer-motion';
+import * as FramerMotion from 'motion/react';
 import { CopyButton } from './copy-button';
 import { useTheme } from 'next-themes';
 import { useMediaQuery } from '@/hooks/use-media-query';
@@ -26,7 +26,7 @@ const baseScope = {
     react: React,
     'lucide-react': lucideReact,
     'next/image': Image,
-    'framer-motion': FramerMotion,
+    'motion/react': FramerMotion,
   },
 };
 function EditComponents({

@@ -71,7 +71,7 @@ export const TagsInput: React.FC<TagsInputProps> = ({
   }, [input]);
 
   return (
-    <div className='flex flex-wrap items-center gap-2 p-2 border-2 rounded-md focus-within:border-blue-500 bg-background'>
+    <div className='flex flex-wrap items-center gap-2 p-2 border-2 rounded-md focus-within:border-blue-500 bg-primary-base'>
       {tags.map((tag, index) => (
         <div key={tag} className='relative'>
           {editTag && editingIndex === index ? (
@@ -98,7 +98,7 @@ export const TagsInput: React.FC<TagsInputProps> = ({
                   e.stopPropagation();
                   handleRemoveTag(tag);
                 }}
-                className='text-white hover:text-gray-300 px-1 focus:outline-none bg-background rounded'
+                className='text-primary  px-1 focus:outline-none bg-primary-base rounded'
               >
                 &times;
               </button>
@@ -111,7 +111,7 @@ export const TagsInput: React.FC<TagsInputProps> = ({
         value={input}
         onChange={(e) => setInput(e.target.value)}
         onKeyDown={handleAddTag}
-        className={`flex-grow px-2 py-1 text-sm border-none outline-none bg-background rounded-md ${
+        className={`flex-grow px-2 py-1 text-sm border-none outline-none bg-primary-base rounded-md ${
           editingIndex !== null ? 'opacity-0' : 'opacity-100'
         }`}
         placeholder='Add a tag...'

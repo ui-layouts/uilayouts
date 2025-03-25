@@ -1,6 +1,6 @@
 'use client';
 import React, { CSSProperties, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import NumberFlow, { useCanAnimate } from '@number-flow/react';
 import { ArrowUp } from 'lucide-react';
 import { cn } from '@/lib/utils';

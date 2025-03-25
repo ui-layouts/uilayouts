@@ -4,6 +4,7 @@ export const SpecialComponents = [
   {
     href: '/components/drag-items',
     name: 'Drag Items',
+    updated:false,
     tags: ['drag', 'draggable', 'items', 'sortable', 'list'],
   },
   {
@@ -14,6 +15,7 @@ export const SpecialComponents = [
   {
     href: '/components/noise',
     name: 'Noise',
+    new:false,
     tags: ['noise', 'effect', 'visual', 'distortion', 'shader'],
   },
   {
@@ -42,7 +44,6 @@ export const SpecialComponents = [
   {
     href: '/components/buy-me-coffee',
     name: 'Buy Me A Coffee',
-    new: true,
     tags: [
       'Sponser',
       'Buy me a coffee',
@@ -56,7 +57,6 @@ export const MainComponents = [
   {
     href: '/components/image-ripple-effect',
     name: 'Img Ripple Effect',
-    new: true,
     component: 'threeJS',
     tags: [
       'img-ripple-effect',
@@ -65,22 +65,27 @@ export const MainComponents = [
     ],
   },
   {
-    href: '/components/bg-mesh-gradient',
-    name: 'BG Mesh-Gradient',
-    new: true,
+    href: '/components/r3f-blob',
+    name: 'R3F Blob',
     component: 'threeJS',
-    tags: [
-      'mesh-gradient',
-      'threejs mesh graddient',
-      'React3 Fiber mesh Gradient',
-      'threejs mess graddient',
-      'React3 Fiber Mess Gradient',
-    ],
+    new:true,
+    tags: ['r3f-blob', 'threejs blob','animated blob','blob'],
   },
+  // {
+  //   href: '/components/bg-mesh-gradient',
+  //   name: 'BG Mesh-Gradient',
+  //   component: 'threeJS',
+  //   tags: [
+  //     'mesh-gradient',
+  //     'threejs mesh graddient',
+  //     'React3 Fiber mesh Gradient',
+  //     'threejs mess graddient',
+  //     'React3 Fiber Mess Gradient',
+  //   ],
+  // },
   {
     href: '/components/blur-vignette',
     name: 'Blur Vignette',
-    new: true,
     component: 'creative',
     tags: [
       'blur',
@@ -106,7 +111,6 @@ export const MainComponents = [
   {
     href: '/components/motion-number',
     name: 'Motion Number',
-    updated: true,
     component: 'creative',
     tags: [
       'animation',
@@ -153,7 +157,6 @@ export const MainComponents = [
   {
     href: '/components/range-slider',
     name: 'Range Slider',
-    new: true,
     component: 'Form',
     tags: [
       'input slider',
@@ -178,7 +181,6 @@ export const MainComponents = [
   {
     href: '/components/password',
     name: 'Password',
-    new: true,
     component: 'Form',
     tags: [
       'password',
@@ -218,7 +220,6 @@ export const MainComponents = [
   {
     href: '/components/tags-input',
     name: 'UTube Tags',
-    new: true,
     component: 'Form',
     tags: [
       'Tags Input',
@@ -235,7 +236,6 @@ export const MainComponents = [
   {
     href: '/components/phone-input',
     name: 'Phone Input',
-    new: true,
     component: 'Form',
     tags: [
       'phone-input',
@@ -249,7 +249,6 @@ export const MainComponents = [
   {
     href: '/components/datetime-picker',
     name: 'Datetime Picker',
-    new: true,
     component: 'Form',
     tags: [
       'time picker',
@@ -269,7 +268,6 @@ export const MainComponents = [
   {
     href: '/components/multi-selector',
     name: 'Multi Selector',
-    new: true,
     component: 'Form',
     tags: [
       'Multi Selector Input',
@@ -283,7 +281,7 @@ export const MainComponents = [
   {
     href: '/components/file-upload',
     name: 'File Upload',
-    new: true,
+    new: false,
     component: 'Form',
     tags: [
       'DropZone input',
@@ -302,14 +300,14 @@ export const MainComponents = [
   {
     href: '/components/clip-path',
     name: 'Clip-Path ',
-    new: true,
+    new: false,
     component: 'clip-path',
     tags: ['clip-path', 'creative', 'masking', 'corporate', 'symbolic', 'mask'],
   },
   {
     href: '/components/image-masking',
     name: 'Image Masking',
-    new: true,
+    new: false,
     component: 'clip-path',
     tags: [
       'image-masking',
@@ -329,7 +327,7 @@ export const MainComponents = [
   {
     href: '/components/video-masking',
     name: 'Video Masking',
-    new: true,
+    new: false,
     component: 'clip-path',
     tags: [
       'video',
@@ -412,14 +410,15 @@ export const MainComponents = [
     href: '/components/timeline-animation',
     name: 'Timeline Animation',
     component: 'Animation',
-    new: true,
+    new: false,
+    updated: true,
     tags: ['timeline', 'animation', 'scroll', 'motion', 'interactive'],
   },
   {
     href: '/components/scroll-animation',
     name: 'Scroll Animation',
     component: 'Animation',
-    new: true,
+    new: false,
     tags: [
       'scroll',
       'animation',
@@ -446,14 +445,14 @@ export const MainComponents = [
     href: '/components/randomized-text-effect',
     name: 'Randomized Text',
     component: 'Text animation',
-    new: true,
+    new: false,
     tags: ['random', 'text', 'effect'],
   },
   {
     href: '/components/image-mousetrail',
     name: 'Image Mousetrail',
     component: 'creative-effect',
-    new: true,
+    new: false,
     tags: [
       'mouse-trail',
       'animation',
@@ -471,7 +470,7 @@ export const MainComponents = [
   {
     href: '/components/image-reveal',
     name: 'Image Reveal',
-    new: true,
+    new: false,
     component: 'creative-effect',
     tags: [
       'image',
@@ -492,7 +491,7 @@ export const MainComponents = [
   {
     href: '/components/progressive-carousel',
     name: 'Progressive Carousel',
-    new: true,
+    new: false,
     component: 'creative-effect',
     tags: [
       'carousel',
@@ -557,6 +556,7 @@ export const MainComponents = [
     href: '/components/linear-card',
     name: 'Linear Card',
     component: 'modal/drawer',
+    updated: true,
     tags: ['card', 'linear-layout', 'UI-component', 'modal-card'],
   },
   {
@@ -630,7 +630,7 @@ export const MainComponents = [
     href: '/components/sticky-scroll',
     name: 'Sticky Scroll',
     component: 'scroll',
-    new: true,
+    new: false,
     tags: [
       'Sticky Scroll',
       'Section',
@@ -687,7 +687,7 @@ export const MainComponents = [
   {
     href: '/components/carousel',
     name: 'Carousel',
-    new: true,
+    new: false,
     component: 'carousel',
     tags: [
       'carousel',
@@ -721,7 +721,7 @@ export const MainComponents = [
     component: 'carousel',
     tags: [
       'carousel',
-      'framer-motion',
+      'motion/react',
       'animated-carousel',
       'carousel-2',
       'carousel-1',
@@ -731,6 +731,7 @@ export const MainComponents = [
     href: '/components/accordion',
     name: 'Accordion',
     component: 'accordion',
+    updated:true,
     tags: [
       'accordion',
       'faqs accordion',
@@ -1601,7 +1602,7 @@ export const AllComponents: IAllComponents[] = [
       () => import('@/registry/components/carousel/framer-carousel2')
     ),
     iframeSrc: 'live-components/framer-carousel-2',
-    tags: ['carousel', 'framer-motion', 'animated-carousel', 'carousel-2'],
+    tags: ['carousel', 'motion/react', 'animated-carousel', 'carousel-2'],
   },
   {
     parentlink: 'framer-carousel',
@@ -1610,7 +1611,7 @@ export const AllComponents: IAllComponents[] = [
       () => import('@/registry/components/carousel/framer-carousel1')
     ),
     iframeSrc: 'live-components/framer-carousel-1',
-    tags: ['carousel', 'framer-motion', 'animated-carousel', 'carousel-1'],
+    tags: ['carousel', 'motion/react', 'animated-carousel', 'carousel-1'],
   },
   {
     parentlink: 'image-reveal',
@@ -2080,7 +2081,7 @@ export const AllComponents: IAllComponents[] = [
     parentlink: 'timeline-animation',
     componentName: 'timeline-animation',
     componentSrc: React.lazy(
-      () => import('@/registry/components/scroll-animation/timeline-animation')
+      () => import('@/registry/components/timeline-animation')
     ),
     iframeSrc: 'live-components/timeline-animation',
     tags: ['timeline', 'animation', 'scroll'],

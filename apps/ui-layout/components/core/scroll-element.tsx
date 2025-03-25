@@ -9,7 +9,7 @@ import {
   ForwardRefComponent,
   Variant,
   useAnimation,
-} from 'framer-motion';
+} from 'motion/react';
 import React from 'react';
 type Direction = 'up' | 'down' | 'left' | 'right';
 

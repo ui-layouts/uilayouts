@@ -2,14 +2,14 @@
 
 'use client';
 
-import React, { useRef } from 'react';
+import React, { useRef, type JSX } from 'react';
 import {
   ForwardRefComponent,
   motion,
   HTMLMotionProps,
   useInView,
   Variant,
-} from 'framer-motion';
+} from 'motion/react';
 import { cn } from '@/lib/utils';
 type Direction = 'up' | 'down' | 'left' | 'right';
 

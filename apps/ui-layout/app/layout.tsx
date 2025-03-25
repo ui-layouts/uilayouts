@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     'Next.js',
     'React',
     'Tailwind CSS',
-    'framer-motion',
+    'motion/react',
     'gsap',
     'lenis react',
     'reactscroll animation',

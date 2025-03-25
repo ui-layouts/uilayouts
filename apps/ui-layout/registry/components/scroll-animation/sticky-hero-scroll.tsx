@@ -1,11 +1,11 @@
 // @ts-nocheck
 'use client'
 
-import { useScroll, useTransform, motion } from 'framer-motion'
+import { useScroll, useTransform, motion } from 'motion/react'
 import { useEffect, useRef } from 'react'
 
 export default function index() {
-  const container = useRef()
+  const container = useRef(undefined)
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ['start start', 'end end'],

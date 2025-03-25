@@ -11,7 +11,7 @@ import React, {
   useCallback,
 } from 'react';
 import { cn } from '@/lib/utils';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'motion/react';
 
 // Improved TypeScript interfaces with more specific types
 interface TabContextType {
@@ -67,7 +67,7 @@ export const TabsProvider: React.FC<TabsProviderProps> = React.memo(
     const tabsOrder = useMemo(() => {
       return React.Children.toArray(children)
         .filter((child) => isValidElement(child) && child.type === TabsContent)
-        .map((child) => (child as React.ReactElement).props.value);
+        .map((child) => (child as React.ReactElement<any>).props.value);
     }, [children]);
 
     // Memoize context value to prevent unnecessary re-renders
@@ -142,7 +142,7 @@ export const TabsBtn: React.FC<TabsBtnProps> = React.memo(
                   },
                 }}
                 layoutId={defaultValue}
-                className='absolute w-full h-full left-0 top-0 dark:bg-base-dark bg-white rounded-md z-[1]'
+                className='absolute w-full h-full left-0 top-0 dark:bg-primary-base bg-white rounded-md z-[1]'
               />
 
               {wobbly && (
@@ -156,7 +156,7 @@ export const TabsBtn: React.FC<TabsBtnProps> = React.memo(
                       },
                     }}
                     layoutId={defaultValue}
-                    className='absolute w-full h-full left-0 top-0 dark:bg-base-dark bg-white rounded-md z-[1] tab-shadow'
+                    className='absolute w-full h-full left-0 top-0 dark:bg-primary-base bg-white rounded-md z-[1] tab-shadow'
                   />
                   <motion.div
                     transition={{
@@ -167,7 +167,7 @@ export const TabsBtn: React.FC<TabsBtnProps> = React.memo(
                       },
                     }}
                     layoutId={`${defaultValue}b`}
-                    className='absolute w-full h-full left-0 top-0 dark:bg-base-dark bg-white rounded-md z-[1] tab-shadow'
+                    className='absolute w-full h-full left-0 top-0 dark:bg-primary-base bg-white rounded-md z-[1] tab-shadow'
                   />
                 </>
               )}

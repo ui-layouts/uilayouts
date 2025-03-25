@@ -3,7 +3,7 @@
 
 import React, { useEffect } from 'react';
 import { useState } from 'react';
-import { motion, AnimateSharedLayout, AnimatePresence } from 'framer-motion';
+import { motion, AnimateSharedLayout, AnimatePresence } from 'motion/react';
 import Image from 'next/image';
 import { items } from '@/components/website/constant';
 
@@ -94,7 +94,7 @@ export default function index() {
                   alt='single-image'
                   className='rounded-2xl h-full w-full object-cover'
                 />
-                <article className='dark:bg-base-dark bg-white rounded-md p-2 mt-2 border '>
+                <article className='dark:bg-primary-base bg-white rounded-md p-2 mt-2 border '>
                   <motion.h1
                     initial={{ scaleY: 0.2 }}
                     animate={{ scaleY: 1 }}
