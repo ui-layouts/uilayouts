@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card-stripe-card2",
+  "type": "registry:component",
+  "dependencies": [
+    "lucide-react",
+    "next",
+    "react"
+  ],
+  "files": [
+    {
+      "type": "registry:component",
+      "target": "components/card/stripe-card2.tsx",
+      "content": "import React from 'react';\nimport Image from 'next/image';\nimport { ChevronsRight } from 'lucide-react';\n\nfunction StripeCard() {\n  return (\n    <>\n      <div className='w-[400px] relative mt-4 h-[400px] group mx-auto dark:bg-black  bg-white dark:border-0 border overflow-hidden rounded-md dark:text-white text-black '>\n        <figure className='w-full h-full rounded-md  overflow-hidden'>\n          <Image\n            src={\n              'https://images.unsplash.com/photo-1693581176773-a5f2362209e6?q=80&w=1200&auto=format'\n            }\n            alt='shoes'\n            width={600}\n            height={600}\n            className='h-full w-full  scale-105 group-hover:scale-100 rounded-lg object-cover transition-all duration-300'\n          />\n        </figure>\n        <div className='absolute top-0 left-0 w-full h-full  transition-all duration-300 bg-gradient-to-b from-[#02cc6e25] via-[#02cc6e5b]  to-[#02cc6e]'></div>\n        <article className='p-4 space-y-2 absolute -bottom-10 group-hover:bottom-0 transition-all duration-300 '>\n          <h1 className='text-2xl font-semibold capitalize w-[90%]'>\n            Learn why going to the mountains can change your thoughts and\n            lifestyle forever\n          </h1>\n          <a\n            href='#'\n            className=' text-base dark:text-white text-blue-600 font-normal  group-hover:opacity-100 opacity-0 translate-y-2 group-hover:translate-y-0 pt-2 flex gap-1  transition-all duration-300  '\n          >\n            Read Story\n            <span>\n              <ChevronsRight />\n            </span>\n          </a>\n        </article>\n      </div>\n    </>\n  );\n}\n\nexport default StripeCard;\n",
+      "path": "registry/components/card/stripe-card2.tsx"
+    }
+  ]
+}

@@ -6,7 +6,8 @@
     "dev": "tsc && next dev --port 3001",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "build:registry": "npx smart-registry@latest"
   },
   "dependencies": {
     "@code-hike/mdx": "^0.9.0",

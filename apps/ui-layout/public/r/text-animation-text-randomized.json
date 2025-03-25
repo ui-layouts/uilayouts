@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-animation-text-randomized",
+  "type": "registry:component",
+  "dependencies": [
+    "react"
+  ],
+  "files": [
+    {
+      "type": "registry:component",
+      "target": "components/text-animation/text-randomized/index.tsx",
+      "content": "import React from 'react';\nimport { RandomizedTextEffect } from '@/components/core/text-randomized';\n\nfunction index() {\n  return (\n    <>\n      <div className=' py-10 rounded-md'>\n        <h1 className='font-departure text-4xl relative z-10 text-center h-[120px] md:h-auto leading-tight'>\n          <RandomizedTextEffect text='Production ready code' />\n        </h1>\n      </div>\n    </>\n  );\n}\n\nexport default index;\n",
+      "path": "registry/components/text-animation/text-randomized/index.tsx"
+    },
+    {
+      "type": "registry:component",
+      "target": "components/core/text-randomized.tsx",
+      "content": "'use client'\n\nimport React, { useEffect, useState, useCallback } from 'react'\n\nconst lettersAndSymbols = 'abcdefghijklmnopqrstuvwxyz!@#$%^&*-_+=;:<>,'\n\ninterface AnimatedTextProps {\n  text: string\n}\n\nexport function RandomizedTextEffect({ text }: AnimatedTextProps) {\n  const [animatedText, setAnimatedText] = useState('')\n\n  const getRandomChar = useCallback(\n    () =>\n      lettersAndSymbols[Math.floor(Math.random() * lettersAndSymbols.length)],\n    []\n  )\n\n  const animateText = useCallback(async () => {\n    const duration = 50\n    const revealDuration = 80\n    const initialRandomDuration = 300\n\n    const generateRandomText = () =>\n      text\n        .split('')\n        .map(() => getRandomChar())\n        .join('')\n\n    setAnimatedText(generateRandomText())\n\n    const endTime = Date.now() + initialRandomDuration\n    while (Date.now() < endTime) {\n      await new Promise((resolve) => setTimeout(resolve, duration))\n      setAnimatedText(generateRandomText())\n    }\n\n    for (let i = 0; i < text.length; i++) {\n      await new Promise((resolve) => setTimeout(resolve, revealDuration))\n      setAnimatedText(\n        (prevText) =>\n          text.slice(0, i + 1) +\n          prevText\n            .slice(i + 1)\n            .split('')\n            .map(() => getRandomChar())\n            .join('')\n      )\n    }\n  }, [text, getRandomChar])\n\n  useEffect(() => {\n    animateText()\n  }, [text, animateText])\n\n  return <div className=\"relative inline-block\">{animatedText}</div>\n}\n",
+      "path": "components/core/text-randomized.tsx"
+    }
+  ]
+}
