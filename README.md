@@ -77,11 +77,11 @@ export function useMediaQuery(query: string) {
 - [Image Mousetrail](https://ui-layouts.com/components/image-mousetrail)
 - [Image Reveal](https://ui-layouts.com/components/image-reveal)
 
-Visit all the [components](https://www.ui-layout.com/components).
+Visit all the [components](https://www.ui-layouts.com/components).
 
 ## Labs
 
-Visit [Labs](https://www.ui-layout.com/labs) to explore more experiments and ideas.
+Visit [Labs](https://www.ui-layouts.com/labs) to explore more experiments and ideas.
 
 ## 👤 Author (Naymur)
 
