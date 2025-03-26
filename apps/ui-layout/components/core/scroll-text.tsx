@@ -50,8 +50,8 @@ const TextAnimation = ({
   viewport = defaultViewport,
   variants,
   direction = 'down',
-  letterAnime = false,
-  lineAnime = false,
+  letterAnime = false, // To animate content letter by letter
+  lineAnime = false, // To animate content in a linear way
 }: {
   text: string;
   classname?: string;
