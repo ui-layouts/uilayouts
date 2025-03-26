@@ -1,7 +1,7 @@
 export const metadata = {
-  title: 'Text Marquee',
+  title: 'Scroll Text',
   description:
-    'A text marquee animation with options for unidirectional and bidirectional scrolling, which changes direction based on the scroll position',
+    'A scroll text animation with options for directional scrolling, which changes direction based on the scroll position',
 };
 
 <ComponentCodePreview name='text-scroll-animation' hasReTrigger responsive />
@@ -12,101 +12,153 @@ export const metadata = {
 npm install motion @motionone/utils
 ```
 
-```tsx text-marquee.tsx
+```tsx scroll-text.tsx
 'use client';
-import { useRef, useEffect } from 'react';
+import React, { useRef, type JSX } from 'react';
 import {
+  ForwardRefComponent,
   motion,
-  useScroll,
-  useSpring,
-  useTransform,
-  useVelocity,
-  useAnimationFrame,
-  useMotionValue,
+  HTMLMotionProps,
+  useInView,
+  Variant,
 } from 'motion/react';
-import { wrap } from '@motionone/utils';
 import { cn } from '@/lib/utils';
+type Direction = 'up' | 'down' | 'left' | 'right';
 
-interface ParallaxProps {
-  children: string;
-  baseVelocity: number;
-  clasname?: string;
-  scrollDependent?: boolean; // Toggle scroll-dependent behavior
-  delay?: number; // Delay before animation starts
-}
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+const generateVariants = (
+  direction: Direction
+): { hidden: any; visible: any } => {
+  const axis = direction === 'left' || direction === 'right' ? 'x' : 'y';
+  const value = direction === 'right' || direction === 'down' ? 100 : -100;
 
-export default function ScrollBaseAnimation({
-  children,
-  baseVelocity = -5,
-  clasname,
-  scrollDependent = false, // Default to false
-  delay = 0, // Default delay is 0 (no delay)
-}: ParallaxProps) {
-  const baseX = useMotionValue(0);
-  const { scrollY } = useScroll();
-  const scrollVelocity = useVelocity(scrollY);
-  const smoothVelocity = useSpring(scrollVelocity, {
-    damping: 50,
-    stiffness: 400,
-  });
-  const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 2], {
-    clamp: false,
-  });
+  return {
+    hidden: { filter: 'blur(10px)', opacity: 0, [axis]: value },
+    visible: {
+      filter: 'blur(0px)',
+      opacity: 1,
+      [axis]: 0,
+      transition: {
+        duration: 0.4,
+        ease: 'easeOut',
+      },
+    },
+  };
+};
 
-  const x = useTransform(baseX, (v) => `${wrap(-20, -45, v)}%`);
+const defaultViewport = { amount: 0.3, margin: '0px 0px 0px 0px' };
 
-  const directionFactor = useRef<number>(1);
-  const hasStarted = useRef(false); // Track animation start status
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      hasStarted.current = true; // Start animation after the delay
-    }, delay);
-
-    return () => clearTimeout(timer); // Cleanup on unmount
-  }, [delay]);
-
-  useAnimationFrame((t, delta) => {
-    if (!hasStarted.current) return; // Skip if delay hasn't passed
-
-    let moveBy = directionFactor.current * baseVelocity * (delta / 1000);
-
-    // Reverse direction if scrollDependent is true
-    if (scrollDependent) {
-      if (velocityFactor.get() < 0) {
-        directionFactor.current = -1;
-      } else if (velocityFactor.get() > 0) {
-        directionFactor.current = 1;
-      }
-    }
-
-    moveBy += directionFactor.current * moveBy * velocityFactor.get();
-
-    baseX.set(baseX.get() + moveBy);
-  });
-
+const TextAnimation = ({
+  as = 'h1',
+  text,
+  classname = '',
+  viewport = defaultViewport,
+  variants,
+  direction = 'down',
+  letterAnime = false, // To animate content letter by letter
+  lineAnime = false, // To animate content in a linear way
+}: {
+  text: string;
+  classname?: string;
+  as?: keyof JSX.IntrinsicElements;
+  viewport?: {
+    amount?: number;
+    margin?: string;
+    once?: boolean;
+  };
+  variants?: {
+    hidden?: any;
+    visible?: any;
+  };
+  direction?: Direction;
+  letterAnime?: boolean;
+  lineAnime?: boolean;
+}) => {
+  const baseVariants = variants || generateVariants(direction);
+  const modifiedVariants = {
+    hidden: baseVariants.hidden,
+    visible: {
+      ...baseVariants.visible,
+    },
+  };
+  const MotionComponent = motion[
+    as as keyof typeof motion
+  ] as React.ComponentType<HTMLMotionProps<any>>;
   return (
-    <div className='overflow-hidden whitespace-nowrap flex flex-nowrap'>
-      <motion.div
-        className='flex whitespace-nowrap gap-10 flex-nowrap'
-        style={{ x }}
-      >
-        <span className={cn(`block text-[8vw]`, clasname)}>{children}</span>
-        <span className={cn(`block text-[8vw]`, clasname)}>{children}</span>
-        <span className={cn(`block text-[8vw]`, clasname)}>{children}</span>
-        <span className={cn(`block text-[8vw]`, clasname)}>{children}</span>
-      </motion.div>
-    </div>
+    <>
+      <>
+        <MotionComponent
+          whileInView='visible'
+          initial='hidden'
+          variants={containerVariants}
+          viewport={viewport}
+          className={cn(
+            `inline-block dark:text-white text-black uppercase  `,
+            classname
+          )}
+        >
+          {lineAnime ? (
+            <>
+              {' '}
+              <motion.span
+                className={`inline-block `}
+                variants={modifiedVariants}
+              >
+                {text}
+              </motion.span>
+            </>
+          ) : (
+            <>
+              {text.split(' ').map((word: string, index: number) => (
+                <motion.span
+                  key={index}
+                  className={`inline-block `}
+                  variants={letterAnime === false ? modifiedVariants : {}}
+                >
+                  {letterAnime ? (
+                    <>
+                      {word.split('').map((letter: string, index: number) => (
+                        <>
+                          <motion.span
+                            className={`inline-block `}
+                            variants={modifiedVariants}
+                          >
+                            {letter}
+                          </motion.span>
+                        </>
+                      ))}
+                      &nbsp;
+                    </>
+                  ) : (
+                    <>{word}&nbsp;</>
+                  )}
+                </motion.span>
+              ))}
+            </>
+          )}
+        </MotionComponent>
+      </>
+    </>
   );
-}
+};
 ```
 
 ## Props
 
-| Prop            | Type    | Default | Description                                          |
-| --------------- | ------- | ------- | ---------------------------------------------------- |
-| children        | string  |         | The content to be animated with a parallax effect.   |
-| baseVelocity    | number  | `-5`    | The base velocity for the parallax effect.           |
-| clasname        | string  |         | Optional CSS class for styling the component.        |
-| scrollDependent | boolean | `false` | Whether the animation should depend on scroll.       |
-| delay           | number  | `0`     | Delay before the animation starts (in milliseconds). |
+| Prop        | Type      | Default                                    | Description                                          |
+| ----------- | --------- | ------------------------------------------ | ---------------------------------------------------- |
+| as          | string    | 'h1'                                       | How do we want the component to be rendered.         |
+| text        | string    |                                            | The text to be animated.                             |
+| classname   | string    |                                            | Optional CSS class for styling the component.        |
+| viewport    | object    | { amount: 0.3, margin: '0px 0px 0px 0px' } | Viewport settings.                                   |
+| variants    | object    |                                            | Optional custom variants for text animation.         |
+| direction   | Direction | 'down'                                     | Whether the animation should depend on scroll.       |
+| letterAnime | boolean   | 'false'                                    | To animate content letter by letter.                 |
+| lineAnime   | boolean   | 'false'                                    | To animate content in a linear way.                  |
