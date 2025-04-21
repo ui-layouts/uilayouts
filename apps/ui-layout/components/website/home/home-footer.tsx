@@ -402,7 +402,7 @@ function HomeFooter() {
         </div>
         <div className='flex md:flex-row flex-col-reverse gap-3 justify-center px-4 py-4'>
           <span className='font-medium'>
-            &copy; 2024 UI-Layouts. All Rights Reserved.
+            &copy; 2025 UI-Layouts. All Rights Reserved.
           </span>
           {/* <a href='#' className='font-semibold'>
             Privacy Policy
