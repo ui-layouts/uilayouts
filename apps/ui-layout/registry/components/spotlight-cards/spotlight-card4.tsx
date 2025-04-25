@@ -1,7 +1,7 @@
 // @ts-nocheck
 'use client';
 
-import { SpotLightItem, Spotlight } from '@/components/core/main-spotlight';
+import { SpotLightItem, Spotlight } from '@/components/ui/main-spotlight';
 
 // https://buildui.com/recipes/spotlight
 

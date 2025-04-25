@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import AnimatedText from '@/components/core/cursor-follow-text';
+import AnimatedText from '@/components/ui/cursor-follow-text';
 
 function index() {
   return (

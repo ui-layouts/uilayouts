@@ -12,7 +12,7 @@ import { Pre, RawCode, highlight } from 'codehike/code';
 import {
   DrawerContent,
   ResponsiveDrawer,
-} from '@/components/core/drawer/vaul-main';
+} from '@/components/ui/drawer/vaul-main';
 
 import React, { lazy } from 'react';
 import { Code, Eye, Maximize2 } from 'lucide-react';

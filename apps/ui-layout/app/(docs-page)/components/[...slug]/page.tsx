@@ -6,6 +6,7 @@ import { Component } from 'lucide-react';
 import TableOfContents from '@/components/website/tableof-compoents';
 import { ComponentPagination } from '@/components/website/code-components/pagination';
 import Footer from '@/components/website/footer';
+import { MainComponents, SpecialComponents } from '@/configs/docs';
 
 export async function generateStaticParams() {
   const docs = await getAllDocs();
@@ -23,12 +24,18 @@ export async function generateMetadata(
   const params = await props.params;
   const slug = params.slug?.join('/') || '';
   const doc = await getDocBySlug(slug);
+  const allComponents = [...SpecialComponents, ...MainComponents];
+  const matchedComponent = allComponents.find((comp) => comp.href === `/components/${slug}`);
+  const tags = matchedComponent?.tags ?? [];
+
   if (!doc) {
     return {};
   }
+
   return {
-    title: `${doc.content.metadata.title} | Magic UI`,
+    title: `${doc.content.metadata.title} | UI Layouts`,
     description: doc.content.metadata.description,
+    keywords: tags,
     openGraph: {
       title: doc.content.metadata.title,
       description: doc.content.metadata.description,

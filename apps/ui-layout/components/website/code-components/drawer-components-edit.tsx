@@ -8,7 +8,7 @@ import { CodeMirror } from 'react-runner-codemirror';
 import {
   DrawerContent,
   ResponsiveDrawer,
-} from '@/components/core/drawer/vaul-main';
+} from '@/components/ui/drawer/vaul-main';
 import { Panel, PanelGroup, PanelResizeHandle } from 'react-resizable-panels';
 
 // import { CardArr } from '@/components/website/constant';

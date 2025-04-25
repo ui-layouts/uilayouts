@@ -4,7 +4,7 @@ import React from 'react';
 import {
   BlurVignette,
   BlurVignetteArticle,
-} from '@/components/core/blur-vignette';
+} from '@/components/ui/blur-vignette';
 
 function index() {
   return (

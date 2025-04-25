@@ -5,7 +5,7 @@ import {
   FileInput,
   FileUploaderContent,
   FileUploaderItem,
-} from '@/components/core/file-upload';
+} from '@/components/ui/file-upload';
 import { Paperclip, Upload } from 'lucide-react';
 import Image from 'next/image';
 import { useState } from 'react';

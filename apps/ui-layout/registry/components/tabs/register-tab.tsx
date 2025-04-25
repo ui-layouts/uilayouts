@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Lock, Phone } from 'lucide-react';
 
 import Image from 'next/image';
-import { TabsBtn, TabsContent, TabsProvider } from '@/components/core/tab';
+import { TabsBtn, TabsContent, TabsProvider } from '@/components/ui/tab';
 
 function index() {
   return (

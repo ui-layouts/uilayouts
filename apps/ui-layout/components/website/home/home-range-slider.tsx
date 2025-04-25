@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import { DualRangeSlider } from '@/components/core/slider';
+import { DualRangeSlider } from '@/components/ui/slider';
 
 export default function HomeRangeSlider() {
   const [celPer, setCelPer] = useState(70);

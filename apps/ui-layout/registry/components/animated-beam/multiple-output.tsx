@@ -2,8 +2,8 @@
 
 import { cn } from '@/lib/utils';
 import React, { forwardRef, useRef } from 'react';
-import { AnimatedBeam, Circle } from '@/components/core/animated-beam';
-import { Icons } from '@/components/core/animated-beam';
+import { AnimatedBeam, Circle } from '@/components/ui/animated-beam';
+import { Icons } from '@/components/ui/animated-beam';
 
 export default function index({ className }: { className?: string }) {
   const containerRef = useRef<HTMLDivElement>(null);

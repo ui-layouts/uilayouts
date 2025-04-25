@@ -8,7 +8,7 @@ import {
   TabItem,
   TabList,
   TabsProvider,
-} from '@/components/core/image-tabs';
+} from '@/components/ui/image-tabs';
 const tabs = [
   {
     title: 'How do UI components improve UX?',

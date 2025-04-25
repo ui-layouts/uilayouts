@@ -7,7 +7,7 @@ import Carousel, {
   SliderNextButton,
   SliderPrevButton,
   SliderProgress,
-} from '@/components/core/carousel';
+} from '@/components/ui/carousel';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight, MoveLeft, MoveRight } from 'lucide-react';
 import { imgPreview } from '@/components/website/constant';

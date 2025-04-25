@@ -8,7 +8,7 @@ import { useMediaQuery } from '@/hooks/use-media-query';
 import {
   DrawerContent,
   ResponsiveDrawer,
-} from '@/components/core/drawer/vaul-main';
+} from '@/components/ui/drawer/vaul-main';
 
 export default function MyDrawer() {
   // const [open, setOpen] = useState(false)

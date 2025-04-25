@@ -4,7 +4,7 @@ import Carousel, {
   Slider,
   SliderContainer,
   SliderProgress,
-} from '@/components/core/carousel';
+} from '@/components/ui/carousel';
 import Image from 'next/image';
 import { imgPreview } from '@/components/website/constant';
 

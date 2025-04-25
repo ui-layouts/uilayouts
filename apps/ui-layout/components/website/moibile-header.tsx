@@ -1,9 +1,9 @@
-import { X } from 'lucide-react';
+import { AppWindowMac, MousePointerClick, Rocket, X } from 'lucide-react';
 import React, { useState } from 'react';
 import { ScrollArea } from './ui/scroll-area';
 import { usePathname, useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { SidebarDrawer, DrawerContent } from '../core/drawer/vaul-sidebar';
+import { SidebarDrawer, DrawerContent } from '../ui/drawer/vaul-sidebar';
 import { basePath } from './sidebar';
 import { MainComponents, SpecialComponents } from '@/configs/docs';
 import { cn } from '@/lib/utils';
@@ -110,6 +110,22 @@ function MobileHeader({ classname }: { classname?: string }) {
 
                         {link.name}
                       </Link>
+                    </li>
+                  </>
+                );
+              })}
+              {[{name:"tools",url:"https://tools.ui-layouts.com/",   icon: <AppWindowMac />},{name:"cursify",url:"https://cursify.vercel.app/",icon: <MousePointerClick />}].map((item,index)=>{
+                return (
+                  <>
+                    <li key={`id-${index}`}>
+                      <a href={item.url} target='_blank' className='flex gap-2 group font-medium items-center py-1  transition-all'>
+                      {React.cloneElement(item?.icon, {
+                          className: `${
+                      'dark:bg-gray-800 dark:text-white group-hover:bg-primary-base group-hover:text-white  dark:group-hover:bg-white dark:group-hover:text-primary-dark'
+                          } h-7 w-7 border transition-all  rounded-sm p-1.5`,
+                        })}
+                        {item.name}
+                      </a>
                     </li>
                   </>
                 );

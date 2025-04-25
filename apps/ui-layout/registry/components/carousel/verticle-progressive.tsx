@@ -8,7 +8,7 @@ import {
   SliderBtn,
   SliderContent,
   SliderWrapper,
-} from '@/components/core/progress-carousel';
+} from '@/components/ui/progress-carousel';
 import { Home } from 'lucide-react';
 import { useMediaQuery } from '@/hooks/use-media-query';
 import { imgPreview } from '@/components/website/constant';

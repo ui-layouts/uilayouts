@@ -5,7 +5,7 @@ import Carousel, {
   Slider,
   SliderContainer,
   SliderDotButton,
-} from '@/components/core/carousel';
+} from '@/components/ui/carousel';
 import { motion } from 'motion/react';
 import { CheckIcon, Heart } from 'lucide-react';
 import { EmblaOptionsType } from 'embla-carousel';

@@ -2,6 +2,7 @@ export const metadata = {
   title: 'Accordion',
   description:
     'Visually highlights selected items by sliding a background into view when hovered over or clicked. This smooth transition helps users focus on the active item, making it ideal for interactive lists, menus, or navigations where clear selection feedback is important.',
+    tags:[""]
 };
 
 <ComponentCodePreview name='grid-layout-accordion' hasReTrigger responsive>
@@ -37,7 +38,7 @@ const useAccordion = () => React.useContext(AccordionContext);
 
 export function AccordionContainer({
   children,
-  className
+  className,
 }: {
   children: ReactNode;
   className?: string;

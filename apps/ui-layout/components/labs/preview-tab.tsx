@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import Image from 'next/image';
-import { TabsBtn, TabsContent, TabsProvider } from '@/components/core/tab';
+import { TabsBtn, TabsContent, TabsProvider } from '@/components/ui/tab';
 const effectArr = [
   {
     id: 1,

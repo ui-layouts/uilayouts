@@ -2,14 +2,36 @@
   "name": "@repo/ui",
   "version": "0.0.0",
   "private": true,
-  "exports": {
-    "./button": "./src/button.tsx",
-    "./card": "./src/card.tsx",
-    "./code": "./src/code.tsx"
+ "imports": {
+    "#*": "./src/*"
   },
+  "exports": {
+    "./*": {
+      "types": [
+        "./src/*.ts",
+        "./src/*.tsx",
+        "./src/*.d.ts",
+        "./src/*/index.ts",
+        "./src/*/index.tsx",
+        "./src/index.d.ts",
+        "./src/*"
+      ],
+      "default": [
+        "./src/*.ts",
+        "./src/*.tsx",
+        "./src/*.d.ts",
+        "./src/*/index.ts",
+        "./src/*/index.tsx",
+        "./src/index.d.ts",
+        "./dist/*"
+      ]
+    }
+  },
+  "type": "module",
   "scripts": {
     "lint": "eslint . --max-warnings 0",
-    "generate:component": "turbo gen react-component"
+    "generate:component": "turbo gen react-component",
+    "build": "tsc --project tsconfig.json"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",

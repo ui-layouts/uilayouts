@@ -2,8 +2,6 @@
 import React, { useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { Plus } from 'lucide-react';
-import { imgPreview } from '@/components/website/constant';
-
 const tabs = [
   {
     title: 'How do UI components improve UX?',
@@ -31,10 +29,10 @@ function index() {
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
   const [activeItem, setActiveItem] = useState<
     | {
-        title: string;
-        description: string;
-        imageUrl: string;
-      }
+      title: string;
+      description: string;
+      imageUrl: string;
+    }
     | undefined
   >(tabs[0]);
 
@@ -54,9 +52,8 @@ function index() {
           {tabs.map((tab, index) => (
             <motion.div
               key={index}
-              className={`overflow-hidden ${
-                index !== tabs.length - 1 ? 'border-b' : ''
-              }`}
+              className={`overflow-hidden ${index !== tabs.length - 1 ? 'border-b' : ''
+                }`}
               onClick={() => handleClick(index)}
             >
               <button
@@ -64,9 +61,8 @@ function index() {
                `}
               >
                 <Plus
-                  className={`${
-                    activeIndex === index ? 'rotate-45' : 'rotate-0 '
-                  } transition-transform ease-in-out w-5 h-5  dark:text-gray-200 text-gray-600`}
+                  className={`${activeIndex === index ? 'rotate-45' : 'rotate-0 '
+                    } transition-transform ease-in-out w-5 h-5  dark:text-gray-200 text-gray-600`}
                 />
                 {tab.title}
               </button>

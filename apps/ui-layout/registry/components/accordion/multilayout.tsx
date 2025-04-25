@@ -5,7 +5,7 @@ import {
   AccordionItem,
   AccordionPanel,
   AccordionWrapper,
-} from '@/components/core/accordion';
+} from '@/components/ui/accordion';
 
 function index() {
   return (

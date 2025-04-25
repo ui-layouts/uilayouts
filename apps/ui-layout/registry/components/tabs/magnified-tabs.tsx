@@ -6,7 +6,7 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from '@/components/core/tooltip-doc';
+} from '@/components/ui/tooltip-doc';
 import {
   type MotionValue,
   motion,

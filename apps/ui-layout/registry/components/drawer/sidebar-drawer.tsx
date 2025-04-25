@@ -8,7 +8,7 @@ import Image from 'next/image';
 import {
   DrawerContent,
   SidebarDrawer,
-} from '@/components/core/drawer/vaul-sidebar';
+} from '@/components/ui/drawer/vaul-sidebar';
 
 export default function index() {
   return (

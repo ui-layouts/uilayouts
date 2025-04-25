@@ -2,7 +2,7 @@
 import React from 'react';
 
 import Image from 'next/image';
-import { SpotLightItem, Spotlight } from '@/components/core/main-spotlight';
+import { SpotLightItem, Spotlight } from '@/components/ui/main-spotlight';
 
 export default function index() {
   const boxes = [

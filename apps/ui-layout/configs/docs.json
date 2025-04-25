@@ -48,7 +48,7 @@
             },
             {
               "name": "cursor-follow-text.tsx",
-              "filesrc": "components/core/cursor-follow-text.tsx"
+              "filesrc": "components/ui/cursor-follow-text.tsx"
             }
           ],
           "parentlink": "footers",

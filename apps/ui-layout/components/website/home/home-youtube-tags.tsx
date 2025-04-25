@@ -1,6 +1,6 @@
 'use client';
 
-import { TagsInput } from '@/components/core/tags-input';
+import { TagsInput } from '@/components/ui/tags-input';
 import React, { useState, useRef, useEffect } from 'react';
 
 export default function HomeYouutbTags() {

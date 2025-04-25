@@ -1,6 +1,6 @@
 // thanks to maximeheckel
 import React, { useState } from 'react';
-import { TabsProvider, TabsBtn, TabsContent } from '@/components/core/tab';
+import { TabsProvider, TabsBtn, TabsContent } from '@/components/ui/tab';
 import preview from '@/assets/preview';
 import Image from 'next/image';
 function HomeTab() {

@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import ScrollElement from '../../../components/core/scroll-element';
+import ScrollElement from '../../../components/ui/scroll-element';
 
 function index() {
   return (

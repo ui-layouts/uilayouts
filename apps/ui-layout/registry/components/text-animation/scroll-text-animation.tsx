@@ -1,4 +1,4 @@
-import TextAnimation from '@/components/core/scroll-text';
+import TextAnimation from '@/components/ui/scroll-text';
 import React, { useRef } from 'react';
 
 function index() {

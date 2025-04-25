@@ -6,7 +6,7 @@ export const metadata = {
 
 import Image from 'next/image';
 
-import Spotlight, { SpotlightCard } from '@/components/core/spotlight';
+import Spotlight, { SpotlightCard } from '@/components/ui/spotlight';
 
 export default function SpotlightPage() {
   return (

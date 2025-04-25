@@ -1,10 +1,9 @@
 'use client';
+
 import * as React from 'react';
 import { useRouter } from 'next/navigation';
 import { useTheme } from 'next-themes';
-import { DialogProps } from '@radix-ui/react-dialog';
 import {
-  CircleIcon,
   Component,
   LaptopIcon,
   MoonIcon,
@@ -12,13 +11,12 @@ import {
   SunIcon,
 } from 'lucide-react';
 import { Command } from 'cmdk';
-
 import { Dialog, DialogContent } from '@/components/website/ui/dialog';
 import { ScrollArea } from '@/components/website/ui//scroll-area';
-import { generateSidebarData } from './constant';
 import { cn } from '@/lib/utils';
 import { basePath } from './sidebar';
 import { MainComponents, SpecialComponents } from '@/configs/docs';
+
 export type SearchItem = {
   href: string;
   name: string;
@@ -28,7 +26,6 @@ export type SearchItem = {
   updated?: boolean;
   component?: string;
 };
-// import { componentsArr } from './sidebar';
 
 export function SearchDialog({ classname, searchBar = false }: { classname?: string, searchBar?: boolean }) {
   const router = useRouter();
@@ -38,9 +35,9 @@ export function SearchDialog({ classname, searchBar = false }: { classname?: str
     ...SpecialComponents,
     ...MainComponents,
   ];
-  // console.log(searchbardata);
 
   const [searchOpen, setSearchOpen] = React.useState(false);
+
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
       if ((e.key === 'k' && (e.metaKey || e.ctrlKey)) || e.key === '/') {

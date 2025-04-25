@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useRef, useEffect } from 'react';
-import { TagsInput } from '@/components/core/tags-input';
+import { TagsInput } from '@/components/ui/tags-input';
 
 export default function App() {
   const [tags, setTags] = useState<string[]>([]);

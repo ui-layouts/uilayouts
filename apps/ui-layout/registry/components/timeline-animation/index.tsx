@@ -1,7 +1,7 @@
 "use client"
 
 import { useRef } from "react"
-import { TimelineContent } from "@/components/core/framer-timeline"
+import { TimelineContent } from "@/components/ui/framer-timeline"
 import type { Variants } from "motion/react"
 import { ArrowRight, CheckCircle } from "lucide-react"
 

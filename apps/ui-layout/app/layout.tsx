@@ -77,6 +77,7 @@ export const metadata: Metadata = {
   },
   manifest: `${siteConfig.url}/site.webmanifest`,
 };
+
 export default async function RootLayout({
   children,
 }: {

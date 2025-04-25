@@ -40,11 +40,10 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       <TabsContent className={cn('', className)} {...props} />
     ),
     HoverContainer: HoverContainer,
-    IframeTabCodePreview: IframeTabCodePreview,
-    TabCodePreview: TabCodePreview,
-    DrawerCodePreview: DrawerCodePreview,
-    ComponentCodePreview: ComponentCodePreview,
-    IframeComponentPrieview: IframeComponentPrieview,
+    IframeTabCodePreview: ({...props}) => <IframeTabCodePreview {...props} />,
+    TabCodePreview: ({...props}) => <TabCodePreview {...props} />,
+    DrawerCodePreview: ({...props}) => <DrawerCodePreview {...props} />,
+    ComponentCodePreview: ({...props}) => <ComponentCodePreview {...props} />,
     CodeBlock: CodeBlock,
     img: (props) => (
       <Image
@@ -53,8 +52,8 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {...(props as ImageProps)}
       />
     ),
-    PreCode: PreCode,
-
+    PreCode: ({...props}) => <PreCode {...props} />,
+    IframeComponentPrieview: ({...props}) => <IframeComponentPrieview {...props} />,
     p: ({
       className,
       ...props

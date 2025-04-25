@@ -1,5 +1,5 @@
 import React from 'react';
-import ScrollBaseAnimation from '../../../../components/core/scroll-text-marque';
+import ScrollBaseAnimation from '../../../../components/ui/scroll-text-marque';
 
 function index() {
   return (

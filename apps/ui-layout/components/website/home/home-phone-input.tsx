@@ -1,7 +1,7 @@
 'use client';
 import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { PhoneInput } from '@/components/core/phone-input';
+import { PhoneInput } from '@/components/ui/phone-input';
 import { isValidPhoneNumber } from 'react-phone-number-input';
 import { z } from 'zod';
 

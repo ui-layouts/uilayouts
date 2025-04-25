@@ -1,5 +1,5 @@
 import React from 'react';
-import { RandomizedTextEffect } from '@/components/core/text-randomized';
+import { RandomizedTextEffect } from '@/components/ui/text-randomized';
 
 function index() {
   return (
