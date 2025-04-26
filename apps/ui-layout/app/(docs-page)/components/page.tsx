@@ -9,6 +9,13 @@ import { cn } from '@/lib/utils';
 import Footer from '@/components/website/footer';
 const appsDesign = [
   {
+    id: 'mesh-gradients',
+    name: 'Mesh Gradients',
+    url: '/components/mesh-gradients',
+    imgclass: 'object-contain',
+    imgSrc: preview.mesh,
+  },
+  {
     id: 'image-ripple-effect',
     name: 'Image Ripple Effect',
     url: '/components/image-ripple-effect',
@@ -610,7 +617,7 @@ export default function Home() {
                             width={400}
                             height={400}
                             className={cn(
-                              'w-full h-full   rounded-md',
+                              'w-full h-full rounded-md',
                               component.imgclass
                             )}
                           />

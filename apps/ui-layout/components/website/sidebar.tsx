@@ -3,7 +3,15 @@ import React, { useEffect, useRef, useState } from 'react';
 import { ScrollArea } from '@/components/website/ui/scroll-area';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Atom, ChevronsDown, Component, Rocket, X } from 'lucide-react';
+import {
+  Atom,
+  ChevronsDown,
+  Component,
+  MousePointerClick,
+  PenTool,
+  Rocket,
+  X,
+} from 'lucide-react';
 import { IRecentPage, useRecentPagesStore } from '@/hooks/useZustStore';
 import { useTheme } from 'next-themes';
 import { MainComponents, SpecialComponents } from '@/configs/docs';
@@ -25,11 +33,6 @@ export const basePath = [
     href: '/components',
     name: 'Components',
     icon: <Component />,
-  },
-  {
-    href: '/labs',
-    name: 'Labs',
-    icon: <Atom />,
   },
 ];
 
@@ -96,6 +99,31 @@ function DocsSidebar() {
                     </Link>
                   </li>
                 ))}
+                <li>
+                  <a
+                    href={'https://tools.ui-layouts.com/'}
+                    target='_blank'
+                    className={`flex gap-2 group font-medium items-center py-1  transition-all text-slate-600 hover:text-slate-900  dark:text-slate-400 dark:hover:text-white`}
+                  >
+                    <PenTool
+                      className={`dark:bg-gray-800 dark:text-white group-hover:bg-black group-hover:text-white  dark:group-hover:bg-white dark:group-hover:text-black h-7 w-7 border transition-all rounded-md p-1`}
+                    />
+                    Tools
+                    <span className='text-xs font-normal inline-block -translate-y-2 text-blue-600 '>New</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={'https://cursify.vercel.app'}
+                    target='_blank'
+                    className={`flex gap-2 group font-medium items-center py-1  transition-all text-slate-600 hover:text-slate-900  dark:text-slate-400 dark:hover:text-white`}
+                  >
+                    <MousePointerClick
+                      className={`dark:bg-gray-800 dark:text-white group-hover:bg-black group-hover:text-white  dark:group-hover:bg-white dark:group-hover:text-black  h-7 w-7 border transition-all rounded-md p-1`}
+                    />
+                    Cursify
+                  </a>
+                </li>
               </ul>
 
               {recentPages.length > 0 && (

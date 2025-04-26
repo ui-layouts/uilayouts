@@ -28,6 +28,8 @@ import youtubeTags from '@/assets/preview/youtube-tags.svg';
 import coffee from '@/assets/preview/coffee.svg';
 import ripple from '@/assets/preview/ripple.png';
 import blob from '@/assets/preview/blob.png';
+import mesh from '@/assets/preview/mesh-gradient.png';
+
 const preview = {
   horizontascroll,
   ripple,
@@ -58,5 +60,6 @@ const preview = {
   clippath,
   youtubeTags,
   coffee,
+  mesh
 };
 export default preview;

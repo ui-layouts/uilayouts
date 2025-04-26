@@ -208,19 +208,6 @@
       "name": "ThreeJS",
       "componentArray": [
         {
-          "componentName": "mesh-gradient",
-          "iframelink": "mess-gradient",
-          "parentlink": "mess-gradient",
-          "parentName": "Mess Gradient"
-        },
-
-        {
-          "componentName": "mesh-gradient2",
-          "iframelink": "mess-gradient2",
-          "parentlink": "mess-gradient",
-          "parentName": "Mess Gradient"
-        },
-        {
           "componentName": "img-ripple-effect",
           "iframelink": "img-ripple-effect",
           "parentlink": "img-ripple-effect",
@@ -231,6 +218,30 @@
           "iframelink": "r3f-blob",
           "parentlink": "r3f-blob",
           "parentName": "R3F Blob"
+        },
+        {
+          "componentName": "mesh-shadergradient",
+          "iframelink": "mesh-shadergradient",
+          "parentlink": "mesh-gradients",
+          "parentName": "Mesh Gradients"
+        },
+        {
+          "componentName": "lemon-mesh-gradients",
+          "iframelink": "mesh-gradient-background",
+          "parentlink": "mesh-gradients",
+          "parentName": "Mesh Gradients"
+        },
+        {
+          "componentName": "yellow-mesh-gradients",
+          "iframelink": "mesh-gradient-background3",
+          "parentlink": "mesh-gradients",
+          "parentName": "Mesh Gradients"
+        },
+        {
+          "componentName": "blue-mesh-gradients",
+          "iframelink": "mesh-gradient-background2",
+          "parentlink": "mesh-gradients",
+          "parentName": "Mesh Gradients"
         }
       ],
       "type": "threejs"

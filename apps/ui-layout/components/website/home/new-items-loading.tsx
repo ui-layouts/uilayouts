@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react';
 
 const newComponent = [
   {
-    href: '/components/r3f-blob',
-    title: 'R3F Blob',
+    href: '/components/mesh-gradients',
+    title: 'Mesh Gradients',
   },
 ];
 

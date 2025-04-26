@@ -72,6 +72,13 @@ export const MainComponents = [
     tags: ['r3f-blob', 'threejs blob','animated blob','blob'],
   },
   {
+    href: '/components/mesh-gradients',
+    name: 'Mesh Gradients',
+    component: 'threeJS',
+    new:true,
+    tags: ['mesh-gradient', 'Mesh Gradients','Gradients','r3f gradients','threejs gradients'],
+  },
+  {
     href: '/components/blur-vignette',
     name: 'Blur Vignette',
     component: 'creative',

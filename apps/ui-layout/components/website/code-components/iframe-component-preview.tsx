@@ -56,10 +56,10 @@ export default async function IframeComponentPrieview(
       },
       null
     );
-  console.log('component', currComponent);
+  console.log('component', name,currComponent);
 
   if (!currComponent) {
-    return <div>Components not found</div>;
+    return <div>Componentss not found</div>;
   }
 
   return (

@@ -68,8 +68,6 @@ export default async function DocPage(
 
   const { default: Content } = doc.content;
 
-  // console.log(doc.toc);
-
   return (
     <>
       <div className='lg:container lg:px-0 px-3 mx-auto mt-0 '>
