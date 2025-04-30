@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-btn-hover13",
+  "type": "registry:component",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "files": [
+    {
+      "type": "registry:component",
+      "target": "components/button/btn-hover13.tsx",
+      "content": "import { ChevronsRight } from 'lucide-react';\n\nconst ButtonHover13 = () => {\n  return (\n    <>\n      <a\n        className='flex  gap-2 cursor-pointer px-4 py-3 dark:hover:bg-black bg-black hover:bg-white hover:text-black text-white border-black dark:hover:text-white transition-all border-2 dark:border-white dark:bg-white dark:text-black rounded-full font-semibold'\n        href='#'\n      >\n        Know More\n        <ChevronsRight />\n      </a>\n    </>\n  );\n};\n\nexport default ButtonHover13;\n",
+      "path": "registry/components/button/btn-hover13.tsx"
+    }
+  ]
+}
