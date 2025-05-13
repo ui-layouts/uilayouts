@@ -2,15 +2,10 @@ import React from 'react';
 
 export const SpecialComponents = [
   {
-    href: '/components/drag-items',
-    name: 'Drag Items',
-    updated:false,
-    tags: ['drag', 'draggable', 'items', 'sortable', 'list'],
-  },
-  {
     href: '/components/buttons',
     name: 'Buttons',
     tags: [],
+    updated:false,
   },
   {
     href: '/components/noise',
@@ -54,6 +49,22 @@ export const SpecialComponents = [
   },
 ];
 export const MainComponents = [
+  {
+    href: '/components/swapy',
+    name: 'Swapy Drag',
+    component: 'drag-items',
+    new:true,
+    updated:false,
+    tags: ['Swapy drag', 	'swapy draggable', 'swapy items', 'swapy sortable', 'swapy list'],
+  },
+  {
+    href: '/components/drag-items',
+    name: 'Drag Items',
+    updated:false,
+    component: 'drag-items',
+
+    tags: ['drag', 'draggable', 'items', 'sortable', 'list'],
+  },
   {
     href: '/components/image-ripple-effect',
     name: 'Img Ripple Effect',
@@ -814,6 +825,42 @@ interface IAllComponents {
 
 export const AllComponents: IAllComponents[] = [
   {
+    parentlink: 'swapy',
+    componentName: 'DefaultSwapy',
+    iframeSrc: 'live-components/default-swapy',
+    componentSrc: React.lazy(
+      () => import('@/registry/components/swapy/default-swapy')
+    ),
+    tags: ['Swapy drag', 'swapy draggable', 'swapy items', 'swapy sortable', 'swapy list'],
+  },
+  {
+    parentlink: 'swapy',
+    componentName: 'opacity-swapy',
+    iframeSrc: 'live-components/swapy-opacity',
+    componentSrc: React.lazy(
+      () => import('@/registry/components/swapy/swapy-opacity')
+    ),
+    tags: ['Swapy drag', 'swapy draggable', 'swapy items', 'swapy sortable', 'swapy list'],
+  },
+  {
+    parentlink: 'swapy',
+    componentName: 'swapy-without-components',
+    iframeSrc: 'live-components/swapy-without-components',
+    componentSrc: React.lazy(
+      () => import('@/registry/components/swapy/swapy-without-components')
+    ),
+    tags: ['Swapy without components', 'swapy draggable', 'swapy items', 'swapy sortable', 'swapy list'],
+  },
+  {
+    parentlink: 'swapy',
+    componentName: 'swapy-handle',
+    iframeSrc: 'live-components/swapy-handle',
+    componentSrc: React.lazy(
+      () => import('@/registry/components/swapy/swapy-handle')
+    ),
+    tags: ['Swapy drag', 'swapy draggable', 'swapy items', 'swapy sortable', 'swapy list'],
+  },
+  {
     parentlink: 'bg-mesh-gradient',
     componentName: 'Mesh Gradient Playground',
     iframelink: 'mess-gradient',
@@ -872,6 +919,13 @@ export const AllComponents: IAllComponents[] = [
     iframelink: 'horizontal-scrolling-section',
     tags: ['White 3D Globe', 'White 3D Globe Card'],
   },
+  {
+    parentlink: 'horizontal-scroll',
+    componentName: 'Horizontal Scroll',
+    iframelink: 'horizontal-scrolling-section',
+    tags: ['White 3D Globe', 'White 3D Globe Card'],
+  },
+
   {
     parentlink: 'stacking-card',
     componentName: 'Stacking Card',

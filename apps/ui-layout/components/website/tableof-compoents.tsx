@@ -142,10 +142,10 @@ export default function TableOfContents({ toc }: TableOfContentsProps) {
                       })}
                     </ul>
                   </div>
-                  <div className='space-y-4 pt-10'>
+                  <div className='space-y-4 pt-5'>
 
                   <BuyMeCoffee classname='mt-10 w-full' />
-                    <a
+                    {/* <a
                       href='https://tools.ui-layouts.com/'
                       className='inline-block relative h-28 w-full border group dark:bg-neutral-900 bg-white rounded-xl text-center text-black dark:text-white space-y-1 uppercase'
                       target='_blank'
@@ -179,7 +179,7 @@ export default function TableOfContents({ toc }: TableOfContentsProps) {
                       <h1 className=' w-full text-center text-black flex items-center absolute bottom-0 justify-center gap-1 font-bold z-[1]'>
                         Cursify{' '}
                       </h1>
-                    </a>
+                    </a> */}
                   </div>
                 </ScrollArea>
               </div>

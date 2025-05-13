@@ -246,6 +246,7 @@
       ],
       "type": "threejs"
     },
+   
     {
       "name": "Accordion",
       "componentArray": [
@@ -535,6 +536,40 @@
         }
       ],
       "type": "sparkles "
+    },
+    {
+      "name":"swapy",
+      "componentArray": [
+        {
+          "componentName": "default-swapy",
+          "filesrc": "components/swapy/default-swapy.tsx",
+          "iframeSrc": "live-components/default-swapy",
+          "parentlink": "swapy",
+          "parentName": "Swapy"
+        },
+        {
+          "componentName": "opacity-swapy",
+          "filesrc": "components/swapy/swapy-opacity.tsx",
+          "iframeSrc": "live-components/swapy-opacity",
+          "parentlink": "swapy",
+          "parentName": "Swapy"
+        },
+        {
+          "componentName": "swapy-handle",
+          "filesrc": "components/swapy/swapy-handle.tsx",
+          "iframeSrc": "live-components/swapy-handle",
+          "parentlink": "swapy",
+          "parentName": "Swapy"
+        },
+        {
+          "componentName": "swapy-without-components",
+          "filesrc": "components/swapy/swapy-without-components.tsx",
+          "iframeSrc": "live-components/swapy-without-components",
+          "parentlink": "swapy",
+          "parentName": "Swapy"
+        }
+      ],
+      "type":"Swapy"
     },
     {
       "name": "Carousel ",

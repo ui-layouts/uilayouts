@@ -31,7 +31,7 @@ export default async function SectionPage(
   }, null as any);
   // console.log(component);
 
-  console.log(component, !component?.iframeSrc);
+  // console.log(component, !component?.iframeSrc);
 
   if (!component) {
     notFound();

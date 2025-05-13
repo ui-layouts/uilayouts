@@ -47,16 +47,15 @@ export default async function ComponentCodePreview({
       const file = component?.componentArray?.find(
         (file) => file.componentName === name
       );
-
       if (file) {
         acc = file;
       }
       return acc;
     }, null);
-  // console.log(currComponent);
+  console.log(currComponent);
 
   if (!currComponent) {
-    return <div>Component not found</div>;
+    return <div>Componendt not found</div>;
   }
 
   const fileContent = extractCodeFromFilePath(
