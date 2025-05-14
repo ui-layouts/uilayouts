@@ -2,6 +2,14 @@ import React, { useEffect, useState } from 'react';
 
 const newComponent = [
   {
+    href: '/components/color-picker',
+    title: 'Color Picker',
+  },
+  {
+    href: '/components/swapy',
+    title: 'Swapy Drag',
+  },
+  {
     href: '/components/mesh-gradients',
     title: 'Mesh Gradients',
   },

@@ -572,6 +572,26 @@
       "type":"Swapy"
     },
     {
+      "name":"color-picker",
+      "componentArray": [
+        {
+          "componentName": "default-color-picker",
+          "filesrc": "components/color-picker/index.tsx",
+          "iframeSrc": "live-components/default-color-picker",
+          "parentlink": "color-picker",
+          "parentName": "Color Picker"
+        },
+        {
+          "componentName": "raws-color-picker",
+          "filesrc": "components/color-picker/raws-color-picker.tsx",
+          "iframeSrc": "live-components/raws-color-picker",
+          "parentlink": "color-picker",
+          "parentName": "Color Picker"
+        }
+      ],
+      "type":"Color Picker"
+    },
+    {
       "name": "Carousel ",
       "componentArray": [
         {

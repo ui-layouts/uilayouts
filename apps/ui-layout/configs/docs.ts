@@ -2,6 +2,12 @@ import React from 'react';
 
 export const SpecialComponents = [
   {
+    href: '/components/color-picker',
+    name: 'Color Picker',
+    tags: [],
+    new:true,
+  },
+  {
     href: '/components/buttons',
     name: 'Buttons',
     tags: [],
@@ -824,6 +830,24 @@ interface IAllComponents {
 }
 
 export const AllComponents: IAllComponents[] = [
+  {
+    parentlink: 'color-picker',
+    componentName: 'default-color-picker',
+    iframeSrc: 'live-components/default-color-picker',
+    componentSrc: React.lazy(
+      () => import('@/registry/components/color-picker/index')
+    ),
+    tags: ['color-picker', 'color picker', 'react-colorfull','color picker component','reactjs color picker components', 'nextjs color picker components'],
+  },
+  {
+    parentlink: 'color-picker',
+    componentName: 'raws-color-picker',
+    iframeSrc: 'live-components/raws-color-picker',
+    componentSrc: React.lazy(
+      () => import('@/registry/components/color-picker/raws-color-picker')
+    ),
+    tags: ['color-picker', 'color picker', 'raws color picker','nextjs color picker','reactjs color picker',],
+  },
   {
     parentlink: 'swapy',
     componentName: 'DefaultSwapy',
