@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "image-reveal-image-reveal",
+  "type": "registry:component",
+  "dependencies": [
+    "framer-motion",
+    "react"
+  ],
+  "files": [
+    {
+      "type": "registry:component",
+      "target": "components/image-reveal/image-reveal.tsx",
+      "content": "'use client';\n\nimport { motion, useSpring } from 'framer-motion';\nimport React, { useState, MouseEvent, useRef } from 'react';\n\ninterface ImageItem {\n  img: string;\n  label: string;\n}\n\nfunction ImageReveal2() {\n  const [img, setImg] = useState<{ src: string; alt: string; opacity: number }>(\n    {\n      src: '',\n      alt: '',\n      opacity: 0,\n    }\n  );\n\n  const imageRef = useRef<HTMLImageElement>(null);\n  const containerRef = useRef<HTMLDivElement>(null);\n\n  const list: ImageItem[] = [\n    {\n      img: 'https://images.unsplash.com/photo-1682806816936-c3ac11f65112?q=80&w=1274&auto=format&fit=crop',\n      label: 'Six Cap',\n    },\n    {\n      img: 'https://images.unsplash.com/photo-1681063762354-d542c03bbfc5?q=80&w=1274&auto=format&fit=crop',\n      label: 'Room Decor',\n    },\n    {\n      img: 'https://images.unsplash.com/photo-1679640034489-a6db1f096b70?q=80&w=1274&auto=format&fit=crop',\n      label: 'Porter',\n    },\n    {\n      img: 'https://images.unsplash.com/photo-1679482451632-b2e126da7142?q=80&w=1274&auto=format&fit=crop',\n      label: 'LifeStyle',\n    },\n  ];\n\n  const spring = {\n    stiffness: 150,\n    damping: 15,\n    mass: 0.1,\n  };\n\n  const imagePos = {\n    x: useSpring(0, spring),\n    y: useSpring(0, spring),\n  };\n\n  const handleMove = (e: MouseEvent<HTMLDivElement>) => {\n    if (!imageRef.current || !containerRef.current) return;\n\n    const containerRect = containerRef.current.getBoundingClientRect();\n    const { clientX, clientY } = e;\n    const relativeX = clientX - containerRect.left;\n    const relativeY = clientY - containerRect.top;\n\n    imagePos.x.set(relativeX - imageRef.current.offsetWidth / 2);\n    imagePos.y.set(relativeY - imageRef.current.offsetHeight / 2);\n  };\n\n  const handleImageInteraction = (item: ImageItem, opacity: number) => {\n    setImg({ src: item.img, alt: item.label, opacity });\n  };\n\n  return (\n    <section\n      ref={containerRef}\n      onMouseMove={handleMove}\n      className=' bg-black  relative w-4/5 mx-auto p-4'\n    >\n      {list.map((item) => (\n        <div\n          key={item.label}\n          onMouseEnter={() => handleImageInteraction(item, 1)}\n          onMouseMove={() => handleImageInteraction(item, 1)}\n          onMouseLeave={() => handleImageInteraction(item, 0)}\n          className='w-full py-5 cursor-pointer text-center flex justify-between text-white  border-b border-white last:border-none'\n        >\n          <p className='text-5xl'>{item.label}</p>\n          <span>Portfolio</span>\n        </div>\n      ))}\n\n      <motion.img\n        ref={imageRef}\n        src={img.src}\n        alt={img.alt}\n        className='w-[300px] h-[220px] rounded-lg object-cover absolute top-0 left-0 transition-opacity duration-200 ease-in-out pointer-events-none'\n        style={{\n          x: imagePos.x,\n          y: imagePos.y,\n          opacity: img.opacity,\n        }}\n      />\n    </section>\n  );\n}\n\nexport default ImageReveal2;\n",
+      "path": "registry/components/image-reveal/image-reveal.tsx"
+    }
+  ]
+}

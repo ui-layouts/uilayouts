@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "number-flow-motion-number",
+  "type": "registry:component",
+  "dependencies": [
+    "@number-flow/react",
+    "framer-motion",
+    "lucide-react",
+    "react"
+  ],
+  "files": [
+    {
+      "type": "registry:component",
+      "target": "components/number-flow/motion-number.tsx",
+      "content": "'use client';\nimport NumberFlow from '@number-flow/react';\nimport { motion } from 'framer-motion';\nimport { ArrowDown, ArrowUp } from 'lucide-react';\nimport React, { useState } from 'react';\n\nconst UpvoteDownvote: React.FC = () => {\n  const [votes, setVotes] = useState(14); // Initial votes\n  const [activeVote, setActiveVote] = useState<'up' | 'down' | null>(null); // Track active arrow\n\n  const handleVote = (state: 'up' | 'down') => {\n    if (state === 'up') {\n      setVotes(votes + 1);\n      setActiveVote(state);\n    } else {\n      setVotes(votes - 1);\n      setActiveVote(state);\n    }\n  };\n\n  return (\n    <div\n      className={`flex flex-col items-center gap-2 p-4   border rounded-xl shadow-lg w-fit mx-auto ${\n        activeVote === 'up'\n          ? 'dark:bg-green-950 bg-green-300 border-green-600 text-white'\n          : activeVote === 'down'\n            ? 'dark:bg-red-950 bg-red-300 border-red-600 text-white'\n            : ' bg-primary-foreground text-primary'\n      }`}\n    >\n      <div className='  text-lg font-medium'>\n        <NumberFlow value={votes} format={{ notation: 'compact' }} /> Upvotes\n      </div>\n\n      <div className='flex items-center gap-4'>\n        <motion.button\n          whileTap={{ scale: 0.9 }}\n          onClick={() => handleVote('up')}\n          className={`p-2 rounded-full text-white ${\n            activeVote === 'up' ? 'bg-green-500 ' : ' bg-black '\n          } transition-colors`}\n        >\n          <ArrowUp size={24} />\n        </motion.button>\n\n        <motion.button\n          whileTap={{ scale: 0.9 }}\n          onClick={() => handleVote('down')}\n          className={`p-2 rounded-full text-white ${\n            activeVote === 'down' ? 'bg-red-500 ' : ' bg-black '\n          } transition-colors`}\n        >\n          <ArrowDown size={24} />\n        </motion.button>\n      </div>\n    </div>\n  );\n};\n\nexport default UpvoteDownvote;\n",
+      "path": "registry/components/number-flow/motion-number.tsx"
+    }
+  ]
+}
