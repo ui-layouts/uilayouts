@@ -1,0 +1,35 @@
+{
+  "name": "ui-layout",
+  "homepage": "https://www.ui-layouts.com",
+  "items": [
+    {
+      "name": "animated-logo-footer",
+      "dependencies": ["motion/react"],
+      "files": [
+        {
+          "path": "./registry/components/footers/animated-logo-footer.tsx"
+        }
+      ]
+    },
+    {
+      "name": "animated-hover-footer",
+      "files": [
+        {
+          "path": "./registry/components/footers/hover-footer.tsx"
+        },
+        {
+          "path": "./components/ui/cursor-follow-text"
+        }
+      ]
+    },
+    {
+      "name": "buy-me-coffee",
+      "dependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/buy-me-coffee.tsx"
+        }
+      ]
+    }
+  ]
+}

@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { useMediaQuery } from '@/hooks/use-media-query';
-import BuyMeCoffee from '@/registry/components/buy-me-acoffee';
+import BuyMeCoffee from '@/registry/components/buy-me-coffee';
 import { motion, useScroll, useSpring, useTransform } from 'motion/react';
 import { ScrollArea } from './ui/scroll-area';
 import Image from 'next/image';
@@ -143,8 +143,7 @@ export default function TableOfContents({ toc }: TableOfContentsProps) {
                     </ul>
                   </div>
                   <div className='space-y-4 pt-5'>
-
-                  <BuyMeCoffee classname='mt-10 w-full' />
+                    <BuyMeCoffee classname='mt-10 w-full' />
                     {/* <a
                       href='https://tools.ui-layouts.com/'
                       className='inline-block relative h-28 w-full border group dark:bg-neutral-900 bg-white rounded-xl text-center text-black dark:text-white space-y-1 uppercase'
