@@ -5,18 +5,18 @@ export const SpecialComponents = [
     href: '/components/color-picker',
     name: 'Color Picker',
     tags: [],
-    new:true,
+    new: true,
   },
   {
     href: '/components/buttons',
     name: 'Buttons',
     tags: [],
-    updated:false,
+    updated: false,
   },
   {
     href: '/components/noise',
     name: 'Noise',
-    new:false,
+    new: false,
     tags: ['noise', 'effect', 'visual', 'distortion', 'shader'],
   },
   {
@@ -59,14 +59,20 @@ export const MainComponents = [
     href: '/components/swapy',
     name: 'Swapy Drag',
     component: 'drag-items',
-    new:true,
-    updated:false,
-    tags: ['Swapy drag', 	'swapy draggable', 'swapy items', 'swapy sortable', 'swapy list'],
+    new: true,
+    updated: false,
+    tags: [
+      'Swapy drag',
+      'swapy draggable',
+      'swapy items',
+      'swapy sortable',
+      'swapy list',
+    ],
   },
   {
     href: '/components/drag-items',
     name: 'Drag Items',
-    updated:false,
+    updated: false,
     component: 'drag-items',
 
     tags: ['drag', 'draggable', 'items', 'sortable', 'list'],
@@ -85,15 +91,21 @@ export const MainComponents = [
     href: '/components/r3f-blob',
     name: 'R3F Blob',
     component: 'threeJS',
-    new:true,
-    tags: ['r3f-blob', 'threejs blob','animated blob','blob'],
+    new: true,
+    tags: ['r3f-blob', 'threejs blob', 'animated blob', 'blob'],
   },
   {
     href: '/components/mesh-gradients',
     name: 'Mesh Gradients',
     component: 'threeJS',
-    new:true,
-    tags: ['mesh-gradient', 'Mesh Gradients','Gradients','r3f gradients','threejs gradients'],
+    new: true,
+    tags: [
+      'mesh-gradient',
+      'Mesh Gradients',
+      'Gradients',
+      'r3f gradients',
+      'threejs gradients',
+    ],
   },
   {
     href: '/components/blur-vignette',
@@ -743,7 +755,7 @@ export const MainComponents = [
     href: '/components/accordion',
     name: 'Accordion',
     component: 'accordion',
-    updated:true,
+    updated: true,
     tags: [
       'accordion',
       'faqs accordion',
@@ -837,7 +849,14 @@ export const AllComponents: IAllComponents[] = [
     componentSrc: React.lazy(
       () => import('@/registry/components/color-picker/index')
     ),
-    tags: ['color-picker', 'color picker', 'react-colorfull','color picker component','reactjs color picker components', 'nextjs color picker components'],
+    tags: [
+      'color-picker',
+      'color picker',
+      'react-colorfull',
+      'color picker component',
+      'reactjs color picker components',
+      'nextjs color picker components',
+    ],
   },
   {
     parentlink: 'color-picker',
@@ -846,7 +865,13 @@ export const AllComponents: IAllComponents[] = [
     componentSrc: React.lazy(
       () => import('@/registry/components/color-picker/raws-color-picker')
     ),
-    tags: ['color-picker', 'color picker', 'raws color picker','nextjs color picker','reactjs color picker',],
+    tags: [
+      'color-picker',
+      'color picker',
+      'raws color picker',
+      'nextjs color picker',
+      'reactjs color picker',
+    ],
   },
   {
     parentlink: 'swapy',
@@ -855,7 +880,13 @@ export const AllComponents: IAllComponents[] = [
     componentSrc: React.lazy(
       () => import('@/registry/components/swapy/default-swapy')
     ),
-    tags: ['Swapy drag', 'swapy draggable', 'swapy items', 'swapy sortable', 'swapy list'],
+    tags: [
+      'Swapy drag',
+      'swapy draggable',
+      'swapy items',
+      'swapy sortable',
+      'swapy list',
+    ],
   },
   {
     parentlink: 'swapy',
@@ -864,7 +895,13 @@ export const AllComponents: IAllComponents[] = [
     componentSrc: React.lazy(
       () => import('@/registry/components/swapy/swapy-opacity')
     ),
-    tags: ['Swapy drag', 'swapy draggable', 'swapy items', 'swapy sortable', 'swapy list'],
+    tags: [
+      'Swapy drag',
+      'swapy draggable',
+      'swapy items',
+      'swapy sortable',
+      'swapy list',
+    ],
   },
   {
     parentlink: 'swapy',
@@ -873,7 +910,13 @@ export const AllComponents: IAllComponents[] = [
     componentSrc: React.lazy(
       () => import('@/registry/components/swapy/swapy-without-components')
     ),
-    tags: ['Swapy without components', 'swapy draggable', 'swapy items', 'swapy sortable', 'swapy list'],
+    tags: [
+      'Swapy without components',
+      'swapy draggable',
+      'swapy items',
+      'swapy sortable',
+      'swapy list',
+    ],
   },
   {
     parentlink: 'swapy',
@@ -882,7 +925,13 @@ export const AllComponents: IAllComponents[] = [
     componentSrc: React.lazy(
       () => import('@/registry/components/swapy/swapy-handle')
     ),
-    tags: ['Swapy drag', 'swapy draggable', 'swapy items', 'swapy sortable', 'swapy list'],
+    tags: [
+      'Swapy drag',
+      'swapy draggable',
+      'swapy items',
+      'swapy sortable',
+      'swapy list',
+    ],
   },
   {
     parentlink: 'bg-mesh-gradient',
@@ -1011,7 +1060,7 @@ export const AllComponents: IAllComponents[] = [
     parentlink: 'buy-me-coffee',
     componentName: 'Buy Me A Coffee',
     componentSrc: React.lazy(
-      () => import('@/registry/components/buy-me-acoffee')
+      () => import('@/registry/components/buy-me-coffee')
     ),
     iframeSrc: 'live-components/buyme-acoffee',
     tags: [
@@ -1503,7 +1552,7 @@ export const AllComponents: IAllComponents[] = [
     parentlink: 'footers',
     componentName: 'animated-logo-footer',
     componentSrc: React.lazy(
-      () => import('@/registry/components/footers/footer1')
+      () => import('@/registry/components/footers/animated-logo-footer')
     ),
     iframeSrc: 'live-components/animated-logo-footer',
     tags: ['footer', 'animation', 'logo', 'branding', 'animated'],
