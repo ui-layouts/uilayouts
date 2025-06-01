@@ -1,0 +1,21 @@
+{
+  "name": "uilayouts",
+  "version": "0.1.2",
+  "description": "Add beautiful components with one command",
+  "bin": {
+    "uilayouts": "./src/index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Naymur Rahman",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "@clack/prompts": "^0.11.0",
+    "execa": "^9.6.0",
+    "node-fetch": "^3.3.2",
+    "picocolors": "^1.1.1"
+  }
+}
