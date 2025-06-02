@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "grid-normal-grid",
+  "type": "registry:component",
+  "dependencies": [
+    "framer-motion",
+    "lucide-react",
+    "next",
+    "react"
+  ],
+  "files": [
+    {
+      "type": "registry:component",
+      "target": "components/grid/normal-grid.tsx",
+      "content": "'use client';\nimport React from 'react';\nimport { motion } from 'framer-motion';\nimport Image from 'next/image';\nimport { MoveUpRight } from 'lucide-react';\ninterface ProjectsTypes {\n  id: string;\n  img: string;\n  title: string;\n  des: string;\n}\nconst projects: ProjectsTypes[] = [\n  {\n    id: '01',\n    img: 'https://images.unsplash.com/photo-1615451210353-cbcf249f392a?q=80&w=1200&auto=format&fit=crop',\n    title: 'Distrokings',\n    des: 'We make your logo communicate with your customers more than words ever could',\n  },\n  {\n    id: '02',\n    img: 'https://images.unsplash.com/photo-1704677982215-a2248af6009b?q=80&w=1200&auto=format&fit=crop',\n    title: 'Profitables',\n    des: 'We are dedicated to unlocking your business potential through precision development',\n  },\n  {\n    id: '03',\n    img: 'https://images.unsplash.com/photo-1520256862855-398228c41684?q=80&w=800&auto=format&fit=crop',\n    title: 'Topserve-copiers',\n    des: 'We are dedicated to unlocking your business potential through precision development',\n  },\n  {\n    id: '04',\n    img: 'https://images.unsplash.com/photo-1605733160314-4fc7dac4bb16?q=80&w=800&auto=format&fit=crop',\n    title: 'Labramart.',\n    des: 'We specialize in crafting marketing solutions that propel your brand to new heights',\n  },\n];\nexport default function index() {\n  return (\n    <>\n      <div className='lg:columns-2 columns-1 overflow-hidden  px-5 pb-5'>\n        {projects.map((project, index) => {\n          return (\n            <>\n              <motion.article\n                key={index}\n                initial={{ y: 50, opacity: 0 }}\n                whileInView={{ y: 0, opacity: 1 }}\n                transition={{ ease: 'easeOut' }}\n                viewport={{ once: false }}\n                className={` relative pb-4 `}\n              >\n                <div className='w-auto h-full'>\n                  <Image\n                    src={project?.img}\n                    alt={'image'}\n                    height={600}\n                    width={1200}\n                    className='h-full w-full object-cover rounded-xl'\n                  />\n                </div>\n                <div className='absolute bottom-2 text-black w-full p-4 flex justify-between items-center'>\n                  <h3 className='sm:text-xl text-sm bg-black text-white rounded-xl p-2 px-4'>\n                    {project.title}\n                  </h3>\n                  <div className='w-12 h-12 text-white grid place-content-center rounded-full bg-black'>\n                    <MoveUpRight />\n                  </div>\n                </div>\n              </motion.article>\n            </>\n          );\n        })}\n      </div>\n    </>\n  );\n}\n",
+      "path": "registry/components/grid/normal-grid.tsx"
+    }
+  ]
+}
