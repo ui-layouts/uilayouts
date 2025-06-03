@@ -10,7 +10,7 @@ import {
   MotionConfig,
 } from 'motion/react';
 import Image from 'next/image';
-import preview from '@/assets/preview';
+import preview from '@/assets/preview/Preview';
 import { Plus, X } from 'lucide-react';
 import { createPortal } from 'react-dom';
 const transition = {

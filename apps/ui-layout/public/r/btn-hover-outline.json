@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "btn-hover-outline",
+  "type": "registry:component",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "./registry/components/button/btn-hover-outline.tsx",
+      "content": "import { ChevronsRight } from 'lucide-react';\n\nconst ButtonHoverOutLine = () => {\n  return (\n    <>\n      <a\n        className='flex  gap-2 cursor-pointer px-4 py-3 dark:hover:bg-black bg-black hover:bg-white hover:text-black text-white border-black dark:hover:text-white transition-all border-2 dark:border-white dark:bg-white dark:text-black rounded-full font-semibold'\n        href='#'\n      >\n        Know More\n        <ChevronsRight />\n      </a>\n    </>\n  );\n};\n\nexport default ButtonHoverOutLine;\n",
+      "type": "registry:component"
+    }
+  ]
+}

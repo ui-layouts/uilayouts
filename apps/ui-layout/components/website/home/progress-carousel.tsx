@@ -2,7 +2,7 @@
 import { useState, useRef, useEffect } from 'react';
 import Image, { StaticImageData } from 'next/image';
 import { AnimatePresence, motion } from 'motion/react';
-import preview from '@/assets/preview';
+import preview from '@/assets/preview/Preview';
 
 const items = [
   {

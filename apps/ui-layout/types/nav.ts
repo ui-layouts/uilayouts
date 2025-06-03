@@ -1,4 +1,4 @@
-import { techIcons } from '@/assets/icons';
+import { techIcons } from '@/assets/icons/Icons';
 
 export interface NavItem {
   title: string;
