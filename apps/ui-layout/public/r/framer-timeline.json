@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "framer-timeline",
+  "type": "registry:component",
+  "dependencies": [
+    "motion",
+    "@motionone/utils"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "./components/ui/framer-timeline.tsx",
+      "content": "import { type HTMLMotionProps, motion, useInView } from \"motion/react\"\nimport type React from \"react\"\nimport type { Variants } from \"motion/react\"\n\ntype TimelineContentProps<T extends keyof HTMLElementTagNameMap> = {\n  children: React.ReactNode\n  animationNum: number\n  className?: string\n  timelineRef: React.RefObject<HTMLElement | null>\n  as?: T\n  customVariants?: Variants\n  once?: boolean\n} & HTMLMotionProps<T>\n\nexport const TimelineContent = <T extends keyof HTMLElementTagNameMap = \"div\">({\n  children,\n  animationNum,\n  timelineRef,\n  className,\n  as,\n  customVariants,\n  once=false,\n  ...props\n}: TimelineContentProps<T>) => {\n  const defaultSequenceVariants = {\n    visible: (i: number) => ({\n      filter: \"blur(0px)\",\n      y: 0,\n      opacity: 1,\n      transition: {\n        delay: i * 0.5,\n        duration: 0.5,\n      },\n    }),\n    hidden: {\n      filter: \"blur(20px)\",\n      y: 0,\n      opacity: 0,\n    },\n  }\n\n  // Use custom variants if provided, otherwise use default\n  const sequenceVariants = customVariants || defaultSequenceVariants\n\n  const isInView = useInView(timelineRef, {\n    once\n  })\n\n  const MotionComponent = motion[as || \"div\"] as React.ElementType\n\n  return (\n    <MotionComponent\n      initial=\"hidden\"\n      animate={isInView ? \"visible\" : \"hidden\"}\n      custom={animationNum}\n      variants={sequenceVariants}\n      className={className}\n      {...props}\n    >\n      {children}\n    </MotionComponent>\n  )\n}\n\n",
+      "type": "registry:component"
+    }
+  ]
+}

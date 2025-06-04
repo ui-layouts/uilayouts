@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "randomized-text",
+  "type": "registry:component",
+  "dependencies": [
+    "motion",
+    "@motionone/utils"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "./components/ui/text-randomized.tsx",
+      "content": "'use client'\n\nimport React, { useEffect, useState, useCallback } from 'react'\n\nconst lettersAndSymbols = 'abcdefghijklmnopqrstuvwxyz!@#$%^&*-_+=;:<>,'\n\ninterface AnimatedTextProps {\n  text: string\n}\n\nexport function RandomizedTextEffect({ text }: AnimatedTextProps) {\n  const [animatedText, setAnimatedText] = useState('')\n\n  const getRandomChar = useCallback(\n    () =>\n      lettersAndSymbols[Math.floor(Math.random() * lettersAndSymbols.length)],\n    []\n  )\n\n  const animateText = useCallback(async () => {\n    const duration = 50\n    const revealDuration = 80\n    const initialRandomDuration = 300\n\n    const generateRandomText = () =>\n      text\n        .split('')\n        .map(() => getRandomChar())\n        .join('')\n\n    setAnimatedText(generateRandomText())\n\n    const endTime = Date.now() + initialRandomDuration\n    while (Date.now() < endTime) {\n      await new Promise((resolve) => setTimeout(resolve, duration))\n      setAnimatedText(generateRandomText())\n    }\n\n    for (let i = 0; i < text.length; i++) {\n      await new Promise((resolve) => setTimeout(resolve, revealDuration))\n      setAnimatedText(\n        (prevText) =>\n          text.slice(0, i + 1) +\n          prevText\n            .slice(i + 1)\n            .split('')\n            .map(() => getRandomChar())\n            .join('')\n      )\n    }\n  }, [text, getRandomChar])\n\n  useEffect(() => {\n    animateText()\n  }, [text, animateText])\n\n  return <div className=\"relative inline-block\">{animatedText}</div>\n}\n",
+      "type": "registry:component"
+    }
+  ]
+}

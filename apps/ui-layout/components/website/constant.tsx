@@ -1,6 +1,5 @@
-import { Icons } from '@/assets/icons';
-import preview from '@/assets/preview';
-import { Pre, RawCode, highlight } from 'codehike/code';
+import { Icons } from '@/assets/icons/Icons';
+import preview from '@/assets/preview/Preview';
 import {
   InlineAnnotation,
   AnnotationHandler,

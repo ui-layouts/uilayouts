@@ -18,8 +18,8 @@ import {
 import Image from 'next/image';
 import React, { useState } from 'react';
 import { useRef } from 'react';
-import { Icons } from '@/assets/icons';
-import preview from '@/assets/preview';
+import { Icons } from '@/assets/icons/Icons';
+import preview from '@/assets/preview/Preview';
 import { apps } from '@/components/website/constant';
 const Component = React.forwardRef((props, ref) => (
   <Image {...props} ref={ref} alt='App' />

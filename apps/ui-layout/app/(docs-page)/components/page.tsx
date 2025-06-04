@@ -4,7 +4,7 @@ import { motion } from 'motion/react';
 import Link from 'next/link';
 import * as AspectRatio from '@radix-ui/react-aspect-ratio';
 import Image from 'next/image';
-import preview from '@/assets/preview';
+import preview from '@/assets/preview/Preview';
 import { cn } from '@/lib/utils';
 import Footer from '@/components/website/footer';
 const appsDesign = [
@@ -74,7 +74,7 @@ const appsDesign = [
     url: '/components/motion-number',
     imgSrc: preview.motionNumber,
   },
-  
+
   {
     id: 'dragItems',
     name: 'Drag Items',
@@ -582,7 +582,6 @@ const appsDesign = [
     url: '/components/buy-me-coffee',
     imgSrc: preview.coffee,
   },
-
 ];
 
 export default function Home() {

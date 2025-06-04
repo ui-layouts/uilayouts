@@ -1,4 +1,4 @@
-import preview from '@/assets/preview';
+import preview from '@/assets/preview/Preview';
 import {
   Dialog,
   DialogTrigger,
@@ -56,7 +56,7 @@ export default function LinearCard() {
                 className='flex w-full flex-col overflow-hidden  border    dark:bg-black bg-gray-300 hover:bg-gray-200 dark:hover:bg-gray-950'
               >
                 <DialogImage
-                // @ts-ignore
+                  // @ts-ignore
                   src={item.url?.src}
                   alt=''
                   className=' h-64 w-full object-cover'
@@ -80,7 +80,7 @@ export default function LinearCard() {
                   className=' relative flex h-full mx-auto flex-col overflow-y-auto border dark:bg-black bg-gray-300 hover:bg-gray-200 dark:hover:bg-gray-950 lg:w-[900px] w-[80%] '
                 >
                   <DialogImage
-                // @ts-ignore
+                    // @ts-ignore
                     src={item.url.src}
                     alt=''
                     className='h-full  object-contain w-[60%] mx-auto'

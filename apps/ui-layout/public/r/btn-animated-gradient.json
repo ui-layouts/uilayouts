@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "btn-animated-gradient",
+  "type": "registry:component",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "./registry/components/button/btn-animated-gradient.tsx",
+      "content": "'use client';\nimport { useRef, useState } from 'react';\n\nconst ButtonAnimatedGradient = () => {\n  const divRef = useRef<HTMLButtonElement>(null);\n  const [isFocused, setIsFocused] = useState(false);\n  const [position, setPosition] = useState({ x: 0, y: 0 });\n  const [opacity, setOpacity] = useState(0);\n\n  const handleMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {\n    if (!divRef.current || isFocused) return;\n\n    const div = divRef.current;\n    const rect = div.getBoundingClientRect();\n\n    setPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });\n  };\n\n  const handleFocus = () => {\n    setIsFocused(true);\n    setOpacity(1);\n  };\n\n  const handleBlur = () => {\n    setIsFocused(false);\n    setOpacity(0);\n  };\n\n  const handleMouseEnter = () => {\n    setOpacity(1);\n  };\n\n  const handleMouseLeave = () => {\n    setOpacity(0);\n  };\n\n  return (\n    <>\n      <button\n        ref={divRef}\n        onMouseMove={handleMouseMove}\n        onFocus={handleFocus}\n        onBlur={handleBlur}\n        onMouseEnter={handleMouseEnter}\n        onMouseLeave={handleMouseLeave}\n        className='relative inline-flex w-fit mx-auto h-12 items-center justify-center overflow-hidden rounded-md border-2 dark:border-[#656fe2] border-[#c0c6fc] bg-gradient-to-r dark:from-[#070e41] dark:to-[#141d57] from-[#9ba3fdfd] to-[#3d5af1] px-6 font-medium text-white  shadow-2xl transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-50'\n      >\n        <div\n          className='pointer-events-none absolute -inset-px opacity-0 transition duration-300'\n          style={{\n            opacity,\n            background: `radial-gradient(100px circle at ${position.x}px ${position.y}px, #656fe288, #00000026)`,\n          }}\n        />\n        <span className='relative z-20'>Click Me</span>\n      </button>\n    </>\n  );\n};\n\nexport default ButtonAnimatedGradient;",
+      "type": "registry:component"
+    }
+  ]
+}

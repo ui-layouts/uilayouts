@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "btn-hover-multiple",
+  "type": "registry:component",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "./registry/components/button/btn-hover-multiple.tsx",
+      "content": "const ButtonHoverMultiple = () => {\n  return (\n    <>\n      <button className='group relative'>\n        <div\n          className='relative z-10 inline-flex h-12 items-center justify-center overflow-hidden rounded-full\n        bg-gradient-to-r dark:from-[#070e41] dark:to-[#263381] from-[#f6f7ff] to-[#f5f6ff] dark:border-[rgb(76_100_255)] border-2 border-[#263381] \n         bg-transparent px-6 font-medium dark:text-white text-black  transition-all duration-300 group-hover:-translate-x-3 group-hover:-translate-y-3'\n        >\n          Contact me\n        </div>\n        <div className='absolute inset-0 z-0 h-full w-full rounded-full transition-all duration-300 group-hover:-translate-x-3 group-hover:-translate-y-3  group-hover:[box-shadow:5px_5px_#394481,10px_10px_#5766be,15px_15px_#8898f3]'></div>\n      </button>\n    </>\n  );\n};\n\nexport default ButtonHoverMultiple;\n",
+      "type": "registry:component"
+    }
+  ]
+}

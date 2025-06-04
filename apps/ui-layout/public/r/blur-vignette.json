@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "blur-vignette",
+  "type": "registry:component",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "./components/ui/blur-vignette.tsx",
+      "content": "'use client';\nimport React, { createContext, useContext } from 'react';\nimport { cn } from '@/lib/utils';\ninterface BlurVignetteContextProps {\n  radius?: string;\n  inset?: string;\n  transitionLength?: string;\n  blur?: string;\n}\n\nconst BlurVignetteContext = createContext<BlurVignetteContextProps>({\n  radius: '24px',\n  inset: '20px',\n  transitionLength: '44px',\n  blur: '6px',\n});\n\nexport const useBlurVignetteContext = () => useContext(BlurVignetteContext);\n\ninterface BlurVignetteProps {\n  classname?: string;\n  children: React.ReactNode;\n  radius?: string;\n  inset?: string;\n  transitionLength?: string;\n  blur?: string;\n  blurclassname?: string;\n}\n\nexport const BlurVignette: React.FC<BlurVignetteProps> = ({\n  classname,\n  children,\n  radius = '24px',\n  inset = '20px',\n  transitionLength = '44px',\n  blur = '6px',\n}) => {\n  return (\n    <BlurVignetteContext.Provider\n      value={{ radius, inset, transitionLength, blur }}\n    >\n      <div\n        className={cn('relative aspect-square overflow-hidden', classname)}\n        style={{ borderRadius: radius }}\n      >\n        {children}\n      </div>\n    </BlurVignetteContext.Provider>\n  );\n};\ninterface BlurVignetteArticleProps {\n  children?: React.ReactNode;\n  classname?: string;\n}\n\nexport const BlurVignetteArticle: React.FC<BlurVignetteArticleProps> = ({\n  children,\n  classname,\n}) => {\n  const { radius, inset, transitionLength, blur } = useBlurVignetteContext();\n\n  return (\n    <div\n      className={cn(\n        'blur-vignette bottom-0 left-0 w-full h-full z-[1]',\n        classname\n      )}\n      style={\n        {\n          '--radius': radius,\n          '--inset': inset,\n          '--transition-length': transitionLength,\n          '--blur': blur,\n        } as React.CSSProperties\n      }\n    >\n      {children}\n    </div>\n  );\n};\n",
+      "type": "registry:component"
+    }
+  ]
+}

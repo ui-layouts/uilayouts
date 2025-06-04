@@ -1390,7 +1390,7 @@ export const AllComponents: IAllComponents[] = [
     parentlink: 'buttons',
     componentName: 'button-background-spotlight',
     componentSrc: React.lazy(
-      () => import('@/registry/components/button/btn-bg-spotlight')
+      () => import('@/registry/components/button/btn-animated-gradient')
     ),
     iframeSrc: 'live-components/button-background-spotlight',
     center: true,
@@ -1399,7 +1399,7 @@ export const AllComponents: IAllComponents[] = [
     parentlink: 'buttons',
     componentName: 'button-hover-active',
     componentSrc: React.lazy(
-      () => import('@/registry/components/button/btn-hover-active')
+      () => import('@/registry/components/button/btn-active')
     ),
     iframeSrc: 'live-components/button-hover-active',
     center: true,
@@ -1408,7 +1408,7 @@ export const AllComponents: IAllComponents[] = [
     parentlink: 'buttons',
     componentName: 'button-hover-2',
     componentSrc: React.lazy(
-      () => import('@/registry/components/button/btn-hover2')
+      () => import('@/registry/components/button/btn-hover-right')
     ),
     iframeSrc: 'live-components/button-hover-2',
     center: true,
@@ -1417,7 +1417,7 @@ export const AllComponents: IAllComponents[] = [
     parentlink: 'buttons',
     componentName: 'button-hover-3',
     componentSrc: React.lazy(
-      () => import('@/registry/components/button/btn-hover3')
+      () => import('@/registry/components/button/btn-click-down')
     ),
     iframeSrc: 'live-components/button-hover-3',
     center: true,
@@ -1426,7 +1426,7 @@ export const AllComponents: IAllComponents[] = [
     parentlink: 'buttons',
     componentName: 'button-hover-4',
     componentSrc: React.lazy(
-      () => import('@/registry/components/button/btn-hover4')
+      () => import('@/registry/components/button/btn-hover-down')
     ),
     iframeSrc: 'live-components/button-hover-4',
     center: true,
@@ -1435,7 +1435,7 @@ export const AllComponents: IAllComponents[] = [
     parentlink: 'buttons',
     componentName: 'button-hover-5',
     componentSrc: React.lazy(
-      () => import('@/registry/components/button/btn-hover5')
+      () => import('@/registry/components/button/btn-hover-multiple')
     ),
     iframeSrc: 'live-components/button-hover-5',
     center: true,
@@ -1444,7 +1444,7 @@ export const AllComponents: IAllComponents[] = [
     parentlink: 'buttons',
     componentName: 'button-hover-6',
     componentSrc: React.lazy(
-      () => import('@/registry/components/button/btn-hover6')
+      () => import('@/registry/components/button/btn-hover-underline')
     ),
     iframeSrc: 'live-components/button-hover-6',
     center: true,
@@ -1453,7 +1453,7 @@ export const AllComponents: IAllComponents[] = [
     parentlink: 'buttons',
     componentName: 'button-hover-7',
     componentSrc: React.lazy(
-      () => import('@/registry/components/button/btn-hover7')
+      () => import('@/registry/components/button/btn-hover-top-flip')
     ),
     iframeSrc: 'live-components/button-hover-7',
     center: true,
@@ -1462,7 +1462,7 @@ export const AllComponents: IAllComponents[] = [
     parentlink: 'buttons',
     componentName: 'button-hover-8',
     componentSrc: React.lazy(
-      () => import('@/registry/components/button/btn-hover8')
+      () => import('@/registry/components/button/btn-hover-left-flip')
     ),
     center: true,
     iframeSrc: 'live-components/button-hover-8',
@@ -1471,7 +1471,7 @@ export const AllComponents: IAllComponents[] = [
     parentlink: 'buttons',
     componentName: 'button-hover-9',
     componentSrc: React.lazy(
-      () => import('@/registry/components/button/btn-hover9')
+      () => import('@/registry/components/button/btn-hover-top-slowflip')
     ),
     center: true,
     iframeSrc: 'live-components/button-hover-9',
@@ -1480,7 +1480,7 @@ export const AllComponents: IAllComponents[] = [
     parentlink: 'buttons',
     componentName: 'button-hover-10',
     componentSrc: React.lazy(
-      () => import('@/registry/components/button/btn-hover10')
+      () => import('@/registry/components/button/btn-text-change')
     ),
     center: true,
     iframeSrc: 'live-components/button-hover-10',
@@ -1489,7 +1489,7 @@ export const AllComponents: IAllComponents[] = [
     parentlink: 'buttons',
     componentName: 'button-hover-11',
     componentSrc: React.lazy(
-      () => import('@/registry/components/button/btn-hover11')
+      () => import('@/registry/components/button/btn-cross-arrow')
     ),
     center: true,
     iframeSrc: 'live-components/button-hover-11',
@@ -1498,7 +1498,7 @@ export const AllComponents: IAllComponents[] = [
     parentlink: 'buttons',
     componentName: 'button-hover-12',
     componentSrc: React.lazy(
-      () => import('@/registry/components/button/btn-hover12')
+      () => import('@/registry/components/button/btn-black-shadow')
     ),
     center: true,
     iframeSrc: 'live-components/btn-hover12',
@@ -1507,7 +1507,7 @@ export const AllComponents: IAllComponents[] = [
     parentlink: 'buttons',
     componentName: 'button-hover-13',
     componentSrc: React.lazy(
-      () => import('@/registry/components/button/btn-hover13')
+      () => import('@/registry/components/button/btn-hover-outline')
     ),
     center: true,
     iframeSrc: 'live-components/button-hover-13',
@@ -1525,7 +1525,7 @@ export const AllComponents: IAllComponents[] = [
     parentlink: 'buttons',
     componentName: 'button-rotating-gradient',
     componentSrc: React.lazy(
-      () => import('@/registry/components/button/btn-rotating-bgGradient')
+      () => import('@/registry/components/button/btn-rotating-gradient')
     ),
     center: true,
     iframeSrc: 'live-components/btn-rotating-bgGradient',
@@ -1534,7 +1534,7 @@ export const AllComponents: IAllComponents[] = [
     parentlink: 'buttons',
     componentName: 'creative-button-1',
     componentSrc: React.lazy(
-      () => import('@/registry/components/button/creative-btn1')
+      () => import('@/registry/components/button/btn-creative-right')
     ),
     center: true,
     iframeSrc: 'live-components/creative-button-1',
@@ -1543,7 +1543,7 @@ export const AllComponents: IAllComponents[] = [
     parentlink: 'buttons',
     componentName: 'creative-button-2',
     componentSrc: React.lazy(
-      () => import('@/registry/components/button/creative-btn2')
+      () => import('@/registry/components/button/btn-creative-top')
     ),
     center: true,
     iframeSrc: 'live-components/creative-button-2',

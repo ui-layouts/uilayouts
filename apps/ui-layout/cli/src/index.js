@@ -15,6 +15,23 @@ const [command, componentName] = process.argv.slice(2);
 
 intro(colors.bold('Welcome to uilayouts CLI'));
 
+if (command === 'list') {
+  const s = spinner();
+  s.start(colors.white('Fetching available components...'));
+  try {
+    const registry = await fetchRegistry();
+    s.stop(colors.green('📦 Available components:\n'));
+    for (const item of registry.items) {
+      console.log(`${colors.green('•')} ${item.name}`);
+    }
+    outro(colors.bold(colors.green('✨ End of list.')));
+    process.exit(0);
+  } catch (err) {
+    s.stop(colors.red('❌ Failed to fetch registry.'));
+    console.error(err);
+    process.exit(1);
+  }
+}
 if (command !== 'add' || !componentName) {
   cancel(colors.red('Usage: npx uilayouts add component-name'));
   process.exit(0);
