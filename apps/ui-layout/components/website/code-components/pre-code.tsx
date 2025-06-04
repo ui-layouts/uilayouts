@@ -43,7 +43,7 @@ export async function PreCode({
   if (showCompilerTab) {
     return (
       <div className={cn('relative z-[2]', cssclass)}>
-        {tshighlighted.meta && (
+        {!metahide && tshighlighted.meta && (
           <div className='text-left text-sm px-2 py-1 mt-3 border-dotted rounded-md bg-primary-foreground w-fit'>
             {tshighlighted.meta}
           </div>

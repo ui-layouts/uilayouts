@@ -1,6 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+html {
+  -webkit-tap-highlight-color: transparent;
+  scrollbar-gutter: stable;
+  scrollbar-color: var(--scrollbar-color) transparent;
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
+  font-size: 90%; 
+}
 body {
   overflow-x: hidden;
 }
@@ -144,6 +152,7 @@ body {
     @apply dark:bg-black bg-zinc-50 text-foreground;
   }
 }
+
 @layer utilities {
   .blur-vignette {
     position: absolute;
@@ -195,13 +204,7 @@ body {
     -webkit-text-fill-color: transparent;
   }
 }
-html {
-  -webkit-tap-highlight-color: transparent;
-  scrollbar-gutter: stable;
-  scrollbar-color: var(--scrollbar-color) transparent;
-  scrollbar-width: thin;
-  scroll-behavior: smooth;
-}
+
 code,
 kbd,
 pre,

@@ -1,10 +1,9 @@
-//@ts-nocheck
+// @ts-nocheck
 'use client';
-import { items } from '@/components/common/constant';
 import { cn } from '@/lib/utils';
-import { createRef, useRef } from 'react';
+import { createRef, ReactNode, useRef } from 'react';
 interface ImageMouseTrailProps {
-  items: ImageItem[];
+  items: string[];
   children?: ReactNode;
   className?: string;
   imgClass?: string;
@@ -28,7 +27,7 @@ export default function ImageMouseTrail({
   let globalIndex = 0;
   let last = { x: 0, y: 0 };
 
-  const activate = (image, x, y) => {
+  const activate = (image: HTMLImageElement, x: number, y: number) => {
     const containerRect = containerRef.current?.getBoundingClientRect();
     const relativeX = x - containerRect.left;
     const relativeY = y - containerRect.top;
