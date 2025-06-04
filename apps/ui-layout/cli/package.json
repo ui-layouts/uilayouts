@@ -1,6 +1,6 @@
 {
   "name": "uilayouts",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Add beautiful components with one command",
   "bin": {
     "uilayouts": "./src/index.js"

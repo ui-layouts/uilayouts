@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "blocks",
+  "type": "registry:component",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "./components/ui/blocks.tsx",
+      "content": "'use client';\nimport { cn } from '@/lib/utils';\nimport React, { useEffect, useState, type JSX } from 'react';\n\nfunction Blocks({\n  activeDivs,\n  divClass,\n  classname,\n  activeDivsClass,\n  containerRef,\n}: {\n  activeDivsClass?: string;\n  activeDivs?: any;\n  divClass?: string;\n  classname?: string;\n  containerRef: React.RefObject<HTMLDivElement | null>;\n}) {\n  const [blocks, setBlocks] = useState<JSX.Element[]>([]);\n\n  useEffect(() => {\n    const updateBlocks = () => {\n      const container = containerRef.current;\n      if (container) {\n        const containerWidth = container.clientWidth;\n        const containerHeight = container.clientHeight;\n        const blockSize = containerWidth * 0.06; // Using 6% of section width for the block size\n\n        const columns = Math.floor(containerWidth / blockSize);\n        const rows = Math.floor(containerHeight / blockSize);\n\n        const newBlocks = Array.from({ length: columns }, (_, columnIndex) => (\n          <div key={columnIndex} className='w-[6vw] h-full'>\n            {Array.from({ length: rows }, (_, rowIndex) => (\n              <div\n                key={rowIndex}\n                className={cn(\n                  `h-[6vh] w-full border-[1px] border-[#5dcece09] ${\n                    // @ts-ignore\n                    activeDivs[columnIndex]?.has(rowIndex)\n                      ? `${activeDivsClass}`\n                      : ''\n                  }`,\n                  divClass\n                )}\n                style={{ height: `${blockSize}px` }}\n              ></div>\n            ))}\n          </div>\n        ));\n\n        setBlocks(newBlocks);\n      }\n    };\n\n    updateBlocks();\n    window.addEventListener('resize', updateBlocks);\n\n    return () => window.removeEventListener('resize', updateBlocks);\n  }, [activeDivs, activeDivsClass, divClass, containerRef]);\n\n  return (\n    <div\n      className={cn(\n        'flex h-full overflow-hidden top-0 -inset-0 left-0 absolute',\n        classname\n      )}\n    >\n      {blocks}\n    </div>\n  );\n}\n\nexport default Blocks;\n",
+      "type": "registry:component"
+    }
+  ]
+}

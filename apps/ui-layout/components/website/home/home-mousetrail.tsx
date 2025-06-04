@@ -1,6 +1,6 @@
 //@ts-nocheck
 'use client';
-import preview from '@/assets/preview';
+import preview from '@/assets/preview/Preview';
 import Image from 'next/image';
 import React, { useRef, createRef, useState } from 'react';
 export const items = [

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "scroll-element",
+  "type": "registry:component",
+  "dependencies": [
+    "motion"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "./components/ui/scroll-element.tsx",
+      "content": "// @ts-nocheck\n'use client';\n\nimport { cn } from '@/lib/utils';\nimport {\n  motion,\n  HTMLMotionProps,\n  SVGMotionProps,\n  ForwardRefComponent,\n  Variant,\n  useAnimation,\n} from 'motion/react';\nimport React from 'react';\ntype Direction = 'up' | 'down' | 'left' | 'right';\n\nconst generateVariants = (\n  direction: Direction\n): { hidden: any; visible: any } => {\n  const axis = direction === 'left' || direction === 'right' ? 'x' : 'y';\n  const value = direction === 'right' || direction === 'down' ? 100 : -100;\n\n  return {\n    hidden: { filter: 'blur(10px)', opacity: 0, [axis]: value },\n    visible: {\n      filter: 'blur(0px)',\n      opacity: 1,\n      [axis]: 0,\n      transition: {\n        duration: 0.5,\n        ease: 'easeOut',\n      },\n    },\n  };\n};\n// const  n = {\n//   hidden: { filter: 'blur(10px)', opacity: 0, y: 20 },\n//   visible: {\n//     filter: 'blur(0px)',\n//     opacity: 1,\n//     y: 0,\n//     duration: 2,\n//     transition: {\n//       delay: 0, // Adjust delay here\n//     },\n//   },\n// }\n\nconst defaultViewport = { amount: 0.3, margin: '0px 0px -200px 0px' };\ntype MotionComponentProps = HTMLMotionProps<any> & SVGMotionProps<any>;\n\ninterface ScrollElementProps extends Omit<MotionComponentProps, 'children'> {\n  children: React.ReactNode;\n  className?: string;\n  variants?: {\n    hidden?: any;\n    visible?: any;\n  };\n  viewport?: {\n    amount?: number;\n    margin?: string;\n    once?: boolean;\n  };\n  delay?: number;\n  direction?: Direction;\n}\n\nfunction ScrollElement({\n  children,\n  className,\n  variants,\n  viewport = defaultViewport,\n  delay = 0, // Default delay is 0\n  direction = 'down',\n  ...rest\n}: ScrollElementProps) {\n  const baseVariants = variants || generateVariants(direction);\n  const modifiedVariants = {\n    hidden: baseVariants.hidden,\n    visible: {\n      ...baseVariants.visible,\n      transition: {\n        ...baseVariants.visible.transition,\n        delay, // Apply custom delay here\n      },\n    },\n  };\n\n  return (\n    <motion.div\n      whileInView='visible'\n      initial='hidden'\n      variants={modifiedVariants}\n      viewport={viewport}\n      className={cn(className)}\n      {...rest}\n    >\n      {children}\n    </motion.div>\n  );\n}\nexport default ScrollElement;\n",
+      "type": "registry:component"
+    }
+  ]
+}
