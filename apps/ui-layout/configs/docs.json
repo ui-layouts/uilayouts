@@ -32,7 +32,7 @@
         },
         {
           "componentName": "animated-logo-footer",
-          "filesrc": "components/footers/footer1.tsx",
+          "filesrc": "components/footers/animated-logo-footer.tsx",
           "iframeSrc": "live-components/animated-logo-footer",
           "parentlink": "footers",
           "parentName": "Footers"
@@ -63,98 +63,98 @@
         },
         {
           "componentName": "button-background-spotlight",
-          "filesrc": "components/button/btn-bg-spotlight.tsx",
+          "filesrc": "components/button/btn-animated-gradient.tsx",
           "iframeSrc": "live-components/button-background-spotlight",
           "parentlink": "buttons",
           "parentName": "Buttons"
         },
         {
           "componentName": "button-hover-active",
-          "filesrc": "components/button/btn-hover-active.tsx",
+          "filesrc": "components/button/btn-active.tsx",
           "iframeSrc": "live-components/button-hover-active",
           "parentlink": "buttons",
           "parentName": "Buttons"
         },
         {
           "componentName": "button-hover-2",
-          "filesrc": "components/button/btn-hover2.tsx",
+          "filesrc": "components/button/btn-hover-right.tsx",
           "iframeSrc": "live-components/button-hover-2",
           "parentlink": "buttons",
           "parentName": "Buttons"
         },
         {
           "componentName": "button-hover-3",
-          "filesrc": "components/button/btn-hover3.tsx",
+          "filesrc": "components/button/btn-click-down.tsx",
           "iframeSrc": "live-components/button-hover-3",
           "parentlink": "buttons",
           "parentName": "Buttons"
         },
         {
           "componentName": "button-hover-4",
-          "filesrc": "components/button/btn-hover4.tsx",
+          "filesrc": "components/button/btn-hover-down.tsx",
           "iframeSrc": "live-components/button-hover-4",
           "parentlink": "buttons",
           "parentName": "Buttons"
         },
         {
           "componentName": "button-hover-5",
-          "filesrc": "components/button/btn-hover5.tsx",
+          "filesrc": "components/button/btn-hover-multiple.tsx",
           "iframeSrc": "live-components/button-hover-5",
           "parentlink": "buttons",
           "parentName": "Buttons"
         },
         {
           "componentName": "button-hover-6",
-          "filesrc": "components/button/btn-hover6.tsx",
+          "filesrc": "components/button/btn-hover-underline.tsx",
           "iframeSrc": "live-components/button-hover-6",
           "parentlink": "buttons",
           "parentName": "Buttons"
         },
         {
           "componentName": "button-hover-7",
-          "filesrc": "components/button/btn-hover7.tsx",
+          "filesrc": "components/button/btn-hover-top-flip.tsx",
           "iframeSrc": "live-components/button-hover-7",
           "parentlink": "buttons",
           "parentName": "Buttons"
         },
         {
           "componentName": "button-hover-8",
-          "filesrc": "components/button/btn-hover8.tsx",
+          "filesrc": "components/button/btn-hover-left-flip.tsx",
           "iframeSrc": "live-components/button-hover-8",
           "parentlink": "buttons",
           "parentName": "Buttons"
         },
         {
           "componentName": "button-hover-9",
-          "filesrc": "components/button/btn-hover9.tsx",
+          "filesrc": "components/button/btn-hover-top-slowflip.tsx",
           "iframeSrc": "live-components/button-hover-9",
           "parentlink": "buttons",
           "parentName": "Buttons"
         },
         {
           "componentName": "button-hover-10",
-          "filesrc": "components/button/btn-hover10.tsx",
+          "filesrc": "components/button/btn-text-change.tsx",
           "iframeSrc": "live-components/button-hover-10",
           "parentlink": "buttons",
           "parentName": "Buttons"
         },
         {
           "componentName": "button-hover-11",
-          "filesrc": "components/button/btn-hover11.tsx",
+          "filesrc": "components/button/btn-cross-arrow.tsx",
           "iframeSrc": "live-components/button-hover-11",
           "parentlink": "buttons",
           "parentName": "Buttons"
         },
         {
           "componentName": "button-hover-12",
-          "filesrc": "components/button/btn-hover12.tsx",
+          "filesrc": "components/button/btn-black-shadow.tsx",
           "iframeSrc": "live-components/btn-hover12",
           "parentlink": "buttons",
           "parentName": "Buttons"
         },
         {
           "componentName": "button-hover-13",
-          "filesrc": "components/button/btn-hover13.tsx",
+          "filesrc": "components/button/btn-hover-outline.tsx",
           "iframeSrc": "live-components/button-hover-13",
           "parentlink": "buttons",
           "parentName": "Buttons"
@@ -168,21 +168,21 @@
         },
         {
           "componentName": "button-rotating-gradient",
-          "filesrc": "components/button/btn-rotating-bgGradient.tsx",
+          "filesrc": "components/button/btn-rotating-gradient.tsx",
           "iframeSrc": "live-components/btn-rotating-bgGradient",
           "parentlink": "buttons",
           "parentName": "Buttons"
         },
         {
           "componentName": "creative-button-1",
-          "filesrc": "components/button/creative-btn1.tsx",
+          "filesrc": "components/button/btn-creative-right.tsx",
           "iframeSrc": "live-components/creative-button-1",
           "parentlink": "buttons",
           "parentName": "Buttons"
         },
         {
           "componentName": "creative-button-2",
-          "filesrc": "components/button/creative-btn2.tsx",
+          "filesrc": "components/button/btn-creative-top.tsx",
           "iframeSrc": "live-components/creative-button-2",
           "parentlink": "buttons",
           "parentName": "Buttons"
@@ -196,7 +196,7 @@
         },
         {
           "componentName": "buyme-acoffee",
-          "filesrc": "components/buy-me-acoffee.tsx",
+          "filesrc": "components/buy-me-coffee.tsx",
           "iframeSrc": "live-components/buyme-acoffee",
           "parentlink": "buyme-acoffe",
           "parentName": "Buy Me a Coffe"
@@ -794,7 +794,7 @@
             },
             {
               "name": "slider.tsx",
-              "filesrc": "components/core/slider.tsx"
+              "filesrc": "components/ui/slider.tsx"
             }
           ],
           "iframeSrc": "live-components/motion-number-slider",
