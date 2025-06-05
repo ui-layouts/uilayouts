@@ -22,6 +22,7 @@ type ComponentCodePreview = {
   isTab?: boolean;
   isFitheight?: boolean;
   isNotCopy?: boolean;
+  jsonName?:string
 };
 export type TCurrComponentProps = {
   componentName: string;
@@ -37,6 +38,7 @@ export default async function ComponentCodePreview({
   hasReTrigger,
   name,
   children,
+  jsonName,
   responsive,
   isTab = false,
   isNotCopy = false,
@@ -95,6 +97,7 @@ export default async function ComponentCodePreview({
             code={fileContent}
             responsive={responsive}
             isNotCopy={isNotCopy}
+            jsonName={jsonName}
             isFitheight={isFitheight}
           />
         </TabsContent>
