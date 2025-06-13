@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card-product-card5",
+  "type": "registry:component",
+  "dependencies": [
+    "framer-motion",
+    "lucide-react",
+    "next",
+    "react"
+  ],
+  "files": [
+    {
+      "type": "registry:component",
+      "target": "components/card/product-card5.tsx",
+      "content": "'use client';\nimport React, { ReactNode, useState } from 'react';\nimport Image from 'next/image';\nimport { Heart, ShoppingCart } from 'lucide-react';\nimport { motion } from 'framer-motion';\nconst sizes = ['7', '7.5', '8', '8.5'];\nfunction Card() {\n  const [isActive, setIsActive] = useState(false);\n\n  const handleClick = () => {\n    setIsActive((prevState) => !prevState);\n  };\n\n  const [selectedSize, setSelectedSize] = useState<string | null>(null);\n\n  const handleSelectSize = (size: string) => {\n    setSelectedSize(size === selectedSize ? null : size);\n  };\n\n  return (\n    <div className='w-[350px] mx-auto '>\n      <div className='dark:bg-white bg-gray-100 rounded-md p-2'>\n        <div className='w-full h-52 relative'>\n          <motion.button\n            className='absolute top-2 right-2 z-20 text-2xl text-white'\n            onClick={handleClick}\n            animate={{ scale: isActive ? 1.2 : 1 }}\n            transition={{ type: 'spring', stiffness: 1000, damping: 10 }}\n          >\n            {isActive ? (\n              <>\n                <Heart className=' fill-white' />\n              </>\n            ) : (\n              <>\n                <Heart />\n              </>\n            )}\n          </motion.button>\n          <Image\n            src={\n              'https://images.unsplash.com/photo-1605733160314-4fc7dac4bb16?q=80&w=2090&auto=format&fit=crop'\n            }\n            alt='shoes'\n            width={1000}\n            height={1000}\n            className={` h-52 w-full rounded-t-md  object-cover  `}\n          />\n        </div>\n        <article className='text-black pt-2 '>\n          <h1 className='font-semibold text-2xl text-black'>\n            Air Jordan 1 Mid SE\n          </h1>\n          <p className='text-xs'>\n            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore\n            porro quos quae autem vel praesentium.\n          </p>\n          <div className='py-1'>\n            <p className='text-sm'>Select Size:</p>\n            <div className='flex gap-2 text-sm'>\n              {sizes.map((size) => (\n                <motion.span\n                  key={size}\n                  className={`border cursor-pointer hover:bg-gray-800 hover:text-white w-8 grid place-content-center h-8 rounded-md ${\n                    selectedSize === size ? 'bg-gray-800 text-white' : ''\n                  }`}\n                  onClick={() => handleSelectSize(size)}\n                  whileHover={{ scale: 1.1 }}\n                  whileTap={{ scale: 0.9 }}\n                >\n                  {size}\n                </motion.span>\n              ))}\n            </div>\n          </div>\n          <div className='flex gap-2 items-center justify-between'>\n            <span className='font-medium text-2xl text-black'>$394</span>\n\n            <button className='w-fit px-6 text-white flex justify-center items-center gap-2 bg-gradient-to-r dark:from-[#070e41] dark:to-[#263381] from-[#3e5068] to-[#0c1970] py-3 rounded-md'>\n              <ShoppingCart className='w-5 h-5' /> Add to cart\n            </button>\n          </div>\n        </article>\n      </div>\n    </div>\n  );\n}\n\nexport default Card;\n",
+      "path": "registry/components/card/product-card5.tsx"
+    }
+  ]
+}
