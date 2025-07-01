@@ -542,6 +542,23 @@
       ]
     },
     {
+      "name": "default-mousetrail",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/mousetrail.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./registry/components/mousetrail/default-mousetrail.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "progress-carousel",
       "type": "registry:component",
       "devDependencies": [],

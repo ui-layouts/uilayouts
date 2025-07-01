@@ -11,31 +11,23 @@ export const metadata = {
   isFitheight
 />
 
-## Usage
+## Installation
 
 <Tabs defaultValue="cli">
 
-  <TabsList>
+  <TabsList className='border-b w-full bg-transparent dark:bg-transparent justify-start dark:bg-zinc-900 h-11'>
     <TabsTrigger value="cli">CLI</TabsTrigger>
     <TabsTrigger value="manual">Manual</TabsTrigger>
   </TabsList>
 
   <TabsContent value="cli">
    <CodeWithTabs>
-      ```js !!tabs pnpm
-      npx uilayouts add mousetrail
+      ```js !!tabs ui-layouts
+      npx uilayouts@latest add mousetrail
       ```
 
-      ```tsx !!tabs npm
-      npx uilayouts add mousetrail
-      ```
-
-      ```tsx !!tabs yarn
-      npx uilayouts add mousetrail
-      ```
-
-      ```tsx !!tabs bun
-      npx uilayouts add mousetrail
+      ```tsx !!tabs shadcn
+      npx uilayouts@latest add 'https://www.ui-layouts.com/r/mousetrail.json'
       ```
    </CodeWithTabs>
   </TabsContent>

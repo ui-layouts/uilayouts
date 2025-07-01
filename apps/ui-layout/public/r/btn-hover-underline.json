@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "./registry/components/button/btn-hover-underline.tsx",
-      "content": "const ButtonHoverUnderLine = () => {\n  return (\n    <button\n      className='relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 dark:after:bg-white \n      after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100'\n    >\n      Contact me\n    </button>\n  );\n};\n\nexport default ButtonHoverUnderLine;\n",
+      "content": "const ButtonHoverUnderLine = () => {\r\n  return (\r\n    <button\r\n      className='relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 dark:after:bg-white \r\n      after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100'\r\n    >\r\n      Contact me\r\n    </button>\r\n  );\r\n};\r\n\r\nexport default ButtonHoverUnderLine;\r\n",
       "type": "registry:component"
     }
   ]
