@@ -3,6 +3,7 @@
   "name": "ui-layout",
   "homepage": "https://www.ui-layouts.com",
   "items": [
+
     {
       "name": "btn-bg-shine",
       "type": "registry:component",
@@ -250,7 +251,19 @@
         }
       ]
     },
-
+    {
+      "name": "color-picker",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/color-picker.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
     {
       "name": "noise-effect",
       "type": "registry:component",
