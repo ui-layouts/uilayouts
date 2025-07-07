@@ -6,6 +6,9 @@ import remarkGfm from 'remark-gfm';
 import createMDX from '@next/mdx';
 import { remarkCodeHike, recmaCodeHike } from 'codehike/mdx';
 import rehypeSlug from 'rehype-slug';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
 // Import the JSON file
 const docsData = JSON.parse(
   fs.readFileSync(path.resolve('./configs/docs.json'), 'utf8')
@@ -159,8 +162,14 @@ const withMDX = createMDX({
   },
 });
 
+
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  transpilePackages: ['@repo/ui/*'],
   experimental: {
     turbo: {
       rules: {
@@ -170,8 +179,9 @@ const nextConfig = {
         },
       },
     },
+    mdxRs: true,
   },
-  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
+  pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   images: {
     remotePatterns: [
       {
@@ -187,6 +197,15 @@ const nextConfig = {
         hostname: 'img.freepik.com',
       },
     ],
+  },
+  webpack: (config, { isServer }) => {
+    // Add path aliases
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@repo/ui': path.resolve(__dirname, '../../packages/ui/src'),
+      '@repo/blocks': path.resolve(__dirname, '../../packages/blocks/src'),
+    };
+    return config;
   },
   // Add other Next.js config options here
 };
