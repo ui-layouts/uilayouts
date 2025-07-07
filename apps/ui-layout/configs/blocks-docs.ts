@@ -1,7 +1,7 @@
 import preview from '@/assets/preview/Preview';
 import { Card } from '@repo/ui';
 import React from 'react';
-import {HeroSections1, HeroSections2, HeroSections3, HeroSections4} from "@repo/blocks"
+import {HeroSections1, HeroSections2, HeroSections3, HeroSections4, AboutSections1, AboutSections2, AboutSections3} from "@repo/blocks"
 export const blocksDesign = [
   {
     id: "hero-section",
@@ -19,6 +19,7 @@ export const blocksDesign = [
         imgSrc: preview.heroSec,
         tags: ["hero", "modern", "cta"],
         componentSrc:HeroSections1,
+        filePath:"packages/blocks/src/hero-section/hero-section1.tsx"
       },
       {
         id: "hero-sec2",
@@ -27,6 +28,7 @@ export const blocksDesign = [
         imgSrc: preview.heroSec,
         tags: ["hero", "modern", "cta"],
         componentSrc:HeroSections2,
+        filePath:"packages/blocks/src/hero-section/hero-section2.tsx"
       },
       {
         id: "hero-sec3",
@@ -35,6 +37,7 @@ export const blocksDesign = [
         imgSrc: preview.heroSec,
         tags: ["hero", "modern", "cta"],
         componentSrc:HeroSections3,
+        filePath:"packages/blocks/src/hero-section/hero-section3.tsx"
       },
       {
         id: "hero-sec4",
@@ -43,6 +46,45 @@ export const blocksDesign = [
         imgSrc: preview.heroSec,
         tags: ["hero", "modern", "cta"],
         componentSrc:HeroSections4,
+        filePath:"packages/blocks/src/hero-section/hero-section4.tsx"
+      },
+    ],
+  },
+  {
+    id: "about-section",
+    name: "About Section",
+    url: "/blocks/about-section",
+    des: "Beautiful about layouts to start your landing page.",
+    imgclass: "object-contain",
+    imgSrc: preview.Timeline,
+    tags: ["hero", "landing", "above-the-fold"],
+    blocks: [
+      {
+        id: "about-sec1",
+        name: "About Section 1",
+        des: "A modern hero section with call-to-action and image.",
+        imgSrc: preview.heroSec,
+        tags: ["hero", "modern", "cta"],
+        componentSrc:HeroSections1,
+        filePath:"packages/blocks/src/about-section/about-section1.tsx"
+      },
+      {
+        id: "about-sec2",
+        name: "About Section 2",
+        des: "A modern hero section with call-to-action and image.",
+        imgSrc: preview.heroSec,
+        tags: ["hero", "modern", "cta"],
+        componentSrc:HeroSections2,
+        filePath:"packages/blocks/src/about-section/about-section2.tsx"
+      },
+      {
+        id: "about-sec3",
+        name: "About Section 3",
+        des: "A modern hero section with call-to-action and image.",
+        imgSrc: preview.heroSec,
+        tags: ["hero", "modern", "cta"],
+        componentSrc:HeroSections3,
+        filePath:"packages/blocks/src/about-section/about-section3.tsx"
       },
     ],
   },
