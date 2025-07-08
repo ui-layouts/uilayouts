@@ -427,7 +427,7 @@ export const apps = [
     name: 'Masking',
     onClick: () =>
       window.open(
-        'https://www.ui-layout.com/components/magnified-doc',
+        'https://www.ui-layouts.com/components/magnified-doc',
         '_blank',
         'noopener,noreferrer'
       ),
