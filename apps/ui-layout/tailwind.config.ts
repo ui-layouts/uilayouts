@@ -7,6 +7,9 @@ const config: Config = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './content/**/*.{md,mdx}',
     './registry/**/*.{js,ts,jsx,tsx}',
+    // Make sure these paths are included
+    '../../packages/ui/src/**/*.{js,ts,jsx,tsx}',
+    '../../packages/blocks/src/**/*.{js,ts,jsx,tsx}',
   ],
 
   darkMode: 'class',

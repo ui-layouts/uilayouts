@@ -19,7 +19,10 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@repo/ui": ["../../packages/ui/src"],
+      "@repo/blocks": ["../../packages/blocks/src"],
+      "@repo/blocks/assets/*": ["../../packages/blocks/assets/*"]
     },
     "typeRoots": ["./node_modules/@types", "./types"],
     "target": "ES2017"
@@ -30,7 +33,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "types/**/*.d.ts",
-    "lib/**/*"
-, "cli/src/index.js"  ],
+    "lib/**/*",
+    "cli/src/index.js"
+  ],
   "exclude": ["node_modules"]
 }

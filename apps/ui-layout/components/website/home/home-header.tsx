@@ -5,12 +5,13 @@ import { SearchDialog } from '@/components/website/searchbar';
 import GitHubButton from '@/registry/components/github-repo-btn';
 import MobileHeader from '../moibile-header';
 import ThemeSwitch from '../theme-switch';
+import { cn } from '@/lib/utils';
 
-function HomeHeader() {
+function HomeHeader({className}:{className?:string}) {
   return (
     <>
       <header className=' w-full fixed z-20 top-0  left-0 pt-1.5 xl:px-0 px-2 '>
-        <div className='lg:container  p-1 h-full relative mx-auto flex justify-between bg-primary-base  rounded-lg items-center  border '>
+        <div className={cn('p-1 h-full relative mx-auto flex justify-between bg-primary-base rounded-lg items-center border',className)}>
           <MobileHeader classname='xl:hidden block' />
 
           {/* <Image src="/logo.png" alt="logo" width={35} height={35} /> */}

@@ -34,7 +34,7 @@ export default function index() {
       subtitle: 'if you like it, please Share it with your friend ',
       date: '32.8.2024',
       src: 'https://images.unsplash.com/photo-1724908549265-06972c22ca37?q=80&w=2070&auto=format&fit=crop',
-      link: 'https://www.ui-layout.com/',
+      link: 'https://www.ui-layouts.com/',
     },
   ]);
 

@@ -5,7 +5,7 @@ import HomeHeader from '@/components/website/home/home-header';
 export default function Home() {
   return (
     <>
-      <HomeHeader />
+      <HomeHeader className='lg:container' />
       <main className='relative  pb-8'>
         <HeroSec />
         <HomeFooter />

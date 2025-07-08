@@ -2756,3 +2756,5 @@ export const AllComponents: IAllComponents[] = [
     tags: ['tabs', 'image', 'ui', 'gallery', 'design'],
   },
 ];
+
+
