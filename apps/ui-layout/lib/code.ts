@@ -14,14 +14,20 @@ export const extractCodeFromFilePath = (filePath: string) => {
   }
 };
 
-export const extractCodeFromPackages = (filePath: string) => {
-  try {
-    const absolutePath = path.join(REPO_ROOT, filePath);
-    console.log("Resolved path:", absolutePath)
-    return fs.readFileSync(absolutePath, 'utf-8');
-  } catch (e) {
-    console.error("Failed to load code file:", filePath, e);
-    return "// Code not found";
-  }
-};
 
+export const extractCodeFromPackages = (filePaths: string[] | string) => {
+  const paths = Array.isArray(filePaths) ? filePaths : [filePaths];
+console.log(paths);
+
+  return paths.map((filePath) => {
+    try {
+      const absolutePath = path.join(REPO_ROOT, filePath);
+      const code = fs.readFileSync(absolutePath, 'utf-8');
+      const name = path.basename(filePath);
+      return { id: name, name, code };
+    } catch (e) {
+      console.error("Failed to load code file:", filePath, e);
+      return { id: filePath, name: filePath, code: "// Code not found" };
+    }
+  });
+};

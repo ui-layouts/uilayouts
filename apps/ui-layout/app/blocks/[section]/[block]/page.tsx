@@ -34,10 +34,13 @@ export default async function DocPage(props: {
   const { section, block } = await props.params;
   const sectionData = blocksDesign.find((s) => s.id === section);
   const blockData = sectionData?.blocks?.find((b) => b.id === block);
-  const fileContent = extractCodeFromPackages(`${blockData?.filePath}`);
-
+  
   if (!blockData) return notFound();
 
+  const codeFiles = extractCodeFromPackages(blockData?.filePath);
+  console.log(codeFiles);
+  
+  const isMultiple = codeFiles.length > 1;
   return (
     <>
       <div className='container pt-16 pb-10 mx-auto relative min-h-screen' >
@@ -55,7 +58,22 @@ export default async function DocPage(props: {
           </TabsContent>
           <TabsContent value="code" className=' max-w-screen-xl mx-auto'>
             {/* Dynamically render the block component if needed */}
-             {<PreCoded codeblock={fileContent} />}
+          {isMultiple ? (
+            <Tabs defaultValue={codeFiles[0].id} className='mt-10'>
+              <TabsList className="mb-0 flex-wrap h-12 dark:bg-zinc-800 bg-zinc-50">
+                {codeFiles.map(({ id, name }) => (
+                  <TabsTrigger key={id} value={id} className='lowercase'>{name}</TabsTrigger>
+                ))}
+              </TabsList>
+              {codeFiles.map(({ id, code }) => (
+                <TabsContent className='p-0' key={id} value={id}>
+                  <PreCoded codeblock={code} classname='p-0' />
+                </TabsContent>
+              ))}
+            </Tabs>
+          ) : (
+            <PreCoded codeblock={codeFiles[0].code} />
+          )}
           </TabsContent>
         </Tabs>
       </div>
