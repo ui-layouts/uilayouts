@@ -21,7 +21,8 @@
     "paths": {
       "@/*": ["./*"],
       "@repo/ui": ["../../packages/ui/src"],
-      "@repo/ui/*": ["../../packages/ui/src/*"]
+      "@repo/blocks": ["../../packages/blocks/src"],
+      "@repo/blocks/assets/*": ["../../packages/blocks/assets/*"]
     },
     "typeRoots": ["./node_modules/@types", "./types"],
     "target": "ES2017"

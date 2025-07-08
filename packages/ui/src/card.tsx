@@ -1,3 +1,5 @@
+import { JSX } from "react";
+
 export function Card({
   className,
   title,

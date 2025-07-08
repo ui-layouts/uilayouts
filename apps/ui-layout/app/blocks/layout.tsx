@@ -9,7 +9,7 @@ export default async function BlocksLayout({
   return (
     <>
       <HomeHeader className='max-w-screen-xl' />
-      <main className='dark:bg-zinc-950 bg-zinc-50 '>{children}</main>
+      <main className='dark:bg-zinc-950 bg-zinc-50 not-prose'>{children}</main>
     </>
   );
 }

@@ -38,24 +38,9 @@ export const HeroSections1:React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+    <div className="min-h-screen">
       {/* Enhanced Navigation */}
-      <div className="max-w-7xl mx-auto px-6 py-8">
-        <motion.div 
-          className="mb-16 text-center"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent text-5xl font-bold mb-4">
-            <Sparkles className="w-8 h-8 text-yellow-500" />
-            Hero Sections
-          </div>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Eye-catching hero sections designed to captivate and convert your visitors with stunning animations
-          </p>
-        </motion.div>
-
+      <div className="px-6 py-8">
         <motion.div 
           className="space-y-20"
           variants={containerVariants}
@@ -65,6 +50,7 @@ export const HeroSections1:React.FC = () => {
           {/* Enhanced Split Layout Hero */}
           <motion.section 
             className="border rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500"
+            // @ts-ignore
             variants={itemVariants}
             whileHover={{ scale: 1.02 }}
           >
@@ -105,11 +91,11 @@ export const HeroSections1:React.FC = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.9 }}
                   >
-                    <button className="text-lg px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg hover:shadow-xl transition-all group">
+                    <button className="text-lg px-4 text-white flex items-center gap-2 py-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg hover:shadow-xl transition-all group">
                       Get Started Free
                       <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                     </button>
-                    <button className="text-lg px-8 py-4 border-2 hover:bg-gray-50 group">
+                    <button className="text-lg px-4 text-black flex items-center gap-2 py-2 border-2 hover:bg-gray-50 group">
                       <Play className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
                       Watch Demo
                     </button>
@@ -139,12 +125,13 @@ export const HeroSections1:React.FC = () => {
                 {/* Floating Elements */}
                 <motion.div 
                   className="absolute top-10 left-10 w-20 h-20 bg-white/10 rounded-full"
+                  // @ts-ignore
                   variants={floatingVariants}
                   animate="animate"
                 />
                 <motion.div 
                   className="absolute bottom-20 right-20 w-16 h-16 bg-white/10 rounded-full"
-                  variants={floatingVariants}
+                  // @ts-ignore
                   animate="animate"
                   transition={{ delay: 1 }}
                 />

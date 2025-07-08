@@ -199,6 +199,7 @@ const nextConfig = {
       ...config.resolve.alias,
       '@repo/ui': path.resolve(__dirname, '../../packages/ui/src'),
       '@repo/blocks': path.resolve(__dirname, '../../packages/blocks/src'),
+      '@repo/blocks/assets': path.resolve(__dirname, '../../packages/blocks/assets'),
     };
     return config;
   },

@@ -65,6 +65,7 @@ export const HeroSections4:React.FC = () => {
           {/* Enhanced Gradient Glassmorphism Hero */}
           <motion.section 
             className="border rounded-2xl overflow-hidden shadow-2xl"
+            // @ts-ignore
             variants={itemVariants}
           >
             <div className="bg-gradient-to-r from-indigo-50 to-pink-50 px-6 py-4 border-b">

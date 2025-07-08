@@ -65,6 +65,7 @@ export const HeroSections2:React.FC = () => {
           {/* Enhanced Image + Text Hero */}
           <motion.section 
             className="border rounded-2xl overflow-hidden shadow-2xl"
+            // @ts-ignore
             variants={itemVariants}
             whileHover={{ scale: 1.01 }}
           >

@@ -65,6 +65,7 @@ export const HeroSections3:React.FC = () => {
           {/* Enhanced Animated Headline Hero */}
           <motion.section 
             className="border rounded-2xl overflow-hidden shadow-2xl"
+            // @ts-ignore
             variants={itemVariants}
           >
             <div className="bg-gradient-to-r from-gray-50 to-slate-50 px-6 py-4 border-b">

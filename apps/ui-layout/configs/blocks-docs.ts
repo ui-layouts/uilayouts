@@ -2,6 +2,9 @@ import preview from '@/assets/preview/Preview';
 import { Card } from '@repo/ui';
 import React from 'react';
 import {HeroSections1, HeroSections2, HeroSections3, HeroSections4, AboutSections1, AboutSections2, AboutSections3} from "@repo/blocks"
+
+import {HeroSecImg1} from "@repo/blocks/assets/index"
+
 export const blocksDesign = [
   {
     id: "hero-section",
@@ -16,7 +19,7 @@ export const blocksDesign = [
         id: "hero-sec1",
         name: "Hero Section 1",
         des: "A modern hero section with call-to-action and image.",
-        imgSrc: preview.heroSec,
+        imgSrc: HeroSecImg1,
         tags: ["hero", "modern", "cta"],
         componentSrc:HeroSections1,
         filePath:"packages/blocks/src/hero-section/hero-section1.tsx"

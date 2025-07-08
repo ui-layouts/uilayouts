@@ -1,10 +1,14 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "@repo/typescript-config/react-library.json",
   "compilerOptions": {
-    "jsx": "preserve",
+    "outDir": "dist",
+    "jsx": "react-jsx",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
     "module": "esnext",
-    "target": "es6",
-    "allowJs": true,
+    "target": "es2020",
+    "allowJs": false,
     "esModuleInterop": true,
     "moduleResolution": "node",
     "isolatedModules": true,

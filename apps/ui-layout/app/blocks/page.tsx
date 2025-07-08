@@ -13,11 +13,11 @@ import {Card} from "@repo/ui"
 export default function Home() {
   return (
     <>
-      <HomeHeader className='max-w-screen-xl' />
-      <div className='pt-36 pb-5 max-w-screen-2xl mx-auto'>
-        <article className='w-fit mx-auto max-w-3xl text-center space-y-4'>
+      <HomeHeader className='max-w-screen-xl dark:bg-neutral-900 dark:border-neutral-800 bg-neutral-200 border-neutral-300' />
+      <div className='pt-36 pb-5 max-w-screen-2xl mx-auto min-h-screen'>
+        <article className='w-fit mx-auto max-w-4xl text-center space-y-4'>
           <h1 className='text-6xl leading-[100%]'>
-            Build Faster with Premium-Quality Blocks For Free
+            Build Faster with <span className='font-semibold bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent'>Premium</span> Quality <span className='font-semibold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent'>Blocks</span>  For Free. 
           </h1>
           <p className='text-xl max-w-2xl mx-auto'>
             Beautifully designed Sections that you can copy and paste into your
