@@ -4,6 +4,7 @@ import React from 'react';
 import {HeroSections1, HeroSections2, HeroSections3, HeroSections4, HeroSections5, HeroSections6} from "@repo/blocks"
 
 import {HeroSecImg1,HeroSecImg2} from "@repo/blocks/assets/index"
+import HeroSection from '../../../packages/blocks/src/hero-section/AnimateHero';
 
 export const blocksDesign = [
   {
@@ -71,6 +72,15 @@ export const blocksDesign = [
         tags: ["hero", "modern", "cta"],
         componentSrc:HeroSections6,
         filePath:["packages/blocks/src/hero-section/hero-section6.tsx"]
+      },
+      {
+        id: "animatehero1",
+        name: "Animate Hero ",
+        des: "A modern hero section with call-to-action and image.",
+        imgSrc: HeroSecImg2,
+        tags: ["hero", "modern", "cta"],
+        componentSrc:HeroSection,
+        filePath:["packages/blocks/src/hero-section/AnimateHero.tsx"]
       },
     ],
   },
