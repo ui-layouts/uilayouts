@@ -1,9 +1,10 @@
+import { Faq1Exp } from './../../../packages/blocks/src/faq-section/FAQ-1/Faq1Exp';
 import preview from '@/assets/preview/Preview';
 import { Card } from '@repo/ui';
 import React from 'react';
 import {AnimateHero1, HeroSections1, HeroSections2, HeroSections3, HeroSections4, HeroSections5, HeroSections6} from "@repo/blocks"
 
-import {HeroSecImg1,HeroSecImg2} from "@repo/blocks/assets/index"
+import {FaqImage1, HeroSecImg1,HeroSecImg2} from "@repo/blocks/assets/index"
 
 export const blocksDesign = [
   {
@@ -123,6 +124,27 @@ export const blocksDesign = [
         componentSrc:HeroSections3,
         filePath:["packages/blocks/src/about-section/about-section3.tsx"]
       },
+    ],
+  },
+  {
+    id: "faq-section",
+    name: "FAQ Section",
+    url: "/blocks/faq-section",
+    des: "Beautiful FAQ layouts to start your landing page.",
+    imgclass: "object-contain",
+    imgSrc: preview.faqs,
+    tags: ["FAQ", "landing", "above-the-fold"],
+    blocks: [
+      {
+        id: "faq-section",
+        name: "FAQ Section",
+        des: "A modern FAAQ section .",
+        imgSrc: FaqImage1,
+        tags:["FAQ", "modern", "above-the-fold"],
+        componentSrc:Faq1Exp,
+        filePath:["packages/blocks/src/faq-section/FAQ-1/faq1.tsx"]
+      }
+       
     ],
   },
 ];
