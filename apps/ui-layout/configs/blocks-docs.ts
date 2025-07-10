@@ -1,10 +1,9 @@
 import preview from '@/assets/preview/Preview';
 import { Card } from '@repo/ui';
 import React from 'react';
-import {HeroSections1, HeroSections2, HeroSections3, HeroSections4, HeroSections5, HeroSections6} from "@repo/blocks"
+import {AnimateHero1, HeroSections1, HeroSections2, HeroSections3, HeroSections4, HeroSections5, HeroSections6} from "@repo/blocks"
 
 import {HeroSecImg1,HeroSecImg2} from "@repo/blocks/assets/index"
-import HeroSection from '../../../packages/blocks/src/hero-section/AnimateHero';
 
 export const blocksDesign = [
   {
@@ -73,15 +72,19 @@ export const blocksDesign = [
         componentSrc:HeroSections6,
         filePath:["packages/blocks/src/hero-section/hero-section6.tsx"]
       },
+      
       {
         id: "animatehero1",
-        name: "Animate Hero ",
-        des: "A modern hero section with call-to-action and image.",
-        imgSrc: HeroSecImg2,
+        name: "Modern Animate Hero",
+        des: "A modern hero section with call-to-action.",
+        imgSrc: HeroSecImg1,
         tags: ["hero", "modern", "cta"],
-        componentSrc:HeroSection,
-        filePath:["packages/blocks/src/hero-section/AnimateHero.tsx"]
-      },
+        componentSrc:AnimateHero1,
+        filePath:[
+          "packages/blocks/src/hero-section/animate-hero1/index.tsx",
+          "packages/blocks/src/hero-section/animate-hero1/button.tsx"
+        ]
+      }
     ],
   },
   {
