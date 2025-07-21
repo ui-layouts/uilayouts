@@ -9,6 +9,27 @@ export const metadata = {
 
 ## Installation
 
+<Tabs defaultValue="cli">
+
+<TabsList className='border-b w-full bg-transparent dark:bg-transparent justify-start dark:bg-zinc-900 h-11'>
+  <TabsTrigger value='cli'>CLI</TabsTrigger>
+  <TabsTrigger value='manual'>Manual</TabsTrigger>
+</TabsList>
+
+  <TabsContent value="cli">
+   <CodeWithTabs>
+      ```js !!tabs ui-layouts
+      npx uilayouts@latest add framer-timeline
+      ```
+
+      ```tsx !!tabs shadcn
+      npx shadcn@latest add 'https://www.ui-layouts.com/r/framer-timeline.json'
+      ```
+
+   </CodeWithTabs>
+  </TabsContent>
+  
+<TabsContent value="manual">
 ```bash
 npm install motion @motionone/utils
 ```
@@ -37,7 +58,7 @@ export const TimelineContent = <T extends keyof HTMLElementTagNameMap = "div">({
   customVariants,
   once=false,
   ...props
-}: TimelineContentProps<T>) => {
+}: TimelineContentProps<TabsContent>) => {
   const defaultSequenceVariants = {
     visible: (i: number) => ({
       filter: "blur(0px)",
@@ -78,6 +99,8 @@ export const TimelineContent = <T extends keyof HTMLElementTagNameMap = "div">({
   )
 }
 ```
+</TabsContent>
+</Tabs>
 
 ## Props
 

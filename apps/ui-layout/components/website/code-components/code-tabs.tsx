@@ -14,7 +14,6 @@ const Schema = Block.extend({ tabs: z.array(CodeBlock) });
 
 export async function CodeWithTabs(props: unknown) {
   const { tabs } = parseProps(props, Schema);
-  console.log(tabs);
   return <CodeTabs tabs={tabs} />;
 }
 

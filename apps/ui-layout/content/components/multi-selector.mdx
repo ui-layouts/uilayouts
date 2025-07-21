@@ -12,8 +12,29 @@ export const metadata = {
 
 </ComponentCodePreview>
 
-## Usages
+## Installation
 
+<Tabs defaultValue="cli">
+
+<TabsList className='border-b w-full bg-transparent dark:bg-transparent justify-start dark:bg-zinc-900 h-11'>
+  <TabsTrigger value='cli'>CLI</TabsTrigger>
+  <TabsTrigger value='manual'>Manual</TabsTrigger>
+</TabsList>
+
+  <TabsContent value="cli">
+   <CodeWithTabs>
+      ```js !!tabs ui-layouts
+      npx uilayouts@latest add multi-selector
+      ```
+
+      ```tsx !!tabs shadcn
+      npx shadcn@latest add 'https://www.ui-layouts.com/r/multi-selector.json'
+      ```
+
+   </CodeWithTabs>
+  </TabsContent>
+  
+  <TabsContent value="manual">
 ```tsx
 'use client';
 import * as React from 'react';
@@ -361,6 +382,8 @@ export const MultiSelect = React.forwardRef<
 
 MultiSelect.displayName = 'MultiSelect';
 ```
+</TabsContent>
+</Tabs>
 
 ## Props
 

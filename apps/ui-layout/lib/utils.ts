@@ -53,6 +53,7 @@ export const siteConfig = {
   name: 'ui-layouts',
   url: 'https://ui-layouts.com',
   ogImage: 'https://www.ui-layouts.com/og.jpg',
+  workWithUsOgImage: 'https://www.ui-layouts.com/work-with-usog.jpg',
   description:
     'Beautifully designed components that you can copy and paste into your apps. Accessible. Customizable. Open Source.',
   links: {

@@ -57,9 +57,7 @@ export default function Dialog() {
   }, [carousel]);
   return (
     <div className='relative h-full'>
-      <MotionConfig 
-      // @ts-ignore
-      transition={transition}>
+      <MotionConfig transition={transition}>
         <motion.div
           ref={carousel}
           drag='x'

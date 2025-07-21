@@ -587,7 +587,7 @@ const appsDesign = [
 export default function Home() {
   return (
     <>
-      <div className='pt-24 pb-5'>
+      <div className='pt-4 pb-5'>
         <h1
           className={'sm:text-3xl text-2xl font-semibold tracking-tight pb-1'}
         >

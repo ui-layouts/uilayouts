@@ -222,7 +222,6 @@ const Footer = () => {
                   <>
                     <motion.path
                       custom={index}
-                      // @ts-ignore
                       variants={variants}
                       d={path}
                       fill='#3E7AEE'

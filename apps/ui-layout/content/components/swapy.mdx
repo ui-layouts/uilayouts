@@ -23,6 +23,28 @@ export const metadata = {
 
 ## Installation
 
+<Tabs defaultValue="cli">
+
+<TabsList className='border-b w-full bg-transparent dark:bg-transparent justify-start dark:bg-zinc-900 h-11'>
+  <TabsTrigger value='cli'>CLI</TabsTrigger>
+  <TabsTrigger value='manual'>Manual</TabsTrigger>
+</TabsList>
+
+  <TabsContent value="cli">
+   <CodeWithTabs>
+      ```js !!tabs ui-layouts
+      npx uilayouts@latest add swapy
+      ```
+
+      ```tsx !!tabs shadcn
+      npx shadcn@latest add 'https://www.ui-layouts.com/r/swapy.json'
+      ```
+
+   </CodeWithTabs>
+  </TabsContent>
+  
+  <TabsContent value="manual">
+
 ```bash
 npm install swapy
 ```
@@ -165,6 +187,8 @@ export const SwapyItem = ({
   );
 };
 ```
+</TabsContent>
+</Tabs>
 
 ## Structure
 

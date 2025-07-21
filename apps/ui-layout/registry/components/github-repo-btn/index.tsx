@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Github, Star } from 'lucide-react';
 import { Colors, Liquid } from '@/components/ui/liquid-gradient';
+import { useMediaQuery } from '@/hooks/use-media-query';
 
 type ColorKey =
   | 'color1'
@@ -43,13 +44,14 @@ const COLORS: Colors = {
 };
 const GitHubButton: React.FC = () => {
   const [isHovered, setIsHovered] = useState(false);
+  const isDesktop = useMediaQuery('(min-width: 1280px)');
 
   return (
     <div className='flex justify-center'>
       <a
         href='https://github.com/ui-layouts/uilayouts'
         target='_blank'
-        className='relative inline-block  sm:w-36 w-14 h-[2.7em] mx-auto group dark:bg-black bg-white dark:border-white border-black border-2 rounded-lg'
+        className='relative inline-block xl:w-36 w-12 h-[2.7em] mx-auto group dark:bg-black bg-white dark:border-white border-black border-2 rounded-lg'
       >
         <div className='absolute w-[112.81%] h-[128.57%] top-[8.57%] left-1/2 -translate-x-1/2 filter blur-[19px] opacity-70'>
           <span className='absolute inset-0 rounded-lg bg-[#d9d9d9] filter blur-[6.5px]'></span>
@@ -79,10 +81,11 @@ const GitHubButton: React.FC = () => {
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          <span className=' flex  items-center justify-between px-4 gap-2   rounded-lg group-hover:text-yellow-400 text-white text-xl font-semibold tracking-wide whitespace-nowrap'>
-            <Star className='group-hover:fill-yellow-400 fill-white w-6 h-6 flex-shrink-0 sm:inline-block hidden' />
-            <Github className='sm:hidden inline-block group-hover:fill-yellow-400 fill-white w-6 h-6 flex-shrink-0' />
-            <span className='sm:inline-block hidden'>Github</span>
+          <span className=' flex items-center xl:justify-between justify-center xl:px-4 px-2 gap-2 rounded-lg group-hover:text-yellow-400 text-white text-xl font-semibold tracking-wide whitespace-nowrap'>
+           
+            <Star className='group-hover:fill-yellow-400 fill-white w-6 h-6 flex-shrink-0 xl:inline-block hidden' />
+            <Github className='xl:hidden inline-block group-hover:fill-yellow-400 fill-white w-6 h-6 flex-shrink-0' />
+            <span className='xl:inline-block hidden'>Github</span>
           </span>
         </button>
       </a>
