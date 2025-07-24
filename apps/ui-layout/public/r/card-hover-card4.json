@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card-hover-card4",
+  "type": "registry:component",
+  "dependencies": [
+    "lucide-react",
+    "next",
+    "react"
+  ],
+  "files": [
+    {
+      "type": "registry:component",
+      "target": "components/card/hover-card4.tsx",
+      "content": "import React, { useState } from 'react';\nimport Image from 'next/image';\nimport {\n  ArrowBigDown,\n  ArrowRight,\n  ChevronRight,\n  ChevronsRight,\n  Heart,\n} from 'lucide-react';\n\nfunction index() {\n  return (\n    <>\n      <div className='w-[90%] relative mt-4  group mx-auto dark:bg-black  bg-white dark:border-0 border overflow-hidden rounded-md dark:text-white text-black '>\n        <figure className='w-full h-62 rounded-md  overflow-hidden'>\n          <Image\n            src={\n              'https://images.unsplash.com/photo-1565759732117-a48f0bedbbfd?q=80&w=1000&auto=format&fit=crop'\n            }\n            alt='shoes'\n            width={600}\n            height={600}\n            className='h-full w-full  scale-105 group-hover:scale-100 rounded-lg object-cover transition-all duration-300'\n          />\n        </figure>\n        <div className='p-4 space-y-1  transition-all duration-300 '>\n          <span className='text-sm'>9 des 2023</span>\n          <h1 className='text-lg font-medium capitalize '>\n            Learn why UI/UX Important and How Implement well in your site.\n          </h1>\n          <a\n            href='#'\n            className='bg-green-400 w-fit text-base dark:text-white rounded-md text-blue-600 font-normal p-2 flex justify-center '\n          >\n            Read Story\n            <span className='relative'>\n              <ChevronRight className='group-hover:opacity-0 opacity-100 translate-y-0 group-hover:translate-y-2 transition-all duration-300 ' />\n              <ChevronsRight className='absolute top-0 group-hover:opacity-100 opacity-0 translate-y-2 group-hover:translate-y-0 transition-all duration-300 ' />\n            </span>\n          </a>\n        </div>\n      </div>\n    </>\n  );\n}\n\nexport default index;\n",
+      "path": "registry/components/card/hover-card4.tsx"
+    }
+  ]
+}

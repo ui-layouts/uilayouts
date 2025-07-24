@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card-hover-card1",
+  "type": "registry:component",
+  "dependencies": [
+    "lucide-react",
+    "next",
+    "react"
+  ],
+  "files": [
+    {
+      "type": "registry:component",
+      "target": "components/card/hover-card1.tsx",
+      "content": "import React, { useState } from 'react';\nimport Image from 'next/image';\nimport { MoveUpRight } from 'lucide-react';\nfunction index() {\n  return (\n    <>\n      <article className={` relative pb-4  overflow-hidden`}>\n        <div className='w-full rounded-md h-full overflow-hidden'>\n          <Image\n            src={\n              'https://images.unsplash.com/photo-1726824766931-4bd8b59af37c?q=80&w=800&auto=format&fit=crop'\n            }\n            alt={'image'}\n            height={600}\n            width={1200}\n            className='h-full w-full object-cover rounded-xl hover:scale-100 scale-105 transition-all duration-300'\n          />\n        </div>\n        <div className='absolute bottom-2 text-black w-full p-4 flex justify-between items-center'>\n          <h3 className='sm:text-xl text-sm bg-black text-white rounded-xl p-2 px-4'>\n            Distrokings\n          </h3>\n\n          <button className='group relative inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-[#080918]   font-medium text-neutral-200 border-2 transition-all duration-300 hover:w-24'>\n            <div className='inline-flex whitespace-nowrap opacity-0 transition-all duration-200 group-hover:-translate-x-3 group-hover:opacity-100'>\n              Visit\n            </div>\n            <div className='absolute right-3'>\n              <MoveUpRight />\n            </div>\n          </button>\n        </div>\n      </article>\n    </>\n  );\n}\n\nexport default index;\n",
+      "path": "registry/components/card/hover-card1.tsx"
+    }
+  ]
+}

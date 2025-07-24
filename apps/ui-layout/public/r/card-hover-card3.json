@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card-hover-card3",
+  "type": "registry:component",
+  "dependencies": [
+    "lucide-react",
+    "next",
+    "react"
+  ],
+  "files": [
+    {
+      "type": "registry:component",
+      "target": "components/card/hover-card3.tsx",
+      "content": "import React, { useState } from 'react';\nimport Image from 'next/image';\nimport { ChevronsRight, Heart } from 'lucide-react';\n\nfunction index() {\n  return (\n    <>\n      <div className='w-[400px] relative mt-4 h-[450px] overflow-hidden group mx-auto dark:bg-black  bg-white dark:border-0 border rounded-md dark:text-white text-black flex flex-col'>\n        <div className='w-full h-full '>\n          <Image\n            src={\n              'https://images.unsplash.com/photo-1583071299210-c6c113f4ac91?q=80&w=800&auto=format&fit=crop'\n            }\n            alt='shoes'\n            width={600}\n            height={600}\n            className='h-full w-full  scale-105 group-hover:scale-100 object-cover transition-all duration-300 rounded-md'\n          />\n        </div>\n        <article className='p-8 w-full h-full overflow-hidden z-10  absolute top-0 flex flex-col justify-end rounded-md   bg-[#c34c32]  opacity-0 group-hover:opacity-100  transition-all duration-300'>\n          <div className='translate-y-10 group-hover:translate-y-0 transition-all duration-300 space-y-2'>\n            <h1 className='md:text-2xl font-semibold'>Who We are</h1>\n            <p className='sm:text-base text-sm'>\n              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad\n              consectetur ducimus vel nemo deserunt possimus inventore ipsum\n              nostrum. Sapiente, facilis?\n            </p>\n            <button className='p-2 bg-black flex rounded-md text-white'>\n              Learn More <ChevronsRight />\n            </button>\n          </div>\n        </article>\n        <article className='p-2 w-full h-[20%] flex flex-col justify-end  overflow-hidden  absolute bottom-0 rounded-b-md bg-gradient-to-t from-[#c34c32]  opacity-100 group-hover:opacity-0 group-hover:-bottom-4 transition-all duration-300'>\n          <h1 className='md:text-2xl font-semibold'>Naymur Rahman</h1>\n          <p className='sm:text-base text-sm'>CEO &amp; Design Engineer</p>\n        </article>\n      </div>\n    </>\n  );\n}\n\nexport default index;\n",
+      "path": "registry/components/card/hover-card3.tsx"
+    }
+  ]
+}
