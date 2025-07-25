@@ -387,14 +387,13 @@ function HomeFooter() {
           >
             {pathArr.map((path, index) => {
               return (
-                <>
                   <motion.path
                     custom={index}
+                    // @ts-ignore
                     variants={variants}
                     d={path}
                     fill='#4a5ef7'
                   />
-                </>
               );
             })}
           </motion.svg>
