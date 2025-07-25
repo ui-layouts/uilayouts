@@ -64,3 +64,9 @@ export const siteConfig = {
 };
 
 export type SiteConfig = typeof siteConfig;
+
+
+export const transition = {
+  type: 'spring',
+  duration: 0.4,
+} as const;

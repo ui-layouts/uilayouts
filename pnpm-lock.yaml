@@ -98,9 +98,6 @@ importers:
       '@radix-ui/react-tooltip':
         specifier: ^1.1.2
         version: 1.2.7(@types/react-dom@19.0.4(@types/react@19.0.12))(@types/react@19.0.12)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@repo/blocks':
-        specifier: workspace:*
-        version: link:../../packages/blocks
       '@repo/ui':
         specifier: workspace:*
         version: link:../../packages/ui

@@ -13,10 +13,8 @@ import Image from 'next/image';
 import preview from '@/assets/preview/Preview';
 import { Plus, X } from 'lucide-react';
 import { createPortal } from 'react-dom';
-const transition = {
-  type: 'spring',
-  duration: 0.5,
-};
+import { transition } from '@/lib/utils';
+
 function Gallery({ items, setIndex, setOpen, index }) {
   return (
     <motion.div

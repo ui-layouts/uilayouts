@@ -3,11 +3,8 @@ import { motion, AnimatePresence, MotionConfig } from 'motion/react';
 import { XIcon } from 'lucide-react';
 import React, { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
+import { transition } from '@/lib/utils';
 
-const transition = {
-  type: 'spring',
-  duration: 0.4,
-};
 export default function Dialog() {
   const [index, setIndex] = useState(5);
   const [isOpen, setIsOpen] = useState(false);
