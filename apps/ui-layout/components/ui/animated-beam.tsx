@@ -87,7 +87,7 @@ export const Icons = {
         height='67'
         rx='4'
         fill='black'
-        fill-opacity='0.4'
+        fillOpacity='0.4'
       />
       <rect x='20' y='20' width='65' height='67' rx='4' fill='black' />
     </svg>

@@ -5,7 +5,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 
 const transition = {
-  type: 'spring',
+  type: 'spring' as const,
   duration: 0.4,
 };
 export default function Dialog() {
