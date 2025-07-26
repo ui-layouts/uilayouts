@@ -10,7 +10,7 @@ import { cn } from '@/lib/utils';
 function HomeHeader({className}:{className?:string}) {
   return (
     <>
-      <header className=' w-full fixed z-20 top-0  left-0 pt-1.5 xl:px-0 px-2 '>
+      <header className=' w-full fixed z-50 top-0 left-0 pt-1.5 xl:px-0 px-2 '>
         <div className={cn('p-1 h-full relative mx-auto flex justify-between bg-primary-base rounded-lg items-center border',className)}>
           <MobileHeader classname='xl:hidden block' />
 
