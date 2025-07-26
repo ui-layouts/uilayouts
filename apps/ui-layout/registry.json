@@ -285,7 +285,170 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "./registry/components/globe/globe-demo.tsx",
+          "path": "./registry/components/Globe.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "swapy",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["swapy"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/swapy.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "liquid-glass",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/liquid-glass.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "liquid-glass-weather",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/liquid-glass/weather-liquid.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/liquid-glass.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "liquid-glass-mobile-icons",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/liquid-glass/mobile-icons-liquid.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/liquid-glass.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "liquid-glass-notification",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/liquid-glass/notification.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/liquid-glass.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "liquid-glass-sidebar-menu",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/liquid-glass/sidebar-menu.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/liquid-glass.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "blur-vignette",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/blur-vignette.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+
+    {
+      "name": "liquid-gradient",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/liquid-gradient.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+
+    {
+      "name": "slider",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["@number-flow/react", "@radix-ui/react-slider"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/slider.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+
+    {
+      "name": "tags-input",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/tags-input.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+
+    {
+      "name": "phone-input",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["lucide-react", "react-phone-number-input", "zod"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/phone-input.tsx",
           "type": "registry:component"
         },
         {

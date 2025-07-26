@@ -2,6 +2,10 @@ import React, { useEffect, useState } from 'react';
 
 const newComponent = [
   {
+    href: '/components/liquid-glass',
+    title: 'Liquid Glass',
+  },
+  {
     href: '/components/color-picker',
     title: 'Color Picker',
   },

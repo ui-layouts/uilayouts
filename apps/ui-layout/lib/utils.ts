@@ -4,6 +4,7 @@ import { twMerge } from 'tailwind-merge';
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
+
 export function absoluteUrl(path: string) {
   return `${process.env.NEXT_PUBLIC_CLIENT_URL}${path}`;
 }
@@ -64,3 +65,9 @@ export const siteConfig = {
 };
 
 export type SiteConfig = typeof siteConfig;
+
+
+export const transition = {
+  type: 'spring',
+  duration: 0.4,
+} as const;

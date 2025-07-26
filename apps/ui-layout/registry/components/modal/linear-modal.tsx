@@ -3,11 +3,8 @@ import { motion, AnimatePresence, MotionConfig } from 'motion/react';
 import { Plus, PlusIcon, XIcon } from 'lucide-react';
 import React, { useEffect, useId, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
+import { transition } from '@/lib/utils';
 
-const transition = {
-  type: 'spring' as const,
-  duration: 0.4,
-};
 export default function Dialog() {
   const [index, setIndex] = useState(5);
 
@@ -66,7 +63,10 @@ export default function Dialog() {
   }, [carousel]);
   return (
     <div className='relative h-full'>
-      <MotionConfig transition={transition}>
+      <MotionConfig
+        // @ts-ignore
+        transition={transition}
+      >
         <motion.div
           ref={carousel}
           drag='x'
