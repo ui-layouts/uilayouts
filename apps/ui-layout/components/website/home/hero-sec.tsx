@@ -27,15 +27,20 @@ import HomeBeam from './home-beam';
 import HomeRangeSlider from './home-range-slider';
 import HomeBuyMeCoffee from './home-buyme-coffe';
 import Link from 'next/link';
+import SidebarMenu from '@/registry/components/liquid-glass/sidebar-menu';
 const homeComponents = [
   {
-    id: 1,
-    link: '/components/linear-card',
-
-    componentSrc: <HomeAccordionModal />,
-
+    id: 111,
+    link: '/components/liquid-glass',
+    componentSrc: <SidebarMenu className='py-20 p-4' />,
     className: 'lg:col-span-4 sm:col-span-5 col-span-14  row-span-4',
   },
+  // {
+  //   id: 1,
+  //   link: '/components/linear-card',
+  //   componentSrc: <HomeAccordionModal />,
+  //   className: 'lg:col-span-4 sm:col-span-5 col-span-14  row-span-4',
+  // },
   {
     id: 2,
     link: '/components/image-mousetrail',
@@ -301,7 +306,7 @@ function HeroSec() {
   }, [activeDivs]);
   return (
     <>
-      <section className='min-h-screen sm:py-24 pb-24 pt-16 overflow-hidden  relative  '>
+      <section className='min-h-screen 2xl:py-16 xl:py-20 pb-24 pt-16 overflow-hidden  relative  '>
         <div className='absolute inset-0 -z-0 h-screen w-full  dark:bg-[radial-gradient(#1b1b1b_1px,transparent_1px)] bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]'></div>
         <div className='absolute inset-0 top-0 left-0  h-screen w-full items-center px-5 py-24  bg-gradient-to-t dark:from-black from-white from-0% to-transparent to-60%'></div>
         <div className='absolute inset-0 top-0 left-0  h-screen w-full items-center px-5 py-24 dark:[background:radial-gradient(87.03%_87.03%_at_50.05%_12.97%,rgba(217,217,217,0)_40%,#000000_100%)] [background:radial-gradient(87.03%_87.03%_at_50.05%_12.97%,rgba(217,217,217,0)_40%,#fafafa_100%)]'></div>

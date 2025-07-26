@@ -3,7 +3,6 @@
   "name": "ui-layout",
   "homepage": "https://www.ui-layouts.com",
   "items": [
-
     {
       "name": "btn-bg-shine",
       "type": "registry:component",
@@ -291,7 +290,6 @@
         }
       ]
     },
-
     {
       "name": "swapy",
       "type": "registry:component",
@@ -305,7 +303,87 @@
         }
       ]
     },
-
+    {
+      "name": "liquid-glass",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/liquid-glass.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "liquid-glass-weather",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/liquid-glass/weather-liquid.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/liquid-glass.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "liquid-glass-mobile-icons",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/liquid-glass/mobile-icons-liquid.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/liquid-glass.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "liquid-glass-notification",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/liquid-glass/notification.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/liquid-glass.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "liquid-glass-sidebar-menu",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/liquid-glass/sidebar-menu.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/liquid-glass.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
     {
       "name": "blur-vignette",
       "type": "registry:component",
