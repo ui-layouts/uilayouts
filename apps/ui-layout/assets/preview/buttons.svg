@@ -2,7 +2,7 @@
 <rect x="70" y="54" width="43" height="15" rx="1" fill="#3C4148"/>
 <rect x="122" y="132" width="42" height="13" rx="1" fill="#3C4148"/>
 <rect x="175" y="80" width="42" height="16" rx="1" fill="#3C4148"/>
-<rect x="17" y="30" width="44" height="13" rx="1" fill="#E2E2E2" fill-opacity="0.9"/>
+<rect x="17" y="30" width="44" height="13" rx="1" fill="#E2E2E2" fillOpacity="0.9"/>
 <rect x="70" y="30" width="43" height="15" rx="2" fill="#E2E2E2"/>
 <rect x="70" y="80" width="43" height="15" rx="2" fill="#E2E2E2"/>
 <rect x="70" y="105" width="43" height="16" rx="2" fill="#E2E2E2"/>

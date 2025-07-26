@@ -10,7 +10,7 @@ const article = {
     opacity: 1,
     y: 0,
     transition: {
-      type: 'spring',
+      type: 'spring' as const,
       stiffness: 100,
       delayChildren: 0.2,
       staggerChildren: 0.1, // Stagger duration for children

@@ -34,7 +34,7 @@ function NewItemsLoading() {
     <>
       {newComponent.map((item, index) => {
         return (
-          <>
+          <React.Fragment key={item.href + index}>
             {activeIndex === index && (
               <a
                 key={item.href}
@@ -65,7 +65,7 @@ function NewItemsLoading() {
                 </svg>
               </a>
             )}
-          </>
+          </React.Fragment>
         );
       })}
     </>
