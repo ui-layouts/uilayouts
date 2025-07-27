@@ -164,11 +164,11 @@ const GradientSvg: React.FC<GradientSvgProps> = ({
   const variants = {
     hovered: {
       gradientTransform: gradientTransform,
-      transition: { duration: 50, repeat: Infinity, ease: 'linear' },
+      transition: { duration: 50, repeat: Infinity, ease: 'linear' as const },
     },
     notHovered: {
       gradientTransform: gradientTransform,
-      transition: { duration: 10, repeat: Infinity, ease: 'linear' },
+      transition: { duration: 10, repeat: Infinity, ease: 'linear' as const},
     },
   };
 

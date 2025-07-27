@@ -33,8 +33,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "types/**/*.d.ts",
-    "lib/**/*",
-    "cli/src/index.js"
-  ],
+    "lib/**/*"
+, "cli/src/index.js"  ],
   "exclude": ["node_modules"]
 }

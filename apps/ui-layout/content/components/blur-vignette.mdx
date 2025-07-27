@@ -18,8 +18,29 @@ export const metadata = {
 
 <ComponentCodePreview name='blur-vignette-card' isFitheight />
 
-## Usage
+## Installation
 
+<Tabs defaultValue="cli">
+
+<TabsList className='border-b w-full bg-transparent dark:bg-transparent justify-start dark:bg-zinc-900 h-11'>
+  <TabsTrigger value='cli'>CLI</TabsTrigger>
+  <TabsTrigger value='manual'>Manual</TabsTrigger>
+</TabsList>
+
+  <TabsContent value="cli">
+   <CodeWithTabs>
+      ```js !!tabs ui-layouts
+      npx uilayouts@latest add blur-vignette
+      ```
+
+      ```tsx !!tabs shadcn
+      npx shadcn@latest add 'https://www.ui-layouts.com/r/blur-vignette.json'
+      ```
+
+   </CodeWithTabs>
+  </TabsContent>
+  
+  <TabsContent value="manual">
 ```tsx blur-vignette.tsx
 import React, { createContext, useContext } from 'react';
 import { cn } from '@/lib/utils';
@@ -144,6 +165,8 @@ export const BlurVignetteArticle: React.FC<BlurVignetteArticleProps> = ({
   }
 }
 ```
+</TabsContent>
+</Tabs>
 
 ## Props
 

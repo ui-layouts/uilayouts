@@ -39,7 +39,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     }: React.ComponentProps<typeof TabsContent>) => (
       <TabsContent className={cn('', className)} {...props} />
     ),
-    CodeWithTabs: ({...props}) => <CodeWithTabs {...props} />,
+    CodeWithTabs:CodeWithTabs,
     HoverContainer: HoverContainer,
     IframeTabCodePreview: ({...props}) => <IframeTabCodePreview {...props} />,
     TabCodePreview: ({...props}) => <TabCodePreview {...props} />,
