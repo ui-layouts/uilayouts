@@ -4,6 +4,38 @@
       "name": "Default",
       "componentArray": [
         {
+          "componentName": "liquid-glass-sidebar-menu",
+          "filesrc": "components/liquid-glass/sidebar-menu.tsx",
+          "iframeSrc": "live-components/liquid-glass-sidebar-menu",
+          "parentlink": "liquid-glass",
+          "parentName": "Liquid Glass",
+          "isNew": true
+        },
+        {
+          "componentName": "liquid-glass-mobile-icons",
+          "filesrc": "components/liquid-glass/mobile-icons-liquid.tsx",
+          "iframeSrc": "live-components/liquid-glass-mobile-icons",
+          "parentlink": "liquid-glass",
+          "parentName": "Liquid Glass",
+          "isNew": true
+        },
+        {
+          "componentName": "liquid-glass-weather",
+          "filesrc": "components/liquid-glass/weather-liquid.tsx",
+          "iframeSrc": "live-components/liquid-glass-weather",
+          "parentlink": "liquid-glass",
+          "parentName": "Liquid Glass",
+          "isNew": true
+        },
+        {
+          "componentName": "liquid-glass-notification",
+          "filesrc": "components/liquid-glass/notification.tsx",
+          "iframeSrc": "live-components/liquid-glass-notification",
+          "parentlink": "liquid-glass",
+          "parentName": "Liquid Glass",
+          "isNew": true
+        },
+        {
           "componentName": "drag-items",
           "filesrc": "components/drag/drag-items.tsx",
           "iframeSrc": "live-components/drag-items",
@@ -11,7 +43,6 @@
           "parentName": "Drag Items",
           "isNew": true
         },
-
         {
           "componentName": "card-globe",
           "iframelink": "card-globe",
@@ -839,7 +870,6 @@
       ],
       "type": "creative"
     },
-
     {
       "name": "Modal/Drawer",
       "componentArray": [

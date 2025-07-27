@@ -4,6 +4,7 @@ import { twMerge } from 'tailwind-merge';
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
+
 export function absoluteUrl(path: string) {
   return `${process.env.NEXT_PUBLIC_CLIENT_URL}${path}`;
 }
@@ -53,6 +54,7 @@ export const siteConfig = {
   name: 'ui-layouts',
   url: 'https://ui-layouts.com',
   ogImage: 'https://www.ui-layouts.com/og.jpg',
+  workWithUsOgImage: 'https://www.ui-layouts.com/work-with-usog.jpg',
   description:
     'Beautifully designed components that you can copy and paste into your apps. Accessible. Customizable. Open Source.',
   links: {
@@ -63,3 +65,9 @@ export const siteConfig = {
 };
 
 export type SiteConfig = typeof siteConfig;
+
+
+export const transition = {
+  type: 'spring',
+  duration: 0.4,
+} as const;

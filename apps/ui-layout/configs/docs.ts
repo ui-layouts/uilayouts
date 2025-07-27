@@ -2,6 +2,25 @@ import React from 'react';
 
 export const SpecialComponents = [
   {
+    href: '/components/liquid-glass',
+    name: 'Liquid-Glass',
+    new: true,
+    tags: [
+      'Liquid-Glass',
+      'liquid glass',
+      'liquid glass component',
+      'liquid glass card',
+      'liquid glass weather',
+      'liquid glass weather component',
+      'liquid glass notification',
+      'liquid glass notification component',
+      'liquid glass mobile icons',
+      'liquid glass mobile icons component',
+      'liquid glass sidebar menu',
+      'liquid glass sidebar menu component',
+    ],
+  },
+  {
     href: '/components/color-picker',
     name: 'Color Picker',
     tags: [],
@@ -55,6 +74,7 @@ export const SpecialComponents = [
   },
 ];
 export const MainComponents = [
+  
   {
     href: '/components/swapy',
     name: 'Swapy Drag',
@@ -842,6 +862,66 @@ interface IAllComponents {
 }
 
 export const AllComponents: IAllComponents[] = [
+  {
+    parentlink: 'liquid-glass',
+    componentName: 'liquid-glass-sidebar-menu',
+    iframeSrc: 'live-components/liquid-glass-sidebar-menu',
+    componentSrc: React.lazy(
+      () => import('@/registry/components/liquid-glass/sidebar-menu')
+    ),
+    tags: [
+      'liquid-glass',
+      'liquid glass',
+      'liquid glass component',
+      'reactjs liquid glass components',
+      'nextjs liquid glass components',
+    ],
+  },
+  {
+    parentlink: 'liquid-glass',
+    componentName: 'liquid-glass-mobile-icons',
+    iframeSrc: 'live-components/liquid-glass-mobile-icons',
+    componentSrc: React.lazy(
+      () => import('@/registry/components/liquid-glass/mobile-icons-liquid')
+    ),
+    tags: [
+      'liquid-glass',
+      'liquid glass',
+      'liquid glass component',
+      'reactjs liquid glass components',
+      'nextjs liquid glass components',
+    ],
+  },
+  {
+    parentlink: 'liquid-glass',
+    componentName: 'liquid-glass-weather',
+    iframeSrc: 'live-components/liquid-glass-weather',
+    componentSrc: React.lazy(
+      () => import('@/registry/components/liquid-glass/weather-liquid')
+    ),
+    tags: [
+      'liquid-glass',
+      'liquid glass',
+      'liquid glass component',
+      'reactjs liquid glass components',
+      'nextjs liquid glass components',
+    ],
+  },
+  {
+    parentlink: 'liquid-glass',
+    componentName: 'liquid-glass-notification',
+    iframeSrc: 'live-components/liquid-glass-notification',
+    componentSrc: React.lazy(
+      () => import('@/registry/components/liquid-glass/notification')
+    ),
+    tags: [
+      'liquid-glass',
+      'liquid glass',
+      'liquid glass component',
+      'reactjs liquid glass components',
+      'nextjs liquid glass components',
+    ],
+  },
   {
     parentlink: 'color-picker',
     componentName: 'default-color-picker',
@@ -2756,5 +2836,3 @@ export const AllComponents: IAllComponents[] = [
     tags: ['tabs', 'image', 'ui', 'gallery', 'design'],
   },
 ];
-
-
