@@ -6,12 +6,13 @@ import GitHubButton from '@/registry/components/github-repo-btn';
 import MobileHeader from '../moibile-header';
 import ThemeSwitch from '../theme-switch';
 import { PlasticButton } from '../ui/plastic-button';
+import { cn } from '@/lib/utils';
 
-function HomeHeader() {
+function HomeHeader({className}:{className?:string}) {
   return (
     <>
       <header className='w-full sticky z-50 top-1.5 mt-0 left-0 xl:px-0 px-2'>
-        <div className='max-w-7xl p-1 h-full relative mx-auto flex justify-between dark:bg-zinc-900/50 backdrop-blur-xl bg-zinc-100/50 rounded-lg items-center border dark:border-neutral-800'>
+        <div className={cn('max-w-7xl p-1 h-full relative mx-auto flex justify-between dark:bg-zinc-900/50 backdrop-blur-xl bg-zinc-100/50 rounded-lg items-center border dark:border-neutral-800',className)}>
           <MobileHeader classname='xl:hidden block' />
 
           {/* <Image src="/logo.png" alt="logo" width={35} height={35} /> */}
