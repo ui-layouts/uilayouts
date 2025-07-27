@@ -5,12 +5,12 @@ import { SearchDialog } from '@/components/website/searchbar';
 import GitHubButton from '@/registry/components/github-repo-btn';
 import MobileHeader from '../moibile-header';
 import ThemeSwitch from '../theme-switch';
-import { cn } from '@/lib/utils';
+import { PlasticButton } from '../ui/plastic-button';
 
-function HomeHeader({className}:{className?:string}) {
+function HomeHeader() {
   return (
     <>
-      <header className=' w-full fixed z-20 top-0  left-0 pt-1.5 xl:px-0 px-2 '>
+      <header className=' w-full fixed z-50 top-0 left-0 pt-1.5 xl:px-0 px-2 '>
         <div className={cn('p-1 h-full relative mx-auto flex justify-between bg-primary-base rounded-lg items-center border',className)}>
           <MobileHeader classname='xl:hidden block' />
 
@@ -38,12 +38,30 @@ function HomeHeader({className}:{className?:string}) {
               <path d='M271.328 22.7168V14.7492H287.328V22.7168H279.328V30.6844H263.328V22.7168H271.328ZM287.328 38.652H279.328V30.6844H287.328V38.652ZM279.328 38.652V46.6196H263.328V38.652H279.328Z' />
             </svg>
           </Link>
-          <div className='sm:flex hidden gap-2 items-center '>
-            <a href='https://tools.ui-layouts.com/' target='_blank' className='p-2 text-white bg-gradient-to-t from-blue-500 to-blue-800  inline-block font-semibold uppercase rounded-lg px-3 border dark:border-0 dark:shadow-[inset_0px_1px_0px_0px_rgba(255,255,255,0.15)]'>Tools <span className='text-xs font-normal inline-block -translate-y-2 text-blue-200 '>New</span></a>
-            <a href='https://cursify.vercel.app/' target='_blank' className='p-2 inline-block font-semibold uppercase text-primary/70 hover:text-primary dark:bg-black bg-white rounded-lg px-3 border dark:border-0 shadow-[inset_0px_1px_0px_0px_rgba(255,255,255,0.15)]'>Cursify</a>
-            <SearchDialog classname='md:w-72' />
-            <ThemeSwitch className='dark:bg-black bg-white border w-12 rounded-md h-11 flex-shrink-0' />
+          <div className='flex items-center gap-2'>
+            <div className='sm:flex hidden gap-2 items-center '>
+              <a
+                href='https://tools.ui-layouts.com/'
+                target='_blank'
+                className='p-2 text-white bg-gradient-to-t from-blue-500 to-blue-800  inline-block font-semibold uppercase rounded-lg px-3 border dark:border-0 dark:shadow-[inset_0px_1px_0px_0px_rgba(255,255,255,0.15)]'
+              >
+                Tools{' '}
+                <span className='text-xs font-normal inline-block -translate-y-2 text-blue-200 '>
+                  New
+                </span>
+              </a>
+              <a
+                href='https://cursify.vercel.app/'
+                target='_blank'
+                className='p-2 inline-block font-semibold uppercase text-primary/70 hover:text-primary dark:bg-black bg-white rounded-lg px-3 border dark:border-0 shadow-[inset_0px_1px_0px_0px_rgba(255,255,255,0.15)]'
+              >
+                Cursify
+              </a>
+              <SearchDialog classname='sm:w-32 xl:w-72' />
+              <ThemeSwitch className='dark:bg-black bg-white border w-12 rounded-md h-11 flex-shrink-0' />
+            </div>
             <GitHubButton />
+            <PlasticButton text='Work With Us' className='h-10 text-lg' />
           </div>
         </div>
       </header>

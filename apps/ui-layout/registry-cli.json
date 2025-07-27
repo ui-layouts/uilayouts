@@ -1,0 +1,822 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "ui-layout",
+  "homepage": "https://www.ui-layouts.com",
+  "items": [
+    {
+      "name": "btn-bg-shine",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/button/btn-bg-shine.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "btn-animated-gradient",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/button/btn-animated-gradient.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "button-active",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/button/btn-active.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "button-hover-right",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/button/btn-hover-right.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "btn-creative-right",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/button/btn-creative-right.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "btn-creative-top",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/button/btn-creative-top.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "btn-click-down",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/button/btn-click-down.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "btn-hover-down",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/button/btn-hover-down.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "btn-hover-multiple",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/button/btn-hover-multiple.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "btn-hover-underline",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/button/btn-hover-underline.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "btn-hover-top-flip",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/button/btn-hover-top-flip.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "btn-hover-left-flip",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/button/btn-hover-left-flip.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "btn-hover-top-slowflip",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/button/btn-hover-top-slowflip.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "btn-text-change",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/button/btn-text-change.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "btn-cross-arrow",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/button/btn-cross-arrow.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "btn-black-shadow",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/button/btn-black-shadow.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "btn-hover-outline",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/button/btn-hover-outline.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "btn-arrow-right",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/button/btn-arrow-right.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "btn-rotating-gradient",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/button/btn-rotating-gradient.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "color-picker",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/color-picker.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "noise-effect",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/noise-effect/section-noise.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+
+    {
+      "name": "globe",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["cobe"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/globe/globe.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+
+    {
+      "name": "swapy",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["swapy"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/swapy.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+
+    {
+      "name": "blur-vignette",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/blur-vignette.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+
+    {
+      "name": "liquid-gradient",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/liquid-gradient.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+
+    {
+      "name": "slider",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["@number-flow/react", "@radix-ui/react-slider"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/slider.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+
+    {
+      "name": "tags-input",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/tags-input.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+
+    {
+      "name": "phone-input",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["lucide-react", "react-phone-number-input", "zod"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/phone-input.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/ui/button.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/ui/command.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/ui/popover.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/ui/scroll-area.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+
+    {
+      "name": "dateTime-input",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["chrono-node", "react-day-picker", "lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/dateTime-input.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/ui/button.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/ui/calendar.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/ui/popover.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/ui/scroll-area.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+
+    {
+      "name": "multi-selector",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/website/ui/button.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/ui/popover.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/ui/command.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+
+    {
+      "name": "file-upload",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["react-dropzone", "sonner", "lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/file-upload.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+
+    {
+      "name": "spotlight",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/main-spotlight.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+
+    {
+      "name": "framer-timeline",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion", "@motionone/utils"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/framer-timeline.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+
+    {
+      "name": "scroll-element",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/scroll-element.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+
+    {
+      "name": "scroll-text",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion", "@motionone/utils"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/scroll-text.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+
+    {
+      "name": "text-marquee",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion", "@motionone/utils"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/scroll-text-marque.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+
+    {
+      "name": "randomized-text",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion", "@motionone/utils"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/text-randomized.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "mousetrail",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/mousetrail.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "default-mousetrail",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/mousetrail.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./registry/components/mousetrail/default-mousetrail.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "progress-carousel",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/progress-carousel.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "blocks",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/blocks.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "animated-beam",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/animated-beam.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/modal/dialog.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+
+    {
+      "name": "media-modal",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/modal/media-modal.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "linear-dialog",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/modal/dialog-card/linear-dialog.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "constant",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["codehike"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/website/constant.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./assets/icons/Icons.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./assets/preview/Preview.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+
+    {
+      "name": "drawer",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["vaul", "lucide-react", "motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/drawer/vaul-main.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sidebar",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["vaul", "lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/drawer/vaul-sidebar.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "tab",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/tab.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "image-tabs",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/image-tabs.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "tooltip-doc",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion", "@radix-ui/react-tooltip", "codehike"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/tooltip-doc.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/constant.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "carousel",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [
+        "embla-carousel",
+        "lucide-react",
+        "embla-carousel-class-names",
+        "embla-carousel-react",
+        "embla-carousel-autoplay",
+        "motion"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/carousel.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/constant.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+
+    {
+      "name": "accordion",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/accordion.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "marquee",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/marquee.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+
+    {
+      "name": "cursor-follow-text",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/cursor-follow-text.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "buy-me-coffee",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/buy-me-coffee.tsx",
+          "type": "registry:component"
+        }
+      ]
+    }
+  ]
+}

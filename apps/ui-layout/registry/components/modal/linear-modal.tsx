@@ -1,36 +1,33 @@
-'use client'
-import { motion, AnimatePresence, MotionConfig } from 'motion/react'
-import { Plus, PlusIcon, XIcon } from 'lucide-react'
-import React, { useEffect, useId, useRef, useState } from 'react'
-import { createPortal } from 'react-dom'
+'use client';
+import { motion, AnimatePresence, MotionConfig } from 'motion/react';
+import { Plus, PlusIcon, XIcon } from 'lucide-react';
+import React, { useEffect, useId, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
+import { transition } from '@/lib/utils';
 
-const transition = {
-  type: 'spring',
-  duration: 0.4,
-}
 export default function Dialog() {
-  const [index, setIndex] = useState(5)
+  const [index, setIndex] = useState(5);
 
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     if (isOpen) {
-      document.body.classList.add('overflow-hidden')
+      document.body.classList.add('overflow-hidden');
     } else {
-      document.body.classList.remove('overflow-hidden')
+      document.body.classList.remove('overflow-hidden');
     }
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
-        setIsOpen(false)
+        setIsOpen(false);
       }
-    }
+    };
 
-    document.addEventListener('keydown', handleKeyDown)
+    document.addEventListener('keydown', handleKeyDown);
     return () => {
-      document.removeEventListener('keydown', handleKeyDown)
-    }
-  }, [isOpen])
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOpen]);
 
   const items = [
     {
@@ -55,28 +52,29 @@ export default function Dialog() {
       description: `Transform your browsing experience with our mesmerizing Image Mouse Trail feature. As you move your cursor across the screen, watch in wonder as a trail of carefully curated images follows in its wake, creating a dynamic and engaging visual spectacle. This innovative feature goes beyond mere aesthetics; it's an interactive showcase of your content, products, or artwork. Each image in the trail can be clickable, leading to detailed views or related content, turning casual mouse movements into opportunities for discovery.`,
       tags: ['Pathway', 'Adventure', 'Peaks', 'Challenging', 'Breathtaking'],
     },
-  ]
-  const [carouselWidth, setCarouselWidth] = useState(0)
-  const carousel = useRef(null)
+  ];
+  const [carouselWidth, setCarouselWidth] = useState(0);
+  const carousel = useRef(null);
   useEffect(() => {
     setCarouselWidth(
       // @ts-ignore
       carousel.current.scrollWidth - carousel.current.offsetWidth
-    )
-  }, [carousel])
+    );
+  }, [carousel]);
   return (
-    <div className="relative h-full">
-      <MotionConfig 
-      // @ts-ignore
-      transition={transition}>
+    <div className='relative h-full'>
+      <MotionConfig
+        // @ts-ignore
+        transition={transition}
+      >
         <motion.div
           ref={carousel}
-          drag="x"
+          drag='x'
           dragElastic={0.2}
           dragConstraints={{ right: 0, left: -carouselWidth }}
           dragTransition={{ bounceDamping: 30 }}
           transition={{ duration: 8, ease: 'easeInOut' }}
-          className="flex w-full  gap-4   py-10"
+          className='flex w-full  gap-4   py-10'
         >
           {items.map((item, i) => {
             return (
@@ -84,29 +82,29 @@ export default function Dialog() {
                 <motion.div
                   //@ts-ignore
                   key={item}
-                  className="w-[250px] flex-shrink-0 flex relative  flex-col overflow-hidden border    dark:bg-black bg-gray-300 hover:bg-gray-200 dark:hover:bg-gray-950"
+                  className='w-[250px] flex-shrink-0 flex relative  flex-col overflow-hidden border    dark:bg-black bg-gray-300 hover:bg-gray-200 dark:hover:bg-gray-950'
                   layoutId={`dialog-${item?.id}`}
                   style={{
                     borderRadius: '12px',
                   }}
                   tabIndex={i}
                   onClick={() => {
-                    setIndex(i)
-                    setIsOpen(true)
+                    setIndex(i);
+                    setIsOpen(true);
                   }}
                 >
                   <motion.div layoutId={`dialog-img-${item.id}`}>
                     <img
                       src={item.url}
-                      alt="A desk lamp designed by Edouard Wilfrid Buquet in 1925. It features a double-arm design and is made from nickel-plated brass, aluminium and varnished wood."
-                      className=" w-96 object-cover"
+                      alt='A desk lamp designed by Edouard Wilfrid Buquet in 1925. It features a double-arm design and is made from nickel-plated brass, aluminium and varnished wood.'
+                      className=' w-96 object-cover'
                     />
                   </motion.div>
-                  <div className="flex flex-grow flex-row items-end justify-between p-2">
+                  <div className='flex flex-grow flex-row items-end justify-between p-2'>
                     <div>
                       <motion.div
                         layoutId={`dialog-title-${item.id}`}
-                        className="dark:text-white text-black"
+                        className='dark:text-white text-black'
                       >
                         {item.title}
                       </motion.div>
@@ -119,36 +117,36 @@ export default function Dialog() {
                       </motion.div> */}
                     </div>
 
-                    <button className="absolute bottom-2 right-2 p-2 dark:bg-gray-900 bg-gray-400 hover:bg-gray-500 rounded-full dark:hover:bg-gray-800">
-                      <Plus className="w-6 h-6" />
+                    <button className='absolute bottom-2 right-2 p-2 dark:bg-gray-900 bg-gray-400 hover:bg-gray-500 rounded-full dark:hover:bg-gray-800'>
+                      <Plus className='w-6 h-6' />
                     </button>
                   </div>
                 </motion.div>
               </>
-            )
+            );
           })}
         </motion.div>
         {/* {createPortal( */}
-        <AnimatePresence initial={false} mode="sync">
+        <AnimatePresence initial={false} mode='sync'>
           {isOpen && (
             <>
               <motion.div
                 key={`backdrop-${items[index].id}`}
-                className="fixed inset-0 h-full w-full dark:bg-black/25 bg-white/95 backdrop-blur-sm "
+                className='fixed inset-0 h-full w-full dark:bg-black/25 bg-white/95 backdrop-blur-sm '
                 variants={{ open: { opacity: 1 }, closed: { opacity: 0 } }}
-                initial="closed"
-                animate="open"
-                exit="closed"
+                initial='closed'
+                animate='open'
+                exit='closed'
                 onClick={() => {
-                  setIsOpen(false)
+                  setIsOpen(false);
                 }}
               />
               <motion.div
-                key="dialog"
-                className="pointer-events-none fixed inset-0 flex items-center justify-center z-50"
+                key='dialog'
+                className='pointer-events-none fixed inset-0 flex items-center justify-center z-50'
               >
                 <motion.div
-                  className="pointer-events-auto relative flex h-auto w-full flex-col overflow-hidden   dark:bg-gray-950 bg-gray-200 border sm:w-[500px] ]"
+                  className='pointer-events-auto relative flex h-auto w-full flex-col overflow-hidden   dark:bg-gray-950 bg-gray-200 border sm:w-[500px] ]'
                   layoutId={`dialog-${items[index].id}`}
                   tabIndex={-1}
                   style={{
@@ -158,14 +156,14 @@ export default function Dialog() {
                   <motion.div layoutId={`dialog-img-${items[index].id}`}>
                     <img
                       src={items[index].url}
-                      alt="A desk lamp designed by Edouard Wilfrid Buquet in 1925. It features a double-arm design and is made from nickel-plated brass, aluminium and varnished wood."
-                      className="h-full w-full"
+                      alt='A desk lamp designed by Edouard Wilfrid Buquet in 1925. It features a double-arm design and is made from nickel-plated brass, aluminium and varnished wood.'
+                      className='h-full w-full'
                     />
                   </motion.div>
-                  <div className="p-6">
+                  <div className='p-6'>
                     <motion.div
                       layoutId={`dialog-title-${items[index].id}`}
-                      className="text-2xl text-zinc-950 dark:text-zinc-50"
+                      className='text-2xl text-zinc-950 dark:text-zinc-50'
                     >
                       {items[index].title}
                     </motion.div>
@@ -180,19 +178,19 @@ export default function Dialog() {
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.8 }}
-                      className="origin-bottom"
+                      className='origin-bottom'
                       layoutId={`dialog-des-${items[index].id}`}
                     >
-                      <p className="mt-2 text-zinc-500 dark:text-zinc-500">
+                      <p className='mt-2 text-zinc-500 dark:text-zinc-500'>
                         {items[index].description}
                       </p>
                     </motion.div>
                   </div>
                   <button
                     onClick={() => setIsOpen(false)}
-                    className="absolute right-6 top-6 text-zinc-50 cursor-pointer"
-                    type="button"
-                    aria-label="Close dialog"
+                    className='absolute right-6 top-6 text-zinc-50 cursor-pointer'
+                    type='button'
+                    aria-label='Close dialog'
                   >
                     <XIcon size={24} />
                   </button>
@@ -206,5 +204,5 @@ export default function Dialog() {
         )} */}
       </MotionConfig>
     </div>
-  )
+  );
 }
