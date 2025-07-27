@@ -3,7 +3,29 @@
  import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
 
-const plans = {
+interface PlanItem {
+  title: string;
+  price: string;
+  subtitle: string;
+  gradient?: boolean;
+  tag?: string;
+  features: string[];
+}
+
+type BillingType = 'monthly' | 'yearly';
+
+interface Plans {
+  monthly: PlanItem[];
+  yearly: PlanItem[];
+}
+interface PricingCardProps extends Omit<PlanItem, 'features'> {
+  features: string[];
+}
+interface ToggleSwitchProps {
+  enabled: BillingType;
+  setEnabled: (value: BillingType) => void;
+}
+const plans:Plans  = {
   monthly: [
     {
       title: "Free",
@@ -50,7 +72,7 @@ const plans = {
   ],
 };
 
-const ToggleSwitch = ({ enabled, setEnabled }: any) => (
+const ToggleSwitch = ({ enabled, setEnabled }: ToggleSwitchProps) => (
   <div className="flex items-center justify-center gap-4 mb-12">
     <button
       onClick={() => setEnabled("monthly")}
@@ -71,7 +93,7 @@ const ToggleSwitch = ({ enabled, setEnabled }: any) => (
   </div>
 );
 
-const PricingCard = ({ title, price, subtitle, gradient, tag, features }: any) => (
+const PricingCard = ({ title, price, subtitle, gradient, tag, features }: PricingCardProps) => (
   <motion.div
     initial={{ opacity: 0, y: 30 }}
     animate={{ opacity: 1, y: 0 }}
@@ -115,7 +137,7 @@ const PricingCard = ({ title, price, subtitle, gradient, tag, features }: any) =
 );
 
 const PricingSection = () => {
-  const [billing, setBilling] = useState("yearly");
+  const [billing, setBilling] = useState<BillingType>("yearly");
 
   return (
     <section className="py-24 px-6 sm:px-8 lg:px-16 bg-gray-50 dark:bg-black relative overflow-hidden">
@@ -133,7 +155,7 @@ const PricingSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <AnimatePresence mode="wait">
-            {plans[billing].map((plan, index) => (
+            {plans[billing].map((plan: any, index: any) => (
               <PricingCard key={index} {...plan} />
             ))}
           </AnimatePresence>

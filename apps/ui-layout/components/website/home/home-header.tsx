@@ -10,8 +10,8 @@ import { PlasticButton } from '../ui/plastic-button';
 function HomeHeader() {
   return (
     <>
-      <header className=' w-full fixed z-50 top-0 left-0 pt-1.5 xl:px-0 px-2 '>
-        <div className={cn('p-1 h-full relative mx-auto flex justify-between bg-primary-base rounded-lg items-center border',className)}>
+      <header className='w-full sticky z-50 top-1.5 mt-0 left-0 xl:px-0 px-2'>
+        <div className='max-w-7xl p-1 h-full relative mx-auto flex justify-between dark:bg-zinc-900/50 backdrop-blur-xl bg-zinc-100/50 rounded-lg items-center border dark:border-neutral-800'>
           <MobileHeader classname='xl:hidden block' />
 
           {/* <Image src="/logo.png" alt="logo" width={35} height={35} /> */}
