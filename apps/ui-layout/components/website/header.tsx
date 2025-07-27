@@ -10,14 +10,12 @@ import ThemeSwitch from './theme-switch';
 import GitHubButton from '@/registry/components/github-repo-btn';
 import MainComponentsDownloader from './downloadallarray';
 import { PlasticButton } from './ui/plastic-button';
-import { Banner } from './ui/banner';
-// import MobileHeader from './moibile-header'
 
 function Header() {
   return (
     <>
       <header className='sticky left-0 top-1 z-20 w-full dark:bg-zinc-950 bg-primary-foreground'>
-        <div className='mx-auto flex items-center justify-between gap-2 border px-2 rounded-lg 2xl:container xl:w-[96%] lg:w-[98%] w-[98%] dark:bg-black/30 bg-zinc-100/30 py-2 backdrop-blur-lg'>
+        <div className='mx-auto flex items-center justify-between gap-2 border px-2 rounded-lg 2xl:container xl:w-[96%] lg:w-[98%] w-[98%] dark:bg-black/30 bg-zinc-100/30 py-2 backdrop-blur-sm'>
           <Link href='/' className='hidden lg:block'>
             <div className='relative hidden gap-2 pl-0.5 lg:flex'>
               <svg

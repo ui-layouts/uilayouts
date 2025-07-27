@@ -197,7 +197,7 @@ export const PricingSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <AnimatePresence mode="wait">
-            {plans[billing].map((plan, index) => (
+            {plans[billing].map((plan: any, index: any) => (
               <PricingCard key={index} {...plan} />
             ))}
           </AnimatePresence>

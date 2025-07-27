@@ -98,6 +98,9 @@ importers:
       '@radix-ui/react-tooltip':
         specifier: ^1.1.2
         version: 1.2.7(@types/react-dom@19.0.4(@types/react@19.0.12))(@types/react@19.0.12)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@repo/blocks':
+        specifier: workspace:*
+        version: link:../../packages/blocks
       '@repo/ui':
         specifier: workspace:*
         version: link:../../packages/ui
@@ -312,6 +315,9 @@ importers:
       picocolors:
         specifier: ^1.1.1
         version: 1.1.1
+      prettier:
+        specifier: ^3.6.1
+        version: 3.6.2
       typescript:
         specifier: ^5.8.3
         version: 5.8.3
