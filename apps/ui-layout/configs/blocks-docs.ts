@@ -10,10 +10,11 @@ import {
   HeroSections4,
   HeroSections5,
   HeroSections6,
+  PricingSection2,
 } from '@repo/blocks';
 
 import { FaqImage1, HeroSecImg1, HeroSecImg2 } from '@repo/blocks/assets/index';
-import PricingSections1 from '../../../packages/blocks/src/pricing-section/Pricing-sections1';
+import { PricingSection } from '../../../packages/blocks/src/pricing-section/Pricing-sections1';
 
 export const blocksDesign = [
   {
@@ -170,8 +171,20 @@ export const blocksDesign = [
         des: 'A modern pricing section .',
         imgSrc: preview.coffee,
         tags: ['pricing', 'modern', 'above-the-fold'],
-        componentSrc: PricingSections1,
+        componentSrc: PricingSection,
         filePath: ['packages/blocks/src/pricing-section/Pricing-sections1.tsx'],
+      },
+      {
+        id: 'pricing-section2',
+        name: 'Pricing Section 2',
+        des: 'A modern pricing section .',
+        imgSrc: preview.dragitems,
+        tags: ['pricing', 'modern', 'above-the-fold'],
+        componentSrc: PricingSection2,
+        filePath: [
+          'packages/blocks/src/pricing-section/Pricing-section2/index.tsx',
+          'packages/blocks/src/pricing-section/Pricing-section2/PlanCards.tsx',
+        ],
       },
     ],
   },
