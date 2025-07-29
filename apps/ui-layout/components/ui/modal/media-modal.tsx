@@ -1,19 +1,16 @@
-// @ts-nocheck
 'use client';
 import React, { useEffect, useId, useState } from 'react';
 import { AnimatePresence, motion, MotionConfig } from 'motion/react';
 import { useMediaQuery } from '@/hooks/use-media-query';
 import { XIcon } from 'lucide-react';
+import { transition } from '@/lib/utils';
 
 interface IMediaModal {
   imgSrc?: string;
   videoSrc?: string;
   className?: string;
 }
-const transition = {
-  type: 'spring',
-  duration: 0.4,
-};
+
 export function MediaModal({ imgSrc, videoSrc, className }: IMediaModal) {
   const [isMediaModalOpen, setIsMediaModalOpen] = useState(false);
   const isDesktop = useMediaQuery('(min-width:768px)');

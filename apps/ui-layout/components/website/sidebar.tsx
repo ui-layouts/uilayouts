@@ -38,7 +38,6 @@ export const basePath = [
 
 function DocsSidebar() {
   const pathname = usePathname();
-  const { setTheme } = useTheme();
   const isDesktop = useMediaQuery('(min-width: 992px)');
 
   const { addVisitedPage, getRecentPages, removeAllRecentPages } =
@@ -73,7 +72,7 @@ function DocsSidebar() {
     <>
       {isDesktop && (
         <aside className='h-full'>
-          <div className='sticky top-0 h-screen w-full pt-[5.2em]'>
+          <div className='sticky top-16 h-screen w-full pt-3'>
             <ScrollArea className='h-[98%] px-3 py-3 dark:bg-black/40 bg-zinc-100 backdrop-blur-md rounded-md border'>
               <ul className='pb-1'>
                 {basePath?.map((link, index) => (

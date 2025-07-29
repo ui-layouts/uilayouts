@@ -28,7 +28,7 @@ const Footer = () => {
     visible: (i: any) => ({
       translateY: 0,
       transition: {
-        type: 'spring',
+        type: 'spring' as const,
         stiffness: 100,
         damping: 12,
         duration: 0.4,
