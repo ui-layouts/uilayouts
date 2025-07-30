@@ -14,6 +14,7 @@ import {
 
 import { FaqImage1, HeroSecImg1, HeroSecImg2 } from '@repo/blocks/assets/index';
 import PricingSections1 from '../../../packages/blocks/src/pricing-section/Pricing-sections1';
+import NewsletterSection1 from '../../../packages/blocks/src/newsletter-section/newsletter1';
 
 export const blocksDesign = [
   {
@@ -172,6 +173,26 @@ export const blocksDesign = [
         tags: ['pricing', 'modern', 'above-the-fold'],
         componentSrc: PricingSections1,
         filePath: ['packages/blocks/src/pricing-section/Pricing-sections1.tsx'],
+      },
+    ],
+  },
+  {
+    id: 'newsletter-section',
+    name: 'Newsletter Section',
+    url: '/blocks/newsletter-section',
+    des: 'Beautiful Newsletter layouts to start your landing page.',
+    imgclass: 'object-contain',
+    imgSrc: preview.modal,
+    tags: ['newsletter', 'landing', 'above-the-fold'],
+    blocks: [
+      {
+        id: 'newsletter-section1',
+        name: ' Centered Card Newslatter Section',
+        des: 'A modern Centered Card Newslatter Section .',
+        imgSrc: preview.card,
+        tags: ['Centered Card Newslatter Section', 'modern', 'above-the-fold'],
+        componentSrc: NewsletterSection1,
+        filePath: ['packages/blocks/src/newsletter-section/newsletter1.tsx'],
       },
     ],
   },
