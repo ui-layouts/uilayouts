@@ -2,6 +2,10 @@ import React, { useEffect, useState } from 'react';
 
 const newComponent = [
   {
+    href: '/components/liquid-glass',
+    title: 'Liquid Glass',
+  },
+  {
     href: '/components/color-picker',
     title: 'Color Picker',
   },
@@ -30,7 +34,7 @@ function NewItemsLoading() {
     <>
       {newComponent.map((item, index) => {
         return (
-          <>
+          <React.Fragment key={item.href + index}>
             {activeIndex === index && (
               <a
                 key={item.href}
@@ -61,7 +65,7 @@ function NewItemsLoading() {
                 </svg>
               </a>
             )}
-          </>
+          </React.Fragment>
         );
       })}
     </>

@@ -37,9 +37,31 @@ export default index;
 
 ## Installation
 
+<Tabs defaultValue="cli">
+
+<TabsList className='border-b w-full bg-transparent dark:bg-transparent justify-start dark:bg-zinc-900 h-11'>
+  <TabsTrigger value='cli'>CLI</TabsTrigger>
+  <TabsTrigger value='manual'>Manual</TabsTrigger>
+</TabsList>
+
+  <TabsContent value="cli">
+   <CodeWithTabs>
+      ```js !!tabs ui-layouts
+      npx uilayouts@latest add globe
+      ```
+
+      ```tsx !!tabs shadcn
+      npx shadcn@latest add 'https://www.ui-layouts.com/r/globe.json'
+      ```
+
+   </CodeWithTabs>
+  </TabsContent>
+  
+  <TabsContent value="manual">
 ```bash
 npm install cobe
 ```
+
 
 ```tsx globe.tsx
 'use client';
@@ -72,13 +94,13 @@ const Earth: React.FC<EarthProps> = ({
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  useEffect(() => {
-    let width = 0;
-    const onResize = () =>
-      canvasRef.current && (width = canvasRef.current.offsetWidth);
-    window.addEventListener('resize', onResize);
-    onResize();
-    let phi = 0;
+useEffect(() => {
+let width = 0;
+const onResize = () =>
+canvasRef.current && (width = canvasRef.current.offsetWidth);
+window.addEventListener('resize', onResize);
+onResize();
+let phi = 0;
 
     onResize();
     const globe = createGlobe(canvasRef.current!, {
@@ -111,30 +133,32 @@ const Earth: React.FC<EarthProps> = ({
     return () => {
       globe.destroy();
     };
-  }, []);
 
-  return (
-    <div
-      className={cn(
-        'flex items-center justify-center z-[10] w-full max-w-[350px] mx-auto',
-        className
-      )}
-    >
-      <canvas
-        ref={canvasRef}
-        style={{
+}, []);
+
+return (
+<div
+className={cn(
+'flex items-center justify-center z-[10] w-full max-w-[350px] mx-auto',
+className
+)} >
+<canvas
+ref={canvasRef}
+style={{
           width: '100%',
           height: '100%',
           maxWidth: '100%',
           aspectRatio: '1',
         }}
-      />
-    </div>
-  );
+/>
+</div>
+);
 };
 
 export default Earth;
 ```
+</TabsContent>
+</Tabs>
 
 ## Props
 

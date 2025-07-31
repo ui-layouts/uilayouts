@@ -1,20 +1,14 @@
 'use client';
-import { useState } from 'react';
-import { motion } from 'motion/react';
 import Link from 'next/link';
 import * as AspectRatio from '@radix-ui/react-aspect-ratio';
 import Image from 'next/image';
-import preview from '@/assets/preview/Preview';
 import { cn } from '@/lib/utils';
 import Footer from '@/components/website/footer';
-import HomeHeader from '@/components/website/home/home-header';
 import { blocksDesign } from '@/configs/blocks-docs';
-import {Card} from "@repo/ui"
 export default function Home() {
   return (
     <>
-      <HomeHeader className='max-w-screen-xl dark:bg-neutral-900 dark:border-neutral-800 bg-neutral-200 border-neutral-300' />
-      <div className='pt-36 pb-5 max-w-screen-2xl mx-auto min-h-screen'>
+      <div className='pt-28 pb-5 max-w-screen-2xl mx-auto min-h-screen'>
         <article className='w-fit mx-auto max-w-4xl text-center space-y-4'>
           <h1 className='text-6xl leading-[100%]'>
             Build Faster with <span className='font-semibold bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent'>Premium</span> Quality <span className='font-semibold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent'>Blocks</span>  For Free. 

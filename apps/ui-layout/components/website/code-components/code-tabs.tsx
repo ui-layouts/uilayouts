@@ -14,7 +14,6 @@ const Schema = Block.extend({ tabs: z.array(CodeBlock) });
 
 export async function CodeWithTabs(props: unknown) {
   const { tabs } = parseProps(props, Schema);
-  console.log(tabs);
   return <CodeTabs tabs={tabs} />;
 }
 
@@ -71,9 +70,9 @@ export async function CodeTabs(props: { tabs: RawCode[] }) {
                     x2='128'
                     y2='208'
                     stroke='currentColor'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                    stroke-width='32'
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    strokeWidth='32'
                   ></line>
                   <line
                     x1='192'
@@ -81,9 +80,9 @@ export async function CodeTabs(props: { tabs: RawCode[] }) {
                     x2='40'
                     y2='192'
                     stroke='currentColor'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                    stroke-width='32'
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    strokeWidth='32'
                   ></line>
                 </svg>
                 {tab.meta}
