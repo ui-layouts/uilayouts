@@ -27,15 +27,20 @@ import HomeBeam from './home-beam';
 import HomeRangeSlider from './home-range-slider';
 import HomeBuyMeCoffee from './home-buyme-coffe';
 import Link from 'next/link';
+import SidebarMenu from '@/registry/components/liquid-glass/sidebar-menu';
 const homeComponents = [
   {
-    id: 1,
-    link: '/components/linear-card',
-
-    componentSrc: <HomeAccordionModal />,
-
+    id: 111,
+    link: '/components/liquid-glass',
+    componentSrc: <SidebarMenu className='py-20 p-4' />,
     className: 'lg:col-span-4 sm:col-span-5 col-span-14  row-span-4',
   },
+  // {
+  //   id: 1,
+  //   link: '/components/linear-card',
+  //   componentSrc: <HomeAccordionModal />,
+  //   className: 'lg:col-span-4 sm:col-span-5 col-span-14  row-span-4',
+  // },
   {
     id: 2,
     link: '/components/image-mousetrail',
@@ -301,7 +306,7 @@ function HeroSec() {
   }, [activeDivs]);
   return (
     <>
-      <section className='min-h-screen sm:py-24 pb-24 pt-16 overflow-hidden  relative  '>
+      <section className='min-h-screen 2xl:py-16 xl:py-20 pb-24 pt-16 overflow-hidden  relative  '>
         <div className='absolute inset-0 -z-0 h-screen w-full  dark:bg-[radial-gradient(#1b1b1b_1px,transparent_1px)] bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]'></div>
         <div className='absolute inset-0 top-0 left-0  h-screen w-full items-center px-5 py-24  bg-gradient-to-t dark:from-black from-white from-0% to-transparent to-60%'></div>
         <div className='absolute inset-0 top-0 left-0  h-screen w-full items-center px-5 py-24 dark:[background:radial-gradient(87.03%_87.03%_at_50.05%_12.97%,rgba(217,217,217,0)_40%,#000000_100%)] [background:radial-gradient(87.03%_87.03%_at_50.05%_12.97%,rgba(217,217,217,0)_40%,#fafafa_100%)]'></div>
@@ -309,7 +314,7 @@ function HeroSec() {
         <div className='lg:container xl:px-0 px-3 mx-auto  gap-2'>
           <article className='grid gap-4 pt-20 relative z-10 xl:pb-0 pb-2 sm:px-0 px-4'>
             <NewItemsLoading />
-            <h1 className='  2xl:text-7xl xl:text-6xl md:text-6xl sm:text-5xl text-[1.7rem] sm:leading-normal leading-[100%] text-center font-semibold '>
+            <h1 className='2xl:text-7xl xl:text-6xl md:text-6xl sm:text-5xl text-[1.7rem] xl:leading-normal leading-[100%] text-center font-semibold '>
               <span className=''>The Components Your</span> <br />
               <span className=' bg-background mt-3 relative rounded-md  w-fit inline-block px-1.5 py-0.5 border  before:absolute before:top-0 before:left-0 before:w-full before:h-full before:content-[""] before:opacity-[0.09] before:z-10 before:pointer-events-none before:bg-[url("/noise.gif")]'>
                 <span className='bg-gradient-to-t     from-[#a2b6fa] to-[#334cec] bg-clip-text text-transparent  '>
@@ -367,9 +372,9 @@ function HeroSec() {
                     className='h-5 w-5 text-amber-300'
                   >
                     <path
-                      fill-rule='evenodd'
+                      fillRule='evenodd'
                       d='M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z'
-                      clip-rule='evenodd'
+                      clipRule='evenodd'
                     ></path>
                   </svg>
                   <svg
@@ -381,9 +386,9 @@ function HeroSec() {
                     className='h-5 w-5 text-amber-300'
                   >
                     <path
-                      fill-rule='evenodd'
+                      fillRule='evenodd'
                       d='M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z'
-                      clip-rule='evenodd'
+                      clipRule='evenodd'
                     ></path>
                   </svg>
                   <svg
@@ -395,9 +400,9 @@ function HeroSec() {
                     className='h-5 w-5 text-amber-300'
                   >
                     <path
-                      fill-rule='evenodd'
+                      fillRule='evenodd'
                       d='M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z'
-                      clip-rule='evenodd'
+                      clipRule='evenodd'
                     ></path>
                   </svg>
                   <svg
@@ -409,9 +414,9 @@ function HeroSec() {
                     className='h-5 w-5 text-amber-300'
                   >
                     <path
-                      fill-rule='evenodd'
+                      fillRule='evenodd'
                       d='M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z'
-                      clip-rule='evenodd'
+                      clipRule='evenodd'
                     ></path>
                   </svg>
                   <svg
@@ -423,9 +428,9 @@ function HeroSec() {
                     className='h-5 w-5 text-amber-300'
                   >
                     <path
-                      fill-rule='evenodd'
+                      fillRule='evenodd'
                       d='M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z'
-                      clip-rule='evenodd'
+                      clipRule='evenodd'
                     ></path>
                   </svg>
                 </div>
@@ -467,6 +472,83 @@ function HeroSec() {
                 </div>
               );
             })}
+            <div className='xl:col-span-6 sm:col-span-5 px-4 sm:h-full h-44 col-span-14 text-center w-full rounded-lg bg-white shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:bg-zinc-900 dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] flex items-center justify-center text-primary/80 font-medium xl:text-3xl text-xl'>
+              More components coming soon...
+            </div>
+            <div className='xl:col-span-8 sm:col-span-9 col-span-14 h-full w-full rounded-lg bg-white shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:bg-zinc-900 dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] px-5'>
+              <div className='w-full mx-auto py-10'>
+                <div className='w-full dark:bg-zinc-950 bg-zinc-50 border rounded-3xl relative'>
+                  <div className='flex lg:flex-row flex-col lg:items-center lg:justify-between lg:gap-0 gap-4 py-6 px-4'>
+                    <div className='flex items-center gap-0'>
+                      {/* Left side - Avatar and You label */}
+                      <div className='flex items-center gap-3'>
+                        <div className='relative'>
+                          <img
+                            className='h-12 w-12 rounded-full border border-gray-800'
+                            src='/ethansprite.png'
+                            alt='Founder'
+                          />
+                          <div className='h-10 w-10 rounded-full absolute bottom-1 -right-4 grid place-items-center bg-purple-100 text-blue-600 border border-blue-300 text-xs px-2 py-0.5 font-medium'>
+                            You
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Center - Content */}
+                      <div className='flex-1 pl-7'>
+                        <h3 className='font-librecaslon text-xl font-medium text-pirmary mb-1'>
+                          Got a Project?
+                        </h3>
+                        <p className='text-primary/90 text-sm font-medium'>
+                          Book a free discovery call with{' '}
+                          <span className='text-blue-600 text-shadow-lg dark:text-shadow-none text-sh'>
+                            Ethan.
+                          </span>
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Right side - Action buttons */}
+                    <div className='flex items-center gap-2 shrink-0'>
+                      <a
+                        href='mailto:naymur@ui-layouts.com'
+                        className='flex items-center bg-zinc-900 text-white border shadow-none h-14 rounded-full px-5'
+                      >
+                        Email us
+                      </a>
+                      <a
+                        href='https://cal.com/ethankd'
+                        target='_blank'
+                        className='flex items-center bg-blue-600 hover:bg-blue-700 text-white h-14 rounded-full px-6 gap-2'
+                      >
+                        Book a free call
+                        <span className='relative flex size-3'>
+                          <span className='absolute inline-flex h-full w-full animate-ping rounded-full bg-gray-100 opacity-75'></span>
+                          <span className='relative inline-flex size-3 rounded-full bg-gray-100'></span>
+                        </span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <span className='text-primary/90 sm:w-[94%] w-[85%] mx-auto flex gap-1 sm:text-sm text-xs items-center font-medium border px-4 bg-zinc-100 dark:bg-zinc-900 py-1.5 rounded-b-xl'>
+                  We believe in people, not forms. Book a call and let’s talk
+                  directly.
+                  <picture className='shrink-0'>
+                    <source
+                      srcSet='https://fonts.gstatic.com/s/e/notoemoji/latest/1f60e/512.webp'
+                      type='image/webp'
+                    />
+                    <img
+                      src='https://fonts.gstatic.com/s/e/notoemoji/latest/1f60e/512.gif'
+                      alt='🔥'
+                      className='sm:w-6 w-5 sm:h-6 h-5 shrink-0'
+                      width={24}
+                      height={24}
+                    />
+                  </picture>
+                </span>
+              </div>
+            </div>
           </div>
         </div>
 

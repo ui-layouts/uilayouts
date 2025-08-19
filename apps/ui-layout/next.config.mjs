@@ -8,6 +8,7 @@ import { remarkCodeHike, recmaCodeHike } from 'codehike/mdx';
 import rehypeSlug from 'rehype-slug';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
+
 // Import the JSON file
 const docsData = JSON.parse(
   fs.readFileSync(path.resolve('./configs/docs.json'), 'utf8')
@@ -20,6 +21,7 @@ const chConfig = {
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+
 
 function rehypeComponent() {
   return (tree) => {

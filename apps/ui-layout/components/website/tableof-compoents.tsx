@@ -127,7 +127,7 @@ export default function TableOfContents({ toc }: TableOfContentsProps) {
         <>
           {tocItems?.length !== 0 && (
             <aside className='hidden lg:block w-[170px] shrink-0 '>
-              <div className='sticky top-0 h-screen   pt-[5.2em]'>
+              <div className='sticky top-16 h-screen pt-3'>
                 <ScrollArea className='h-[98%] px-3 py-3  dark:bg-black/40  bg-zinc-100  backdrop-blur-md rounded-md border'>
                   <div className='flex flex-col h-full'>
                     <style jsx global>{`

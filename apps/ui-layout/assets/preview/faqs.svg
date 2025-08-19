@@ -3,8 +3,8 @@
 
 <rect x="81" y="29" width="66" height="5" rx="1" fill="#D1D5DB"/>
 <rect x="41" y="36" width="143" height="5" rx="1" fill="#D1D5DB"/>
-<rect x="9" y="49" width="216" height="95" rx="6" fill="#718095" fill-opacity="0.04"/>
-<rect x="8.5" y="48.5" width="217" height="96" rx="6.5" stroke="#585454" stroke-opacity="0.12"/>
+<rect x="9" y="49" width="216" height="95" rx="6" fill="#718095" fillOpacity="0.04"/>
+<rect x="8.5" y="48.5" width="217" height="96" rx="6.5" stroke="#585454" strokeOpacity="0.12"/>
 <path d="M25 60L22.5 62.5M20 65L22.5 62.5M22.5 62.5L20 60M22.5 62.5L25 65" stroke="#3C4148"/>
 <rect x="28" y="60" width="143" height="5" rx="1" fill="#3C4148"/>
 <path d="M23 88V91M23 94V91M23 91H20M23 91H26" stroke="#3C4148"/>
@@ -15,10 +15,10 @@
 <rect x="29" y="101" width="143" height="6" rx="1" fill="#3C4148"/>
 <rect x="29" y="115" width="143" height="6" rx="1" fill="#3C4148"/>
 <rect x="29" y="129" width="143" height="6" rx="1" fill="#3C4148"/>
-<path d="M15 85H218.5" stroke="black" stroke-opacity="0.22" stroke-linecap="round"/>
-<path d="M15 98H218.5" stroke="black" stroke-opacity="0.22" stroke-linecap="round"/>
-<path d="M15 111H218.5" stroke="black" stroke-opacity="0.22" stroke-linecap="round"/>
-<path d="M15 125H218.5" stroke="black" stroke-opacity="0.22" stroke-linecap="round"/>
+<path d="M15 85H218.5" stroke="black" strokeOpacity="0.22" strokeLinecap="round"/>
+<path d="M15 98H218.5" stroke="black" strokeOpacity="0.22" strokeLinecap="round"/>
+<path d="M15 111H218.5" stroke="black" strokeOpacity="0.22" strokeLinecap="round"/>
+<path d="M15 125H218.5" stroke="black" strokeOpacity="0.22" strokeLinecap="round"/>
 <rect x="20" y="68" width="194" height="2" rx="1" fill="#3C4148"/>
 <rect x="20" y="71" width="192" height="2" rx="1" fill="#3C4148"/>
 <rect x="20" y="74" width="189" height="2" rx="1" fill="#3C4148"/>

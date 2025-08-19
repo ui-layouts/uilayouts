@@ -27,7 +27,13 @@ export type SearchItem = {
   component?: string;
 };
 
-export function SearchDialog({ classname, searchBar = false }: { classname?: string, searchBar?: boolean }) {
+export function SearchDialog({
+  classname,
+  searchBar = false,
+}: {
+  classname?: string;
+  searchBar?: boolean;
+}) {
   const router = useRouter();
   const { setTheme } = useTheme();
   const searchbardata: SearchItem[] = [
@@ -73,15 +79,15 @@ export function SearchDialog({ classname, searchBar = false }: { classname?: str
         )}
         onClick={() => setSearchOpen(true)}
       >
-        <SearchIcon />
-        {!searchBar &&
-        <>
-        <span className='hidden sm:inline-flex'>Search...</span>
-        <kbd className='pointer-events-none absolute right-[0.3rem] top-[0.3rem] hidden h-7 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex'>
-          <span className='text-xs'>⌘</span>K
-        </kbd>
-        </>
-        }
+        <SearchIcon className='shrink-0' size={20} />
+        {!searchBar && (
+          <>
+            <span className='hidden sm:inline-flex'>Search...</span>
+            <kbd className='pointer-events-none absolute right-[0.3rem] top-[0.3rem] hidden h-7 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 xl:flex'>
+              <span className='text-xs'>⌘</span>K
+            </kbd>
+          </>
+        )}
       </button>
 
       <Dialog open={searchOpen} onOpenChange={setSearchOpen}>
