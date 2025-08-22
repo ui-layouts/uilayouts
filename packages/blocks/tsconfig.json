@@ -18,7 +18,11 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
-      "#*": ["./src/*"]
+      "#*": ["./src/*"],
+      "@/components/ui/*": ["../../apps/ui-layout/components/ui/*"],
+      "@/components/website/ui/*": ["../../apps/ui-layout/components/website/ui/*"],
+      "@/lib/*": ["../../apps/ui-layout/lib/*"],
+      "@/hooks/*": ["../../apps/ui-layout/hooks/*"]
     }
   },
   "include": ["src/**/*"],

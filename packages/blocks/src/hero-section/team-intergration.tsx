@@ -1,56 +1,65 @@
 'use client'
-
 import { motion } from 'motion/react'
 import {
-  MessageSquare, Zap, Users, Database, Cloud, ArrowRight, Sparkles, Globe, Shield, Rocket,
+  MessageSquare,
+  Zap,
+  Users,
+  Database,
+  Cloud,
+  ArrowRight,
+  Sparkles,
+  Globe,
+  Shield,
+  Rocket,
+  ChevronRight,
+  Play,
 } from 'lucide-react'
-import Buttons from './button'
+import { useState } from 'react'
+const floatingIcons = [
+  { icon: MessageSquare, x: 10, y: 20, delay: 0, color: 'text-blue-400' },
+  { icon: Zap, x: 85, y: 15, delay: 0.5, color: 'text-yellow-400' },
+  { icon: Users, x: 15, y: 70, delay: 1, color: 'text-purple-400' },
+  { icon: Database, x: 80, y: 75, delay: 1.5, color: 'text-green-400' },
+  { icon: Cloud, x: 90, y: 40, delay: 2, color: 'text-cyan-400' },
+  { icon: Globe, x: 5, y: 45, delay: 2.5, color: 'text-orange-400' },
+  { icon: Shield, x: 75, y: 25, delay: 3, color: 'text-red-400' },
+  { icon: Rocket, x: 25, y: 85, delay: 3.5, color: 'text-pink-400' },
+]
+const profiles = [
+  {
+    href: 'https://github.com/yeabnoah',
+    alt: 'Yeabsra',
+    src: '/Yeabsra.jpeg',
+    translateX: 'translate-x-0',
+  },
+  {
+    href: 'https://github.com/naymurdev',
+    alt: 'Naymur',
+    src: '/naymur.png',
+    translateX: '-translate-x-16',
+  },
+  {
+    href: 'https://github.com/slydeveloper',
+    alt: 'Sokolowski',
+    src: '/Sokolowski.jpeg',
+    translateX: '-translate-x-4',
+  },
 
-export const AnimateHero1 = () => {
-  const floatingIcons = [
-    { icon: MessageSquare, x: 10, y: 20, delay: 0, color: 'text-blue-400' },
-    { icon: Zap, x: 85, y: 15, delay: 0.5, color: 'text-yellow-400' },
-    { icon: Users, x: 15, y: 70, delay: 1, color: 'text-purple-400' },
-    { icon: Database, x: 80, y: 75, delay: 1.5, color: 'text-green-400' },
-    { icon: Cloud, x: 90, y: 40, delay: 2, color: 'text-cyan-400' },
-    { icon: Globe, x: 5, y: 45, delay: 2.5, color: 'text-orange-400' },
-    { icon: Shield, x: 75, y: 25, delay: 3, color: 'text-red-400' },
-    { icon: Rocket, x: 25, y: 85, delay: 3.5, color: 'text-pink-400' },
-  ]
-
-  const profiles = [
-    {
-      href: 'https://github.com/naymurdev',
-      alt: 'Naymur',
-      src: '/Yeabsra.jpeg',
-      translateX: 'translate-x-0',
-    },
-    {
-      href: 'https://github.com/slydeveloper',
-      alt: 'Sokolowski',
-      src: '/Sokolowski.jpeg',
-      translateX: '-translate-x-4',
-    },
-    
-    {
-      href: 'https://github.com/mmNalaka',
-      alt: 'Nalaka',
-      src: '/nalaka.png',
-      translateX: '-translate-x-8',
-    },
-    {
-      href: 'https://github.com/rafaelzomer',
-      alt: 'Rafael',
-      src: '/Rafael.jpeg',
-      translateX: '-translate-x-12',
-    },
-    {
-      href: 'https://github.com/yeabnoah',
-      alt: 'Yeabsra',
-      src: '/naymur.png',
-      translateX: '-translate-x-16',
-    },
-  ]
+  {
+    href: 'https://github.com/mmNalaka',
+    alt: 'Nalaka',
+    src: '/nalaka.png',
+    translateX: '-translate-x-8',
+  },
+  {
+    href: 'https://github.com/rafaelzomer',
+    alt: 'Rafael',
+    src: '/Rafael.jpeg',
+    translateX: '-translate-x-12',
+  },
+]
+export const TeamIntegration = () => {
+  const [isHovered, setIsHovered] = useState(false)
 
   return (
     <section className="relative bg-gray-900 text-white min-h-screen flex flex-col overflow-hidden">
@@ -70,7 +79,6 @@ export const AnimateHero1 = () => {
             ease: 'linear',
           }}
         />
- 
 
         {/* floating  */}
         <div className="absolute inset-0">
@@ -174,23 +182,19 @@ export const AnimateHero1 = () => {
 
         {/*  title */}
         <motion.h1
-          className="text-6xl md:text-7xl lg:text-8xl text-center font-bold bg-gradient-to-b from-[#edeffd] via-[#a8c8ff] to-[#7b9cda] bg-clip-text text-transparent leading-[90%] tracking-tighter mb-6"
+          className="text-6xl md:text-7xl lg:text-8xl text-center font-semibold bg-gradient-to-b from-blue-300 via-blue-400 to-blue-500 bg-clip-text text-transparent leading-[90%] tracking-tighter mb-6"
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <motion.span
             className="inline-block"
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: 'spring', stiffness: 300 }}
           >
             Unite every tool,
           </motion.span>
           <br />
           <motion.span
             className="inline-block"
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: 'spring', stiffness: 300 }}
           >
             every team, everywhere.
           </motion.span>
@@ -355,8 +359,45 @@ export const AnimateHero1 = () => {
           </div>
         </div>
 
-        <Buttons />
+        <motion.div
+          className="flex flex-col sm:flex-row items-center gap-4"
+          initial={{ y: 30, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8, delay: 1.0 }}
+        >
+          <motion.button
+            className="group relative bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-emerald-500/25 overflow-hidden"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onHoverStart={() => setIsHovered(true)}
+            onHoverEnd={() => setIsHovered(false)}
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-green-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <span className="relative z-10 flex items-center gap-2">
+              Get Started
+              <motion.div
+                animate={{ x: isHovered ? 4 : 0 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+              >
+                <ChevronRight className="w-5 h-5" />
+              </motion.div>
+            </span>
+          </motion.button>
+
+          <motion.button
+            className="group relative bg-gray-800/50 backdrop-blur-sm hover:bg-gray-700/50 text-white px-8 py-4 rounded-xl font-semibold border border-gray-600/50 hover:border-gray-500/50 transition-all duration-300 overflow-hidden"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-gray-700/20 to-gray-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <span className="relative z-10 flex items-center gap-2">
+              <Play className="w-5 h-5" />
+              Watch Demo
+            </span>
+          </motion.button>
+        </motion.div>
       </div>
     </section>
   )
 }
+ 

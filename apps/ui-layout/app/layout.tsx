@@ -106,11 +106,6 @@ export default async function RootLayout({
           <Progressbar>
             <ThemeProvider attribute='class'>
               <div className='isolate min-h-screen' vaul-drawer-wrapper=''>
-                <a
-                  href={'https://pro.ui-layouts.com'}
-                  target='_blank'
-                  className='block group w-full relative'
-                >
                   <Banner
                     variant='rainbow'
                     className='h-11 md:text-base sm:text-sm text-xs'
@@ -141,7 +136,6 @@ export default async function RootLayout({
                       strokeWidth={2}
                     />
                   </Banner>
-                </a>
                 {children}
               </div>
               <Toaster />

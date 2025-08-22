@@ -3,7 +3,7 @@ import React from 'react';
 function Footer() {
   return (
     <>
-      <footer className='border xl:pb-2 pb-24 p-2 mt-8 dark:bg-black/40 bg-primary-foreground backdrop-blur-sm  rounded-md not-prose'>
+      <footer className='border xl:pb-2 p-2 mt-8 dark:bg-black/40 bg-primary-foreground backdrop-blur-sm  rounded-md not-prose'>
         <p className='text-balance text-center text-sm leading-loose text-muted-foreground md:text-left'>
           Built by{' '}
           <a

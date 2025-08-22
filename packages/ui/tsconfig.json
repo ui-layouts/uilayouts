@@ -15,7 +15,10 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "#*": ["./src/*"]
+      "#*": ["./src/*"],
+      "@/components/*": ["../../apps/ui-layout/components/*"],
+      "@/lib/*": ["../../apps/ui-layout/lib/*"],
+      "@/hooks/*": ["../../apps/ui-layout/hooks/*"]
     }
   },
   "include": ["src"],

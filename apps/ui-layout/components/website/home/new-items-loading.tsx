@@ -25,10 +25,10 @@ function NewItemsLoading() {
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prevIndex) => (prevIndex + 1) % newComponent.length);
-    }, 3000); // Adjust the time (in ms) for how long each item stays
+    }, 3000); 
 
     return () => clearInterval(interval);
-  }, []); // No need to include newComponent.length as a dependency
+  }, []); 
 
   return (
     <>

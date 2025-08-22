@@ -9,6 +9,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/website/u
 import { PreCoded } from '@/components/website/code-components/pre-coded';
 import { ChevronLeft, Code, Component } from 'lucide-react';
 import Link from 'next/link';
+import ThemeSwitch from '@/components/website/theme-switch';
 
 export async function generateMetadata({
   params,
@@ -43,12 +44,13 @@ export default async function DocPage(props: {
   const isMultiple = codeFiles.length > 1;
   return (
     <>
-      <div className='container pt-16 pb-10 mx-auto relative min-h-screen' >
+      <div className='pt-0 pb-10 relative min-h-screen not-prose' >
         <Tabs defaultValue="component">
-          <TabsList className='px-1.5 h-14 w-fit sticky top-16 z-10 mx-auto flex justify-center dark:bg-neutral-800 bg-neutral-50 '>
-            <Link href={`/blocks/${section}`} className='absolute -left-16 top-1 z-10 h-12 w-12 flex items-center justify-center dark:bg-neutral-900 bg-neutral-200 text-primary rounded-xl border' ><ChevronLeft /></Link>
+          <TabsList className='px-1.5 h-14 w-fit mx-auto flex justify-center dark:bg-neutral-800 bg-neutral-50 '>
+            <Link href={`/blocks/${section}`} className='mr-3 h-12 w-12 flex items-center justify-center dark:bg-neutral-900 bg-neutral-200 text-primary rounded-xl border' ><ChevronLeft /></Link>
             <TabsTrigger value="component" className='text-lg flex gap-1.5 items-center'><Component  size={20}/>Component</TabsTrigger>
             <TabsTrigger value="code" className='text-lg flex gap-1.5 items-center'><Code  size={20}/>Code</TabsTrigger>
+            <ThemeSwitch className='dark:bg-black bg-white border w-12 rounded-md h-11 flex-shrink-0' />
           </TabsList>
           <TabsContent value="component" className='pt-10'>
             {/* Dynamically render the block component if needed */}

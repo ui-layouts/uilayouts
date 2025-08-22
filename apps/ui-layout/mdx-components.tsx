@@ -7,7 +7,7 @@ import DrawerCodePreview from '@/components/website/code-components/drawer-code-
 import TabCodePreview from '@/components/website/code-components/tab-codepreview';
 import IframeComponentPrieview from '@/components/website/code-components/iframe-component-preview';
 import CodeBlock from '@/components/website/code-components/code-block';
-import {CodeWithTabs} from '@/components/website/code-components/code-tabs';
+import { CodeWithTabs } from '@/components/website/code-components/code-tabs';
 import {
   Tabs,
   TabsContent,
@@ -39,12 +39,12 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     }: React.ComponentProps<typeof TabsContent>) => (
       <TabsContent className={cn('', className)} {...props} />
     ),
-    CodeWithTabs:CodeWithTabs,
+    CodeWithTabs: CodeWithTabs,
     HoverContainer: HoverContainer,
-    IframeTabCodePreview: ({...props}) => <IframeTabCodePreview {...props} />,
-    TabCodePreview: ({...props}) => <TabCodePreview {...props} />,
-    DrawerCodePreview: ({...props}) => <DrawerCodePreview {...props} />,
-    ComponentCodePreview: ({...props}) => <ComponentCodePreview {...props} />,
+    IframeTabCodePreview: ({ ...props }) => <IframeTabCodePreview {...props} />,
+    TabCodePreview: ({ ...props }) => <TabCodePreview {...props} />,
+    DrawerCodePreview: ({ ...props }) => <DrawerCodePreview {...props} />,
+    ComponentCodePreview: ({ ...props }) => <ComponentCodePreview {...props} />,
     CodeBlock: CodeBlock,
     img: (props) => (
       <Image
@@ -53,8 +53,10 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {...(props as ImageProps)}
       />
     ),
-    PreCode: ({...props}) => <PreCode {...props} />,
-    IframeComponentPrieview: ({...props}) => <IframeComponentPrieview {...props} />,
+    PreCode: ({ ...props }) => <PreCode {...props} />,
+    IframeComponentPrieview: ({ ...props }) => (
+      <IframeComponentPrieview {...props} />
+    ),
     p: ({
       className,
       ...props
