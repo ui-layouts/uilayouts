@@ -1,0 +1,29 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "marquee-logos-marquee",
+  "type": "registry:component",
+  "dependencies": [
+    "clsx",
+    "tailwind-merge"
+  ],
+  "files": [
+    {
+      "type": "registry:component",
+      "target": "components/marquee/logos-marquee.tsx",
+      "content": "import { cn } from '@/lib/utils';\nimport Marquee from '@/components/core/marquee';\n\nconst logos = [\n  {\n    name: 'Microsoft',\n    img: 'https://cdn.simpleicons.org/microsoft/000/fff',\n  },\n  {\n    name: 'Apple',\n    img: 'https://cdn.simpleicons.org/apple/000/fff',\n  },\n  {\n    name: 'Google',\n    img: 'https://cdn.simpleicons.org/google/000/fff',\n  },\n  {\n    name: 'Facebook',\n    img: 'https://cdn.simpleicons.org/facebook/000/fff',\n  },\n  {\n    name: 'LinkedIn',\n    img: 'https://cdn.simpleicons.org/linkedin/000/fff',\n  },\n  {\n    name: 'Twitter',\n    img: 'https://cdn.simpleicons.org/twitter/000/fff',\n  },\n];\n\nconst Logo = ({ name, img }: { name: string; img: string }) => {\n  return (\n    <div className={cn('h-12 w-12 cursor-pointer')}>\n      <img src={img} alt={name} />\n    </div>\n  );\n};\n\nconst MarqueeLogos = () => {\n  return (\n    <div className='relative flex h-full w-full flex-col items-center justify-center gap-4 overflow-hidden rounded-lg border bg-background py-20 md:shadow-xl'>\n      <Marquee className='[--gap:3rem]'>\n        {logos.map((logo, idx) => (\n          <Logo key={idx} {...logo} />\n        ))}\n      </Marquee>\n      <div className='pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white dark:from-background'></div>\n      <div className='pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-white dark:from-background'></div>\n    </div>\n  );\n};\n\nexport default MarqueeLogos;\n",
+      "path": "registry/components/marquee/logos-marquee.tsx"
+    },
+    {
+      "type": "registry:component",
+      "target": "components/core/marquee.tsx",
+      "content": "import { cn } from '@/lib/utils'\n\ninterface MarqueeProps {\n  className?: string\n  reverse?: boolean\n  pauseOnHover?: boolean\n  children?: React.ReactNode\n  vertical?: boolean\n  repeat?: number\n  [key: string]: any\n}\n\nexport default function Marquee({\n  className,\n  reverse,\n  pauseOnHover = false,\n  children,\n  vertical = false,\n  repeat = 4,\n  ...props\n}: MarqueeProps) {\n  return (\n    <div\n      {...props}\n      className={cn(\n        'group flex overflow-hidden p-2 [--duration:40s] [--gap:1rem] [gap:var(--gap)]',\n        {\n          'flex-row': !vertical,\n          'flex-col': vertical,\n        },\n        className\n      )}\n    >\n      {Array(repeat)\n        .fill(0)\n        .map((_, i) => (\n          <div\n            key={i}\n            className={cn('flex shrink-0 justify-around [gap:var(--gap)]', {\n              'animate-marquee flex-row': !vertical,\n              'animate-marquee-vertical flex-col': vertical,\n              'group-hover:[animation-play-state:paused]': pauseOnHover,\n              '[animation-direction:reverse]': reverse,\n            })}\n          >\n            {children}\n          </div>\n        ))}\n    </div>\n  )\n}\n",
+      "path": "components/core/marquee.tsx"
+    },
+    {
+      "type": "registry:lib",
+      "target": "lib/utils.ts",
+      "content": "import { ClassValue, clsx } from 'clsx';\nimport { twMerge } from 'tailwind-merge';\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs));\n}\n\nexport function debounce(\n  func: (...args: any[]) => any,\n  wait: number,\n  immediate: boolean = false\n) {\n  let timeout: number | undefined;\n\n  return function executedFunction(this: any, ...args: any[]) {\n    const context: any = this;\n\n    const later = () => {\n      timeout = undefined;\n      if (!immediate) {\n        func.apply(context, args);\n      }\n    };\n\n    const callNow: boolean = immediate && !timeout;\n\n    clearTimeout(timeout);\n\n    timeout = window.setTimeout(later, wait);\n\n    if (callNow) {\n      func.apply(context, args);\n    }\n  };\n}\n\nexport function throttle(fn: (...args: any[]) => any, wait: number) {\n  let shouldWait = false;\n\n  return function throttledFunction(this: any, ...args: any[]) {\n    if (!shouldWait) {\n      fn.apply(this, args);\n      shouldWait = true;\n      setTimeout(() => (shouldWait = false), wait);\n    }\n  };\n}\n\nexport const siteConfig = {\n  name: 'ui-layouts',\n  url: 'https://ui-layouts.com',\n  ogImage: 'https://www.ui-layouts.com/og.jpg',\n  description:\n    'Beautifully designed components that you can copy and paste into your apps. Accessible. Customizable. Open Source.',\n  links: {\n    twitter: 'https://twitter.com/naymur_dev',\n    linkedin: 'https://www.linkedin.com/in/naymur-rahman',\n    github: 'https://github.com/naymurdev',\n  },\n};\n\nexport type SiteConfig = typeof siteConfig;\n",
+      "path": "lib/utils.ts"
+    }
+  ]
+}
