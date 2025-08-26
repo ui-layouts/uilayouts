@@ -1,6 +1,6 @@
 import { MediaModal } from '@/components/ui/modal/media-modal';
 
-export default function Dialog() {
+export default function HomeDialog() {
   return (
     <div className='relative  lg:h-[255px] h-[304px] '>
       <div className=' h-full'>

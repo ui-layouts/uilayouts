@@ -109,7 +109,7 @@ const WorkWithUs = () => {
                   <div className='relative'>
                     <img
                       className='h-12 w-12 rounded-full border border-gray-800'
-                      src='/ethansprite.png'
+                      src='/naymur.png'
                       alt='Founder'
                     />
                     <div className='h-10 w-10 rounded-full absolute bottom-1 -right-4 grid place-items-center bg-purple-100 text-blue-600 border border-blue-300 text-xs px-2 py-0.5 font-medium'>
@@ -126,7 +126,7 @@ const WorkWithUs = () => {
                   <p className='text-primary/90 text-sm font-medium'>
                     Book a free discovery call with{' '}
                     <span className='text-blue-600 text-shadow-lg dark:text-shadow-none text-sh'>
-                      Ethan.
+                      Me.
                     </span>
                   </p>
                 </div>
@@ -141,7 +141,7 @@ const WorkWithUs = () => {
                   Email us
                 </a>
                 <a
-                  href='https://cal.com/ethankd'
+                  href='https://cal.com/naymur-rahman'
                   target='_blank'
                   className='flex items-center bg-blue-600 hover:bg-blue-700 text-white h-14 rounded-full px-6 gap-2'
                 >

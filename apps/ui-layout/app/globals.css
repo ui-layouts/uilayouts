@@ -7,7 +7,7 @@ html {
   scrollbar-color: var(--scrollbar-color) transparent;
   scrollbar-width: thin;
   scroll-behavior: smooth;
-  font-size: 90%; 
+  font-size: 90%;
 }
 body {
   overflow-x: hidden;
@@ -33,7 +33,7 @@ body {
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
     --codebg: #f1f1f1f0;
-    --primary-base:#fcfcfc;
+    --primary-base: #fcfcfc;
     --accent: 210 40% 96.1%;
     --accent-foreground: 222.2 47.4% 11.2%;
 
@@ -94,8 +94,8 @@ body {
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
     --codebg: #030608;
-    --primary-base:#0a0a0a;
-    
+    --primary-base: #0a0a0a;
+
     --accent: 217.2 32.6% 17.5%;
     --accent-foreground: 210 40% 98%;
     --ch-0: dark;
@@ -162,15 +162,18 @@ body {
     backdrop-filter: blur(var(--blur));
     --r: max(var(--transition-length), calc(var(--radius) - var(--inset)));
     --corner-size: calc(var(--r) + var(--inset)) calc(var(--r) + var(--inset));
-    --corner-gradient: transparent 0px,
-      transparent calc(var(--r) - var(--transition-length)), black var(--r);
-    --fill-gradient: black, black var(--inset),
+    --corner-gradient:
+      transparent 0px, transparent calc(var(--r) - var(--transition-length)),
+      black var(--r);
+    --fill-gradient:
+      black, black var(--inset),
       transparent calc(var(--inset) + var(--transition-length)),
       transparent calc(100% - var(--transition-length) - var(--inset)),
       black calc(100% - var(--inset));
     --fill-narrow-size: calc(100% - (var(--inset) + var(--r)) * 2);
     --fill-farther-position: calc(var(--inset) + var(--r));
-    -webkit-mask-image: linear-gradient(to right, var(--fill-gradient)),
+    -webkit-mask-image:
+      linear-gradient(to right, var(--fill-gradient)),
       linear-gradient(to bottom, var(--fill-gradient)),
       radial-gradient(at bottom right, var(--corner-gradient)),
       radial-gradient(at bottom left, var(--corner-gradient)),
@@ -268,8 +271,73 @@ body {
 }
 
 @keyframes moving-banner {
-  from { background-position: 0 0; }
-  to { background-position: 200% 0; }
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 200% 0;
+  }
+}
+
+.hero-gradient1 {
+  --border-bottom-width: 141px;
+  --border-color: #1640ff;
+  --border-left-width: 141px;
+  --border-right-width: 141px;
+  --border-style: solid;
+  --border-top-width: 141px;
+  -webkit-filter: blur(92px);
+  border-radius: 100%;
+  filter: blur(92px);
+  flex: none;
+  height: 1753px;
+  left: -568px;
+  position: absolute;
+  right: -568px;
+  top: 0;
+}
+
+.hero-gradient2 {
+  --border-bottom-width: 141px;
+  --border-color: #6160ff;
+  --border-left-width: 141px;
+  --border-right-width: 141px;
+  --border-style: solid;
+  --border-top-width: 141px;
+  -webkit-filter: blur(92px);
+  border-radius: 100%;
+  filter: blur(92px);
+  flex: none;
+  height: 1753px;
+  left: -568px;
+  position: absolute;
+  right: -568px;
+  top: 0;
+}
+
+[data-border='true']:after {
+  content: '';
+  border-width: var(--border-top-width, 0) var(--border-right-width, 0)
+    var(--border-bottom-width, 0) var(--border-left-width, 0);
+  border-color: var(--border-color, none);
+  border-style: var(--border-style, none);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  box-sizing: border-box;
+  left: 0;
+  top: 0;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+@media (max-width: 640px) {
+  .hero-gradient1 {
+    height: 700px;
+  }
+  .hero-gradient2 {
+    height: 700px;
+  }
 }
 
 code,
@@ -330,8 +398,9 @@ pre.prism-code.language-tsx {
 
 code[class*='language-tsx'],
 pre[class*='language-tsx'] {
-  font-family: 'Fira Mono', Menlo, Monaco, 'Lucida Console', 'Courier New',
-    Courier, monospace !important;
+  font-family:
+    'Fira Mono', Menlo, Monaco, 'Lucida Console', 'Courier New', Courier,
+    monospace !important;
   line-height: 1.375;
   direction: ltr;
   text-align: left;
@@ -380,7 +449,6 @@ html.dark .cm-gutters {
   backdrop-filter: blur(5px);
 }
 
-
 @layer utilities {
   .cpu-architecture {
     offset-anchor: 10px 0px;
@@ -390,49 +458,53 @@ html.dark .cm-gutters {
   }
 
   .cpu-line-1 {
-    offset-path: path("M 10 20 h 79.5 q 5 0 5 5 v 30");
+    offset-path: path('M 10 20 h 79.5 q 5 0 5 5 v 30');
     animation-duration: 5s;
     animation-delay: 1s;
   }
 
   .cpu-line-2 {
-    offset-path: path("M 180 10 h -69.7 q -5 0 -5 5 v 40");
+    offset-path: path('M 180 10 h -69.7 q -5 0 -5 5 v 40');
     animation-delay: 6s;
     animation-duration: 2s;
   }
 
   .cpu-line-3 {
-    offset-path: path("M 130 20 v 21.8 q 0 5 -5 5 h -25");
+    offset-path: path('M 130 20 v 21.8 q 0 5 -5 5 h -25');
     animation-delay: 4s;
     animation-duration: 6s;
   }
 
   .cpu-line-4 {
-    offset-path: path("M 170 80 v -21.8 q 0 -5 -5 -5 h -65");
+    offset-path: path('M 170 80 v -21.8 q 0 -5 -5 -5 h -65');
     animation-delay: 3s;
     animation-duration: 3s;
   }
 
   .cpu-line-5 {
-    offset-path: path("M 135 65 h 15 q 5 0 5 5 v 10 q 0 5 -5 5 h -39.8 q -5 0 -5 -5 v -35");
+    offset-path: path(
+      'M 135 65 h 15 q 5 0 5 5 v 10 q 0 5 -5 5 h -39.8 q -5 0 -5 -5 v -35'
+    );
     animation-delay: 9s;
     animation-duration: 4s;
   }
 
   .cpu-line-6 {
-    offset-path: path("M 94.8 95 v -46");
+    offset-path: path('M 94.8 95 v -46');
     animation-delay: 3s;
     animation-duration: 7s;
   }
 
   .cpu-line-7 {
-    offset-path: path("M 88 88 v -15 q 0 -5 -5 -5 h -10 q -5 0 -5 -5 v -5 q 0 -5 5 -5 h 28");
+    offset-path: path(
+      'M 88 88 v -15 q 0 -5 -5 -5 h -10 q -5 0 -5 -5 v -5 q 0 -5 5 -5 h 28'
+    );
     animation-delay: 4s;
     animation-duration: 4s;
   }
 
   .cpu-line-8 {
-    offset-path: path("M 30 30 h 25 q 5 0 5 5 v 6.5 q 0 5 5 5 h 35");
+    offset-path: path('M 30 30 h 25 q 5 0 5 5 v 6.5 q 0 5 5 5 h 35');
     animation-delay: 3s;
     animation-duration: 3s;
   }

@@ -1,221 +1,104 @@
 'use client';
-import { ChevronsRight, MoveRight } from 'lucide-react';
-import { Button } from '@/components/website/ui/button';
-import React, { useEffect, useMemo, useState } from 'react';
-import HomeProgressSlider from './progress-carousel';
-import HomeMouseTrail from './home-mousetrail';
-import HomeBtn from './home-btn';
-import HomeMagnifiedDocOneFile from './home-magnified-doc';
-import HomeAccordionModal from './home-accordion-modal';
-import HomeModal from './home-image-modal';
-import HomeTab from './home-tab';
-import HomeSlider from './home-carousel';
+import { ArrowRight, Component, LayoutPanelTop } from 'lucide-react';
+import React from 'react';
 import NewItemsLoading from './new-items-loading';
-import HomeClipPath from './home-clippath';
 import Image from 'next/image';
-import HomePasswordInput from './home-password';
-import HomePhoneInput from './home-phone-input';
-import HomeDateTimePicker from './home-datetime-picker';
-import HomeYouutbTags from './home-youtube-tags';
-import HomeFileUpload from './home-file-upload';
-import HomeTextMarquee from './home-text-marque';
-import Home3dBlob from './home-3d-blob';
-import HomeStackingCard from './home-stacking-card';
-import HomeImageReveal from './home-image-reveal';
-import HomeDragItems from './home-drag-items';
-import HomeBeam from './home-beam';
-import HomeRangeSlider from './home-range-slider';
-import HomeBuyMeCoffee from './home-buyme-coffe';
-import Link from 'next/link';
-import SidebarMenu from '@/registry/components/liquid-glass/sidebar-menu';
-const homeComponents = [
+import AllComponents from './all-components';
+import AllBlocks from './all-blocks';
+
+const allProjects = [
   {
-    id: 111,
-    link: '/components/liquid-glass',
-    componentSrc: <SidebarMenu className='py-20 p-4' />,
-    className: 'lg:col-span-4 sm:col-span-5 col-span-14  row-span-4',
+    id: 1,
+    projectsName: 'tools',
+    link: 'https://tools.ui-layouts.com',
+    logoSrc: () => (
+      <>
+        <svg
+          width='208'
+          height='48'
+          viewBox='0 0 208 48'
+          className='w-full dark:fill-white fill-black'
+          fill='none'
+          xmlns='http://www.w3.org/2000/svg'
+        >
+          <g clip-path='url(#clip0_439_7404)'>
+            <path d='M71.8678 32.8457H83.6653V44.0914C83.6653 45.1429 83.2789 46.0571 82.506 46.8343C81.7331 47.6114 80.8012 48 79.7101 48H63.8891C62.798 48 61.8661 47.6114 61.0932 46.8343C60.3203 46.0571 59.9339 45.1429 59.9339 44.0914V39.2914C59.9339 38.1943 59.5475 37.2571 58.7746 36.48C58.0017 35.6571 57.0698 35.2457 55.9787 35.2457H51.887C50.8414 35.2457 49.9322 34.88 49.1593 34.1486C48.3864 33.3714 48 32.4343 48 31.3371V0H59.7975V17.6229H69.6856C70.0038 17.6229 70.2766 17.7371 70.5039 17.9657C70.7312 18.1943 70.8449 18.4686 70.8449 18.7886V29.2114C70.8449 29.5314 70.7312 29.8057 70.5039 30.0343C70.2766 30.2629 70.0038 30.3771 69.6856 30.3771H59.7975V34.0114C59.7975 34.3314 59.9112 34.6057 60.1385 34.8343C60.3658 35.0629 60.6386 35.1771 60.9568 35.1771H70.7085C71.0267 35.1771 71.2995 35.0629 71.5268 34.8343C71.7541 34.6057 71.8678 34.3314 71.8678 34.0114V32.8457Z' />
+            <path d='M118.626 17.6914C119.717 17.6914 120.649 18.08 121.422 18.8571C122.195 19.6343 122.581 20.5486 122.581 21.6V44.0914C122.581 45.1429 122.195 46.0571 121.422 46.8343C120.649 47.6114 119.717 48 118.626 48H90.803C89.7574 48 88.8481 47.6114 88.0753 46.8343C87.3024 46.0571 86.916 45.1429 86.916 44.0914V21.6C86.916 20.5486 87.3024 19.6343 88.0753 18.8571C88.8481 18.08 89.7574 17.6914 90.803 17.6914H118.626ZM110.783 34.08V31.6114C110.783 31.2914 110.67 31.0171 110.443 30.7886C110.215 30.56 109.942 30.4457 109.624 30.4457H99.1909C98.8726 30.4457 98.5998 30.56 98.3725 30.7886C98.1452 31.0171 98.0316 31.2914 98.0316 31.6114V34.08C98.0316 34.4 98.1452 34.6743 98.3725 34.9029C98.5998 35.1314 98.8726 35.2457 99.1909 35.2457H109.624C109.942 35.2457 110.215 35.1314 110.443 34.9029C110.67 34.6743 110.783 34.4 110.783 34.08Z' />
+            <path d='M158.783 17.6914C159.874 17.6914 160.806 18.08 161.579 18.8571C162.352 19.6343 162.738 20.5486 162.738 21.6V44.0914C162.738 45.1429 162.352 46.0571 161.579 46.8343C160.806 47.6114 159.874 48 158.783 48H130.96C129.914 48 129.005 47.6114 128.232 46.8343C127.459 46.0571 127.073 45.1429 127.073 44.0914V21.6C127.073 20.5486 127.459 19.6343 128.232 18.8571C129.005 18.08 129.914 17.6914 130.96 17.6914H158.783ZM150.941 34.08V31.6114C150.941 31.2914 150.827 31.0171 150.6 30.7886C150.372 30.56 150.099 30.4457 149.781 30.4457H139.348C139.029 30.4457 138.757 30.56 138.529 30.7886C138.302 31.0171 138.188 31.2914 138.188 31.6114V34.08C138.188 34.4 138.302 34.6743 138.529 34.9029C138.757 35.1314 139.029 35.2457 139.348 35.2457H149.781C150.099 35.2457 150.372 35.1314 150.6 34.9029C150.827 34.6743 150.941 34.4 150.941 34.08Z' />
+            <path d='M180.05 48H167.366V0H180.05V48Z' />
+            <path d='M190.952 22.2862V13.7148H208V22.2862H199.476V30.8576H182.427V22.2862H190.952ZM208 39.4291H199.476V30.8576H208V39.4291ZM199.476 39.4291V48.0005H182.427V39.4291H199.476Z' />
+            <path
+              fill-rule='evenodd'
+              clip-rule='evenodd'
+              d='M0.00052884 12.2411V3.27164C0.00052884 2.3814 0.402052 1.60244 1.2051 0.934756C1.95461 0.311588 2.86473 0 3.93547 0H23.289C24.5738 0 25.6713 0.378356 26.5815 1.13506C27.4916 1.89176 27.9466 2.782 27.9466 3.80577V7.14417C27.9466 8.07892 28.2143 8.94691 28.7497 9.74813C29.2851 10.5493 30.0346 11.1725 30.9982 11.6176C31.9083 12.1073 32.9255 12.3743 34.0498 12.4188H37.4226C38.654 12.4188 39.7247 12.7749 40.6348 13.4871C41.5449 14.2438 42 15.1563 42 16.2246V34.1473C42 34.1868 41.9998 34.2262 41.9995 34.2655V44.6399C41.9995 45.5542 41.5979 46.3543 40.7949 47.04C40.0454 47.68 39.1353 48 38.0645 48H18.711C17.4262 48 16.3287 47.6114 15.4185 46.8343C14.5084 46.0571 14.0534 45.1428 14.0534 44.0914V40.6627C14.0534 39.7027 13.7857 38.8113 13.2503 37.9884C12.7149 37.1655 11.9654 36.5255 11.0018 36.0684C10.0917 35.5655 9.07446 35.2912 7.95019 35.2455H4.57738C3.34604 35.2455 2.27531 34.8798 1.36518 34.1483C0.455061 33.3712 0 32.434 0 31.3369V12.3429C0 12.3089 0.000176555 12.275 0.00052884 12.2411ZM27.8663 34.6719V13.6207C27.8663 13.3091 27.7593 13.042 27.5451 12.8195C27.2774 12.5969 26.9562 12.4856 26.5815 12.4856H15.2585C14.8837 12.4856 14.5625 12.5969 14.2948 12.8195C14.2537 12.8536 14.2158 12.8889 14.181 12.9251L14.1337 34.0112C14.1337 34.3312 14.2407 34.6055 14.4549 34.8341C14.7226 35.0626 15.0438 35.1769 15.4185 35.1769H26.7415C27.1163 35.1769 27.4375 35.0626 27.7052 34.8341C27.7658 34.7824 27.8195 34.7283 27.8663 34.6719Z'
+            />
+          </g>
+          <defs>
+            <clipPath id='clip0_439_7404'>
+              <rect width='208' height='48' fill='white' />
+            </clipPath>
+          </defs>
+        </svg>
+      </>
+    ),
   },
-  // {
-  //   id: 1,
-  //   link: '/components/linear-card',
-  //   componentSrc: <HomeAccordionModal />,
-  //   className: 'lg:col-span-4 sm:col-span-5 col-span-14  row-span-4',
-  // },
   {
     id: 2,
-    link: '/components/image-mousetrail',
-
-    componentSrc: <HomeMouseTrail />,
-    className:
-      ' lg:col-start-5  sm:inline-block hidden col-span-9  lg:col-end-11  lg:row-start-2  row-start-1 2xl:row-end-7 lg:row-end-6 row-end-9 row-span-4',
+    projectsName: 'cursify',
+    link: 'https://cursify.vercel.app',
+    componentSrc: () => (
+      <>
+        <svg
+          width='282'
+          height='81'
+          viewBox='0 0 282 81'
+          className='w-full dark:fill-white fill-black dark:stroke-white stroke-black'
+          fill='none'
+          xmlns='http://www.w3.org/2000/svg'
+        >
+          <path d='M65.0961 48.7047V50.6887C65.0961 50.774 65.0961 50.8594 65.0961 50.9447C65.2241 51.6274 65.6294 51.9687 66.3121 51.9687H88.1361V63.9367H58.3121C57.3308 63.9367 56.4774 63.574 55.7521 62.8487C55.0268 62.1234 54.6641 61.27 54.6641 60.2887V34.6887C54.6641 33.6647 55.0268 32.8114 55.7521 32.1287C56.4774 31.4034 57.3308 31.0407 58.3121 31.0407H62.2161C63.2401 31.0407 64.1148 30.678 64.8401 29.9527C65.5654 29.2274 65.9281 28.3527 65.9281 27.3287V22.8487C65.9281 21.8247 66.2694 20.95 66.9521 20.2247C67.6774 19.4994 68.5521 19.1367 69.5761 19.1367H88.1361V31.0407H66.3121C65.6294 31.0407 65.2241 31.382 65.0961 32.0647C65.0961 32.15 65.0961 32.214 65.0961 32.2567V48.7047ZM112.363 35.6487H123.435V60.8647C123.435 61.718 123.115 62.4647 122.475 63.1047C121.878 63.702 121.152 64.0007 120.299 64.0007H104.875C103.851 64.0007 102.976 63.638 102.251 62.9127C101.526 62.1874 101.163 61.334 101.163 60.3527V57.1527C101.163 56.2567 100.95 55.4247 100.523 54.6567C100.096 53.8887 99.4991 53.2914 98.7311 52.8647C98.0058 52.3954 97.1951 52.1394 96.2991 52.0967H93.6111C92.6298 52.0967 91.7764 51.7554 91.0511 51.0727C90.3258 50.3474 89.9631 49.4727 89.9631 48.4487V35.6487H101.227V50.9447C101.227 51.2434 101.312 51.4994 101.483 51.7127C101.696 51.926 101.952 52.0327 102.251 52.0327H111.275C111.574 52.0327 111.83 51.926 112.043 51.7127C112.256 51.4994 112.363 51.2434 112.363 50.9447V35.6487ZM141.689 35.6487H153.849V47.6807H138.937C138.638 47.6807 138.382 47.7874 138.169 48.0007C137.956 48.1714 137.849 48.406 137.849 48.7047V64.0007H126.777V51.2007C126.777 50.1767 127.14 49.3234 127.865 48.6407C128.59 47.9154 129.444 47.5527 130.425 47.5527H134.265C135.289 47.5527 136.164 47.19 136.889 46.4647C137.614 45.7394 137.977 44.8434 137.977 43.7767V39.3607C137.977 38.678 138.148 38.0594 138.489 37.5047C138.83 36.95 139.278 36.502 139.833 36.1607C140.388 35.8194 141.006 35.6487 141.689 35.6487ZM190.208 35.7127V45.5687H170.496L187.712 51.5207C188.437 51.7767 189.034 52.2247 189.504 52.8647C189.973 53.5047 190.208 54.2087 190.208 54.9767V64.0007H156.736V52.0967H171.072L159.296 48.3847C158.528 48.1714 157.909 47.7447 157.44 47.1047C156.97 46.422 156.736 45.6967 156.736 44.9287V35.7127H190.208ZM205.437 31.1687H194.365V19.2007H205.437V31.1687ZM194.365 64.0007V35.7127H205.437V64.0007H194.365ZM222.088 31.1687C221.874 31.1687 221.682 31.2327 221.512 31.3607C221.341 31.446 221.213 31.574 221.128 31.7447C221.042 31.9154 221 32.086 221 32.2567V35.6487H230.28C230.578 35.6487 230.834 35.7554 231.048 35.9687C231.261 36.182 231.368 36.438 231.368 36.7367V46.4647C231.368 46.7634 231.261 47.0194 231.048 47.2327C230.834 47.446 230.578 47.5527 230.28 47.5527H221V58.0487V64.0007H209.928V34.7527C209.928 33.7287 210.29 32.8754 211.016 32.1927C211.741 31.4674 212.594 31.1047 213.576 31.1047H217.416C218.44 31.1047 219.314 30.742 220.04 30.0167C220.765 29.2487 221.128 28.3527 221.128 27.3287V22.8487C221.128 21.8674 221.49 21.014 222.216 20.2887C222.941 19.5634 223.816 19.2007 224.84 19.2007H234.376V31.1687H222.088ZM255.676 35.6487H266.748V64.8967C266.748 65.9207 266.385 66.7954 265.66 67.5207C264.934 68.246 264.06 68.6087 263.036 68.6087H259.26C258.236 68.6087 257.34 68.9714 256.572 69.6967C255.846 70.422 255.484 71.2967 255.484 72.3207V76.8007C255.484 77.8247 255.121 78.678 254.396 79.3607C253.713 80.086 252.86 80.4487 251.836 80.4487H233.276V68.4807H254.588C254.886 68.4807 255.142 68.374 255.356 68.1607C255.569 67.9474 255.676 67.6914 255.676 67.3927V65.0887V64.0007H248.188C247.164 64.0007 246.289 63.638 245.564 62.9127C244.838 62.1874 244.476 61.334 244.476 60.3527V57.1527C244.476 56.2567 244.262 55.4247 243.836 54.6567C243.409 53.8887 242.812 53.2914 242.044 52.8647C241.318 52.3954 240.508 52.1394 239.612 52.0967H236.924C235.942 52.0967 235.089 51.7554 234.364 51.0727C233.638 50.3474 233.276 49.4727 233.276 48.4487V35.6487H244.54V50.9447C244.54 51.2434 244.625 51.4994 244.796 51.7127C245.009 51.926 245.265 52.0327 245.564 52.0327H254.588C254.886 52.0327 255.142 51.926 255.356 51.7127C255.569 51.4994 255.676 51.2434 255.676 50.9447V35.6487Z' />
+          <path d='M54.6055 27.2686L38 24.6406Z' />
+          <path d='M57.9606 22.5686L44.8906 10.5098Z' />
+          <path d='M62.8882 17.6799L56.0938 1.70312Z' />
+          <path d='M61 22L54 6' />
+          <path d='M58.2915 24.1014L44 13' />
+          <path d='M56.7125 27.6346L39 23.9258' />
+          <path d='M281.245 7.8967L271.068 33.4694C270.724 34.3342 269.489 34.301 269.192 33.4189L267.612 28.732L266.773 26.2418C266.573 25.6477 265.882 25.3822 265.336 25.6893L258.429 29.5714L257.571 29.1429L256.714 28.2857L261.319 20.6779C261.618 20.1828 261.436 19.5375 260.922 19.2718L258.582 18.0619L254.23 15.8126C253.427 15.3975 253.543 14.2143 254.412 13.9635L280.039 6.56618C280.838 6.33556 281.553 7.12408 281.245 7.8967Z' />
+          <path
+            fill-rule='evenodd'
+            clip-rule='evenodd'
+            d='M3.00053 29.2411V20.2716C3.00053 19.3814 3.40205 18.6024 4.2051 17.9348C4.95461 17.3116 5.86473 17 6.93547 17H26.289C27.5738 17 28.6713 17.3784 29.5815 18.1351C30.4916 18.8918 30.9466 19.782 30.9466 20.8058V24.1442C30.9466 25.0789 31.2143 25.9469 31.7497 26.7481C32.2851 27.5493 33.0346 28.1725 33.9982 28.6176C34.9083 29.1073 35.9255 29.3743 37.0498 29.4188H40.4226C41.654 29.4188 42.7247 29.7749 43.6348 30.4871C44.5449 31.2438 45 32.1563 45 33.2246V51.1473C45 51.1868 44.9998 51.2262 44.9995 51.2655V61.6399C44.9995 62.5542 44.5979 63.3543 43.7949 64.04C43.0454 64.68 42.1353 65 41.0645 65H21.711C20.4262 65 19.3287 64.6114 18.4185 63.8343C17.5084 63.0571 17.0534 62.1428 17.0534 61.0914V57.6627C17.0534 56.7027 16.7857 55.8113 16.2503 54.9884C15.7149 54.1655 14.9654 53.5255 14.0018 53.0684C13.0917 52.5655 12.0745 52.2912 10.9502 52.2455H7.57738C6.34604 52.2455 5.27531 51.8798 4.36518 51.1483C3.45506 50.3712 3 49.434 3 48.3369V29.3429C3 29.3089 3.00018 29.275 3.00053 29.2411ZM30.8663 51.6719V30.6207C30.8663 30.3091 30.7593 30.042 30.5451 29.8195C30.2774 29.5969 29.9562 29.4856 29.5815 29.4856H18.2585C17.8837 29.4856 17.5625 29.5969 17.2948 29.8195C17.2537 29.8536 17.2158 29.8889 17.181 29.9251L17.1337 51.0112C17.1337 51.3312 17.2407 51.6055 17.4549 51.8341C17.7226 52.0626 18.0438 52.1769 18.4185 52.1769H29.7415C30.1163 52.1769 30.4375 52.0626 30.7052 51.8341C30.7658 51.7824 30.8195 51.7283 30.8663 51.6719Z'
+          />
+        </svg>
+      </>
+    ),
   },
   {
     id: 3,
-    link: '/components/tabs',
-
-    componentSrc: <HomeTab />,
-    className: 'lg:col-span-4 sm:col-span-5 col-span-14  row-span-4 ',
-  },
-
-  {
-    id: 4,
-    link: '/components/clip-path',
-
-    componentSrc: <HomeClipPath />,
-    className:
-      '2xl:col-span-4 md:col-span-4 sm:col-span-5 col-span-14 lg:col-start-1 lg:col-end-5 lg:row-start-5 2xl:row-end-9 lg:row-end-7 row-span-4',
-  },
-  {
-    id: 5,
-    link: '/components/tabs',
-
-    componentSrc: <HomePasswordInput />,
-    className:
-      ' lg:col-start-5 md:col-span-10 sm:col-span-9 col-span-14   xl:col-end-9 lg:col-end-10  2xl:row-start-7 lg:row-start-6 2xl:row-end-9 lg:row-end-7 lg:row-span-4 row-span-2',
-  },
-  {
-    id: 6,
-    link: '/components/password',
-
-    componentSrc: <HomePhoneInput />,
-    className:
-      ' xl:col-start-9 lg:col-start-10 md:col-span-10 sm:col-span-9 col-span-14  xl:col-end-13 lg:col-end-15 2xl:row-start-7 lg:row-start-6 2xl:row-end-9   lg:row-end-7 lg:row-span-4 row-span-2',
-  },
-  {
-    id: 7,
-    link: '/components/media-modal',
-
-    componentSrc: <HomeModal />,
-    className:
-      'lg:col-start-11 sm:col-span-5 col-span-7  lg:col-end-15 lg:row-start-5 2xl:row-end-7 lg:row-end-6 row-span-4',
-  },
-  {
-    id: 8,
-    link: '/components/buttons',
-
-    componentSrc: <HomeBtn />,
-    className:
-      'xl:col-start-13 lg:col-start-6  lg:col-end-15  2xl:row-start-7 lg:row-start-20 xl:row-start-6 lg:row-span-4 2xl:row-end-11  xl:row-end-10  lg:row-end-21 sm:col-span-9 col-span-7 sm:row-span-2 row-span-4',
-  },
-  {
-    id: 9,
-    link: '/components/datetime-picker',
-
-    componentSrc: <HomeDateTimePicker />,
-    className:
-      'xl:col-span-4 lg:col-span-7 sm:col-span-9 col-span-14 lg:row-auto row-span-2 ',
-  },
-  {
-    id: 10,
-    link: '/components/tags-input',
-
-    componentSrc: <HomeYouutbTags />,
-    className: 'xl:col-span-4 sm:col-span-7 col-span-14 lg:row-auto row-span-2',
-  },
-  {
-    id: 11,
-    link: '/components/file-upload',
-
-    componentSrc: <HomeFileUpload />,
-    className:
-      'xl:col-start-9 lg:col-start-9  xl:col-end-13 lg:col-end-15 2xl:row-start-9 xl:row-start-7 lg:row-start-8 2xl:row-end-11  xl:row-end-10  lg:row-end-9 row-span-2 sm:col-span-7 col-span-14',
-  },
-  {
-    id: 12,
-    link: '/components/text-marquee',
-
-    componentSrc: <HomeTextMarquee />,
-    className:
-      'lg:col-start-1  lg:col-end-9 sm:col-span-8 col-span-14  lg:row-span-4 2xl:row-start-10 lg:row-start-8 2xl:row-end-13 xl:row-end-12 lg:row-end-11',
-  },
-
-  {
-    id: 13,
-    link: '/components/image-reveal',
-
-    componentSrc: <HomeImageReveal />,
-    className:
-      'lg:col-span-6 lg:inline-block hidden sm:col-span-6 col-span-14 lg:row-span-4 2xl:row-start-11 xl:row-start-10 lg:row-start-9 2xl:row-end-13 xl:row-end-12 lg:row-end-11',
-  },
-  {
-    id: 14,
-    link: '/components/magnified-doc',
-
-    componentSrc: <HomeMagnifiedDocOneFile />,
-    className: 'xl:col-span-4 lg:col-span-5 sm:col-span-6  col-span-14',
-  },
-  {
-    id: 15,
-    link: '/components/3d-blob',
-
-    componentSrc: <Home3dBlob />,
-    className: 'lg:col-span-4  sm:col-span-7 col-span-14',
-  },
-  {
-    id: 16,
-    link: '/components/stacking-card',
-
-    componentSrc: <HomeStackingCard />,
-    className: 'xl:col-span-6 lg:col-span-5 sm:col-span-7 col-span-14',
-  },
-  {
-    id: 17,
-    link: '/components/carousel',
-
-    componentSrc: <HomeSlider />,
-    className: 'xl:col-span-10 lg:col-span-9 col-span-14 row-span-4',
-  },
-  {
-    id: 18,
-    link: '/components/drag-items',
-
-    componentSrc: <HomeDragItems />,
-    className:
-      'xl:col-span-4  lg:col-span-5  sm:col-span-7 col-span-14 row-span-4',
-  },
-
-  {
-    id: 19,
-    link: '/components/animated-beam',
-
-    componentSrc: <HomeBeam />,
-    className:
-      'lg:col-start-1 xl:col-end-5 lg:col-end-6 sm:col-span-7 col-span-14  row-span-2 ',
-  },
-
-  {
-    id: 20,
-    link: '/components/progressive-carousel',
-
-    componentSrc: <HomeProgressSlider />,
-    className:
-      'xl:col-span-4 lg:col-span-5  sm:col-span-7 col-span-14 lg:row-span-4 row-span-2 ',
-  },
-  {
-    id: 21,
-    link: '/components/range-slider',
-
-    componentSrc: <HomeRangeSlider />,
-    className:
-      'lg:col-start-1 xl:col-end-5 lg:col-end-6 lg:row-span-2 col-span-14 ',
-  },
-  {
-    id: 22,
-    link: '/components/buy-me-coffee',
-
-    componentSrc: <HomeBuyMeCoffee />,
-    className:
-      'xl:col-start-9 lg:col-start-11 sm:col-span-7 col-span-14 xl:col-end-12 lg:col-end-15 2xl:row-start-18 xl:row-start-17 lg:row-start-16   row-span-4 ',
-  },
-  {
-    id: 23,
-    link: '/components/sparkles-title',
-
-    imageSrc: '/sparkelss.jpg',
-    className:
-      'xl:col-start-12 xl:col-end-15 lg:col-span-5  2xl:row-start-18 xl:row-start-17  xl:row-span-4  sm:col-span-7 col-span-14 lg:row-auto row-span-4 ',
+    projectsName: 'blocks',
+    link: 'https://pro.ui-layouts.com/blocks',
+    componentSrc: () => (
+      <>
+        <svg
+          width='261'
+          height='79'
+          viewBox='0 0 261 79'
+          className='w-full dark:fill-white fill-black'
+          fill='none'
+          xmlns='http://www.w3.org/2000/svg'
+        >
+          <path
+            fill-rule='evenodd'
+            clip-rule='evenodd'
+            d='M0.00052884 25.2411V16.2716C0.00052884 15.3814 0.402052 14.6024 1.2051 13.9348C1.95461 13.3116 2.86473 13 3.93547 13H23.289C24.5738 13 25.6713 13.3784 26.5815 14.1351C27.4916 14.8918 27.9466 15.782 27.9466 16.8058V20.1442C27.9466 21.0789 28.2143 21.9469 28.7497 22.7481C29.2851 23.5493 30.0346 24.1725 30.9982 24.6176C31.9083 25.1073 32.9255 25.3743 34.0498 25.4188H37.4226C38.654 25.4188 39.7247 25.7749 40.6348 26.4871C41.5449 27.2438 42 28.1563 42 29.2246V47.1473C42 47.1868 41.9998 47.2262 41.9995 47.2655V57.6399C41.9995 58.5542 41.5979 59.3543 40.7949 60.04C40.0454 60.68 39.1353 61 38.0645 61H18.711C17.4262 61 16.3287 60.6114 15.4185 59.8343C14.5084 59.0571 14.0534 58.1428 14.0534 57.0914V53.6627C14.0534 52.7027 13.7857 51.8113 13.2503 50.9884C12.7149 50.1655 11.9654 49.5255 11.0018 49.0684C10.0917 48.5655 9.07446 48.2912 7.95019 48.2455H4.57738C3.34604 48.2455 2.27531 47.8798 1.36518 47.1483C0.455061 46.3712 0 45.434 0 44.3369V25.3429C0 25.3089 0.000176555 25.275 0.00052884 25.2411ZM27.8663 47.6719V26.6207C27.8663 26.3091 27.7593 26.042 27.5451 25.8195C27.2774 25.5969 26.9562 25.4856 26.5815 25.4856H15.2585C14.8837 25.4856 14.5625 25.5969 14.2948 25.8195C14.2537 25.8536 14.2158 25.8889 14.181 25.9251L14.1337 47.0112C14.1337 47.3312 14.2407 47.6055 14.4549 47.8341C14.7226 48.0626 15.0438 48.1769 15.4185 48.1769H26.7415C27.1163 48.1769 27.4375 48.0626 27.7052 47.8341C27.7658 47.7824 27.8195 47.7283 27.8663 47.6719Z'
+          />
+          <path d='M76.08 30.06C74.96 30.06 74.0033 30.4567 73.21 31.25C72.4167 32.0433 72.02 33 72.02 34.12V39.02C72.02 40.14 72.4167 41.0967 73.21 41.89C74.0033 42.6833 74.96 43.08 76.08 43.08H80.28C81.4 43.08 82.3567 43.4767 83.15 44.27C83.9433 45.0167 84.34 45.95 84.34 47.07V57.01C84.34 58.0833 83.9433 59.0167 83.15 59.81C82.3567 60.6033 81.4 61 80.28 61H51.72C50.6467 61 49.7133 60.6033 48.92 59.81C48.1267 59.0167 47.73 58.0833 47.73 57.01V15.99C47.73 14.9167 48.1267 13.9833 48.92 13.19C49.7133 12.3967 50.6467 12 51.72 12H80.28C81.4 12 82.3567 12.3967 83.15 13.19C83.9433 13.9833 84.34 14.9167 84.34 15.99V23.62C84.34 25.3933 83.71 26.91 82.45 28.17C81.19 29.43 79.65 30.06 77.83 30.06H76.08ZM72.93 44.27C72.93 43.9433 72.8133 43.6633 72.58 43.43C72.3467 43.1967 72.0667 43.08 71.74 43.08H59.84V47.98H71.74C72.0667 47.98 72.3467 47.8633 72.58 47.63C72.8133 47.3967 72.93 47.14 72.93 46.86V44.27ZM70.83 30.06C71.1567 30.06 71.4367 29.9433 71.67 29.71C71.9033 29.4767 72.02 29.1967 72.02 28.87V26.28C72.02 25.9533 71.9033 25.6733 71.67 25.44C71.4367 25.2067 71.1567 25.09 70.83 25.09H59.84V30.06H70.83ZM101.691 61H88.6707V12H101.691V61ZM138.991 30.06C140.111 30.06 141.068 30.4567 141.861 31.25C142.654 32.0433 143.051 32.9767 143.051 34.05V57.01C143.051 58.0833 142.654 59.0167 141.861 59.81C141.068 60.6033 140.111 61 138.991 61H110.431C109.358 61 108.424 60.6033 107.631 59.81C106.838 59.0167 106.441 58.0833 106.441 57.01V34.05C106.441 32.9767 106.838 32.0433 107.631 31.25C108.424 30.4567 109.358 30.06 110.431 30.06H138.991ZM130.941 46.79V44.27C130.941 43.9433 130.824 43.6633 130.591 43.43C130.358 43.1967 130.078 43.08 129.751 43.08H119.041C118.714 43.08 118.434 43.1967 118.201 43.43C117.968 43.6633 117.851 43.9433 117.851 44.27V46.79C117.851 47.1167 117.968 47.3967 118.201 47.63C118.434 47.8633 118.714 47.98 119.041 47.98H129.751C130.078 47.98 130.358 47.8633 130.591 47.63C130.824 47.3967 130.941 47.1167 130.941 46.79ZM159.142 43.08C158.955 43.08 158.792 43.1033 158.652 43.15C158.512 43.1967 158.372 43.29 158.232 43.43C158.138 43.5233 158.068 43.64 158.022 43.78C157.975 43.92 157.952 44.0833 157.952 44.27V46.79C157.952 47.1167 158.068 47.3967 158.302 47.63C158.535 47.8633 158.815 47.98 159.142 47.98H183.152V61H150.532C149.458 61 148.525 60.6033 147.732 59.81C146.938 59.0167 146.542 58.0833 146.542 57.01V47.07C146.542 45.95 146.938 45.0167 147.732 44.27C148.525 43.4767 149.458 43.08 150.532 43.08H154.802C155.922 43.08 156.878 42.6833 157.672 41.89C158.465 41.0967 158.862 40.14 158.862 39.02V34.05C158.862 32.9767 159.235 32.0433 159.982 31.25C160.775 30.4567 161.732 30.06 162.852 30.06H183.152V43.08H159.142ZM216.21 29.92C215.09 29.92 214.133 30.3167 213.34 31.11C212.547 31.9033 212.15 32.86 212.15 33.98V38.88C212.15 40 212.547 40.9567 213.34 41.75C214.133 42.5433 215.09 42.94 216.21 42.94H220.41C221.53 42.94 222.487 43.3367 223.28 44.13C224.073 44.9233 224.47 45.8567 224.47 46.93V61H212.15C212.15 57.0333 212.15 51.41 212.15 44.13C212.15 43.8033 212.033 43.5233 211.8 43.29C211.567 43.0567 211.287 42.94 210.96 42.94H201.3C200.973 42.94 200.693 43.0567 200.46 43.29C200.273 43.5233 200.18 43.8033 200.18 44.13V60.93H187.86V12H200.18V28.73C200.18 29.0567 200.273 29.3367 200.46 29.57C200.693 29.8033 200.973 29.92 201.3 29.92H210.96C211.287 29.92 211.567 29.8033 211.8 29.57C212.033 29.3367 212.15 29.0567 212.15 28.73V19.07H224.47V24.53C224.47 26.0233 223.933 27.3067 222.86 28.38C221.833 29.4067 220.573 29.92 219.08 29.92H216.21ZM234.561 34.75V26H252.061V34.75H243.311V43.5H225.811V34.75H234.561ZM252.061 52.25H243.311V43.5H252.061V52.25ZM243.311 52.25V61H225.811V52.25H243.311Z' />
+        </svg>
+      </>
+    ),
   },
 ];
+
 type Profile = {
   href: string;
   alt: string;
@@ -255,91 +138,56 @@ const profiles: Profile[] = [
     translateX: '-translate-x-16',
   },
 ];
+
 function HeroSec() {
-  const [blocks, setBlocks] = useState([]);
-
-  const activeDivs = useMemo(
-    () => ({
-      0: new Set([4, 1]),
-      2: new Set([3]),
-      4: new Set([2, 5, 8]),
-      5: new Set([4]),
-      10: new Set([3]),
-      12: new Set([7]),
-      15: new Set([6]),
-      14: new Set([5]),
-      13: new Set([4]),
-    }),
-    [] // No dependencies, so `activeDivs` will only be created once
-  );
-
-  useEffect(() => {
-    const updateBlocks = () => {
-      const { innerWidth, innerHeight } = window;
-      const blockSize = innerWidth * 0.06; // Using 6vw for the block size
-      const amountOfBlocks = Math.ceil(innerHeight / blockSize);
-
-      const newBlocks = Array.from({ length: 17 }, (_, columnIndex) => (
-        <div key={columnIndex} className='w-[6vw] h-full'>
-          {Array.from({ length: amountOfBlocks }, (_, rowIndex) => (
-            <div
-              key={rowIndex}
-              className={`h-[6vw] w-full border-[1px] dark:border-[rgba(255,255,255,0.015)] border-gray-50 ${
-                // @ts-ignore
-                activeDivs[columnIndex]?.has(rowIndex)
-                  ? 'dark:bg-[rgba(255,255,255,0.03)] bg-gray-50'
-                  : ''
-              }`}
-              style={{ height: `${blockSize}px` }}
-            ></div>
-          ))}
-        </div>
-      ));
-      // @ts-ignore
-      setBlocks(newBlocks);
-    };
-
-    updateBlocks();
-    window.addEventListener('resize', updateBlocks);
-
-    return () => window.removeEventListener('resize', updateBlocks);
-  }, [activeDivs]);
   return (
     <>
-      <section className='min-h-screen 2xl:py-16 xl:py-20 pb-24 pt-16 overflow-hidden  relative  '>
-        <div className='absolute inset-0 -z-0 h-screen w-full  dark:bg-[radial-gradient(#1b1b1b_1px,transparent_1px)] bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]'></div>
-        <div className='absolute inset-0 top-0 left-0  h-screen w-full items-center px-5 py-24  bg-gradient-to-t dark:from-black from-white from-0% to-transparent to-60%'></div>
-        <div className='absolute inset-0 top-0 left-0  h-screen w-full items-center px-5 py-24 dark:[background:radial-gradient(87.03%_87.03%_at_50.05%_12.97%,rgba(217,217,217,0)_40%,#000000_100%)] [background:radial-gradient(87.03%_87.03%_at_50.05%_12.97%,rgba(217,217,217,0)_40%,#fafafa_100%)]'></div>
-
-        <div className='lg:container xl:px-0 px-3 mx-auto  gap-2'>
-          <article className='grid gap-4 pt-20 relative z-10 xl:pb-0 pb-2 sm:px-0 px-4'>
+      <section className='2xl:py-16 xl:py-20 sm:pb-24 pb-16 pt-6 relative'>
+        <div
+          className='w-full absolute h-[113.625vh] z-0 overflow-hidden left-0 -top-[8rem]
+        '
+        >
+          <div
+            className='hero-gradient1 '
+            data-border='true'
+          ></div>
+          <div
+            className='hero-gradient2'
+            data-border='true'
+          ></div>
+        </div>
+        <div className='2xl:container 2xl:px-0 px-4 mx-auto relative z-10'>
+          <article className='grid gap-4 2xl:pt-10 pt-10 xl:pb-0 pb-2 sm:px-0 px-4'>
             <NewItemsLoading />
-            <h1 className='2xl:text-7xl xl:text-6xl md:text-6xl sm:text-5xl text-[1.7rem] xl:leading-normal leading-[100%] text-center font-semibold '>
-              <span className=''>The Components Your</span> <br />
-              <span className=' bg-background mt-3 relative rounded-md  w-fit inline-block px-1.5 py-0.5 border  before:absolute before:top-0 before:left-0 before:w-full before:h-full before:content-[""] before:opacity-[0.09] before:z-10 before:pointer-events-none before:bg-[url("/noise.gif")]'>
-                <span className='bg-gradient-to-t     from-[#a2b6fa] to-[#334cec] bg-clip-text text-transparent  '>
-                  Website
+            <h1 className='2xl:text-6xl xl:text-6xl md:text-6xl sm:text-5xl text-[1.7rem] tracking-tighter text-center font-semibold '>
+              <span className='xl:text-[3.35rem] md:text-5xl sm:text-4xl text-[1.7rem]'>
+                More Than Components,
+              </span>
+              <br />
+              <span className=''>It's Your Frontend </span>
+              <span className='bg-background mt-3 relative rounded-md w-fit leading-[100%] inline-block px-1.5 py-0.5 border before:absolute before:top-0 before:left-0 before:w-full before:h-full before:content-[""] before:opacity-[0.09] before:z-10 before:pointer-events-none before:bg-[url("/noise.gif")]'>
+                <span className='bg-gradient-to-t from-blue-300 to-blue-600 bg-clip-text text-transparent font-semibold pr-1'>
+                  Universe
                 </span>
               </span>{' '}
-              Deserve!
             </h1>
-            <p className='mx-auto 2xl:w-[500px] lg:w-[450px] 2xl:text-lg  sm:w-[80%] text-center sm:text-base text-sm'>
-              50+ Free beautifull interactive react/nextjs component based on
-              tailwindcss, motion, gsap, threejs etc
+            <p className='mx-auto 2xl:w-[600px] lg:w-[450px] 2xl:text-lg  sm:w-[80%] text-center sm:text-base text-sm'>
+              UI Layouts isn’t just a library. It’s a complete toolkit with
+              components, effects, design tools, and ready-to-use blocks,
+              everything you need to build modern interfaces, faster.
             </p>
-            <div className='flex gap-2 justify-center items-center'>
+            <div className='flex gap-2 justify-center items-center pt-6'>
+              <a
+                href='https://pro.ui-layouts.com/blocks'
+                className='flex items-center gap-2 w-fit sm:text-xl text-sm rounded-md dark:shadow-none shadow-lg shadow-blue-600 text-white bg-gradient-to-b from-blue-500  to-blue-600 sm:px-4 px-2 py-3'
+              >
+                <LayoutPanelTop className='sm:w-6 sm:h-6 h-5 w-5' /> Get Blocks
+              </a>
               <a
                 href='/components'
-                className='flex items-center gap-2 w-fit rounded-md  text-white bg-gradient-to-l from-[#6175f8]  to-[#334cec] border sm:px-4 px-2 py-2 '
+                className='flex items-center gap-2 w-fit sm:text-xl text-sm rounded-md dark:shadow-none shadow-lg shadow-neutral-300 text-primary dark:border dark:bg-neutral-900 sm:px-4 px-2 py-3'
               >
-                Browse Component
-                <MoveRight />
-              </a>
-              <a href='/get-started' className='sm:inline-block hidden'>
-                <Button className=' rounded-full px-4'>
-                  Get Started
-                  <ChevronsRight />
-                </Button>
+                <Component className='sm:w-6 sm:h-6 h-5 w-5' /> Browse Component
               </a>
             </div>
             <div className='flex w-fit mx-auto sm:items-center justify-center mt-2 lg:pb-0 pb-10 sm:translate-x-8'>
@@ -361,7 +209,7 @@ function HeroSec() {
                   </a>
                 ))}
               </div>
-              <div className='sm:-translate-x-12  sm:pt-0 pt-2'>
+              <div className='sm:-translate-x-12 sm:pt-0 pt-2'>
                 <div className='flex 2xl:gap-1'>
                   <svg
                     xmlns='http://www.w3.org/2000/svg'
@@ -440,122 +288,38 @@ function HeroSec() {
               </div>
             </div>
           </article>
-
-          <div className='relative mx-auto  grid grid-cols-14  gap-4 lg:-mt-10  '>
-            {homeComponents?.map((component, index) => {
-              return (
-                <div className={`${component.className}`} key={index}>
-                  <div
-                    className={`relative group  h-full w-full rounded-xl bg-white shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:bg-zinc-900 dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:-inset-px dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset] forced-colors:outline`}
-                  >
-                    <Link
-                      href={component.link}
-                      className='absolute top-1 transition-all group-hover:opacity-100 opacity-0 text-[0.85rem] px-2 py-0.5 dark:bg-gray-800  bg-gray-200 right-2 z-10 rounded-md grid place-content-center cursor-pointer'
-                    >
-                      Preview
-                    </Link>
-                    <>
-                      {component?.imageSrc && (
-                        <Image
-                          src={component.imageSrc}
-                          alt='sparkes'
-                          width={400}
-                          height={400}
-                          className='w-full h-full object-cover rounded-xl'
-                        />
-                      )}
-                    </>
-                    {/* )} */}
-
-                    <>{component?.componentSrc && component.componentSrc}</>
-                  </div>
+          <div className='grid grid-cols-3 md:px-10 px-2 xl:gap-10 md:gap-5 gap-2 md:pt-16 pt-2 2xl:pb-40 xl:pb-36 lg:pb-24 md:pb-16'>
+            {allProjects.map((project) => (
+              <a
+                key={project.id}
+                href={project.link}
+                target='_blank'
+                rel='noopener noreferrer'
+                className='group flex flex-col items-center relative overflow-hidden justify-center rounded-2xl border dark:border-gray-900 border-gray-200 dark:bg-black p-6 shadow-md transition hover:shadow-lg hover:-translate-y-1'
+              >
+                <div className='mb-4 flex 2xl:h-72 lg:h-60 md:h-48 md:h-42 h-6 xl:px-8 relative z-10 items-center justify-center'>
+                  {project.logoSrc
+                    ? project.logoSrc()
+                    : project.componentSrc?.()}
                 </div>
-              );
-            })}
-            <div className='xl:col-span-6 sm:col-span-5 px-4 sm:h-full h-44 col-span-14 text-center w-full rounded-lg bg-white shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:bg-zinc-900 dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] flex items-center justify-center text-primary/80 font-medium xl:text-3xl text-xl'>
-              More components coming soon...
-            </div>
-            <div className='xl:col-span-8 sm:col-span-9 col-span-14 h-full w-full rounded-lg bg-white shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:bg-zinc-900 dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] px-5'>
-              <div className='w-full mx-auto py-10'>
-                <div className='w-full dark:bg-zinc-950 bg-zinc-50 border rounded-3xl relative'>
-                  <div className='flex lg:flex-row flex-col lg:items-center lg:justify-between lg:gap-0 gap-4 py-6 px-4'>
-                    <div className='flex items-center gap-0'>
-                      {/* Left side - Avatar and You label */}
-                      <div className='flex items-center gap-3'>
-                        <div className='relative'>
-                          <img
-                            className='h-12 w-12 rounded-full border border-gray-800'
-                            src='/ethansprite.png'
-                            alt='Founder'
-                          />
-                          <div className='h-10 w-10 rounded-full absolute bottom-1 -right-4 grid place-items-center bg-purple-100 text-blue-600 border border-blue-300 text-xs px-2 py-0.5 font-medium'>
-                            You
-                          </div>
-                        </div>
-                      </div>
+                <div className='absolute bottom-0 left-0 right-0 top-0 dark:bg-[linear-gradient(to_right,#2120202e_1px,transparent_1px),linear-gradient(to_bottom,#2120202e_1px,transparent_1px)] bg-[linear-gradient(to_right,#acacac2d_1px,transparent_1px),linear-gradient(to_bottom,#acacac2d_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]'></div>
 
-                      {/* Center - Content */}
-                      <div className='flex-1 pl-7'>
-                        <h3 className='font-librecaslon text-xl font-medium text-pirmary mb-1'>
-                          Got a Project?
-                        </h3>
-                        <p className='text-primary/90 text-sm font-medium'>
-                          Book a free discovery call with{' '}
-                          <span className='text-blue-600 text-shadow-lg dark:text-shadow-none text-sh'>
-                            Ethan.
-                          </span>
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Right side - Action buttons */}
-                    <div className='flex items-center gap-2 shrink-0'>
-                      <a
-                        href='mailto:naymur@ui-layouts.com'
-                        className='flex items-center bg-zinc-900 text-white border shadow-none h-14 rounded-full px-5'
-                      >
-                        Email us
-                      </a>
-                      <a
-                        href='https://cal.com/ethankd'
-                        target='_blank'
-                        className='flex items-center bg-blue-600 hover:bg-blue-700 text-white h-14 rounded-full px-6 gap-2'
-                      >
-                        Book a free call
-                        <span className='relative flex size-3'>
-                          <span className='absolute inline-flex h-full w-full animate-ping rounded-full bg-gray-100 opacity-75'></span>
-                          <span className='relative inline-flex size-3 rounded-full bg-gray-100'></span>
-                        </span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <span className='text-primary/90 sm:w-[94%] w-[85%] mx-auto flex gap-1 sm:text-sm text-xs items-center font-medium border px-4 bg-zinc-100 dark:bg-zinc-900 py-1.5 rounded-b-xl'>
-                  We believe in people, not forms. Book a call and let’s talk
-                  directly.
-                  <picture className='shrink-0'>
-                    <source
-                      srcSet='https://fonts.gstatic.com/s/e/notoemoji/latest/1f60e/512.webp'
-                      type='image/webp'
-                    />
-                    <img
-                      src='https://fonts.gstatic.com/s/e/notoemoji/latest/1f60e/512.gif'
-                      alt='🔥'
-                      className='sm:w-6 w-5 sm:h-6 h-5 shrink-0'
-                      width={24}
-                      height={24}
-                    />
-                  </picture>
-                </span>
-              </div>
-            </div>
+                {project?.projectsName === 'tools' && (
+                  <div className='absolute inset-0 z-0 [mask-image:radial-gradient(ellipse_115%_60%_at_50%_100%,#000_70%,transparent_110%)] dark:bg-[radial-gradient(125%_125%_at_50%_10%,#000000_40%,#1f0eb4_100%)] bg-[radial-gradient(125%_125%_at_50%_10%,#ffffff_40%,#1f0eb4_100%)]' />
+                )}
+                {project?.projectsName === 'cursify' && (
+                  <div className='absolute inset-0 z-0 [mask-image:radial-gradient(ellipse_115%_60%_at_50%_100%,#000_70%,transparent_110%)] dark:bg-[radial-gradient(125%_125%_at_50%_10%,#000000_40%,#b40e2a_100%)] bg-[radial-gradient(125%_125%_at_50%_10%,#ffffff_40%,#b40e2a_100%)]' />
+                )}
+                {project?.projectsName === 'blocks' && (
+                  <div className='absolute inset-0 z-0 [mask-image:radial-gradient(ellipse_115%_60%_at_50%_100%,#000_70%,transparent_110%)] dark:bg-[radial-gradient(125%_125%_at_50%_10%,#000000_40%,#0fe06d_100%)] bg-[radial-gradient(125%_125%_at_50%_10%,#ffffff_40%,#0fe06d_100%)]' />
+                )}
+              </a>
+            ))}
           </div>
         </div>
-
-        <div className='flex h-screen overflow-hidden top-0 left-0  inset-0  -z-10 absolute'>
-          {blocks}
-        </div>
       </section>
+      <AllBlocks />
+      <AllComponents />
     </>
   );
 }

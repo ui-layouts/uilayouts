@@ -86,7 +86,7 @@ export async function PreCoded({
             <CopyButton
               code={tshighlighted.code}
               classname={cn(
-                'top-6 right-10  dark:bg-muted bg-white',
+                'top-6 right-10  dark:bg-primary-base bg-neutral-200',
                 copyclass
               )}
             />
@@ -104,7 +104,7 @@ export async function PreCoded({
             <CopyButton
               code={jshighlighted.code}
               classname={cn(
-                'top-6 right-10  dark:bg-muted bg-white',
+                'top-6 right-10  dark:bg-primary-base bg-neutral-200',
                 copyclass
               )}
             />

@@ -201,7 +201,7 @@ export const LiquidGlassCard = ({
         />
 
         {/* Content */}
-        <div className={cn('relative z-30')}>{children}</div>
+        {children}
       </MotionComponent>
     </>
   );

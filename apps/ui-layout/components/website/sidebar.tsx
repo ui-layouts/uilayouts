@@ -38,6 +38,7 @@ export const basePath = [
 
 function DocsSidebar() {
   const pathname = usePathname();
+  const { setTheme } = useTheme();
   const isDesktop = useMediaQuery('(min-width: 992px)');
 
   const { addVisitedPage, getRecentPages, removeAllRecentPages } =
@@ -72,8 +73,8 @@ function DocsSidebar() {
     <>
       {isDesktop && (
         <aside className='h-full'>
-          <div className='sticky top-16 h-screen w-full pt-3'>
-            <ScrollArea className='h-[98%] px-3 py-3 dark:bg-black/40 bg-zinc-100 backdrop-blur-md rounded-md border'>
+          <div className='sticky top-0 h-screen w-full pt-[4.5em]'>
+            <ScrollArea className='h-[98%] px-3 py-3'>
               <ul className='pb-1'>
                 {basePath?.map((link, index) => (
                   <li key={`id-${index}`}>
@@ -90,7 +91,7 @@ function DocsSidebar() {
                         className: `${
                           link.href === pathname
                             ? 'dark:text-black dark:bg-white bg-black text-white'
-                            : 'dark:bg-gray-800 dark:text-white group-hover:bg-black group-hover:text-white  dark:group-hover:bg-white dark:group-hover:text-black'
+                            : 'dark:bg-zinc-900 dark:text-white group-hover:bg-black group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-black'
                         } h-7 w-7 border transition-all rounded-md p-1`,
                       })}
 
@@ -98,31 +99,6 @@ function DocsSidebar() {
                     </Link>
                   </li>
                 ))}
-                <li>
-                  <a
-                    href={'https://tools.ui-layouts.com/'}
-                    target='_blank'
-                    className={`flex gap-2 group font-medium items-center py-1  transition-all text-slate-600 hover:text-slate-900  dark:text-slate-400 dark:hover:text-white`}
-                  >
-                    <PenTool
-                      className={`dark:bg-gray-800 dark:text-white group-hover:bg-black group-hover:text-white  dark:group-hover:bg-white dark:group-hover:text-black h-7 w-7 border transition-all rounded-md p-1`}
-                    />
-                    Tools
-                    <span className='text-xs font-normal inline-block -translate-y-2 text-blue-600 '>New</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={'https://cursify.vercel.app'}
-                    target='_blank'
-                    className={`flex gap-2 group font-medium items-center py-1  transition-all text-slate-600 hover:text-slate-900  dark:text-slate-400 dark:hover:text-white`}
-                  >
-                    <MousePointerClick
-                      className={`dark:bg-gray-800 dark:text-white group-hover:bg-black group-hover:text-white  dark:group-hover:bg-white dark:group-hover:text-black  h-7 w-7 border transition-all rounded-md p-1`}
-                    />
-                    Cursify
-                  </a>
-                </li>
               </ul>
 
               {recentPages.length > 0 && (
@@ -136,7 +112,7 @@ function DocsSidebar() {
                         <TooltipTrigger asChild>
                           <button
                             onClick={handleRemoveAllRecentData}
-                            className='xl:h-7 h-5 xl:w-7 w-5 rounded-md dark:bg-gray-900 bg-gray-100 grid place-content-center'
+                            className='xl:h-7 h-5 xl:w-7 w-5 rounded-md border dark:bg-zinc-900 bg-gray-100 grid place-content-center'
                           >
                             <X className={`h-5 w-5 transition-all`} />
                           </button>
@@ -264,7 +240,7 @@ export const ItemsWithName = ({
             <Tooltip delayDuration={200}>
               <TooltipTrigger asChild>
                 <button
-                  className='h-7 w-7 rounded-md dark:bg-gray-900 bg-gray-100 grid place-content-center absolute top-0 right-3'
+                  className='h-7 w-7 rounded-md dark:bg-zinc-900 border bg-gray-100 grid place-content-center absolute top-0 right-3'
                   onClick={() => setExpandedItems(!expandedItems)}
                 >
                   <ChevronsDown

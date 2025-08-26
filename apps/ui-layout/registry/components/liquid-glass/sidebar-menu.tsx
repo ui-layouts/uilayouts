@@ -20,7 +20,7 @@ const SidebarMenu = ({className}:{className?:string}) => {
         }}
       >
         <LiquidGlassCard glowIntensity="sm" shadowIntensity="sm" borderRadius="12px" blurIntensity="sm" draggable className='p-4 w-[280px]'>
-          <nav className='space-y-2 w-full'>
+          <nav className='space-y-2 w-full relative z-30 '>
             <button
               className='w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-white text-gray-800 font-medium transition-colors hover:bg-gray-100'
               aria-current='page'

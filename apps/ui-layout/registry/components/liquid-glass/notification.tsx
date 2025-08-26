@@ -20,12 +20,12 @@ const NotificationLiquid = () => {
           draggable={false}
           expandable
           expandedWidth='410px'
-          expandedHeight='325px'
+          expandedHeight='335px'
           width='410px'
           height='90px'
-          className='z-10 flex items-start relative overflow-hidden'
+          className='z-10 flex flex-col items-start relative overflow-hidden'
         >
-          <div className='relative flex items-center p-4  text-white h-full z-10'>
+          <div className='relative z-30 flex items-center p-4  text-white h-full'>
             {/* App Icon */}
             <div className='flex-shrink-0 mr-4'>
               <Image
@@ -65,7 +65,7 @@ const NotificationLiquid = () => {
           glowIntensity='xl'
           className='z-10 flex items-start relative mt-2'
         >
-          <div className='relative flex items-center p-4 text-white z-10'>
+          <div className='relative z-30 flex items-center p-4 text-white z-10'>
             {/* App Icon */}
             <div className='flex-shrink-0 mr-4'>
               <Image

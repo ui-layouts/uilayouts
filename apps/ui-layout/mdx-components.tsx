@@ -39,7 +39,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     }: React.ComponentProps<typeof TabsContent>) => (
       <TabsContent className={cn('', className)} {...props} />
     ),
-    CodeWithTabs: CodeWithTabs,
+    CodeWithTabs: ({ ...props }) => <CodeWithTabs {...props} />,
     HoverContainer: HoverContainer,
     IframeTabCodePreview: ({ ...props }) => <IframeTabCodePreview {...props} />,
     TabCodePreview: ({ ...props }) => <TabCodePreview {...props} />,
@@ -121,7 +121,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       className,
       ...props
     }: React.HTMLAttributes<HTMLTableSectionElement>) => (
-      <thead className={cn('bg-muted w-full', className)} {...props} />
+      <thead className={cn('dark:bg-zinc-900 w-full', className)} {...props} />
     ),
     th: ({
       className,
