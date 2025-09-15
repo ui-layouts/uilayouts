@@ -1,7 +1,71 @@
 export const metadata = {
-  title: 'Noise Effect',
+  metadataBase: new URL("https://ui-layouts.com"),
+
+  title: "Noise Effect",
   description:
-    'A noise effect component that adds a noise overlay to your website, with adjustable opacity for control.',
+    "A subtle noise overlay component for React and Tailwind CSS. Adds texture and depth to websites with adjustable opacity for full creative control.",
+  keywords: [
+    "Noise effect component",
+    "CSS noise overlay",
+    "Tailwind noise background",
+    "React noise effect",
+    "Background texture UI",
+    "Noise overlay CSS",
+    "Adjustable opacity overlay",
+    "Grain effect UI",
+    "Subtle texture component",
+    "UI noise filter",
+    "Noise background React",
+    "Modern UI texture",
+    "Visual noise effect",
+    "Website background noise",
+    "Noise animation component",
+    "Tailwind background effect",
+    "Layered noise overlay",
+    "Dynamic opacity effect",
+    "Textured UI overlay",
+    "React Tailwind noise",
+  ],
+  authors: [{ name: "Naymur Rahman", url: "https://twitter.com/naymur_dev" }],
+  creator: "@naymur_dev",
+  publisher: "UI Layouts",
+  openGraph: {
+    title: "Noise Effect | UI Layouts",
+    description:
+      "A customizable noise overlay component for React and Tailwind CSS. Perfect for adding depth and texture with adjustable opacity.",
+    url: "https://ui-layouts.com/components/noise",
+    images: [
+      {
+        url: 'https://ui-layouts.com/component-og.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'UI Layouts Components',
+      },
+    ],
+    siteName: "UI Layouts",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Noise Effect | UI Layouts",
+    image:["https://ui-layouts.com/component-og.jpg"],
+    description:
+      "Subtle noise overlay effect built with React and Tailwind CSS. Adjustable opacity for adding texture and visual depth to your UI.",
+    creator: "@naymur_dev",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  category: "technology",
 };
 
 <ComponentCodePreview name='noise-effect' isTab isFitheight>
@@ -10,7 +74,7 @@ export const metadata = {
 ```tsx
 <main className='relative '>
   <div
-    className="absolute top-0 left-0 w-full h-full content-[''] z-10 pointer-events-none bg-[url('https://res.cloudinary.com/dzl9yxixg/image/upload/noise_yvdidf.gif')]"
+    className="absolute top-0 left-0 w-full h-full content-[''] z-10 pointer-events-none bg-[url('https://www.ui-layouts.com/noise.gif')]"
     style={{ opacity: opacity }}
   ></div>
   <section className='  font-semibold 2xl::h-[600px] sm:h-[500px] h-[450px] bg-gradient-to-t dark:to-gray-800 dark:from-gray-950 to-[#dadada] from-[#ebebeb] flex flex-col items-center justify-center dark:text-white text-black'>
@@ -33,7 +97,7 @@ play with opacity that helps you to reduce the noise:
 <main
   className="relative before:absolute before:top-0 before:left-0 before:w-full
      before:h-full before:content-[''] before:opacity-[0.05] before:z-10 before:pointer-events-none
-     before:bg-[url('https://res.cloudinary.com/dzl9yxixg/image/upload/noise_yvdidf.gif')]"
+     before:bg-[url('https://www.ui-layouts.com/noise.gif')]"
 >
   {'your content here'}
 </main>

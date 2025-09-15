@@ -1,6 +1,3 @@
-'use client';
-import { useState } from 'react';
-import { motion } from 'motion/react';
 import Link from 'next/link';
 import * as AspectRatio from '@radix-ui/react-aspect-ratio';
 import Image from 'next/image';
@@ -588,7 +585,7 @@ export default function Home() {
   return (
     <div className='pt-24 pb-5'>
       <h1 className={'sm:text-3xl text-2xl font-semibold tracking-tight pb-1'}>
-        Components
+       Ui-Layouts Components
       </h1>
 
       <p className='md:text-lg text-sm text-muted-foreground lg:w-[80%]'>

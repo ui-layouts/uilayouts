@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from '@/components/website/header';
 import DocsSidebar from '@/components/website/sidebar';
-import Footer from '@/components/website/footer';
 
 export default async function ComponentLayout({
   children,

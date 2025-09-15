@@ -41,7 +41,7 @@ export function SearchDialog({
     ...SpecialComponents,
     ...MainComponents,
   ];
-
+  const listRef = React.useRef<HTMLDivElement>(null);
   const [searchOpen, setSearchOpen] = React.useState(false);
 
   React.useEffect(() => {
@@ -140,6 +140,11 @@ export function SearchDialog({
                           runCommand(() =>
                             router.push(category.href as string)
                           );
+                        }}
+                        ref={(el) => {
+                          if (el?.getAttribute("aria-selected") === "true") {
+                            el.scrollIntoView({ block: "nearest" });
+                          }
                         }}
                       >
                         <div className='flex items-center'>

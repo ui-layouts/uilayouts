@@ -1,8 +1,73 @@
 export const metadata = {
-  title: 'Text Animatinon',
+  metadataBase: new URL("https://ui-layouts.com"),
+
+  title: "Timeline Animation",
   description:
-    'A timeline animation using Framer Motion that animates items one by one as you reach each specific section',
+    "A timeline animation built with Framer Motion that animates sections one after another as they enter the viewport. Supports an animationNum prop to control when each item in the timeline animates.",
+  keywords: [
+    "Timeline animation React",
+    "Framer Motion timeline",
+    "Scroll timeline animation",
+    "Sequential section animation",
+    "Animated timeline component",
+    "Framer Motion animationNum",
+    "Scroll triggered timeline",
+    "Staggered timeline animation",
+    "React timeline animation",
+    "Step by step animation",
+    "Interactive timeline UI",
+    "Framer Motion sequential reveal",
+    "Section by section animation",
+    "Viewport timeline animation",
+    "Modern timeline component",
+    "Sequential content reveal React",
+    "Animated vertical timeline",
+    "React storytelling timeline",
+    "Scroll-based animation timeline",
+    "Framer Motion UI timeline",
+  ],
+  authors: [{ name: "Naymur Rahman", url: "https://twitter.com/naymur_dev" }],
+  creator: "@naymur_dev",
+  publisher: "UI Layouts",
+  openGraph: {
+    title: "Timeline Animation | UI Layouts",
+    description:
+      "A Framer Motion timeline animation component for React. Animates timeline items sequentially as you scroll, with full control using the animationNum prop.",
+    url: "https://ui-layouts.com/components/timeline-animation",
+    images: [
+      {
+        url: 'https://ui-layouts.com/component-og.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'UI Layouts Components',
+      },
+    ],
+    siteName: "UI Layouts",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Timeline Animation | UI Layouts",
+    images: ['https://ui-layouts.com/component-og.jpg'],
+    description:
+      "React timeline animation using Framer Motion. Animates sections one after another with scroll, controllable via animationNum.",
+    creator: "@naymur_dev",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  category: "technology",
 };
+
 
 <ComponentCodePreview name='timeline-animation' hasReTrigger responsive />
 

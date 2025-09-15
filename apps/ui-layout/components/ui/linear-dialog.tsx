@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client';
 
 import React, {
@@ -25,7 +26,7 @@ interface DialogContextType {
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
   uniqueId: string;
-  triggerRef: React.RefObject<HTMLDivElement | null>;
+  triggerRef: React.RefObject<HTMLDivElement>;
 }
 
 const DialogContext = React.createContext<DialogContextType | null>(null);
@@ -77,7 +78,7 @@ type DialogTriggerProps = {
   children: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
-  triggerRef?: React.RefObject<HTMLDivElement | null>;
+  triggerRef?: React.RefObject<HTMLDivElement>;
 };
 
 function DialogTrigger({
@@ -165,7 +166,8 @@ function DialogContent({ children, className, style }: DialogContent) {
 
   useEffect(() => {
     if (isOpen) {
-      document.body.classList.add('overflow-hidden');
+      document.body.style.overflow = 'hidden';
+      
       const focusableElements = containerRef.current?.querySelectorAll(
         'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
       );
@@ -174,14 +176,17 @@ function DialogContent({ children, className, style }: DialogContent) {
         setLastFocusableElement(
           focusableElements[focusableElements.length - 1] as HTMLElement
         );
-        (focusableElements[0] as HTMLElement).focus();
+        // Delay focus slightly to allow animation to start
+        requestAnimationFrame(() => {
+          (focusableElements[0] as HTMLElement).focus();
+        });
       }
-      // Scroll to the top when dialog opens
+      
       if (containerRef.current) {
         containerRef.current.scrollTop = 0;
       }
     } else {
-      document.body.classList.remove('overflow-hidden');
+      document.body.style.overflow = '';
       triggerRef.current?.focus();
     }
   }, [isOpen, triggerRef]);
@@ -192,61 +197,110 @@ function DialogContent({ children, className, style }: DialogContent) {
         ref={containerRef}
         layoutId={`dialog-${uniqueId}`}
         className={cn('overflow-hidden', className)}
-        style={style}
+        style={{
+          ...style,
+          willChange: 'transform, opacity', // GPU acceleration
+        }}
         role='dialog'
         aria-modal='true'
         aria-labelledby={`dialog-title-${uniqueId}`}
         aria-describedby={`dialog-description-${uniqueId}`}
+        initial={{ scale: 0.95, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.95, opacity: 0 }}
+        transition={{
+          type: 'spring',
+          damping: 25,
+          stiffness: 300,
+          mass: 0.8,
+        }}
       >
         {children}
       </motion.div>
     </>
   );
 }
-
 type DialogContainerProps = {
   children: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
 };
 
+// Optimized DialogContainer with performance improvements
 function DialogContainer({ children, className }: DialogContainerProps) {
   const { isOpen, setIsOpen, uniqueId } = useDialog();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    const drawerWrapper = document.querySelectorAll("[drawer-wrapper]");
+
     if (isOpen) {
-      window.scrollTo(0, 0);
+      document.body.classList.add("overflow-hidden");
+      drawerWrapper.forEach(
+        (wrapper) => wrapper?.classList.add("open") 
+      );
+    } else {
+      document.body.classList.remove("overflow-hidden");
+      drawerWrapper.forEach(
+        (wrapper) => wrapper?.classList.remove("open") 
+      );
     }
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
     setMounted(true);
-    return () => setMounted(false);
+    return () => {
+      setMounted(false);
+    };
   }, []);
 
   if (!mounted) return null;
-  // createPortal(
-  return (
-    <AnimatePresence initial={false} mode='sync'>
+
+  return createPortal(
+    <AnimatePresence initial={false} mode='wait'>
       {isOpen && (
         <>
           <motion.div
             key={`backdrop-${uniqueId}`}
-            className='fixed inset-0 h-full z-50  w-full bg-white/40 backdrop-blur-sm dark:bg-black/40 '
+            data-lenis-prevent
+            className='fixed inset-0 h-full z-50 w-full backdrop-blur-xl'
             initial={{ opacity: 0 }}
+            // style={{
+            //   background: "radial-gradient(125% 125% at 50% 10%, #161414 40%, #f84503 100%)",
+            //   willChange: 'opacity', 
+            // }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={{
+              duration: 0.2,
+              ease: [0.4, 0.0, 0.4, 1],
+            }}
             onClick={() => setIsOpen(false)}
-          />
-          <div className={cn(`fixed  inset-0 z-50 w-fit mx-auto`, className)}>
+          >
+            <img src="rotate-bg.png" className="absolute top-20 left-0 w-full h-full" />
+          </motion.div>
+          <motion.div 
+            className={cn(`fixed inset-0 z-50 w-fit mx-auto`, className)}
+            style={{ willChange: 'transform' }} // GPU acceleration for transforms
+          >
             {children}
-          </div>
+          </motion.div>
         </>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   );
-  //   document.body
-  // )
 }
-
 type DialogTitleProps = {
   children: React.ReactNode;
   className?: string;
@@ -257,14 +311,14 @@ function DialogTitle({ children, className, style }: DialogTitleProps) {
   const { uniqueId } = useDialog();
 
   return (
-    <motion.div
+    <motion.h1
       layoutId={`dialog-title-container-${uniqueId}`}
       className={className}
       style={style}
       layout
     >
       {children}
-    </motion.div>
+    </motion.h1>
   );
 }
 
@@ -338,6 +392,7 @@ function DialogImage({ src, alt, className, style }: DialogImageProps) {
   const { uniqueId } = useDialog();
 
   return (
+    
     <motion.img
       src={src}
       alt={alt}
@@ -371,7 +426,7 @@ function DialogClose({ children, className, variants }: DialogCloseProps) {
       type='button'
       aria-label='Close dialog'
       key={`dialog-close-${uniqueId}`}
-      className={cn('absolute right-6 top-6', className)}
+      className={cn('absolute right-6 top-6 text-white', className)}
       initial='initial'
       animate='animate'
       exit='exit'

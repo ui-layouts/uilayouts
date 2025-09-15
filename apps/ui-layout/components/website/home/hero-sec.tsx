@@ -147,14 +147,8 @@ function HeroSec() {
           className='w-full absolute h-[113.625vh] z-0 overflow-hidden left-0 -top-[8rem]
         '
         >
-          <div
-            className='hero-gradient1 '
-            data-border='true'
-          ></div>
-          <div
-            className='hero-gradient2'
-            data-border='true'
-          ></div>
+          <div className='hero-gradient1 ' data-border='true'></div>
+          <div className='hero-gradient2' data-border='true'></div>
         </div>
         <div className='2xl:container 2xl:px-0 px-4 mx-auto relative z-10'>
           <article className='grid gap-4 2xl:pt-10 pt-10 xl:pb-0 pb-2 sm:px-0 px-4'>
@@ -179,9 +173,9 @@ function HeroSec() {
             <div className='flex gap-2 justify-center items-center pt-6'>
               <a
                 href='https://pro.ui-layouts.com/blocks'
-                className='flex items-center gap-2 w-fit sm:text-xl text-sm rounded-md dark:shadow-none shadow-lg shadow-blue-600 text-white bg-gradient-to-b from-blue-500  to-blue-600 sm:px-4 px-2 py-3'
+                className='flex items-center gap-2 w-fit sm:text-xl text-sm rounded-md shadow-lg shadow-blue-600 text-white bg-gradient-to-b from-blue-500  to-blue-600 sm:px-4 px-2 py-3'
               >
-                <LayoutPanelTop className='sm:w-6 sm:h-6 h-5 w-5' /> Get Blocks
+                <LayoutPanelTop className='sm:w-6 sm:h-6 h-5 w-5' /> Unlock Blocks 🎉
               </a>
               <a
                 href='/components'

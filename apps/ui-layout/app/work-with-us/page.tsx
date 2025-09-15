@@ -141,7 +141,7 @@ const WorkWithUs = () => {
                   Email us
                 </a>
                 <a
-                  href='https://cal.com/naymur-rahman'
+                  href='https://cal.com/ui-layouts'
                   target='_blank'
                   className='flex items-center bg-blue-600 hover:bg-blue-700 text-white h-14 rounded-full px-6 gap-2'
                 >

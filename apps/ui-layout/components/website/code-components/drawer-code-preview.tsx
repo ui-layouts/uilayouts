@@ -12,7 +12,7 @@ import { Pre, RawCode, highlight } from 'codehike/code';
 import {
   DrawerContent,
   ResponsiveDrawer,
-} from '@/components/ui/drawer/vaul-main';
+} from '@/components/ui/vaul-main';
 
 import React, { lazy } from 'react';
 import { Code, Eye, Maximize2 } from 'lucide-react';
@@ -148,7 +148,7 @@ export default async function DrawerCodePreview({
               </button>
             }
           >
-            <DrawerContent classname='2xl:max-h-[62vh] max-h-[80vh] overflow-auto '>
+            <DrawerContent className='2xl:max-h-[62vh] max-h-[80vh] overflow-auto '>
               <Tabs
                 className='relative'
                 defaultValue={`${parsedCodeblock.comName}-typescript`}

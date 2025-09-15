@@ -182,13 +182,15 @@ export const MainComponents = [
     ],
   },
   {
-    href: '/components/github-button',
-    name: 'github-button',
+    href: '/components/uilayouts-github-button',
+    name: 'uilayouts-github-button',
     component: 'creative',
     tags: [
+      'uilayouts',
       'github',
       'button',
       'github-button',
+      'uilayouts github button',
       'repository',
       'link',
       'cta',

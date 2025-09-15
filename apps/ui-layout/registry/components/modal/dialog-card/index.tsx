@@ -8,7 +8,7 @@ import {
   DialogClose,
   DialogDescription,
   DialogContainer,
-} from './linear-dialog';
+} from '../../../../components/ui/linear-dialog';
 import { Plus } from 'lucide-react';
 
 const items = [

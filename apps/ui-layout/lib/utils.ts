@@ -51,12 +51,12 @@ export function throttle(fn: (...args: any[]) => any, wait: number) {
 }
 
 export const siteConfig = {
-  name: 'ui-layouts',
+  name: 'Ui-Layouts | Your Frontend Universe',
   url: 'https://ui-layouts.com',
   ogImage: 'https://www.ui-layouts.com/og.jpg',
   workWithUsOgImage: 'https://www.ui-layouts.com/work-with-usog.jpg',
   description:
-    'Beautifully designed components that you can copy and paste into your apps. Accessible. Customizable. Open Source.',
+    'Beautifully designed React + Next.js + TailwindCSS components. 60+ ready-to-use, accessible, and customizable UI pieces — open source and free.',
   links: {
     twitter: 'https://twitter.com/naymur_dev',
     linkedin: 'https://www.linkedin.com/in/naymur-rahman',

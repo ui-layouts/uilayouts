@@ -8,7 +8,7 @@ import { CodeMirror } from 'react-runner-codemirror';
 import {
   DrawerContent,
   ResponsiveDrawer,
-} from '@/components/ui/drawer/vaul-main';
+} from '@/components/ui/vaul-main';
 import { Panel, PanelGroup, PanelResizeHandle } from 'react-resizable-panels';
 
 // import { CardArr } from '@/components/website/constant';
@@ -59,7 +59,7 @@ function EditComponents({
         }
       >
         <DrawerContent
-          classname={`${
+          className={`${
             componentCenter ? ' 2xl:h-[62vh] h-[80vh]' : ' h-[97vh] w-full'
           } overflow-auto`}
         >
