@@ -725,11 +725,11 @@
           "parentName": "Image Reveal"
         },
         {
-          "componentName": "uilayouts-github-button",
-          "filesrc": "components/github-repo-btn/index.tsx",
-          "iframeSrc": "live-components/uilayouts-github-button",
-          "parentlink": "uilayouts-github-button",
-          "parentName": "Github Button"
+          "componentName": "github-gradient-button",
+          "filesrc": "components/github-gradient-button/index.tsx",
+          "iframeSrc": "live-components/github-gradient-button",
+          "parentlink": "github-gradient-button",
+          "parentName": "Github Gradient Button"
         },
         {
           "componentName": "blur-vignette-video",

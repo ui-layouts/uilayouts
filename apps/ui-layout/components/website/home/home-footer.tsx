@@ -6,7 +6,7 @@ import useNewsLetter, { ClientData } from '@/hooks/useNewsLetter';
 import { toast } from 'sonner';
 import { SearchDialog } from '../searchbar';
 import ThemeSwitch from '../theme-switch';
-import GitHubButton from '@/registry/components/github-repo-btn';
+import GitHubButton from '@/registry/components/github-gradient-button';
 
 const pathArr = [
   'M1700.03 150.053V93.2598H1813.22V150.053H1756.62V206.847H1643.44V150.053H1700.03ZM1813.22 263.64L1756.62 249.442V206.847H1813.22V263.64ZM1756.62 249.442L1813.22 263.64H1756.62V320.434H1643.44V249.442H1756.62Z',

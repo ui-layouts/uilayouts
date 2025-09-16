@@ -7,7 +7,7 @@ import { Github, MousePointerClick, PenTool } from 'lucide-react';
 import { SearchDialog } from './searchbar';
 import MobileHeader from './moibile-header';
 import ThemeSwitch from './theme-switch';
-import GitHubButton from '@/registry/components/github-repo-btn';
+import GitHubButton from '@/registry/components/github-gradient-button';
 import MainComponentsDownloader from './downloadallarray';
 // import MobileHeader from './moibile-header'
 

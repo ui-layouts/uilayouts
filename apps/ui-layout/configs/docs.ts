@@ -182,8 +182,8 @@ export const MainComponents = [
     ],
   },
   {
-    href: '/components/uilayouts-github-button',
-    name: 'uilayouts-github-button',
+    href: '/components/github-gradient-button',
+    name: 'github-gradient-button',
     component: 'creative',
     tags: [
       'uilayouts',
@@ -1857,11 +1857,11 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'github-button',
-    componentName: 'github-button',
+    componentName: 'github-gradient-button',
     componentSrc: React.lazy(
-      () => import('@/registry/components/github-repo-btn/index')
+      () => import('@/registry/components/github-gradient-button/index')
     ),
-    iframeSrc: 'live-components/github-button',
+    iframeSrc: 'live-components/github-gradient-button',
     tags: [
       'github',
       'button',

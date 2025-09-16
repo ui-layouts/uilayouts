@@ -42,7 +42,7 @@ const COLORS: Colors = {
   color16: '#290ECB',
   color17: '#3F4CC0',
 };
-const GitHubButton: React.FC = () => {
+const GitHubGradientButton: React.FC = () => {
   const [isHovered, setIsHovered] = useState(false);
   const isDesktop = useMediaQuery('(min-width: 1280px)');
 
@@ -90,4 +90,4 @@ const GitHubButton: React.FC = () => {
   );
 };
 
-export default GitHubButton;
+export default GitHubGradientButton;
