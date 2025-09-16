@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+import { MainComponents, SpecialComponents } from '@/configs/docs';
 
 export interface IRecentPage {
   id: string;
@@ -54,7 +55,13 @@ export const useRecentPagesStore = create<RecentPagesStore>()(
           return { recentPages: newRecentPages.slice(0, 5) };
         });
       },
-      getRecentPages: () => get().recentPages,
+      getRecentPages: () =>
+        get().recentPages.filter(
+          ({ name: visitedMenuName }: any) =>
+            SpecialComponents.some(({ name }) => name === visitedMenuName) ||
+            MainComponents.some(({ name }) => name === visitedMenuName)
+        ),
+      // @ts-ignore
       // @ts-ignore
       removeAllRecentPages: () => set({ recentPages: [] }),
     }),
