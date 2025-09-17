@@ -8,12 +8,7 @@ import { remarkCodeHike, recmaCodeHike } from 'codehike/mdx';
 import rehypeSlug from 'rehype-slug';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
-
-// Import the JSON file
-const docsData = JSON.parse(
-  fs.readFileSync(path.resolve('./configs/docs.json'), 'utf8')
-);
-const { dataArray } = docsData;
+import { dataArray } from './configs/docsJson.ts';
 
 const chConfig = {
   components: { code: 'PreCode' },
@@ -21,7 +16,6 @@ const chConfig = {
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-
 
 function rehypeComponent() {
   return (tree) => {
@@ -201,7 +195,10 @@ const nextConfig = {
       ...config.resolve.alias,
       '@repo/ui': path.resolve(__dirname, '../../packages/ui/src'),
       '@repo/blocks': path.resolve(__dirname, '../../packages/blocks/src'),
-      '@repo/blocks/assets': path.resolve(__dirname, '../../packages/blocks/assets'),
+      '@repo/blocks/assets': path.resolve(
+        __dirname,
+        '../../packages/blocks/assets'
+      ),
     };
     return config;
   },

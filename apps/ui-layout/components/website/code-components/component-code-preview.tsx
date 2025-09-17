@@ -4,7 +4,7 @@ import {
   TabsList,
   TabsTrigger,
 } from '@/components/website/ui/tabs';
-import docs from '@/configs/docs.json';
+import { dataArray } from '@/configs/docsJson';
 
 import ComponentPreview from './component-preview';
 import { extractCodeFromFilePath } from '@/lib/code';
@@ -44,7 +44,7 @@ export default async function ComponentCodePreview({
   isFitheight = false,
 }: ComponentCodePreview) {
   const currComponent: TCurrComponentProps | null =
-    docs.dataArray.reduce<TCurrComponentProps | null>((acc, component) => {
+    dataArray.reduce<TCurrComponentProps | null>((acc, component) => {
       const file = component?.componentArray?.find(
         (file) => file.componentName === name
       );

@@ -5,7 +5,7 @@ import {
   TabsList,
   TabsTrigger,
 } from '@/components/website/ui/tabs';
-import docs from '@/configs/docs.json';
+import { dataArray } from '@/configs/docsJson';
 
 import { Pre, RawCode, highlight } from 'codehike/code';
 
@@ -70,7 +70,7 @@ export default async function DrawerCodePreview({
   // console.log(parsedCodeblock);
 
   const currComponent: TCurrComponentProps | null =
-    docs.dataArray.reduce<TCurrComponentProps | null>((acc, component) => {
+    dataArray.reduce<TCurrComponentProps | null>((acc, component) => {
       const file = component?.componentArray?.find(
         (file) => file.componentName === name
       );

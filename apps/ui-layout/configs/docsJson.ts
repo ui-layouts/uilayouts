@@ -1,6 +1,6 @@
 import { DocsSection } from '@/types/docs';
 
-const dataArray: DocsSection[] = [
+export const dataArray: DocsSection[] = [
   {
     name: 'Default',
     componentArray: [
