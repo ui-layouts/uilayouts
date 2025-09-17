@@ -1,8 +1,9 @@
 import { DocsSection } from '@/types/docs';
+import { DOCS_CATEGORY } from '@/const/docs';
 
 export const dataArray: DocsSection[] = [
   {
-    name: 'Default',
+    name: DOCS_CATEGORY.Default,
     componentArray: [
       {
         componentName: 'liquid-glass-sidebar-menu',
@@ -234,10 +235,10 @@ export const dataArray: DocsSection[] = [
         parentName: 'Buy Me a Coffe',
       },
     ],
-    type: 'default ',
+    type: DOCS_CATEGORY.Default,
   },
   {
-    name: 'ThreeJS',
+    name: DOCS_CATEGORY.ThreeJS,
     componentArray: [
       {
         componentName: 'img-ripple-effect',
@@ -276,11 +277,11 @@ export const dataArray: DocsSection[] = [
         parentName: 'Mesh Gradients',
       },
     ],
-    type: 'threejs',
+    type: DOCS_CATEGORY.ThreeJS,
   },
 
   {
-    name: 'Accordion',
+    name: DOCS_CATEGORY.Accordion,
     componentArray: [
       {
         componentName: 'grid-layout-accordion',
@@ -325,10 +326,10 @@ export const dataArray: DocsSection[] = [
         parentName: 'Image Accordions',
       },
     ],
-    type: 'accordion ',
+    type: DOCS_CATEGORY.Accordion,
   },
   {
-    name: 'Form',
+    name: DOCS_CATEGORY.Form,
     componentArray: [
       {
         componentName: 'phone-input',
@@ -515,10 +516,10 @@ export const dataArray: DocsSection[] = [
         parentName: 'File Upload',
       },
     ],
-    type: 'form ',
+    type: DOCS_CATEGORY.Form,
   },
   {
-    name: 'Sparkles',
+    name: DOCS_CATEGORY.Sparkles,
     componentArray: [
       {
         componentName: 'sparkles-globe',
@@ -569,10 +570,10 @@ export const dataArray: DocsSection[] = [
         parentName: 'Sparkles Title',
       },
     ],
-    type: 'sparkles ',
+    type: DOCS_CATEGORY.Sparkles,
   },
   {
-    name: 'swapy',
+    name: DOCS_CATEGORY.Swapy,
     componentArray: [
       {
         componentName: 'default-swapy',
@@ -603,10 +604,10 @@ export const dataArray: DocsSection[] = [
         parentName: 'Swapy',
       },
     ],
-    type: 'Swapy',
+    type: DOCS_CATEGORY.Swapy,
   },
   {
-    name: 'color-picker',
+    name: DOCS_CATEGORY.ColorPicker,
     componentArray: [
       {
         componentName: 'default-color-picker',
@@ -623,10 +624,10 @@ export const dataArray: DocsSection[] = [
         parentName: 'Color Picker',
       },
     ],
-    type: 'Color Picker',
+    type: DOCS_CATEGORY.ColorPicker,
   },
   {
-    name: 'Carousel ',
+    name: DOCS_CATEGORY.Carousel,
     componentArray: [
       {
         componentName: 'default-slider',
@@ -708,10 +709,10 @@ export const dataArray: DocsSection[] = [
         parentName: 'Framer Carousel',
       },
     ],
-    type: 'carousel ',
+    type: DOCS_CATEGORY.Carousel,
   },
   {
-    name: 'Creative',
+    name: DOCS_CATEGORY.Creative,
     componentArray: [
       {
         componentName: 'image-reveal',
@@ -871,10 +872,10 @@ export const dataArray: DocsSection[] = [
         parentName: 'Image Mousetrail',
       },
     ],
-    type: 'creative',
+    type: DOCS_CATEGORY.Creative,
   },
   {
-    name: 'Modal/Drawer',
+    name: DOCS_CATEGORY['Modal/Drawer'],
     componentArray: [
       {
         componentName: 'responsive-drawer',
@@ -962,10 +963,10 @@ export const dataArray: DocsSection[] = [
         parentName: 'Gallery Modal',
       },
     ],
-    type: 'modal/drawer',
+    type: DOCS_CATEGORY['Modal/Drawer'],
   },
   {
-    name: 'Animation',
+    name: DOCS_CATEGORY.Animation,
     componentArray: [
       {
         componentName: 'scroll-element',
@@ -996,10 +997,10 @@ export const dataArray: DocsSection[] = [
         parentName: 'Timeline Animation',
       },
     ],
-    type: 'animation',
+    type: DOCS_CATEGORY.Animation,
   },
   {
-    name: 'Text Animation',
+    name: DOCS_CATEGORY.TextAnimation,
     componentArray: [
       {
         componentName: 'text-scroll-animation',
@@ -1030,10 +1031,10 @@ export const dataArray: DocsSection[] = [
         parentName: 'Randomized Text',
       },
     ],
-    type: 'text animation',
+    type: DOCS_CATEGORY.TextAnimation,
   },
   {
-    name: 'Scroll',
+    name: DOCS_CATEGORY.Scroll,
     componentArray: [
       {
         componentName: 'horizontalscroll',
@@ -1099,10 +1100,10 @@ export const dataArray: DocsSection[] = [
         parentName: 'Horizontal Scroll',
       },
     ],
-    type: 'scroll',
+    type: DOCS_CATEGORY.Scroll,
   },
   {
-    name: 'Grid',
+    name: DOCS_CATEGORY.Grid,
     componentArray: [
       {
         componentName: 'boxgrid',
@@ -1133,10 +1134,10 @@ export const dataArray: DocsSection[] = [
         parentName: 'Masonary Grid',
       },
     ],
-    type: 'grid',
+    type: DOCS_CATEGORY.Grid,
   },
   {
-    name: 'Marquee',
+    name: DOCS_CATEGORY.Marquee,
     componentArray: [
       {
         componentName: 'infintyband',
@@ -1174,10 +1175,10 @@ export const dataArray: DocsSection[] = [
         parentName: 'Marquee',
       },
     ],
-    type: 'marquee',
+    type: DOCS_CATEGORY.Marquee,
   },
   {
-    name: 'Clip-Path',
+    name: DOCS_CATEGORY['Clip-Path'],
     componentArray: [
       {
         componentName: 'creative-clippath',
@@ -1285,10 +1286,10 @@ export const dataArray: DocsSection[] = [
         parentName: 'Video Masking',
       },
     ],
-    type: 'clip-path',
+    type: DOCS_CATEGORY['Clip-Path'],
   },
   {
-    name: 'Card',
+    name: DOCS_CATEGORY.Card,
     componentArray: [
       {
         componentName: 'gradient-border',
@@ -1418,10 +1419,10 @@ export const dataArray: DocsSection[] = [
         parentName: 'Spotlight Cards',
       },
     ],
-    type: 'card',
+    type: DOCS_CATEGORY.Card,
   },
   {
-    name: 'Tabs',
+    name: DOCS_CATEGORY.Tabs,
     componentArray: [
       {
         componentName: 'maintabs',
@@ -1473,6 +1474,6 @@ export const dataArray: DocsSection[] = [
         parentName: 'Image Tabs',
       },
     ],
-    type: 'tab',
+    type: DOCS_CATEGORY.Tabs,
   },
 ];

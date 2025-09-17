@@ -18,7 +18,7 @@ export interface DocsComponentItem {
 }
 
 export interface DocsSection {
-  name: string;
+  name: DocsCategory;
   componentArray: DocsComponentItem[];
   type: DocsCategory;
 }
