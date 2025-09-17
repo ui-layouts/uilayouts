@@ -1,5 +1,5 @@
-import { DocsSection } from '@/types/docs';
-import { DOCS_CATEGORY } from '@/const/docs';
+import { DocsSection } from '../types/docs';
+import { DOCS_CATEGORY } from '../const/docs';
 
 export const dataArray: DocsSection[] = [
   {
