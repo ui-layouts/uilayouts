@@ -1,0 +1,30 @@
+import { DOCS_CATEGORY } from '@/const/docs';
+
+export interface DocsFileRef {
+  name: string;
+  filesrc: string;
+}
+
+export interface DocsComponentItem {
+  componentName: string;
+  parentlink: string;
+  parentName: string;
+  filesrc?: string;
+  iframeSrc?: string;
+  iframelink?: string;
+  iframeLink?: string;
+  isNew?: boolean;
+  filesArray?: DocsFileRef[];
+}
+
+export interface DocsSection {
+  name: string;
+  componentArray: DocsComponentItem[];
+  type: DocsCategory;
+}
+
+export interface DocsRoot {
+  dataArray: DocsSection[];
+}
+
+export type DocsCategory = (typeof DOCS_CATEGORY)[keyof typeof DOCS_CATEGORY];
