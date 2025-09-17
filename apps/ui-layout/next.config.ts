@@ -8,7 +8,7 @@ import { remarkCodeHike, recmaCodeHike } from 'codehike/mdx';
 import rehypeSlug from 'rehype-slug';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
-import { dataArray } from './configs/docsJson.ts';
+import { dataArray } from './configs/docsJson';
 
 const chConfig = {
   components: { code: 'PreCode' },
@@ -18,13 +18,13 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 function rehypeComponent() {
-  return (tree) => {
+  return (tree: any) => {
     visit(tree, (node) => {
       if (node.type === 'mdxJsxFlowElement' && node.name === 'TabCodePreview') {
         // console.log('Found CodePreview element:', node);
 
         const nameAttribute = node.attributes.find(
-          (attr) => attr.name === 'name'
+          (attr: { name: string; }) => attr.name === 'name'
         );
         const name = nameAttribute ? nameAttribute.value : null;
 
@@ -36,9 +36,9 @@ function rehypeComponent() {
         }
 
         try {
-          const currentComponentData = dataArray.reduce((acc, section) => {
+          const currentComponentData = dataArray.reduce((acc: any, section: any) => {
             const component = section.componentArray.find(
-              (comp) => comp.componentName === name
+              (comp: { componentName: string; }) => comp.componentName === name
             );
             if (component) {
               return component;
@@ -54,7 +54,7 @@ function rehypeComponent() {
           // console.log('Found component data:', currentComponentData);
 
           const filesContent =
-            currentComponentData.filesArray?.map((file) => {
+            currentComponentData.filesArray?.map((file: { filesrc: string; name: any; }) => {
               const filePath = path.join(process.cwd(), file.filesrc);
               const source = fs.readFileSync(filePath, 'utf8');
               return {
@@ -69,7 +69,7 @@ function rehypeComponent() {
           // console.log('Files content:', filesContent);
           // console.log('checking inner node:', node.children);
 
-          node.children = filesContent.map((file) =>
+          node.children = filesContent.map((file: { content: any; name: any; componentName: any; }) =>
             u('element', {
               tagName: 'PreCode',
               properties: {
@@ -93,7 +93,7 @@ function rehypeComponent() {
         // console.log('Found CodePreview element:', node);
 
         const nameAttribute = node.attributes.find(
-          (attr) => attr.name === 'name'
+          (attr: { name: string; }) => attr.name === 'name'
         );
         const name = nameAttribute ? nameAttribute.value : null;
 
@@ -105,9 +105,9 @@ function rehypeComponent() {
         }
 
         try {
-          const currentComponentData = dataArray.reduce((acc, section) => {
+          const currentComponentData = dataArray.reduce((acc: any, section: any) => {
             const component = section.componentArray.find(
-              (comp) => comp.componentName === name
+              (comp: { componentName: string; }) => comp.componentName === name
             );
             if (component) {
               return component;
@@ -189,7 +189,7 @@ const nextConfig = {
       },
     ],
   },
-  webpack: (config, { isServer }) => {
+  webpack: (config: { resolve: { alias: any; }; }, { isServer }: any) => {
     // Add path aliases
     config.resolve.alias = {
       ...config.resolve.alias,
