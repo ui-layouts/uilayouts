@@ -4,25 +4,6 @@ import { Github, Star } from 'lucide-react';
 import { Colors, Liquid } from '@/components/ui/liquid-gradient';
 import { useMediaQuery } from '@/hooks/use-media-query';
 
-type ColorKey =
-  | 'color1'
-  | 'color2'
-  | 'color3'
-  | 'color4'
-  | 'color5'
-  | 'color6'
-  | 'color7'
-  | 'color8'
-  | 'color9'
-  | 'color10'
-  | 'color11'
-  | 'color12'
-  | 'color13'
-  | 'color14'
-  | 'color15'
-  | 'color16'
-  | 'color17';
-
 const COLORS: Colors = {
   color1: '#FFFFFF',
   color2: '#1E10C5',
@@ -44,7 +25,6 @@ const COLORS: Colors = {
 };
 const GitHubButton: React.FC = () => {
   const [isHovered, setIsHovered] = useState(false);
-  const isDesktop = useMediaQuery('(min-width: 1280px)');
 
   return (
     <div className='flex justify-center'>

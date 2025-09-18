@@ -74,7 +74,6 @@ export const SpecialComponents = [
   },
 ];
 export const MainComponents = [
-  
   {
     href: '/components/swapy',
     name: 'Swapy Drag',
@@ -1857,15 +1856,16 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'github-button',
-    componentName: 'github-button',
+    componentName: 'uilayouts-github-button',
     componentSrc: React.lazy(
       () => import('@/registry/components/github-repo-btn/index')
     ),
-    iframeSrc: 'live-components/github-button',
+    iframeSrc: 'live-components/uilayouts-github-button',
     tags: [
       'github',
       'button',
       'github-button',
+      'uilayouts github button',
       'repository',
       'link',
       'cta',
