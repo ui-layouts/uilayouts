@@ -2151,6 +2151,7 @@ export const AllComponents: IAllComponents[] = [
     componentSrc: React.lazy(
       () => import('@/registry/components/drawer/value-drawer')
     ),
+    iframe: true,
     iframeSrc: 'live-components/responsive-drawer',
   },
   {
