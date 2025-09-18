@@ -123,7 +123,7 @@ pnpm install
 |     |     |     ├── scroll-area.tsx
 |     |     |     ├── tabs.tsx
 ├── configs
-|     ├── docs.json
+|     ├── docsJson.ts (WIP)
 |     ├── docs.ts
 ├── content
 |     ├── components

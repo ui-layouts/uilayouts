@@ -1,9 +1,10 @@
 import React, { Suspense } from 'react';
 import { notFound } from 'next/navigation';
-import docs from '@/configs/docs.json';
 import dynamic from 'next/dynamic';
+import { dataArray } from '@/configs/docsJson';
+
 export async function generateStaticParams() {
-  const paths = docs.dataArray.flatMap((category) =>
+  const paths = dataArray.flatMap((category) =>
     category.componentArray.map((component) => ({
       componentName: component.componentName,
     }))
@@ -21,7 +22,7 @@ export default async function SectionPage(
   console.log('component', componentName);
 
   // Find the component data based on componentName
-  const component = docs.dataArray.reduce((found, category) => {
+  const component = dataArray.reduce((found, category) => {
     if (found) return found;
     // console.log(category);
 
