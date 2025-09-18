@@ -8,7 +8,7 @@ import {
   DialogClose,
   DialogDescription,
   DialogContainer,
-} from '../../../../components/ui/linear-dialog';
+} from '@/components/ui/linear-dialog';
 import { Plus } from 'lucide-react';
 
 const items = [
@@ -38,7 +38,7 @@ const items = [
 ];
 export default function LinearCard() {
   return (
-    <div className='flex gap-4'>
+    <div className='flex gap-4 max-w-5xl mx-auto'>
       {items.map((item, i) => {
         return (
           <>
@@ -53,7 +53,7 @@ export default function LinearCard() {
                 style={{
                   borderRadius: '12px',
                 }}
-                className='flex w-full flex-col overflow-hidden  border    dark:bg-black bg-gray-300 hover:bg-gray-200 dark:hover:bg-gray-950'
+                className='flex w-full flex-col overflow-hidden border dark:bg-black bg-neutral-100 hover:bg-neutral-200 dark:hover:bg-neutral-950'
               >
                 <DialogImage
                   // @ts-ignore
@@ -67,7 +67,7 @@ export default function LinearCard() {
                       {item.title}
                     </DialogTitle>
                   </div>
-                  <button className='absolute bottom-2 right-2 p-2 dark:bg-gray-900 bg-gray-400 hover:bg-gray-500 rounded-full dark:hover:bg-gray-800'>
+                  <button className='absolute bottom-2 right-2 p-2 dark:bg-neutral-800 bg-white hover:bg-neutral-50 rounded-lg dark:hover:bg-neutral-900'>
                     <Plus className='w-6 h-6' />
                   </button>
                 </div>
@@ -77,7 +77,7 @@ export default function LinearCard() {
                   style={{
                     borderRadius: '24px',
                   }}
-                  className=' relative flex h-full mx-auto flex-col overflow-y-auto border dark:bg-black bg-gray-300 hover:bg-gray-200 dark:hover:bg-gray-950 lg:w-[900px] w-[80%] '
+                  className=' relative flex h-full mx-auto flex-col overflow-y-auto border dark:bg-black bg-white hover:bg-neutral-50 dark:hover:bg-neutral-950 lg:w-[900px] w-[80%] '
                 >
                   <DialogImage
                     // @ts-ignore
@@ -103,7 +103,7 @@ export default function LinearCard() {
                       </p>
                     </DialogDescription>
                   </div>
-                  <DialogClose className='text-zinc-50  dark:bg-gray-900 bg-gray-400 p-4 hover:bg-gray-500 rounded-full dark:hover:bg-gray-800' />
+                  <DialogClose className='text-zinc-50  dark:bg-neutral-900 bg-neutral-200 p-4 hover:bg-neutral-500 rounded-lg dark:hover:bg-neutral-800' />
                 </DialogContent>
               </DialogContainer>
             </Dialog>

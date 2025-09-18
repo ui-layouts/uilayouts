@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import React, {
@@ -55,7 +54,10 @@ function DialogProvider({ children, transition }: DialogProviderProps) {
   );
 
   return (
-    <DialogContext.Provider value={contextValue}>
+    <DialogContext.Provider
+      //@ts-ignore
+      value={contextValue}
+    >
       <MotionConfig transition={transition}>{children}</MotionConfig>
     </DialogContext.Provider>
   );
@@ -167,7 +169,7 @@ function DialogContent({ children, className, style }: DialogContent) {
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
-      
+
       const focusableElements = containerRef.current?.querySelectorAll(
         'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
       );
@@ -181,7 +183,7 @@ function DialogContent({ children, className, style }: DialogContent) {
           (focusableElements[0] as HTMLElement).focus();
         });
       }
-      
+
       if (containerRef.current) {
         containerRef.current.scrollTop = 0;
       }
@@ -232,28 +234,24 @@ function DialogContainer({ children, className }: DialogContainerProps) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const drawerWrapper = document.querySelectorAll("[drawer-wrapper]");
+    const drawerWrapper = document.querySelectorAll('[drawer-wrapper]');
 
     if (isOpen) {
-      document.body.classList.add("overflow-hidden");
-      drawerWrapper.forEach(
-        (wrapper) => wrapper?.classList.add("open") 
-      );
+      document.body.classList.add('overflow-hidden');
+      drawerWrapper.forEach((wrapper) => wrapper?.classList.add('open'));
     } else {
-      document.body.classList.remove("overflow-hidden");
-      drawerWrapper.forEach(
-        (wrapper) => wrapper?.classList.remove("open") 
-      );
+      document.body.classList.remove('overflow-hidden');
+      drawerWrapper.forEach((wrapper) => wrapper?.classList.remove('open'));
     }
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
+      if (event.key === 'Escape') {
         setIsOpen(false);
       }
     };
 
-    document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener('keydown', handleKeyDown);
     return () => {
-      document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener('keydown', handleKeyDown);
     };
   }, [isOpen]);
 
@@ -273,12 +271,9 @@ function DialogContainer({ children, className }: DialogContainerProps) {
           <motion.div
             key={`backdrop-${uniqueId}`}
             data-lenis-prevent
-            className='fixed inset-0 h-full z-50 w-full backdrop-blur-xl'
+            className='fixed inset-0 h-full z-50 w-full backdrop-blur-xl 
+             dark:bg-[radial-gradient(125%_125%_at_50%_10%,#050505_40%,#243aff_100%)] bg-[radial-gradient(125%_125%_at_50%_10%,#ffffff_40%,#243aff_100%)]'
             initial={{ opacity: 0 }}
-            // style={{
-            //   background: "radial-gradient(125% 125% at 50% 10%, #161414 40%, #f84503 100%)",
-            //   willChange: 'opacity', 
-            // }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{
@@ -286,10 +281,8 @@ function DialogContainer({ children, className }: DialogContainerProps) {
               ease: [0.4, 0.0, 0.4, 1],
             }}
             onClick={() => setIsOpen(false)}
-          >
-            <img src="rotate-bg.png" className="absolute top-20 left-0 w-full h-full" />
-          </motion.div>
-          <motion.div 
+          ></motion.div>
+          <motion.div
             className={cn(`fixed inset-0 z-50 w-fit mx-auto`, className)}
             style={{ willChange: 'transform' }} // GPU acceleration for transforms
           >
@@ -392,7 +385,6 @@ function DialogImage({ src, alt, className, style }: DialogImageProps) {
   const { uniqueId } = useDialog();
 
   return (
-    
     <motion.img
       src={src}
       alt={alt}
