@@ -53,13 +53,13 @@ export default function LinearCard() {
                 style={{
                   borderRadius: '12px',
                 }}
-                className='flex w-full flex-col overflow-hidden border dark:bg-black bg-neutral-100 hover:bg-neutral-200 dark:hover:bg-neutral-950'
+                className='flex w-full flex-col overflow-hidden border dark:bg-neutral-900 bg-neutral-200 hover:bg-neutral-200 dark:hover:bg-neutral-900'
               >
                 <DialogImage
                   // @ts-ignore
                   src={item.url?.src}
                   alt=''
-                  className=' h-64 w-full object-cover'
+                  className='h-52 w-full object-cover'
                 />
                 <div className='flex flex-grow flex-row items-end justify-between p-3'>
                   <div>
