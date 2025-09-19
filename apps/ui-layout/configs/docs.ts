@@ -1,5 +1,5 @@
-import { COMPONENT_KEYS, DOCS_CATEGORY } from '../const/docs';
-import { DocsCategory, DocsFileRef } from '../types/docs';
+import { COMPONENT_KEYS } from '../const/docs';
+import { DocsFileRef } from '../types/docs';
 import React from 'react';
 
 export const SpecialComponents = [
@@ -864,7 +864,6 @@ export interface IAllComponents {
   href?: string;
   iframelink?: string;
   filesrc?: string;
-  category?: DocsCategory;
   filesArray?: DocsFileRef[];
 }
 
@@ -884,7 +883,6 @@ export const AllComponents: IAllComponents[] = [
       'reactjs liquid glass components',
       'nextjs liquid glass components',
     ],
-    category: DOCS_CATEGORY.Default,
   },
   {
     parentlink: 'liquid-glass',
