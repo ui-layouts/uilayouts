@@ -6,7 +6,7 @@ export interface DocsFileRef {
 }
 
 export interface DocsComponentItem {
-  componentName: string;
+  componentName: ComponentKey;
   filesrc?: string;
   iframeSrc?: string;
   iframelink?: string;
