@@ -8,7 +8,7 @@ import { remarkCodeHike, recmaCodeHike } from 'codehike/mdx';
 import rehypeSlug from 'rehype-slug';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
-import { dataArray } from './configs/docsJson';
+import { AllComponents } from './configs/docs';
 
 const chConfig = {
   components: { code: 'PreCode' },
@@ -36,15 +36,7 @@ function rehypeComponent() {
         }
 
         try {
-          const currentComponentData = dataArray.reduce((acc: any, section: any) => {
-            const component = section.componentArray.find(
-              (comp: { componentName: string; }) => comp.componentName === name
-            );
-            if (component) {
-              return component;
-            }
-            return acc;
-          }, null);
+          const currentComponentData = AllComponents.find((comp) => comp.componentName === name) || null;
 
           if (!currentComponentData) {
             console.error(`Component not found: ${name}`);
@@ -105,15 +97,7 @@ function rehypeComponent() {
         }
 
         try {
-          const currentComponentData = dataArray.reduce((acc: any, section: any) => {
-            const component = section.componentArray.find(
-              (comp: { componentName: string; }) => comp.componentName === name
-            );
-            if (component) {
-              return component;
-            }
-            return acc;
-          }, null);
+          const currentComponentData = AllComponents.find((comp) => comp.componentName === name) || null;
 
           if (!currentComponentData) {
             console.error(`Component not found: ${name}`);

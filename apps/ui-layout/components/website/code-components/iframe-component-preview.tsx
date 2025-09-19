@@ -8,7 +8,7 @@ import {
 } from '@/components/website/ui/tabs';
 import ComponentPreview from './component-preview';
 import { PreCode } from './pre-code';
-import { dataArray } from '@/configs/docsJson';
+import { AllComponents } from '@/configs/docs';
 import { Code, Eye } from 'lucide-react';
 import { ReactNode } from 'react';
 
@@ -42,20 +42,9 @@ export default async function IframeComponentPrieview(
     previewComp,
   } = parseProps(props, Schema);
 
-  const currComponent: TIframeCurrComponentProps | null =
-    dataArray.reduce<TIframeCurrComponentProps | null>(
-      (acc, component) => {
-        const file = component?.componentArray?.find(
-          (file) => file.componentName === name
-        );
+  const matchedComponent = AllComponents?.find((file) => file.componentName === name) || null
+  const currComponent = matchedComponent ? JSON.parse(JSON.stringify(matchedComponent)) : null;
 
-        if (file) {
-          acc = file;
-        }
-        return acc;
-      },
-      null
-    );
   console.log('component', name,currComponent);
 
   if (!currComponent) {

@@ -5,7 +5,6 @@ import {
   TabsList,
   TabsTrigger,
 } from '@/components/website/ui/tabs';
-import { dataArray } from '@/configs/docsJson';
 
 import { Pre, RawCode, highlight } from 'codehike/code';
 
@@ -26,6 +25,7 @@ import { cn } from '@/lib/utils';
 import ts from 'typescript';
 import { SafeSuspense } from '@/lib/safeSuspense';
 import { Button } from '../ui/button';
+import { AllComponents } from '@/configs/docs';
 
 const EditComponents = lazy(() => import('./drawer-components-edit'));
 const LoadingFallback = () => (
@@ -69,17 +69,9 @@ export default async function DrawerCodePreview({
   const parsedCodeblock = Codes[0]?.props;
   // console.log(parsedCodeblock);
 
-  const currComponent: TCurrComponentProps | null =
-    dataArray.reduce<TCurrComponentProps | null>((acc, component) => {
-      const file = component?.componentArray?.find(
-        (file) => file.componentName === name
-      );
+  const matchedComponent = AllComponents?.find((file) => file.componentName === name) || null
+  const currComponent = matchedComponent ? JSON.parse(JSON.stringify(matchedComponent)) : null;
 
-      if (file) {
-        acc = file;
-      }
-      return acc;
-    }, null);
 
   if (!currComponent) {
     return <div>Component not found</div>;

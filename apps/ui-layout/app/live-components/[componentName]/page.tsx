@@ -1,14 +1,12 @@
 import React, { Suspense } from 'react';
 import { notFound } from 'next/navigation';
 import dynamic from 'next/dynamic';
-import { dataArray } from '@/configs/docsJson';
+import { AllComponents } from '@/configs/docs';
 
 export async function generateStaticParams() {
-  const paths = dataArray.flatMap((category) =>
-    category.componentArray.map((component) => ({
+  const paths = AllComponents.map((component) => ({
       componentName: component.componentName,
     }))
-  );
   return paths;
 }
 
@@ -22,14 +20,9 @@ export default async function SectionPage(
   console.log('component', componentName);
 
   // Find the component data based on componentName
-  const component = dataArray.reduce((found, category) => {
-    if (found) return found;
-    // console.log(category);
-
-    return category.componentArray.find(
+  const component = AllComponents.find(
       (comp) => comp.componentName === componentName
-    );
-  }, null as any);
+  ) || null;
   // console.log(component);
 
   // console.log(component, !component?.iframeSrc);

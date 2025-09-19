@@ -1,5 +1,5 @@
-import { COMPONENT_KEYS, DOCS_CATEGORY } from '@/const/docs';
-import { DocsCategory, DocsFileRef } from '@/types/docs';
+import { COMPONENT_KEYS, DOCS_CATEGORY } from '../const/docs';
+import { DocsCategory, DocsFileRef } from '../types/docs';
 import React from 'react';
 
 export const SpecialComponents = [
@@ -853,7 +853,7 @@ export const MainComponents = [
     tags: ['infinity', 'brand', 'marquee'],
   },
 ];
-interface IAllComponents {
+export interface IAllComponents {
   parentlink: string;
   componentName: string;
   componentSrc?: React.LazyExoticComponent<React.ComponentType<any>>;
