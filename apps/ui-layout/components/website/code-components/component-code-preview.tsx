@@ -12,7 +12,7 @@ import React from 'react';
 import { Code, Eye } from 'lucide-react';
 import { PreCoded } from './pre-coded';
 
-type ComponentCodePreview = {
+type TComponentCodePreview = {
   component: React.ReactElement<any>;
   hasReTrigger?: boolean;
   name: string;
@@ -42,7 +42,8 @@ export default async function ComponentCodePreview({
   isTab = false,
   isNotCopy = false,
   isFitheight = false,
-}: ComponentCodePreview) {
+}: TComponentCodePreview) {
+
   const currComponent: TCurrComponentProps | null =
     dataArray.reduce<TCurrComponentProps | null>((acc, component) => {
       const file = component?.componentArray?.find(
@@ -53,7 +54,6 @@ export default async function ComponentCodePreview({
       }
       return acc;
     }, null);
-  console.log(currComponent);
 
   if (!currComponent) {
     return <div>Componendt not found</div>;
@@ -62,9 +62,6 @@ export default async function ComponentCodePreview({
   const fileContent = extractCodeFromFilePath(
     `registry/${currComponent?.filesrc}`
   );
-  // console.log('childer', children);
-
-  // console.log(fileContent);
 
   return (
     <div className='not-prose relative z-0 flex items-center justify-between pb-3'>

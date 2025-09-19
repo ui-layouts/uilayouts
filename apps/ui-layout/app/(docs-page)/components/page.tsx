@@ -160,7 +160,7 @@ const appsDesign = [
 
   {
     id: 'modal',
-    url: '/components/linear-card',
+    url: '/components/linear-modal',
     name: 'Modal',
     imgSrc: preview.modal,
   },

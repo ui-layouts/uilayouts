@@ -598,11 +598,11 @@ export const MainComponents = [
     tags: ['media', 'modal', 'popup', 'UI', 'image modal'],
   },
   {
-    href: '/components/linear-card',
-    name: 'Linear Card',
+    href: '/components/linear-modal',
+    name: 'Linear Modal',
     component: 'modal/drawer',
     updated: true,
-    tags: ['card', 'linear-layout', 'UI-component', 'modal-card'],
+    tags: ['card', 'linear-layout',"linear-modal", "linear-card", 'UI-component', 'modal-card'],
   },
   {
     href: '/components/gallery-modal',
@@ -2215,13 +2215,33 @@ export const AllComponents: IAllComponents[] = [
     iframe: true,
   },
   {
-    parentlink: 'linear-card',
-    componentName: 'dialog-card-linear',
+    parentlink: 'linear-modal',
+    componentName: 'linear-modal',
     tags: ['card', 'linear-layout', 'UI-component', 'modal-card'],
     componentSrc: React.lazy(
-      () => import('@/registry/components/modal/dialog-card')
+      () => import('@/registry/components/linear-modal')
     ),
-    iframeSrc: 'live-components/dialog-card-linear',
+    iframeSrc: 'live-components/linear-modal',
+    iframe: false,
+  },
+  {
+    parentlink: 'linear-modal',
+    componentName: 'linear-modal-standalone',
+    tags: ['linear-modal','without components', 'linear-layout', 'UI-component', 'modal-card'],
+    componentSrc: React.lazy(
+      () => import('@/registry/components/linear-modal/standalone-version')
+    ),
+    iframeSrc: 'live-components/linear-modal-standalone',
+    iframe: true,
+  },
+  {
+    parentlink: 'linear-modal',
+    componentName: 'linear-modal-center-content',
+    tags: ['linear-modal','without components', 'linear-layout', 'UI-component', 'modal-card'],
+    componentSrc: React.lazy(
+      () => import('@/registry/components/linear-modal/center-content')
+    ),
+    iframeSrc: 'live-components/linear-modal-center-content',
     iframe: true,
   },
   {

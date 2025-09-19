@@ -1,89 +1,3 @@
-export const metadata = {
-  metadataBase: new URL("https://ui-layouts.com"),
-
-  title: "Linear Card Component",
-  description: "A Linear-inspired animated card component powered by Framer Motion that mimics the Linear app's hero section card opening effect. Features smooth expand animations, image reveals, and description content with elegant Framer Motion transitions.",
-  keywords: [
-    "Linear card component",
-    "Framer Motion card",
-    "Linear app card",
-    "Framer Motion animation",
-    "Animated card component",
-    "Expandable card component",
-    "Card opening animation",
-    "Interactive card expand",
-    "Linear design card",
-    "Card reveal animation",
-    "Modern card component",
-    "Animated card opening",
-    "Card expand effect",
-    "Interactive card design",
-    "Linear style card",
-    "Card transition animation",
-    "Expandable UI card",
-    "Card with animation",
-    "Modern card design",
-    "Interactive card layout",
-    "Card hover expand",
-    "Animated card reveal",
-    "Linear inspired card",
-    "Card opening transition",
-    "Modern UI card",
-    "Card expansion effect",
-    "Framer Motion component",
-    "Motion card animation",
-    "React Framer Motion",
-    "Framer card effects"
-  ],
-  authors: [{ name: "Naymur Rahman", url: "https://twitter.com/naymur_dev" }],
-  creator: "@naymur_dev",
-  publisher: "UI Layouts",
-  openGraph: {
-    title: "Linear Card Component | UI Layouts",
-    description: "A Linear-inspired animated card component powered by Framer Motion with smooth expand animations, image reveals, and elegant transitions mimicking Linear app's hero section.",
-    url: "https://ui-layouts.com/components/linear-card",
-    images: [
-      {
-        url: 'https://ui-layouts.com/component-og.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'UI Layouts Components',
-      },
-    ],
-    siteName: "UI Layouts",
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Linear Card Component | UI Layouts",
-    images: ['https://ui-layouts.com/component-og.jpg'],
-    description: "Linear-inspired card powered by Framer Motion with smooth expand animations and image reveals, mimicking Linear app's hero section effect.",
-    creator: "@naymur_dev",
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-  category: "technology",
-};
-
-<ComponentCodePreview name='dialog-card-linear' hasReTrigger isFitheight/>
-
-## Installation
-
-```bash
-npm install motion
-```
-
-```tsx linear-dialog.tsx
 'use client';
 
 import React, {
@@ -311,11 +225,12 @@ function DialogContent({ children, className, style }: DialogContent) {
 type DialogContainerProps = {
   children: React.ReactNode;
   className?: string;
+  overlayClassName?: string;
   style?: React.CSSProperties;
 };
 
-// Optimized DialogContainer with performance improvements
-function DialogContainer({ children, className }: DialogContainerProps) {
+
+function DialogContainer({ children, className,overlayClassName }: DialogContainerProps) {
   const { isOpen, setIsOpen, uniqueId } = useDialog();
   const [mounted, setMounted] = useState(false);
 
@@ -357,8 +272,7 @@ function DialogContainer({ children, className }: DialogContainerProps) {
           <motion.div
             key={`backdrop-${uniqueId}`}
             data-lenis-prevent
-            className='fixed inset-0 h-full z-50 w-full backdrop-blur-xl 
-             dark:bg-[radial-gradient(125%_125%_at_50%_10%,#050505_40%,#243aff_100%)] bg-[radial-gradient(125%_125%_at_50%_10%,#ffffff_40%,#243aff_100%)]'
+            className={cn('fixed inset-0 h-full z-50 w-full backdrop-blur-xl dark:bg-[radial-gradient(125%_125%_at_50%_10%,#050505_40%,#243aff_100%)] bg-[radial-gradient(125%_125%_at_50%_10%,#ffffff_40%,#243aff_100%)]',overlayClassName)}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -526,4 +440,3 @@ export {
   DialogDescription,
   DialogImage,
 };
-```

@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { Github, Star } from 'lucide-react';
 import { Colors, Liquid } from '@/components/ui/liquid-gradient';
-import { useMediaQuery } from '@/hooks/use-media-query';
 
 const COLORS: Colors = {
   color1: '#FFFFFF',
