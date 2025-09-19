@@ -1,5 +1,5 @@
 import { COMPONENT_KEYS, DOCS_CATEGORY } from '@/const/docs';
-import { DocsCategory } from '@/types/docs';
+import { DocsCategory, DocsFileRef } from '@/types/docs';
 import React from 'react';
 
 export const SpecialComponents = [
@@ -865,6 +865,7 @@ interface IAllComponents {
   iframelink?: string;
   filesrc?: string;
   category?: DocsCategory;
+  filesArray?: DocsFileRef[];
 }
 
 export const AllComponents: IAllComponents[] = [
@@ -1227,6 +1228,24 @@ export const AllComponents: IAllComponents[] = [
       'Selector Input Tag',
       'Multiple Selector Input',
     ],
+    filesArray: [
+      {
+        name: 'index.tsx',
+        filesrc: 'registry/components/form/multiple-selector.tsx',
+      },
+      {
+        name: 'popover.tsx',
+        filesrc: 'components/website/ui/popover.tsx',
+      },
+      {
+        name: 'command.tsx',
+        filesrc: 'components/website/ui/command.tsx',
+      },
+      {
+        name: 'button.tsx',
+        filesrc: 'components/website/ui/button.tsx',
+      },
+    ],
   },
   {
     parentlink: 'tags-input',
@@ -1444,6 +1463,17 @@ export const AllComponents: IAllComponents[] = [
       'Progress Divide Password2 ',
       'DivideProgressPasswordInput2',
     ],
+    filesArray: [
+      {
+        name: 'index.tsx',
+        filesrc:
+          'registry/components/form/password/pass-strength-indicator3.tsx',
+      },
+      {
+        name: 'hover-card.tsx',
+        filesrc: 'components/website/ui/hover-card.tsx',
+      },
+    ],
   },
   {
     parentlink: 'password',
@@ -1465,6 +1495,17 @@ export const AllComponents: IAllComponents[] = [
       'Status Password ',
       'StatusPasswordInput',
     ],
+    filesArray: [
+      {
+        name: 'index.tsx',
+        filesrc:
+          'registry/components/form/password/pass-strength-indicator4.tsx',
+      },
+      {
+        name: 'hover-card.tsx',
+        filesrc: 'components/website/ui/hover-card.tsx',
+      },
+    ],
   },
   {
     parentlink: 'password',
@@ -1483,6 +1524,16 @@ export const AllComponents: IAllComponents[] = [
       'Confirm Pass With Indicator',
       'Confirm Password Check',
       'Confirm Password',
+    ],
+    filesArray: [
+      {
+        name: 'index.tsx',
+        filesrc: 'registry/components/form/password/confirm-pass-check.tsx',
+      },
+      {
+        name: 'hover-card.tsx',
+        filesrc: 'components/website/ui/hover-card.tsx',
+      },
     ],
   },
   {
@@ -1705,6 +1756,16 @@ export const AllComponents: IAllComponents[] = [
     ),
     iframeSrc: 'live-components/hover-footer',
     tags: ['footer', 'hover', 'interactive', 'branding'],
+    filesArray: [
+      {
+        name: 'index.tsx',
+        filesrc: 'registry/components/footers/hover-footer.tsx',
+      },
+      {
+        name: 'cursor-follow-text.tsx',
+        filesrc: 'components/ui/cursor-follow-text.tsx',
+      },
+    ],
   },
   {
     parentlink: 'noise',
@@ -2160,6 +2221,12 @@ export const AllComponents: IAllComponents[] = [
       () => import('@/registry/components/number-flow/number-flow-trading')
     ),
     iframeSrc: 'live-components/motion-number-trading',
+    filesArray: [
+      {
+        name: 'index.tsx',
+        filesrc: 'registry/components/number-flow/number-flow-trading.tsx',
+      },
+    ],
   },
   {
     parentlink: 'motion-number',
@@ -2176,6 +2243,16 @@ export const AllComponents: IAllComponents[] = [
       () => import('@/registry/components/number-flow/motion-number-slider')
     ),
     iframeSrc: 'live-components/motion-number-slider',
+    filesArray: [
+      {
+        name: 'index.tsx',
+        filesrc: 'registry/components/number-flow/motion-number-slider.tsx',
+      },
+      {
+        name: 'slider.tsx',
+        filesrc: 'components/ui/slider.tsx',
+      },
+    ],
   },
   {
     parentlink: 'motion-number',
