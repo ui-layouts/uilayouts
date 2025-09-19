@@ -7,13 +7,10 @@ export interface DocsFileRef {
 
 export interface DocsComponentItem {
   componentName: string;
-  parentlink: string;
-  parentName: string;
   filesrc?: string;
   iframeSrc?: string;
   iframelink?: string;
   iframeLink?: string;
-  isNew?: boolean;
   filesArray?: DocsFileRef[];
 }
 
