@@ -18,7 +18,6 @@ import {
 } from 'motion/react';
 import { createPortal } from 'react-dom';
 import { cn } from '@/lib/utils';
-// import useClickOutside from '@/hooks/useClickOutside';
 import { XIcon } from 'lucide-react';
 
 interface DialogContextType {
@@ -229,8 +228,11 @@ type DialogContainerProps = {
   style?: React.CSSProperties;
 };
 
-
-function DialogContainer({ children, className,overlayClassName }: DialogContainerProps) {
+function DialogContainer({
+  children,
+  className,
+  overlayClassName,
+}: DialogContainerProps) {
   const { isOpen, setIsOpen, uniqueId } = useDialog();
   const [mounted, setMounted] = useState(false);
 
@@ -272,7 +274,10 @@ function DialogContainer({ children, className,overlayClassName }: DialogContain
           <motion.div
             key={`backdrop-${uniqueId}`}
             data-lenis-prevent
-            className={cn('fixed inset-0 h-full z-50 w-full backdrop-blur-xl dark:bg-[radial-gradient(125%_125%_at_50%_10%,#050505_40%,#243aff_100%)] bg-[radial-gradient(125%_125%_at_50%_10%,#ffffff_40%,#243aff_100%)]',overlayClassName)}
+            className={cn(
+              'fixed inset-0 h-full z-50 w-full backdrop-blur-xl dark:bg-[radial-gradient(125%_125%_at_50%_10%,#050505_40%,#243aff_100%)] bg-[radial-gradient(125%_125%_at_50%_10%,#ffffff_40%,#243aff_100%)]',
+              overlayClassName
+            )}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

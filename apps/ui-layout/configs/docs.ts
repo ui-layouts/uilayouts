@@ -83,7 +83,6 @@ export const MainComponents = [
     component: 'drag-items',
     new: true,
     updated: false,
-
     tags: [
       'Swapy drag',
       'swapy draggable',
@@ -608,7 +607,14 @@ export const MainComponents = [
     name: 'Linear Modal',
     component: 'modal/drawer',
     updated: true,
-    tags: ['card', 'linear-layout',"linear-modal", "linear-card", 'UI-component', 'modal-card'],
+    tags: [
+      'card',
+      'linear-layout',
+      'linear-modal',
+      'linear-card',
+      'UI-component',
+      'modal-card',
+    ],
   },
   {
     href: '/components/gallery-modal',
@@ -874,8 +880,8 @@ export const AllComponents: IAllComponents[] = [
   {
     parentlink: 'liquid-glass',
     componentName: COMPONENT_KEYS.LIQUID_GLASS_SIDEBAR_MENU,
-        filesrc: 'components/liquid-glass/sidebar-menu.tsx',
-        iframeSrc: 'live-components/liquid-glass-sidebar-menu',
+    filesrc: 'components/liquid-glass/sidebar-menu.tsx',
+    iframeSrc: 'live-components/liquid-glass-sidebar-menu',
     componentSrc: React.lazy(
       () => import('@/registry/components/liquid-glass/sidebar-menu')
     ),
@@ -2412,7 +2418,13 @@ export const AllComponents: IAllComponents[] = [
     parentlink: 'linear-modal',
     componentName: COMPONENT_KEYS.LINEAR_MODAL_STANDALONE,
     filesrc: 'components/linear-modal/standalone-version.tsx',
-    tags: ['linear-modal','without components', 'linear-layout', 'UI-component', 'modal-card'],
+    tags: [
+      'linear-modal',
+      'without components',
+      'linear-layout',
+      'UI-component',
+      'modal-card',
+    ],
     componentSrc: React.lazy(
       () => import('@/registry/components/linear-modal/standalone-version')
     ),
@@ -2423,7 +2435,13 @@ export const AllComponents: IAllComponents[] = [
     parentlink: 'linear-modal',
     componentName: COMPONENT_KEYS.LINEAR_MODAL_CENTER_CONTENT,
     filesrc: 'components/linear-modal/center-content.tsx',
-    tags: ['linear-modal','without components', 'linear-layout', 'UI-component', 'modal-card'],
+    tags: [
+      'linear-modal',
+      'without components',
+      'linear-layout',
+      'UI-component',
+      'modal-card',
+    ],
     componentSrc: React.lazy(
       () => import('@/registry/components/linear-modal/center-content')
     ),

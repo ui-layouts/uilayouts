@@ -637,14 +637,14 @@
       ]
     },
     {
-      "name": "linear-dialog",
+      "name": "linear-modal",
       "type": "registry:component",
       "devDependencies": [],
       "dependencies": ["motion", "lucide-react"],
       "registryDependencies": [],
       "files": [
         {
-          "path": "./registry/components/modal/dialog-card/linear-dialog.tsx",
+          "path": "./components/ui/linear-modal.tsx",
           "type": "registry:component"
         }
       ]
