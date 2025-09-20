@@ -36,7 +36,6 @@ const matchPath = [
   '/docs/components',
   '/docs/templates',
   '/docs/introduction',
-  // '/docs/components/buttons',
 ];
 
 export default function TableOfContents({ toc }: TableOfContentsProps) {
@@ -125,18 +124,17 @@ export default function TableOfContents({ toc }: TableOfContentsProps) {
     <>
       {isDesktop ? (
         <>
-          {tocItems?.length !== 0 && (
-            <aside className='hidden lg:block w-[170px] shrink-0'>
-              <div className='sticky top-0 h-screen   pt-[5.2em]'>
-                <ScrollArea className='h-[98%] px-3 py-3 rounded-md'>
-                  <div className='flex flex-col h-full'>
-                    <style jsx global>{`
-                      [data-radix-scroll-area-viewport] > div {
-                        display: block;
-                        height: 100%;
-                      }
-                    `}</style>
-
+          <aside className='hidden lg:block w-[170px] shrink-0'>
+            <div className='sticky top-0 h-screen   pt-[5.2em]'>
+              <ScrollArea className='h-[98%] px-3 py-3 rounded-md'>
+                <div className='flex flex-col h-full'>
+                  <style jsx global>{`
+                    [data-radix-scroll-area-viewport] > div {
+                      display: block;
+                      height: 100%;
+                    }
+                  `}</style>
+                  {tocItems?.length !== 0 && (
                     <div>
                       <span className='text-sm px-1 text-primary font-semibold pb-1 inline-block'>
                         On This Page
@@ -179,35 +177,35 @@ export default function TableOfContents({ toc }: TableOfContentsProps) {
                         })}
                       </ul>
                     </div>
+                  )}
 
-                    <div className='pt-4'>
-                      <span className='text-sm px-1 text-primary font-semibold pb-1 inline-block'>
-                        Contribute
-                      </span>
-                      <hr />
-                      <div className='m-0  text-[0.8em] space-y-2 pt-2 pl-0'>
-                        {contribute?.map((nav) => (
-                          <a
-                            href={nav?.href}
-                            key={nav?.label}
-                            target='_blank'
-                            className='hover:text-primary text-muted-foreground flex items-center gap-1'
-                          >
-                            {nav?.icon}
-                            {nav?.label}
-                          </a>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className='space-y-4 pt-5 mt-auto'>
-                      <BuyMeCoffee classname='mt-10 w-full' />
+                  <div className='pt-4'>
+                    <span className='text-sm px-1 text-primary font-semibold pb-1 inline-block'>
+                      Contribute
+                    </span>
+                    <hr />
+                    <div className='m-0  text-[0.8em] space-y-2 pt-2 pl-0'>
+                      {contribute?.map((nav) => (
+                        <a
+                          href={nav?.href}
+                          key={nav?.label}
+                          target='_blank'
+                          className='hover:text-primary text-muted-foreground flex items-center gap-1'
+                        >
+                          {nav?.icon}
+                          {nav?.label}
+                        </a>
+                      ))}
                     </div>
                   </div>
-                </ScrollArea>
-              </div>
-            </aside>
-          )}
+
+                  <div className='space-y-4 pt-5 mt-auto'>
+                    <BuyMeCoffee classname='mt-10 w-full' />
+                  </div>
+                </div>
+              </ScrollArea>
+            </div>
+          </aside>
         </>
       ) : (
         <>

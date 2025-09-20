@@ -2,11 +2,27 @@ import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { getDocBySlug, getAllDocs } from '@/lib/docs';
 import { absoluteUrl, cn } from '@/lib/utils';
-import { Component } from 'lucide-react';
+import { ChevronDown, Component } from 'lucide-react';
 import TableOfContents from '@/components/website/tableof-compoents';
 import { ComponentPagination } from '@/components/website/code-components/pagination';
 import Footer from '@/components/website/footer';
 import { MainComponents, SpecialComponents } from '@/configs/docs';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuPortal,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from "@/components/website/ui/dropdown"
+import CopyPage from '@/components/website/copy-page';
+
 
 export async function generateStaticParams() {
   const docs = await getAllDocs();
@@ -73,16 +89,20 @@ export default async function DocPage(props: {
             <section className='max-w-5xl mx-auto prose mt-[5rem] w-full prose-zinc min-w-0 pb-5 dark:prose-invert prose-h1:text-2xl prose-h1:font-semibold prose-h2:text-3xl prose-h2:my-4 prose-h2:pt-12 prose-h2:pb-4 prose-h3:py-1 prose-h2:mt-3 prose-h2:font-medium prose-h3:text-2xl prose-h3:mt-4 prose-h3:mb-2 prose-h3:font-medium prose-strong:font-medium prose-table:block prose-table:overflow-y-auto lg:pt-4'>
               <article className='mb-4 mt-0'>
                 <div className='space-y-2 rounded-md dark:text-white text-black'>
+                  <div className="flex items-center gap-2 justify-between">
                   <h1
                     className={cn(
-                      'mb-0 flex scroll-m-20  not-prose items-center lg:text-3xl text-2xl gap-2 font-medium tracking-tight'
+                      'mb-0 flex scroll-m-20 not-prose items-center lg:text-3xl text-2xl gap-2 font-medium tracking-tight'
                     )}
-                  >
-                    <div className='lg:w-10  w-8 lg:h-10  h-8 bg-primary grid place-content-center text-primary-foreground rounded-lg'>
+                    >
+                    <div className='lg:w-9 w-8 lg:h-9 h-8 bg-primary grid place-content-center text-primary-foreground rounded-lg'>
                       <Component />
                     </div>
                     {doc.content.metadata.title}
                   </h1>
+<CopyPage/>
+
+                    </div>
                   <p className='sm:text-sm text-xs pt-2'>
                     {doc.content.metadata.description}
                   </p>

@@ -83,6 +83,7 @@ export const MainComponents = [
     component: 'drag-items',
     new: true,
     updated: false,
+
     tags: [
       'Swapy drag',
       'swapy draggable',
@@ -105,6 +106,8 @@ export const MainComponents = [
     component: 'threeJS',
     tags: [
       'img-ripple-effect',
+      'image ripple effect',
+      'images-ripple-effect',
       'threejs ripple effect',
       'React three Fiber Ripple Effect',
     ],

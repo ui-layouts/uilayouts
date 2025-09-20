@@ -5,6 +5,9 @@ import NewItemsLoading from './new-items-loading';
 import Image from 'next/image';
 import AllComponents from './all-components';
 import AllBlocks from './all-blocks';
+import Link from 'next/link';
+import { cn } from '@/lib/utils';
+import Contributors from './contributor';
 
 const allProjects = [
   {
@@ -143,10 +146,7 @@ function HeroSec() {
   return (
     <>
       <section className='2xl:py-16 xl:py-20 sm:pb-24 pb-16 pt-6 relative'>
-        <div
-          className='w-full absolute h-[113.625vh] z-0 overflow-hidden left-0 -top-[8rem]
-        '
-        >
+        <div className='w-full absolute h-[113.625vh] z-0 overflow-hidden left-0 -top-[8rem]'>
           <div className='hero-gradient1 ' data-border='true'></div>
           <div className='hero-gradient2' data-border='true'></div>
         </div>
@@ -175,7 +175,8 @@ function HeroSec() {
                 href='https://pro.ui-layouts.com/blocks'
                 className='flex items-center gap-2 w-fit sm:text-xl text-sm rounded-md shadow-lg shadow-blue-600 text-white bg-gradient-to-b from-blue-500  to-blue-600 sm:px-4 px-2 py-3'
               >
-                <LayoutPanelTop className='sm:w-6 sm:h-6 h-5 w-5' /> Unlock Blocks 🎉
+                <LayoutPanelTop className='sm:w-6 sm:h-6 h-5 w-5' /> Unlock
+                Blocks 🎉
               </a>
               <a
                 href='/components'
@@ -314,6 +315,7 @@ function HeroSec() {
       </section>
       <AllBlocks />
       <AllComponents />
+      <Contributors />
     </>
   );
 }

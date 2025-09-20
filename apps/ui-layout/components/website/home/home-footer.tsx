@@ -38,7 +38,7 @@ function HomeFooter() {
   };
 
   return (
-    <footer className='relative mt-20 md:px-0 px-4'>
+    <footer className='relative -mt-24 md:px-0 px-4'>
       <div className='max-w-6xl mx-auto relative pb-10'>
         <div className='h-full w-full rounded-lg bg-white shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:bg-zinc-900 dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] px-5'>
           <div className='w-full mx-auto py-10'>
@@ -112,7 +112,9 @@ function HomeFooter() {
           </div>
         </div>
         <article className='py-2 mx-auto max-w-xl space-y-2 pt-20 text-center'>
-          <p className='sm:text-4xl text-2xl py-2'>Sign up for our newsletter</p>
+          <p className='sm:text-4xl text-2xl py-2'>
+            Sign up for our newsletter
+          </p>
           <div className='hover-button relative bg-neutral-100 dark:bg-neutral-950 flex justify-between items-center border-2 overflow-hidden dark:border-neutral-900 border-neutral-300 rounded-lg'>
             <form
               onSubmit={(e) => handleNewsLetterData(e)}

@@ -18,23 +18,18 @@ export default function TabCodePreview({ children }: CodePreviewProps) {
   const parsedCodes = Codes.map((code: React.ReactElement<any>) => {
     const props = code.props;
 
-    // Check if the codeblock exists and parse the value if necessary
     return {
       ...code,
       props: {
         ...props,
         codeblock: JSON.parse(props.codeblock),
-        // Apply JSON.parse here
       },
     };
   });
-  // console.log('parseCodes', parsedCodes[0].props);
 
-  // Helper function to format parseCodes.children into the correct format
   const formatParseCodes = (children: any, compname: string) => {
     if (!children) return [];
 
-    // Check if it's an array or a single object
     const parsedArray = Array.isArray(children) ? children : [children];
 
     return parsedArray.map((child: any) => ({
@@ -43,8 +38,8 @@ export default function TabCodePreview({ children }: CodePreviewProps) {
       key: child.key,
       ref: child.ref,
       props: {
-        codeblock: child.props.codeblock.value, // Get value from parseCodes
-        filename: child.props.codeblock.meta, // Use meta as filename
+        codeblock: child.props.codeblock.value,
+        filename: child.props.codeblock.meta,
         componentname: compname,
         lang: child.props.codeblock.lang,
       },
@@ -53,40 +48,11 @@ export default function TabCodePreview({ children }: CodePreviewProps) {
     }));
   };
 
-  // Add the parseCodes.children into the Codes array
   const formattedCodes = formatParseCodes(
     parsedCodes[0]?.props.children,
     Codes[0]?.props.componentname
   );
   const updatedCodes = [...parsedCodes, ...formattedCodes];
-  // console.log('parseCodes', updatedCodes[0].props);
-  // const parsedArray = updatedCodes.map((codeItem) => {
-  //   return {
-  //     ...codeItem,
-  //     props: {
-  //       ...codeItem.props,
-  //       codeblock: codeItem.props.codeblock, // Replace with parsed codeblock
-  //     },
-  //   };
-  // });
-
-  // console.log('parsedArray', parsedArray);
-  // console.log('updatecodes', updatedCodes);
-
-  // Group the updated Codes by componentname
-  // const groupedCodes = updatedCodes.reduce(
-  //   (acc, code) => {
-  //     const componentName = code.props.componentname;
-  //     if (!acc[componentName]) {
-  //       acc[componentName] = [];
-  //     }
-  //     acc[componentName].push(code);
-  //     return acc;
-  //   },
-  //   {} as Record<string, React.ReactElement[]>
-  // );
-
-  // console.log('groupedCodes', Codes, updatedCodes);
 
   return (
     <>
