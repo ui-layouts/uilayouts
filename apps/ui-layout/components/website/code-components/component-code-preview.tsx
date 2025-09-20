@@ -4,13 +4,13 @@ import {
   TabsList,
   TabsTrigger,
 } from '@/components/website/ui/tabs';
-import { dataArray } from '@/configs/docsJson';
 
 import ComponentPreview from './component-preview';
 import { extractCodeFromFilePath } from '@/lib/code';
 import React from 'react';
 import { Code, Eye } from 'lucide-react';
 import { PreCoded } from './pre-coded';
+import { AllComponents } from '@/configs/docs';
 
 type TComponentCodePreview = {
   component: React.ReactElement<any>;
@@ -44,16 +44,8 @@ export default async function ComponentCodePreview({
   isFitheight = false,
 }: TComponentCodePreview) {
 
-  const currComponent: TCurrComponentProps | null =
-    dataArray.reduce<TCurrComponentProps | null>((acc, component) => {
-      const file = component?.componentArray?.find(
-        (file) => file.componentName === name
-      );
-      if (file) {
-        acc = file;
-      }
-      return acc;
-    }, null);
+  const matchedComponent = AllComponents?.find((file) => file.componentName === name) || null
+  const currComponent = matchedComponent ? JSON.parse(JSON.stringify(matchedComponent)) : null;
 
   if (!currComponent) {
     return <div>Componendt not found</div>;

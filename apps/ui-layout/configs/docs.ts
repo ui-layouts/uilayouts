@@ -1,3 +1,5 @@
+import { COMPONENT_KEYS } from '../const/docs';
+import { DocsFileRef } from '../types/docs';
 import React from 'react';
 
 export const SpecialComponents = [
@@ -73,6 +75,7 @@ export const SpecialComponents = [
     ],
   },
 ];
+
 export const MainComponents = [
   {
     href: '/components/swapy',
@@ -850,7 +853,7 @@ export const MainComponents = [
     tags: ['infinity', 'brand', 'marquee'],
   },
 ];
-interface IAllComponents {
+export interface IAllComponents {
   parentlink: string;
   componentName: string;
   componentSrc?: React.LazyExoticComponent<React.ComponentType<any>>;
@@ -860,13 +863,16 @@ interface IAllComponents {
   center?: boolean;
   href?: string;
   iframelink?: string;
+  filesrc?: string;
+  filesArray?: DocsFileRef[];
 }
 
 export const AllComponents: IAllComponents[] = [
   {
     parentlink: 'liquid-glass',
-    componentName: 'liquid-glass-sidebar-menu',
-    iframeSrc: 'live-components/liquid-glass-sidebar-menu',
+    componentName: COMPONENT_KEYS.LIQUID_GLASS_SIDEBAR_MENU,
+        filesrc: 'components/liquid-glass/sidebar-menu.tsx',
+        iframeSrc: 'live-components/liquid-glass-sidebar-menu',
     componentSrc: React.lazy(
       () => import('@/registry/components/liquid-glass/sidebar-menu')
     ),
@@ -880,7 +886,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'liquid-glass',
-    componentName: 'liquid-glass-mobile-icons',
+    componentName: COMPONENT_KEYS.LIQUID_GLASS_MOBILE_ICONS,
+    filesrc: 'components/liquid-glass/mobile-icons-liquid.tsx',
     iframeSrc: 'live-components/liquid-glass-mobile-icons',
     componentSrc: React.lazy(
       () => import('@/registry/components/liquid-glass/mobile-icons-liquid')
@@ -895,7 +902,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'liquid-glass',
-    componentName: 'liquid-glass-weather',
+    componentName: COMPONENT_KEYS.LIQUID_GLASS_WEATHER,
+    filesrc: 'components/liquid-glass/weather-liquid.tsx',
     iframeSrc: 'live-components/liquid-glass-weather',
     componentSrc: React.lazy(
       () => import('@/registry/components/liquid-glass/weather-liquid')
@@ -910,7 +918,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'liquid-glass',
-    componentName: 'liquid-glass-notification',
+    componentName: COMPONENT_KEYS.LIQUID_GLASS_NOTIFICATION,
+    filesrc: 'components/liquid-glass/notification.tsx',
     iframeSrc: 'live-components/liquid-glass-notification',
     componentSrc: React.lazy(
       () => import('@/registry/components/liquid-glass/notification')
@@ -925,7 +934,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'color-picker',
-    componentName: 'default-color-picker',
+    componentName: COMPONENT_KEYS.DEFAULT_COLOR_PICKER,
+    filesrc: 'components/color-picker/index.tsx',
     iframeSrc: 'live-components/default-color-picker',
     componentSrc: React.lazy(
       () => import('@/registry/components/color-picker/index')
@@ -941,7 +951,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'color-picker',
-    componentName: 'raws-color-picker',
+    componentName: COMPONENT_KEYS.RAWS_COLOR_PICKER,
+    filesrc: 'components/color-picker/raws-color-picker.tsx',
     iframeSrc: 'live-components/raws-color-picker',
     componentSrc: React.lazy(
       () => import('@/registry/components/color-picker/raws-color-picker')
@@ -956,7 +967,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'swapy',
-    componentName: 'DefaultSwapy',
+    componentName: COMPONENT_KEYS.DEFAULT_SWAPY,
+    filesrc: 'components/swapy/default-swapy.tsx',
     iframeSrc: 'live-components/default-swapy',
     componentSrc: React.lazy(
       () => import('@/registry/components/swapy/default-swapy')
@@ -971,7 +983,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'swapy',
-    componentName: 'opacity-swapy',
+    componentName: COMPONENT_KEYS.OPACITY_SWAPY,
+    filesrc: 'components/swapy/swapy-opacity.tsx',
     iframeSrc: 'live-components/swapy-opacity',
     componentSrc: React.lazy(
       () => import('@/registry/components/swapy/swapy-opacity')
@@ -986,7 +999,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'swapy',
-    componentName: 'swapy-without-components',
+    componentName: COMPONENT_KEYS.SWAPY_WITHOUT_COMPONENTS,
+    filesrc: 'components/swapy/swapy-without-components.tsx',
     iframeSrc: 'live-components/swapy-without-components',
     componentSrc: React.lazy(
       () => import('@/registry/components/swapy/swapy-without-components')
@@ -1001,7 +1015,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'swapy',
-    componentName: 'swapy-handle',
+    componentName: COMPONENT_KEYS.SWAPY_HANDLE,
+    filesrc: 'components/swapy/swapy-handle.tsx',
     iframeSrc: 'live-components/swapy-handle',
     componentSrc: React.lazy(
       () => import('@/registry/components/swapy/swapy-handle')
@@ -1016,7 +1031,7 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'bg-mesh-gradient',
-    componentName: 'Mesh Gradient Playground',
+    componentName: COMPONENT_KEYS.LEMON_MESH_GRADIENTS,
     iframelink: 'mess-gradient',
     tags: [
       'mesh-gradient',
@@ -1026,7 +1041,7 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'bg-mesh-gradient',
-    componentName: 'Mesh Gradient',
+    componentName: COMPONENT_KEYS.YELLOW_MESH_GRADIENTS,
     iframelink: 'mess-gradient2',
     tags: [
       'mesh-gradient',
@@ -1036,7 +1051,7 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'image-ripple-effect',
-    componentName: 'image Ripple Effect',
+    componentName: COMPONENT_KEYS.IMG_RIPPLE_EFFECT,
     iframelink: 'img-ripple-effect',
     tags: [
       'img-ripple-effect',
@@ -1046,7 +1061,7 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'img-ripple-effect',
-    componentName: 'Single Image Ripple Effect',
+    componentName: COMPONENT_KEYS.IMG_RIPPLE_EFFECT,
     iframelink: 'img-ripple-effect2',
     tags: [
       'single img-ripple-effect',
@@ -1057,80 +1072,81 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'card-globe',
-    componentName: 'Dark Globe Card',
+    componentName: COMPONENT_KEYS.CARD_GLOBE,
     iframelink: 'card-globe',
     tags: ['3D Globe', '3D Globe Card'],
   },
   {
     parentlink: 'card-globe2',
-    componentName: 'White Globe Card',
+    componentName: COMPONENT_KEYS.CARD_GLOBE2,
     iframelink: 'card-globe2',
     tags: ['White 3D Globe', 'White 3D Globe Card'],
   },
   {
     parentlink: 'horizontal-scroll',
-    componentName: 'Horizontal Scroll',
+    componentName: COMPONENT_KEYS.HORIZONTALSCROLL,
     iframelink: 'horizontal-scrolling-section',
     tags: ['White 3D Globe', 'White 3D Globe Card'],
   },
   {
     parentlink: 'horizontal-scroll',
-    componentName: 'Horizontal Scroll',
+    componentName: COMPONENT_KEYS.HORIZONTALSCROLL,
     iframelink: 'horizontal-scrolling-section',
     tags: ['White 3D Globe', 'White 3D Globe Card'],
   },
 
   {
     parentlink: 'stacking-card',
-    componentName: 'Stacking Card',
+    componentName: COMPONENT_KEYS.STACKING_CARD,
     iframelink: 'stacking-card',
     tags: ['Card Stack', 'Interactive Cards'],
   },
   {
     parentlink: 'stacking-card',
-    componentName: 'CSS Stacking Details Card',
+    componentName: COMPONENT_KEYS.CSS_CARD_STACKING,
     iframelink: 'css-stacking-details-card',
     tags: ['CSS Stacking', 'Details Card'],
   },
   {
     parentlink: 'stacking-card',
-    componentName: 'CSS Stacking Card',
+    componentName: COMPONENT_KEYS.CSS_IMAGE_STACKING,
     iframelink: 'css-stacking-card',
     tags: ['CSS Image Stack', 'Stacking Card'],
   },
   {
     parentlink: 'smooth-scroll',
-    componentName: 'Smooth Scroll',
+    componentName: COMPONENT_KEYS.SMOOTH_SCROLL,
     iframelink: 'smooth-scroll',
     tags: ['Smooth Scrolling', 'Lenis Smooth Scroll', 'Scroll Animation'],
   },
   {
     parentlink: 'sticky-scroll',
-    componentName: 'Sticky Scroll Section',
+    componentName: COMPONENT_KEYS.STICKY_SCROLL_SECTION,
     iframelink: 'sticky-scroll-section',
     tags: ['Sticky Scroll', 'Section'],
   },
   {
     parentlink: 'sticky-scroll',
-    componentName: 'Sticky Gallery',
+    componentName: COMPONENT_KEYS.STICKY_GALLERY,
     iframelink: 'sticky-gallery',
     tags: ['Sticky Gallery', 'Gallery Scroll'],
   },
   {
     parentlink: 'sticky-scroll',
-    componentName: 'Sticky Hero Section',
+    componentName: COMPONENT_KEYS.STICKY_HERO_SECTION,
     iframelink: 'sticky-hero-section',
     tags: ['Sticky Hero', 'Hero Section'],
   },
   {
     parentlink: 'sparkles-globe',
-    componentName: 'Globe With Sparkles',
+    componentName: COMPONENT_KEYS.SPARKLES_GLOBE,
     iframelink: 'sparkles-globe',
     tags: ['Sparkles', '3D Globe Sparkles', 'Globe Hero Section'],
   },
   {
     parentlink: 'phone-input',
-    componentName: 'Phone Input',
+    componentName: COMPONENT_KEYS.PHONE_INPUT,
+    filesrc: 'components/form/phone-number/index.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/form/phone-number')
     ),
@@ -1139,7 +1155,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'buy-me-coffee',
-    componentName: 'Buy Me A Coffee',
+    componentName: COMPONENT_KEYS.BUYME_ACOFFEE,
+    filesrc: 'components/buy-me-coffee.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/buy-me-coffee')
     ),
@@ -1154,7 +1171,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'file-upload',
-    componentName: 'Chatbox Dropzone',
+    componentName: COMPONENT_KEYS.CHAT_FORM_DROPZONE,
+    filesrc: 'components/form/file-upload/chat-form.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/form/file-upload/chat-form')
     ),
@@ -1171,7 +1189,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'file-upload',
-    componentName: 'Img Preview dropzone',
+    componentName: COMPONENT_KEYS.IMGPREVIEW_DROPZONE,
+    filesrc: 'components/form/file-upload/img-preview.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/form/file-upload/img-preview')
     ),
@@ -1186,7 +1205,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'file-upload',
-    componentName: 'file-upload',
+    componentName: COMPONENT_KEYS.FILE_UPLOAD,
+    filesrc: 'components/form/file-upload/index.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/form/file-upload')
     ),
@@ -1195,7 +1215,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'multi-selector',
-    componentName: 'Multi Selector Input',
+    componentName: COMPONENT_KEYS.MULTI_SELECTOR,
+    filesrc: 'components/form/multiple-selector.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/form/multiple-selector')
     ),
@@ -1205,10 +1226,29 @@ export const AllComponents: IAllComponents[] = [
       'Selector Input Tag',
       'Multiple Selector Input',
     ],
+    filesArray: [
+      {
+        name: 'index.tsx',
+        filesrc: 'registry/components/form/multiple-selector.tsx',
+      },
+      {
+        name: 'popover.tsx',
+        filesrc: 'components/website/ui/popover.tsx',
+      },
+      {
+        name: 'command.tsx',
+        filesrc: 'components/website/ui/command.tsx',
+      },
+      {
+        name: 'button.tsx',
+        filesrc: 'components/website/ui/button.tsx',
+      },
+    ],
   },
   {
     parentlink: 'tags-input',
-    componentName: 'Tags Edit False',
+    componentName: COMPONENT_KEYS.TAGSEDIT_FALSE,
+    filesrc: 'components/form/tags-input/tagsedit-false.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/form/tags-input/tagsedit-false')
     ),
@@ -1224,7 +1264,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'tags-input',
-    componentName: 'Tags Input',
+    componentName: COMPONENT_KEYS.TAGS_INPUT,
+    filesrc: 'components/form/tags-input/index.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/form/tags-input')
     ),
@@ -1239,7 +1280,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'datetime-picker',
-    componentName: 'Time Picker',
+    componentName: COMPONENT_KEYS.TIME_PICKER,
+    filesrc: 'components/form/datetime-picker/time-picker.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/form/datetime-picker/time-picker')
     ),
@@ -1249,7 +1291,8 @@ export const AllComponents: IAllComponents[] = [
 
   {
     parentlink: 'datetime-picker',
-    componentName: 'Date Picker',
+    componentName: COMPONENT_KEYS.DATE_PICKER,
+    filesrc: 'components/form/datetime-picker/date-picker.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/form/datetime-picker/date-picker')
     ),
@@ -1258,7 +1301,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'datetime-picker',
-    componentName: 'Datetime Picker',
+    componentName: COMPONENT_KEYS.DATETIME_PICKER,
+    filesrc: 'components/form/datetime-picker/index.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/form/datetime-picker')
     ),
@@ -1273,7 +1317,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'range-slider',
-    componentName: 'Range Slider',
+    componentName: COMPONENT_KEYS.DUAL_RANGE_SLIDER,
+    filesrc: 'components/number-flow/motion-number-slider.tsx',
     tags: [
       'input slider',
       'Default range slider',
@@ -1288,7 +1333,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'range-slider',
-    componentName: 'Dual Range Slider',
+    componentName: COMPONENT_KEYS.DUAL_RANGE_SLIDER,
+    filesrc: 'components/form/slider/dual-range-slider.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/form/slider/dual-range-slider')
     ),
@@ -1303,7 +1349,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'range-slider',
-    componentName: 'Static Range Slider',
+    componentName: COMPONENT_KEYS.STATIC_RANGE_SLIDER,
+    filesrc: 'components/form/slider/static-range-slider.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/form/slider/static-range-slider')
     ),
@@ -1320,7 +1367,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'range-slider',
-    componentName: 'Position Range Slider',
+    componentName: COMPONENT_KEYS.POSITION_RANGE_SLIDER,
+    filesrc: 'components/form/slider/position-range-slider.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/form/slider/position-range-slider')
     ),
@@ -1336,7 +1384,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'password',
-    componentName: 'Show/Hide Pass',
+    componentName: COMPONENT_KEYS.SHOWHIDE_PASS,
+    filesrc: 'components/form/password/showhide-pass.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/form/password/showhide-pass')
     ),
@@ -1353,7 +1402,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'password',
-    componentName: 'Strong Password Indicator',
+    componentName: COMPONENT_KEYS.PASS_STRENGTHINDICATOR,
+    filesrc: 'components/form/password/pass-strength-indicator.tsx',
     componentSrc: React.lazy(
       () =>
         import('@/registry/components/form/password/pass-strength-indicator')
@@ -1371,7 +1421,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'password',
-    componentName: 'Strong Password Indicator2',
+    componentName: COMPONENT_KEYS.PASS_STRENGTHINDICATOR2,
+    filesrc: 'components/form/password/pass-strength-indicator2.tsx',
     componentSrc: React.lazy(
       () =>
         import('@/registry/components/form/password/pass-strength-indicator2')
@@ -1390,7 +1441,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'password',
-    componentName: 'Hover Indicator',
+    componentName: COMPONENT_KEYS.PASS_STRENGTHINDICATOR3,
+    filesrc: 'components/form/password/pass-strength-indicator3.tsx',
     componentSrc: React.lazy(
       () =>
         import('@/registry/components/form/password/pass-strength-indicator3')
@@ -1409,10 +1461,22 @@ export const AllComponents: IAllComponents[] = [
       'Progress Divide Password2 ',
       'DivideProgressPasswordInput2',
     ],
+    filesArray: [
+      {
+        name: 'index.tsx',
+        filesrc:
+          'registry/components/form/password/pass-strength-indicator3.tsx',
+      },
+      {
+        name: 'hover-card.tsx',
+        filesrc: 'components/website/ui/hover-card.tsx',
+      },
+    ],
   },
   {
     parentlink: 'password',
-    componentName: 'Inline Pass Indicator',
+    componentName: COMPONENT_KEYS.PASS_STRENGTHINDICATOR4,
+    filesrc: 'components/form/password/pass-strength-indicator4.tsx',
     componentSrc: React.lazy(
       () =>
         import('@/registry/components/form/password/pass-strength-indicator4')
@@ -1429,10 +1493,22 @@ export const AllComponents: IAllComponents[] = [
       'Status Password ',
       'StatusPasswordInput',
     ],
+    filesArray: [
+      {
+        name: 'index.tsx',
+        filesrc:
+          'registry/components/form/password/pass-strength-indicator4.tsx',
+      },
+      {
+        name: 'hover-card.tsx',
+        filesrc: 'components/website/ui/hover-card.tsx',
+      },
+    ],
   },
   {
     parentlink: 'password',
-    componentName: 'Confirm Pass With Indicator',
+    componentName: COMPONENT_KEYS.CONFIRM_PASS_CHECK,
+    filesrc: 'components/form/password/confirm-pass-check.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/form/password/confirm-pass-check')
     ),
@@ -1447,10 +1523,21 @@ export const AllComponents: IAllComponents[] = [
       'Confirm Password Check',
       'Confirm Password',
     ],
+    filesArray: [
+      {
+        name: 'index.tsx',
+        filesrc: 'registry/components/form/password/confirm-pass-check.tsx',
+      },
+      {
+        name: 'hover-card.tsx',
+        filesrc: 'components/website/ui/hover-card.tsx',
+      },
+    ],
   },
   {
     parentlink: 'drag-items',
-    componentName: 'drag-items',
+    componentName: COMPONENT_KEYS.DRAG_ITEMS,
+    filesrc: 'components/drag/drag-items.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/drag/drag-items')
     ),
@@ -1460,7 +1547,8 @@ export const AllComponents: IAllComponents[] = [
 
   {
     parentlink: 'buttons',
-    componentName: 'button-background-shine',
+    componentName: COMPONENT_KEYS.BUTTON_BACKGROUND_SHINE,
+    filesrc: 'components/button/btn-bg-shine.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/button/btn-bg-shine')
     ),
@@ -1469,7 +1557,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'buttons',
-    componentName: 'button-background-spotlight',
+    componentName: COMPONENT_KEYS.BUTTON_BACKGROUND_SPOTLIGHT,
+    filesrc: 'components/button/btn-animated-gradient.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/button/btn-animated-gradient')
     ),
@@ -1478,7 +1567,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'buttons',
-    componentName: 'button-hover-active',
+    componentName: COMPONENT_KEYS.BUTTON_HOVER_ACTIVE,
+    filesrc: 'components/button/btn-active.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/button/btn-active')
     ),
@@ -1487,7 +1577,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'buttons',
-    componentName: 'button-hover-2',
+    componentName: COMPONENT_KEYS.BUTTON_HOVER_2,
+    filesrc: 'components/button/btn-hover-right.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/button/btn-hover-right')
     ),
@@ -1496,7 +1587,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'buttons',
-    componentName: 'button-hover-3',
+    componentName: COMPONENT_KEYS.BUTTON_HOVER_3,
+    filesrc: 'components/button/btn-click-down.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/button/btn-click-down')
     ),
@@ -1505,7 +1597,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'buttons',
-    componentName: 'button-hover-4',
+    componentName: COMPONENT_KEYS.BUTTON_HOVER_4,
+    filesrc: 'components/button/btn-hover-down.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/button/btn-hover-down')
     ),
@@ -1514,7 +1607,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'buttons',
-    componentName: 'button-hover-5',
+    componentName: COMPONENT_KEYS.BUTTON_HOVER_5,
+    filesrc: 'components/button/btn-hover-multiple.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/button/btn-hover-multiple')
     ),
@@ -1523,7 +1617,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'buttons',
-    componentName: 'button-hover-6',
+    componentName: COMPONENT_KEYS.BUTTON_HOVER_6,
+    filesrc: 'components/button/btn-hover-underline.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/button/btn-hover-underline')
     ),
@@ -1532,7 +1627,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'buttons',
-    componentName: 'button-hover-7',
+    componentName: COMPONENT_KEYS.BUTTON_HOVER_7,
+    filesrc: 'components/button/btn-hover-top-flip.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/button/btn-hover-top-flip')
     ),
@@ -1541,7 +1637,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'buttons',
-    componentName: 'button-hover-8',
+    componentName: COMPONENT_KEYS.BUTTON_HOVER_8,
+    filesrc: 'components/button/btn-hover-left-flip.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/button/btn-hover-left-flip')
     ),
@@ -1550,7 +1647,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'buttons',
-    componentName: 'button-hover-9',
+    componentName: COMPONENT_KEYS.BUTTON_HOVER_9,
+    filesrc: 'components/button/btn-hover-top-slowflip.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/button/btn-hover-top-slowflip')
     ),
@@ -1559,7 +1657,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'buttons',
-    componentName: 'button-hover-10',
+    componentName: COMPONENT_KEYS.BUTTON_HOVER_10,
+    filesrc: 'components/button/btn-text-change.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/button/btn-text-change')
     ),
@@ -1568,7 +1667,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'buttons',
-    componentName: 'button-hover-11',
+    componentName: COMPONENT_KEYS.BUTTON_HOVER_11,
+    filesrc: 'components/button/btn-cross-arrow.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/button/btn-cross-arrow')
     ),
@@ -1577,7 +1677,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'buttons',
-    componentName: 'button-hover-12',
+    componentName: COMPONENT_KEYS.BUTTON_HOVER_12,
+    filesrc: 'components/button/btn-black-shadow.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/button/btn-black-shadow')
     ),
@@ -1586,7 +1687,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'buttons',
-    componentName: 'button-hover-13',
+    componentName: COMPONENT_KEYS.BUTTON_HOVER_13,
+    filesrc: 'components/button/btn-hover-outline.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/button/btn-hover-outline')
     ),
@@ -1595,7 +1697,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'buttons',
-    componentName: 'button-hover-14',
+    componentName: COMPONENT_KEYS.BUTTON_HOVER_14,
+    filesrc: 'components/button/btn-hover14.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/button/btn-hover14')
     ),
@@ -1604,7 +1707,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'buttons',
-    componentName: 'button-rotating-gradient',
+    componentName: COMPONENT_KEYS.BUTTON_ROTATING_GRADIENT,
+    filesrc: 'components/button/btn-rotating-gradient.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/button/btn-rotating-gradient')
     ),
@@ -1613,7 +1717,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'buttons',
-    componentName: 'creative-button-1',
+    componentName: COMPONENT_KEYS.CREATIVE_BUTTON_1,
+    filesrc: 'components/button/btn-creative-right.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/button/btn-creative-right')
     ),
@@ -1622,7 +1727,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'buttons',
-    componentName: 'creative-button-2',
+    componentName: COMPONENT_KEYS.CREATIVE_BUTTON_2,
+    filesrc: 'components/button/btn-creative-top.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/button/btn-creative-top')
     ),
@@ -1631,7 +1737,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'footers',
-    componentName: 'animated-logo-footer',
+    componentName: COMPONENT_KEYS.ANIMATED_LOGO_FOOTER,
+    filesrc: 'components/footers/animated-logo-footer.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/footers/animated-logo-footer')
     ),
@@ -1640,16 +1747,28 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'footers',
-    componentName: 'hover-footer',
+    componentName: COMPONENT_KEYS.HOVER_FOOTER,
+    filesrc: 'components/footers/hover-footer.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/footers/hover-footer')
     ),
     iframeSrc: 'live-components/hover-footer',
     tags: ['footer', 'hover', 'interactive', 'branding'],
+    filesArray: [
+      {
+        name: 'index.tsx',
+        filesrc: 'registry/components/footers/hover-footer.tsx',
+      },
+      {
+        name: 'cursor-follow-text.tsx',
+        filesrc: 'components/ui/cursor-follow-text.tsx',
+      },
+    ],
   },
   {
     parentlink: 'noise',
-    componentName: 'noise-effect',
+    componentName: COMPONENT_KEYS.NOISE_EFFECT,
+    filesrc: 'components/noise-effect/section-noise.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/noise-effect/section-noise')
     ),
@@ -1658,7 +1777,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'accordion',
-    componentName: 'grid-layout-accordion',
+    componentName: COMPONENT_KEYS.GRID_LAYOUT_ACCORDION,
+    filesrc: 'components/accordion/gridlayout.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/accordion/gridlayout')
     ),
@@ -1667,7 +1787,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'accordion',
-    componentName: 'single-layout-accordion',
+    componentName: COMPONENT_KEYS.SINGLE_LAYOUT_ACCORDION,
+    filesrc: 'components/accordion/singlelayout.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/accordion/singlelayout')
     ),
@@ -1676,7 +1797,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'accordion',
-    componentName: 'multi-layout-accordion',
+    componentName: COMPONENT_KEYS.MULTI_LAYOUT_ACCORDION,
+    filesrc: 'components/accordion/multilayout.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/accordion/multilayout')
     ),
@@ -1685,7 +1807,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'faqs',
-    componentName: 'faq-accordion',
+    componentName: COMPONENT_KEYS.FAQ_ACCORDION,
+    filesrc: 'components/accordion/faq.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/accordion/faq')
     ),
@@ -1701,7 +1824,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'image-accordions',
-    componentName: 'image-hover-accordion',
+    componentName: COMPONENT_KEYS.IMAGE_HOVER_ACCORDION,
+    filesrc: 'components/accordion/image-hover.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/accordion/image-hover')
     ),
@@ -1710,7 +1834,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'image-accordions',
-    componentName: 'tailwind-image-accordion',
+    componentName: COMPONENT_KEYS.TAILWIND_IMAGE_ACCORDION,
+    filesrc: 'components/accordion/tailwind-image-accordion.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/accordion/tailwind-image-accordion')
     ),
@@ -1719,7 +1844,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'carousel',
-    componentName: 'default-slider',
+    componentName: COMPONENT_KEYS.DEFAULT_SLIDER,
+    filesrc: 'components/carousel/default-slider.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/carousel/default-slider')
     ),
@@ -1728,7 +1854,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'carousel',
-    componentName: 'align-slider',
+    componentName: COMPONENT_KEYS.ALIGN_SLIDER,
+    filesrc: 'components/carousel/align-slider.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/carousel/align-slider')
     ),
@@ -1737,7 +1864,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'carousel',
-    componentName: 'classname-slider',
+    componentName: COMPONENT_KEYS.CLASSNAME_SLIDER,
+    filesrc: 'components/carousel/classname-slider.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/carousel/classname-slider')
     ),
@@ -1746,7 +1874,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'carousel',
-    componentName: 'number-slider',
+    componentName: COMPONENT_KEYS.NUMBER_SLIDER,
+    filesrc: 'components/carousel/number-slider.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/carousel/number-slider')
     ),
@@ -1755,7 +1884,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'carousel',
-    componentName: 'scale-slider',
+    componentName: COMPONENT_KEYS.SCALE_SLIDER,
+    filesrc: 'components/carousel/scale-slider.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/carousel/scale-slider')
     ),
@@ -1764,7 +1894,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'carousel',
-    componentName: 'thumbnail-slider',
+    componentName: COMPONENT_KEYS.THUMBNAIL_SLIDER,
+    filesrc: 'components/carousel/thumnail-slider.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/carousel/thumnail-slider')
     ),
@@ -1773,7 +1904,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'carousel',
-    componentName: 'autostart-slider',
+    componentName: COMPONENT_KEYS.AUTOSTART_SLIDER,
+    filesrc: 'components/carousel/autostart-slider.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/carousel/autostart-slider')
     ),
@@ -1782,7 +1914,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'progressive-carousel',
-    componentName: 'horizontal-progressive-carousel',
+    componentName: COMPONENT_KEYS.HORIZONTAL_PROGRESSIVE_CAROUSEL,
+    filesrc: 'components/carousel/horizontal-progressive.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/carousel/horizontal-progressive')
     ),
@@ -1791,7 +1924,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'progressive-carousel',
-    componentName: 'vertical-progressive-carousel',
+    componentName: COMPONENT_KEYS.VERTICAL_PROGRESSIVE_CAROUSEL,
+    filesrc: 'components/carousel/verticle-progressive.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/carousel/verticle-progressive')
     ),
@@ -1800,7 +1934,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'framer-carousel',
-    componentName: 'framer-carousel-2',
+    componentName: COMPONENT_KEYS.FRAMER_CAROUSEL_2,
+    filesrc: 'components/carousel/framer-carousel2.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/carousel/framer-carousel2')
     ),
@@ -1809,7 +1944,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'framer-carousel',
-    componentName: 'framer-carousel-1',
+    componentName: COMPONENT_KEYS.FRAMER_CAROUSEL_1,
+    filesrc: 'components/carousel/framer-carousel1.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/carousel/framer-carousel1')
     ),
@@ -1818,7 +1954,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'image-reveal',
-    componentName: 'image-reveal',
+    componentName: COMPONENT_KEYS.IMAGE_REVEAL,
+    filesrc: 'components/image-reveal/image-reveal.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/image-reveal/image-reveal')
     ),
@@ -1837,7 +1974,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'image-reveal',
-    componentName: 'image-reveal2',
+    componentName: COMPONENT_KEYS.IMAGE_REVEAL2,
+    filesrc: 'components/image-reveal/index.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/image-reveal/index')
     ),
@@ -1856,7 +1994,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'github-button',
-    componentName: 'uilayouts-github-button',
+    componentName: COMPONENT_KEYS.UILAYOUTS_GITHUB_BUTTON,
+    filesrc: 'components/github-repo-btn/index.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/github-repo-btn/index')
     ),
@@ -1877,7 +2016,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'blur-vignette',
-    componentName: 'blur-vignette-video',
+    componentName: COMPONENT_KEYS.BLUR_VIGNETTE_VIDEO,
+    filesrc: 'components/blurvignette/blurvignettevideo.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/blurvignette/blurvignettevideo')
     ),
@@ -1896,7 +2036,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'blur-vignette',
-    componentName: 'blur-vignette-img',
+    componentName: COMPONENT_KEYS.BLUR_VIGNETTE_IMG,
+    filesrc: 'components/blurvignette/blurvignetteimg.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/blurvignette/blurvignetteimg')
     ),
@@ -1915,7 +2056,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'blur-vignette',
-    componentName: 'blur-vignette-card',
+    componentName: COMPONENT_KEYS.BLUR_VIGNETTE_CARD,
+    filesrc: 'components/blurvignette/blurvignettecard.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/blurvignette/blurvignettecard')
     ),
@@ -1933,7 +2075,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'animated-beam',
-    componentName: 'animated-beam-default',
+    componentName: COMPONENT_KEYS.ANIMATED_BEAM_DEFAULT,
+    filesrc: 'components/animated-beam/default.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/animated-beam/default')
     ),
@@ -1951,7 +2094,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'animated-beam',
-    componentName: 'animated-beam-bidirectional',
+    componentName: COMPONENT_KEYS.ANIMATED_BEAM_BIDIRECTIONAL,
+    filesrc: 'components/animated-beam/bidirectional.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/animated-beam/bidirectional')
     ),
@@ -1969,7 +2113,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'animated-beam',
-    componentName: 'animated-beam-unidirectional',
+    componentName: COMPONENT_KEYS.ANIMATED_BEAM_UNIDIRECTIONAL,
+    filesrc: 'components/animated-beam/unidirectional.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/animated-beam/unidirectional')
     ),
@@ -1986,7 +2131,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'animated-beam',
-    componentName: 'animated-beam-multiple-input',
+    componentName: COMPONENT_KEYS.ANIMATED_BEAM_MULTIPLE_INPUT,
+    filesrc: 'components/animated-beam/multiple-input.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/animated-beam/multiple-input')
     ),
@@ -2003,7 +2149,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'animated-beam',
-    componentName: 'animated-beam-multiple-output',
+    componentName: COMPONENT_KEYS.ANIMATED_BEAM_MULTIPLE_OUTPUT,
+    filesrc: 'components/animated-beam/multiple-output.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/animated-beam/multiple-output')
     ),
@@ -2021,7 +2168,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'blocks',
-    componentName: 'bg-blocks-one',
+    componentName: COMPONENT_KEYS.BG_BLOCKS_ONE,
+    filesrc: 'components/bg-blocks/blocksone.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/bg-blocks/blocksone')
     ),
@@ -2039,7 +2187,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'motion-number',
-    componentName: 'motion-number-input',
+    componentName: COMPONENT_KEYS.MOTION_NUMBER_INPUT,
+    filesrc: 'components/number-flow/motion-number-input.tsx',
     tags: [
       'animation',
       'number-animation',
@@ -2056,7 +2205,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'motion-number',
-    componentName: 'motion-number-trading',
+    componentName: COMPONENT_KEYS.NUMBER_FLOW_TRADING,
+    filesrc: 'components/number-flow/number-flow-trading.tsx',
     tags: [
       'animation',
       'number-increment',
@@ -2069,10 +2219,17 @@ export const AllComponents: IAllComponents[] = [
       () => import('@/registry/components/number-flow/number-flow-trading')
     ),
     iframeSrc: 'live-components/motion-number-trading',
+    filesArray: [
+      {
+        name: 'index.tsx',
+        filesrc: 'registry/components/number-flow/number-flow-trading.tsx',
+      },
+    ],
   },
   {
     parentlink: 'motion-number',
-    componentName: 'motion-number-slider',
+    componentName: COMPONENT_KEYS.MOTION_NUMBER_SLIDER,
+    filesrc: 'components/number-flow/motion-number-slider.tsx',
     tags: [
       'animation',
       'shadcn slider',
@@ -2084,10 +2241,21 @@ export const AllComponents: IAllComponents[] = [
       () => import('@/registry/components/number-flow/motion-number-slider')
     ),
     iframeSrc: 'live-components/motion-number-slider',
+    filesArray: [
+      {
+        name: 'index.tsx',
+        filesrc: 'registry/components/number-flow/motion-number-slider.tsx',
+      },
+      {
+        name: 'slider.tsx',
+        filesrc: 'components/ui/slider.tsx',
+      },
+    ],
   },
   {
     parentlink: 'motion-number',
-    componentName: 'motion-number',
+    componentName: COMPONENT_KEYS.MOTION_NUMBER,
+    filesrc: 'components/number-flow/motion-number.tsx',
     tags: [
       'animation',
       'upvotes',
@@ -2106,7 +2274,8 @@ export const AllComponents: IAllComponents[] = [
 
   {
     parentlink: 'image-mousetrail',
-    componentName: 'image-mousetrail-default',
+    componentName: COMPONENT_KEYS.IMAGE_MOUSETRAIL_DEFAULT,
+    filesrc: 'components/mousetrail/default-mousetrail.tsx',
     tags: ['mouse-trail', 'animation', 'image-effect', 'motion-trail'],
     componentSrc: React.lazy(
       () => import('@/registry/components/mousetrail/default-mousetrail')
@@ -2115,7 +2284,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'image-mousetrail',
-    componentName: 'image-mousetrail-small',
+    componentName: COMPONENT_KEYS.IMAGE_MOUSETRAIL_SMALL,
+    filesrc: 'components/mousetrail/small-images.tsx',
     tags: ['mouse-trail', 'small-images', 'interactive'],
     componentSrc: React.lazy(
       () => import('@/registry/components/mousetrail/small-images')
@@ -2124,7 +2294,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'image-mousetrail',
-    componentName: 'image-mousetrail-disappear',
+    componentName: COMPONENT_KEYS.IMAGE_MOUSETRAIL_DISAPPEAR,
+    filesrc: 'components/mousetrail/disappear-images.tsx',
     tags: ['disappearing-effect', 'interactive-animation', 'mouse-motion'],
     componentSrc: React.lazy(
       () => import('@/registry/components/mousetrail/disappear-images')
@@ -2133,7 +2304,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'image-mousetrail',
-    componentName: 'without-image-mousetrail-disappear',
+    componentName: COMPONENT_KEYS.IMAGE_MOUSETRAIL_WITHOUT_COMPONENT,
+    filesrc: 'components/mousetrail/without-component-mousetrail.tsx',
     tags: [
       'Without Component Mousetrail',
       'Image Mouse Trail Without Componnents',
@@ -2144,9 +2316,11 @@ export const AllComponents: IAllComponents[] = [
     ),
     iframeSrc: 'live-components/image-mousetrail-without-component',
   },
+  ////////////////////////////////
   {
     parentlink: 'responsive-drawer',
-    componentName: 'responsive-drawer',
+    componentName: COMPONENT_KEYS.RESPONSIVE_DRAWER,
+    filesrc: 'components/drawer/value-drawer.tsx',
     tags: ['drawer', 'navigation', 'responsive', 'menu'],
     componentSrc: React.lazy(
       () => import('@/registry/components/drawer/value-drawer')
@@ -2156,7 +2330,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'responsive-header',
-    componentName: 'responsive-header',
+    componentName: COMPONENT_KEYS.RESPONSIVE_HEADER,
+    filesrc: 'components/drawer/header-drawer.tsx',
     tags: ['header', 'responsive', 'navigation-bar', 'menu'],
     componentSrc: React.lazy(
       () => import('@/registry/components/drawer/header-drawer')
@@ -2166,7 +2341,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'responsive-sidebar',
-    componentName: 'sidebar-drawer',
+    componentName: COMPONENT_KEYS.SIDEBAR_DRAWER,
+    filesrc: 'components/drawer/sidebar-drawer.tsx',
     tags: ['sidebar', 'navigation', 'drawer', 'responsive'],
     componentSrc: React.lazy(
       () => import('@/registry/components/drawer/sidebar-drawer')
@@ -2176,7 +2352,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'responsive-sidebar',
-    componentName: 'Left Sidebar Drawer',
+    componentName: COMPONENT_KEYS.LEFT_SIDEBAR_DRAWER,
+    filesrc: 'components/drawer/left-sidebar-drawer.tsx',
     tags: ['Left Sidebar', 'navigation', 'Left Drawer', 'Responsive Drawer'],
     componentSrc: React.lazy(
       () => import('@/registry/components/drawer/left-sidebar-drawer')
@@ -2186,7 +2363,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'dialog',
-    componentName: 'dialog',
+    componentName: COMPONENT_KEYS.DIALOG,
+    filesrc: 'components/modal/dialog-default.tsx',
     tags: ['dialog', 'popup', 'modal', 'UI-component'],
     componentSrc: React.lazy(
       () => import('@/registry/components/modal/dialog-default')
@@ -2196,7 +2374,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'media-modal',
-    componentName: 'media-modal',
+    componentName: COMPONENT_KEYS.MEDIA_MODAL,
+    filesrc: 'components/modal/media-modal-default.tsx',
     tags: ['media', 'modal', 'popup', 'UI'],
     componentSrc: React.lazy(
       () => import('@/registry/components/modal/media-modal-default')
@@ -2206,7 +2385,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'media-modal',
-    componentName: 'Image-modal',
+    componentName: COMPONENT_KEYS.IMAGEMODALSL,
+    filesrc: 'components/modal/image-modals.tsx',
     tags: ['image modal', 'modal', 'popup', 'UI'],
     componentSrc: React.lazy(
       () => import('@/registry/components/modal/image-modals')
@@ -2216,7 +2396,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'linear-modal',
-    componentName: 'linear-modal',
+    componentName: COMPONENT_KEYS.LINEAR_MODAL,
+    filesrc: 'components/linear-modal/index.tsx',
     tags: ['card', 'linear-layout', 'UI-component', 'modal-card'],
     componentSrc: React.lazy(
       () => import('@/registry/components/linear-modal')
@@ -2226,7 +2407,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'linear-modal',
-    componentName: 'linear-modal-standalone',
+    componentName: COMPONENT_KEYS.LINEAR_MODAL_STANDALONE,
+    filesrc: 'components/linear-modal/standalone-version.tsx',
     tags: ['linear-modal','without components', 'linear-layout', 'UI-component', 'modal-card'],
     componentSrc: React.lazy(
       () => import('@/registry/components/linear-modal/standalone-version')
@@ -2236,7 +2418,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'linear-modal',
-    componentName: 'linear-modal-center-content',
+    componentName: COMPONENT_KEYS.LINEAR_MODAL_CENTER_CONTENT,
+    filesrc: 'components/linear-modal/center-content.tsx',
     tags: ['linear-modal','without components', 'linear-layout', 'UI-component', 'modal-card'],
     componentSrc: React.lazy(
       () => import('@/registry/components/linear-modal/center-content')
@@ -2246,7 +2429,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'gallery-modal',
-    componentName: 'gallery-modal-accordion',
+    componentName: COMPONENT_KEYS.GALLERY_MODAL_ACCORDION,
+    filesrc: 'components/modal/gallery-modal/accordion-modal.tsx',
     tags: ['gallery', 'accordion', 'modal', 'media'],
     componentSrc: React.lazy(
       () => import('@/registry/components/modal/gallery-modal/accordion-modal')
@@ -2256,7 +2440,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'gallery-modal',
-    componentName: 'gallery-modal-slider',
+    componentName: COMPONENT_KEYS.GALLERY_MODAL_SLIDER,
+    filesrc: 'components/modal/gallery-modal/modal-slider.tsx',
     tags: ['gallery', 'slider', 'media-modal', 'interactive'],
     componentSrc: React.lazy(
       () => import('@/registry/components/modal/gallery-modal/modal-slider')
@@ -2266,7 +2451,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'gallery-modal',
-    componentName: 'gallery-modal-unsplash',
+    componentName: COMPONENT_KEYS.GALLERY_MODAL_UNSPLASH,
+    filesrc: 'components/modal/gallery-modal/unsplash-modal.tsx',
     tags: ['gallery', 'unsplash', 'media', 'image-gallery'],
     componentSrc: React.lazy(
       () => import('@/registry/components/modal/gallery-modal/unsplash-modal')
@@ -2276,7 +2462,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'scroll-animation',
-    componentName: 'scroll-element',
+    componentName: COMPONENT_KEYS.SCROLL_ELEMENT,
+    filesrc: 'components/scroll-animation/scroll-element.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/scroll-animation/scroll-element')
     ),
@@ -2285,7 +2472,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'scroll-animation',
-    componentName: 'repeat-scroll-element',
+    componentName: COMPONENT_KEYS.REPEAT_SCROLL_ELEMENT,
+    filesrc: 'components/scroll-animation/repeat-scroll.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/scroll-animation/repeat-scroll')
     ),
@@ -2294,7 +2482,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'scroll-animation',
-    componentName: 'text-scroll-element',
+    componentName: COMPONENT_KEYS.TEXT_SCROLL_ELEMENT,
+    filesrc: 'components/scroll-animation/text-scroll.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/scroll-animation/text-scroll')
     ),
@@ -2303,7 +2492,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'timeline-animation',
-    componentName: 'timeline-animation',
+    componentName: COMPONENT_KEYS.TIMELINE_ANIMATION,
+    filesrc: 'components/timeline-animation/index.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/timeline-animation')
     ),
@@ -2312,7 +2502,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'scroll-text',
-    componentName: 'text-scroll-animation',
+    componentName: COMPONENT_KEYS.TEXT_SCROLL_ANIMATION,
+    filesrc: 'components/text-animation/scroll-text-animation.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/text-animation/scroll-text-animation')
     ),
@@ -2321,7 +2512,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'text-marquee',
-    componentName: 'scroll-text-marquee',
+    componentName: COMPONENT_KEYS.SCROLL_TEXT_MARQUEE,
+    filesrc: 'components/text-animation/text-marque/animationone.tsx',
     componentSrc: React.lazy(
       () =>
         import('@/registry/components/text-animation/text-marque/animationone')
@@ -2331,7 +2523,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'text-marquee',
-    componentName: 'scroll-text-marquee2',
+    componentName: COMPONENT_KEYS.SCROLL_TEXT_MARQUEE2,
+    filesrc: 'components/text-animation/text-marque/animationtwo.tsx',
     componentSrc: React.lazy(
       () =>
         import('@/registry/components/text-animation/text-marque/animationtwo')
@@ -2341,7 +2534,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'randomized-text-effect',
-    componentName: 'randomized-text-unveil',
+    componentName: COMPONENT_KEYS.RANDOMIZED_TEXT_UNVEIL,
+    filesrc: 'components/text-animation/text-randomized/index.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/text-animation/text-randomized')
     ),
@@ -2350,7 +2544,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'horizontal-scroll',
-    componentName: 'framerhorizontalscroll',
+    componentName: COMPONENT_KEYS.FRAMERHORIZONTALSCROLL,
+    filesrc: 'components/scroll-animation/framer-horizontal-scroll.tsx',
     componentSrc: React.lazy(
       () =>
         import(
@@ -2363,7 +2558,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'infinity-brand',
-    componentName: 'infintyband',
+    componentName: COMPONENT_KEYS.INFINTYBAND,
+    filesrc: 'components/marquee/infinity-band-scroll.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/marquee/infinity-band-scroll')
     ),
@@ -2372,7 +2568,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'grid',
-    componentName: 'Default Grid',
+    componentName: COMPONENT_KEYS.NORMALGRID,
+    filesrc: 'components/grid/normal-grid.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/grid/normal-grid')
     ),
@@ -2381,7 +2578,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'grid',
-    componentName: 'Box Grid',
+    componentName: COMPONENT_KEYS.BOXGRID,
+    filesrc: 'components/grid/box-grid.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/grid/box-grid')
     ),
@@ -2390,7 +2588,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'grid',
-    componentName: 'Condition Grid',
+    componentName: COMPONENT_KEYS.CONDITIONGRID,
+    filesrc: 'components/grid/condition-grid.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/grid/condition-grid')
     ),
@@ -2399,7 +2598,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'grid',
-    componentName: 'Unsplash Grid',
+    componentName: COMPONENT_KEYS.UNSPLASHGRID,
+    filesrc: 'components/grid/unsplash-grid.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/grid/unsplash-grid')
     ),
@@ -2408,7 +2608,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'marquee',
-    componentName: 'default-marquee',
+    componentName: COMPONENT_KEYS.DEFAULT_MARQUEE,
+    filesrc: 'components/marquee/default-marquee.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/marquee/default-marquee')
     ),
@@ -2417,7 +2618,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'marquee',
-    componentName: 'verticle-marquee',
+    componentName: COMPONENT_KEYS.VERTICLE_MARQUEE,
+    filesrc: 'components/marquee/verticle-marquee.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/marquee/verticle-marquee')
     ),
@@ -2426,7 +2628,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'marquee',
-    componentName: 'logos-marquee',
+    componentName: COMPONENT_KEYS.LOGOS_MARQUEE,
+    filesrc: 'components/marquee/verticle-marquee.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/marquee/verticle-marquee')
     ),
@@ -2435,7 +2638,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'marquee',
-    componentName: '3d-marquee',
+    componentName: COMPONENT_KEYS.MARQUEE_3D,
+    filesrc: 'components/marquee/3d-marquee.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/marquee/3d-marquee')
     ),
@@ -2444,7 +2648,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'clip-path',
-    componentName: 'creative-clippath',
+    componentName: COMPONENT_KEYS.CREATIVE_CLIPPATH,
+    filesrc: 'components/clip-path/clip-path-creative.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/clip-path/clip-path-creative')
     ),
@@ -2453,7 +2658,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'clip-path',
-    componentName: 'corporate-clippath',
+    componentName: COMPONENT_KEYS.CORPORATE_CLIPPATH,
+    filesrc: 'components/clip-path/clip-path-corporate.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/clip-path/clip-path-corporate')
     ),
@@ -2462,7 +2668,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'clip-path',
-    componentName: 'symbolic-clippath',
+    componentName: COMPONENT_KEYS.SYMBOLIC_CLIPPATH,
+    filesrc: 'components/clip-path/clip-path-symbolic.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/clip-path/clip-path-symbolic')
     ),
@@ -2471,7 +2678,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'clip-path',
-    componentName: 'creative-mask-clippath',
+    componentName: COMPONENT_KEYS.CREATIVE_MASK_CLIPPATH,
+    filesrc: 'components/clip-path/clip-path-creative-mask.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/clip-path/clip-path-creative-mask')
     ),
@@ -2480,7 +2688,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'watersplash-clippath',
-    componentName: 'Water Splash Clippath',
+    componentName: COMPONENT_KEYS.WATERSPLASH_CLIPPATH,
+    filesrc: 'components/clip-path/clip-path-water-splash.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/clip-path/clip-path-water-splash')
     ),
@@ -2489,7 +2698,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'clip-path',
-    componentName: 'creative-mask-clippath',
+    componentName: COMPONENT_KEYS.CREATIVE_MASK_CLIPPATH,
+    filesrc: 'components/clip-path/clip-path-creative-mask.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/clip-path/clip-path-creative-mask')
     ),
@@ -2498,7 +2708,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'image-masking',
-    componentName: 'creative-imagemasking',
+    componentName: COMPONENT_KEYS.CREATIVE_IMAGEMASKING,
+    filesrc: 'components/clip-path/creative-image-masking.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/clip-path/creative-image-masking')
     ),
@@ -2507,7 +2718,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'image-masking',
-    componentName: 'Animal image Masking',
+    componentName: COMPONENT_KEYS.ANIMAL_IMAGEMASKING,
+    filesrc: 'components/clip-path/animal-image-masking.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/clip-path/animal-image-masking')
     ),
@@ -2521,7 +2733,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'image-masking',
-    componentName: 'Center image Masking',
+    componentName: COMPONENT_KEYS.CENTER_IMAGEMASKING,
+    filesrc: 'components/clip-path/center-image-masking.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/clip-path/center-image-masking')
     ),
@@ -2535,7 +2748,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'image-masking',
-    componentName: 'Fixed BG Image Masking',
+    componentName: COMPONENT_KEYS.FIXEDBG_IMAGEMASKING,
+    filesrc: 'components/clip-path/fixed-bg-image-masking.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/clip-path/fixed-bg-image-masking')
     ),
@@ -2549,7 +2763,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'image-masking',
-    componentName: 'Water Splash Image Masking',
+    componentName: COMPONENT_KEYS.WATERSPLASH_IMAGEMASKING,
+    filesrc: 'components/clip-path/water-splash-image-masking.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/clip-path/water-splash-image-masking')
     ),
@@ -2564,7 +2779,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'video-masking',
-    componentName: 'creative-videomasking',
+    componentName: COMPONENT_KEYS.CREATIVE_VIDEOMASKING,
+    filesrc: 'components/clip-path/creative-video-masking.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/clip-path/creative-video-masking')
     ),
@@ -2573,7 +2789,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'video-masking',
-    componentName: 'splashwater-videomasking',
+    componentName: COMPONENT_KEYS.SPLASHWATER_VIDEOMASKING,
+    filesrc: 'components/clip-path/splash-water-video-masking.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/clip-path/splash-water-video-masking')
     ),
@@ -2582,7 +2799,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'video-masking',
-    componentName: 'Hexagon Video Masking',
+    componentName: COMPONENT_KEYS.HEXAGON_VIDEOMASKING,
+    filesrc: 'components/clip-path/hexagon-video-masking.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/clip-path/hexagon-video-masking')
     ),
@@ -2591,7 +2809,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'video-masking',
-    componentName: 'Hexagon Video Masking2',
+    componentName: COMPONENT_KEYS.HEXAGON2_VIDEOMASKING,
+    filesrc: 'components/clip-path/hexagon2-video-masking.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/clip-path/hexagon2-video-masking')
     ),
@@ -2600,7 +2819,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'video-masking',
-    componentName: 'Textoverlay Videomasking',
+    componentName: COMPONENT_KEYS.TEXTOVERLAY_VIDEOMASKING,
+    filesrc: 'components/clip-path/text-overlay-video-masking.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/clip-path/text-overlay-video-masking')
     ),
@@ -2609,7 +2829,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'gradient-border',
-    componentName: 'gradient-border',
+    componentName: COMPONENT_KEYS.GRADIENT_BORDER,
+    filesrc: 'components/card/gradient-border.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/card/gradient-border')
     ),
@@ -2627,7 +2848,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'hover-cards',
-    componentName: 'stripecard',
+    componentName: COMPONENT_KEYS.STRIPECARD,
+    filesrc: 'components/card/stripe-card.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/card/stripe-card')
     ),
@@ -2644,7 +2866,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'hover-cards',
-    componentName: 'stripecard2',
+    componentName: COMPONENT_KEYS.STRIPECARD2,
+    filesrc: 'components/card/stripe-card2.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/card/stripe-card2')
     ),
@@ -2661,7 +2884,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'hover-cards',
-    componentName: 'hovercard4',
+    componentName: COMPONENT_KEYS.HOVERCARD4,
+    filesrc: 'components/card/hover-card4.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/card/hover-card4')
     ),
@@ -2670,7 +2894,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'hover-cards',
-    componentName: 'hovercard3',
+    componentName: COMPONENT_KEYS.HOVERCARD3,
+    filesrc: 'components/card/hover-card3.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/card/hover-card3')
     ),
@@ -2679,7 +2904,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'hover-cards',
-    componentName: 'hovercard2',
+    componentName: COMPONENT_KEYS.HOVERCARD2,
+    filesrc: 'components/card/hover-card2.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/card/hover-card2')
     ),
@@ -2688,7 +2914,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'hover-cards',
-    componentName: 'hovercard1',
+    componentName: COMPONENT_KEYS.HOVERCARD1,
+    filesrc: 'components/card/hover-card1.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/card/hover-card1')
     ),
@@ -2697,7 +2924,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'hover-cards',
-    componentName: 'cuip-card',
+    componentName: COMPONENT_KEYS.CUIP_CARD,
+    filesrc: 'components/card/cuip-card.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/card/cuip-card')
     ),
@@ -2706,7 +2934,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'product-cards',
-    componentName: 'productcard1',
+    componentName: COMPONENT_KEYS.PRODUCTCARD1,
+    filesrc: 'components/card/product-card1.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/card/product-card1')
     ),
@@ -2715,7 +2944,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'product-cards',
-    componentName: 'productcard2',
+    componentName: COMPONENT_KEYS.PRODUCTCARD2,
+    filesrc: 'components/card/product-card2.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/card/product-card2')
     ),
@@ -2724,7 +2954,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'product-cards',
-    componentName: 'productcard3',
+    componentName: COMPONENT_KEYS.PRODUCTCARD3,
+    filesrc: 'components/card/product-card3.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/card/product-card3')
     ),
@@ -2733,7 +2964,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'product-cards',
-    componentName: 'productcard4',
+    componentName: COMPONENT_KEYS.PRODUCTCARD4,
+    filesrc: 'components/card/product-card4.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/card/product-card4')
     ),
@@ -2742,7 +2974,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'product-cards',
-    componentName: 'productcard5',
+    componentName: COMPONENT_KEYS.PRODUCTCARD5,
+    filesrc: 'components/card/product-card5.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/card/product-card5')
     ),
@@ -2751,7 +2984,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'product-cards',
-    componentName: 'productcard6',
+    componentName: COMPONENT_KEYS.PRODUCTCARD6,
+    filesrc: 'components/card/product-card6.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/card/product-card6')
     ),
@@ -2760,7 +2994,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'spotlight-cards',
-    componentName: 'spotlight-card1',
+    componentName: COMPONENT_KEYS.SPOTLIGHT_CARD1,
+    filesrc: 'components/spotlight-cards/spotlight-card1.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/spotlight-cards/spotlight-card1')
     ),
@@ -2769,7 +3004,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'spotlight-cards',
-    componentName: 'spotlight-card2',
+    componentName: COMPONENT_KEYS.SPOTLIGHT_CARD2,
+    filesrc: 'components/spotlight-cards/spotlight-card2.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/spotlight-cards/spotlight-card2')
     ),
@@ -2778,7 +3014,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'spotlight-cards',
-    componentName: 'spotlight-card3',
+    componentName: COMPONENT_KEYS.SPOTLIGHT_CARD3,
+    filesrc: 'components/spotlight-cards/spotlight-card3.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/spotlight-cards/spotlight-card3')
     ),
@@ -2787,7 +3024,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'spotlight-cards',
-    componentName: 'spotlight-card4',
+    componentName: COMPONENT_KEYS.SPOTLIGHT_CARD4,
+    filesrc: 'components/spotlight-cards/spotlight-card4.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/spotlight-cards/spotlight-card4')
     ),
@@ -2796,7 +3034,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'tabs',
-    componentName: 'maintabs',
+    componentName: COMPONENT_KEYS.MAINTABS,
+    filesrc: 'components/tabs/preview-tab.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/tabs/preview-tab')
     ),
@@ -2805,7 +3044,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'tabs',
-    componentName: 'creative-tab',
+    componentName: COMPONENT_KEYS.CREATIVE_TAB,
+    filesrc: 'components/tabs/home-tab.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/tabs/home-tab')
     ),
@@ -2814,7 +3054,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'tabs',
-    componentName: 'register-tab',
+    componentName: COMPONENT_KEYS.REGISTER_TAB,
+    filesrc: 'components/tabs/register-tab.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/tabs/register-tab')
     ),
@@ -2823,7 +3064,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'magnified-doc',
-    componentName: 'magnified-tab',
+    componentName: COMPONENT_KEYS.MAGNIFIED_TAB,
+    filesrc: 'components/tabs/magnified-tabs.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/tabs/magnified-tabs')
     ),
@@ -2832,7 +3074,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'image-tabs',
-    componentName: 'image-tab1',
+    componentName: COMPONENT_KEYS.IMAGE_TAB1,
+    filesrc: 'components/tabs/img-tabs1.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/tabs/img-tabs1')
     ),
@@ -2841,7 +3084,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'image-tabs',
-    componentName: 'image-tab2',
+    componentName: COMPONENT_KEYS.IMAGE_TAB2,
+    filesrc: 'components/tabs/img-tabs2.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/tabs/img-tabs2')
     ),
@@ -2850,7 +3094,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     parentlink: 'image-tabs',
-    componentName: 'image-tab3',
+    componentName: COMPONENT_KEYS.IMAGE_TAB3,
+    filesrc: 'components/tabs/img-tabs3.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/tabs/img-tabs3')
     ),
