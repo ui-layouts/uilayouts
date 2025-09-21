@@ -10,7 +10,7 @@ const MainComponentsDownloader: React.FC = () => {
     const updatedMainComponents = DocsNavigationCategories.map((mainComponent) => {
       const matchingAllComponents = AllComponents.filter(
         (allComponent) =>
-          allComponent.parentlink === mainComponent.href.split('/').pop()
+          allComponent.category === mainComponent.key
       );
 
       if (matchingAllComponents.length > 0) {

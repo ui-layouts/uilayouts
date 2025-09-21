@@ -1,11 +1,12 @@
-import { COMPONENT_KEYS, DOCS_CATEGORY_GROUP } from '../const/docs';
-import { DocsFileRef, DocsNavigationCategory } from '../types/docs';
+import { COMPONENT_KEYS, DOCS_CATEGORY_GROUP, DOCS_CATEGORY_KEY } from '../const/docs';
+import { DocsCategoryKey, DocsFileRef, DocsNavigationCategory } from '../types/docs';
 import React from 'react';
 
 export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/liquid-glass',
     name: 'Liquid-Glass',
+    key: DOCS_CATEGORY_KEY['liquid-glass'],
     group: DOCS_CATEGORY_GROUP.Components,
     new: true,
     tags: [
@@ -26,6 +27,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/color-picker',
     name: 'Color Picker',
+    key: DOCS_CATEGORY_KEY['color-picker'],
     group: DOCS_CATEGORY_GROUP.Components,
     tags: [],
     new: true,
@@ -33,6 +35,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/buttons',
     name: 'Buttons',
+    key: DOCS_CATEGORY_KEY['buttons'],
     group: DOCS_CATEGORY_GROUP.Components,
     tags: [],
     updated: false,
@@ -40,6 +43,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/noise',
     name: 'Noise',
+    key: DOCS_CATEGORY_KEY['noise'],
     group: DOCS_CATEGORY_GROUP.Components,
     new: false,
     tags: ['noise', 'effect', 'visual', 'distortion', 'shader'],
@@ -47,12 +51,14 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/globe',
     name: 'Globe',
+    key: DOCS_CATEGORY_KEY['globe'],
     group: DOCS_CATEGORY_GROUP.Components,
     tags: ['threejs', '3d globe', 'r3f globe', 'cobe', 'code globe example'],
   },
   {
     href: '/components/footers',
     name: 'Footers',
+    key: DOCS_CATEGORY_KEY['footers'],
     group: DOCS_CATEGORY_GROUP.Components,
     tags: [
       'footer',
@@ -67,12 +73,14 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/responsive-header',
     name: 'Responsive-Header',
+    key: DOCS_CATEGORY_KEY['responsive-header'],
     group: DOCS_CATEGORY_GROUP.Components,
     tags: ['header', 'responsive', 'navigation-bar', 'menu'],
   },
   {
     href: '/components/buy-me-coffee',
     name: 'Buy Me A Coffee',
+    key: DOCS_CATEGORY_KEY['buy-me-coffee'],
     group: DOCS_CATEGORY_GROUP.Components,
     tags: [
       'Sponser',
@@ -85,6 +93,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/swapy',
     name: 'Swapy Drag',
+    key: DOCS_CATEGORY_KEY['swapy'],
     group: DOCS_CATEGORY_GROUP.DragItems,
     new: true,
     updated: false,
@@ -99,6 +108,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/drag-items',
     name: 'Drag Items',
+    key: DOCS_CATEGORY_KEY['drag-items'],
     updated: false,
     group: DOCS_CATEGORY_GROUP.DragItems,
 
@@ -107,6 +117,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/image-ripple-effect',
     name: 'Img Ripple Effect',
+    key: DOCS_CATEGORY_KEY['image-ripple-effect'],
     group: DOCS_CATEGORY_GROUP.ThreeJS,
     tags: [
       'img-ripple-effect',
@@ -119,6 +130,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/r3f-blob',
     name: 'R3F Blob',
+    key: DOCS_CATEGORY_KEY['r3f-blob'],
     group: DOCS_CATEGORY_GROUP.ThreeJS,
     new: true,
     tags: ['r3f-blob', 'threejs blob', 'animated blob', 'blob'],
@@ -126,6 +138,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/mesh-gradients',
     name: 'Mesh Gradients',
+    key: DOCS_CATEGORY_KEY['mesh-gradients'],
     group: DOCS_CATEGORY_GROUP.ThreeJS,
     new: true,
     tags: [
@@ -139,6 +152,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/blur-vignette',
     name: 'Blur Vignette',
+    key: DOCS_CATEGORY_KEY['blur-vignette'],
     group: DOCS_CATEGORY_GROUP.Creative,
     tags: [
       'blur',
@@ -164,6 +178,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/motion-number',
     name: 'Motion Number',
+    key: DOCS_CATEGORY_KEY['motion-number'],
     group: DOCS_CATEGORY_GROUP.Creative,
     tags: [
       'animation',
@@ -193,6 +208,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/uilayouts-github-button',
     name: 'uilayouts-github-button',
+    key: DOCS_CATEGORY_KEY['uilayouts-github-button'],
     group: DOCS_CATEGORY_GROUP.Creative,
     tags: [
       'uilayouts',
@@ -212,6 +228,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/range-slider',
     name: 'Range Slider',
+    key: DOCS_CATEGORY_KEY['range-slider'],
     group: DOCS_CATEGORY_GROUP.Form,
     tags: [
       'input slider',
@@ -236,6 +253,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/password',
     name: 'Password',
+    key: DOCS_CATEGORY_KEY['password'],
     group: DOCS_CATEGORY_GROUP.Form,
     tags: [
       'password',
@@ -275,6 +293,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/tags-input',
     name: 'UTube Tags',
+    key: DOCS_CATEGORY_KEY['tags-input'],
     group: DOCS_CATEGORY_GROUP.Form,
     tags: [
       'Tags Input',
@@ -291,6 +310,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/phone-input',
     name: 'Phone Input',
+    key: DOCS_CATEGORY_KEY['phone-input'],
     group: DOCS_CATEGORY_GROUP.Form,
     tags: [
       'phone-input',
@@ -304,6 +324,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/datetime-picker',
     name: 'Datetime Picker',
+    key: DOCS_CATEGORY_KEY['datetime-picker'],
     group: DOCS_CATEGORY_GROUP.Form,
     tags: [
       'time picker',
@@ -323,6 +344,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/multi-selector',
     name: 'Multi Selector',
+    key: DOCS_CATEGORY_KEY['multi-selector'],
     group: DOCS_CATEGORY_GROUP.Form,
     tags: [
       'Multi Selector Input',
@@ -336,6 +358,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/file-upload',
     name: 'File Upload',
+    key: DOCS_CATEGORY_KEY['file-upload'],
     new: false,
     group: DOCS_CATEGORY_GROUP.Form,
     tags: [
@@ -355,6 +378,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/clip-path',
     name: 'Clip-Path ',
+    key: DOCS_CATEGORY_KEY['clip-path'],
     new: false,
     group: DOCS_CATEGORY_GROUP['Clip-Path'],
     tags: ['clip-path', 'creative', 'masking', 'corporate', 'symbolic', 'mask'],
@@ -362,6 +386,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/image-masking',
     name: 'Image Masking',
+    key: DOCS_CATEGORY_KEY['image-masking'],
     new: false,
     group: DOCS_CATEGORY_GROUP['Clip-Path'],
     tags: [
@@ -382,6 +407,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/video-masking',
     name: 'Video Masking',
+    key: DOCS_CATEGORY_KEY['video-masking'],
     new: false,
     group: DOCS_CATEGORY_GROUP['Clip-Path'],
     tags: [
@@ -400,6 +426,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/hover-cards',
     name: 'Hover cards',
+    key: DOCS_CATEGORY_KEY['hover-cards'],
     group: DOCS_CATEGORY_GROUP.Card,
     tags: [
       'hover',
@@ -417,6 +444,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/product-cards',
     name: 'Product-Cards',
+    key: DOCS_CATEGORY_KEY['product-cards'],
     group: DOCS_CATEGORY_GROUP.Card,
     tags: [
       'product',
@@ -432,6 +460,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/gradient-border',
     name: 'gradient-border',
+    key: DOCS_CATEGORY_KEY['gradient-border'],
     group: DOCS_CATEGORY_GROUP.Card,
     tags: [
       'gradient',
@@ -449,6 +478,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/spotlight-cards',
     name: 'Spotlight cards',
+    key: DOCS_CATEGORY_KEY['spotlight-cards'],
     group: DOCS_CATEGORY_GROUP.Card,
     tags: [
       'spotlight',
@@ -464,6 +494,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/timeline-animation',
     name: 'Timeline Animation',
+    key: DOCS_CATEGORY_KEY['timeline-animation'],
     group: DOCS_CATEGORY_GROUP.Animation,
     new: false,
     updated: true,
@@ -472,6 +503,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/scroll-animation',
     name: 'Scroll Animation',
+    key: DOCS_CATEGORY_KEY['scroll-animation'],
     group: DOCS_CATEGORY_GROUP.Animation,
     new: false,
     tags: [
@@ -487,18 +519,21 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/scroll-text',
     name: 'Scroll Text',
+    key: DOCS_CATEGORY_KEY['scroll-text'],
     group: DOCS_CATEGORY_GROUP.TextAnimation,
     tags: ['scroll', 'text', 'animation'],
   },
   {
     href: '/components/text-marquee',
     name: 'Text Maruqee',
+    key: DOCS_CATEGORY_KEY['text-marquee'],
     group: DOCS_CATEGORY_GROUP.TextAnimation,
     tags: ['marquee', 'text', 'animation'],
   },
   {
     href: '/components/randomized-text-effect',
     name: 'Randomized Text',
+    key: DOCS_CATEGORY_KEY['randomized-text-effect'],
     group: DOCS_CATEGORY_GROUP.TextAnimation,
     new: false,
     tags: ['random', 'text', 'effect'],
@@ -506,6 +541,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/image-mousetrail',
     name: 'Image Mousetrail',
+    key: DOCS_CATEGORY_KEY['image-mousetrail'],
     group: DOCS_CATEGORY_GROUP.CreativeEffect,
     new: false,
     tags: [
@@ -525,6 +561,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/image-reveal',
     name: 'Image Reveal',
+    key: DOCS_CATEGORY_KEY['image-reveal'],
     new: false,
     group: DOCS_CATEGORY_GROUP.CreativeEffect,
     tags: [
@@ -546,6 +583,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/progressive-carousel',
     name: 'Progressive Carousel',
+    key: DOCS_CATEGORY_KEY['progressive-carousel'],
     new: false,
     group: DOCS_CATEGORY_GROUP.CreativeEffect,
     tags: [
@@ -560,6 +598,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/blocks',
     name: 'Blocks',
+    key: DOCS_CATEGORY_KEY['blocks'],
     group: DOCS_CATEGORY_GROUP.CreativeEffect,
     tags: [
       'blocks',
@@ -575,6 +614,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/animated-beam',
     name: 'Animated Beam',
+    key: DOCS_CATEGORY_KEY['animated-beam'],
     group: DOCS_CATEGORY_GROUP.CreativeEffect,
     tags: [
       'animated',
@@ -598,18 +638,21 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/dialog',
     name: 'Dialog',
+    key: DOCS_CATEGORY_KEY['dialog'],
     group: DOCS_CATEGORY_GROUP['Modal/Drawer'],
     tags: ['dialog', 'popup', 'modal', 'UI-component'],
   },
   {
     href: '/components/media-modal',
     name: 'Media Modal',
+    key: DOCS_CATEGORY_KEY['media-modal'],
     group: DOCS_CATEGORY_GROUP['Modal/Drawer'],
     tags: ['media', 'modal', 'popup', 'UI', 'image modal'],
   },
   {
     href: '/components/linear-modal',
     name: 'Linear Modal',
+    key: DOCS_CATEGORY_KEY['linear-modal'],
     group: DOCS_CATEGORY_GROUP['Modal/Drawer'],
     updated: true,
     tags: [
@@ -624,6 +667,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/gallery-modal',
     name: 'Gallery Modal',
+    key: DOCS_CATEGORY_KEY['gallery-modal'],
     group: DOCS_CATEGORY_GROUP['Modal/Drawer'],
     tags: [
       'gallery',
@@ -640,12 +684,14 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/responsive-drawer',
     name: 'Responsive Drawer',
+    key: DOCS_CATEGORY_KEY['responsive-drawer'],
     group: DOCS_CATEGORY_GROUP['Modal/Drawer'],
     tags: ['drawer', 'navigation', 'responsive', 'menu'],
   },
   {
     href: '/components/responsive-sidebar',
     name: 'Responsive Sidebar',
+    key: DOCS_CATEGORY_KEY['responsive-sidebar'],
     group: DOCS_CATEGORY_GROUP['Modal/Drawer'],
     tags: [
       'sidebar',
@@ -660,6 +706,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/horizontal-scroll',
     name: 'Horizontal Scroll',
+    key: DOCS_CATEGORY_KEY['horizontal-scroll'],
     group: DOCS_CATEGORY_GROUP.Scroll,
     tags: [
       'White 3D Globe',
@@ -672,6 +719,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/stacking-card',
     name: 'Stacking Card',
+    key: DOCS_CATEGORY_KEY['stacking-card'],
     group: DOCS_CATEGORY_GROUP.Scroll,
     tags: [
       'Card Stack',
@@ -685,12 +733,14 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/smooth-scroll',
     name: 'Smooth-Scroll',
+    key: DOCS_CATEGORY_KEY['smooth-scroll'],
     group: DOCS_CATEGORY_GROUP.Scroll,
     tags: ['Smooth Scrolling', 'Lenis Smooth Scroll', 'Scroll Animation'],
   },
   {
     href: '/components/sticky-scroll',
     name: 'Sticky Scroll',
+    key: DOCS_CATEGORY_KEY['sticky-scroll'],
     group: DOCS_CATEGORY_GROUP.Scroll,
     new: false,
     tags: [
@@ -705,6 +755,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/tabs',
     name: 'Tabs',
+    key: DOCS_CATEGORY_KEY['tabs'],
     group: DOCS_CATEGORY_GROUP.Tabs,
     tags: [
       'tabs',
@@ -720,18 +771,21 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/image-tabs',
     name: 'Image Tabs',
+    key: DOCS_CATEGORY_KEY['image-tabs'],
     group: DOCS_CATEGORY_GROUP.Tabs,
     tags: ['tabs', 'image', 'ui', 'gallery', 'design'],
   },
   {
     href: '/components/magnified-doc',
     name: 'Magnified-Doc',
+    key: DOCS_CATEGORY_KEY['magnified-doc'],
     group: DOCS_CATEGORY_GROUP.Tabs,
     tags: ['tabs', 'ui', 'magnified', 'document', 'design'],
   },
   {
     href: '/components/sparkles',
     name: 'Sparkles',
+    key: DOCS_CATEGORY_KEY['sparkles'],
     group: DOCS_CATEGORY_GROUP.Sparkles,
     tags: [
       'sparkles',
@@ -743,12 +797,14 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/sparkles-title',
     name: 'Sparkles Title',
+    key: DOCS_CATEGORY_KEY['sparkles-title'],
     group: DOCS_CATEGORY_GROUP.Sparkles,
     tags: ['sparkles title', 'mousemove sparkles'],
   },
   {
     href: '/components/carousel',
     name: 'Carousel',
+    key: DOCS_CATEGORY_KEY['carousel'],
     new: false,
     group: DOCS_CATEGORY_GROUP.Carousel,
     tags: [
@@ -780,6 +836,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/framer-carousel',
     name: 'Framer Carousel',
+    key: DOCS_CATEGORY_KEY['framer-carousel'],
     group: DOCS_CATEGORY_GROUP.Carousel,
     tags: [
       'carousel',
@@ -792,6 +849,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/accordion',
     name: 'Accordion',
+    key: DOCS_CATEGORY_KEY['accordion'],
     group: DOCS_CATEGORY_GROUP.Accordion,
     updated: true,
     tags: [
@@ -807,6 +865,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/faqs',
     name: 'FAQs',
+    key: DOCS_CATEGORY_KEY['faqs'],
     group: DOCS_CATEGORY_GROUP.Accordion,
     tags: [
       'accordion',
@@ -820,6 +879,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/image-accordions',
     name: 'Image Accordion',
+    key: DOCS_CATEGORY_KEY['image-accordions'],
     group: DOCS_CATEGORY_GROUP.Accordion,
     tags: [
       'accordion',
@@ -834,6 +894,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/grid',
     name: 'Grid',
+    key: DOCS_CATEGORY_KEY['grid'],
     group: DOCS_CATEGORY_GROUP.Grid,
     tags: [
       'grid',
@@ -851,24 +912,27 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/masonary-grid',
     name: 'Masonary',
+    key: DOCS_CATEGORY_KEY['masonary-grid'],
     group: DOCS_CATEGORY_GROUP.Grid,
     tags: ['bento grid', 'grid', 'masonary grid'],
   },
   {
     href: '/components/marquee',
     name: 'Marquee',
+    key: DOCS_CATEGORY_KEY['marquee'],
     group: DOCS_CATEGORY_GROUP.Marquee,
     tags: ['default', 'marquee', 'animation', 'vertical', 'logos', '3d'],
   },
   {
     href: '/components/infinity-brand',
     name: 'Infinity Brand',
+    key: DOCS_CATEGORY_KEY['infinity-brand'],
     group: DOCS_CATEGORY_GROUP.Marquee,
     tags: ['infinity', 'brand', 'marquee'],
   },
 ];
 export interface IAllComponents {
-  parentlink: string;
+  category: DocsCategoryKey;
   componentName: string;
   componentSrc?: React.LazyExoticComponent<React.ComponentType<any>>;
   iframeSrc?: string;
@@ -883,7 +947,7 @@ export interface IAllComponents {
 
 export const AllComponents: IAllComponents[] = [
   {
-    parentlink: 'liquid-glass',
+    category: DOCS_CATEGORY_KEY['liquid-glass'],
     componentName: COMPONENT_KEYS.LIQUID_GLASS_SIDEBAR_MENU,
     filesrc: 'components/liquid-glass/sidebar-menu.tsx',
     iframeSrc: 'live-components/liquid-glass-sidebar-menu',
@@ -899,7 +963,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'liquid-glass',
+    category: 'liquid-glass',
     componentName: COMPONENT_KEYS.LIQUID_GLASS_MOBILE_ICONS,
     filesrc: 'components/liquid-glass/mobile-icons-liquid.tsx',
     iframeSrc: 'live-components/liquid-glass-mobile-icons',
@@ -915,7 +979,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'liquid-glass',
+    category: 'liquid-glass',
     componentName: COMPONENT_KEYS.LIQUID_GLASS_WEATHER,
     filesrc: 'components/liquid-glass/weather-liquid.tsx',
     iframeSrc: 'live-components/liquid-glass-weather',
@@ -931,7 +995,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'liquid-glass',
+    category: 'liquid-glass',
     componentName: COMPONENT_KEYS.LIQUID_GLASS_NOTIFICATION,
     filesrc: 'components/liquid-glass/notification.tsx',
     iframeSrc: 'live-components/liquid-glass-notification',
@@ -947,7 +1011,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'color-picker',
+    category: DOCS_CATEGORY_KEY['color-picker'],
     componentName: COMPONENT_KEYS.DEFAULT_COLOR_PICKER,
     filesrc: 'components/color-picker/index.tsx',
     iframeSrc: 'live-components/default-color-picker',
@@ -964,7 +1028,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'color-picker',
+    category: DOCS_CATEGORY_KEY['color-picker'],
     componentName: COMPONENT_KEYS.RAWS_COLOR_PICKER,
     filesrc: 'components/color-picker/raws-color-picker.tsx',
     iframeSrc: 'live-components/raws-color-picker',
@@ -980,7 +1044,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'swapy',
+    category: DOCS_CATEGORY_KEY['swapy'],
     componentName: COMPONENT_KEYS.DEFAULT_SWAPY,
     filesrc: 'components/swapy/default-swapy.tsx',
     iframeSrc: 'live-components/default-swapy',
@@ -996,7 +1060,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'swapy',
+    category: DOCS_CATEGORY_KEY['swapy'],
     componentName: COMPONENT_KEYS.OPACITY_SWAPY,
     filesrc: 'components/swapy/swapy-opacity.tsx',
     iframeSrc: 'live-components/swapy-opacity',
@@ -1012,7 +1076,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'swapy',
+    category: DOCS_CATEGORY_KEY['swapy'],
     componentName: COMPONENT_KEYS.SWAPY_WITHOUT_COMPONENTS,
     filesrc: 'components/swapy/swapy-without-components.tsx',
     iframeSrc: 'live-components/swapy-without-components',
@@ -1028,7 +1092,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'swapy',
+    category: DOCS_CATEGORY_KEY['swapy'],
     componentName: COMPONENT_KEYS.SWAPY_HANDLE,
     filesrc: 'components/swapy/swapy-handle.tsx',
     iframeSrc: 'live-components/swapy-handle',
@@ -1044,7 +1108,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'bg-mesh-gradient',
+    category: DOCS_CATEGORY_KEY['mesh-gradients'],
     componentName: COMPONENT_KEYS.LEMON_MESH_GRADIENTS,
     iframelink: 'mess-gradient',
     tags: [
@@ -1054,7 +1118,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'bg-mesh-gradient',
+    category: DOCS_CATEGORY_KEY['mesh-gradients'],
     componentName: COMPONENT_KEYS.YELLOW_MESH_GRADIENTS,
     iframelink: 'mess-gradient2',
     tags: [
@@ -1064,7 +1128,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'image-ripple-effect',
+    category: DOCS_CATEGORY_KEY['image-ripple-effect'],
     componentName: COMPONENT_KEYS.IMG_RIPPLE_EFFECT,
     iframelink: 'img-ripple-effect',
     tags: [
@@ -1074,7 +1138,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'img-ripple-effect',
+    category: DOCS_CATEGORY_KEY['image-ripple-effect'],
     componentName: COMPONENT_KEYS.IMG_RIPPLE_EFFECT,
     iframelink: 'img-ripple-effect2',
     tags: [
@@ -1085,80 +1149,80 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'card-globe',
+    category: DOCS_CATEGORY_KEY['globe'],
     componentName: COMPONENT_KEYS.CARD_GLOBE,
     iframelink: 'card-globe',
     tags: ['3D Globe', '3D Globe Card'],
   },
   {
-    parentlink: 'card-globe2',
+    category: DOCS_CATEGORY_KEY['globe'],
     componentName: COMPONENT_KEYS.CARD_GLOBE2,
     iframelink: 'card-globe2',
     tags: ['White 3D Globe', 'White 3D Globe Card'],
   },
   {
-    parentlink: 'horizontal-scroll',
+    category: DOCS_CATEGORY_KEY['horizontal-scroll'],
     componentName: COMPONENT_KEYS.HORIZONTALSCROLL,
     iframelink: 'horizontal-scrolling-section',
     tags: ['White 3D Globe', 'White 3D Globe Card'],
   },
   {
-    parentlink: 'horizontal-scroll',
+    category: DOCS_CATEGORY_KEY['horizontal-scroll'],
     componentName: COMPONENT_KEYS.HORIZONTALSCROLL,
     iframelink: 'horizontal-scrolling-section',
     tags: ['White 3D Globe', 'White 3D Globe Card'],
   },
 
   {
-    parentlink: 'stacking-card',
+    category: DOCS_CATEGORY_KEY['stacking-card'],
     componentName: COMPONENT_KEYS.STACKING_CARD,
     iframelink: 'stacking-card',
     tags: ['Card Stack', 'Interactive Cards'],
   },
   {
-    parentlink: 'stacking-card',
+    category: DOCS_CATEGORY_KEY['stacking-card'],
     componentName: COMPONENT_KEYS.CSS_CARD_STACKING,
     iframelink: 'css-stacking-details-card',
     tags: ['CSS Stacking', 'Details Card'],
   },
   {
-    parentlink: 'stacking-card',
+    category: DOCS_CATEGORY_KEY['stacking-card'],
     componentName: COMPONENT_KEYS.CSS_IMAGE_STACKING,
     iframelink: 'css-stacking-card',
     tags: ['CSS Image Stack', 'Stacking Card'],
   },
   {
-    parentlink: 'smooth-scroll',
+    category: DOCS_CATEGORY_KEY['smooth-scroll'],
     componentName: COMPONENT_KEYS.SMOOTH_SCROLL,
     iframelink: 'smooth-scroll',
     tags: ['Smooth Scrolling', 'Lenis Smooth Scroll', 'Scroll Animation'],
   },
   {
-    parentlink: 'sticky-scroll',
+    category: DOCS_CATEGORY_KEY['sticky-scroll'],
     componentName: COMPONENT_KEYS.STICKY_SCROLL_SECTION,
     iframelink: 'sticky-scroll-section',
     tags: ['Sticky Scroll', 'Section'],
   },
   {
-    parentlink: 'sticky-scroll',
+    category: DOCS_CATEGORY_KEY['sticky-scroll'],
     componentName: COMPONENT_KEYS.STICKY_GALLERY,
     iframelink: 'sticky-gallery',
     tags: ['Sticky Gallery', 'Gallery Scroll'],
   },
   {
-    parentlink: 'sticky-scroll',
+    category: DOCS_CATEGORY_KEY['sticky-scroll'],
     componentName: COMPONENT_KEYS.STICKY_HERO_SECTION,
     iframelink: 'sticky-hero-section',
     tags: ['Sticky Hero', 'Hero Section'],
   },
   {
-    parentlink: 'sparkles-globe',
+    category: DOCS_CATEGORY_KEY['sparkles'],
     componentName: COMPONENT_KEYS.SPARKLES_GLOBE,
     iframelink: 'sparkles-globe',
     tags: ['Sparkles', '3D Globe Sparkles', 'Globe Hero Section'],
   },
   {
-    parentlink: 'phone-input',
+    category: DOCS_CATEGORY_KEY['phone-input'],
     componentName: COMPONENT_KEYS.PHONE_INPUT,
     filesrc: 'components/form/phone-number/index.tsx',
     componentSrc: React.lazy(
@@ -1168,7 +1232,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['phone-input', 'Phone Input', 'Input'],
   },
   {
-    parentlink: 'buy-me-coffee',
+    category: DOCS_CATEGORY_KEY['buy-me-coffee'],
     componentName: COMPONENT_KEYS.BUYME_ACOFFEE,
     filesrc: 'components/buy-me-coffee.tsx',
     componentSrc: React.lazy(
@@ -1184,7 +1248,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'file-upload',
+    category: DOCS_CATEGORY_KEY['file-upload'],
     componentName: COMPONENT_KEYS.CHAT_FORM_DROPZONE,
     filesrc: 'components/form/file-upload/chat-form.tsx',
     componentSrc: React.lazy(
@@ -1202,7 +1266,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'file-upload',
+    category: DOCS_CATEGORY_KEY['file-upload'],
     componentName: COMPONENT_KEYS.IMGPREVIEW_DROPZONE,
     filesrc: 'components/form/file-upload/img-preview.tsx',
     componentSrc: React.lazy(
@@ -1218,7 +1282,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'file-upload',
+    category: DOCS_CATEGORY_KEY['file-upload'],
     componentName: COMPONENT_KEYS.FILE_UPLOAD,
     filesrc: 'components/form/file-upload/index.tsx',
     componentSrc: React.lazy(
@@ -1228,7 +1292,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['DropZone input', 'File Upload Input ', 'file-upload'],
   },
   {
-    parentlink: 'multi-selector',
+    category: DOCS_CATEGORY_KEY['multi-selector'],
     componentName: COMPONENT_KEYS.MULTI_SELECTOR,
     filesrc: 'components/form/multiple-selector.tsx',
     componentSrc: React.lazy(
@@ -1260,7 +1324,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'tags-input',
+    category: DOCS_CATEGORY_KEY['tags-input'],
     componentName: COMPONENT_KEYS.TAGSEDIT_FALSE,
     filesrc: 'components/form/tags-input/tagsedit-false.tsx',
     componentSrc: React.lazy(
@@ -1277,7 +1341,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'tags-input',
+    category: DOCS_CATEGORY_KEY['tags-input'],
     componentName: COMPONENT_KEYS.TAGS_INPUT,
     filesrc: 'components/form/tags-input/index.tsx',
     componentSrc: React.lazy(
@@ -1293,7 +1357,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'datetime-picker',
+    category: DOCS_CATEGORY_KEY['datetime-picker'],
     componentName: COMPONENT_KEYS.TIME_PICKER,
     filesrc: 'components/form/datetime-picker/time-picker.tsx',
     componentSrc: React.lazy(
@@ -1304,7 +1368,7 @@ export const AllComponents: IAllComponents[] = [
   },
 
   {
-    parentlink: 'datetime-picker',
+    category: DOCS_CATEGORY_KEY['datetime-picker'],
     componentName: COMPONENT_KEYS.DATE_PICKER,
     filesrc: 'components/form/datetime-picker/date-picker.tsx',
     componentSrc: React.lazy(
@@ -1314,7 +1378,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['date picker', 'date-picker', 'Date Picker'],
   },
   {
-    parentlink: 'datetime-picker',
+    category: DOCS_CATEGORY_KEY['datetime-picker'],
     componentName: COMPONENT_KEYS.DATETIME_PICKER,
     filesrc: 'components/form/datetime-picker/index.tsx',
     componentSrc: React.lazy(
@@ -1330,7 +1394,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'range-slider',
+    category: DOCS_CATEGORY_KEY['range-slider'],
     componentName: COMPONENT_KEYS.DUAL_RANGE_SLIDER,
     filesrc: 'components/number-flow/motion-number-slider.tsx',
     tags: [
@@ -1346,7 +1410,7 @@ export const AllComponents: IAllComponents[] = [
     iframeSrc: 'live-components/motion-number-slider',
   },
   {
-    parentlink: 'range-slider',
+    category: DOCS_CATEGORY_KEY['range-slider'],
     componentName: COMPONENT_KEYS.DUAL_RANGE_SLIDER,
     filesrc: 'components/form/slider/dual-range-slider.tsx',
     componentSrc: React.lazy(
@@ -1362,7 +1426,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'range-slider',
+    category: DOCS_CATEGORY_KEY['range-slider'],
     componentName: COMPONENT_KEYS.STATIC_RANGE_SLIDER,
     filesrc: 'components/form/slider/static-range-slider.tsx',
     componentSrc: React.lazy(
@@ -1380,7 +1444,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'range-slider',
+    category: DOCS_CATEGORY_KEY['range-slider'],
     componentName: COMPONENT_KEYS.POSITION_RANGE_SLIDER,
     filesrc: 'components/form/slider/position-range-slider.tsx',
     componentSrc: React.lazy(
@@ -1397,7 +1461,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'password',
+    category: DOCS_CATEGORY_KEY['password'],
     componentName: COMPONENT_KEYS.SHOWHIDE_PASS,
     filesrc: 'components/form/password/showhide-pass.tsx',
     componentSrc: React.lazy(
@@ -1415,7 +1479,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'password',
+    category: DOCS_CATEGORY_KEY['password'],
     componentName: COMPONENT_KEYS.PASS_STRENGTHINDICATOR,
     filesrc: 'components/form/password/pass-strength-indicator.tsx',
     componentSrc: React.lazy(
@@ -1434,7 +1498,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'password',
+    category: DOCS_CATEGORY_KEY['password'],
     componentName: COMPONENT_KEYS.PASS_STRENGTHINDICATOR2,
     filesrc: 'components/form/password/pass-strength-indicator2.tsx',
     componentSrc: React.lazy(
@@ -1454,7 +1518,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'password',
+    category: DOCS_CATEGORY_KEY['password'],
     componentName: COMPONENT_KEYS.PASS_STRENGTHINDICATOR3,
     filesrc: 'components/form/password/pass-strength-indicator3.tsx',
     componentSrc: React.lazy(
@@ -1488,7 +1552,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'password',
+    category: DOCS_CATEGORY_KEY['password'],
     componentName: COMPONENT_KEYS.PASS_STRENGTHINDICATOR4,
     filesrc: 'components/form/password/pass-strength-indicator4.tsx',
     componentSrc: React.lazy(
@@ -1520,7 +1584,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'password',
+    category: DOCS_CATEGORY_KEY['password'],
     componentName: COMPONENT_KEYS.CONFIRM_PASS_CHECK,
     filesrc: 'components/form/password/confirm-pass-check.tsx',
     componentSrc: React.lazy(
@@ -1549,7 +1613,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'drag-items',
+    category: DOCS_CATEGORY_KEY['drag-items'],
     componentName: COMPONENT_KEYS.DRAG_ITEMS,
     filesrc: 'components/drag/drag-items.tsx',
     componentSrc: React.lazy(
@@ -1560,7 +1624,7 @@ export const AllComponents: IAllComponents[] = [
   },
 
   {
-    parentlink: 'buttons',
+    category: DOCS_CATEGORY_KEY['buttons'],
     componentName: COMPONENT_KEYS.BUTTON_BACKGROUND_SHINE,
     filesrc: 'components/button/btn-bg-shine.tsx',
     componentSrc: React.lazy(
@@ -1570,7 +1634,7 @@ export const AllComponents: IAllComponents[] = [
     center: true,
   },
   {
-    parentlink: 'buttons',
+    category: DOCS_CATEGORY_KEY['buttons'],
     componentName: COMPONENT_KEYS.BUTTON_BACKGROUND_SPOTLIGHT,
     filesrc: 'components/button/btn-animated-gradient.tsx',
     componentSrc: React.lazy(
@@ -1580,7 +1644,7 @@ export const AllComponents: IAllComponents[] = [
     center: true,
   },
   {
-    parentlink: 'buttons',
+    category: DOCS_CATEGORY_KEY['buttons'],
     componentName: COMPONENT_KEYS.BUTTON_HOVER_ACTIVE,
     filesrc: 'components/button/btn-active.tsx',
     componentSrc: React.lazy(
@@ -1590,7 +1654,7 @@ export const AllComponents: IAllComponents[] = [
     center: true,
   },
   {
-    parentlink: 'buttons',
+    category: DOCS_CATEGORY_KEY['buttons'],
     componentName: COMPONENT_KEYS.BUTTON_HOVER_2,
     filesrc: 'components/button/btn-hover-right.tsx',
     componentSrc: React.lazy(
@@ -1600,7 +1664,7 @@ export const AllComponents: IAllComponents[] = [
     center: true,
   },
   {
-    parentlink: 'buttons',
+    category: DOCS_CATEGORY_KEY['buttons'],
     componentName: COMPONENT_KEYS.BUTTON_HOVER_3,
     filesrc: 'components/button/btn-click-down.tsx',
     componentSrc: React.lazy(
@@ -1610,7 +1674,7 @@ export const AllComponents: IAllComponents[] = [
     center: true,
   },
   {
-    parentlink: 'buttons',
+    category: DOCS_CATEGORY_KEY['buttons'],
     componentName: COMPONENT_KEYS.BUTTON_HOVER_4,
     filesrc: 'components/button/btn-hover-down.tsx',
     componentSrc: React.lazy(
@@ -1620,7 +1684,7 @@ export const AllComponents: IAllComponents[] = [
     center: true,
   },
   {
-    parentlink: 'buttons',
+    category: DOCS_CATEGORY_KEY['buttons'],
     componentName: COMPONENT_KEYS.BUTTON_HOVER_5,
     filesrc: 'components/button/btn-hover-multiple.tsx',
     componentSrc: React.lazy(
@@ -1630,7 +1694,7 @@ export const AllComponents: IAllComponents[] = [
     center: true,
   },
   {
-    parentlink: 'buttons',
+    category: DOCS_CATEGORY_KEY['buttons'],
     componentName: COMPONENT_KEYS.BUTTON_HOVER_6,
     filesrc: 'components/button/btn-hover-underline.tsx',
     componentSrc: React.lazy(
@@ -1640,7 +1704,7 @@ export const AllComponents: IAllComponents[] = [
     center: true,
   },
   {
-    parentlink: 'buttons',
+    category: DOCS_CATEGORY_KEY['buttons'],
     componentName: COMPONENT_KEYS.BUTTON_HOVER_7,
     filesrc: 'components/button/btn-hover-top-flip.tsx',
     componentSrc: React.lazy(
@@ -1650,7 +1714,7 @@ export const AllComponents: IAllComponents[] = [
     center: true,
   },
   {
-    parentlink: 'buttons',
+    category: DOCS_CATEGORY_KEY['buttons'],
     componentName: COMPONENT_KEYS.BUTTON_HOVER_8,
     filesrc: 'components/button/btn-hover-left-flip.tsx',
     componentSrc: React.lazy(
@@ -1660,7 +1724,7 @@ export const AllComponents: IAllComponents[] = [
     iframeSrc: 'live-components/button-hover-8',
   },
   {
-    parentlink: 'buttons',
+    category: DOCS_CATEGORY_KEY['buttons'],
     componentName: COMPONENT_KEYS.BUTTON_HOVER_9,
     filesrc: 'components/button/btn-hover-top-slowflip.tsx',
     componentSrc: React.lazy(
@@ -1670,7 +1734,7 @@ export const AllComponents: IAllComponents[] = [
     iframeSrc: 'live-components/button-hover-9',
   },
   {
-    parentlink: 'buttons',
+    category: DOCS_CATEGORY_KEY['buttons'],
     componentName: COMPONENT_KEYS.BUTTON_HOVER_10,
     filesrc: 'components/button/btn-text-change.tsx',
     componentSrc: React.lazy(
@@ -1680,7 +1744,7 @@ export const AllComponents: IAllComponents[] = [
     iframeSrc: 'live-components/button-hover-10',
   },
   {
-    parentlink: 'buttons',
+    category: DOCS_CATEGORY_KEY['buttons'],
     componentName: COMPONENT_KEYS.BUTTON_HOVER_11,
     filesrc: 'components/button/btn-cross-arrow.tsx',
     componentSrc: React.lazy(
@@ -1690,7 +1754,7 @@ export const AllComponents: IAllComponents[] = [
     iframeSrc: 'live-components/button-hover-11',
   },
   {
-    parentlink: 'buttons',
+    category: DOCS_CATEGORY_KEY['buttons'],
     componentName: COMPONENT_KEYS.BUTTON_HOVER_12,
     filesrc: 'components/button/btn-black-shadow.tsx',
     componentSrc: React.lazy(
@@ -1700,7 +1764,7 @@ export const AllComponents: IAllComponents[] = [
     iframeSrc: 'live-components/btn-hover12',
   },
   {
-    parentlink: 'buttons',
+    category: DOCS_CATEGORY_KEY['buttons'],
     componentName: COMPONENT_KEYS.BUTTON_HOVER_13,
     filesrc: 'components/button/btn-hover-outline.tsx',
     componentSrc: React.lazy(
@@ -1710,7 +1774,7 @@ export const AllComponents: IAllComponents[] = [
     iframeSrc: 'live-components/button-hover-13',
   },
   {
-    parentlink: 'buttons',
+    category: DOCS_CATEGORY_KEY['buttons'],
     componentName: COMPONENT_KEYS.BUTTON_HOVER_14,
     filesrc: 'components/button/btn-hover14.tsx',
     componentSrc: React.lazy(
@@ -1720,7 +1784,7 @@ export const AllComponents: IAllComponents[] = [
     iframeSrc: 'live-components/button-hover-14',
   },
   {
-    parentlink: 'buttons',
+    category: DOCS_CATEGORY_KEY['buttons'],
     componentName: COMPONENT_KEYS.BUTTON_ROTATING_GRADIENT,
     filesrc: 'components/button/btn-rotating-gradient.tsx',
     componentSrc: React.lazy(
@@ -1730,7 +1794,7 @@ export const AllComponents: IAllComponents[] = [
     iframeSrc: 'live-components/btn-rotating-bgGradient',
   },
   {
-    parentlink: 'buttons',
+    category: DOCS_CATEGORY_KEY['buttons'],
     componentName: COMPONENT_KEYS.CREATIVE_BUTTON_1,
     filesrc: 'components/button/btn-creative-right.tsx',
     componentSrc: React.lazy(
@@ -1740,7 +1804,7 @@ export const AllComponents: IAllComponents[] = [
     iframeSrc: 'live-components/creative-button-1',
   },
   {
-    parentlink: 'buttons',
+    category: DOCS_CATEGORY_KEY['buttons'],
     componentName: COMPONENT_KEYS.CREATIVE_BUTTON_2,
     filesrc: 'components/button/btn-creative-top.tsx',
     componentSrc: React.lazy(
@@ -1750,7 +1814,7 @@ export const AllComponents: IAllComponents[] = [
     iframeSrc: 'live-components/creative-button-2',
   },
   {
-    parentlink: 'footers',
+    category: DOCS_CATEGORY_KEY['footers'],
     componentName: COMPONENT_KEYS.ANIMATED_LOGO_FOOTER,
     filesrc: 'components/footers/animated-logo-footer.tsx',
     componentSrc: React.lazy(
@@ -1760,7 +1824,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['footer', 'animation', 'logo', 'branding', 'animated'],
   },
   {
-    parentlink: 'footers',
+    category: DOCS_CATEGORY_KEY['footers'],
     componentName: COMPONENT_KEYS.HOVER_FOOTER,
     filesrc: 'components/footers/hover-footer.tsx',
     componentSrc: React.lazy(
@@ -1780,7 +1844,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'noise',
+    category: DOCS_CATEGORY_KEY['noise'],
     componentName: COMPONENT_KEYS.NOISE_EFFECT,
     filesrc: 'components/noise-effect/section-noise.tsx',
     componentSrc: React.lazy(
@@ -1790,7 +1854,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['noise', 'effect', 'visual', 'distortion', 'shader'],
   },
   {
-    parentlink: 'accordion',
+    category: DOCS_CATEGORY_KEY['accordion'],
     componentName: COMPONENT_KEYS.GRID_LAYOUT_ACCORDION,
     filesrc: 'components/accordion/gridlayout.tsx',
     componentSrc: React.lazy(
@@ -1800,7 +1864,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['accordion', 'grid', 'layout', 'expandable', 'collapsible'],
   },
   {
-    parentlink: 'accordion',
+    category: DOCS_CATEGORY_KEY['accordion'],
     componentName: COMPONENT_KEYS.SINGLE_LAYOUT_ACCORDION,
     filesrc: 'components/accordion/singlelayout.tsx',
     componentSrc: React.lazy(
@@ -1810,7 +1874,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['accordion', 'layout', 'single', 'expandable', 'collapsible'],
   },
   {
-    parentlink: 'accordion',
+    category: DOCS_CATEGORY_KEY['accordion'],
     componentName: COMPONENT_KEYS.MULTI_LAYOUT_ACCORDION,
     filesrc: 'components/accordion/multilayout.tsx',
     componentSrc: React.lazy(
@@ -1820,7 +1884,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['accordion', 'layout', 'multi', 'expandable', 'collapsible'],
   },
   {
-    parentlink: 'faqs',
+    category: DOCS_CATEGORY_KEY['faqs'],
     componentName: COMPONENT_KEYS.FAQ_ACCORDION,
     filesrc: 'components/accordion/faq.tsx',
     componentSrc: React.lazy(
@@ -1837,7 +1901,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'image-accordions',
+    category: DOCS_CATEGORY_KEY['image-accordions'],
     componentName: COMPONENT_KEYS.IMAGE_HOVER_ACCORDION,
     filesrc: 'components/accordion/image-hover.tsx',
     componentSrc: React.lazy(
@@ -1847,7 +1911,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['accordion', 'image', 'hover', 'interactive', 'expandable'],
   },
   {
-    parentlink: 'image-accordions',
+    category: DOCS_CATEGORY_KEY['image-accordions'],
     componentName: COMPONENT_KEYS.TAILWIND_IMAGE_ACCORDION,
     filesrc: 'components/accordion/tailwind-image-accordion.tsx',
     componentSrc: React.lazy(
@@ -1857,7 +1921,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['accordion', 'image', 'tailwind', 'responsive', 'expandable'],
   },
   {
-    parentlink: 'carousel',
+    category: DOCS_CATEGORY_KEY['carousel'],
     componentName: COMPONENT_KEYS.DEFAULT_SLIDER,
     filesrc: 'components/carousel/default-slider.tsx',
     componentSrc: React.lazy(
@@ -1867,7 +1931,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['carousel', 'default', 'slider', 'basic-slider', 'embla-carousel'],
   },
   {
-    parentlink: 'carousel',
+    category: DOCS_CATEGORY_KEY['carousel'],
     componentName: COMPONENT_KEYS.ALIGN_SLIDER,
     filesrc: 'components/carousel/align-slider.tsx',
     componentSrc: React.lazy(
@@ -1877,7 +1941,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['carousel', 'align', 'centered', 'alignment-slider'],
   },
   {
-    parentlink: 'carousel',
+    category: DOCS_CATEGORY_KEY['carousel'],
     componentName: COMPONENT_KEYS.CLASSNAME_SLIDER,
     filesrc: 'components/carousel/classname-slider.tsx',
     componentSrc: React.lazy(
@@ -1887,7 +1951,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['carousel', 'classname', 'custom-slider', 'themed-slider'],
   },
   {
-    parentlink: 'carousel',
+    category: DOCS_CATEGORY_KEY['carousel'],
     componentName: COMPONENT_KEYS.NUMBER_SLIDER,
     filesrc: 'components/carousel/number-slider.tsx',
     componentSrc: React.lazy(
@@ -1897,7 +1961,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['carousel', 'number', 'numeric-slider', 'counter-slider'],
   },
   {
-    parentlink: 'carousel',
+    category: DOCS_CATEGORY_KEY['carousel'],
     componentName: COMPONENT_KEYS.SCALE_SLIDER,
     filesrc: 'components/carousel/scale-slider.tsx',
     componentSrc: React.lazy(
@@ -1907,7 +1971,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['carousel', 'scale', 'zoom-slider', 'scalable-carousel'],
   },
   {
-    parentlink: 'carousel',
+    category: DOCS_CATEGORY_KEY['carousel'],
     componentName: COMPONENT_KEYS.THUMBNAIL_SLIDER,
     filesrc: 'components/carousel/thumnail-slider.tsx',
     componentSrc: React.lazy(
@@ -1917,7 +1981,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['carousel', 'thumbnail', 'preview-slider', 'image-carousel'],
   },
   {
-    parentlink: 'carousel',
+    category: DOCS_CATEGORY_KEY['carousel'],
     componentName: COMPONENT_KEYS.AUTOSTART_SLIDER,
     filesrc: 'components/carousel/autostart-slider.tsx',
     componentSrc: React.lazy(
@@ -1927,7 +1991,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['carousel', 'autostart', 'auto-slider', 'autoplay-carousel'],
   },
   {
-    parentlink: 'progressive-carousel',
+    category: DOCS_CATEGORY_KEY['progressive-carousel'],
     componentName: COMPONENT_KEYS.HORIZONTAL_PROGRESSIVE_CAROUSEL,
     filesrc: 'components/carousel/horizontal-progressive.tsx',
     componentSrc: React.lazy(
@@ -1937,7 +2001,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['carousel', 'horizontal', 'progressive-carousel', 'scroll-carousel'],
   },
   {
-    parentlink: 'progressive-carousel',
+    category: DOCS_CATEGORY_KEY['progressive-carousel'],
     componentName: COMPONENT_KEYS.VERTICAL_PROGRESSIVE_CAROUSEL,
     filesrc: 'components/carousel/verticle-progressive.tsx',
     componentSrc: React.lazy(
@@ -1947,7 +2011,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['carousel', 'vertical', 'progressive-carousel', 'vertical-scroll'],
   },
   {
-    parentlink: 'framer-carousel',
+    category: DOCS_CATEGORY_KEY['framer-carousel'],
     componentName: COMPONENT_KEYS.FRAMER_CAROUSEL_2,
     filesrc: 'components/carousel/framer-carousel2.tsx',
     componentSrc: React.lazy(
@@ -1957,7 +2021,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['carousel', 'motion/react', 'animated-carousel', 'carousel-2'],
   },
   {
-    parentlink: 'framer-carousel',
+    category: DOCS_CATEGORY_KEY['framer-carousel'],
     componentName: COMPONENT_KEYS.FRAMER_CAROUSEL_1,
     filesrc: 'components/carousel/framer-carousel1.tsx',
     componentSrc: React.lazy(
@@ -1967,7 +2031,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['carousel', 'motion/react', 'animated-carousel', 'carousel-1'],
   },
   {
-    parentlink: 'image-reveal',
+    category: DOCS_CATEGORY_KEY['image-reveal'],
     componentName: COMPONENT_KEYS.IMAGE_REVEAL,
     filesrc: 'components/image-reveal/image-reveal.tsx',
     componentSrc: React.lazy(
@@ -1987,7 +2051,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'image-reveal',
+    category: DOCS_CATEGORY_KEY['image-reveal'],
     componentName: COMPONENT_KEYS.IMAGE_REVEAL2,
     filesrc: 'components/image-reveal/index.tsx',
     componentSrc: React.lazy(
@@ -2007,7 +2071,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'github-button',
+    category: DOCS_CATEGORY_KEY['uilayouts-github-button'],
     componentName: COMPONENT_KEYS.UILAYOUTS_GITHUB_BUTTON,
     filesrc: 'components/github-repo-btn/index.tsx',
     componentSrc: React.lazy(
@@ -2029,7 +2093,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'blur-vignette',
+    category: DOCS_CATEGORY_KEY['blur-vignette'],
     componentName: COMPONENT_KEYS.BLUR_VIGNETTE_VIDEO,
     filesrc: 'components/blurvignette/blurvignettevideo.tsx',
     componentSrc: React.lazy(
@@ -2049,7 +2113,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'blur-vignette',
+    category: DOCS_CATEGORY_KEY['blur-vignette'],
     componentName: COMPONENT_KEYS.BLUR_VIGNETTE_IMG,
     filesrc: 'components/blurvignette/blurvignetteimg.tsx',
     componentSrc: React.lazy(
@@ -2069,7 +2133,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'blur-vignette',
+    category: DOCS_CATEGORY_KEY['blur-vignette'],
     componentName: COMPONENT_KEYS.BLUR_VIGNETTE_CARD,
     filesrc: 'components/blurvignette/blurvignettecard.tsx',
     componentSrc: React.lazy(
@@ -2088,7 +2152,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'animated-beam',
+    category: DOCS_CATEGORY_KEY['animated-beam'],
     componentName: COMPONENT_KEYS.ANIMATED_BEAM_DEFAULT,
     filesrc: 'components/animated-beam/default.tsx',
     componentSrc: React.lazy(
@@ -2107,7 +2171,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'animated-beam',
+    category: DOCS_CATEGORY_KEY['animated-beam'],
     componentName: COMPONENT_KEYS.ANIMATED_BEAM_BIDIRECTIONAL,
     filesrc: 'components/animated-beam/bidirectional.tsx',
     componentSrc: React.lazy(
@@ -2126,7 +2190,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'animated-beam',
+    category: DOCS_CATEGORY_KEY['animated-beam'],
     componentName: COMPONENT_KEYS.ANIMATED_BEAM_UNIDIRECTIONAL,
     filesrc: 'components/animated-beam/unidirectional.tsx',
     componentSrc: React.lazy(
@@ -2144,7 +2208,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'animated-beam',
+    category: DOCS_CATEGORY_KEY['animated-beam'],
     componentName: COMPONENT_KEYS.ANIMATED_BEAM_MULTIPLE_INPUT,
     filesrc: 'components/animated-beam/multiple-input.tsx',
     componentSrc: React.lazy(
@@ -2162,7 +2226,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'animated-beam',
+    category: DOCS_CATEGORY_KEY['animated-beam'],
     componentName: COMPONENT_KEYS.ANIMATED_BEAM_MULTIPLE_OUTPUT,
     filesrc: 'components/animated-beam/multiple-output.tsx',
     componentSrc: React.lazy(
@@ -2181,7 +2245,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'blocks',
+    category: DOCS_CATEGORY_KEY['blocks'],
     componentName: COMPONENT_KEYS.BG_BLOCKS_ONE,
     filesrc: 'components/bg-blocks/blocksone.tsx',
     componentSrc: React.lazy(
@@ -2200,7 +2264,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'motion-number',
+    category: DOCS_CATEGORY_KEY['motion-number'],
     componentName: COMPONENT_KEYS.MOTION_NUMBER_INPUT,
     filesrc: 'components/number-flow/motion-number-input.tsx',
     tags: [
@@ -2218,7 +2282,7 @@ export const AllComponents: IAllComponents[] = [
     iframeSrc: 'live-components/motion-number-input',
   },
   {
-    parentlink: 'motion-number',
+    category: DOCS_CATEGORY_KEY['motion-number'],
     componentName: COMPONENT_KEYS.NUMBER_FLOW_TRADING,
     filesrc: 'components/number-flow/number-flow-trading.tsx',
     tags: [
@@ -2241,7 +2305,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'motion-number',
+    category: DOCS_CATEGORY_KEY['motion-number'],
     componentName: COMPONENT_KEYS.MOTION_NUMBER_SLIDER,
     filesrc: 'components/number-flow/motion-number-slider.tsx',
     tags: [
@@ -2267,7 +2331,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'motion-number',
+    category: DOCS_CATEGORY_KEY['motion-number'],
     componentName: COMPONENT_KEYS.MOTION_NUMBER,
     filesrc: 'components/number-flow/motion-number.tsx',
     tags: [
@@ -2287,7 +2351,7 @@ export const AllComponents: IAllComponents[] = [
   },
 
   {
-    parentlink: 'image-mousetrail',
+    category: DOCS_CATEGORY_KEY['image-mousetrail'],
     componentName: COMPONENT_KEYS.IMAGE_MOUSETRAIL_DEFAULT,
     filesrc: 'components/mousetrail/default-mousetrail.tsx',
     tags: ['mouse-trail', 'animation', 'image-effect', 'motion-trail'],
@@ -2297,7 +2361,7 @@ export const AllComponents: IAllComponents[] = [
     iframeSrc: 'live-components/image-mousetrail-default',
   },
   {
-    parentlink: 'image-mousetrail',
+    category: DOCS_CATEGORY_KEY['image-mousetrail'],
     componentName: COMPONENT_KEYS.IMAGE_MOUSETRAIL_SMALL,
     filesrc: 'components/mousetrail/small-images.tsx',
     tags: ['mouse-trail', 'small-images', 'interactive'],
@@ -2307,7 +2371,7 @@ export const AllComponents: IAllComponents[] = [
     iframeSrc: 'live-components/image-mousetrail-small',
   },
   {
-    parentlink: 'image-mousetrail',
+    category: DOCS_CATEGORY_KEY['image-mousetrail'],
     componentName: COMPONENT_KEYS.IMAGE_MOUSETRAIL_DISAPPEAR,
     filesrc: 'components/mousetrail/disappear-images.tsx',
     tags: ['disappearing-effect', 'interactive-animation', 'mouse-motion'],
@@ -2317,7 +2381,7 @@ export const AllComponents: IAllComponents[] = [
     iframeSrc: 'live-components/image-mousetrail-disappear',
   },
   {
-    parentlink: 'image-mousetrail',
+    category: DOCS_CATEGORY_KEY['image-mousetrail'],
     componentName: COMPONENT_KEYS.IMAGE_MOUSETRAIL_WITHOUT_COMPONENT,
     filesrc: 'components/mousetrail/without-component-mousetrail.tsx',
     tags: [
@@ -2331,7 +2395,7 @@ export const AllComponents: IAllComponents[] = [
     iframeSrc: 'live-components/image-mousetrail-without-component',
   },
   {
-    parentlink: 'responsive-drawer',
+    category: DOCS_CATEGORY_KEY['responsive-drawer'],
     componentName: COMPONENT_KEYS.RESPONSIVE_DRAWER,
     filesrc: 'components/drawer/value-drawer.tsx',
     tags: ['drawer', 'navigation', 'responsive', 'menu'],
@@ -2342,7 +2406,7 @@ export const AllComponents: IAllComponents[] = [
     iframeSrc: 'live-components/responsive-drawer',
   },
   {
-    parentlink: 'responsive-header',
+    category: DOCS_CATEGORY_KEY['responsive-header'],
     componentName: COMPONENT_KEYS.RESPONSIVE_HEADER,
     filesrc: 'components/drawer/header-drawer.tsx',
     tags: ['header', 'responsive', 'navigation-bar', 'menu'],
@@ -2353,7 +2417,7 @@ export const AllComponents: IAllComponents[] = [
     iframe: true,
   },
   {
-    parentlink: 'responsive-sidebar',
+    category: DOCS_CATEGORY_KEY['responsive-sidebar'],
     componentName: COMPONENT_KEYS.SIDEBAR_DRAWER,
     filesrc: 'components/drawer/sidebar-drawer.tsx',
     tags: ['sidebar', 'navigation', 'drawer', 'responsive'],
@@ -2364,7 +2428,7 @@ export const AllComponents: IAllComponents[] = [
     iframe: true,
   },
   {
-    parentlink: 'responsive-sidebar',
+    category: DOCS_CATEGORY_KEY['responsive-sidebar'],
     componentName: COMPONENT_KEYS.LEFT_SIDEBAR_DRAWER,
     filesrc: 'components/drawer/left-sidebar-drawer.tsx',
     tags: ['Left Sidebar', 'navigation', 'Left Drawer', 'Responsive Drawer'],
@@ -2375,7 +2439,7 @@ export const AllComponents: IAllComponents[] = [
     iframe: true,
   },
   {
-    parentlink: 'dialog',
+    category: DOCS_CATEGORY_KEY['dialog'],
     componentName: COMPONENT_KEYS.DIALOG,
     filesrc: 'components/modal/dialog-default.tsx',
     tags: ['dialog', 'popup', 'modal', 'UI-component'],
@@ -2386,7 +2450,7 @@ export const AllComponents: IAllComponents[] = [
     iframe: true,
   },
   {
-    parentlink: 'media-modal',
+    category: DOCS_CATEGORY_KEY['media-modal'],
     componentName: COMPONENT_KEYS.MEDIA_MODAL,
     filesrc: 'components/modal/media-modal-default.tsx',
     tags: ['media', 'modal', 'popup', 'UI'],
@@ -2397,7 +2461,7 @@ export const AllComponents: IAllComponents[] = [
     iframe: true,
   },
   {
-    parentlink: 'media-modal',
+    category: DOCS_CATEGORY_KEY['media-modal'],
     componentName: COMPONENT_KEYS.IMAGEMODALSL,
     filesrc: 'components/modal/image-modals.tsx',
     tags: ['image modal', 'modal', 'popup', 'UI'],
@@ -2408,7 +2472,7 @@ export const AllComponents: IAllComponents[] = [
     iframe: true,
   },
   {
-    parentlink: 'linear-modal',
+    category: DOCS_CATEGORY_KEY['linear-modal'],
     componentName: COMPONENT_KEYS.LINEAR_MODAL,
     filesrc: 'components/linear-modal/index.tsx',
     tags: ['card', 'linear-layout', 'UI-component', 'modal-card'],
@@ -2419,7 +2483,7 @@ export const AllComponents: IAllComponents[] = [
     iframe: false,
   },
   {
-    parentlink: 'linear-modal',
+    category: DOCS_CATEGORY_KEY['linear-modal'],
     componentName: COMPONENT_KEYS.LINEAR_MODAL_STANDALONE,
     filesrc: 'components/linear-modal/standalone-version.tsx',
     tags: [
@@ -2436,7 +2500,7 @@ export const AllComponents: IAllComponents[] = [
     iframe: true,
   },
   {
-    parentlink: 'linear-modal',
+    category: DOCS_CATEGORY_KEY['linear-modal'],
     componentName: COMPONENT_KEYS.LINEAR_MODAL_CENTER_CONTENT,
     filesrc: 'components/linear-modal/center-content.tsx',
     tags: [
@@ -2453,7 +2517,7 @@ export const AllComponents: IAllComponents[] = [
     iframe: true,
   },
   {
-    parentlink: 'gallery-modal',
+    category: DOCS_CATEGORY_KEY['gallery-modal'],
     componentName: COMPONENT_KEYS.GALLERY_MODAL_ACCORDION,
     filesrc: 'components/modal/gallery-modal/accordion-modal.tsx',
     tags: ['gallery', 'accordion', 'modal', 'media'],
@@ -2464,7 +2528,7 @@ export const AllComponents: IAllComponents[] = [
     iframe: true,
   },
   {
-    parentlink: 'gallery-modal',
+    category: DOCS_CATEGORY_KEY['gallery-modal'],
     componentName: COMPONENT_KEYS.GALLERY_MODAL_SLIDER,
     filesrc: 'components/modal/gallery-modal/modal-slider.tsx',
     tags: ['gallery', 'slider', 'media-modal', 'interactive'],
@@ -2475,7 +2539,7 @@ export const AllComponents: IAllComponents[] = [
     iframe: true,
   },
   {
-    parentlink: 'gallery-modal',
+    category: DOCS_CATEGORY_KEY['gallery-modal'],
     componentName: COMPONENT_KEYS.GALLERY_MODAL_UNSPLASH,
     filesrc: 'components/modal/gallery-modal/unsplash-modal.tsx',
     tags: ['gallery', 'unsplash', 'media', 'image-gallery'],
@@ -2486,7 +2550,7 @@ export const AllComponents: IAllComponents[] = [
     iframe: true,
   },
   {
-    parentlink: 'scroll-animation',
+    category: DOCS_CATEGORY_KEY['scroll-animation'],
     componentName: COMPONENT_KEYS.SCROLL_ELEMENT,
     filesrc: 'components/scroll-animation/scroll-element.tsx',
     componentSrc: React.lazy(
@@ -2496,7 +2560,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['scroll', 'animation', 'element'],
   },
   {
-    parentlink: 'scroll-animation',
+    category: DOCS_CATEGORY_KEY['scroll-animation'],
     componentName: COMPONENT_KEYS.REPEAT_SCROLL_ELEMENT,
     filesrc: 'components/scroll-animation/repeat-scroll.tsx',
     componentSrc: React.lazy(
@@ -2506,7 +2570,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['scroll', 'repeat', 'animation'],
   },
   {
-    parentlink: 'scroll-animation',
+    category: DOCS_CATEGORY_KEY['scroll-animation'],
     componentName: COMPONENT_KEYS.TEXT_SCROLL_ELEMENT,
     filesrc: 'components/scroll-animation/text-scroll.tsx',
     componentSrc: React.lazy(
@@ -2516,7 +2580,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['text', 'scroll', 'animation'],
   },
   {
-    parentlink: 'timeline-animation',
+    category: DOCS_CATEGORY_KEY['timeline-animation'],
     componentName: COMPONENT_KEYS.TIMELINE_ANIMATION,
     filesrc: 'components/timeline-animation/index.tsx',
     componentSrc: React.lazy(
@@ -2526,7 +2590,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['timeline', 'animation', 'scroll'],
   },
   {
-    parentlink: 'scroll-text',
+    category: DOCS_CATEGORY_KEY['scroll-text'],
     componentName: COMPONENT_KEYS.TEXT_SCROLL_ANIMATION,
     filesrc: 'components/text-animation/scroll-text-animation.tsx',
     componentSrc: React.lazy(
@@ -2536,7 +2600,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['scroll', 'text-animation', 'text', 'animation'],
   },
   {
-    parentlink: 'text-marquee',
+    category: DOCS_CATEGORY_KEY['text-marquee'],
     componentName: COMPONENT_KEYS.SCROLL_TEXT_MARQUEE,
     filesrc: 'components/text-animation/text-marque/animationone.tsx',
     componentSrc: React.lazy(
@@ -2547,7 +2611,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['marquee', 'text', 'animation'],
   },
   {
-    parentlink: 'text-marquee',
+    category: DOCS_CATEGORY_KEY['text-marquee'],
     componentName: COMPONENT_KEYS.SCROLL_TEXT_MARQUEE2,
     filesrc: 'components/text-animation/text-marque/animationtwo.tsx',
     componentSrc: React.lazy(
@@ -2558,7 +2622,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['marquee', 'text', 'animation'],
   },
   {
-    parentlink: 'randomized-text-effect',
+    category: DOCS_CATEGORY_KEY['randomized-text-effect'],
     componentName: COMPONENT_KEYS.RANDOMIZED_TEXT_UNVEIL,
     filesrc: 'components/text-animation/text-randomized/index.tsx',
     componentSrc: React.lazy(
@@ -2568,7 +2632,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['random', 'text', 'effect'],
   },
   {
-    parentlink: 'horizontal-scroll',
+    category: DOCS_CATEGORY_KEY['horizontal-scroll'],
     componentName: COMPONENT_KEYS.FRAMERHORIZONTALSCROLL,
     filesrc: 'components/scroll-animation/framer-horizontal-scroll.tsx',
     componentSrc: React.lazy(
@@ -2582,7 +2646,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['horizontal', 'scroll', 'framer'],
   },
   {
-    parentlink: 'infinity-brand',
+    category: DOCS_CATEGORY_KEY['infinity-brand'],
     componentName: COMPONENT_KEYS.INFINTYBAND,
     filesrc: 'components/marquee/infinity-band-scroll.tsx',
     componentSrc: React.lazy(
@@ -2592,7 +2656,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['infinity', 'brand', 'marquee'],
   },
   {
-    parentlink: 'grid',
+    category: DOCS_CATEGORY_KEY['grid'],
     componentName: COMPONENT_KEYS.NORMALGRID,
     filesrc: 'components/grid/normal-grid.tsx',
     componentSrc: React.lazy(
@@ -2602,7 +2666,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['grid', 'Normal Grid', 'normal grid', 'normalgrid'],
   },
   {
-    parentlink: 'grid',
+    category: DOCS_CATEGORY_KEY['grid'],
     componentName: COMPONENT_KEYS.BOXGRID,
     filesrc: 'components/grid/box-grid.tsx',
     componentSrc: React.lazy(
@@ -2612,7 +2676,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['grid', 'box grid', 'Box Grid'],
   },
   {
-    parentlink: 'grid',
+    category: DOCS_CATEGORY_KEY['grid'],
     componentName: COMPONENT_KEYS.CONDITIONGRID,
     filesrc: 'components/grid/condition-grid.tsx',
     componentSrc: React.lazy(
@@ -2622,7 +2686,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['grid', 'condition grid', 'Contidion Grid'],
   },
   {
-    parentlink: 'grid',
+    category: DOCS_CATEGORY_KEY['grid'],
     componentName: COMPONENT_KEYS.UNSPLASHGRID,
     filesrc: 'components/grid/unsplash-grid.tsx',
     componentSrc: React.lazy(
@@ -2632,7 +2696,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['grid', 'unsplash grid', 'Unsplash Grid'],
   },
   {
-    parentlink: 'marquee',
+    category: DOCS_CATEGORY_KEY['marquee'],
     componentName: COMPONENT_KEYS.DEFAULT_MARQUEE,
     filesrc: 'components/marquee/default-marquee.tsx',
     componentSrc: React.lazy(
@@ -2642,7 +2706,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['default', 'marquee', 'animation'],
   },
   {
-    parentlink: 'marquee',
+    category: DOCS_CATEGORY_KEY['marquee'],
     componentName: COMPONENT_KEYS.VERTICLE_MARQUEE,
     filesrc: 'components/marquee/verticle-marquee.tsx',
     componentSrc: React.lazy(
@@ -2652,7 +2716,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['vertical', 'marquee', 'animation'],
   },
   {
-    parentlink: 'marquee',
+    category: DOCS_CATEGORY_KEY['marquee'],
     componentName: COMPONENT_KEYS.LOGOS_MARQUEE,
     filesrc: 'components/marquee/verticle-marquee.tsx',
     componentSrc: React.lazy(
@@ -2662,7 +2726,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['logos', 'marquee', 'animation'],
   },
   {
-    parentlink: 'marquee',
+    category: DOCS_CATEGORY_KEY['marquee'],
     componentName: COMPONENT_KEYS.MARQUEE_3D,
     filesrc: 'components/marquee/3d-marquee.tsx',
     componentSrc: React.lazy(
@@ -2672,7 +2736,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['3d', 'marquee', 'animation'],
   },
   {
-    parentlink: 'clip-path',
+    category: DOCS_CATEGORY_KEY['clip-path'],
     componentName: COMPONENT_KEYS.CREATIVE_CLIPPATH,
     filesrc: 'components/clip-path/clip-path-creative.tsx',
     componentSrc: React.lazy(
@@ -2682,7 +2746,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['clip-path', 'creative', 'masking'],
   },
   {
-    parentlink: 'clip-path',
+    category: DOCS_CATEGORY_KEY['clip-path'],
     componentName: COMPONENT_KEYS.CORPORATE_CLIPPATH,
     filesrc: 'components/clip-path/clip-path-corporate.tsx',
     componentSrc: React.lazy(
@@ -2692,7 +2756,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['clip-path', 'corporate', 'masking'],
   },
   {
-    parentlink: 'clip-path',
+    category: DOCS_CATEGORY_KEY['clip-path'],
     componentName: COMPONENT_KEYS.SYMBOLIC_CLIPPATH,
     filesrc: 'components/clip-path/clip-path-symbolic.tsx',
     componentSrc: React.lazy(
@@ -2702,7 +2766,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['clip-path', 'symbolic', 'masking'],
   },
   {
-    parentlink: 'clip-path',
+    category: DOCS_CATEGORY_KEY['clip-path'],
     componentName: COMPONENT_KEYS.CREATIVE_MASK_CLIPPATH,
     filesrc: 'components/clip-path/clip-path-creative-mask.tsx',
     componentSrc: React.lazy(
@@ -2712,7 +2776,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['clip-path', 'creative', 'mask'],
   },
   {
-    parentlink: 'watersplash-clippath',
+    category: DOCS_CATEGORY_KEY['clip-path'],
     componentName: COMPONENT_KEYS.WATERSPLASH_CLIPPATH,
     filesrc: 'components/clip-path/clip-path-water-splash.tsx',
     componentSrc: React.lazy(
@@ -2722,7 +2786,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['clip-path ', 'Water Splash Clip-Path', 'creative', 'mask'],
   },
   {
-    parentlink: 'clip-path',
+    category: DOCS_CATEGORY_KEY['clip-path'],
     componentName: COMPONENT_KEYS.CREATIVE_MASK_CLIPPATH,
     filesrc: 'components/clip-path/clip-path-creative-mask.tsx',
     componentSrc: React.lazy(
@@ -2732,7 +2796,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['clip-path', 'creative', 'mask'],
   },
   {
-    parentlink: 'image-masking',
+    category: DOCS_CATEGORY_KEY['image-masking'],
     componentName: COMPONENT_KEYS.CREATIVE_IMAGEMASKING,
     filesrc: 'components/clip-path/creative-image-masking.tsx',
     componentSrc: React.lazy(
@@ -2742,7 +2806,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['image-masking', 'creative', 'masking'],
   },
   {
-    parentlink: 'image-masking',
+    category: DOCS_CATEGORY_KEY['image-masking'],
     componentName: COMPONENT_KEYS.ANIMAL_IMAGEMASKING,
     filesrc: 'components/clip-path/animal-image-masking.tsx',
     componentSrc: React.lazy(
@@ -2757,7 +2821,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'image-masking',
+    category: DOCS_CATEGORY_KEY['image-masking'],
     componentName: COMPONENT_KEYS.CENTER_IMAGEMASKING,
     filesrc: 'components/clip-path/center-image-masking.tsx',
     componentSrc: React.lazy(
@@ -2772,7 +2836,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'image-masking',
+    category: DOCS_CATEGORY_KEY['image-masking'],
     componentName: COMPONENT_KEYS.FIXEDBG_IMAGEMASKING,
     filesrc: 'components/clip-path/fixed-bg-image-masking.tsx',
     componentSrc: React.lazy(
@@ -2787,7 +2851,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'image-masking',
+    category: DOCS_CATEGORY_KEY['image-masking'],
     componentName: COMPONENT_KEYS.WATERSPLASH_IMAGEMASKING,
     filesrc: 'components/clip-path/water-splash-image-masking.tsx',
     componentSrc: React.lazy(
@@ -2803,7 +2867,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'video-masking',
+    category: DOCS_CATEGORY_KEY['video-masking'],
     componentName: COMPONENT_KEYS.CREATIVE_VIDEOMASKING,
     filesrc: 'components/clip-path/creative-video-masking.tsx',
     componentSrc: React.lazy(
@@ -2813,7 +2877,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['video', 'masking', 'creative'],
   },
   {
-    parentlink: 'video-masking',
+    category: DOCS_CATEGORY_KEY['video-masking'],
     componentName: COMPONENT_KEYS.SPLASHWATER_VIDEOMASKING,
     filesrc: 'components/clip-path/splash-water-video-masking.tsx',
     componentSrc: React.lazy(
@@ -2823,7 +2887,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['video', 'splash', 'masking'],
   },
   {
-    parentlink: 'video-masking',
+    category: DOCS_CATEGORY_KEY['video-masking'],
     componentName: COMPONENT_KEYS.HEXAGON_VIDEOMASKING,
     filesrc: 'components/clip-path/hexagon-video-masking.tsx',
     componentSrc: React.lazy(
@@ -2833,7 +2897,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['hexagon video masking', ' hexagon masking', 'creative'],
   },
   {
-    parentlink: 'video-masking',
+    category: DOCS_CATEGORY_KEY['video-masking'],
     componentName: COMPONENT_KEYS.HEXAGON2_VIDEOMASKING,
     filesrc: 'components/clip-path/hexagon2-video-masking.tsx',
     componentSrc: React.lazy(
@@ -2843,7 +2907,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['hexagon video masking2', ' hexagon masking2', 'creative'],
   },
   {
-    parentlink: 'video-masking',
+    category: DOCS_CATEGORY_KEY['video-masking'],
     componentName: COMPONENT_KEYS.TEXTOVERLAY_VIDEOMASKING,
     filesrc: 'components/clip-path/text-overlay-video-masking.tsx',
     componentSrc: React.lazy(
@@ -2853,7 +2917,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['text overlay video', 'text-overlay video masking', 'masking'],
   },
   {
-    parentlink: 'gradient-border',
+    category: DOCS_CATEGORY_KEY['gradient-border'],
     componentName: COMPONENT_KEYS.GRADIENT_BORDER,
     filesrc: 'components/card/gradient-border.tsx',
     componentSrc: React.lazy(
@@ -2872,7 +2936,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'hover-cards',
+    category: DOCS_CATEGORY_KEY['hover-cards'],
     componentName: COMPONENT_KEYS.STRIPECARD,
     filesrc: 'components/card/stripe-card.tsx',
     componentSrc: React.lazy(
@@ -2890,7 +2954,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'hover-cards',
+    category: DOCS_CATEGORY_KEY['hover-cards'],
     componentName: COMPONENT_KEYS.STRIPECARD2,
     filesrc: 'components/card/stripe-card2.tsx',
     componentSrc: React.lazy(
@@ -2908,7 +2972,7 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    parentlink: 'hover-cards',
+    category: DOCS_CATEGORY_KEY['hover-cards'],
     componentName: COMPONENT_KEYS.HOVERCARD4,
     filesrc: 'components/card/hover-card4.tsx',
     componentSrc: React.lazy(
@@ -2918,7 +2982,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['hover', 'card', 'animation', 'interaction', 'design', 'ui'],
   },
   {
-    parentlink: 'hover-cards',
+    category: DOCS_CATEGORY_KEY['hover-cards'],
     componentName: COMPONENT_KEYS.HOVERCARD3,
     filesrc: 'components/card/hover-card3.tsx',
     componentSrc: React.lazy(
@@ -2928,7 +2992,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['hover', 'card', 'animation', 'interaction', 'design', 'ui'],
   },
   {
-    parentlink: 'hover-cards',
+    category: DOCS_CATEGORY_KEY['hover-cards'],
     componentName: COMPONENT_KEYS.HOVERCARD2,
     filesrc: 'components/card/hover-card2.tsx',
     componentSrc: React.lazy(
@@ -2938,7 +3002,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['hover', 'card', 'animation', 'interaction', 'design', 'ui'],
   },
   {
-    parentlink: 'hover-cards',
+    category: DOCS_CATEGORY_KEY['hover-cards'],
     componentName: COMPONENT_KEYS.HOVERCARD1,
     filesrc: 'components/card/hover-card1.tsx',
     componentSrc: React.lazy(
@@ -2948,7 +3012,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['hover', 'card', 'animation', 'interaction', 'design', 'ui'],
   },
   {
-    parentlink: 'hover-cards',
+    category: DOCS_CATEGORY_KEY['hover-cards'],
     componentName: COMPONENT_KEYS.CUIP_CARD,
     filesrc: 'components/card/cuip-card.tsx',
     componentSrc: React.lazy(
@@ -2958,7 +3022,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['card', 'ui', 'design', 'interaction', 'hover', 'style'],
   },
   {
-    parentlink: 'product-cards',
+    category: DOCS_CATEGORY_KEY['product-cards'],
     componentName: COMPONENT_KEYS.PRODUCTCARD1,
     filesrc: 'components/card/product-card1.tsx',
     componentSrc: React.lazy(
@@ -2968,7 +3032,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['product', 'card', 'ui', 'design', 'ecommerce', 'style'],
   },
   {
-    parentlink: 'product-cards',
+    category: DOCS_CATEGORY_KEY['product-cards'],
     componentName: COMPONENT_KEYS.PRODUCTCARD2,
     filesrc: 'components/card/product-card2.tsx',
     componentSrc: React.lazy(
@@ -2978,7 +3042,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['product', 'card', 'ui', 'design', 'ecommerce', 'style'],
   },
   {
-    parentlink: 'product-cards',
+    category: DOCS_CATEGORY_KEY['product-cards'],
     componentName: COMPONENT_KEYS.PRODUCTCARD3,
     filesrc: 'components/card/product-card3.tsx',
     componentSrc: React.lazy(
@@ -2988,7 +3052,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['product', 'card', 'ui', 'design', 'ecommerce', 'style'],
   },
   {
-    parentlink: 'product-cards',
+    category: DOCS_CATEGORY_KEY['product-cards'],
     componentName: COMPONENT_KEYS.PRODUCTCARD4,
     filesrc: 'components/card/product-card4.tsx',
     componentSrc: React.lazy(
@@ -2998,7 +3062,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['product', 'card', 'ui', 'design', 'ecommerce', 'style'],
   },
   {
-    parentlink: 'product-cards',
+    category: DOCS_CATEGORY_KEY['product-cards'],
     componentName: COMPONENT_KEYS.PRODUCTCARD5,
     filesrc: 'components/card/product-card5.tsx',
     componentSrc: React.lazy(
@@ -3008,7 +3072,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['product', 'card', 'ui', 'design', 'ecommerce', 'style'],
   },
   {
-    parentlink: 'product-cards',
+    category: DOCS_CATEGORY_KEY['product-cards'],
     componentName: COMPONENT_KEYS.PRODUCTCARD6,
     filesrc: 'components/card/product-card6.tsx',
     componentSrc: React.lazy(
@@ -3018,7 +3082,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['product', 'card', 'ui', 'design', 'ecommerce', 'style'],
   },
   {
-    parentlink: 'spotlight-cards',
+    category: DOCS_CATEGORY_KEY['spotlight-cards'],
     componentName: COMPONENT_KEYS.SPOTLIGHT_CARD1,
     filesrc: 'components/spotlight-cards/spotlight-card1.tsx',
     componentSrc: React.lazy(
@@ -3028,7 +3092,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['spotlight', 'card', 'ui', 'design', 'highlight', 'feature'],
   },
   {
-    parentlink: 'spotlight-cards',
+    category: DOCS_CATEGORY_KEY['spotlight-cards'],
     componentName: COMPONENT_KEYS.SPOTLIGHT_CARD2,
     filesrc: 'components/spotlight-cards/spotlight-card2.tsx',
     componentSrc: React.lazy(
@@ -3038,7 +3102,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['spotlight', 'card', 'ui', 'design', 'highlight', 'feature'],
   },
   {
-    parentlink: 'spotlight-cards',
+    category: DOCS_CATEGORY_KEY['spotlight-cards'],
     componentName: COMPONENT_KEYS.SPOTLIGHT_CARD3,
     filesrc: 'components/spotlight-cards/spotlight-card3.tsx',
     componentSrc: React.lazy(
@@ -3048,7 +3112,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['spotlight', 'card', 'ui', 'design', 'highlight', 'feature'],
   },
   {
-    parentlink: 'spotlight-cards',
+    category: DOCS_CATEGORY_KEY['spotlight-cards'],
     componentName: COMPONENT_KEYS.SPOTLIGHT_CARD4,
     filesrc: 'components/spotlight-cards/spotlight-card4.tsx',
     componentSrc: React.lazy(
@@ -3058,7 +3122,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['spotlight', 'card', 'ui', 'design', 'highlight', 'feature'],
   },
   {
-    parentlink: 'tabs',
+    category: DOCS_CATEGORY_KEY['tabs'],
     componentName: COMPONENT_KEYS.MAINTABS,
     filesrc: 'components/tabs/preview-tab.tsx',
     componentSrc: React.lazy(
@@ -3068,7 +3132,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['tabs', 'ui', 'navigation', 'component', 'design'],
   },
   {
-    parentlink: 'tabs',
+    category: DOCS_CATEGORY_KEY['tabs'],
     componentName: COMPONENT_KEYS.CREATIVE_TAB,
     filesrc: 'components/tabs/home-tab.tsx',
     componentSrc: React.lazy(
@@ -3078,7 +3142,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['tabs', 'ui', 'navigation', 'component', 'design', 'creative'],
   },
   {
-    parentlink: 'tabs',
+    category: DOCS_CATEGORY_KEY['tabs'],
     componentName: COMPONENT_KEYS.REGISTER_TAB,
     filesrc: 'components/tabs/register-tab.tsx',
     componentSrc: React.lazy(
@@ -3088,7 +3152,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['tabs', 'ui', 'navigation', 'form', 'registration', 'design'],
   },
   {
-    parentlink: 'magnified-doc',
+    category: DOCS_CATEGORY_KEY['magnified-doc'],
     componentName: COMPONENT_KEYS.MAGNIFIED_TAB,
     filesrc: 'components/tabs/magnified-tabs.tsx',
     componentSrc: React.lazy(
@@ -3098,7 +3162,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['tabs', 'ui', 'magnified', 'document', 'design'],
   },
   {
-    parentlink: 'image-tabs',
+    category: DOCS_CATEGORY_KEY['image-tabs'],
     componentName: COMPONENT_KEYS.IMAGE_TAB1,
     filesrc: 'components/tabs/img-tabs1.tsx',
     componentSrc: React.lazy(
@@ -3108,7 +3172,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['tabs', 'image', 'ui', 'gallery', 'design'],
   },
   {
-    parentlink: 'image-tabs',
+    category: DOCS_CATEGORY_KEY['image-tabs'],
     componentName: COMPONENT_KEYS.IMAGE_TAB2,
     filesrc: 'components/tabs/img-tabs2.tsx',
     componentSrc: React.lazy(
@@ -3118,7 +3182,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['tabs', 'image', 'ui', 'gallery', 'design'],
   },
   {
-    parentlink: 'image-tabs',
+    category: DOCS_CATEGORY_KEY['image-tabs'],
     componentName: COMPONENT_KEYS.IMAGE_TAB3,
     filesrc: 'components/tabs/img-tabs3.tsx',
     componentSrc: React.lazy(
