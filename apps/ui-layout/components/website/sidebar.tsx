@@ -22,6 +22,7 @@ import {
   TooltipTrigger,
 } from '@radix-ui/react-tooltip';
 import { useMediaQuery } from '@/hooks/use-media-query';
+import { DOCS_CATEGORY_GROUP } from '@/const/docs';
 
 export const basePath = [
   {
@@ -179,7 +180,7 @@ export const ItemsWithName = ({
   const [expandedItems, setExpandedItems] = useState<boolean>(true);
 
   const groupRef = useRef<HTMLDivElement>(null);
-  const showExpandButton = items.length > 2;
+  const showExpandButton = items.length > 2 && group !== DOCS_CATEGORY_GROUP.Components;
   const itemsToShow =
     expandedItems || !showExpandButton ? items : items.slice(0, 2);
   const itemRefs = useRef<(HTMLLIElement | null)[]>([]);
@@ -199,7 +200,8 @@ export const ItemsWithName = ({
 
   return (
     <div ref={groupRef} key={group}>
-      <div className='text-[1rem] relative flex w-full items-center justify-between pr-4 cursor-pointer dark:font-normal dark:text-gray-100 font-normal capitalize my-1'>
+      <div 
+      className={`text-[1rem] relative flex w-full items-center justify-between pr-4 cursor-pointer dark:font-normal dark:text-gray-100 font-normal capitalize my-1 ${group === DOCS_CATEGORY_GROUP.Components ? 'xl:text-lg text-[1.05rem] font-semibold pb-1' : ''}`}>
         {group}
         {showExpandButton && (
           <TooltipProvider>
