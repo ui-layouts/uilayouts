@@ -5,6 +5,16 @@ export interface DocsFileRef {
   filesrc: string;
 }
 
+export interface DocsNavigationCategory {
+  href: string;
+  name: string;
+  component: DocsCategory;
+  tags: string[];
+  new?: boolean;
+  updated?: boolean;
+}
+
+
 export type DocsCategory = (typeof DOCS_CATEGORY)[keyof typeof DOCS_CATEGORY];
 
 export type ComponentKey = (typeof COMPONENT_KEYS)[keyof typeof COMPONENT_KEYS];

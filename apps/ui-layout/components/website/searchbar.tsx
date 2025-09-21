@@ -15,7 +15,7 @@ import { Dialog, DialogContent } from '@/components/website/ui/dialog';
 import { ScrollArea } from '@/components/website/ui//scroll-area';
 import { cn } from '@/lib/utils';
 import { basePath } from './sidebar';
-import { MainComponents, SpecialComponents } from '@/configs/docs';
+import { DocsNavigationCategories } from '@/configs/docs';
 
 export type SearchItem = {
   href: string;
@@ -38,8 +38,7 @@ export function SearchDialog({
   const { setTheme } = useTheme();
   const searchbardata: SearchItem[] = [
     ...basePath,
-    ...SpecialComponents,
-    ...MainComponents,
+    ...DocsNavigationCategories
   ];
   const listRef = React.useRef<HTMLDivElement>(null);
   const [searchOpen, setSearchOpen] = React.useState(false);

@@ -5,7 +5,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { SidebarDrawer, DrawerContent } from '../ui/drawer/vaul-sidebar';
 import { basePath } from './sidebar';
-import { MainComponents, SpecialComponents } from '@/configs/docs';
+import { DocsNavigationCategories } from '@/configs/docs';
 import { cn } from '@/lib/utils';
 
 function MobileHeader({ classname }: { classname?: string }) {
@@ -173,7 +173,7 @@ function MobileHeader({ classname }: { classname?: string }) {
 
             <h1 className='text-sm font-semibold pb-1'>Components</h1>
             <ul>
-              {[...MainComponents, ...SpecialComponents]?.map((link) => {
+              {DocsNavigationCategories?.map((link) => {
                 return (
                   <>
                     <li>

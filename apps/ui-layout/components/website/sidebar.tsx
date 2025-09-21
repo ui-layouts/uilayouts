@@ -14,7 +14,7 @@ import {
 } from 'lucide-react';
 import { IRecentPage, useRecentPagesStore } from '@/hooks/useZustStore';
 import { useTheme } from 'next-themes';
-import { MainComponents, SpecialComponents } from '@/configs/docs';
+import { DocsNavigationCategories } from '@/configs/docs';
 import {
   Tooltip,
   TooltipProvider,
@@ -44,7 +44,7 @@ function DocsSidebar() {
   const { addVisitedPage, getRecentPages, removeAllRecentPages } =
     useRecentPagesStore();
   const [recentPages, setRecentPages] = useState<IRecentPage[]>([]);
-  const groupedComponents = MainComponents.reduce(
+  const groupedComponents = DocsNavigationCategories.reduce(
     (acc: Record<string, any[]>, component) => {
       const group = component.component || null;
       // @ts-ignore
@@ -145,40 +145,6 @@ function DocsSidebar() {
                   </ul>
                 </div>
               )}
-
-              <h1 className='xl:text-lg text-[1.05rem] font-semibold pb-1'>
-                Components
-              </h1>
-
-              {SpecialComponents?.map((link) => (
-                <li
-                  key={link.href}
-                  className={`2xl:text-sm xl:text-[0.81em] text-xs flex items-center gap-1 dark:hover:text-white 2xl:py-1 py-0.5 pl-2 border-l transition-all ${
-                    link.href === pathname
-                      ? 'dark:border-white border-black text-black dark:text-white font-semibold'
-                      : 'dark:text-slate-400 2xl:font-normal font-medium hover:border-black/60 dark:hover:border-white/50 text-slate-500 hover:text-slate-900'
-                  }`}
-                >
-                  <Link
-                    href={link.href}
-                    onClick={() => addVisitedPage(link.href, link.name)}
-                  >
-                    {link.name}
-                  </Link>
-
-                  {link?.updated && (
-                    <span className='2xl:text-xs text-[0.74em] bg-green-500 text-white px-1 rounded'>
-                      Updated
-                    </span>
-                  )}
-
-                  {link?.new && (
-                    <span className='2xl:text-xs text-[0.74em] bg-blue-500 text-white px-1 rounded'>
-                      New
-                    </span>
-                  )}
-                </li>
-              ))}
 
               {Object.entries(groupedComponents).map(
                 ([group, items], index) => (

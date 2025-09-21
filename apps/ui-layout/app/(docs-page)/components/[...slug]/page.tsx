@@ -6,7 +6,7 @@ import { ChevronDown, Component } from 'lucide-react';
 import TableOfContents from '@/components/website/tableof-compoents';
 import { ComponentPagination } from '@/components/website/code-components/pagination';
 import Footer from '@/components/website/footer';
-import { MainComponents, SpecialComponents } from '@/configs/docs';
+import { DocsNavigationCategories } from '@/configs/docs';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -38,8 +38,7 @@ export async function generateMetadata(props: {
   const params = await props.params;
   const slug = params.slug?.join('/') || '';
   const doc = await getDocBySlug(slug);
-  const allComponents = [...SpecialComponents, ...MainComponents];
-  const matchedComponent = allComponents.find(
+  const matchedComponent = DocsNavigationCategories.find(
     (comp) => comp.href === `/components/${slug}`
   );
   const tags = matchedComponent?.tags ?? [];

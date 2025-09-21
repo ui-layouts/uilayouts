@@ -1,12 +1,12 @@
 import { COMPONENT_KEYS, DOCS_CATEGORY } from '../const/docs';
-import { DocsFileRef } from '../types/docs';
+import { DocsFileRef, DocsNavigationCategory } from '../types/docs';
 import React from 'react';
 
-export const SpecialComponents = [
+export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/liquid-glass',
     name: 'Liquid-Glass',
-    category: DOCS_CATEGORY.Components,
+    component: DOCS_CATEGORY.Components,
     new: true,
     tags: [
       'Liquid-Glass',
@@ -26,34 +26,34 @@ export const SpecialComponents = [
   {
     href: '/components/color-picker',
     name: 'Color Picker',
-    category: DOCS_CATEGORY.Components,
+    component: DOCS_CATEGORY.Components,
     tags: [],
     new: true,
   },
   {
     href: '/components/buttons',
     name: 'Buttons',
-    category: DOCS_CATEGORY.Components,
+    component: DOCS_CATEGORY.Components,
     tags: [],
     updated: false,
   },
   {
     href: '/components/noise',
     name: 'Noise',
-    category: DOCS_CATEGORY.Components,
+    component: DOCS_CATEGORY.Components,
     new: false,
     tags: ['noise', 'effect', 'visual', 'distortion', 'shader'],
   },
   {
     href: '/components/globe',
     name: 'Globe',
-    category: DOCS_CATEGORY.Components,
+    component: DOCS_CATEGORY.Components,
     tags: ['threejs', '3d globe', 'r3f globe', 'cobe', 'code globe example'],
   },
   {
     href: '/components/footers',
     name: 'Footers',
-    category: DOCS_CATEGORY.Components,
+    component: DOCS_CATEGORY.Components,
     tags: [
       'footer',
       'animation',
@@ -67,13 +67,13 @@ export const SpecialComponents = [
   {
     href: '/components/responsive-header',
     name: 'Responsive-Header',
-    category: DOCS_CATEGORY.Components,
+    component: DOCS_CATEGORY.Components,
     tags: ['header', 'responsive', 'navigation-bar', 'menu'],
   },
   {
     href: '/components/buy-me-coffee',
     name: 'Buy Me A Coffee',
-    category: DOCS_CATEGORY.Components,
+    component: DOCS_CATEGORY.Components,
     tags: [
       'Sponser',
       'Buy me a coffee',
@@ -82,9 +82,6 @@ export const SpecialComponents = [
       'supports',
     ],
   },
-];
-
-export const MainComponents = [
   {
     href: '/components/swapy',
     name: 'Swapy Drag',
