@@ -1,10 +1,10 @@
 export const DOCS_CATEGORY = {
-  Default: 'Default',
+  Components: 'Components',
   ThreeJS: 'ThreeJS',
   Accordion: 'Accordion',
   Form: 'Form',
   Sparkles: 'Sparkles',
-  Swapy: 'Swapy',
+  DragItems: 'DragItems',
   ColorPicker: 'ColorPicker',
   Carousel: 'Carousel',
   Creative: 'Creative',
@@ -17,6 +17,7 @@ export const DOCS_CATEGORY = {
   'Clip-Path': 'Clip-Path',
   Card: 'Card',
   Tabs: 'Tabs',
+  CreativeEffect: 'CreativeEffect',
 } as const;
 
 export const COMPONENT_KEYS = {

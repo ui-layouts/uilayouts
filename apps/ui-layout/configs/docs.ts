@@ -1,4 +1,4 @@
-import { COMPONENT_KEYS } from '../const/docs';
+import { COMPONENT_KEYS, DOCS_CATEGORY } from '../const/docs';
 import { DocsFileRef } from '../types/docs';
 import React from 'react';
 
@@ -6,6 +6,7 @@ export const SpecialComponents = [
   {
     href: '/components/liquid-glass',
     name: 'Liquid-Glass',
+    category: DOCS_CATEGORY.Components,
     new: true,
     tags: [
       'Liquid-Glass',
@@ -25,29 +26,34 @@ export const SpecialComponents = [
   {
     href: '/components/color-picker',
     name: 'Color Picker',
+    category: DOCS_CATEGORY.Components,
     tags: [],
     new: true,
   },
   {
     href: '/components/buttons',
     name: 'Buttons',
+    category: DOCS_CATEGORY.Components,
     tags: [],
     updated: false,
   },
   {
     href: '/components/noise',
     name: 'Noise',
+    category: DOCS_CATEGORY.Components,
     new: false,
     tags: ['noise', 'effect', 'visual', 'distortion', 'shader'],
   },
   {
     href: '/components/globe',
     name: 'Globe',
+    category: DOCS_CATEGORY.Components,
     tags: ['threejs', '3d globe', 'r3f globe', 'cobe', 'code globe example'],
   },
   {
     href: '/components/footers',
     name: 'Footers',
+    category: DOCS_CATEGORY.Components,
     tags: [
       'footer',
       'animation',
@@ -61,11 +67,13 @@ export const SpecialComponents = [
   {
     href: '/components/responsive-header',
     name: 'Responsive-Header',
+    category: DOCS_CATEGORY.Components,
     tags: ['header', 'responsive', 'navigation-bar', 'menu'],
   },
   {
     href: '/components/buy-me-coffee',
     name: 'Buy Me A Coffee',
+    category: DOCS_CATEGORY.Components,
     tags: [
       'Sponser',
       'Buy me a coffee',
@@ -80,7 +88,7 @@ export const MainComponents = [
   {
     href: '/components/swapy',
     name: 'Swapy Drag',
-    component: 'drag-items',
+    component: DOCS_CATEGORY.DragItems,
     new: true,
     updated: false,
     tags: [
@@ -95,14 +103,14 @@ export const MainComponents = [
     href: '/components/drag-items',
     name: 'Drag Items',
     updated: false,
-    component: 'drag-items',
+    component: DOCS_CATEGORY.DragItems,
 
     tags: ['drag', 'draggable', 'items', 'sortable', 'list'],
   },
   {
     href: '/components/image-ripple-effect',
     name: 'Img Ripple Effect',
-    component: 'threeJS',
+    component: DOCS_CATEGORY.ThreeJS,
     tags: [
       'img-ripple-effect',
       'image ripple effect',
@@ -114,14 +122,14 @@ export const MainComponents = [
   {
     href: '/components/r3f-blob',
     name: 'R3F Blob',
-    component: 'threeJS',
+    component: DOCS_CATEGORY.ThreeJS,
     new: true,
     tags: ['r3f-blob', 'threejs blob', 'animated blob', 'blob'],
   },
   {
     href: '/components/mesh-gradients',
     name: 'Mesh Gradients',
-    component: 'threeJS',
+    component: DOCS_CATEGORY.ThreeJS,
     new: true,
     tags: [
       'mesh-gradient',
@@ -134,7 +142,7 @@ export const MainComponents = [
   {
     href: '/components/blur-vignette',
     name: 'Blur Vignette',
-    component: 'creative',
+    component: DOCS_CATEGORY.Creative,
     tags: [
       'blur',
       'vignette',
@@ -159,7 +167,7 @@ export const MainComponents = [
   {
     href: '/components/motion-number',
     name: 'Motion Number',
-    component: 'creative',
+    component: DOCS_CATEGORY.Creative,
     tags: [
       'animation',
       'number-animation',
@@ -188,7 +196,7 @@ export const MainComponents = [
   {
     href: '/components/uilayouts-github-button',
     name: 'uilayouts-github-button',
-    component: 'creative',
+    component: DOCS_CATEGORY.Creative,
     tags: [
       'uilayouts',
       'github',
@@ -207,7 +215,7 @@ export const MainComponents = [
   {
     href: '/components/range-slider',
     name: 'Range Slider',
-    component: 'Form',
+    component: DOCS_CATEGORY.Form,
     tags: [
       'input slider',
       'Default range slider',
@@ -231,7 +239,7 @@ export const MainComponents = [
   {
     href: '/components/password',
     name: 'Password',
-    component: 'Form',
+    component: DOCS_CATEGORY.Form,
     tags: [
       'password',
       'pass',
@@ -270,7 +278,7 @@ export const MainComponents = [
   {
     href: '/components/tags-input',
     name: 'UTube Tags',
-    component: 'Form',
+    component: DOCS_CATEGORY.Form,
     tags: [
       'Tags Input',
       'Tags Edit False',
@@ -286,7 +294,7 @@ export const MainComponents = [
   {
     href: '/components/phone-input',
     name: 'Phone Input',
-    component: 'Form',
+    component: DOCS_CATEGORY.Form,
     tags: [
       'phone-input',
       'Phone Input',
@@ -299,7 +307,7 @@ export const MainComponents = [
   {
     href: '/components/datetime-picker',
     name: 'Datetime Picker',
-    component: 'Form',
+    component: DOCS_CATEGORY.Form,
     tags: [
       'time picker',
       'time-picker',
@@ -318,7 +326,7 @@ export const MainComponents = [
   {
     href: '/components/multi-selector',
     name: 'Multi Selector',
-    component: 'Form',
+    component: DOCS_CATEGORY.Form,
     tags: [
       'Multi Selector Input',
       'Selector Input Tag',
@@ -332,7 +340,7 @@ export const MainComponents = [
     href: '/components/file-upload',
     name: 'File Upload',
     new: false,
-    component: 'Form',
+    component: DOCS_CATEGORY.Form,
     tags: [
       'DropZone input',
       'File Upload Input ',
@@ -351,14 +359,14 @@ export const MainComponents = [
     href: '/components/clip-path',
     name: 'Clip-Path ',
     new: false,
-    component: 'clip-path',
+    component: DOCS_CATEGORY['Clip-Path'],
     tags: ['clip-path', 'creative', 'masking', 'corporate', 'symbolic', 'mask'],
   },
   {
     href: '/components/image-masking',
     name: 'Image Masking',
     new: false,
-    component: 'clip-path',
+    component: DOCS_CATEGORY['Clip-Path'],
     tags: [
       'image-masking',
       'creative',
@@ -378,7 +386,7 @@ export const MainComponents = [
     href: '/components/video-masking',
     name: 'Video Masking',
     new: false,
-    component: 'clip-path',
+    component: DOCS_CATEGORY['Clip-Path'],
     tags: [
       'video',
       'masking',
@@ -395,7 +403,7 @@ export const MainComponents = [
   {
     href: '/components/hover-cards',
     name: 'Hover cards',
-    component: 'card',
+    component: DOCS_CATEGORY.Card,
     tags: [
       'hover',
       'stripe',
@@ -412,7 +420,7 @@ export const MainComponents = [
   {
     href: '/components/product-cards',
     name: 'Product-Cards',
-    component: 'card',
+    component: DOCS_CATEGORY.Card,
     tags: [
       'product',
       'card',
@@ -427,7 +435,7 @@ export const MainComponents = [
   {
     href: '/components/gradient-border',
     name: 'gradient-border',
-    component: 'card',
+    component: DOCS_CATEGORY.Card,
     tags: [
       'gradient',
       'border',
@@ -444,7 +452,7 @@ export const MainComponents = [
   {
     href: '/components/spotlight-cards',
     name: 'Spotlight cards',
-    component: 'card',
+    component: DOCS_CATEGORY.Card,
     tags: [
       'spotlight',
       'card',
@@ -459,7 +467,7 @@ export const MainComponents = [
   {
     href: '/components/timeline-animation',
     name: 'Timeline Animation',
-    component: 'Animation',
+    component: DOCS_CATEGORY.Animation,
     new: false,
     updated: true,
     tags: ['timeline', 'animation', 'scroll', 'motion', 'interactive'],
@@ -467,7 +475,7 @@ export const MainComponents = [
   {
     href: '/components/scroll-animation',
     name: 'Scroll Animation',
-    component: 'Animation',
+    component: DOCS_CATEGORY.Animation,
     new: false,
     tags: [
       'scroll',
@@ -482,26 +490,26 @@ export const MainComponents = [
   {
     href: '/components/scroll-text',
     name: 'Scroll Text',
-    component: 'Text animation',
+    component: DOCS_CATEGORY.TextAnimation,
     tags: ['scroll', 'text', 'animation'],
   },
   {
     href: '/components/text-marquee',
     name: 'Text Maruqee',
-    component: 'Text animation',
+    component: DOCS_CATEGORY.TextAnimation,
     tags: ['marquee', 'text', 'animation'],
   },
   {
     href: '/components/randomized-text-effect',
     name: 'Randomized Text',
-    component: 'Text animation',
+    component: DOCS_CATEGORY.TextAnimation,
     new: false,
     tags: ['random', 'text', 'effect'],
   },
   {
     href: '/components/image-mousetrail',
     name: 'Image Mousetrail',
-    component: 'creative-effect',
+    component: DOCS_CATEGORY.CreativeEffect,
     new: false,
     tags: [
       'mouse-trail',
@@ -521,7 +529,7 @@ export const MainComponents = [
     href: '/components/image-reveal',
     name: 'Image Reveal',
     new: false,
-    component: 'creative-effect',
+    component: DOCS_CATEGORY.CreativeEffect,
     tags: [
       'image',
       'reveal',
@@ -542,7 +550,7 @@ export const MainComponents = [
     href: '/components/progressive-carousel',
     name: 'Progressive Carousel',
     new: false,
-    component: 'creative-effect',
+    component: DOCS_CATEGORY.CreativeEffect,
     tags: [
       'carousel',
       'horizontal',
@@ -555,7 +563,7 @@ export const MainComponents = [
   {
     href: '/components/blocks',
     name: 'Blocks',
-    component: 'creative-effect',
+    component: DOCS_CATEGORY.CreativeEffect,
     tags: [
       'blocks',
       'background',
@@ -570,7 +578,7 @@ export const MainComponents = [
   {
     href: '/components/animated-beam',
     name: 'Animated Beam',
-    component: 'creative-effect',
+    component: DOCS_CATEGORY.CreativeEffect,
     tags: [
       'animated',
       'beam',
@@ -593,19 +601,19 @@ export const MainComponents = [
   {
     href: '/components/dialog',
     name: 'Dialog',
-    component: 'modal/drawer',
+    component: DOCS_CATEGORY['Modal/Drawer'],
     tags: ['dialog', 'popup', 'modal', 'UI-component'],
   },
   {
     href: '/components/media-modal',
     name: 'Media Modal',
-    component: 'modal/drawer',
+    component: DOCS_CATEGORY['Modal/Drawer'],
     tags: ['media', 'modal', 'popup', 'UI', 'image modal'],
   },
   {
     href: '/components/linear-modal',
     name: 'Linear Modal',
-    component: 'modal/drawer',
+    component: DOCS_CATEGORY['Modal/Drawer'],
     updated: true,
     tags: [
       'card',
@@ -619,7 +627,7 @@ export const MainComponents = [
   {
     href: '/components/gallery-modal',
     name: 'Gallery Modal',
-    component: 'modal/drawer',
+    component: DOCS_CATEGORY['Modal/Drawer'],
     tags: [
       'gallery',
       'accordion',
@@ -635,13 +643,13 @@ export const MainComponents = [
   {
     href: '/components/responsive-drawer',
     name: 'Responsive Drawer',
-    component: 'modal/drawer',
+    component: DOCS_CATEGORY['Modal/Drawer'],
     tags: ['drawer', 'navigation', 'responsive', 'menu'],
   },
   {
     href: '/components/responsive-sidebar',
     name: 'Responsive Sidebar',
-    component: 'modal/drawer',
+    component: DOCS_CATEGORY['Modal/Drawer'],
     tags: [
       'sidebar',
       'navigation',
@@ -655,7 +663,7 @@ export const MainComponents = [
   {
     href: '/components/horizontal-scroll',
     name: 'Horizontal Scroll',
-    component: 'scroll',
+    component: DOCS_CATEGORY.Scroll,
     tags: [
       'White 3D Globe',
       'White 3D Globe Card',
@@ -667,7 +675,7 @@ export const MainComponents = [
   {
     href: '/components/stacking-card',
     name: 'Stacking Card',
-    component: 'scroll',
+    component: DOCS_CATEGORY.Scroll,
     tags: [
       'Card Stack',
       'Interactive Cards',
@@ -680,13 +688,13 @@ export const MainComponents = [
   {
     href: '/components/smooth-scroll',
     name: 'Smooth-Scroll',
-    component: 'scroll',
+    component: DOCS_CATEGORY.Scroll,
     tags: ['Smooth Scrolling', 'Lenis Smooth Scroll', 'Scroll Animation'],
   },
   {
     href: '/components/sticky-scroll',
     name: 'Sticky Scroll',
-    component: 'scroll',
+    component: DOCS_CATEGORY.Scroll,
     new: false,
     tags: [
       'Sticky Scroll',
@@ -700,7 +708,7 @@ export const MainComponents = [
   {
     href: '/components/tabs',
     name: 'Tabs',
-    component: 'tabs',
+    component: DOCS_CATEGORY.Tabs,
     tags: [
       'tabs',
       'ui',
@@ -715,19 +723,19 @@ export const MainComponents = [
   {
     href: '/components/image-tabs',
     name: 'Image Tabs',
-    component: 'tabs',
+    component: DOCS_CATEGORY.Tabs,
     tags: ['tabs', 'image', 'ui', 'gallery', 'design'],
   },
   {
     href: '/components/magnified-doc',
     name: 'Magnified-Doc',
-    component: 'tabs',
+    component: DOCS_CATEGORY.Tabs,
     tags: ['tabs', 'ui', 'magnified', 'document', 'design'],
   },
   {
     href: '/components/sparkles',
     name: 'Sparkles',
-    component: 'sparkles',
+    component: DOCS_CATEGORY.Sparkles,
     tags: [
       'sparkles',
       '3d globe sparkles',
@@ -738,14 +746,14 @@ export const MainComponents = [
   {
     href: '/components/sparkles-title',
     name: 'Sparkles Title',
-    component: 'sparkles',
+    component: DOCS_CATEGORY.Sparkles,
     tags: ['sparkles title', 'mousemove sparkles'],
   },
   {
     href: '/components/carousel',
     name: 'Carousel',
     new: false,
-    component: 'carousel',
+    component: DOCS_CATEGORY.Carousel,
     tags: [
       'carousel',
       'default',
@@ -775,7 +783,7 @@ export const MainComponents = [
   {
     href: '/components/framer-carousel',
     name: 'Framer Carousel',
-    component: 'carousel',
+    component: DOCS_CATEGORY.Carousel,
     tags: [
       'carousel',
       'motion/react',
@@ -787,7 +795,7 @@ export const MainComponents = [
   {
     href: '/components/accordion',
     name: 'Accordion',
-    component: 'accordion',
+    component: DOCS_CATEGORY.Accordion,
     updated: true,
     tags: [
       'accordion',
@@ -802,7 +810,7 @@ export const MainComponents = [
   {
     href: '/components/faqs',
     name: 'FAQs',
-    component: 'accordion',
+    component: DOCS_CATEGORY.Accordion,
     tags: [
       'accordion',
       'faq',
@@ -815,7 +823,7 @@ export const MainComponents = [
   {
     href: '/components/image-accordions',
     name: 'Image Accordion',
-    component: 'accordion',
+    component: DOCS_CATEGORY.Accordion,
     tags: [
       'accordion',
       'image',
@@ -829,7 +837,7 @@ export const MainComponents = [
   {
     href: '/components/grid',
     name: 'Grid',
-    component: 'grid',
+    component: DOCS_CATEGORY.Grid,
     tags: [
       'grid',
       'Normal Grid',
@@ -846,19 +854,19 @@ export const MainComponents = [
   {
     href: '/components/masonary-grid',
     name: 'Masonary',
-    component: 'grid',
+    component: DOCS_CATEGORY.Grid,
     tags: ['bento grid', 'grid', 'masonary grid'],
   },
   {
     href: '/components/marquee',
     name: 'Marquee',
-    component: 'marquee',
+    component: DOCS_CATEGORY.Marquee,
     tags: ['default', 'marquee', 'animation', 'vertical', 'logos', '3d'],
   },
   {
     href: '/components/infinity-brand',
     name: 'Infinity Brand',
-    component: 'marquee',
+    component: DOCS_CATEGORY.Marquee,
     tags: ['infinity', 'brand', 'marquee'],
   },
 ];
@@ -2325,7 +2333,6 @@ export const AllComponents: IAllComponents[] = [
     ),
     iframeSrc: 'live-components/image-mousetrail-without-component',
   },
-  ////////////////////////////////
   {
     parentlink: 'responsive-drawer',
     componentName: COMPONENT_KEYS.RESPONSIVE_DRAWER,
