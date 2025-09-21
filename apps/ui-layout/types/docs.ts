@@ -1,4 +1,4 @@
-import { COMPONENT_KEYS, DOCS_CATEGORY } from '@/const/docs';
+import { COMPONENT_KEYS, DOCS_CATEGORY_GROUP } from '@/const/docs';
 
 export interface DocsFileRef {
   name: string;
@@ -8,13 +8,13 @@ export interface DocsFileRef {
 export interface DocsNavigationCategory {
   href: string;
   name: string;
-  component: DocsCategory;
+  group: DocsCategoryGroup;
   tags: string[];
   new?: boolean;
   updated?: boolean;
 }
 
 
-export type DocsCategory = (typeof DOCS_CATEGORY)[keyof typeof DOCS_CATEGORY];
+export type DocsCategoryGroup = (typeof DOCS_CATEGORY_GROUP)[keyof typeof DOCS_CATEGORY_GROUP];
 
 export type ComponentKey = (typeof COMPONENT_KEYS)[keyof typeof COMPONENT_KEYS];

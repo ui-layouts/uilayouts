@@ -1,11 +1,10 @@
-export const DOCS_CATEGORY = {
+export const DOCS_CATEGORY_GROUP = {
   Components: 'Components',
   ThreeJS: 'ThreeJS',
   Accordion: 'Accordion',
   Form: 'Form',
   Sparkles: 'Sparkles',
   DragItems: 'DragItems',
-  ColorPicker: 'ColorPicker',
   Carousel: 'Carousel',
   Creative: 'Creative',
   'Modal/Drawer': 'Modal/Drawer',

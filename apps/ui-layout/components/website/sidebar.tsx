@@ -46,7 +46,7 @@ function DocsSidebar() {
   const [recentPages, setRecentPages] = useState<IRecentPage[]>([]);
   const groupedComponents = DocsNavigationCategories.reduce(
     (acc: Record<string, any[]>, component) => {
-      const group = component.component || null;
+      const group = component.group || null;
       // @ts-ignore
       if (!acc[group]) {
         // @ts-ignore

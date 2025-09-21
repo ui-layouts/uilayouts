@@ -1,4 +1,4 @@
-import { COMPONENT_KEYS, DOCS_CATEGORY } from '../const/docs';
+import { COMPONENT_KEYS, DOCS_CATEGORY_GROUP } from '../const/docs';
 import { DocsFileRef, DocsNavigationCategory } from '../types/docs';
 import React from 'react';
 
@@ -6,7 +6,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/liquid-glass',
     name: 'Liquid-Glass',
-    component: DOCS_CATEGORY.Components,
+    group: DOCS_CATEGORY_GROUP.Components,
     new: true,
     tags: [
       'Liquid-Glass',
@@ -26,34 +26,34 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/color-picker',
     name: 'Color Picker',
-    component: DOCS_CATEGORY.Components,
+    group: DOCS_CATEGORY_GROUP.Components,
     tags: [],
     new: true,
   },
   {
     href: '/components/buttons',
     name: 'Buttons',
-    component: DOCS_CATEGORY.Components,
+    group: DOCS_CATEGORY_GROUP.Components,
     tags: [],
     updated: false,
   },
   {
     href: '/components/noise',
     name: 'Noise',
-    component: DOCS_CATEGORY.Components,
+    group: DOCS_CATEGORY_GROUP.Components,
     new: false,
     tags: ['noise', 'effect', 'visual', 'distortion', 'shader'],
   },
   {
     href: '/components/globe',
     name: 'Globe',
-    component: DOCS_CATEGORY.Components,
+    group: DOCS_CATEGORY_GROUP.Components,
     tags: ['threejs', '3d globe', 'r3f globe', 'cobe', 'code globe example'],
   },
   {
     href: '/components/footers',
     name: 'Footers',
-    component: DOCS_CATEGORY.Components,
+    group: DOCS_CATEGORY_GROUP.Components,
     tags: [
       'footer',
       'animation',
@@ -67,13 +67,13 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/responsive-header',
     name: 'Responsive-Header',
-    component: DOCS_CATEGORY.Components,
+    group: DOCS_CATEGORY_GROUP.Components,
     tags: ['header', 'responsive', 'navigation-bar', 'menu'],
   },
   {
     href: '/components/buy-me-coffee',
     name: 'Buy Me A Coffee',
-    component: DOCS_CATEGORY.Components,
+    group: DOCS_CATEGORY_GROUP.Components,
     tags: [
       'Sponser',
       'Buy me a coffee',
@@ -85,7 +85,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/swapy',
     name: 'Swapy Drag',
-    component: DOCS_CATEGORY.DragItems,
+    group: DOCS_CATEGORY_GROUP.DragItems,
     new: true,
     updated: false,
     tags: [
@@ -100,14 +100,14 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
     href: '/components/drag-items',
     name: 'Drag Items',
     updated: false,
-    component: DOCS_CATEGORY.DragItems,
+    group: DOCS_CATEGORY_GROUP.DragItems,
 
     tags: ['drag', 'draggable', 'items', 'sortable', 'list'],
   },
   {
     href: '/components/image-ripple-effect',
     name: 'Img Ripple Effect',
-    component: DOCS_CATEGORY.ThreeJS,
+    group: DOCS_CATEGORY_GROUP.ThreeJS,
     tags: [
       'img-ripple-effect',
       'image ripple effect',
@@ -119,14 +119,14 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/r3f-blob',
     name: 'R3F Blob',
-    component: DOCS_CATEGORY.ThreeJS,
+    group: DOCS_CATEGORY_GROUP.ThreeJS,
     new: true,
     tags: ['r3f-blob', 'threejs blob', 'animated blob', 'blob'],
   },
   {
     href: '/components/mesh-gradients',
     name: 'Mesh Gradients',
-    component: DOCS_CATEGORY.ThreeJS,
+    group: DOCS_CATEGORY_GROUP.ThreeJS,
     new: true,
     tags: [
       'mesh-gradient',
@@ -139,7 +139,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/blur-vignette',
     name: 'Blur Vignette',
-    component: DOCS_CATEGORY.Creative,
+    group: DOCS_CATEGORY_GROUP.Creative,
     tags: [
       'blur',
       'vignette',
@@ -164,7 +164,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/motion-number',
     name: 'Motion Number',
-    component: DOCS_CATEGORY.Creative,
+    group: DOCS_CATEGORY_GROUP.Creative,
     tags: [
       'animation',
       'number-animation',
@@ -193,7 +193,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/uilayouts-github-button',
     name: 'uilayouts-github-button',
-    component: DOCS_CATEGORY.Creative,
+    group: DOCS_CATEGORY_GROUP.Creative,
     tags: [
       'uilayouts',
       'github',
@@ -212,7 +212,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/range-slider',
     name: 'Range Slider',
-    component: DOCS_CATEGORY.Form,
+    group: DOCS_CATEGORY_GROUP.Form,
     tags: [
       'input slider',
       'Default range slider',
@@ -236,7 +236,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/password',
     name: 'Password',
-    component: DOCS_CATEGORY.Form,
+    group: DOCS_CATEGORY_GROUP.Form,
     tags: [
       'password',
       'pass',
@@ -275,7 +275,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/tags-input',
     name: 'UTube Tags',
-    component: DOCS_CATEGORY.Form,
+    group: DOCS_CATEGORY_GROUP.Form,
     tags: [
       'Tags Input',
       'Tags Edit False',
@@ -291,7 +291,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/phone-input',
     name: 'Phone Input',
-    component: DOCS_CATEGORY.Form,
+    group: DOCS_CATEGORY_GROUP.Form,
     tags: [
       'phone-input',
       'Phone Input',
@@ -304,7 +304,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/datetime-picker',
     name: 'Datetime Picker',
-    component: DOCS_CATEGORY.Form,
+    group: DOCS_CATEGORY_GROUP.Form,
     tags: [
       'time picker',
       'time-picker',
@@ -323,7 +323,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/multi-selector',
     name: 'Multi Selector',
-    component: DOCS_CATEGORY.Form,
+    group: DOCS_CATEGORY_GROUP.Form,
     tags: [
       'Multi Selector Input',
       'Selector Input Tag',
@@ -337,7 +337,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
     href: '/components/file-upload',
     name: 'File Upload',
     new: false,
-    component: DOCS_CATEGORY.Form,
+    group: DOCS_CATEGORY_GROUP.Form,
     tags: [
       'DropZone input',
       'File Upload Input ',
@@ -356,14 +356,14 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
     href: '/components/clip-path',
     name: 'Clip-Path ',
     new: false,
-    component: DOCS_CATEGORY['Clip-Path'],
+    group: DOCS_CATEGORY_GROUP['Clip-Path'],
     tags: ['clip-path', 'creative', 'masking', 'corporate', 'symbolic', 'mask'],
   },
   {
     href: '/components/image-masking',
     name: 'Image Masking',
     new: false,
-    component: DOCS_CATEGORY['Clip-Path'],
+    group: DOCS_CATEGORY_GROUP['Clip-Path'],
     tags: [
       'image-masking',
       'creative',
@@ -383,7 +383,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
     href: '/components/video-masking',
     name: 'Video Masking',
     new: false,
-    component: DOCS_CATEGORY['Clip-Path'],
+    group: DOCS_CATEGORY_GROUP['Clip-Path'],
     tags: [
       'video',
       'masking',
@@ -400,7 +400,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/hover-cards',
     name: 'Hover cards',
-    component: DOCS_CATEGORY.Card,
+    group: DOCS_CATEGORY_GROUP.Card,
     tags: [
       'hover',
       'stripe',
@@ -417,7 +417,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/product-cards',
     name: 'Product-Cards',
-    component: DOCS_CATEGORY.Card,
+    group: DOCS_CATEGORY_GROUP.Card,
     tags: [
       'product',
       'card',
@@ -432,7 +432,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/gradient-border',
     name: 'gradient-border',
-    component: DOCS_CATEGORY.Card,
+    group: DOCS_CATEGORY_GROUP.Card,
     tags: [
       'gradient',
       'border',
@@ -449,7 +449,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/spotlight-cards',
     name: 'Spotlight cards',
-    component: DOCS_CATEGORY.Card,
+    group: DOCS_CATEGORY_GROUP.Card,
     tags: [
       'spotlight',
       'card',
@@ -464,7 +464,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/timeline-animation',
     name: 'Timeline Animation',
-    component: DOCS_CATEGORY.Animation,
+    group: DOCS_CATEGORY_GROUP.Animation,
     new: false,
     updated: true,
     tags: ['timeline', 'animation', 'scroll', 'motion', 'interactive'],
@@ -472,7 +472,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/scroll-animation',
     name: 'Scroll Animation',
-    component: DOCS_CATEGORY.Animation,
+    group: DOCS_CATEGORY_GROUP.Animation,
     new: false,
     tags: [
       'scroll',
@@ -487,26 +487,26 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/scroll-text',
     name: 'Scroll Text',
-    component: DOCS_CATEGORY.TextAnimation,
+    group: DOCS_CATEGORY_GROUP.TextAnimation,
     tags: ['scroll', 'text', 'animation'],
   },
   {
     href: '/components/text-marquee',
     name: 'Text Maruqee',
-    component: DOCS_CATEGORY.TextAnimation,
+    group: DOCS_CATEGORY_GROUP.TextAnimation,
     tags: ['marquee', 'text', 'animation'],
   },
   {
     href: '/components/randomized-text-effect',
     name: 'Randomized Text',
-    component: DOCS_CATEGORY.TextAnimation,
+    group: DOCS_CATEGORY_GROUP.TextAnimation,
     new: false,
     tags: ['random', 'text', 'effect'],
   },
   {
     href: '/components/image-mousetrail',
     name: 'Image Mousetrail',
-    component: DOCS_CATEGORY.CreativeEffect,
+    group: DOCS_CATEGORY_GROUP.CreativeEffect,
     new: false,
     tags: [
       'mouse-trail',
@@ -526,7 +526,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
     href: '/components/image-reveal',
     name: 'Image Reveal',
     new: false,
-    component: DOCS_CATEGORY.CreativeEffect,
+    group: DOCS_CATEGORY_GROUP.CreativeEffect,
     tags: [
       'image',
       'reveal',
@@ -547,7 +547,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
     href: '/components/progressive-carousel',
     name: 'Progressive Carousel',
     new: false,
-    component: DOCS_CATEGORY.CreativeEffect,
+    group: DOCS_CATEGORY_GROUP.CreativeEffect,
     tags: [
       'carousel',
       'horizontal',
@@ -560,7 +560,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/blocks',
     name: 'Blocks',
-    component: DOCS_CATEGORY.CreativeEffect,
+    group: DOCS_CATEGORY_GROUP.CreativeEffect,
     tags: [
       'blocks',
       'background',
@@ -575,7 +575,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/animated-beam',
     name: 'Animated Beam',
-    component: DOCS_CATEGORY.CreativeEffect,
+    group: DOCS_CATEGORY_GROUP.CreativeEffect,
     tags: [
       'animated',
       'beam',
@@ -598,19 +598,19 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/dialog',
     name: 'Dialog',
-    component: DOCS_CATEGORY['Modal/Drawer'],
+    group: DOCS_CATEGORY_GROUP['Modal/Drawer'],
     tags: ['dialog', 'popup', 'modal', 'UI-component'],
   },
   {
     href: '/components/media-modal',
     name: 'Media Modal',
-    component: DOCS_CATEGORY['Modal/Drawer'],
+    group: DOCS_CATEGORY_GROUP['Modal/Drawer'],
     tags: ['media', 'modal', 'popup', 'UI', 'image modal'],
   },
   {
     href: '/components/linear-modal',
     name: 'Linear Modal',
-    component: DOCS_CATEGORY['Modal/Drawer'],
+    group: DOCS_CATEGORY_GROUP['Modal/Drawer'],
     updated: true,
     tags: [
       'card',
@@ -624,7 +624,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/gallery-modal',
     name: 'Gallery Modal',
-    component: DOCS_CATEGORY['Modal/Drawer'],
+    group: DOCS_CATEGORY_GROUP['Modal/Drawer'],
     tags: [
       'gallery',
       'accordion',
@@ -640,13 +640,13 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/responsive-drawer',
     name: 'Responsive Drawer',
-    component: DOCS_CATEGORY['Modal/Drawer'],
+    group: DOCS_CATEGORY_GROUP['Modal/Drawer'],
     tags: ['drawer', 'navigation', 'responsive', 'menu'],
   },
   {
     href: '/components/responsive-sidebar',
     name: 'Responsive Sidebar',
-    component: DOCS_CATEGORY['Modal/Drawer'],
+    group: DOCS_CATEGORY_GROUP['Modal/Drawer'],
     tags: [
       'sidebar',
       'navigation',
@@ -660,7 +660,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/horizontal-scroll',
     name: 'Horizontal Scroll',
-    component: DOCS_CATEGORY.Scroll,
+    group: DOCS_CATEGORY_GROUP.Scroll,
     tags: [
       'White 3D Globe',
       'White 3D Globe Card',
@@ -672,7 +672,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/stacking-card',
     name: 'Stacking Card',
-    component: DOCS_CATEGORY.Scroll,
+    group: DOCS_CATEGORY_GROUP.Scroll,
     tags: [
       'Card Stack',
       'Interactive Cards',
@@ -685,13 +685,13 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/smooth-scroll',
     name: 'Smooth-Scroll',
-    component: DOCS_CATEGORY.Scroll,
+    group: DOCS_CATEGORY_GROUP.Scroll,
     tags: ['Smooth Scrolling', 'Lenis Smooth Scroll', 'Scroll Animation'],
   },
   {
     href: '/components/sticky-scroll',
     name: 'Sticky Scroll',
-    component: DOCS_CATEGORY.Scroll,
+    group: DOCS_CATEGORY_GROUP.Scroll,
     new: false,
     tags: [
       'Sticky Scroll',
@@ -705,7 +705,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/tabs',
     name: 'Tabs',
-    component: DOCS_CATEGORY.Tabs,
+    group: DOCS_CATEGORY_GROUP.Tabs,
     tags: [
       'tabs',
       'ui',
@@ -720,19 +720,19 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/image-tabs',
     name: 'Image Tabs',
-    component: DOCS_CATEGORY.Tabs,
+    group: DOCS_CATEGORY_GROUP.Tabs,
     tags: ['tabs', 'image', 'ui', 'gallery', 'design'],
   },
   {
     href: '/components/magnified-doc',
     name: 'Magnified-Doc',
-    component: DOCS_CATEGORY.Tabs,
+    group: DOCS_CATEGORY_GROUP.Tabs,
     tags: ['tabs', 'ui', 'magnified', 'document', 'design'],
   },
   {
     href: '/components/sparkles',
     name: 'Sparkles',
-    component: DOCS_CATEGORY.Sparkles,
+    group: DOCS_CATEGORY_GROUP.Sparkles,
     tags: [
       'sparkles',
       '3d globe sparkles',
@@ -743,14 +743,14 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/sparkles-title',
     name: 'Sparkles Title',
-    component: DOCS_CATEGORY.Sparkles,
+    group: DOCS_CATEGORY_GROUP.Sparkles,
     tags: ['sparkles title', 'mousemove sparkles'],
   },
   {
     href: '/components/carousel',
     name: 'Carousel',
     new: false,
-    component: DOCS_CATEGORY.Carousel,
+    group: DOCS_CATEGORY_GROUP.Carousel,
     tags: [
       'carousel',
       'default',
@@ -780,7 +780,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/framer-carousel',
     name: 'Framer Carousel',
-    component: DOCS_CATEGORY.Carousel,
+    group: DOCS_CATEGORY_GROUP.Carousel,
     tags: [
       'carousel',
       'motion/react',
@@ -792,7 +792,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/accordion',
     name: 'Accordion',
-    component: DOCS_CATEGORY.Accordion,
+    group: DOCS_CATEGORY_GROUP.Accordion,
     updated: true,
     tags: [
       'accordion',
@@ -807,7 +807,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/faqs',
     name: 'FAQs',
-    component: DOCS_CATEGORY.Accordion,
+    group: DOCS_CATEGORY_GROUP.Accordion,
     tags: [
       'accordion',
       'faq',
@@ -820,7 +820,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/image-accordions',
     name: 'Image Accordion',
-    component: DOCS_CATEGORY.Accordion,
+    group: DOCS_CATEGORY_GROUP.Accordion,
     tags: [
       'accordion',
       'image',
@@ -834,7 +834,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/grid',
     name: 'Grid',
-    component: DOCS_CATEGORY.Grid,
+    group: DOCS_CATEGORY_GROUP.Grid,
     tags: [
       'grid',
       'Normal Grid',
@@ -851,19 +851,19 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
   {
     href: '/components/masonary-grid',
     name: 'Masonary',
-    component: DOCS_CATEGORY.Grid,
+    group: DOCS_CATEGORY_GROUP.Grid,
     tags: ['bento grid', 'grid', 'masonary grid'],
   },
   {
     href: '/components/marquee',
     name: 'Marquee',
-    component: DOCS_CATEGORY.Marquee,
+    group: DOCS_CATEGORY_GROUP.Marquee,
     tags: ['default', 'marquee', 'animation', 'vertical', 'logos', '3d'],
   },
   {
     href: '/components/infinity-brand',
     name: 'Infinity Brand',
-    component: DOCS_CATEGORY.Marquee,
+    group: DOCS_CATEGORY_GROUP.Marquee,
     tags: ['infinity', 'brand', 'marquee'],
   },
 ];
