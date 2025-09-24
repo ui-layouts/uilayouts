@@ -14,13 +14,13 @@ const allProjects = [
     id: 1,
     projectsName: 'tools',
     link: 'https://tools.ui-layouts.com',
-    logoSrc: () => (
+    componentSrc: () => (
       <>
         <svg
           width='208'
           height='48'
           viewBox='0 0 208 48'
-          className='w-full dark:fill-white fill-black'
+          className='w-full dark:fill-[#07DE68] fill-[#07DE68] dark:stroke-[#07DE68] stroke-[#07DE68]'
           fill='none'
           xmlns='http://www.w3.org/2000/svg'
         >
@@ -55,7 +55,7 @@ const allProjects = [
           width='282'
           height='81'
           viewBox='0 0 282 81'
-          className='w-full dark:fill-white fill-black dark:stroke-white stroke-black'
+          className='w-full dark:fill-[#FF006F] fill-[#FF006F] dark:stroke-[#FF006F] stroke-[#FF006F]'
           fill='none'
           xmlns='http://www.w3.org/2000/svg'
         >
@@ -86,7 +86,7 @@ const allProjects = [
           width='261'
           height='79'
           viewBox='0 0 261 79'
-          className='w-full dark:fill-white fill-black'
+          className='w-full dark:fill-[#fd7627] fill-[#FF8E3D]'
           fill='none'
           xmlns='http://www.w3.org/2000/svg'
         >
@@ -293,20 +293,18 @@ function HeroSec() {
                 className='group flex flex-col items-center relative overflow-hidden justify-center rounded-2xl border dark:border-gray-900 border-gray-200 dark:bg-black p-6 shadow-md transition hover:shadow-lg hover:-translate-y-1'
               >
                 <div className='mb-4 flex 2xl:h-72 lg:h-60 md:h-48 md:h-42 h-6 xl:px-8 relative z-10 items-center justify-center'>
-                  {project.logoSrc
-                    ? project.logoSrc()
-                    : project.componentSrc?.()}
+                  {project.componentSrc?.()}
                 </div>
                 <div className='absolute bottom-0 left-0 right-0 top-0 dark:bg-[linear-gradient(to_right,#2120202e_1px,transparent_1px),linear-gradient(to_bottom,#2120202e_1px,transparent_1px)] bg-[linear-gradient(to_right,#acacac2d_1px,transparent_1px),linear-gradient(to_bottom,#acacac2d_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]'></div>
 
                 {project?.projectsName === 'tools' && (
-                  <div className='absolute inset-0 z-0 [mask-image:radial-gradient(ellipse_115%_60%_at_50%_100%,#000_70%,transparent_110%)] dark:bg-[radial-gradient(125%_125%_at_50%_10%,#000000_40%,#1f0eb4_100%)] bg-[radial-gradient(125%_125%_at_50%_10%,#ffffff_40%,#1f0eb4_100%)]' />
+                  <div className='absolute inset-0 z-0 [mask-image:radial-gradient(ellipse_115%_60%_at_50%_100%,#000_70%,transparent_110%)] dark:bg-[radial-gradient(125%_125%_at_50%_10%,#000000_40%,#07DE68_100%)] bg-[radial-gradient(125%_125%_at_50%_10%,#ffffff_40%,#07DE68_100%)]' />
                 )}
                 {project?.projectsName === 'cursify' && (
-                  <div className='absolute inset-0 z-0 [mask-image:radial-gradient(ellipse_115%_60%_at_50%_100%,#000_70%,transparent_110%)] dark:bg-[radial-gradient(125%_125%_at_50%_10%,#000000_40%,#b40e2a_100%)] bg-[radial-gradient(125%_125%_at_50%_10%,#ffffff_40%,#b40e2a_100%)]' />
+                  <div className='absolute inset-0 z-0 [mask-image:radial-gradient(ellipse_115%_60%_at_50%_100%,#000_70%,transparent_110%)] dark:bg-[radial-gradient(125%_125%_at_50%_10%,#000000_40%,#FF006F_100%)] bg-[radial-gradient(125%_125%_at_50%_10%,#ffffff_40%,#FF006F_100%)]' />
                 )}
                 {project?.projectsName === 'blocks' && (
-                  <div className='absolute inset-0 z-0 [mask-image:radial-gradient(ellipse_115%_60%_at_50%_100%,#000_70%,transparent_110%)] dark:bg-[radial-gradient(125%_125%_at_50%_10%,#000000_40%,#0fe06d_100%)] bg-[radial-gradient(125%_125%_at_50%_10%,#ffffff_40%,#0fe06d_100%)]' />
+                  <div className='absolute inset-0 z-0 [mask-image:radial-gradient(ellipse_115%_60%_at_50%_100%,#000_70%,transparent_110%)] dark:bg-[radial-gradient(125%_125%_at_50%_10%,#000000_40%,#fd7627_100%)] bg-[radial-gradient(125%_125%_at_50%_10%,#ffffff_40%,#FF8E3D_100%)]' />
                 )}
               </a>
             ))}
