@@ -132,7 +132,7 @@ function LabSidebar() {
                       <CommandGroup>
                         {filteredComponents.map((component, index) => (
                           <CommandItem
-                            key={`${component.parentlink}-${index}`}
+                            key={`${component.category}-${index}`}
                             value={component.componentName}
                             onSelect={(currentValue) =>
                               handleSelectComponent(component)

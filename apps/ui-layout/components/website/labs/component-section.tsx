@@ -37,8 +37,9 @@ import {
 } from '@/components/website/ui/dropdown';
 import Slider from '@/components/website/ui/slider';
 import LabSidebar from './labs-sidebar';
-import { AllComponents } from '@/configs/docs';
+import { AllComponents, DocsNavigationCategories } from '@/configs/docs';
 import { ScrollArea } from '../ui/scroll-area';
+import { DOCS_CATEGORY_GROUP } from '@/const/docs';
 
 const ComponentSection = () => {
   const { theme, setTheme } = useTheme();
@@ -76,7 +77,10 @@ const ComponentSection = () => {
     event.stopPropagation();
     setIsOpenStyle((prev) => !prev);
   }, []);
-
+  const category = DocsNavigationCategories.find(
+    (category) => category.key === currentComponentData?.category
+  );
+  const href = `${process.env.NEXT_PUBLIC_CLIENT_URL}/${category?.href}}`;
   return (
     <div
       className={`${
@@ -352,7 +356,7 @@ const ComponentSection = () => {
                     className='group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md dark:bg-primary-foreground bg-gray-100   border px-3 font-medium dark:text-white text-black transition-all duration-200 hover:translate-x-[-3px] translate-x-[0px] hover:translate-y-[-3px] translate-y-[0px] hover:[box-shadow:5px_5px_rgb(28_39_56)] dark:hover:[box-shadow:5px_5px_rgb(229_231_235)] '
                     onClick={() =>
                       window.open(
-                        `${process.env.NEXT_PUBLIC_CLIENT_URL}/components/${currentComponentData?.parentlink}`,
+                        href,
                         '_blank',
                         'noopener,noreferrer'
                       )

@@ -2,7 +2,7 @@
 
 import { SearchItem } from '@/components/website/searchbar';
 import { basePath } from '@/components/website/sidebar';
-import { MainComponents, SpecialComponents } from '@/configs/docs';
+import { DocsNavigationCategories } from '@/configs/docs';
 import { ArrowBigLeft } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -13,8 +13,7 @@ export default function NotFound() {
   // Combine all searchable data into one array
   const searchdata: SearchItem[] = [
     ...basePath,
-    ...SpecialComponents,
-    ...MainComponents,
+    ...DocsNavigationCategories
   ];
 
   // Get the last segment of the URL

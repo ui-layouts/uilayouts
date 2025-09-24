@@ -1,18 +1,16 @@
 import {
   AllComponents,
-  MainComponents,
-  SpecialComponents,
+  DocsNavigationCategories,
 } from '@/configs/docs';
 import React from 'react';
 import { Button } from './ui/button';
 
 const MainComponentsDownloader: React.FC = () => {
-  const mixData = [...SpecialComponents, ...MainComponents];
   const processData = () => {
-    const updatedMainComponents = mixData.map((mainComponent) => {
+    const updatedMainComponents = DocsNavigationCategories.map((mainComponent) => {
       const matchingAllComponents = AllComponents.filter(
         (allComponent) =>
-          allComponent.parentlink === mainComponent.href.split('/').pop()
+          allComponent.category === mainComponent.key
       );
 
       if (matchingAllComponents.length > 0) {
@@ -29,7 +27,7 @@ const MainComponentsDownloader: React.FC = () => {
             allTags.add('input');
             allTags.add('user interface');
             break;
-          case 'card':
+          case 'Card':
             allTags.add('ui card');
             allTags.add('component');
             allTags.add('design');

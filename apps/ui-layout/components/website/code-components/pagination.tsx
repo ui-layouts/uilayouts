@@ -1,48 +1,20 @@
 import Link from 'next/link';
-import { MainComponents, SpecialComponents } from '@/configs/docs';
+import { DocsNavigationCategories } from '@/configs/docs';
 import { ChevronsLeft, ChevronsRight } from 'lucide-react';
 
 export function ComponentPagination({ doc }: any) {
-  // console.log('checkingslug', doc.slug);
-  // const groupedComponents = AllComponents.reduce(
-  //   (acc, comp) => {
-  //     const { parentlink } = comp;
-
-  //     // Check if the parentlink already exists in the accumulator
-  //     const existingGroup = acc.find(
-  //       (group) => group.parentlink === parentlink
-  //     );
-
-  //     if (existingGroup) {
-  //       // If it exists, push the current component into the existing group
-  //       existingGroup.components.push(comp);
-  //     } else {
-  //       // If it doesn't exist, create a new group with the current component
-  //       acc.push({
-  //         parentlink: parentlink,
-  //         components: [comp],
-  //       });
-  //     }
-
-  //     return acc;
-  //   },
-  //   [] as { parentlink: string; components: typeof AllComponents }[]
-  // );
-  // console.log(groupedComponents);
-  const allcomponents = [...SpecialComponents, ...MainComponents];
-
-  const currentIndex = allcomponents.findIndex(
+  const currentIndex = DocsNavigationCategories.findIndex(
     (comp) => comp.href === `/components/${doc.slug}`
   );
 
   // Get the previous component, if it exists
   const previousComponent =
-    currentIndex > 0 ? allcomponents[currentIndex - 1] : null;
+    currentIndex > 0 ? DocsNavigationCategories[currentIndex - 1] : null;
 
   // Get the next component, if it exists
   const nextComponent =
-    currentIndex < allcomponents.length - 1
-      ? allcomponents[currentIndex + 1]
+    currentIndex < DocsNavigationCategories.length - 1
+      ? DocsNavigationCategories[currentIndex + 1]
       : null;
 
   return (
