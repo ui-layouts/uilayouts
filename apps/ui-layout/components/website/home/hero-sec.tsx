@@ -300,13 +300,13 @@ function HeroSec() {
                 <div className='absolute bottom-0 left-0 right-0 top-0 dark:bg-[linear-gradient(to_right,#2120202e_1px,transparent_1px),linear-gradient(to_bottom,#2120202e_1px,transparent_1px)] bg-[linear-gradient(to_right,#acacac2d_1px,transparent_1px),linear-gradient(to_bottom,#acacac2d_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]'></div>
 
                 {project?.projectsName === 'tools' && (
-                  <div className='absolute inset-0 z-0 [mask-image:radial-gradient(ellipse_115%_60%_at_50%_100%,#000_70%,transparent_110%)] dark:bg-[radial-gradient(125%_125%_at_50%_10%,#000000_40%,#1f0eb4_100%)] bg-[radial-gradient(125%_125%_at_50%_10%,#ffffff_40%,#1f0eb4_100%)]' />
+                  <div className='absolute inset-0 z-0 [mask-image:radial-gradient(ellipse_115%_60%_at_50%_100%,#000_70%,transparent_110%)] dark:bg-[radial-gradient(125%_125%_at_50%_10%,#000000_40%,#07DE68_100%)] bg-[radial-gradient(125%_125%_at_50%_10%,#ffffff_40%,#07DE68_100%)]' />
                 )}
                 {project?.projectsName === 'cursify' && (
-                  <div className='absolute inset-0 z-0 [mask-image:radial-gradient(ellipse_115%_60%_at_50%_100%,#000_70%,transparent_110%)] dark:bg-[radial-gradient(125%_125%_at_50%_10%,#000000_40%,#b40e2a_100%)] bg-[radial-gradient(125%_125%_at_50%_10%,#ffffff_40%,#b40e2a_100%)]' />
+                  <div className='absolute inset-0 z-0 [mask-image:radial-gradient(ellipse_115%_60%_at_50%_100%,#000_70%,transparent_110%)] dark:bg-[radial-gradient(125%_125%_at_50%_10%,#000000_40%,#FF006F_100%)] bg-[radial-gradient(125%_125%_at_50%_10%,#ffffff_40%,#FF006F_100%)]' />
                 )}
                 {project?.projectsName === 'blocks' && (
-                  <div className='absolute inset-0 z-0 [mask-image:radial-gradient(ellipse_115%_60%_at_50%_100%,#000_70%,transparent_110%)] dark:bg-[radial-gradient(125%_125%_at_50%_10%,#000000_40%,#0fe06d_100%)] bg-[radial-gradient(125%_125%_at_50%_10%,#ffffff_40%,#0fe06d_100%)]' />
+                  <div className='absolute inset-0 z-0 [mask-image:radial-gradient(ellipse_115%_60%_at_50%_100%,#000_70%,transparent_110%)] dark:bg-[radial-gradient(125%_125%_at_50%_10%,#000000_40%,#FF8E3D_100%)] bg-[radial-gradient(125%_125%_at_50%_10%,#ffffff_40%,#FF8E3D_100%)]' />
                 )}
               </a>
             ))}
