@@ -125,7 +125,7 @@ export default function TableOfContents({ toc }: TableOfContentsProps) {
       {isDesktop ? (
         <>
           <aside className='hidden lg:block w-[170px] shrink-0'>
-            <div className='sticky top-0 h-screen   pt-[5.2em]'>
+            <div className='sticky top-0 h-screen pt-[5.2em]'>
               <ScrollArea className='h-[98%] px-3 py-3 rounded-md'>
                 <div className='flex flex-col h-full'>
                   <style jsx global>{`
@@ -139,7 +139,7 @@ export default function TableOfContents({ toc }: TableOfContentsProps) {
                       <span className='text-sm px-1 text-primary font-semibold pb-1 inline-block'>
                         On This Page
                       </span>
-                      <hr />
+                      <hr className='dark:border-neutral-800' />
                       <ul className=' list-none m-0 ml-0  text-[0.8em] space-y-0.5 pt-2 pl-0'>
                         {tocItems?.map((item) => {
                           return (
@@ -183,7 +183,7 @@ export default function TableOfContents({ toc }: TableOfContentsProps) {
                     <span className='text-sm px-1 text-primary font-semibold pb-1 inline-block'>
                       Contribute
                     </span>
-                    <hr />
+                    <hr className='dark:border-neutral-800' />
                     <div className='m-0  text-[0.8em] space-y-2 pt-2 pl-0'>
                       {contribute?.map((nav) => (
                         <a

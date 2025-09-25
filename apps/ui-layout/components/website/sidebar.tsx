@@ -131,7 +131,7 @@ function DocsSidebar() {
                         key={page.id}
                         className={`font-normal 2xl:text-sm xl:text-[0.81em] text-xs flex items-center dark:hover:text-white py-1 pl-2 border-l transition-all ${
                           page.id === pathname
-                            ? 'dark:border-white border-black text-black dark:text-white font-semibold'
+                            ? 'dark:border-white border-neutral-800 text-black dark:text-white font-semibold'
                             : 'dark:text-slate-400 hover:border-black/60 dark:hover:border-white/50 text-slate-500 hover:text-slate-900'
                         }`}
                       >
@@ -243,7 +243,7 @@ export const ItemsWithName = ({
             className={`2xl:text-sm xl:text-[0.81em] text-xs flex items-center gap-1 dark:hover:text-white 2xl:py-1 py-1 pl-2 border-l transition-all ${
               link.href === pathname
                 ? 'dark:border-white border-black text-black dark:text-white font-semibold'
-                : 'dark:text-slate-400 2xl:font-normal font-medium hover:border-black/60 dark:hover:border-white/50 text-slate-500 hover:text-slate-900'
+                : 'dark:text-slate-400 2xl:font-normal font-medium dark:border-neutral-800 hover:border-black/60 dark:hover:border-white/50 text-slate-500 hover:text-slate-900'
             }`}
           >
             <Link

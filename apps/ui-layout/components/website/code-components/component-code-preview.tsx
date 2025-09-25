@@ -20,8 +20,9 @@ type TComponentCodePreview = {
   responsive?: boolean;
   isTab?: boolean;
   isFitheight?: boolean;
+  isFit?: boolean;
   isNotCopy?: boolean;
-  jsonName?:string
+  jsonName?: string;
 };
 export type TCurrComponentProps = {
   componentName: string;
@@ -42,10 +43,13 @@ export default async function ComponentCodePreview({
   isTab = false,
   isNotCopy = false,
   isFitheight = false,
+  isFit = false,
 }: TComponentCodePreview) {
-
-  const matchedComponent = AllComponents?.find((file) => file.componentName === name) || null
-  const currComponent = matchedComponent ? JSON.parse(JSON.stringify(matchedComponent)) : null;
+  const matchedComponent =
+    AllComponents?.find((file) => file.componentName === name) || null;
+  const currComponent = matchedComponent
+    ? JSON.parse(JSON.stringify(matchedComponent))
+    : null;
 
   if (!currComponent) {
     return <div>Componendt not found</div>;
@@ -87,6 +91,7 @@ export default async function ComponentCodePreview({
             isNotCopy={isNotCopy}
             jsonName={jsonName}
             isFitheight={isFitheight}
+            isFit={isFit}
           />
         </TabsContent>
         <TabsContent className='mt-14' value={`${name}code`}>

@@ -12,7 +12,7 @@ const WeatherLiquid = () => {
   return (
     <>
       <div
-        className='p-8 relative z-30 max-w-5xl gap-8 py-16 rounded-xl'
+        className='p-8 relative z-30 w-full gap-8 py-16 rounded-xl'
         style={{
           background:
             'url("https://images.unsplash.com/photo-1590867286251-8e26d9f255c0?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") center / cover no-repeat',

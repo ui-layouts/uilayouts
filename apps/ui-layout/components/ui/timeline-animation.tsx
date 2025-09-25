@@ -25,7 +25,7 @@ export function TimelineAnimation<
   className,
   animationNum,
   as,
-  viewport = { amount: 0.3, margin: '0px 0px -120px 0px', once: true },
+  viewport = { amount: 0.3, margin: '0px 0px -50px 0px', once: true },
   customVariants,
   ...props
 }: TimelineAnimationProps<T>) {

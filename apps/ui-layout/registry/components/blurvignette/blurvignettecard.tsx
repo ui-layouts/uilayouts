@@ -9,7 +9,7 @@ import {
 function index() {
   return (
     <>
-      <div className='w-fit  mx-auto sm:flex gap-2 justify-center '>
+      <div className='w-fit mx-auto sm:flex gap-2 justify-center md:p-8 sm:p-4'>
         <BlurVignette
           radius='15px'
           inset='100px'

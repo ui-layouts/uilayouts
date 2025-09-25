@@ -9,7 +9,14 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
 } from '@/components/website/ui/dropdown';
-import { CheckCheck, ChevronDown } from 'lucide-react';
+import {
+  CheckCheck,
+  CheckCheckIcon,
+  CheckIcon,
+  ChevronDown,
+  CopyIcon,
+} from 'lucide-react';
+import { AnimatePresence, motion } from 'motion/react';
 
 export default function CopyPage() {
   const pathname = usePathname() || '';
@@ -31,7 +38,7 @@ export default function CopyPage() {
       const mdx = await fetchMdx();
       await navigator.clipboard.writeText(mdx);
       setCopied(true);
-      setTimeout(() => setCopied(false), 2000); // reset after 2s
+      setTimeout(() => setCopied(false), 2000);
     } catch (err) {
       console.error('Copy page failed', err);
     }
@@ -70,13 +77,28 @@ export default function CopyPage() {
   return (
     <div className='bg-secondary group/buttons relative flex rounded-lg p-1 gap-1'>
       <Button variant='uilayouts' size='sm' onClick={handleCopyPage}>
-        {copied ? (
-          <span className='flex items-center gap-1'>
-            <CheckCheck className='w-4 h-4' /> Copied
-          </span>
-        ) : (
-          'Copy Page'
-        )}
+        <AnimatePresence mode='popLayout' initial={false}>
+          <motion.div
+            key={copied ? 'check' : 'copy'}
+            initial={{ opacity: 0, scale: 0.25, filter: 'blur(4px)' }}
+            animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+            exit={{ opacity: 0, scale: 0.25, filter: 'blur(4px)' }}
+            transition={{
+              type: 'spring',
+              duration: 0.3,
+              bounce: 0,
+            }}
+            className='flex items-center gap-1'
+          >
+            {copied ? (
+              <>
+                Copied <CheckCheckIcon className='w-4 h-4' />
+              </>
+            ) : (
+              <>Copy Page</>
+            )}
+          </motion.div>
+        </AnimatePresence>
       </Button>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>

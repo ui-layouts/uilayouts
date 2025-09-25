@@ -53,14 +53,14 @@ export async function PreCode({
             <>
               <CopyNpmCommandButton
                 code={tshighlighted.code}
-                classname='top-3.5 dark:bg-primary-base bg-neutral-200'
+                classname='top-3.5 dark:bg-neutral-800 bg-neutral-200'
               />
             </>
           ) : (
             <>
               <CopyButton
                 code={tshighlighted.code}
-                classname='top-3.5 dark:bg-primary-base bg-neutral-200'
+                classname='top-3.5 dark:bg-neutral-700 bg-neutral-200'
               />
             </>
           )}

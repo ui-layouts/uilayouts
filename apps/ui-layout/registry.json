@@ -410,7 +410,74 @@
         }
       ]
     },
-
+    {
+      "name": "video-blur-vignette",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/blurvignette/blurvignettevideo.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/blur-vignette.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "blur-vignette-video",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/blurvignette/blurvignettevideo.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/blur-vignette.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "blur-vignette-img",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/blurvignette/blurvignetteimg.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/blur-vignette.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "blur-vignette-card",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/blurvignette/blurvignettecard.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/blur-vignette.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
     {
       "name": "liquid-gradient",
       "type": "registry:component",

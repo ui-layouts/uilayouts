@@ -27,6 +27,7 @@ type ComponentPreviewProps = {
   code: string;
   responsive?: boolean;
   isFitheight?: boolean;
+  isFit?: boolean;
   jsonName?: string;
   hideDeviceOpt?: boolean;
   previewComp?: boolean;
@@ -44,6 +45,7 @@ export default function ComponentPreview({
   jsonName,
   isNotCopy,
   hideDeviceOpt,
+  isFit,
   iframeComponent,
   previewComp,
 }: ComponentPreviewProps) {
@@ -236,9 +238,7 @@ export default function ComponentPreview({
             <>
               <div
                 className={cn(
-                  `${
-                    isFitheight ? 'h-[600px] ' : 'h-[600px] '
-                  }  w-full rounded-lg   dark:bg-[#080b11] bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:20px_20px]   overflow-hidden     pt-16  p-0`,
+                  `h-[600px] w-full rounded-lg border dark:bg-[#080b11] overflow-hidden pt-16 p-0`,
                   className
                 )}
               >
@@ -285,30 +285,23 @@ export default function ComponentPreview({
       ) : (
         <>
           <div
-            className={`${
+            className={cn(
+              `w-full rounded-lg flex flex-col justify-center items-center dark:bg-[#020101] bg-neutral-200 overflow-hidden`,
               isFitheight
-                ? 'h-fit'
-                : '2xl:h-[600px] xl:h-[550px] h-fit overflow-auto'
-            } w-full rounded-lg dark:bg-[#020101] bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:20px_20px] overflow-hidden pt-8 p-8`}
+                ? 'h-fit p-6'
+                : isFit
+                  ? 'h-fit w-fit'
+                  : '2xl:h-[600px] xl:h-[550px] h-fit overflow-auto p-6'
+            )}
           >
-            <div
-              className='h-full  mx-auto p-5 not-prose'
-              style={{ width: responsive ? width : '100%' }}
-            >
-              <div
-                className='h-full mx-auto p-5 not-prose'
-                style={{ width: responsive ? width : '100%' }}
-              >
-                {currentComponentData ? (
-                  React.createElement(
-                    currentComponentData.componentSrc as DynamicComponentType,
-                    { key: reTriggerKey }
-                  )
-                ) : (
-                  <>Component Not Found</>
-                )}
-              </div>
-            </div>
+            {currentComponentData ? (
+              React.createElement(
+                currentComponentData.componentSrc as DynamicComponentType,
+                { key: reTriggerKey }
+              )
+            ) : (
+              <>Component Not Found</>
+            )}
           </div>
         </>
       )}

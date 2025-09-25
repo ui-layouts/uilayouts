@@ -98,7 +98,7 @@ function Others1() {
       opacity: 1,
       filter: 'blur(0px)',
       transition: {
-        delay: i * 0.4,
+        delay: i * 0.2,
         duration: 0.5,
       },
     }),
@@ -199,6 +199,11 @@ function Others1() {
             <TimelineAnimation
               as='article'
               animationNum={2}
+              viewport={{
+                amount: 0.3,
+                margin: '0px 0px -50px 0px',
+                once: true,
+              }}
               customVariants={revealVariants}
               className='flex md:flex-row flex-col gap-4 justify-between mb-4 mt-0 rounded-lg dark:from-black/40 to-blue-100 to-100% from-zinc-100 border backdrop-blur-md p-6 2xl:w-[90%] mx-auto relative'
             >

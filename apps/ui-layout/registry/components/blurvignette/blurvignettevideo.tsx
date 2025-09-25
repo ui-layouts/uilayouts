@@ -14,7 +14,7 @@ function index() {
         inset='10px'
         transitionLength='100px'
         blur='15px'
-        classname='h-96 w-full mt-10'
+        classname='h-96 w-full overflow-hidden'
       >
         <video
           autoPlay={true}

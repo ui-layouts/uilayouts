@@ -13,7 +13,7 @@ const SidebarMenu = ({className}:{className?:string}) => {
   return (
     <>
       <div
-        className={cn('p-8 flex max-w-full py-20 rounded-xl items-center justify-center',className)}
+        className={cn('p-8 flex w-full py-20 rounded-xl items-center justify-center',className)}
         style={{
           background:
             'url("https://images.unsplash.com/photo-1752440093057-1c188e7137e9?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") center / cover no-repeat',
