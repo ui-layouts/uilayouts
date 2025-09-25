@@ -28,7 +28,7 @@ export function TimelineAnimation<
   as,
   viewport = { amount: 0.3, margin: '0px 0px -120px 0px', once: true },
   customVariants,
-  delay = false,
+  delay = true,
   ...props
 }: TimelineAnimationProps<T>) {
   const MotionComponent = motion[as || 'div'] as React.ElementType;
@@ -41,7 +41,7 @@ export function TimelineAnimation<
       transition: {
         duration: 0.6,
         ease: 'easeOut',
-        ...(delay ? { delay: animationNum * 0.2 } : {}),
+        ...(delay ? { delay: animationNum * 0.1 } : {}),
       },
     },
   };

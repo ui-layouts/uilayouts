@@ -7,7 +7,8 @@ export const DOCS_CATEGORY_GROUP = {
   DragItems: 'DragItems',
   Carousel: 'Carousel',
   Creative: 'Creative',
-  'Modal/Drawer': 'Modal/Drawer',
+  'Modal/Dialog': 'Modal/Dialog',
+  Drawer: 'Drawer',
   Animation: 'Animation',
   TextAnimation: 'TextAnimation',
   Scroll: 'Scroll',
@@ -212,12 +213,14 @@ export const COMPONENT_KEYS = {
   IMAGE_MOUSETRAIL_DISAPPEAR: 'image-mousetrail-disappear',
   IMAGE_MOUSETRAIL_WITHOUT_COMPONENT: 'image-mousetrail-without-component',
 
-  // Modal/Drawer category
+  // Drawer category
   RESPONSIVE_DRAWER: 'responsive-drawer',
   RESPONSIVE_HEADER: 'responsive-header',
   SIDEBAR_DRAWER: 'sidebar-drawer',
   LEFT_SIDEBAR_DRAWER: 'left-sidebar-drawer',
   NESTED_DRAWER: 'nested-drawer',
+
+  // Modal/Dialog category
   DIALOG: 'dialog',
   MEDIA_MODAL: 'media-modal',
   IMAGEMODALSL: 'imagemodalsl',

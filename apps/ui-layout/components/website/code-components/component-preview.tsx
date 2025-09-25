@@ -79,7 +79,7 @@ export default function ComponentPreview({
         {responsive && (
           <>
             {!hideDeviceOpt && (
-              <div className='flex items-center gap-2 rounded-lg border dark:bg-primary-base bg-neutral-300 p-1'>
+              <div className='flex items-center gap-2 rounded-lg border dark:bg-primary-base bg-neutral-200 p-1'>
                 <TooltipProvider>
                   <Tooltip delayDuration={200}>
                     <TooltipTrigger
