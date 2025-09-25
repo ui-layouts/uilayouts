@@ -1,76 +1,74 @@
 export const metadata = {
   metadataBase: new URL("https://ui-layouts.com"),
 
-  title: "Timeline Animation",
-  description:
-    "A timeline animation built with Framer Motion that animates sections one after another as they enter the viewport. Supports an animationNum prop to control when each item in the timeline animates.",
-  keywords: [
-    "Timeline animation React",
-    "Framer Motion timeline",
-    "Scroll timeline animation",
-    "Sequential section animation",
-    "Animated timeline component",
-    "Framer Motion animationNum",
-    "Scroll triggered timeline",
-    "Staggered timeline animation",
-    "React timeline animation",
-    "Step by step animation",
-    "Interactive timeline UI",
-    "Framer Motion sequential reveal",
-    "Section by section animation",
-    "Viewport timeline animation",
-    "Modern timeline component",
-    "Sequential content reveal React",
-    "Animated vertical timeline",
-    "React storytelling timeline",
-    "Scroll-based animation timeline",
-    "Framer Motion UI timeline",
-  ],
-  authors: [{ name: "Naymur Rahman", url: "https://twitter.com/naymur_dev" }],
-  creator: "@naymur_dev",
-  publisher: "UI Layouts",
-  openGraph: {
-    title: "Timeline Animation | UI Layouts",
-    description:
-      "A Framer Motion timeline animation component for React. Animates timeline items sequentially as you scroll, with full control using the animationNum prop.",
-    url: "https://ui-layouts.com/components/timeline-animation",
-    images: [
-      {
-        url: 'https://ui-layouts.com/component-og.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'UI Layouts Components',
-      },
-    ],
-    siteName: "UI Layouts",
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Timeline Animation | UI Layouts",
-    images: ['https://ui-layouts.com/component-og.jpg'],
-    description:
-      "React timeline animation using Framer Motion. Animates sections one after another with scroll, controllable via animationNum.",
-    creator: "@naymur_dev",
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-  category: "technology",
+title: "Timeline Animation",
+description:
+"A timeline animation built with Framer Motion that animates sections one after another as they enter the viewport. Supports an animationNum prop to control when each item in the timeline animates.",
+keywords: [
+"Timeline animation React",
+"Framer Motion timeline",
+"Scroll timeline animation",
+"Sequential section animation",
+"Animated timeline component",
+"Framer Motion animationNum",
+"Scroll triggered timeline",
+"Staggered timeline animation",
+"React timeline animation",
+"Step by step animation",
+"Interactive timeline UI",
+"Framer Motion sequential reveal",
+"Section by section animation",
+"Viewport timeline animation",
+"Modern timeline component",
+"Sequential content reveal React",
+"Animated vertical timeline",
+"React storytelling timeline",
+"Scroll-based animation timeline",
+"Framer Motion UI timeline",
+],
+authors: [{ name: "Naymur Rahman", url: "https://twitter.com/naymur_dev" }],
+creator: "@naymur_dev",
+publisher: "UI Layouts",
+openGraph: {
+title: "Timeline Animation | UI Layouts",
+description:
+"A Framer Motion timeline animation component for React. Animates timeline items sequentially as you scroll, with full control using the animationNum prop.",
+url: "https://ui-layouts.com/components/timeline-animation",
+images: [
+{
+url: 'https://ui-layouts.com/component-og.jpg',
+width: 1200,
+height: 630,
+alt: 'UI Layouts Components',
+},
+],
+siteName: "UI Layouts",
+locale: "en_US",
+type: "website",
+},
+twitter: {
+card: "summary_large_image",
+title: "Timeline Animation | UI Layouts",
+images: ['https://ui-layouts.com/component-og.jpg'],
+description:
+"React timeline animation using Framer Motion. Animates sections one after another with scroll, controllable via animationNum.",
+creator: "@naymur_dev",
+},
+robots: {
+index: true,
+follow: true,
+googleBot: {
+index: true,
+follow: true,
+"max-video-preview": -1,
+"max-image-preview": "large",
+"max-snippet": -1,
+},
+},
+category: "technology",
 };
 
-
 <ComponentCodePreview name='timeline-animation' hasReTrigger responsive />
-
 
 ## Installation
 
@@ -84,11 +82,11 @@ export const metadata = {
   <TabsContent value="cli">
    <CodeWithTabs>
       ```js !!tabs ui-layouts
-      npx uilayouts@latest add framer-timeline
+      npx uilayouts@latest add timeline-animation
       ```
 
       ```tsx !!tabs shadcn
-      npx shadcn@latest add 'https://www.ui-layouts.com/r/framer-timeline.json'
+      npx shadcn@latest add 'https://www.ui-layouts.com/r/timeline-animation.json'
       ```
 
    </CodeWithTabs>
@@ -96,83 +94,120 @@ export const metadata = {
   
 <TabsContent value="manual">
 ```bash
-npm install motion @motionone/utils
+npm install motion
 ```
 
-```tsx framer-timeline.tsx
-import { type HTMLMotionProps, motion, useInView } from "motion/react"
-import type React from "react"
-import type { Variants } from "motion/react"
+```tsx timeline-animation.tsx
+'use client';
 
-type TimelineContentProps<T extends keyof HTMLElementTagNameMap> = {
-  children: React.ReactNode
-  animationNum: number
-  className?: string
-  timelineRef: React.RefObject<HTMLElement | null>
-  as?: T
-  customVariants?: Variants
-  once?: boolean
-} & HTMLMotionProps<T>
+import { motion, MotionProps, Variants } from 'motion/react';
+import { cn } from '@/lib/utils';
+import { ComponentPropsWithoutRef } from 'react';
 
-export const TimelineContent = <T extends keyof HTMLElementTagNameMap = "div">({
+type TimelineAnimationProps<T extends keyof HTMLElementTagNameMap> = {
+  children: React.ReactNode;
+  className?: string;
+  animationNum: number;
+  as?: T;
+  viewport?: {
+    amount?: number;
+    margin?: string;
+    once?: boolean;
+  };
+  customVariants?: Variants;
+} & MotionProps &
+  ComponentPropsWithoutRef<T>;
+
+export function TimelineAnimation<
+  T extends keyof HTMLElementTagNameMap = 'div',
+>({
   children,
-  animationNum,
-  timelineRef,
   className,
+  animationNum,
   as,
+  viewport = { amount: 0.3, margin: '0px 0px -120px 0px', once: true },
   customVariants,
-  once=false,
   ...props
-}: TimelineContentProps<TabsContent>) => {
-  const defaultSequenceVariants = {
+}: TimelineAnimationProps<T>) {
+  const MotionComponent = motion[as || 'div'] as React.ElementType;
+
+  const defaultVariants: Variants = {
+    hidden: { opacity: 0, y: 50 },
     visible: (i: number) => ({
-      filter: "blur(0px)",
-      y: 0,
       opacity: 1,
+      y: 0,
       transition: {
-        delay: i * 0.5,
-        duration: 0.5,
+        duration: 0.6,
+        delay: i * 0.2,
+        ease: 'easeOut',
       },
     }),
-    hidden: {
-      filter: "blur(20px)",
-      y: 0,
-      opacity: 0,
-    },
-  }
-
-  // Use custom variants if provided, otherwise use default
-  const sequenceVariants = customVariants || defaultSequenceVariants
-
-  const isInView = useInView(timelineRef, {
-    once
-  })
-
-  const MotionComponent = motion[as || "div"] as React.ElementType
+  };
 
   return (
     <MotionComponent
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
       custom={animationNum}
-      variants={sequenceVariants}
-      className={className}
+      initial='hidden'
+      whileInView='visible'
+      variants={customVariants || defaultVariants}
+      viewport={viewport}
+      className={cn('relative', className)}
       {...props}
     >
       {children}
     </MotionComponent>
-  )
+  );
 }
 ```
+
 </TabsContent>
 </Tabs>
 
+## Usage Examples
+
+### Default Animation
+
+```tsx
+<TimelineAnimation animationNum={1}>
+  <h2>Default fade/slide animation</h2>
+</TimelineAnimation>
+```
+
+### Custom Variants
+
+```tsx
+const revealVariants = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
+};
+
+<TimelineAnimation animationNum={2} customVariants={revealVariants}>
+  <h2>Custom animation</h2>
+</TimelineAnimation>;
+```
+
+### Using `<a>` Link
+
+```tsx
+<TimelineAnimation
+  as='a'
+  href='https://pro.ui-layouts.com/test'
+  animationNum={3}
+  customVariants={revealVariants}
+  className='group rounded-lg border p-4'
+>
+  <h3>Clickable card</h3>
+</TimelineAnimation>
+```
+
 ## Props
 
-| Prop         | Type                               | Default | Description                                           |
-| ------------ | ---------------------------------- | ------- | ----------------------------------------------------- |
-| children     | React.ReactNode                    |         | The content to be displayed within the timeline.      |
-| as           | keyof HTMLElementTagNameMap        | div     | The HTML element to use for the timeline.             |
-| timelineRef  | `React.RefObject<HTMLDivElement>`  |         | A reference to the timeline element for manipulation. |
-| once         | boolean                            | false   | Whether to animate only once.                         |
-| variants     | Variants                           |         | A set of variants to animate the timeline.            |
+| Prop           | Type                                                   | Default                                                     | Description                                                                            |
+| -------------- | ------------------------------------------------------ | ----------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| children       | `React.ReactNode`                                      | —                                                           | The content to be displayed within the timeline.                                       |
+| as             | `keyof HTMLElementTagNameMap`                          | `"div"`                                                     | The HTML element to render (`div`, `a`, `section`, etc.).                              |
+| animationNum   | `number`                                               | —                                                           | A number used to stagger animations for multiple items.                                |
+| viewport       | `{ amount?: number; margin?: string; once?: boolean }` | `{ amount: 0.3, margin: "0px 0px -120px 0px", once: true }` | Controls when the animation triggers in the viewport.                                  |
+| customVariants | `Variants`                                             | —                                                           | Optional set of custom Framer Motion variants for `hidden` and `visible` animations.   |
+| className      | `string`                                               | —                                                           | Optional CSS classes to style the timeline element.                                    |
+| ...props       | `ComponentPropsWithoutRef<T>`                          | —                                                           | All other native HTML props for the element (e.g., `href`, `target`, `rel` for `<a>`). |

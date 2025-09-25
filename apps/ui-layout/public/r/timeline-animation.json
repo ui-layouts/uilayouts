@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "timeline-animation",
+  "type": "registry:component",
+  "dependencies": [
+    "motion"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "./components/ui/timeline-animation.tsx",
+      "content": "'use client';\r\n\r\nimport { motion, MotionProps, Variants } from 'motion/react';\r\nimport { cn } from '@/lib/utils';\r\nimport { ComponentPropsWithoutRef } from 'react';\r\n\r\ntype TimelineAnimationProps<T extends keyof HTMLElementTagNameMap> = {\r\n  children: React.ReactNode;\r\n  className?: string;\r\n  animationNum: number;\r\n  as?: T;\r\n  viewport?: {\r\n    amount?: number;\r\n    margin?: string;\r\n    once?: boolean;\r\n  };\r\n  customVariants?: Variants;\r\n} & MotionProps &\r\n  ComponentPropsWithoutRef<T>;\r\n\r\nexport function TimelineAnimation<\r\n  T extends keyof HTMLElementTagNameMap = 'div',\r\n>({\r\n  children,\r\n  className,\r\n  animationNum,\r\n  as,\r\n  viewport = { amount: 0.3, margin: '0px 0px -120px 0px', once: true },\r\n  customVariants,\r\n  ...props\r\n}: TimelineAnimationProps<T>) {\r\n  const MotionComponent = motion[as || 'div'] as React.ElementType;\r\n\r\n  const defaultVariants: Variants = {\r\n    hidden: { opacity: 0, y: 50 },\r\n    visible: (i: number) => ({\r\n      opacity: 1,\r\n      y: 0,\r\n      transition: {\r\n        duration: 0.6,\r\n        delay: i * 0.2,\r\n        ease: 'easeOut',\r\n      },\r\n    }),\r\n  };\r\n\r\n  return (\r\n    <MotionComponent\r\n      custom={animationNum}\r\n      initial='hidden'\r\n      whileInView='visible'\r\n      variants={customVariants || defaultVariants}\r\n      viewport={viewport}\r\n      className={cn('relative', className)}\r\n      {...props} // ✅ now accepts href, target, rel, etc.\r\n    >\r\n      {children}\r\n    </MotionComponent>\r\n  );\r\n}\r\n",
+      "type": "registry:component"
+    }
+  ]
+}

@@ -470,21 +470,19 @@
         }
       ]
     },
-
     {
-      "name": "framer-timeline",
+      "name": "timeline-animation",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": ["motion", "@motionone/utils"],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
-          "path": "./components/ui/framer-timeline.tsx",
+          "path": "./components/ui/timeline-animation.tsx",
           "type": "registry:component"
         }
       ]
     },
-
     {
       "name": "scroll-element",
       "type": "registry:component",

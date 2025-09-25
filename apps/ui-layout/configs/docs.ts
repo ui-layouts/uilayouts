@@ -1,8 +1,16 @@
-import { COMPONENT_KEYS, DOCS_CATEGORY_GROUP, DOCS_CATEGORY_KEY } from '../const/docs';
-import { DocsCategoryKey, DocsFileRef, DocsNavigationCategory } from '../types/docs';
+import {
+  COMPONENT_KEYS,
+  DOCS_CATEGORY_GROUP,
+  DOCS_CATEGORY_KEY,
+} from '../const/docs';
+import {
+  DocsCategoryKey,
+  DocsFileRef,
+  DocsNavigationCategory,
+} from '../types/docs';
 import React from 'react';
 
-export const DocsNavigationCategories:DocsNavigationCategory[] = [
+export const DocsNavigationCategories: DocsNavigationCategory[] = [
   {
     href: '/components/liquid-glass',
     name: 'Liquid-Glass',
@@ -498,7 +506,14 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
     group: DOCS_CATEGORY_GROUP.Animation,
     new: false,
     updated: true,
-    tags: ['timeline', 'animation', 'scroll', 'motion', 'interactive'],
+    tags: [
+      'timeline-animation',
+      'timeline animation',
+      'animation',
+      'scroll',
+      'motion',
+      'interactive',
+    ],
   },
   {
     href: '/components/scroll-animation',
@@ -931,6 +946,7 @@ export const DocsNavigationCategories:DocsNavigationCategory[] = [
     tags: ['infinity', 'brand', 'marquee'],
   },
 ];
+
 export interface IAllComponents {
   category: DocsCategoryKey;
   componentName: string;
@@ -2349,7 +2365,6 @@ export const AllComponents: IAllComponents[] = [
     ),
     iframeSrc: 'live-components/motion-number',
   },
-
   {
     category: DOCS_CATEGORY_KEY['image-mousetrail'],
     componentName: COMPONENT_KEYS.IMAGE_MOUSETRAIL_DEFAULT,

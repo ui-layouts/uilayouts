@@ -304,6 +304,19 @@
       ]
     },
     {
+      "name": "timeline-animation",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "liquid-glass",
       "type": "registry:component",
       "devDependencies": [],
