@@ -7,7 +7,7 @@ import { ComponentPropsWithoutRef } from 'react';
 type TimelineAnimationProps<T extends keyof HTMLElementTagNameMap> = {
   children: React.ReactNode;
   className?: string;
-  animationNum: number;
+  animationNum?: number;
   as?: T;
   viewport?: {
     amount?: number;
@@ -15,6 +15,7 @@ type TimelineAnimationProps<T extends keyof HTMLElementTagNameMap> = {
     once?: boolean;
   };
   customVariants?: Variants;
+  delay?: boolean;
 } & MotionProps &
   ComponentPropsWithoutRef<T>;
 
@@ -23,36 +24,36 @@ export function TimelineAnimation<
 >({
   children,
   className,
-  animationNum,
+  animationNum = 0,
   as,
-  viewport = { amount: 0.3, margin: '0px 0px -50px 0px', once: true },
+  viewport = { amount: 0.3, margin: '0px 0px -120px 0px', once: true },
   customVariants,
+  delay = false,
   ...props
 }: TimelineAnimationProps<T>) {
   const MotionComponent = motion[as || 'div'] as React.ElementType;
 
   const defaultVariants: Variants = {
     hidden: { opacity: 0, y: 50 },
-    visible: (i: number) => ({
+    visible: {
       opacity: 1,
       y: 0,
       transition: {
         duration: 0.6,
-        delay: i * 0.2,
         ease: 'easeOut',
+        ...(delay ? { delay: animationNum * 0.2 } : {}),
       },
-    }),
+    },
   };
 
   return (
     <MotionComponent
-      custom={animationNum}
       initial='hidden'
       whileInView='visible'
       variants={customVariants || defaultVariants}
       viewport={viewport}
       className={cn('relative', className)}
-      {...props} // ✅ now accepts href, target, rel, etc.
+      {...props}
     >
       {children}
     </MotionComponent>
