@@ -3,11 +3,15 @@ import React, { useEffect, useState } from 'react';
 const newComponent = [
   {
     href: '/components/motion-drawer',
-    title: 'Liquid Glass',
+    title: 'Motion Drawer',
   },
   {
     href: '/components/directional-drawer',
-    title: 'Color Picker',
+    title: 'Directional Drawer',
+  },
+  {
+    href: '/components/liquid-glass',
+    title: 'Liquid Glass',
   },
 ];
 

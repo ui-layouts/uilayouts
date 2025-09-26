@@ -220,7 +220,7 @@ export default function ComponentPreview({
                 <a
                   href={`${process.env.NEXT_PUBLIC_ANIMATION_URL}/${iframeComponent}`}
                   target='_blank'
-                  className='relative  flex cursor-pointer underline items-center  gap-1 rounded-lg border bg-foreground text-background p-1 px-2.5'
+                  className='relative  flex cursor-pointer underline items-center  gap-1 rounded-lg border dark:bg-[#080b11] bg-neutral-200  text-background p-1 px-2.5'
                 >
                   Open <ExternalLink size={20} />
                 </a>
@@ -290,7 +290,7 @@ export default function ComponentPreview({
               isFitheight
                 ? 'h-fit p-6'
                 : isFit
-                  ? 'h-fit w-fit'
+                  ? 'h-fit p-0'
                   : '2xl:h-[600px] xl:h-[550px] h-fit overflow-auto p-6'
             )}
           >
