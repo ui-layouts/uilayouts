@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "scroll-animation",
+  "type": "registry:component",
+  "dependencies": [
+    "motion"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "./components/ui/scroll-animation.tsx",
+      "content": "'use client';\r\n\r\nimport { cn } from '@/lib/utils';\r\nimport {\r\n  motion,\r\n  HTMLMotionProps,\r\n  SVGMotionProps,\r\n} from 'motion/react';\r\nimport React from 'react';\r\ntype Direction = 'up' | 'down' | 'left' | 'right';\r\n\r\nconst generateVariants = (\r\n  direction: Direction\r\n): { hidden: any; visible: any } => {\r\n  const axis = direction === 'left' || direction === 'right' ? 'x' : 'y';\r\n  const value = direction === 'right' || direction === 'down' ? 100 : -100;\r\n\r\n  return {\r\n    hidden: { filter: 'blur(10px)', opacity: 0, [axis]: value },\r\n    visible: {\r\n      filter: 'blur(0px)',\r\n      opacity: 1,\r\n      [axis]: 0,\r\n      transition: {\r\n        duration: 0.5,\r\n        ease: 'easeOut',\r\n      },\r\n    },\r\n  };\r\n};\r\n\r\nconst defaultViewport = { amount: 0.3, margin: '0px 0px -200px 0px' };\r\ntype MotionComponentProps = HTMLMotionProps<any> & SVGMotionProps<any>;\r\n\r\ninterface ScrollElementProps extends Omit<MotionComponentProps, 'children'> {\r\n  children: React.ReactNode;\r\n  className?: string;\r\n  variants?: {\r\n    hidden?: any;\r\n    visible?: any;\r\n  };\r\n  viewport?: {\r\n    amount?: number;\r\n    margin?: string;\r\n    once?: boolean;\r\n  };\r\n  delay?: number;\r\n  direction?: Direction;\r\n}\r\n\r\nfunction ScrollElement({\r\n  children,\r\n  className,\r\n  variants,\r\n  viewport = defaultViewport,\r\n  delay = 0, \r\n  direction = 'down',\r\n  ...rest\r\n}: ScrollElementProps) {\r\n  const baseVariants = variants || generateVariants(direction);\r\n  const modifiedVariants = {\r\n    hidden: baseVariants.hidden,\r\n    visible: {\r\n      ...baseVariants.visible,\r\n      transition: {\r\n        ...baseVariants.visible.transition,\r\n        delay, \r\n      },\r\n    },\r\n  };\r\n\r\n  return (\r\n    <motion.div\r\n      whileInView='visible'\r\n      initial='hidden'\r\n      variants={modifiedVariants}\r\n      viewport={viewport}\r\n      className={cn(className)}\r\n      {...rest}\r\n    >\r\n      {children}\r\n    </motion.div>\r\n  );\r\n}\r\nexport default ScrollElement;\r\n",
+      "type": "registry:component"
+    }
+  ]
+}

@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 import { Github, MousePointerClick, PenTool } from 'lucide-react';
 import { SearchDialog } from './searchbar';
-import MobileHeader from './moibile-header';
+import MobileHeader from './mobile-header';
 import ThemeSwitch from './theme-switch';
 import GitHubButton from '@/registry/components/github-repo-btn';
 import MainComponentsDownloader from './downloadallarray';

@@ -243,7 +243,7 @@ export default function ComponentPreview({
                 )}
               >
                 <div
-                  className='h-full  not-prose mx-auto  '
+                  className='h-full not-prose mx-auto'
                   style={{ width: width }}
                 >
                   <iframe
@@ -261,7 +261,7 @@ export default function ComponentPreview({
               className={cn(
                 `${
                   isFitheight ? 'h-fit py-4' : 'h-[600px] '
-                }  w-full rounded-lg  dark:bg-[#080b11] overflow-hiddenx pt-16 p-0`,
+                }  w-full rounded-lg  dark:bg-neutral-900 bg-neutral-200 border dark:border-neutral-800 overflow-hiddenx pt-16 p-0`,
                 className
               )}
             >

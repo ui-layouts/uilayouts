@@ -317,6 +317,19 @@
       ]
     },
     {
+      "name": "scroll-animation",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/scroll-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "liquid-glass",
       "type": "registry:component",
       "devDependencies": [],
@@ -562,6 +575,45 @@
       "files": [
         {
           "path": "./components/ui/linear-modal.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+        {
+      "name": "responsive-modal",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/responsive-modal.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "directional-drawer",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/directional-drawer.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "responsive-header",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/responsive-header.tsx",
           "type": "registry:component"
         }
       ]

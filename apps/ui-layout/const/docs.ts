@@ -66,8 +66,8 @@ export const DOCS_CATEGORY_KEY = {
   'media-modal': 'media-modal',
   'linear-modal': 'linear-modal',
   'gallery-modal': 'gallery-modal',
-  'responsive-drawer': 'responsive-drawer',
-  'responsive-sidebar': 'responsive-sidebar',
+  'responsive-modal': 'responsive-modal',
+  'directional-drawer': 'directional-drawer',
   'horizontal-scroll': 'horizontal-scroll',
   'stacking-card': 'stacking-card',
   'smooth-scroll': 'smooth-scroll',
@@ -214,14 +214,14 @@ export const COMPONENT_KEYS = {
   IMAGE_MOUSETRAIL_WITHOUT_COMPONENT: 'image-mousetrail-without-component',
 
   // Drawer category
-  RESPONSIVE_DRAWER: 'responsive-drawer',
   RESPONSIVE_HEADER: 'responsive-header',
-  SIDEBAR_DRAWER: 'sidebar-drawer',
-  LEFT_SIDEBAR_DRAWER: 'left-sidebar-drawer',
+  DIRECTIONAL_DRAWER: 'directional-drawer',
+  LEFT_DIRECTIONAL_DRAWER: 'left-directional-drawer',
   NESTED_DRAWER: 'nested-drawer',
-
+  
   // Modal/Dialog category
   DIALOG: 'dialog',
+  RESPONSIVE_MODAL: 'responsive-modal',
   MEDIA_MODAL: 'media-modal',
   IMAGEMODALSL: 'imagemodalsl',
   LINEAR_MODAL: 'linear-modal',

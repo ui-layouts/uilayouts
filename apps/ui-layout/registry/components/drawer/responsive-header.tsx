@@ -6,7 +6,7 @@ import { useMediaQuery } from '@/hooks/use-media-query';
 import {
   DrawerContent,
   HeaderDrawer,
-} from '@/components/ui/drawer/vaul-header';
+} from '@/components/ui/responsive-header';
 const items = [
   {
     id: 1,

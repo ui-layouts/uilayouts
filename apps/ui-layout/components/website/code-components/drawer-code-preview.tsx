@@ -9,9 +9,9 @@ import {
 import { Pre, RawCode, highlight } from 'codehike/code';
 
 import {
-  DrawerContent,
-  ResponsiveDrawer,
-} from '@/components/ui/vaul-main';
+  ResponsiveModal,
+  ResponsiveModalContent,
+} from '@/components/ui/responsive-modal';
 
 import React, { lazy } from 'react';
 import { Code, Eye, Maximize2 } from 'lucide-react';
@@ -131,7 +131,7 @@ export default async function DrawerCodePreview({
             classname=' relative top-0 left-0 dark:bg-muted bg-white'
           />
 
-          <ResponsiveDrawer
+          <ResponsiveModal
             classname=' max-w-screen-lg p-2 '
             triggerContent={
               <button className=' flex gap-1 bg-foreground rounded-lg h-8 px-2 dark:text-black text-white text-sm font-semibold  items-center  '>
@@ -140,7 +140,7 @@ export default async function DrawerCodePreview({
               </button>
             }
           >
-            <DrawerContent className='2xl:max-h-[62vh] max-h-[80vh] overflow-auto '>
+            <ResponsiveModalContent className='2xl:max-h-[62vh] max-h-[80vh] overflow-auto '>
               <Tabs
                 className='relative'
                 defaultValue={`${parsedCodeblock.comName}-typescript`}
@@ -191,8 +191,8 @@ export default async function DrawerCodePreview({
                   {parsedCodeblock.children}
                 </TabsContent>
               </Tabs>
-            </DrawerContent>
-          </ResponsiveDrawer>
+            </ResponsiveModalContent>
+          </ResponsiveModal>
           {isEdit && (
             <SafeSuspense fallback={<LoadingFallback />}>
               <EditComponents

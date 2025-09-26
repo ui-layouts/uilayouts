@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { ScrollArea } from './ui/scroll-area';
 import { usePathname, useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { SidebarDrawer, DrawerContent } from '../ui/drawer/vaul-sidebar';
+import { DirectionalDrawer, DrawerContent } from '../ui/directional-drawer';
 import { basePath } from './sidebar';
 import { DocsNavigationCategories } from '@/configs/docs';
 import { cn } from '@/lib/utils';
@@ -43,7 +43,7 @@ function MobileHeader({ classname }: { classname?: string }) {
           />
         </svg>
       </button>
-      <SidebarDrawer
+      <DirectionalDrawer
         open={sidebarOpen}
         setOpen={setSidebarOpen}
         direction={'left'}
@@ -197,7 +197,7 @@ function MobileHeader({ classname }: { classname?: string }) {
             </ul>
           </ScrollArea>
         </DrawerContent>
-      </SidebarDrawer>
+      </DirectionalDrawer>
     </>
   );
 }

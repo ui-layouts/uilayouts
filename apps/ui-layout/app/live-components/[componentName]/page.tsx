@@ -42,7 +42,7 @@ export default async function SectionPage(
     <section
       className={`${
         isFramerScrolling ? '' : 'flex justify-center items-center '
-      } min-h-screen rounded-md dark:bg-[#000000]`}
+      } min-h-screen rounded-md dark:bg-black bg-neutral-100`}
     >
       <div className='px-4 w-full'>
         {ComponentPreview ? (

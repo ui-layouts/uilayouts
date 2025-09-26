@@ -6,9 +6,9 @@ import { X } from 'lucide-react';
 import Image from 'next/image';
 import { useMediaQuery } from '@/hooks/use-media-query';
 import {
-  DrawerContent,
-  ResponsiveDrawer,
-} from '@/components/ui/vaul-main';
+  ResponsiveModalContent,
+  ResponsiveModal,
+} from '@/components/ui/responsive-modal';
 
 export default function MyDrawer() {
   // const [open, setOpen] = useState(false)
@@ -25,8 +25,8 @@ export default function MyDrawer() {
           Open Dialog
         </motion.button>
       </div>
-      <ResponsiveDrawer open={drawerOpen} setOpen={setDrawerOpen}>
-        <DrawerContent>
+      <ResponsiveModal open={drawerOpen} setOpen={setDrawerOpen}>
+        <ResponsiveModalContent>
           <figure className='flex flex-col space-y-1.5 text-center  h-fit dark:bg-gray-900 md:p-0 p-6'>
             <h1 className='font-medium  text-2xl'>Update Profile Image</h1>
             <p className='text-sm text-muted-foreground'>
@@ -56,8 +56,8 @@ export default function MyDrawer() {
               </button>
             </div>
           </figure>
-        </DrawerContent>
-      </ResponsiveDrawer>
+        </ResponsiveModalContent>
+      </ResponsiveModal>
     </>
   );
 }

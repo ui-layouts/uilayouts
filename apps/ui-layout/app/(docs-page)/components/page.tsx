@@ -173,7 +173,7 @@ const appsDesign = [
   },
   {
     id: 'drawer',
-    url: '/components/responsive-drawer',
+    url: '/components/directional-drawer',
     name: 'Drawer',
     imgSrc: preview.responsive_drawer,
   },

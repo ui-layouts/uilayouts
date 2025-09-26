@@ -20,30 +20,28 @@ interface DrawerContextProps {
 
 const DrawerContext = createContext<DrawerContextProps | undefined>(undefined);
 
-export const useDrawer = () => {
+export const useResponsiveModal = () => {
   const context = useContext(DrawerContext);
   if (!context) {
-    throw new Error('useDrawer must be used within a DrawerProvider');
+    throw new Error('useResponsiveModal must be used within a ResponsiveModalProvider');
   }
   return context;
 };
 
-interface ResponsiveDrawerProps {
+interface ResponsiveModalProps {
   children: ReactNode;
   triggerContent?: ReactNode;
   open?: boolean;
   setOpen?: (open: boolean) => void;
-  closeBtnClass?: string;
   classname?: string;
 }
 
-export function ResponsiveDrawer({
+export function ResponsiveModal({
   children,
   open: controlledOpen,
   setOpen: controlledSetOpen,
   classname,
-  closeBtnClass,
-}: ResponsiveDrawerProps) {
+}: ResponsiveModalProps) {
   const [internalOpen, setInternalOpen] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -53,21 +51,21 @@ export function ResponsiveDrawer({
 
   useEffect(() => {
     setMounted(true);
-    const mediaQuery = window.matchMedia('(min-width: 768px)');
+    const mediaQuery = window.matchMedia("(min-width: 768px)");
     const handleMediaChange = (event: MediaQueryListEvent) => {
       setIsDesktop(event.matches);
     };
 
     setIsDesktop(mediaQuery.matches);
-    mediaQuery.addEventListener('change', handleMediaChange);
-    return () => mediaQuery.removeEventListener('change', handleMediaChange);
+    mediaQuery.addEventListener("change", handleMediaChange);
+    return () => mediaQuery.removeEventListener("change", handleMediaChange);
   }, []);
 
   const trigger = React.Children.toArray(children).find(
-    (child: any) => child.type === DrawerTrigger
+    (child: any) => child.type === ResponsiveModalTrigger
   );
   const content = React.Children.toArray(children).filter(
-    (child: any) => child.type !== DrawerTrigger
+    (child: any) => child.type !== ResponsiveModalTrigger
   );
 
   const desktopModal =
@@ -79,25 +77,22 @@ export function ResponsiveDrawer({
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className='fixed inset-0 z-50] flex items-center justify-center bg-black/50 backdrop-blur-sm cursor-zoom-out'
+                className="fixed inset-0 z-50] flex items-center justify-center bg-black/50 backdrop-blur-sm cursor-zoom-out"
                 onClick={() => setOpen(false)}
               >
                 <motion.div
                   initial={{ scale: 0.9, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   exit={{ scale: 0.9, opacity: 0 }}
-                  transition={{ type: 'spring', duration: 0.5 }}
+                  transition={{ type: "spring", duration: 0.5 }}
                   onClick={(e) => e.stopPropagation()}
                   className={cn(
-                    'relative w-full max-w-md border bg-white dark:bg-neutral-900 rounded-lg cursor-default',
+                    "relative w-full max-w-md border bg-white dark:bg-neutral-900 rounded-lg cursor-default",
                     classname
                   )}
                 >
                   <button
-                    className={cn(
-                      'absolute top-2 right-2 bg-primary text-background p-2 border z-[1] rounded-md',
-                      closeBtnClass
-                    )}
+                    className="absolute top-2 right-2 bg-primary text-background p-2 border z-[1] rounded-md"
                     onClick={() => setOpen(false)}
                   >
                     <X />
@@ -118,16 +113,12 @@ export function ResponsiveDrawer({
       {desktopModal}
 
       {!isDesktop && (
-        <VaulDrawer.Root
-          shouldScaleBackground
-          open={open}
-          onOpenChange={setOpen}
-        >
+        <VaulDrawer.Root shouldScaleBackground open={open} onOpenChange={setOpen}>
           <VaulDrawer.Portal>
-            <VaulDrawer.Overlay className='fixed inset-0 z-50 bg-white/50 dark:bg-black/50 backdrop-blur-sm' />
-            <VaulDrawer.Content className='fixed bottom-0 left-0 z-50 w-full max-h-[96%] bg-white dark:bg-neutral-900'>
-              <div className='mx-auto w-16 h-[0.30rem] flex-shrink-0 rounded-full bg-neutral-600 my-4' />
-              <div className='w-full mx-auto max-h-[96vh] overflow-auto px-4 pb-2'>
+            <VaulDrawer.Overlay className="fixed inset-0 z-50 bg-white/50 dark:bg-black/50 backdrop-blur-sm" />
+            <VaulDrawer.Content className="fixed bottom-0 left-0 z-50 w-full max-h-[96%] bg-white dark:bg-neutral-900">
+              <div className="mx-auto w-16 h-[0.30rem] flex-shrink-0 rounded-full bg-neutral-600 my-4" />
+              <div className="w-full mx-auto max-h-[96vh] overflow-auto px-4 pb-2">
                 {content}
               </div>
             </VaulDrawer.Content>
@@ -138,7 +129,8 @@ export function ResponsiveDrawer({
   );
 }
 
-export function DrawerContent({
+
+export function ResponsiveModalContent({
   children,
   className,
 }: {
@@ -148,7 +140,7 @@ export function DrawerContent({
   return <div className={cn('', className)}>{children}</div>;
 }
 
-export function DrawerTrigger({ children }: { children: ReactNode }) {
-  const { setOpen } = useDrawer();
+export function ResponsiveModalTrigger({ children }: { children: ReactNode }) {
+  const { setOpen } = useResponsiveModal();
   return <div onClick={() => setOpen(true)}>{children}</div>;
 }

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "responsive-header",
+  "type": "registry:component",
+  "dependencies": [
+    "motion",
+    "lucide-react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "./components/ui/responsive-header.tsx",
+      "content": "'use client';\r\n\r\nimport { MenuIcon } from 'lucide-react';\r\nimport React, {\r\n  createContext,\r\n  useContext,\r\n  useState,\r\n  useEffect,\r\n  ReactNode,\r\n} from 'react';\r\nimport { Drawer as VaulHeader } from 'vaul';\r\n\r\ninterface DrawerContextProps {\r\n  open: boolean;\r\n  setOpen: (open: boolean) => void;\r\n}\r\n\r\nconst DrawerContext = createContext<DrawerContextProps | undefined>(undefined);\r\n\r\nconst useSidebarDrawer = () => {\r\n  const context = useContext(DrawerContext);\r\n  if (!context) {\r\n    throw new Error('useDrawer must be used within a DrawerProvider');\r\n  }\r\n  return context;\r\n};\r\n\r\ninterface DrawerSidebarProps {\r\n  children: ReactNode;\r\n  open?: boolean;\r\n  setOpen?: (open: boolean) => void;\r\n  drawerBtn?: any | null;\r\n}\r\n\r\nexport function HeaderDrawer({\r\n  children,\r\n  open: controlledOpen,\r\n  setOpen: controlledSetOpen,\r\n  drawerBtn,\r\n}: DrawerSidebarProps) {\r\n  const [internalOpen, setInternalOpen] = useState(false);\r\n  const open = controlledOpen !== undefined ? controlledOpen : internalOpen;\r\n  const setOpen =\r\n    controlledSetOpen !== undefined ? controlledSetOpen : setInternalOpen;\r\n\r\n  const [isDesktop, setIsDesktop] = useState(false);\r\n\r\n  useEffect(() => {\r\n    const mediaQuery = window.matchMedia('(min-width: 768px)');\r\n    const handleMediaChange = (event: MediaQueryListEvent) => {\r\n      setIsDesktop(event.matches);\r\n    };\r\n\r\n    setIsDesktop(mediaQuery.matches);\r\n    mediaQuery.addEventListener('change', handleMediaChange);\r\n\r\n    return () => {\r\n      mediaQuery.removeEventListener('change', handleMediaChange);\r\n    };\r\n  }, []);\r\n  console.log(drawerBtn);\r\n\r\n  return (\r\n    <DrawerContext.Provider value={{ open, setOpen }}>\r\n      <>\r\n        <VaulHeader.Root\r\n          open={open}\r\n          direction='top'\r\n          onOpenChange={setOpen}\r\n          dismissible={isDesktop ? false : true}\r\n        >\r\n          {drawerBtn && (\r\n            <VaulHeader.Trigger asChild>{drawerBtn()}</VaulHeader.Trigger>\r\n          )}\r\n          <VaulHeader.Portal>\r\n            <VaulHeader.Overlay\r\n              className='fixed inset-0 dark:bg-black/40 bg-white/50 backdrop-blur-sm z-50  '\r\n              onClick={() => setOpen(false)}\r\n            />\r\n            <VaulHeader.Content className='dark:bg-gray-900 bg-white  border-b z-50 w-full h-fit py-3 fixed top-0 left-0'>\r\n              {children}\r\n            </VaulHeader.Content>\r\n          </VaulHeader.Portal>\r\n        </VaulHeader.Root>\r\n      </>\r\n    </DrawerContext.Provider>\r\n  );\r\n}\r\n\r\nexport function DrawerContent({ children }: { children: ReactNode }) {\r\n  return <>{children}</>;\r\n}\r\n",
+      "type": "registry:component"
+    }
+  ]
+}

@@ -169,35 +169,42 @@ export function TimelineAnimation<
 ### Default Animation
 
 ```tsx
-<TimelineAnimation animationNum={1}>
-  <h2>Default fade/slide animation</h2>
+const timelineRef = useRef<HTMLDivElement>(null);
+
+<TimelineAnimation as='h2' animationNum={1} ref={timelineRef}>
+  Default fade/slide animation 
 </TimelineAnimation>
 ```
 
 ### Custom Variants
 
 ```tsx
+const timelineRef = useRef<HTMLDivElement>(null);
+
 const revealVariants = {
   hidden: { opacity: 0, scale: 0.8 },
   visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
 };
 
-<TimelineAnimation animationNum={2} customVariants={revealVariants}>
-  <h2>Custom animation</h2>
+<TimelineAnimation as='button' ref={timelineRef} animationNum={2} customVariants={revealVariants}>
+  Custom animation
 </TimelineAnimation>;
 ```
 
 ### Using `<a>` Link
 
 ```tsx
+const timelineRef = useRef<HTMLDivElement>(null);
+
 <TimelineAnimation
   as='a'
   href='https://pro.ui-layouts.com/test'
   animationNum={3}
   customVariants={revealVariants}
+  ref={timelineRef}
   className='group rounded-lg border p-4'
 >
-  <h3>Clickable card</h3>
+  Clickable card
 </TimelineAnimation>
 ```
 

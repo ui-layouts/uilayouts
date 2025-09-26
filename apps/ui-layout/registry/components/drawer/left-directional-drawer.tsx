@@ -6,15 +6,15 @@ import { Edit, X } from 'lucide-react';
 import { useMediaQuery } from '@/hooks/use-media-query';
 import Image from 'next/image';
 import {
+  DirectionalDrawer,
   DrawerContent,
-  SidebarDrawer,
-} from '@/components/ui/drawer/vaul-sidebar';
-
+  DrawerTrigger,
+} from '@/components/ui/directional-drawer';
 export default function index() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   return (
     <>
-      <SidebarDrawer
+      <DirectionalDrawer
         open={sidebarOpen}
         setOpen={setSidebarOpen}
         direction={'left'}
@@ -100,7 +100,7 @@ export default function index() {
             </div>
           </figure>
         </DrawerContent>
-      </SidebarDrawer>
+      </DirectionalDrawer>
       <div className='flex justify-center'>
         <figure className='h-96 w-96 relative'>
           <Image

@@ -3,7 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 import { SearchDialog } from '@/components/website/searchbar';
 import GitHubButton from '@/registry/components/github-repo-btn';
-import MobileHeader from '../moibile-header';
+import MobileHeader from '../mobile-header';
 import ThemeSwitch from '../theme-switch';
 import { PlasticButton } from '../ui/plastic-button';
 import { cn } from '@/lib/utils';
