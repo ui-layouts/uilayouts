@@ -2566,32 +2566,32 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     category: DOCS_CATEGORY_KEY['scroll-animation'],
-    componentName: COMPONENT_KEYS.SCROLL_ELEMENT,
+    componentName: COMPONENT_KEYS.SCROLL_ANIMATION,
     filesrc: 'components/scroll-animation/scroll-element.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/scroll-animation/scroll-element')
     ),
-    iframeSrc: 'live-components/scroll-element',
+    iframeSrc: 'live-components/scroll-animation',
     tags: ['scroll', 'animation', 'element'],
   },
   {
     category: DOCS_CATEGORY_KEY['scroll-animation'],
-    componentName: COMPONENT_KEYS.REPEAT_SCROLL_ELEMENT,
+    componentName: COMPONENT_KEYS.SCROLL_ANIMATION_REPEAT,
     filesrc: 'components/scroll-animation/repeat-scroll.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/scroll-animation/repeat-scroll')
     ),
-    iframeSrc: 'live-components/repeat-scroll-element',
+    iframeSrc: 'live-components/scroll-animation-repeat',
     tags: ['scroll', 'repeat', 'animation'],
   },
   {
     category: DOCS_CATEGORY_KEY['scroll-animation'],
-    componentName: COMPONENT_KEYS.TEXT_SCROLL_ELEMENT,
+    componentName: COMPONENT_KEYS.SCROLL_ANIMATION_TEXT,
     filesrc: 'components/scroll-animation/text-scroll.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/scroll-animation/text-scroll')
     ),
-    iframeSrc: 'live-components/text-scroll-element',
+    iframeSrc: 'live-components/scroll-animation-text',
     tags: ['text', 'scroll', 'animation'],
   },
   {

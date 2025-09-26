@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import { cn } from '@/lib/utils';
@@ -6,9 +5,6 @@ import {
   motion,
   HTMLMotionProps,
   SVGMotionProps,
-  ForwardRefComponent,
-  Variant,
-  useAnimation,
 } from 'motion/react';
 import React from 'react';
 type Direction = 'up' | 'down' | 'left' | 'right';
@@ -32,18 +28,6 @@ const generateVariants = (
     },
   };
 };
-// const  n = {
-//   hidden: { filter: 'blur(10px)', opacity: 0, y: 20 },
-//   visible: {
-//     filter: 'blur(0px)',
-//     opacity: 1,
-//     y: 0,
-//     duration: 2,
-//     transition: {
-//       delay: 0, // Adjust delay here
-//     },
-//   },
-// }
 
 const defaultViewport = { amount: 0.3, margin: '0px 0px -200px 0px' };
 type MotionComponentProps = HTMLMotionProps<any> & SVGMotionProps<any>;
@@ -69,7 +53,7 @@ function ScrollElement({
   className,
   variants,
   viewport = defaultViewport,
-  delay = 0, // Default delay is 0
+  delay = 0, 
   direction = 'down',
   ...rest
 }: ScrollElementProps) {
@@ -80,7 +64,7 @@ function ScrollElement({
       ...baseVariants.visible,
       transition: {
         ...baseVariants.visible.transition,
-        delay, // Apply custom delay here
+        delay, 
       },
     },
   };

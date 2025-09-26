@@ -484,14 +484,14 @@
       ]
     },
     {
-      "name": "scroll-element",
+      "name": "scroll-animation",
       "type": "registry:component",
       "devDependencies": [],
       "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
-          "path": "./components/ui/scroll-element.tsx",
+          "path": "./components/ui/scroll-animation.tsx",
           "type": "registry:component"
         }
       ]

@@ -72,7 +72,7 @@ export const metadata = {
 };
 
 
-<ComponentCodePreview name='scroll-element' hasReTrigger responsive />
+<ComponentCodePreview name='scroll-animation' hasReTrigger responsive />
 
 ## Installation
 
@@ -86,11 +86,11 @@ export const metadata = {
   <TabsContent value="cli">
    <CodeWithTabs>
       ```js !!tabs ui-layouts
-      npx uilayouts@latest add scroll-element
+      npx uilayouts@latest add scroll-animation
       ```
 
       ```tsx !!tabs shadcn
-      npx shadcn@latest add 'https://www.ui-layouts.com/r/scroll-element.json'
+      npx shadcn@latest add 'https://www.ui-layouts.com/r/scroll-animation.json'
       ```
 
    </CodeWithTabs>
@@ -102,7 +102,7 @@ export const metadata = {
 npm install motion
 ```
 
-```tsx scroll-element.tsx
+```tsx scroll-animation.tsx
 import { cn } from '@/lib/utils';
 import {
   motion,
@@ -208,8 +208,8 @@ export default ScrollElement;
 
 ### Repeat Animation
 
-<ComponentCodePreview name='repeat-scroll-element' hasReTrigger responsive />
+<ComponentCodePreview name='scroll-animation-repeat' hasReTrigger responsive />
 
 ### Text Animation
 
-<ComponentCodePreview name='text-scroll-element' hasReTrigger responsive />
+<ComponentCodePreview name='scroll-animation-text' hasReTrigger responsive />

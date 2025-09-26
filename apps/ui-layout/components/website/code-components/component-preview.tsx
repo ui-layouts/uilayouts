@@ -238,7 +238,7 @@ export default function ComponentPreview({
             <>
               <div
                 className={cn(
-                  `h-[600px] w-full rounded-lg border dark:bg-[#080b11] overflow-hidden pt-16 p-0`,
+                  `h-[600px] w-full rounded-lg border dark:bg-[#080b11] bg-neutral-200 overflow-hidden pt-16 p-0`,
                   className
                 )}
               >

@@ -1,61 +1,62 @@
-'use client';
+import { type HTMLMotionProps, motion, useInView } from "motion/react"
+import type React from "react"
+import type { Variants } from "motion/react"
 
-import { motion, MotionProps, Variants } from 'motion/react';
-import { cn } from '@/lib/utils';
-import { ComponentPropsWithoutRef } from 'react';
+type TimelineContentProps<T extends keyof HTMLElementTagNameMap> = {
+  children: React.ReactNode
+  animationNum: number
+  className?: string
+  timelineRef: React.RefObject<HTMLElement | null>
+  as?: T
+  customVariants?: Variants
+  once?: boolean
+} & HTMLMotionProps<T>
 
-type TimelineAnimationProps<T extends keyof HTMLElementTagNameMap> = {
-  children: React.ReactNode;
-  className?: string;
-  animationNum?: number;
-  as?: T;
-  viewport?: {
-    amount?: number;
-    margin?: string;
-    once?: boolean;
-  };
-  customVariants?: Variants;
-  delay?: boolean;
-} & MotionProps &
-  ComponentPropsWithoutRef<T>;
-
-export function TimelineAnimation<
-  T extends keyof HTMLElementTagNameMap = 'div',
->({
+export const TimelineAnimation = <T extends keyof HTMLElementTagNameMap = "div">({
   children,
+  animationNum,
+  timelineRef,
   className,
-  animationNum = 0,
   as,
-  viewport = { amount: 0.3, margin: '0px 0px -120px 0px', once: true },
   customVariants,
-  delay = true,
+  once=false,
   ...props
-}: TimelineAnimationProps<T>) {
-  const MotionComponent = motion[as || 'div'] as React.ElementType;
-
-  const defaultVariants: Variants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
+}: TimelineContentProps<T>) => {
+  const defaultSequenceVariants = {
+    visible: (i: number) => ({
+      filter: "blur(0px)",
       y: 0,
+      opacity: 1,
       transition: {
-        duration: 0.6,
-        ease: 'easeOut',
-        ...(delay ? { delay: animationNum * 0.1 } : {}),
+        delay: i * 0.5,
+        duration: 0.5,
       },
+    }),
+    hidden: {
+      filter: "blur(20px)",
+      y: 0,
+      opacity: 0,
     },
-  };
+  }
+
+  const sequenceVariants = customVariants || defaultSequenceVariants
+
+  const isInView = useInView(timelineRef, {
+    once
+  })
+
+  const MotionComponent = motion[as || "div"] as React.ElementType
 
   return (
     <MotionComponent
-      initial='hidden'
-      whileInView='visible'
-      variants={customVariants || defaultVariants}
-      viewport={viewport}
-      className={cn('relative', className)}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      custom={animationNum}
+      variants={sequenceVariants}
+      className={className}
       {...props}
     >
       {children}
     </MotionComponent>
-  );
+  )
 }

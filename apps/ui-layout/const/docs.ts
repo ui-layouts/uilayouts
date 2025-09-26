@@ -232,9 +232,9 @@ export const COMPONENT_KEYS = {
   GALLERY_MODAL_UNSPLASH: 'gallery-modal-unsplash',
 
   // Animation category
-  SCROLL_ELEMENT: 'scroll-element',
-  REPEAT_SCROLL_ELEMENT: 'repeat-scroll-element',
-  TEXT_SCROLL_ELEMENT: 'text-scroll-element',
+  SCROLL_ANIMATION: 'scroll-animation',
+  SCROLL_ANIMATION_REPEAT: 'scroll-animation-repeat',
+  SCROLL_ANIMATION_TEXT: 'scroll-animation-text',
   TIMELINE_ANIMATION: 'timeline-animation',
 
   // TextAnimation category
