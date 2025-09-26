@@ -1,4 +1,4 @@
-import MotionDrawer, { SideMenu } from '@/components/ui/motion-drawer';
+import MotionDrawer from '@/components/ui/motion-drawer';
 import React from 'react';
 interface ListItem {
   name: string;
@@ -17,7 +17,7 @@ const data: ListItem[] = [
 function RightMotionDrawerExample() {
   return (
     <div>
-      <SideMenu
+      <MotionDrawer
         direction='right'
         buttonOpeningVariants='stay'
         width={300}
@@ -35,7 +35,7 @@ function RightMotionDrawerExample() {
             Contact
           </a>
         </nav>
-      </SideMenu>
+      </MotionDrawer>
       <h1 className='text-7xl text-center'>Motion Drawer</h1>
     </div>
   );

@@ -90,7 +90,7 @@ const getOpenButtonVariants = (
   }
 };
 
-export const SideMenu: React.FC<SideMenuProps> = ({
+const MotionDrawer: React.FC<SideMenuProps> = ({
   // Appearance
   overlayColor = 'rgba(0, 0, 0, 0.3)',
   width = 300,
@@ -202,6 +202,7 @@ export const SideMenu: React.FC<SideMenuProps> = ({
           whileTap={{ scale: 0.95 }}
         >
           <Menu />
+          {/* Open */}
         </motion.button>
       )}
 
@@ -250,7 +251,7 @@ export const SideMenu: React.FC<SideMenuProps> = ({
                   whileTap={{ scale: 0.9 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <X size={20} />
+                  <X size={20} /> {/* Close */}
                 </motion.button>
               )}
 
@@ -264,4 +265,4 @@ export const SideMenu: React.FC<SideMenuProps> = ({
   );
 };
 
-export default SideMenu;
+export default MotionDrawer;

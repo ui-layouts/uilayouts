@@ -158,7 +158,7 @@ const getOpenButtonVariants = (
         ? {
             closed: { x: 0, opacity: 1, scale: 1, borderRadius: '0.5rem' },
             open: {
-              x: width - 38,
+              x: width - 68,
               opacity: 0,
               scale: 1,
               borderRadius: '0rem',
@@ -167,7 +167,7 @@ const getOpenButtonVariants = (
         : {
             closed: { x: 0, opacity: 1, scale: 1, borderRadius: '0.5rem' },
             open: {
-              x: 38 - width,
+              x: 68 - width,
               opacity: 0,
               scale: 1,
               borderRadius: '0rem',
@@ -191,7 +191,7 @@ const getOpenButtonVariants = (
   }
 };
 
-export const SideMenu: React.FC<SideMenuProps> = ({
+const MotionDrawer: React.FC<SideMenuProps> = ({
   // Appearance
   overlayColor = 'rgba(0, 0, 0, 0.3)',
   width = 300,
@@ -222,7 +222,7 @@ export const SideMenu: React.FC<SideMenuProps> = ({
   enableDrag = true,
   dragThreshold = 0.3,
 
-  buttonOpeningVariants = 'push',
+  buttonOpeningVariants = 'merge',
 }) => {
   const [internalIsOpen, setInternalIsOpen] = useState<boolean>(false);
 
@@ -303,6 +303,7 @@ export const SideMenu: React.FC<SideMenuProps> = ({
           whileTap={{ scale: 0.95 }}
         >
           <Menu />
+          {/* Open */}
         </motion.button>
       )}
 
@@ -351,7 +352,7 @@ export const SideMenu: React.FC<SideMenuProps> = ({
                   whileTap={{ scale: 0.9 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <X size={20} />
+                  <X size={20} /> {/* Close */}
                 </motion.button>
               )}
 
@@ -365,7 +366,7 @@ export const SideMenu: React.FC<SideMenuProps> = ({
   );
 };
 
-export default SideMenu;
+export default MotionDrawer;
 ```
 </TabsContent>
 </Tabs>

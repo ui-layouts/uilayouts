@@ -2,20 +2,12 @@ import React, { useEffect, useState } from 'react';
 
 const newComponent = [
   {
-    href: '/components/liquid-glass',
+    href: '/components/motion-drawer',
     title: 'Liquid Glass',
   },
   {
-    href: '/components/color-picker',
+    href: '/components/directional-drawer',
     title: 'Color Picker',
-  },
-  {
-    href: '/components/swapy',
-    title: 'Swapy Drag',
-  },
-  {
-    href: '/components/mesh-gradients',
-    title: 'Mesh Gradients',
   },
 ];
 
@@ -25,10 +17,10 @@ function NewItemsLoading() {
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prevIndex) => (prevIndex + 1) % newComponent.length);
-    }, 3000); 
+    }, 3000);
 
     return () => clearInterval(interval);
-  }, []); 
+  }, []);
 
   return (
     <>
