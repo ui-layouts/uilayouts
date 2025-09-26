@@ -5,24 +5,21 @@ import { AllComponents } from '@/configs/docs';
 
 export async function generateStaticParams() {
   const paths = AllComponents.map((component) => ({
-      componentName: component.componentName,
-    }))
+    componentName: component.componentName,
+  }));
   return paths;
 }
 
-export default async function SectionPage(
-  props: {
-    params: Promise<{ componentName: string }>;
-  }
-) {
+export default async function SectionPage(props: {
+  params: Promise<{ componentName: string }>;
+}) {
   const params = await props.params;
   const { componentName } = params;
   console.log('component', componentName);
 
   // Find the component data based on componentName
-  const component = AllComponents.find(
-      (comp) => comp.componentName === componentName
-  ) || null;
+  const component =
+    AllComponents.find((comp) => comp.componentName === componentName) || null;
   // console.log(component);
 
   // console.log(component, !component?.iframeSrc);
@@ -42,7 +39,7 @@ export default async function SectionPage(
     <section
       className={`${
         isFramerScrolling ? '' : 'flex justify-center items-center '
-      } min-h-screen rounded-md dark:bg-black bg-neutral-100`}
+      } min-h-screen rounded-md dark:bg-neutral-900 bg-neutral-200`}
     >
       <div className='px-4 w-full'>
         {ComponentPreview ? (

@@ -78,13 +78,7 @@ export const DocsNavigationCategories: DocsNavigationCategory[] = [
       'interactive',
     ],
   },
-  {
-    href: '/components/responsive-header',
-    name: 'Responsive-Header',
-    key: DOCS_CATEGORY_KEY['responsive-header'],
-    group: DOCS_CATEGORY_GROUP.Drawer,
-    tags: ['header', 'responsive', 'navigation-bar', 'menu'],
-  },
+
   {
     href: '/components/buy-me-coffee',
     name: 'Buy Me A Coffee',
@@ -703,6 +697,7 @@ export const DocsNavigationCategories: DocsNavigationCategory[] = [
     group: DOCS_CATEGORY_GROUP['Modal/Dialog'],
     tags: ['drawer', 'responsive drawer', 'navigation', 'responsive', 'menu'],
   },
+
   {
     href: '/components/directional-drawer',
     name: 'Directional Drawer',
@@ -710,6 +705,7 @@ export const DocsNavigationCategories: DocsNavigationCategory[] = [
     group: DOCS_CATEGORY_GROUP['Drawer'],
     tags: [
       'sidebar',
+      'vaul',
       'navigation',
       'drawer',
       'responsive',
@@ -721,6 +717,29 @@ export const DocsNavigationCategories: DocsNavigationCategory[] = [
       'directional drawer',
       'Responsive Drawer',
     ],
+  },
+  {
+    href: '/components/motion-drawer',
+    name: 'Motion Drawer',
+    key: DOCS_CATEGORY_KEY['motion-drawer'],
+    group: DOCS_CATEGORY_GROUP['Drawer'],
+    tags: [
+      'sidebar',
+      'navigation',
+      'drawer',
+      'responsive',
+      'Left Sidebar',
+      'right drawer',
+      'framer-motion drawer',
+      'motion drawer',
+    ],
+  },
+  {
+    href: '/components/responsive-header',
+    name: 'Responsive-Header',
+    key: DOCS_CATEGORY_KEY['responsive-header'],
+    group: DOCS_CATEGORY_GROUP.Drawer,
+    tags: ['header', 'responsive', 'navigation-bar', 'menu'],
   },
   {
     href: '/components/horizontal-scroll',
@@ -2413,18 +2432,6 @@ export const AllComponents: IAllComponents[] = [
     ),
     iframeSrc: 'live-components/image-mousetrail-without-component',
   },
-
-  {
-    category: DOCS_CATEGORY_KEY['responsive-header'],
-    componentName: COMPONENT_KEYS.RESPONSIVE_HEADER,
-    filesrc: 'components/drawer/responsive-header.tsx',
-    tags: ['header', 'responsive', 'navigation-bar', 'menu'],
-    componentSrc: React.lazy(
-      () => import('@/registry/components/drawer/responsive-header')
-    ),
-    iframeSrc: 'live-components/responsive-header',
-    iframe: true,
-  },
   {
     category: DOCS_CATEGORY_KEY['directional-drawer'],
     componentName: COMPONENT_KEYS.DIRECTIONAL_DRAWER,
@@ -2445,6 +2452,61 @@ export const AllComponents: IAllComponents[] = [
       () => import('@/registry/components/drawer/left-directional-drawer')
     ),
     iframeSrc: 'live-components/left-directional-drawer',
+    iframe: true,
+  },
+  {
+    category: DOCS_CATEGORY_KEY['directional-drawer'],
+    componentName: COMPONENT_KEYS.TOP_DIRECTIONAL_DRAWER,
+    filesrc: 'components/drawer/top-directional-drawer.tsx',
+    tags: ['Left Sidebar', 'navigation', 'Left Drawer', 'Responsive Drawer'],
+    componentSrc: React.lazy(
+      () => import('@/registry/components/drawer/top-directional-drawer')
+    ),
+    iframeSrc: 'live-components/top-directional-drawer',
+    iframe: true,
+  },
+  {
+    category: DOCS_CATEGORY_KEY['directional-drawer'],
+    componentName: COMPONENT_KEYS.BOTTOM_DIRECTIONAL_DRAWER,
+    filesrc: 'components/drawer/bottom-directional-drawer.tsx',
+    tags: ['Left Sidebar', 'navigation', 'Left Drawer', 'Responsive Drawer'],
+    componentSrc: React.lazy(
+      () => import('@/registry/components/drawer/bottom-directional-drawer')
+    ),
+    iframeSrc: 'live-components/bottom-directional-drawer',
+    iframe: true,
+  },
+  {
+    category: DOCS_CATEGORY_KEY['motion-drawer'],
+    componentName: COMPONENT_KEYS.MOTION_DRAWER,
+    filesrc: 'components/drawer/motion-drawer.tsx',
+    tags: ['Left Sidebar', 'navigation', 'Left Drawer', 'Responsive Drawer'],
+    componentSrc: React.lazy(
+      () => import('@/registry/components/drawer/motion-drawer')
+    ),
+    iframeSrc: 'live-components/motion-drawer',
+    iframe: true,
+  },
+  {
+    category: DOCS_CATEGORY_KEY['right-motion-drawer'],
+    componentName: COMPONENT_KEYS.RIGHT_MOTION_DRAWER,
+    filesrc: 'components/drawer/right-motion-drawer.tsx',
+    tags: ['Left Sidebar', 'navigation', 'Left Drawer', 'Responsive Drawer'],
+    componentSrc: React.lazy(
+      () => import('@/registry/components/drawer/right-motion-drawer')
+    ),
+    iframeSrc: 'live-components/right-motion-drawer',
+    iframe: true,
+  },
+  {
+    category: DOCS_CATEGORY_KEY['responsive-header'],
+    componentName: COMPONENT_KEYS.RESPONSIVE_HEADER,
+    filesrc: 'components/drawer/responsive-header.tsx',
+    tags: ['header', 'responsive', 'navigation-bar', 'menu'],
+    componentSrc: React.lazy(
+      () => import('@/registry/components/drawer/responsive-header')
+    ),
+    iframeSrc: 'live-components/responsive-header',
     iframe: true,
   },
   {

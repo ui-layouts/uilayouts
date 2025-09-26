@@ -579,7 +579,7 @@
         }
       ]
     },
-        {
+    {
       "name": "responsive-modal",
       "type": "registry:component",
       "devDependencies": [],
@@ -601,6 +601,19 @@
       "files": [
         {
           "path": "./components/ui/directional-drawer.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "motion-drawer",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/motion-drawer.tsx",
           "type": "registry:component"
         }
       ]

@@ -5,21 +5,14 @@ import React, { useState, useRef } from 'react'; // Import useState from React
 import { importCode, Runner, Scope } from 'react-runner';
 import Image from 'next/image';
 import { CodeMirror } from 'react-runner-codemirror';
-import {
-  DrawerContent,
-  ResponsiveDrawer,
-} from '@/components/ui/responsive-modal';
 import { Panel, PanelGroup, PanelResizeHandle } from 'react-resizable-panels';
 
-// import { CardArr } from '@/components/website/constant';
-
-// @ts-ignore
-// import CardArr from '!!raw-loader!../constant.tsx';
 import * as FramerMotion from 'motion/react';
 import { CopyButton } from './copy-button';
 import { useTheme } from 'next-themes';
 import { useMediaQuery } from '@/hooks/use-media-query';
 import { cn } from '@/lib/utils';
+import { ResponsiveModal, ResponsiveModalContent, ResponsiveModalTrigger } from '@/components/ui/responsive-modal';
 
 const baseScope = {
   import: {
@@ -44,21 +37,21 @@ function EditComponents({
 
   return (
     <>
-      <ResponsiveDrawer
+      <ResponsiveModal
         classname={cn(
           ` p-2 xl:mx-0 mx-8 `,
           componentCenter
             ? ' 2xl:max-w-screen-[1400px] max-w-screen-xl'
             : ' max-w-full dark:bg-[#020203] bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:20px_20px] relative'
         )}
-        closeBtnClass='top-4 right-4 h-9 w-10 p-0 grid place-items-center'
-        triggerContent={
+      
+      >
+        <ResponsiveModalTrigger>
           <button className=' flex gap-1 bg-foreground rounded-lg h-8 px-2 text-black text-sm font-semibold  items-center  '>
             <Edit className='dark:text-black text-white h-5 w-5 font-semibold' />
           </button>
-        }
-      >
-        <DrawerContent
+        </ResponsiveModalTrigger>
+        <ResponsiveModalContent
           className={`${
             componentCenter ? ' 2xl:h-[62vh] h-[80vh]' : ' h-[97vh] w-full'
           } overflow-auto`}
@@ -126,8 +119,8 @@ function EditComponents({
               </div>
             </Panel>
           </PanelGroup>
-        </DrawerContent>
-      </ResponsiveDrawer>
+        </ResponsiveModalContent>
+      </ResponsiveModal>
     </>
   );
 }
