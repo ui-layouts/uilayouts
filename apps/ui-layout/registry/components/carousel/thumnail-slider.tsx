@@ -12,7 +12,7 @@ function ThumnailSlider() {
   const OPTIONS: EmblaOptionsType = { loop: false };
   return (
     <>
-      <div className=' 2xl:w-[70%] bg-background sm:w-[80%] w-[90%] mx-auto'>
+      <div className=' 2xl:w-[70%] dark:bg-neutral-800 bg-neutral-50 sm:w-[80%] w-[90%] mx-auto'>
         <Carousel options={OPTIONS} className=' relative' isAutoPlay={true}>
           <SliderContainer className='gap-2'>
             <Slider

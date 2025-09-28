@@ -94,7 +94,7 @@ const ComponentSection = () => {
           {currentComponentData && (
             <div className={`h-screen w-full grid place-items-center `}>
               <div
-                className={`mx-auto border relative rounded-lg bg-background  ${
+                className={`mx-auto border relative rounded-lg dark:bg-neutral-800 bg-neutral-50  ${
                   currentComponentData?.iframe
                     ? '   '
                     : 'flex justify-center items-center  p-10 '
@@ -338,7 +338,10 @@ const ComponentSection = () => {
                     <span className='sr-only'>Toggle theme</span>
                   </button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align='center' className='bg-background'>
+                <DropdownMenuContent
+                  align='center'
+                  className='dark:bg-neutral-800 bg-neutral-50'
+                >
                   <DropdownMenuItem onClick={() => setTheme('light')}>
                     <Sun className='mr-2 h-4 w-4' /> Light
                   </DropdownMenuItem>
@@ -355,11 +358,7 @@ const ComponentSection = () => {
                   <TooltipTrigger
                     className='group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md dark:bg-primary-foreground bg-gray-100   border px-3 font-medium dark:text-white text-black transition-all duration-200 hover:translate-x-[-3px] translate-x-[0px] hover:translate-y-[-3px] translate-y-[0px] hover:[box-shadow:5px_5px_rgb(28_39_56)] dark:hover:[box-shadow:5px_5px_rgb(229_231_235)] '
                     onClick={() =>
-                      window.open(
-                        href,
-                        '_blank',
-                        'noopener,noreferrer'
-                      )
+                      window.open(href, '_blank', 'noopener,noreferrer')
                     }
                   >
                     View Component

@@ -65,7 +65,10 @@ export function CopyNpmCommandButton({
         </div>
       </DropdownMenuTrigger>
 
-      <DropdownMenuContent className='bg-background' align='end'>
+      <DropdownMenuContent
+        className='dark:bg-neutral-800 bg-neutral-50'
+        align='end'
+      >
         <DropdownMenuItem onClick={() => copyCommand('npm')}>
           npm
         </DropdownMenuItem>

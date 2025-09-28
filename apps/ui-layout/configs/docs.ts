@@ -208,14 +208,16 @@ export const DocsNavigationCategories: DocsNavigationCategory[] = [
     ],
   },
   {
-    href: '/components/uilayouts-github-button',
-    name: 'uilayouts-github-button',
-    key: DOCS_CATEGORY_KEY['uilayouts-github-button'],
+    href: '/components/liquid-gradient',
+    name: 'liquid-gradient',
+    key: DOCS_CATEGORY_KEY['liquid-gradient'],
     group: DOCS_CATEGORY_GROUP.Creative,
     tags: [
       'uilayouts',
       'github',
       'button',
+      'liquid-gradient',
+      'Liquid Gradient',
       'github-button',
       'uilayouts github button',
       'repository',
@@ -1147,6 +1149,16 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
+    category: DOCS_CATEGORY_KEY['mesh-shadergradient'],
+    componentName: COMPONENT_KEYS.MESH_SHADERGRADIENT,
+    iframelink: 'mess-gradient',
+    tags: [
+      'mesh-gradient',
+      'threejs mesh graddient',
+      'React3 Fiber mesh Gradient',
+    ],
+  },
+  {
     category: DOCS_CATEGORY_KEY['mesh-gradients'],
     componentName: COMPONENT_KEYS.LEMON_MESH_GRADIENTS,
     iframelink: 'mess-gradient',
@@ -1154,6 +1166,16 @@ export const AllComponents: IAllComponents[] = [
       'mesh-gradient',
       'threejs mesh graddient',
       'React3 Fiber mesh Gradient',
+    ],
+  },
+  {
+    category: DOCS_CATEGORY_KEY['mesh-gradients'],
+    componentName: COMPONENT_KEYS.YELLOW_MESH_GRADIENTS,
+    iframelink: 'mess-gradient2',
+    tags: [
+      'mesh-gradient',
+      'threejs mess graddient',
+      'React3 Fiber Mess Gradient',
     ],
   },
   {
@@ -2110,11 +2132,21 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
+    category: DOCS_CATEGORY_KEY['liquid-gradient'],
+    componentName: COMPONENT_KEYS.LIQUID_GRADIENT,
+    filesrc: 'components/liquid-gradient/index.tsx',
+    componentSrc: React.lazy(
+      () => import('@/registry/components/liquid-gradient/index')
+    ),
+    iframeSrc: 'live-components/liquid-gradient',
+    tags: ['liquid-gradient', 'liquid-gradient', 'uilayouts liquid-gradient'],
+  },
+  {
     category: DOCS_CATEGORY_KEY['uilayouts-github-button'],
     componentName: COMPONENT_KEYS.UILAYOUTS_GITHUB_BUTTON,
-    filesrc: 'components/github-repo-btn/index.tsx',
+    filesrc: 'components/liquid-gradient/github-repo-btn.tsx',
     componentSrc: React.lazy(
-      () => import('@/registry/components/github-repo-btn/index')
+      () => import('@/registry/components/liquid-gradient/github-repo-btn')
     ),
     iframeSrc: 'live-components/uilayouts-github-button',
     tags: [
@@ -2371,22 +2403,23 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     category: DOCS_CATEGORY_KEY['motion-number'],
-    componentName: COMPONENT_KEYS.MOTION_NUMBER,
-    filesrc: 'components/number-flow/motion-number.tsx',
+    componentName: COMPONENT_KEYS.MOTION_NUMBER_UPVOTES,
+    filesrc: 'components/number-flow/motion-number-upvotes.tsx',
     tags: [
       'animation',
       'upvotes',
       'motion number',
       'motion-number',
       'like dislikes',
+      'upvotes component',
       'like-dislikes',
       'upvotes',
       'downvotes',
     ],
     componentSrc: React.lazy(
-      () => import('@/registry/components/number-flow/motion-number')
+      () => import('@/registry/components/number-flow/motion-number-upvotes')
     ),
-    iframeSrc: 'live-components/motion-number',
+    iframeSrc: 'live-components/motion-number-upvotes',
   },
   {
     category: DOCS_CATEGORY_KEY['image-mousetrail'],

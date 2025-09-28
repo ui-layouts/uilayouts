@@ -15,7 +15,7 @@ function index() {
   const OPTIONS: EmblaOptionsType = { loop: true };
   return (
     <>
-      <div className='bg-background p-4'>
+      <div className='dark:bg-neutral-800 bg-neutral-50 p-4'>
         <Carousel options={OPTIONS} isScale={true}>
           <SliderContainer>
             <Slider className='sm:w-[55%] w-[90%]'>

@@ -141,7 +141,7 @@ export default async function RootLayout({
           <Progressbar>
             <ThemeProvider attribute='class'>
               <div className='isolate min-h-screen' vaul-drawer-wrapper=''>
-                <SocialShareModal />
+                {/* <SocialShareModal /> */}
                 {children}
               </div>
               <Toaster />

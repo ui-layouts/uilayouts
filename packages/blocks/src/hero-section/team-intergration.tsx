@@ -187,15 +187,9 @@ export const TeamIntegration = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <motion.span
-            className="inline-block"
-          >
-            Unite every tool,
-          </motion.span>
+          <motion.span className="inline-block">Unite every tool,</motion.span>
           <br />
-          <motion.span
-            className="inline-block"
-          >
+          <motion.span className="inline-block">
             every team, everywhere.
           </motion.span>
         </motion.h1>
@@ -268,7 +262,7 @@ export const TeamIntegration = () => {
                 key={index}
                 href={profile.href}
                 target="_block"
-                className={`bg-background p-1 flex-shrink-0 rounded-full relative z-[1] hover:z-[2] ${profile.translateX}`}
+                className={`dark:bg-neutral-800 bg-neutral-50 p-1 flex-shrink-0 rounded-full relative z-[1] hover:z-[2] ${profile.translateX}`}
               >
                 <img
                   src={profile.src}
@@ -400,4 +394,3 @@ export const TeamIntegration = () => {
     </section>
   )
 }
- 

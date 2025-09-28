@@ -56,7 +56,7 @@ export default function TableOfContents({ toc }: TableOfContentsProps) {
 
   const editUrl = `https://github.com/ui-layouts/uilayouts/blob/main/apps/ui-layout/content${pathname}.mdx`;
 
-  const isDesktop = useMediaQuery('(min-width: 1200px)');
+  const isDesktop = useMediaQuery('(min-width: 1024px)');
 
   const { scrollYProgress } = useScroll();
 

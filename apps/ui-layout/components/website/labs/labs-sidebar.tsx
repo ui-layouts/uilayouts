@@ -100,7 +100,7 @@ function LabSidebar() {
                 <PopoverTrigger asChild>
                   <button
                     aria-expanded={open}
-                    className='w-full border border-input bg-background hover:bg-accent   text-primary  inline-flex items-center justify-between gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0  capitalize h-10 px-4 py-2'
+                    className='w-full border border-input dark:bg-neutral-800 bg-neutral-50 hover:bg-accent   text-primary  inline-flex items-center justify-between gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0  capitalize h-10 px-4 py-2'
                   >
                     {value
                       ? AllComponents.find(
@@ -183,7 +183,7 @@ function LabSidebar() {
                           className={`border w-fit p-1 2xl:text-sm text-xs px-2 cursor-pointer rounded-md flex 2xl:gap-1 items-center capitalize ${
                             value === component.componentName
                               ? 'bg-primary text-primary-foreground'
-                              : 'bg-background text-foreground'
+                              : 'dark:bg-neutral-800 bg-neutral-50 text-foreground'
                           } hover:bg-primary hover:text-primary-foreground transition-colors duration-200`}
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}

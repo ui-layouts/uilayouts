@@ -18,7 +18,7 @@ export default function index({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        'relative flex w-full max-w-[500px] mx-auto items-center justify-center overflow-hidden rounded-lg border bg-background p-10 md:shadow-xl',
+        'relative flex w-full max-w-[500px] mx-auto items-center justify-center overflow-hidden rounded-lg border dark:bg-neutral-800 bg-neutral-50 p-10 md:shadow-xl',
         className
       )}
       ref={containerRef}

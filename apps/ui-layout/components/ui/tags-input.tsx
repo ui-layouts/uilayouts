@@ -1,16 +1,19 @@
 'use client';
+import { cn } from '@/lib/utils';
 import React, { useState, useRef, useEffect } from 'react';
 
 interface TagsInputProps {
   tags: string[];
   setTags: React.Dispatch<React.SetStateAction<string[]>>;
   editTag?: boolean;
+  className?: string;
 }
 
 export const TagsInput: React.FC<TagsInputProps> = ({
   tags,
   setTags,
   editTag = true,
+  className,
 }) => {
   const [input, setInput] = useState('');
   const [editingIndex, setEditingIndex] = useState<number | null>(null);
@@ -44,7 +47,7 @@ export const TagsInput: React.FC<TagsInputProps> = ({
     if (editTag) {
       setInput(tags[index]);
       setEditingIndex(index);
-      setTimeout(() => editInputRef.current?.focus(), 0); // Focus on edit input
+      setTimeout(() => editInputRef.current?.focus(), 0);
     }
   };
 
@@ -64,14 +67,18 @@ export const TagsInput: React.FC<TagsInputProps> = ({
   };
 
   useEffect(() => {
-    // Resize the input width based on text content
     if (editInputRef.current) {
       editInputRef.current.style.width = `${input.length + 1}ch`;
     }
   }, [input]);
 
   return (
-    <div className='flex flex-wrap items-center gap-2 p-2 border-2 rounded-md focus-within:border-blue-500 bg-primary-base'>
+    <div
+      className={cn(
+        'flex flex-wrap w-full items-center gap-2 p-2 border-2 rounded-md focus-within:border-blue-500 dark:bg-neutral-800 bg-neutral-50',
+        className
+      )}
+    >
       {tags.map((tag, index) => (
         <div key={tag} className='relative'>
           {editTag && editingIndex === index ? (
@@ -82,13 +89,13 @@ export const TagsInput: React.FC<TagsInputProps> = ({
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleAddTag}
               onBlur={handleBlur}
-              className='px-2 py-1 text-sm border   rounded outline-none'
+              className='px-2 py-1 text-sm border dark:bg-neutral-950 bg-neutral-200 rounded outline-none'
               placeholder='Edit tag...'
               style={{ width: `${input.length + 1 * 1.2}px` }}
               autoFocus
             />
           ) : (
-            <span
+            <div
               onClick={() => handleEditTag(index)}
               className='flex items-center gap-2 px-1 pl-2 py-1 text-sm font-medium text-white bg-blue-500 rounded cursor-pointer hover:bg-blue-600'
             >
@@ -98,11 +105,11 @@ export const TagsInput: React.FC<TagsInputProps> = ({
                   e.stopPropagation();
                   handleRemoveTag(tag);
                 }}
-                className='text-primary  px-1 focus:outline-none bg-primary-base rounded'
+                className='text-primary px-1 focus:outline-none bg-primary-base rounded'
               >
                 &times;
               </button>
-            </span>
+            </div>
           )}
         </div>
       ))}
@@ -111,7 +118,7 @@ export const TagsInput: React.FC<TagsInputProps> = ({
         value={input}
         onChange={(e) => setInput(e.target.value)}
         onKeyDown={handleAddTag}
-        className={`flex-grow px-2 py-1 text-sm border-none outline-none bg-primary-base rounded-md ${
+        className={`flex-grow px-2 py-1 text-sm border-none outline-none  dark:bg-neutral-800 bg-neutral-50 rounded-md ${
           editingIndex !== null ? 'opacity-0' : 'opacity-100'
         }`}
         placeholder='Add a tag...'

@@ -6,7 +6,7 @@ export default function index() {
   const [widthPercentage, setWidthPercentage] = useState(70);
   return (
     <>
-      <div className='w-3/5 mx-auto  px-10 gap-10'>
+      <div className='w-3/5 mx-auto  px-10 gap-10 py-16'>
         <div>
           <h1>Width</h1>
           <DualRangeSlider

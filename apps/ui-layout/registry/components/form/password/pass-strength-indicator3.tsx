@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useMemo } from 'react';
-import { Check, Eye, EyeOff, Info, X } from 'lucide-react';
+import { Check, CheckCheck, Eye, EyeOff, Info, X } from 'lucide-react';
 // shaadcn hover card
 import {
   HoverCard,
@@ -80,12 +80,12 @@ const PasswordInput = () => {
                 } transition-all `}
               />
             </HoverCardTrigger>
-            <HoverCardContent className='bg-background'>
+            <HoverCardContent className='dark:bg-neutral-800 bg-neutral-50'>
               <ul className='space-y-1.5' aria-label='Password requirements'>
                 {calculateStrength.requirements.map((req, index) => (
                   <li key={index} className='flex items-center space-x-2'>
                     {req.met ? (
-                      <Check size={16} className='text-emerald-500' />
+                      <CheckCheck size={16} className='text-emerald-500' />
                     ) : (
                       <X size={16} className='text-muted-foreground/80' />
                     )}
@@ -116,7 +116,7 @@ const PasswordInput = () => {
             placeholder='Password'
             aria-invalid={calculateStrength.score < 4}
             aria-describedby='password-strength'
-            className='w-full p-2 border-2 rounded-md bg-background outline-none focus-within:border-blue-700 transition'
+            className='w-full p-2 border-2 rounded-md dark:bg-neutral-800 bg-neutral-50 outline-none focus-within:border-blue-700 transition'
           />
           <button
             type='button'

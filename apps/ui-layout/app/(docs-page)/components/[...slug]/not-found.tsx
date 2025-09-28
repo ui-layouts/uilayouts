@@ -11,10 +11,7 @@ export default function NotFound() {
   const pathname = usePathname();
 
   // Combine all searchable data into one array
-  const searchdata: SearchItem[] = [
-    ...basePath,
-    ...DocsNavigationCategories
-  ];
+  const searchdata: SearchItem[] = [...basePath, ...DocsNavigationCategories];
 
   // Get the last segment of the URL
   const lastSegment: string = pathname?.split('/').pop()?.toLowerCase() || '';
@@ -58,7 +55,7 @@ export default function NotFound() {
             {relevantMatches.map((item) => (
               <li
                 key={item.href}
-                className=' p-2 px-3 hover:bg-primary  text-blue-600 hover:underline hover:text-primary-foreground border rounded-md  bg-background'
+                className=' p-2 px-3 hover:bg-primary  text-blue-600 hover:underline hover:text-primary-foreground border rounded-md  dark:bg-neutral-800 bg-neutral-50'
               >
                 <Link href={item.href}>{item.name}</Link>
               </li>

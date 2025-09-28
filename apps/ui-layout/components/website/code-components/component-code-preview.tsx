@@ -65,7 +65,7 @@ export default async function ComponentCodePreview({
         defaultValue={`${name}preview`}
         className='relative mt-1 w-full rounded-lg'
       >
-        <TabsList className='absolute left-0 pl-1 top-0 z-10 flex h-12 w-full justify-start rounded-b-none rounded-lg dark:bg-zinc-900'>
+        <TabsList className='absolute left-0 pl-1 top-0 z-10 flex h-12 w-full justify-start rounded-b-none rounded-lg dark:bg-neutral-800'>
           <TabsTrigger
             value={`${name}preview`}
             className='flex gap-2 items-center data-[state=active]:bg-zinc-200 data-[state=active]:border-b-2 '

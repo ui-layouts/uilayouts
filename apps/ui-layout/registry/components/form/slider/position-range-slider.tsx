@@ -7,7 +7,7 @@ export default function index() {
   const [values, setValues] = useState([0, 100]);
   return (
     <>
-      <div className=' w-3/5 mx-auto space-y-20 '>
+      <div className=' w-3/5 mx-auto space-y-20 py-20'>
         <DualRangeSlider
           label={() => <>$</>}
           lableContenPos={'left'}

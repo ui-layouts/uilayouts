@@ -118,7 +118,7 @@ export async function PreCode({
 
       <>
         <Tabs defaultValue={'typescript'} className='relative'>
-          <TabsList className='absolute  right-14 top-2 z-[1] h-9 p-0.5 border dark:border-background '>
+          <TabsList className='absolute dark:bg-zinc-800 right-14 top-2 z-[1] h-9 p-0.5 border dark:border-background '>
             <TabsTrigger value={'typescript'} className='h-8'>
               Ts
             </TabsTrigger>
@@ -128,7 +128,10 @@ export async function PreCode({
           </TabsList>
           <TabsContent value={'typescript'} className=''>
             <div className='relative'>
-              <CopyButton code={tshighlighted.code} classname='right-2' />
+              <CopyButton
+                code={tshighlighted.code}
+                classname='right-2 dark:bg-zinc-900 border bg-white'
+              />
               <div className='not-prose py-2 max-h-[550px]  overflow-x-hidden  rounded-md text-sm   bg-codebg border'>
                 <Pre
                   code={tshighlighted}
@@ -140,7 +143,10 @@ export async function PreCode({
           </TabsContent>
           <TabsContent value={'javascript'} className=''>
             <div className='relative'>
-              <CopyButton code={jshighlighted.code} classname='right-2' />
+              <CopyButton
+                code={jshighlighted.code}
+                classname='right-2 dark:bg-zinc-900 border bg-white'
+              />
               <div className='not-prose py-2 max-h-[550px] overflow-x-hidden  rounded-md text-sm  bg-codebg border'>
                 <Pre
                   code={jshighlighted}

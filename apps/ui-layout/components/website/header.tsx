@@ -7,8 +7,8 @@ import { Github, MousePointerClick, PenTool } from 'lucide-react';
 import { SearchDialog } from './searchbar';
 import MobileHeader from './mobile-header';
 import ThemeSwitch from './theme-switch';
-import GitHubButton from '@/registry/components/github-repo-btn';
 import MainComponentsDownloader from './downloadallarray';
+import HomeGitHubButton from './home/github-repo-button';
 // import MobileHeader from './moibile-header'
 
 function Header() {
@@ -68,7 +68,7 @@ function Header() {
 
           <div className='flex gap-2 '>
             <SearchDialog classname='sm:w-52 md:w-72' />
-            <GitHubButton />
+            <HomeGitHubButton />
             <a
               target='_blank'
               href='https://x.com/naymur_dev'
@@ -87,7 +87,7 @@ function Header() {
             </a>
 
             <ThemeSwitch
-              className='dark:bg-zinc-900 bg-background border w-12 rounded-md h-11 flex-shrink-0
+              className='dark:bg-zinc-900 dark:bg-neutral-800 bg-neutral-50 border w-12 rounded-md h-11 flex-shrink-0
           '
             />
           </div>

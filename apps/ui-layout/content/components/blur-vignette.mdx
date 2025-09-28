@@ -67,28 +67,10 @@ export const metadata = {
 
 > Read Docs to know more [Blur Vignette](https://expensive.toys/blog/blur-vignette)
 
-## Video
-
 <ComponentCodePreview
   name='blur-vignette-video'
   jsonName='blur-vignette-video'
   isFitheight
-/>
-
-## Card
-
-<ComponentCodePreview
-  name='blur-vignette-img'
-  isFitheight
-  jsonName='blur-vignette-img'
-/>
-
-## Image
-
-<ComponentCodePreview
-  name='blur-vignette-card'
-  isFitheight
-  jsonName='blur-vignette-card'
 />
 
 
@@ -96,7 +78,7 @@ export const metadata = {
 
 <Tabs defaultValue="cli">
 
-<TabsList className='border-b w-full bg-transparent dark:bg-transparent justify-start dark:bg-zinc-900 h-11'>
+<TabsList className='border-b w-full bg-white justify-start dark:bg-neutral-800 h-11'>
   <TabsTrigger value='cli'>CLI</TabsTrigger>
   <TabsTrigger value='manual'>Manual</TabsTrigger>
 </TabsList>
@@ -114,89 +96,9 @@ export const metadata = {
    </CodeWithTabs>
   </TabsContent>
   
-  <TabsContent value="manual">
+  <TabsContent value="manual" manualType>
 
-```tsx blur-vignette.tsx
-import React, { createContext, useContext } from 'react';
-import { cn } from '@/lib/utils';
-interface BlurVignetteContextProps {
-  radius?: string;
-  inset?: string;
-  transitionLength?: string;
-  blur?: string;
-}
-
-const BlurVignetteContext = createContext<BlurVignetteContextProps>({
-  radius: '24px',
-  inset: '20px',
-  transitionLength: '44px',
-  blur: '6px',
-});
-
-export const useBlurVignetteContext = () => useContext(BlurVignetteContext);
-
-interface BlurVignetteProps {
-  classname?: string;
-  children: React.ReactNode;
-  radius?: string;
-  inset?: string;
-  transitionLength?: string;
-  blur?: string;
-  blurclassname?: string;
-}
-
-export const BlurVignette: React.FC<BlurVignetteProps> = ({
-  classname,
-  children,
-  radius = '24px',
-  inset = '20px',
-  transitionLength = '44px',
-  blur = '6px',
-}) => {
-  return (
-    <BlurVignetteContext.Provider
-      value={{ radius, inset, transitionLength, blur }}
-    >
-      <div
-        className={cn('relative aspect-square overflow-hidden', classname)}
-        style={{ borderRadius: radius }}
-      >
-        {children}
-      </div>
-    </BlurVignetteContext.Provider>
-  );
-};
-interface BlurVignetteArticleProps {
-  children?: React.ReactNode;
-  classname?: string;
-}
-
-export const BlurVignetteArticle: React.FC<BlurVignetteArticleProps> = ({
-  children,
-  classname,
-}) => {
-  const { radius, inset, transitionLength, blur } = useBlurVignetteContext();
-
-  return (
-    <div
-      className={cn(
-        'blur-vignette bottom-0 left-0 w-full h-full z-[1]',
-        classname
-      )}
-      style={
-        {
-          '--radius': radius,
-          '--inset': inset,
-          '--transition-length': transitionLength,
-          '--blur': blur,
-        } as React.CSSProperties
-      }
-    >
-      {children}
-    </div>
-  );
-};
-```
+<CodeSnippets name="blur-vignette" />
 
 ```css globals.css
 @layer utilities {
@@ -254,3 +156,22 @@ export const BlurVignetteArticle: React.FC<BlurVignetteArticleProps> = ({
 | `transitionLength` | `string`          | `44px`  | The length of the transition effect applied to the vignette. |
 | `blur`             | `string`          | `6px`   | The blur amount for the vignette effect.                     |
 | `blurclassname`    | `string`          |         | Optional CSS class for styling the blur effect container.    |
+
+
+## Examples
+
+### Card
+
+<ComponentCodePreview
+  name='blur-vignette-img'
+  isFitheight
+  jsonName='blur-vignette-img'
+/>
+
+### Image
+
+<ComponentCodePreview
+  name='blur-vignette-card'
+  isFitheight
+  jsonName='blur-vignette-card'
+/>

@@ -504,6 +504,40 @@
         }
       ]
     },
+    {
+      "name": "liquid-gradient-components",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/liquid-gradient/index.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/liquid-gradient.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "uilayouts-github-button",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/liquid-gradient/github-repo-btn.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/liquid-gradient.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
 
     {
       "name": "slider",
@@ -518,7 +552,6 @@
         }
       ]
     },
-
     {
       "name": "tags-input",
       "type": "registry:component",
@@ -526,6 +559,40 @@
       "dependencies": [],
       "registryDependencies": [],
       "files": [
+        {
+          "path": "./components/ui/tags-input.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "tags-input-components",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/form/tags-input/index.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/tags-input.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "tags-input-no-edit",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/form/tags-input/tagsedit-false.tsx",
+          "type": "registry:component"
+        },
         {
           "path": "./components/ui/tags-input.tsx",
           "type": "registry:component"

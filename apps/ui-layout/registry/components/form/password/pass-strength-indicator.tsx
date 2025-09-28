@@ -61,7 +61,7 @@ const PasswordInput = () => {
   // console.log(calculateStrength);
 
   return (
-    <div className='w-96 mx-auto'>
+    <div className='w-96 mx-auto py-14'>
       <form className='space-y-2'>
         <label htmlFor='password' className='block text-sm font-medium'>
           Password
@@ -75,7 +75,7 @@ const PasswordInput = () => {
             placeholder='Password'
             aria-invalid={calculateStrength.score < 4}
             aria-describedby='password-strength'
-            className='w-full p-2 border-2 rounded-md bg-background outline-none focus-within:border-blue-700 transition'
+            className='w-full p-2 border-2 rounded-md dark:bg-neutral-800 bg-neutral-50 outline-none focus-within:border-blue-700 transition'
           />
           <button
             type='button'
@@ -89,7 +89,7 @@ const PasswordInput = () => {
       </form>
 
       <div
-        className='mt-3 mb-4 h-1 rounded-full bg-border overflow-hidden'
+        className='mt-3 mb-2 h-1 rounded-full dark:bg-neutral-800 bg-neutral-50 overflow-hidden'
         role='progressbar'
         aria-valuenow={calculateStrength.score}
         aria-valuemin={0}

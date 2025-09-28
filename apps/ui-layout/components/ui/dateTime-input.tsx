@@ -172,7 +172,7 @@ export const SmartDatetimeInput = React.forwardRef<
           showTimePicker: shouldShowBoth ? true : showTimePicker,
         }}
       >
-        <div className='flex items-center justify-center bg-background'>
+        <div className='flex items-center justify-center dark:bg-neutral-800 bg-neutral-50'>
           <div
             className={cn(
               'flex gap-1 w-full p-1 items-center justify-between rounded-md border-2 transition-all',
@@ -550,7 +550,7 @@ const NaturalLanguageInput = React.forwardRef<
       onKeyDown={handleKeydown}
       onBlur={handleParse}
       className={cn(
-        'px-2 mr-0.5 bg-background flex-1 border-none h-8 rounded',
+        'px-2 mr-0.5 dark:bg-neutral-800 bg-neutral-50 flex-1 border-none h-8 rounded',
         inputBase
       )}
       {...props}
@@ -611,7 +611,10 @@ const DateTimeLocalInput = ({
           <span className='sr-only'>calendar</span>
         </Button>
       </PopoverTrigger>
-      <PopoverContent className='w-auto p-0 bg-background' sideOffset={8}>
+      <PopoverContent
+        className='w-auto p-0 dark:bg-neutral-800 bg-neutral-50'
+        sideOffset={8}
+      >
         <div className='flex gap-1'>
           {showCalendar && (
             <Calendar

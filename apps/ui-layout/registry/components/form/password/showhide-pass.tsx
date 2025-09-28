@@ -7,7 +7,7 @@ const PasswordInput = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   return (
-    <div className='w-96 mx-auto'>
+    <div className='w-96 mx-auto py-14'>
       <label htmlFor='pass' className='text-sm font-normal'>
         Password
       </label>
@@ -16,7 +16,7 @@ const PasswordInput = () => {
           type={isVisible ? 'text' : 'password'}
           id='pass'
           placeholder='Password'
-          className='bg-background w-full outline-none focus-within:border-blue-700 rounded-md p-2  border-2 '
+          className='dark:bg-neutral-800 bg-neutral-50 w-full outline-none focus-within:border-blue-700 rounded-md p-2  border-2 '
         />
         <div
           className='absolute top-3 right-4 text-2xl text-gray-500 cursor-pointer'

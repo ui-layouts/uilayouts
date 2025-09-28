@@ -159,7 +159,7 @@ function HeroSec() {
               </span>
               <br />
               <span className=''>It's Your Frontend </span>
-              <span className='bg-background mt-3 relative rounded-md w-fit leading-[100%] inline-block px-1.5 py-0.5 border before:absolute before:top-0 before:left-0 before:w-full before:h-full before:content-[""] before:opacity-[0.09] before:z-10 before:pointer-events-none before:bg-[url("/noise.gif")]'>
+              <span className='dark:bg-neutral-800 bg-neutral-50 mt-3 relative rounded-md w-fit leading-[100%] inline-block px-1.5 py-0.5 border before:absolute before:top-0 before:left-0 before:w-full before:h-full before:content-[""] before:opacity-[0.09] before:z-10 before:pointer-events-none before:bg-[url("/noise.gif")]'>
                 <span className='bg-gradient-to-t from-blue-300 to-blue-600 bg-clip-text text-transparent font-semibold pr-1'>
                   Universe
                 </span>
@@ -192,7 +192,7 @@ function HeroSec() {
                     key={index}
                     href={profile.href}
                     target='_block'
-                    className={`bg-background p-1 flex-shrink-0 rounded-full relative z-[1] hover:z-[2] ${profile.translateX}`}
+                    className={`dark:bg-neutral-800 bg-neutral-50 p-1 flex-shrink-0 rounded-full relative z-[1] hover:z-[2] ${profile.translateX}`}
                   >
                     <Image
                       src={profile.src}

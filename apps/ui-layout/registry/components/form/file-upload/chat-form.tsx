@@ -28,7 +28,7 @@ const FileUploadDropzone = () => {
     <div
       className={`${
         files?.length == 0 && 'flex gap-0'
-      } relative border bg-background rounded-md   p-2 w-96 mx-auto`}
+      } relative border dark:bg-neutral-800 bg-neutral-50 rounded-md   p-2 w-96 mx-auto`}
     >
       <FileUploader
         value={files}
@@ -85,7 +85,7 @@ const FileUploadDropzone = () => {
       </FileUploader>
       <input
         type='text'
-        className='outline-none bg-background w-full'
+        className='outline-none dark:bg-neutral-800 bg-neutral-50 w-full'
         placeholder='Your message here...'
       />
     </div>

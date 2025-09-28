@@ -60,11 +60,11 @@ export async function PreCoded({
   const jshighlighted = await highlight(jsCodeblock, 'github-from-css');
 
   return (
-    <div className='relative'>
+    <div className='relative not-prose'>
       <Tabs defaultValue={'typescript'}>
         <TabsList
           className={cn(
-            'absolute  right-[5.5rem] top-6 z-[1] h-9 p-0.5  border-2 dark:border-background ',
+            'absolute dark:bg-zinc-800 right-[5.5rem] top-6 z-[1] h-9 p-0.5  border-2',
             tabclassname
           )}
         >
@@ -86,7 +86,7 @@ export async function PreCoded({
             <CopyButton
               code={tshighlighted.code}
               classname={cn(
-                'top-6 right-10  dark:bg-primary-base bg-neutral-200',
+                'top-6 right-10 dark:bg-zinc-900 border bg-white',
                 copyclass
               )}
             />
@@ -104,7 +104,7 @@ export async function PreCoded({
             <CopyButton
               code={jshighlighted.code}
               classname={cn(
-                'top-6 right-10  dark:bg-primary-base bg-neutral-200',
+                'top-6 right-10 dark:bg-zinc-900 border bg-white',
                 copyclass
               )}
             />

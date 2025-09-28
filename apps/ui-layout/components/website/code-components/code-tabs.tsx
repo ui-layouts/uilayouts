@@ -95,12 +95,12 @@ export async function CodeTabs(props: { tabs: RawCode[] }) {
         <TabsContent key={tab.meta} value={tab.meta} className='mt-1 p-1 '>
           <CopyButton
             code={highlighted[i].code}
-            classname='top-1.5 dark:bg-muted bg-white absolute right-3'
+            classname='top-1.5 dark:bg-zinc-900 border bg-white absolute right-3'
           />
 
           <Pre
             code={highlighted[i]}
-            className='m-0 text-xl rounded-xl  bg-neutral-50 dark:bg-zinc-900'
+            className='m-0 text-xl rounded-xl bg-neutral-50 dark:bg-zinc-900'
           />
         </TabsContent>
       ))}

@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { SearchDialog } from '@/components/website/searchbar';
-import GitHubButton from '@/registry/components/github-repo-btn';
+import HomeGitHubButton from './github-repo-button';
 import MobileHeader from '../mobile-header';
 import ThemeSwitch from '../theme-switch';
 import { PlasticButton } from '../ui/plastic-button';
@@ -56,7 +56,7 @@ function HomeHeader({ className }: { className?: string }) {
             />
             <ThemeSwitch className='dark:bg-black/20 bg-white/20 border dark:border-black/20 border-white/20 w-12 rounded-md h-11 flex-shrink-0' />
           </div>
-          <GitHubButton />
+          <HomeGitHubButton />
           <a
             href='https://discord.gg/4bySmj75'
             target='_blank'

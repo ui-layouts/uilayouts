@@ -168,7 +168,7 @@ const GradientSvg: React.FC<GradientSvgProps> = ({
     },
     notHovered: {
       gradientTransform: gradientTransform,
-      transition: { duration: 10, repeat: Infinity, ease: 'linear' as const},
+      transition: { duration: 10, repeat: Infinity, ease: 'linear' as const },
     },
   };
 
@@ -225,9 +225,14 @@ const GradientSvg: React.FC<GradientSvgProps> = ({
 type LiquidProps = {
   isHovered: boolean;
   colors: Colors;
+  buttonType?: boolean;
 };
 
-export const Liquid: React.FC<LiquidProps> = ({ isHovered, colors }) => {
+export const Liquid: React.FC<LiquidProps> = ({
+  isHovered,
+  colors,
+  buttonType,
+}) => {
   return (
     <>
       {Array.from({ length: 7 }).map((_, index) => (

@@ -6,9 +6,9 @@ export default function App() {
   const [tags, setTags] = useState<string[]>([]);
 
   return (
-    <div className='max-w-md mx-auto mt-10'>
-      <TagsInput tags={tags} setTags={setTags} />
-      <div className='mt-4'>
+    <div className='max-w-xl mx-auto py-16'>
+      <TagsInput tags={tags} setTags={setTags} className='lg:w-96' />
+      {/* <div className='mt-4'>
         <p>Current Tags:</p>
         <div className='flex gap-2 mt-2'>
           {tags.map((tag) => (
@@ -20,7 +20,7 @@ export default function App() {
             </span>
           ))}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

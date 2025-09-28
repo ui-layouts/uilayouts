@@ -2,6 +2,7 @@ import type { MDXComponents } from 'mdx/types';
 import Image, { ImageProps } from 'next/image';
 import { cn } from './lib/utils';
 import { PreCode } from '@/components/website/code-components/pre-code';
+import CodeSnippets from '@/components/website/code-components/code-snippets';
 import ComponentCodePreview from '@/components/website/code-components/component-code-preview';
 import DrawerCodePreview from '@/components/website/code-components/drawer-code-preview';
 import TabCodePreview from '@/components/website/code-components/tab-codepreview';
@@ -54,6 +55,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       />
     ),
     PreCode: ({ ...props }) => <PreCode {...props} />,
+    CodeSnippets: ({ ...props }) => <CodeSnippets {...props} />,
     IframeComponentPrieview: ({ ...props }) => (
       <IframeComponentPrieview {...props} />
     ),

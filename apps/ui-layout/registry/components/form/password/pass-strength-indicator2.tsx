@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useMemo } from 'react';
-import { Check, Eye, EyeOff, X } from 'lucide-react';
+import { Check, CheckCheck, Eye, EyeOff, X } from 'lucide-react';
 
 // Constants
 const PASSWORD_REQUIREMENTS = [
@@ -61,7 +61,7 @@ const PasswordInput = () => {
   // console.log(calculateStrength);
 
   return (
-    <div className='w-96 mx-auto '>
+    <div className='w-96 mx-auto py-14 '>
       <form className='space-y-2'>
         <label htmlFor='password' className='block text-sm font-medium'>
           Password
@@ -75,7 +75,7 @@ const PasswordInput = () => {
             placeholder='Password'
             aria-invalid={calculateStrength.score < 4}
             aria-describedby='password-strength'
-            className='w-full p-2 border-2 rounded-md bg-background outline-none focus-within:border-blue-700 transition'
+            className='w-full p-2 border-2 rounded-md dark:bg-neutral-800 bg-neutral-50 outline-none focus-within:border-blue-700 transition'
           />
           <button
             type='button'
@@ -90,27 +90,37 @@ const PasswordInput = () => {
       <div className='flex gap-2 w-full justify-between mt-2'>
         <span
           className={`${
-            calculateStrength.score >= 1 ? 'bg-green-200' : 'bg-border'
+            calculateStrength.score >= 1
+              ? 'bg-green-200'
+              : 'dark:bg-neutral-800 bg-neutral-50'
           }  p-1 rounded-full w-full`}
         ></span>
         <span
           className={`${
-            calculateStrength.score >= 2 ? 'bg-green-300' : 'bg-border'
+            calculateStrength.score >= 2
+              ? 'bg-green-300'
+              : 'dark:bg-neutral-800 bg-neutral-50'
           }  p-1 rounded-full w-full`}
         ></span>
         <span
           className={`${
-            calculateStrength.score >= 3 ? 'bg-green-400' : 'bg-border'
+            calculateStrength.score >= 3
+              ? 'bg-green-400'
+              : 'dark:bg-neutral-800 bg-neutral-50'
           }  p-1 rounded-full w-full`}
         ></span>
         <span
           className={`${
-            calculateStrength.score >= 4 ? 'bg-green-500' : 'bg-border'
+            calculateStrength.score >= 4
+              ? 'bg-green-500'
+              : 'dark:bg-neutral-800 bg-neutral-50'
           }  p-1 rounded-full w-full`}
         ></span>
         <span
           className={`${
-            calculateStrength.score >= 5 ? 'bg-green-600' : 'bg-border'
+            calculateStrength.score >= 5
+              ? 'bg-green-600'
+              : 'dark:bg-neutral-800 bg-neutral-50'
           }  p-1 rounded-full w-full`}
         ></span>
       </div>
@@ -136,7 +146,7 @@ const PasswordInput = () => {
         {calculateStrength.requirements.map((req, index) => (
           <li key={index} className='flex items-center space-x-2'>
             {req.met ? (
-              <Check size={16} className='text-emerald-500' />
+              <CheckCheck size={16} className='text-emerald-500' />
             ) : (
               <X size={16} className='text-muted-foreground/80' />
             )}

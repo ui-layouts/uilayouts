@@ -7,7 +7,7 @@ export default function index() {
   const [values, setValues] = useState([0, 100]);
   return (
     <>
-      <div className=' w-3/5 mx-auto py-8'>
+      <div className=' w-3/5 mx-auto py-20'>
         <DualRangeSlider
           label={() => <>℃</>}
           value={[celPer]}

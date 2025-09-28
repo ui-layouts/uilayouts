@@ -22,7 +22,7 @@ const COLORS: Colors = {
   color16: '#290ECB',
   color17: '#3F4CC0',
 };
-const GitHubButton: React.FC = () => {
+const HomeGitHubButton: React.FC = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -69,4 +69,4 @@ const GitHubButton: React.FC = () => {
   );
 };
 
-export default GitHubButton;
+export default HomeGitHubButton;
