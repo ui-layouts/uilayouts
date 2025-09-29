@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
 
 function index() {
   return (
     <>
       <section
-        className="relative"
+        className='relative'
         style={{
           aspectRatio: '1213/667',
           backgroundColor: 'tomato',
@@ -19,13 +19,13 @@ function index() {
         }}
       >
         <img
-          src="https://images.unsplash.com/photo-1433838552652-f9a46b332c40?q=80&w=2070&auto=format&fit=crop"
-          alt=""
-          className="w-full  h-full object-cover  aspect-square hover:scale-105 transition-all duration-300"
+          src='https://images.unsplash.com/photo-1433838552652-f9a46b332c40?q=80&w=2070&auto=format&fit=crop'
+          alt=''
+          className='w-full max-h-96 object-cover  aspect-square hover:scale-105 transition-all duration-300'
         />
       </section>
     </>
-  )
+  );
 }
 
-export default index
+export default index;

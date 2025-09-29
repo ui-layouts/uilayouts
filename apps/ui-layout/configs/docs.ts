@@ -1149,9 +1149,15 @@ export const AllComponents: IAllComponents[] = [
     ],
   },
   {
-    category: DOCS_CATEGORY_KEY['mesh-shadergradient'],
+    category: DOCS_CATEGORY_KEY['r3f-blob'],
+    componentName: COMPONENT_KEYS.R3F_BLOB,
+    iframelink: COMPONENT_KEYS.R3F_BLOB,
+    tags: ['r3f-blob', 'threejs r3f blob', 'React3 Fiber r3f blob'],
+  },
+  {
+    category: DOCS_CATEGORY_KEY['mesh-gradients'],
     componentName: COMPONENT_KEYS.MESH_SHADERGRADIENT,
-    iframelink: 'mess-gradient',
+    iframelink: COMPONENT_KEYS.MESH_SHADERGRADIENT,
     tags: [
       'mesh-gradient',
       'threejs mesh graddient',
@@ -1160,8 +1166,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     category: DOCS_CATEGORY_KEY['mesh-gradients'],
-    componentName: COMPONENT_KEYS.LEMON_MESH_GRADIENTS,
-    iframelink: 'mess-gradient',
+    componentName: COMPONENT_KEYS.MESH_GRADIENT_BACKGROUND3,
+    iframelink: COMPONENT_KEYS.MESH_GRADIENT_BACKGROUND3,
     tags: [
       'mesh-gradient',
       'threejs mesh graddient',
@@ -1170,8 +1176,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     category: DOCS_CATEGORY_KEY['mesh-gradients'],
-    componentName: COMPONENT_KEYS.YELLOW_MESH_GRADIENTS,
-    iframelink: 'mess-gradient2',
+    componentName: COMPONENT_KEYS.MESH_GRADIENT_BACKGROUND2,
+    iframelink: COMPONENT_KEYS.MESH_GRADIENT_BACKGROUND2,
     tags: [
       'mesh-gradient',
       'threejs mess graddient',
@@ -1180,8 +1186,8 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     category: DOCS_CATEGORY_KEY['mesh-gradients'],
-    componentName: COMPONENT_KEYS.YELLOW_MESH_GRADIENTS,
-    iframelink: 'mess-gradient2',
+    componentName: COMPONENT_KEYS.MESH_GRADIENT_BACKGROUND,
+    iframelink: COMPONENT_KEYS.MESH_GRADIENT_BACKGROUND,
     tags: [
       'mesh-gradient',
       'threejs mess graddient',

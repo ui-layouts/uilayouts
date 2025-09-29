@@ -15,7 +15,7 @@ function index() {
               maskRepeat: 'no-repeat',
               maskPosition: 'center',
             }}
-            className='w-full relative h-full object-cover  aspect-square '
+            className='w-full relative max-h-[34rem] object-cover  aspect-square '
           >
             <source
               src='https://videos.pexels.com/video-files/7710243/7710243-uhd_2560_1440_30fps.mp4'

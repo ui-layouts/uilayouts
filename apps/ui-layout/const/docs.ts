@@ -33,7 +33,6 @@ export const DOCS_CATEGORY_KEY = {
   'drag-items': 'drag-items',
   'image-ripple-effect': 'image-ripple-effect',
   'r3f-blob': 'r3f-blob',
-  'mesh-shadergradient': 'mesh-shadergradient',
   'mesh-gradients': 'mesh-gradients',
   'blur-vignette': 'blur-vignette',
   'motion-number': 'motion-number',
@@ -129,9 +128,9 @@ export const COMPONENT_KEYS = {
   IMG_RIPPLE_EFFECT: 'img-ripple-effect',
   R3F_BLOB: 'r3f-blob',
   MESH_SHADERGRADIENT: 'mesh-shadergradient',
-  LEMON_MESH_GRADIENTS: 'lemon-mesh-gradients',
-  YELLOW_MESH_GRADIENTS: 'yellow-mesh-gradients',
-  BLUE_MESH_GRADIENTS: 'blue-mesh-gradients',
+  MESH_GRADIENT_BACKGROUND3: 'mesh-gradient-background3',
+  MESH_GRADIENT_BACKGROUND2: 'mesh-gradient-background2',
+  MESH_GRADIENT_BACKGROUND: 'mesh-gradient-background',
 
   // Accordion category
   GRID_LAYOUT_ACCORDION: 'grid-layout-accordion',
