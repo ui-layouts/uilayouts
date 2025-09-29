@@ -276,7 +276,19 @@
         }
       ]
     },
-
+    {
+      "name": "scroll-text-marquee",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion", "@motionone/utils"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/scroll-text-marque.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
     {
       "name": "globe",
       "type": "registry:component",

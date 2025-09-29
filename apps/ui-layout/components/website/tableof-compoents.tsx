@@ -200,7 +200,11 @@ export default function TableOfContents({ toc }: TableOfContentsProps) {
                   </div>
 
                   <div className='space-y-4 pt-5 mt-auto'>
-                    <BuyMeCoffee classname='mt-10 w-full' />
+                    <BuyMeCoffee
+                      classname='mt-10 w-36 h-32 my-0'
+                      iconClassName='w-full h-full group-hover:translate-y-14'
+                      textSvgClassName='group-hover:scale-[1.5] top-[0.8rem]'
+                    />
                   </div>
                 </div>
               </ScrollArea>

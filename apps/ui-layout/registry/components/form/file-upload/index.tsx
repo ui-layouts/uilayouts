@@ -46,34 +46,36 @@ const FileUploaderTest = () => {
   };
 
   return (
-    <FileUploader
-      value={files}
-      onValueChange={setFiles}
-      dropzoneOptions={dropZoneConfig}
-      className='relative  rounded-lg p-2 w-96 mx-auto'
-    >
-      <FileInput className='outline-dashed outline-2 dark:bg-neutral-800 bg-neutral-50 outline-primary/40'>
-        <div className='flex items-center justify-center flex-col pt-3 pb-4 w-full '>
-          <FileSvgDraw />
-        </div>
-      </FileInput>
-      <FileUploaderContent>
-        {files &&
-          files.length > 0 &&
-          files.map((file, i) => (
-            <FileUploaderItem
-              key={i}
-              index={i}
-              className='dark:bg-neutral-800 bg-neutral-50'
-            >
-              <Paperclip className='h-4 w-4 flex-shrink-0 stroke-current' />
-              <p className='text-ellipsis inline-block  overflow-hidden text-xs w-full'>
-                {file.name}
-              </p>
-            </FileUploaderItem>
-          ))}
-      </FileUploaderContent>
-    </FileUploader>
+    <div className='py-16'>
+      <FileUploader
+        value={files}
+        onValueChange={setFiles}
+        dropzoneOptions={dropZoneConfig}
+        className='relative  rounded-lg p-2 w-96 mx-auto'
+      >
+        <FileInput className='outline-dashed outline-2 dark:bg-neutral-800 bg-neutral-50 outline-primary/40'>
+          <div className='flex items-center justify-center flex-col pt-3 pb-4 w-full '>
+            <FileSvgDraw />
+          </div>
+        </FileInput>
+        <FileUploaderContent>
+          {files &&
+            files.length > 0 &&
+            files.map((file, i) => (
+              <FileUploaderItem
+                key={i}
+                index={i}
+                className='dark:bg-neutral-800 bg-neutral-50'
+              >
+                <Paperclip className='h-4 w-4 flex-shrink-0 stroke-current' />
+                <p className='text-ellipsis inline-block  overflow-hidden text-xs w-full'>
+                  {file.name}
+                </p>
+              </FileUploaderItem>
+            ))}
+        </FileUploaderContent>
+      </FileUploader>
+    </div>
   );
 };
 

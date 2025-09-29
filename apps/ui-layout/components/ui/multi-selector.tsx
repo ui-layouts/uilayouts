@@ -170,7 +170,7 @@ export const MultiSelect = React.forwardRef<
             {...props}
             onClick={handleTogglePopover}
             className={cn(
-              'flex w-full p-1 rounded-md border min-h-10 h-auto items-center justify-between dark:bg-neutral-800 bg-neutral-50 hover:dark:bg-neutral-800 bg-neutral-50',
+              'flex w-full p-1 rounded-md border min-h-10 h-auto items-center justify-between hover:bg-neutral-100 dark:bg-neutral-800 bg-neutral-50 hover:dark:bg-neutral-900',
               className
             )}
           >
@@ -187,7 +187,7 @@ export const MultiSelect = React.forwardRef<
                       <div
                         key={value}
                         className={cn(
-                          'inline-flex items-center rounded-full border px-2 py-0.5 text-xs font-semibold  bg-primary text-primary-foreground  '
+                          'inline-flex items-center rounded-lg px-2 py-1 text-xs font-semibold dark:bg-neutral-950 bg-neutral-200 text-primary'
                         )}
                       >
                         {IconComponent && (
@@ -207,7 +207,7 @@ export const MultiSelect = React.forwardRef<
                   {!showall && selectedValues.length > maxCount && (
                     <div
                       className={cn(
-                        'bg-primary-foreground inline-flex items-center border px-2 py-0.5  rounded-full text-foreground border-foreground/1 hover:bg-transparent'
+                        'bg-primary-foreground inline-flex items-center border px-2 py-0.5 rounded-lg text-foreground border-foreground/1 hover:bg-transparent'
                       )}
                       style={{ animationDuration: `${animation}s` }}
                     >
@@ -224,7 +224,7 @@ export const MultiSelect = React.forwardRef<
                 </div>
                 <div className='flex items-center justify-between'>
                   <XIcon
-                    className='h-4 mx-2 cursor-pointer text-muted-foreground'
+                    className='h-4 mx-2 cursor-pointer text-primary'
                     onClick={(event) => {
                       event.stopPropagation();
                       handleClear();
@@ -234,7 +234,7 @@ export const MultiSelect = React.forwardRef<
                     orientation="vertical"
                     className="flex min-h-6 h-full"
                   /> */}
-                  <ChevronDown className='h-4 mx-2 cursor-pointer text-muted-foreground' />
+                  <ChevronDown className='h-4 mx-2 cursor-pointer text-primary' />
                 </div>
               </div>
             ) : (

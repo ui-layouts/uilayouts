@@ -1,37 +1,39 @@
 export const metadata = {
-  metadataBase: new URL("https://ui-layouts.com"),
+  metadataBase: new URL('https://ui-layouts.com'),
 
-  title: "Buy Me Millions Coffee",
-  description: "A fun and creative sponsorship component inspired by 'Buy Me a Coffee' with a twist! Perfect for creators looking to attract sponsors and supporters with a playful approach. Easy to integrate and customize for your projects.",
+  title: 'Buy Me Millions Coffee',
+  description:
+    "A fun and creative sponsorship component inspired by 'Buy Me a Coffee' with a twist! Perfect for creators looking to attract sponsors and supporters with a playful approach. Easy to integrate and customize for your projects.",
   keywords: [
-    "Buy me coffee component",
-    "Sponsorship component",
-    "Donation button",
-    "Support component",
-    "Creator sponsorship",
-    "Fundraising component",
-    "Coffee sponsorship",
-    "Support button",
-    "Patron component",
-    "Creator support",
-    "Donation widget",
-    "Sponsor button",
-    "Creative fundraising",
-    "Support creators",
-    "Monetization component",
-    "Tip jar component",
-    "Buy me coffee clone",
-    "Creator economy",
-    "Supporter component",
-    "Funding widget"
+    'Buy me coffee component',
+    'Sponsorship component',
+    'Donation button',
+    'Support component',
+    'Creator sponsorship',
+    'Fundraising component',
+    'Coffee sponsorship',
+    'Support button',
+    'Patron component',
+    'Creator support',
+    'Donation widget',
+    'Sponsor button',
+    'Creative fundraising',
+    'Support creators',
+    'Monetization component',
+    'Tip jar component',
+    'Buy me coffee clone',
+    'Creator economy',
+    'Supporter component',
+    'Funding widget',
   ],
-  authors: [{ name: "Naymur Rahman", url: "https://twitter.com/naymur_dev" }],
-  creator: "@naymur_dev",
-  publisher: "UI Layouts",
+  authors: [{ name: 'Naymur Rahman', url: 'https://twitter.com/naymur_dev' }],
+  creator: '@naymur_dev',
+  publisher: 'UI Layouts',
   openGraph: {
-    title: "Buy Me Millions Coffee | UI Layouts",
-    description: "A fun and creative sponsorship component inspired by 'Buy Me a Coffee' with a twist! Perfect for creators looking to attract sponsors with a playful approach.",
-    url: "https://ui-layouts.com/components/buy-me-coffee",
+    title: 'Buy Me Millions Coffee | UI Layouts',
+    description:
+      "A fun and creative sponsorship component inspired by 'Buy Me a Coffee' with a twist! Perfect for creators looking to attract sponsors with a playful approach.",
+    url: 'https://ui-layouts.com/components/buy-me-coffee',
     images: [
       {
         url: 'https://ui-layouts.com/component-og.jpg',
@@ -40,16 +42,17 @@ export const metadata = {
         alt: 'UI Layouts Components',
       },
     ],
-    siteName: "UI Layouts",
-    locale: "en_US",
-    type: "website",
+    siteName: 'UI Layouts',
+    locale: 'en_US',
+    type: 'website',
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Buy Me Millions Coffee | UI Layouts",
+    card: 'summary_large_image',
+    title: 'Buy Me Millions Coffee | UI Layouts',
     images: ['https://ui-layouts.com/component-og.jpg'],
-    description: "A fun sponsorship component with a creative twist on 'Buy Me a Coffee' - perfect for attracting supporters and sponsors!",
-    creator: "@naymur_dev",
+    description:
+      "A fun sponsorship component with a creative twist on 'Buy Me a Coffee' - perfect for attracting supporters and sponsors!",
+    creator: '@naymur_dev',
   },
   robots: {
     index: true,
@@ -57,12 +60,35 @@ export const metadata = {
     googleBot: {
       index: true,
       follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
     },
   },
-  category: "technology",
+  category: 'technology',
 };
 
-<ComponentCodePreview name='buyme-acoffee' hasReTrigger isFitheight />
+<ComponentCodePreview name='buyme-acoffee' isFitheight />
+
+## Usage
+
+```tsx
+<BuyMeCoffee 
+  classname="w-40 h-12 flex items-center justify-center"
+  iconClassName="w-6 h-6 text-yellow-500"
+  textSvgClassName="fill-current text-gray-800"
+/>
+````
+
+
+## Props
+
+The `BuyMeCoffee` component accepts the following props:
+
+| Prop            | Type     | Default | Description                                                                 |
+|-----------------|----------|---------|-----------------------------------------------------------------------------|
+| `classname`     | string   | —       | Additional CSS class for the root container.                                |
+| `iconClassName` | string   | —       | CSS class for styling the coffee icon.                                      |
+| `textSvgClassName` | string | —       | CSS class for styling the SVG text element (if used).                       |
+
+

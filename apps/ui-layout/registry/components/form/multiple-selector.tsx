@@ -19,7 +19,7 @@ function Home() {
   ]);
 
   return (
-    <div className='pt-8 pb-16 w-96 mx-auto'>
+    <div className='py-20 w-96 mx-auto'>
       <MultiSelect
         options={frameworksList}
         onValueChange={setSelectedFrameworks}
@@ -28,14 +28,14 @@ function Home() {
         popoverClass='w-96'
         maxCount={3}
       />
-      <div className='mt-4'>
+      {/* <div className='mt-4'>
         <h2 className='text-xl font-semibold'>Selected Frameworks:</h2>
         <ul className='list-disc list-inside'>
           {selectedFrameworks.map((framework) => (
             <li key={framework}>{framework}</li>
           ))}
         </ul>
-      </div>
+      </div> */}
     </div>
   );
 }

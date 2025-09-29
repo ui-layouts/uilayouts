@@ -56,7 +56,7 @@ export const DOCS_CATEGORY_KEY = {
   'timeline-animation': 'timeline-animation',
   'scroll-animation': 'scroll-animation',
   'scroll-text': 'scroll-text',
-  'text-marquee': 'text-marquee',
+  'scroll-text-marquee': 'scroll-text-marquee',
   'randomized-text-effect': 'randomized-text-effect',
   'image-mousetrail': 'image-mousetrail',
   'image-reveal': 'image-reveal',

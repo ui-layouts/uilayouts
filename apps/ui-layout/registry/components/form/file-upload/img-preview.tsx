@@ -50,37 +50,39 @@ const FileUploadDropzone = () => {
   } satisfies DropzoneOptions;
 
   return (
-    <FileUploader
-      value={files}
-      orientation='vertical'
-      onValueChange={setFiles}
-      dropzoneOptions={dropzone}
-      className='relative  rounded-lg p-2 w-96 mx-auto'
-    >
-      <FileInput className='outline-dashed dark:bg-neutral-800 bg-neutral-50 outline-2 outline-primary/40'>
-        <div className='flex items-center justify-center flex-col pt-3 pb-4 w-full '>
-          <FileSvgDraw />
-        </div>
-      </FileInput>
-      <FileUploaderContent className='flex items-center flex-row gap-2'>
-        {files?.map((file, i) => (
-          <FileUploaderItem
-            key={i}
-            index={i}
-            className='size-20 p-0 rounded-md overflow-hidden border'
-            aria-roledescription={`file ${i + 1} containing ${file.name}`}
-          >
-            <Image
-              src={URL.createObjectURL(file)}
-              alt={file.name}
-              height={80}
-              width={80}
-              className='size-20 rounded-md object-cover bg-primary'
-            />
-          </FileUploaderItem>
-        ))}
-      </FileUploaderContent>
-    </FileUploader>
+    <div className='py-16'>
+      <FileUploader
+        value={files}
+        orientation='vertical'
+        onValueChange={setFiles}
+        dropzoneOptions={dropzone}
+        className='relative  rounded-lg p-2 w-96 mx-auto'
+      >
+        <FileInput className='outline-dashed dark:bg-neutral-800 bg-neutral-50 outline-2 outline-primary/40'>
+          <div className='flex items-center justify-center flex-col pt-3 pb-4 w-full '>
+            <FileSvgDraw />
+          </div>
+        </FileInput>
+        <FileUploaderContent className='flex items-center flex-row gap-2'>
+          {files?.map((file, i) => (
+            <FileUploaderItem
+              key={i}
+              index={i}
+              className='size-20 p-0 rounded-md overflow-hidden border'
+              aria-roledescription={`file ${i + 1} containing ${file.name}`}
+            >
+              <Image
+                src={URL.createObjectURL(file)}
+                alt={file.name}
+                height={80}
+                width={80}
+                className='size-20 rounded-md object-cover bg-primary'
+              />
+            </FileUploaderItem>
+          ))}
+        </FileUploaderContent>
+      </FileUploader>
+    </div>
   );
 };
 

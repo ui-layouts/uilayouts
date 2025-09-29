@@ -12,18 +12,18 @@ export default function Component() {
   };
 
   return (
-    <div className='p-4 max-w-md mx-auto'>
-      <h1 className='text-2xl font-bold mb-4'>Time Input Example</h1>
+    <div className='p-4 max-w-md mx-auto py-10'>
       <SmartDatetimeInput
         value={selectedDate}
         showCalendar={false}
         showTimePicker={true}
         onValueChange={handleDateChange}
         placeholder='Enter a date and time'
+        className='lg:w-96'
       />
-      {selectedDate && (
+      {/* {selectedDate && (
         <p className='mt-4'>Selected Date: {selectedDate.toLocaleString()}</p>
-      )}
+      )} */}
     </div>
   );
 }

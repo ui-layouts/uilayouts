@@ -12,16 +12,16 @@ export default function index() {
   };
 
   return (
-    <div className='p-4 max-w-md mx-auto'>
-      <h1 className='text-2xl font-bold mb-4'>Smart DateTime Input Example</h1>
+    <div className='p-4 max-w-md mx-auto py-10'>
       <SmartDatetimeInput
         value={selectedDate}
         onValueChange={handleDateChange}
         placeholder='Enter a date and time'
+        className='lg:w-96'
       />
-      {selectedDate && (
+      {/* {selectedDate && (
         <p className='mt-4'>Selected Date: {selectedDate.toLocaleString()}</p>
-      )}
+      )} */}
     </div>
   );
 }

@@ -1,20 +1,30 @@
 import { cn } from '@/lib/utils';
 import React from 'react';
 
-function BuyMeCoffee({ classname }: { classname?: string }) {
+function BuyMeCoffee({
+  classname,
+  iconClassName,
+  textSvgClassName,
+}: {
+  classname?: string;
+  iconClassName?: string;
+  textSvgClassName?: string;
+}) {
   return (
     <>
       <a
         href='https://buymeacoffee.com/uilayouts'
         target='_blank'
         className={cn(
-          'border relative group w-36 mx-auto cursor-pointer h-32 grid place-content-center p-10 py-14 bg-primary  rounded-md  overflow-hidden',
+          'border relative group w-96 mx-auto cursor-pointer h-96 grid place-content-center p-10 py-14 my-14 dark:bg-neutral-50 bg-neutral-900  rounded-md  overflow-hidden',
           classname
         )}
       >
         <svg
           width='424'
-          className='absolute top-0 left-0 w-full h-full scale-[2] translate-x-6 group-hover:scale-50 group-hover:opacity-0 duration-300 group-hover:delay-0 delay-200'
+          className={cn(
+            'absolute top-0 left-0 w-full h-full scale-[2] translate-x-6 group-hover:scale-50 group-hover:opacity-0 duration-300 group-hover:delay-0 delay-200'
+          )}
           height='424'
           viewBox='0 0 424 424'
           fill='none'
@@ -482,7 +492,12 @@ function BuyMeCoffee({ classname }: { classname?: string }) {
           />
         </svg>
 
-        <div className=' relative z-[1] w-full h-full bg-[#FFDD06] border-background border-2 group-hover:p-0 p-2 rounded-md duration-500   transition-transform ease-in-out group-hover:scale-[1.5] group-hover:translate-y-12'>
+        <div
+          className={cn(
+            'relative z-[1] w-40 h-44 bg-[#FFDD06] border-background border-2 group-hover:p-0 p-2 rounded-md duration-500 transition-transform ease-in-out group-hover:scale-[2] group-hover:translate-y-24',
+            iconClassName
+          )}
+        >
           <svg
             width='223'
             className='w-full h-full '
@@ -573,7 +588,10 @@ function BuyMeCoffee({ classname }: { classname?: string }) {
         <svg
           width='65'
           height='13'
-          className='absolute top-[1.15rem] opacity-0 group-hover:opacity-100 delay-100 transition-all duration-300 w-full flex justify-center group-hover:scale-[2]'
+          className={cn(
+            'absolute top-[3.1rem] opacity-0 group-hover:opacity-100 delay-100 transition-all duration-300 w-full flex justify-center group-hover:scale-[3]',
+            textSvgClassName
+          )}
           viewBox='0 0 65 13'
           fill='none'
           xmlns='http://www.w3.org/2000/svg'

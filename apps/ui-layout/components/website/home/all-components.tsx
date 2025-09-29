@@ -106,7 +106,7 @@ const homeComponents = [
   },
   {
     id: 12,
-    link: '/components/text-marquee',
+    link: '/components/scroll-text-marquee',
 
     componentSrc: <HomeTextMarquee />,
     className:
@@ -127,14 +127,17 @@ function AllComponents() {
   return (
     <>
       <section className='relative'>
-        <h1 className='xl:text-5xl md:text-4xl sm:text-3xl text-2xl  font-medium text-center pt-44 pb-10 flex gap-2 items-start justify-center
-        '>
+        <h1
+          className='xl:text-5xl md:text-4xl sm:text-3xl text-2xl  font-medium text-center pt-44 pb-10 flex gap-2 items-start justify-center
+        '
+        >
           <img
             src='https://fonts.gstatic.com/s/e/notoemoji/latest/1f525/512.gif'
             alt='🔥'
             className='w-12 h-12 sm:block hidden'
           />
-          Supercharge Your Projects with <br className='md:block hidden' /> Ready-to-Use Components.
+          Supercharge Your Projects with <br className='md:block hidden' />{' '}
+          Ready-to-Use Components.
         </h1>
         <div className='relative grid grid-cols-14  gap-4 lg:container xl:px-0 px-3 mx-auto'>
           {homeComponents?.slice(0, 13).map((component, index) => {

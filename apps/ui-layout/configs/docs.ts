@@ -535,9 +535,9 @@ export const DocsNavigationCategories: DocsNavigationCategory[] = [
     tags: ['scroll', 'text', 'animation'],
   },
   {
-    href: '/components/text-marquee',
+    href: '/components/scroll-text-marquee',
     name: 'Text Maruqee',
-    key: DOCS_CATEGORY_KEY['text-marquee'],
+    key: DOCS_CATEGORY_KEY['scroll-text-marquee'],
     group: DOCS_CATEGORY_GROUP.TextAnimation,
     tags: ['marquee', 'text', 'animation'],
   },
@@ -2715,7 +2715,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['scroll', 'text-animation', 'text', 'animation'],
   },
   {
-    category: DOCS_CATEGORY_KEY['text-marquee'],
+    category: DOCS_CATEGORY_KEY['scroll-text-marquee'],
     componentName: COMPONENT_KEYS.SCROLL_TEXT_MARQUEE,
     filesrc: 'components/text-animation/text-marque/animationone.tsx',
     componentSrc: React.lazy(
@@ -2726,7 +2726,7 @@ export const AllComponents: IAllComponents[] = [
     tags: ['marquee', 'text', 'animation'],
   },
   {
-    category: DOCS_CATEGORY_KEY['text-marquee'],
+    category: DOCS_CATEGORY_KEY['scroll-text-marquee'],
     componentName: COMPONENT_KEYS.SCROLL_TEXT_MARQUEE2,
     filesrc: 'components/text-animation/text-marque/animationtwo.tsx',
     componentSrc: React.lazy(

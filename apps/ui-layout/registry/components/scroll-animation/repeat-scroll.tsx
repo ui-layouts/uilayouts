@@ -1,10 +1,10 @@
 'use client';
 import React from 'react';
-import ScrollElement from '../../../components/ui/scroll-animation';
+import ScrollElement from '@/components/ui/scroll-animation';
 
 function index() {
   return (
-    <>
+    <section>
       <div className='h-[500px] grid place-content-center'>
         <h1 className='text-6xl font-semibold text-center py-8'>
           Scroll Down 👇{' '}
@@ -106,7 +106,7 @@ function index() {
           </ScrollElement>
         </div>
       </div>
-    </>
+    </section>
   );
 }
 

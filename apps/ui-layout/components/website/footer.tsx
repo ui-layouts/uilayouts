@@ -4,7 +4,7 @@ function Footer() {
   return (
     <>
       <footer className='xl:pb-2 p-2 mt-8 rounded-md not-prose'>
-        <p className='text-balance text-center text-sm leading-loose text-muted-foreground md:text-left'>
+        <p className='text-balance text-center text-sm leading-loose text-primary/90 md:text-left'>
           Built by{' '}
           <a
             href='https://x.com/naymur_dev'

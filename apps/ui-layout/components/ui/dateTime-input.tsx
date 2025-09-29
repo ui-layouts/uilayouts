@@ -603,7 +603,7 @@ const DateTimeLocalInput = ({
           variant={'outline'}
           size={'icon'}
           className={cn(
-            'size-9 flex items-center justify-center font-normal  bg-primary-foreground',
+            'size-9 flex items-center justify-center font-normal dark:bg-neutral-950 bg-neutral-200',
             !value && 'text-muted-foreground'
           )}
         >

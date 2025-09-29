@@ -512,7 +512,7 @@
     },
 
     {
-      "name": "text-marquee",
+      "name": "scroll-text-marquee",
       "type": "registry:component",
       "devDependencies": [],
       "dependencies": ["motion", "@motionone/utils"],
