@@ -2,15 +2,10 @@
 
 'use client';
 
-import React, { useRef, type JSX } from 'react';
-import {
-  ForwardRefComponent,
-  motion,
-  HTMLMotionProps,
-  useInView,
-  Variant,
-} from 'motion/react';
+import React, { type JSX } from 'react';
+import { motion, HTMLMotionProps } from 'motion/react';
 import { cn } from '@/lib/utils';
+
 type Direction = 'up' | 'down' | 'left' | 'right';
 
 const containerVariants = {
@@ -21,18 +16,23 @@ const containerVariants = {
     },
   },
 };
+
 const generateVariants = (
   direction: Direction
 ): { hidden: any; visible: any } => {
-  const axis = direction === 'left' || direction === 'right' ? 'x' : 'y';
+  const axis = direction === 'left' || direction === 'right' ? 'X' : 'Y';
   const value = direction === 'right' || direction === 'down' ? 100 : -100;
 
   return {
-    hidden: { filter: 'blur(10px)', opacity: 0, [axis]: value },
+    hidden: {
+      filter: 'blur(10px)',
+      opacity: 0,
+      [`translate${axis}`]: value,
+    },
     visible: {
       filter: 'blur(0px)',
       opacity: 1,
-      [axis]: 0,
+      [`translate${axis}`]: 0,
       transition: {
         duration: 0.4,
         ease: 'easeOut',
@@ -76,64 +76,55 @@ const TextAnimation = ({
       ...baseVariants.visible,
     },
   };
+
   const MotionComponent = motion[
     as as keyof typeof motion
   ] as React.ComponentType<HTMLMotionProps<any>>;
+
   return (
-    <>
-      <>
-        <MotionComponent
-          whileInView='visible'
-          initial='hidden'
-          variants={containerVariants}
-          viewport={viewport}
-          className={cn(
-            `inline-block dark:text-white text-black uppercase  `,
-            classname
-          )}
-        >
-          {lineAnime ? (
-            <>
-              {' '}
-              <motion.span
-                className={`inline-block `}
-                variants={modifiedVariants}
-              >
-                {text}
-              </motion.span>
-            </>
-          ) : (
-            <>
-              {text.split(' ').map((word: string, index: number) => (
-                <motion.span
-                  key={index}
-                  className={`inline-block `}
-                  variants={letterAnime === false ? modifiedVariants : {}}
-                >
-                  {letterAnime ? (
-                    <>
-                      {word.split('').map((letter: string, index: number) => (
-                        <>
-                          <motion.span
-                            className={`inline-block `}
-                            variants={modifiedVariants}
-                          >
-                            {letter}
-                          </motion.span>
-                        </>
-                      ))}
-                      &nbsp;
-                    </>
-                  ) : (
-                    <>{word}&nbsp;</>
-                  )}
-                </motion.span>
-              ))}
-            </>
-          )}
-        </MotionComponent>
-      </>
-    </>
+    <MotionComponent
+      whileInView='visible'
+      initial='hidden'
+      variants={containerVariants}
+      viewport={viewport}
+      className={cn(
+        `inline-block dark:text-white text-black uppercase`,
+        classname
+      )}
+    >
+      {lineAnime ? (
+        <motion.span className={`inline-block`} variants={modifiedVariants}>
+          {text}
+        </motion.span>
+      ) : (
+        <>
+          {text.split(' ').map((word: string, index: number) => (
+            <motion.span
+              key={index}
+              className={`inline-block`}
+              variants={letterAnime === false ? modifiedVariants : {}}
+            >
+              {letterAnime ? (
+                <>
+                  {word.split('').map((letter: string, letterIndex: number) => (
+                    <motion.span
+                      key={letterIndex}
+                      className={`inline-block`}
+                      variants={modifiedVariants}
+                    >
+                      {letter}
+                    </motion.span>
+                  ))}
+                  &nbsp;
+                </>
+              ) : (
+                <>{word}&nbsp;</>
+              )}
+            </motion.span>
+          ))}
+        </>
+      )}
+    </MotionComponent>
   );
 };
 

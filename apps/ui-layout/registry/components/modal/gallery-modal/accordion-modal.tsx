@@ -77,7 +77,7 @@ export default function index() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             key='overlay'
-            className='dark:bg-black/40 bg-white/40 backdrop-blur-sm fixed inset-0 z-50 top-0 left-0 bottom-0 right-0 w-full h-full grid place-content-center'
+            className='dark:bg-black/40 bg-white/40 backdrop-blur-lg fixed inset-0 z-50 top-0 left-0 bottom-0 right-0 w-full h-full grid place-content-center'
             onClick={() => {
               setOpen(false);
             }}
@@ -85,7 +85,7 @@ export default function index() {
             <div onClick={(e) => e.stopPropagation()}>
               <motion.div
                 layoutId={items[index].id}
-                className='w-[400px] h-[400px] rounded-2xl cursor-default'
+                className='w-[400px] h-[400px] rounded-2xl relative cursor-default'
               >
                 <Image
                   src={items[index].url}
@@ -94,7 +94,7 @@ export default function index() {
                   alt='single-image'
                   className='rounded-2xl h-full w-full object-cover'
                 />
-                <article className='dark:bg-primary-base bg-white rounded-md p-2 mt-2 border '>
+                <article className='dark:bg-black/40 bg-white/40 backdrop-blur-md absolute bottom-0 left-0 w-full rounded-md p-2'>
                   <motion.h1
                     initial={{ scaleY: 0.2 }}
                     animate={{ scaleY: 1 }}

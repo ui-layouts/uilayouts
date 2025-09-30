@@ -15,25 +15,24 @@ function index() {
           <ScrollElement
             direction='left'
             viewport={{ amount: 0.5, margin: '0px 0px 0px 0px' }}
-            // @ts-ignore
-            className='text-5xl text-left py-44'
+            className='text-6xl text-left py-44 2xl:max-w-xl max-w-lg'
           >
-            <p>Scroll Left</p>
+            <p>Take a glance over to the left side.</p>
           </ScrollElement>
+
           <ScrollElement
             direction='right'
             viewport={{ amount: 0.5, margin: '0px 0px 0px 0px' }}
-            // @ts-ignore
-            className='text-5xl text-right py-44'
+            className='text-6xl text-right py-44 2xl:max-w-xl max-w-lg ml-auto'
           >
-            <p>Scroll Right</p>
+            <p>Now shift your eyes to the right side.</p>
           </ScrollElement>
+
           <ScrollElement
             viewport={{ amount: 0.5, margin: '0px 0px 0px 0px' }}
-            // @ts-ignore
-            className='text-5xl text-center py-44'
+            className='text-6xl max-w-md mx-auto text-center py-44 2xl:max-w-xl'
           >
-            <p>Scroll bottom</p>
+            <p>And finally, don’t miss what’s waiting below.</p>
           </ScrollElement>
         </div>
       </div>

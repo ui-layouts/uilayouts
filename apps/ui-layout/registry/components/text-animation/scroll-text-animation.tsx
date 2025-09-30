@@ -8,9 +8,9 @@ function index() {
         <h1 className='text-5xl font-semibold'>Scroll Down👇</h1>
       </div>
 
-      <div className='py-20 text-center  '>
+      <div className='h-[80vh] flex flex-col justify-center items-center text-center'>
         <TextAnimation
-          text='hello world, hope all doing great '
+          text='Creative ideas start here.'
           variants={{
             hidden: { filter: 'blur(10px)', opacity: 0, y: 20 },
             visible: {
@@ -20,13 +20,16 @@ function index() {
               transition: { ease: 'linear' },
             },
           }}
-          classname='text-4xl font-semibold capitalize '
+          classname='xl:text-8xl text-7xl max-w-md mx-auto font-medium capitalize'
         />
+      </div>
+
+      <div className='h-[80vh] flex items-center text-left'>
         <TextAnimation
           as='p'
           letterAnime={true}
-          text="do you know we're really open for work but now a days people really don't like what is it"
-          classname='text-xl w-3/5 mx-auto lowercase leading-5'
+          text="Let's team up and turn ideas into reality ✨"
+          classname='text-7xl max-w-md lowercase'
           variants={{
             hidden: { filter: 'blur(4px)', opacity: 0, y: 20 },
             visible: {
@@ -41,20 +44,20 @@ function index() {
         />
       </div>
 
-      <div className='py-20  '>
+      <div className='h-[80vh] flex justify-center items-center text-right'>
         <TextAnimation
-          text='Heading Animation'
-          direction='left'
-          lineAnime={true}
-          classname='text-4xl font-semibold capitalize '
+          text='Turning concepts into reality'
+          direction='right'
+          classname='text-7xl max-w-md ml-auto capitalize'
         />
       </div>
-      <div className='py-32  text-right'>
+
+      <div className='h-[80vh] flex justify-center items-center text-center'>
         <TextAnimation
-          text='Heading Animation'
-          direction='right'
+          text='Dream big, work hard & achieve greatness '
+          direction='down'
           lineAnime={true}
-          classname='text-4xl font-semibold capitalize '
+          classname='text-7xl max-w-md mx-auto capitalize'
         />
       </div>
     </div>
