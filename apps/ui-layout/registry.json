@@ -709,6 +709,113 @@
           "type": "registry:component"
         }
       ]
+    },
+    {
+      "name": "spotlight",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/spotlight.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "spotlight-card1",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/spotlight-cards/spotlight-card1.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/spotlight.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "spotlight-card2",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/spotlight-cards/spotlight-card2.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/spotlight.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "spotlight-card3",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/spotlight-cards/spotlight-card3.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/spotlight.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "spotlight-card4",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/spotlight-cards/spotlight-card4.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/spotlight.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "image-reveal",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/image-reveal/image-reveal.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "image-reveal2",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/image-reveal/index.tsx",
+          "type": "registry:component"
+        }
+      ]
     }
   ]
 }

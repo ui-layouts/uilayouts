@@ -1,107 +1,147 @@
-'use client';
-
-import React, { useRef, useState, useEffect, useCallback } from 'react';
+// @ts-nocheck
+'use client'
+import { cn } from '@/lib/utils'
+import React, {
+  useRef,
+  useState,
+  MouseEvent,
+  useContext,
+  createContext,
+} from 'react'
 interface MousePosition {
-  x: number;
-  y: number;
+  x: number
+  y: number
 }
 
-export function useMousePosition(): MousePosition {
-  const [mousePosition, setMousePosition] = useState<MousePosition>({
-    x: 0,
-    y: 0,
-  });
-
-  useEffect(() => {
-    const handleMouseMove = (event: MouseEvent) => {
-      setMousePosition({ x: event.clientX, y: event.clientY });
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, []);
-
-  return mousePosition;
+interface SpotlightProps {
+  children: React.ReactNode
+  className?: string
+  ProximitySpotlight?: boolean
+  HoverFocusSpotlight?: boolean
+  CursorFlowGradient?: boolean
 }
-type SpotlightProps = {
-  children: React.ReactNode;
-  className?: string;
-};
+interface SpotlightItemProps {
+  children: React.ReactNode
+  className?: string
+}
 
-export default function Spotlight({
+interface SpotLightContextType {
+  ProximitySpotlight: boolean
+  HoverFocusSpotlight: boolean
+  CursorFlowGradient: boolean
+}
+
+const SpotLightContext = createContext<SpotLightContextType | undefined>(
+  undefined
+)
+export const useSpotlight = () => {
+  const context = useContext(SpotLightContext)
+  if (!context) {
+    throw new Error('useSpotlight must be used within a SpotlightProvider')
+  }
+  return context
+}
+export const Spotlight = ({
   children,
-  className = '',
-}: SpotlightProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const mousePosition = useMousePosition();
-  const mouse = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
-  const containerSize = useRef<{ w: number; h: number }>({ w: 0, h: 0 });
-  const [boxes, setBoxes] = useState<Array<HTMLElement>>([]);
-
-  useEffect(() => {
-    if (containerRef.current) {
-      setBoxes(
-        Array.from(containerRef.current.children).map((el) => el as HTMLElement)
-      );
+  className,
+  ProximitySpotlight = true,
+  HoverFocusSpotlight = false,
+  CursorFlowGradient = true,
+}: SpotlightProps) => {
+  return (
+    <SpotLightContext.Provider
+      value={{
+        ProximitySpotlight,
+        HoverFocusSpotlight,
+        CursorFlowGradient,
+      }}
+    >
+      <div className={cn('group relative z-10 rounded-md    ', className)}>
+        {children}
+      </div>
+    </SpotLightContext.Provider>
+  )
+}
+export function SpotLightItem({ children, className }: SpotlightItemProps) {
+  const { HoverFocusSpotlight, ProximitySpotlight, CursorFlowGradient } =
+    useSpotlight()
+  const boxWrapper = useRef(null)
+  const [isHovered, setIsHovered] = useState(false)
+  const [mousePosition, setMousePosition] = React.useState({
+    x: null,
+    y: null,
+  })
+  React.useEffect(() => {
+    const updateMousePosition = (ev: { clientX: any; clientY: any }) => {
+      setMousePosition({ x: ev.clientX, y: ev.clientY })
     }
-  }, []);
-
-  const initContainer = useCallback(() => {
-    if (containerRef.current) {
-      containerSize.current.w = containerRef.current.offsetWidth;
-      containerSize.current.h = containerRef.current.offsetHeight;
-    }
-  }, []);
-
-  useEffect(() => {
-    initContainer();
-    window.addEventListener('resize', initContainer);
-
+    window.addEventListener('mousemove', updateMousePosition)
     return () => {
-      window.removeEventListener('resize', initContainer);
-    };
-  }, [initContainer, boxes]);
-
-  const onMouseMove = useCallback(() => {
-    if (containerRef.current) {
-      const rect = containerRef.current.getBoundingClientRect();
-      const { w, h } = containerSize.current;
-      const x = mousePosition.x - rect.left;
-      const y = mousePosition.y - rect.top;
-      const inside = x < w && x > 0 && y < h && y > 0;
-      if (inside) {
-        mouse.current.x = x;
-        mouse.current.y = y;
-        boxes.forEach((box) => {
-          const boxX =
-            -(box.getBoundingClientRect().left - rect.left) + mouse.current.x;
-          const boxY =
-            -(box.getBoundingClientRect().top - rect.top) + mouse.current.y;
-          box.style.setProperty('--mouse-x', `${boxX}px`);
-          box.style.setProperty('--mouse-y', `${boxY}px`);
-        });
-      }
+      window.removeEventListener('mousemove', updateMousePosition)
     }
-  }, [mousePosition, boxes]);
+  }, [])
 
-  useEffect(() => {
-    onMouseMove();
-  }, [mousePosition, onMouseMove]);
+  const [overlayColor, setOverlayColor] = useState({ x: 0, y: 0 })
+  const handleMouemove = ({ currentTarget, clientX, clientY }): MouseEvent => {
+    let { left, top } = currentTarget.getBoundingClientRect()
+
+    const x = clientX - left
+    const y = clientY - top
+
+    setOverlayColor({ x, y })
+  }
+  // console.log(overlayColor)
 
   return (
-    <div className={className} ref={containerRef}>
+    <div
+      onMouseMove={handleMouemove}
+      onMouseEnter={() => CursorFlowGradient && setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      ref={boxWrapper}
+      className={cn(
+        className,
+        ' relative  rounded-lg p-[2px] bg-[#ffffff15] overflow-hidden'
+      )}
+    >
+      {isHovered && (
+        <div
+          className="pointer-events-none absolute opacity-0 z-50 rounded-xl w-full h-full group-hover:opacity-100  transition duration-300 "
+          style={{
+            background: `
+            radial-gradient(
+              250px circle at ${overlayColor.x}px ${overlayColor.y}px,
+              rgba(255, 255, 255, 0.137),
+              transparent 80%
+            )
+          `,
+          }}
+        />
+      )}
+      {HoverFocusSpotlight && (
+        <div
+          className="absolute opacity-0 group-hover:opacity-100 z-10 inset-0 bg-fixed rounded-lg"
+          style={{
+            background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, #ffffff76 0%,transparent 20%,transparent) fixed `,
+          }}
+        ></div>
+      )}
+      {ProximitySpotlight && (
+        <div
+          className="absolute inset-0 z-0  bg-fixed rounded-lg"
+          style={{
+            background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, #ffffff6e 0%,transparent 20%,transparent) fixed`,
+          }}
+        ></div>
+      )}
       {children}
     </div>
-  );
+  )
 }
 
 type SpotlightCardProps = {
-  children: React.ReactNode;
-  className?: string;
-};
+  children: React.ReactNode
+  className?: string
+}
 
 export function SpotlightCard({
   children,
@@ -113,5 +153,5 @@ export function SpotlightCard({
     >
       {children}
     </div>
-  );
+  )
 }

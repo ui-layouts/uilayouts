@@ -1,19 +1,13 @@
-// @ts-nocheck
 'use client';
-
-import { SpotLightItem, Spotlight } from '@/components/ui/main-spotlight';
-
-// https://buildui.com/recipes/spotlight
-
-import { cn } from '@/lib/utils';
+import { SpotLightItem, Spotlight } from '@/components/ui/spotlight';
 import Image from 'next/image';
-import React, { MouseEvent, useRef, useState } from 'react';
+import React from 'react';
 
 export default function index() {
   return (
     <div className='relative bg-black sm:p-8 px-4 rounded-md'>
       <Spotlight
-        className='sm:w-[30rem]  w-full mx-auto'
+        className='sm:w-[30rem] w-full mx-auto'
         ProximitySpotlight={true}
       >
         <SpotLightItem>

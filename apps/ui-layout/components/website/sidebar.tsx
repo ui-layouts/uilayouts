@@ -95,13 +95,11 @@ function DocsSidebar() {
                             : 'dark:bg-zinc-900 dark:text-white group-hover:bg-black group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-black'
                         } h-7 w-7 border transition-all rounded-md p-1`,
                       })}
-
                       {link.name}
                     </Link>
                   </li>
                 ))}
               </ul>
-
               {recentPages.length > 0 && (
                 <div className='relative'>
                   <div className='flex justify-between items-center'>
@@ -146,7 +144,6 @@ function DocsSidebar() {
                   </ul>
                 </div>
               )}
-
               {Object.entries(groupedComponents).map(
                 ([group, items], index) => (
                   <ItemsWithName
@@ -180,7 +177,8 @@ export const ItemsWithName = ({
   const [expandedItems, setExpandedItems] = useState<boolean>(true);
 
   const groupRef = useRef<HTMLDivElement>(null);
-  const showExpandButton = items.length > 2 && group !== DOCS_CATEGORY_GROUP.Components;
+  const showExpandButton =
+    items.length > 2 && group !== DOCS_CATEGORY_GROUP.Components;
   const itemsToShow =
     expandedItems || !showExpandButton ? items : items.slice(0, 2);
   const itemRefs = useRef<(HTMLLIElement | null)[]>([]);
@@ -200,8 +198,9 @@ export const ItemsWithName = ({
 
   return (
     <div ref={groupRef} key={group}>
-      <div 
-      className={`text-[1rem] relative flex w-full items-center justify-between pr-4 cursor-pointer dark:font-normal dark:text-gray-100 font-normal capitalize my-1 ${group === DOCS_CATEGORY_GROUP.Components ? 'xl:text-lg text-[1.05rem] font-semibold pb-1' : ''}`}>
+      <div
+        className={`text-[1rem] relative flex w-full items-center justify-between pr-4 cursor-pointer dark:font-normal dark:text-gray-100 font-normal capitalize my-1 ${group === DOCS_CATEGORY_GROUP.Components ? 'xl:text-lg text-[1.05rem] font-semibold pb-1' : ''}`}
+      >
         {group}
         {showExpandButton && (
           <TooltipProvider>
@@ -232,7 +231,7 @@ export const ItemsWithName = ({
 
       <ul className='relative'>
         {!expandedItems && showExpandButton && (
-          <div className='absolute w-full bottom-0 left-0 h-7 bg-gradient-to-t dark:from-[#050507] from-zinc-100 from-20%' />
+          <div className='absolute w-full bottom-0 left-0 h-7 bg-gradient-to-t dark:from-neutral-950 from-zinc-50 from-20%' />
         )}
         {itemsToShow.map((link, index) => (
           <li

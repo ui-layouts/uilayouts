@@ -4,7 +4,6 @@ import {
   TabsList,
   TabsTrigger,
 } from '@/components/website/ui/tabs';
-
 import ComponentPreview from './component-preview';
 import { extractCodeFromFilePath } from '@/lib/code';
 import React from 'react';
@@ -96,7 +95,7 @@ export default async function ComponentCodePreview({
         </TabsContent>
         <TabsContent className='mt-14' value={`${name}code`}>
           {!isTab && <PreCoded codeblock={fileContent} classname='p-0' />}
-          {children !== undefined && <div className='p-4 pt-2'>{children}</div>}
+          {children !== undefined && <div>{children}</div>}
         </TabsContent>
       </Tabs>
     </div>

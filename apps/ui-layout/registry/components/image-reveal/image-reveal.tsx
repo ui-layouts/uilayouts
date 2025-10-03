@@ -6,6 +6,7 @@ import React, { useState, MouseEvent, useRef } from 'react';
 interface ImageItem {
   img: string;
   label: string;
+  tag: string;
 }
 
 function ImageReveal2() {
@@ -23,19 +24,23 @@ function ImageReveal2() {
   const list: ImageItem[] = [
     {
       img: 'https://images.unsplash.com/photo-1682806816936-c3ac11f65112?q=80&w=1274&auto=format&fit=crop',
-      label: 'Six Cap',
+      label: 'Stay Confident',
+      tag: 'Style',
     },
     {
       img: 'https://images.unsplash.com/photo-1681063762354-d542c03bbfc5?q=80&w=1274&auto=format&fit=crop',
-      label: 'Room Decor',
+      label: 'Create Your Space',
+      tag: 'Design',
     },
     {
       img: 'https://images.unsplash.com/photo-1679640034489-a6db1f096b70?q=80&w=1274&auto=format&fit=crop',
-      label: 'Porter',
+      label: 'Be Yourself',
+      tag: 'Identity',
     },
     {
       img: 'https://images.unsplash.com/photo-1679482451632-b2e126da7142?q=80&w=1274&auto=format&fit=crop',
-      label: 'LifeStyle',
+      label: 'Live Inspired',
+      tag: 'Lifestyle',
     },
   ];
 
@@ -70,7 +75,7 @@ function ImageReveal2() {
     <section
       ref={containerRef}
       onMouseMove={handleMove}
-      className=' bg-black  relative w-4/5 mx-auto p-4'
+      className='relative w-4/5 mx-auto p-4'
     >
       {list.map((item) => (
         <div
@@ -78,10 +83,12 @@ function ImageReveal2() {
           onMouseEnter={() => handleImageInteraction(item, 1)}
           onMouseMove={() => handleImageInteraction(item, 1)}
           onMouseLeave={() => handleImageInteraction(item, 0)}
-          className='w-full py-5 cursor-pointer text-center flex justify-between text-white  border-b border-white last:border-none'
+          className='w-full py-5 cursor-pointer text-center flex justify-between items-center text-primary border-b dark:border-neutral-800 border-neutral-50 last:border-none'
         >
           <p className='text-5xl'>{item.label}</p>
-          <span>Portfolio</span>
+          <span>
+            {item.tag} <span className='w-3 h-3 bg-primary inline-block'></span>
+          </span>
         </div>
       ))}
 

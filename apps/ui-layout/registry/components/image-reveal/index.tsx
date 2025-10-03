@@ -1,7 +1,7 @@
 'use client';
 
 import { useMediaQuery } from '@/hooks/use-media-query';
-import { MoveUpRight } from 'lucide-react';
+import { ArrowUpRight, MoveUpRight } from 'lucide-react';
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 
 interface ImageData {
@@ -14,22 +14,22 @@ const images: ImageData[] = [
   {
     id: 1,
     src: 'https://images.unsplash.com/photo-1682806816936-c3ac11f65112?q=80&w=1274&auto=format&fit=crop',
-    alt: 'Image Mousetrail',
+    alt: 'Follow Your Path',
   },
   {
     id: 2,
     src: 'https://images.unsplash.com/photo-1681063762354-d542c03bbfc5?q=80&w=1274&auto=format&fit=crop',
-    alt: 'Spotlight Cards',
+    alt: 'Shine Bright',
   },
   {
     id: 3,
     src: 'https://images.unsplash.com/photo-1679640034489-a6db1f096b70?q=80&w=1274&auto=format&fit=crop',
-    alt: 'Sparkles Effects',
+    alt: 'Create Magic',
   },
   {
     id: 4,
     src: 'https://images.unsplash.com/photo-1679482451632-b2e126da7142?q=80&w=1274&auto=format&fit=crop',
-    alt: 'Horizontal Scroll',
+    alt: 'Keep Moving Forward',
   },
 ];
 
@@ -100,14 +100,11 @@ const ImageReveal2: React.FC = () => {
   }, []);
 
   return (
-    <div
-      className='relative w-full min-h-fit dark:bg-gradient-to-b from-black from-10% to-gray-950 to-100% bg-gray-100 rounded-md border'
-      onMouseLeave={handleMouseLeave}
-    >
+    <div className='relative w-full' onMouseLeave={handleMouseLeave}>
       {images.map((image) => (
         <div
           key={image.id}
-          className={`p-4 cursor-pointer relative sm:flex items-center justify-between`}
+          className={`px-2 cursor-pointer relative sm:flex items-center border-b border-primary justify-between`}
           onMouseEnter={() => handleImageHover(image)}
         >
           {!isDesktop && (
@@ -118,7 +115,7 @@ const ImageReveal2: React.FC = () => {
             />
           )}
           <h2
-            className={`newFont dark:text-gray-300 uppercase md:text-5xl sm:text-2xl text-xl font-semibold sm:py-6 py-2 leading-[100%] relative ${
+            className={`newFont dark:text-gray-300 uppercase md:text-5xl sm:text-2xl text-xl sm:py-6 py-2 leading-[100%] relative ${
               activeImage?.id === image?.id
                 ? 'mix-blend-difference z-20 text-gray-300'
                 : 'text-gray-700'
@@ -127,17 +124,17 @@ const ImageReveal2: React.FC = () => {
             {image.alt}
           </h2>
           <button
-            className={`sm:block hidden p-4 rounded-full transition-all duration-300 ease-out ${
+            className={`sm:block hidden p-2 rounded-full transition-all duration-300 ease-out ${
               activeImage?.id === image?.id
                 ? 'mix-blend-difference z-20 bg-white text-black'
                 : ''
             }`}
           >
-            <MoveUpRight className='w-8 h-8' />
+            <ArrowUpRight className='w-8 h-8' />
           </button>
           <div
-            className={`h-[2px] dark:bg-white bg-black absolute bottom-0 left-0 transition-all duration-300 ease-linear ${
-              activeImage?.id === image?.id ? 'w-full' : 'w-0'
+            className={`w-full dark:bg-white bg-black absolute bottom-0 left-0 transition-all duration-300 ease-linear ${
+              activeImage?.id === image?.id ? 'h-full' : 'h-0'
             }`}
           />
         </div>
@@ -146,7 +143,7 @@ const ImageReveal2: React.FC = () => {
         <img
           src={activeImage.src}
           alt={activeImage.alt}
-          className={`fixed dark:bg-gray-950 bg-white object-cover pointer-events-none z-10 w-[300px] h-[400px] rounded-lg`}
+          className={`fixed dark:bg-gray-950 rotate-12 bg-white object-cover pointer-events-none z-10 w-[300px] h-[400px] rounded-lg`}
           style={{
             left: `${cursorPosition.x}px`,
             top: `${cursorPosition.y}px`,
