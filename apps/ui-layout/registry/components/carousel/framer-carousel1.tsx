@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
@@ -15,9 +14,10 @@ type Item = {
 function FramerCarousel() {
   const [activeItem, setActiveItem] = useState(items[0]);
   const [width, setWidth] = useState(0);
-  const carousel = useRef(null);
+  const carousel = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
+    if (!carousel.current) return;
+    setWidth(carousel.current?.scrollWidth - carousel.current?.offsetWidth);
   }, [carousel]);
 
   return (

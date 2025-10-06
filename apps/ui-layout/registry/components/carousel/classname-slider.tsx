@@ -1,3 +1,4 @@
+'use client';
 import React, { ReactNode } from 'react';
 import { EmblaOptionsType } from 'embla-carousel';
 import {
@@ -7,6 +8,7 @@ import {
   SliderDotButton,
 } from '@/components/ui/carousel';
 import ClassNames from 'embla-carousel-class-names';
+
 function ClassName() {
   const OPTIONS: EmblaOptionsType = { loop: true };
   return (

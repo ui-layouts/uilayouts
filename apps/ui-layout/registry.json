@@ -659,6 +659,32 @@
       ]
     },
     {
+      "name": "dialog",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/modal/dialog.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "media-modal",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/modal/media-modal.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "responsive-modal",
       "type": "registry:component",
       "devDependencies": [],
@@ -813,6 +839,409 @@
       "files": [
         {
           "path": "./registry/components/image-reveal/index.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "carousel",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [
+        "embla-carousel",
+        "lucide-react",
+        "embla-carousel-class-names",
+        "embla-carousel-react",
+        "embla-carousel-autoplay",
+        "motion"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/carousel.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "default-slider",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [
+        "embla-carousel",
+        "lucide-react",
+        "embla-carousel-class-names",
+        "embla-carousel-react",
+        "embla-carousel-autoplay",
+        "motion"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/carousel/default-slider.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/carousel.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "align-slider",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [
+        "embla-carousel",
+        "lucide-react",
+        "embla-carousel-class-names",
+        "embla-carousel-react",
+        "embla-carousel-autoplay",
+        "motion"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/carousel/align-slider.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/carousel.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "classname-slider",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [
+        "embla-carousel",
+        "lucide-react",
+        "embla-carousel-class-names",
+        "embla-carousel-react",
+        "embla-carousel-autoplay",
+        "motion"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/carousel/classname-slider.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/carousel.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "number-slider",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [
+        "embla-carousel",
+        "lucide-react",
+        "embla-carousel-class-names",
+        "embla-carousel-react",
+        "embla-carousel-autoplay",
+        "motion"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/carousel/number-slider.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/carousel.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "scale-slider",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [
+        "embla-carousel",
+        "lucide-react",
+        "embla-carousel-class-names",
+        "embla-carousel-react",
+        "embla-carousel-autoplay",
+        "motion"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/carousel/scale-slider.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/carousel.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "thumbnail-slider",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [
+        "embla-carousel",
+        "lucide-react",
+        "embla-carousel-class-names",
+        "embla-carousel-react",
+        "embla-carousel-autoplay",
+        "motion"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/carousel/thumnail-slider.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/carousel.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "autostart-slider",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [
+        "embla-carousel",
+        "lucide-react",
+        "embla-carousel-class-names",
+        "embla-carousel-react",
+        "embla-carousel-autoplay",
+        "motion"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/carousel/autostart-slider.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/carousel.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "autoscroll-slider",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [
+        "embla-carousel",
+        "lucide-react",
+        "embla-carousel-class-names",
+        "embla-carousel-react",
+        "embla-carousel-autoplay",
+        "motion"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/carousel/autoscroll-slider.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/carousel.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "vertical-slider",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [
+        "embla-carousel",
+        "lucide-react",
+        "embla-carousel-class-names",
+        "embla-carousel-react",
+        "embla-carousel-autoplay",
+        "motion"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/carousel/vertical-slider.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/carousel.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "vertical-thumbnail-slider",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [
+        "embla-carousel",
+        "lucide-react",
+        "embla-carousel-class-names",
+        "embla-carousel-react",
+        "embla-carousel-autoplay",
+        "motion"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/carousel/verticalthumbs-slider.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/carousel.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "vertical-thumbnail-autostart-slider",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [
+        "embla-carousel",
+        "lucide-react",
+        "embla-carousel-class-names",
+        "embla-carousel-react",
+        "embla-carousel-autoplay",
+        "motion"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/carousel/verticalthumbs-autostart-slider.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/carousel.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "framer-normal-carousel",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/carousel/framer/framer-normal-carousel.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/carousel.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "framer-draggable-carousel",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/carousel/framer/framer-draggable-carousel.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/carousel.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "framer-autoplay-carousel",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/carousel/framer/framer-autoplay.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/carousel.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "framer-multi-carousel",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/carousel/framer/framer-multi-carousel.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/carousel.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "framer-thumnbails",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/carousel/framer/framer-thumnbails.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/carousel.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "framer-moveable-thumbnails",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/carousel/framer/framer-moveable-thumnbails.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/carousel.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "framer-drag-sliding-carousel",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/carousel/framer/framer-drag-sliding-carousel.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/carousel.tsx",
           "type": "registry:component"
         }
       ]

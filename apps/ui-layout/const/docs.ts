@@ -193,7 +193,7 @@ export const COMPONENT_KEYS = {
   AUTOSCROLL_SLIDER: 'autoscroll-slider',
   HORIZONTAL_PROGRESSIVE_CAROUSEL: 'horizontal-progressive-carousel',
   VERTICAL_PROGRESSIVE_CAROUSEL: 'vertical-progressive-carousel',
-  FRAMER_CAROUSEL_2: 'framer-carousel-2',
+  FRAMER_DRAG_SLIDING_CAROUSEL: 'framer-drag-sliding-carousel',
   FRAMER_CAROUSEL_1: 'framer-carousel-1',
   FRAMER_NORMAL_CAROUSEL: 'framer-normal-carousel',
   FRAMER_DRAGGABLE_CAROUSEL: 'framer-draggable-carousel',

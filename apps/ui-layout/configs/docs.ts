@@ -2120,12 +2120,15 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     category: DOCS_CATEGORY_KEY['framer-carousel'],
-    componentName: COMPONENT_KEYS.FRAMER_CAROUSEL_2,
-    filesrc: 'components/carousel/framer-carousel2.tsx',
+    componentName: COMPONENT_KEYS.FRAMER_DRAG_SLIDING_CAROUSEL,
+    filesrc: 'components/carousel/framer/framer-drag-sliding-carousel.tsx',
     componentSrc: React.lazy(
-      () => import('@/registry/components/carousel/framer-carousel2')
+      () =>
+        import(
+          '@/registry/components/carousel/framer/framer-drag-sliding-carousel'
+        )
     ),
-    iframeSrc: 'live-components/framer-carousel-2',
+    iframeSrc: 'live-components/framer-drag-sliding-carousel',
     tags: ['carousel', 'motion/react', 'animated-carousel', 'carousel-2'],
   },
   {

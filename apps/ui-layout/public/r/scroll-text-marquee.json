@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "scroll-text-marquee",
+  "type": "registry:component",
+  "dependencies": [
+    "motion",
+    "@motionone/utils"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "./components/ui/scroll-text-marque.tsx",
+      "content": "'use client';\r\nimport { useRef, useEffect } from 'react';\r\nimport {\r\n  motion,\r\n  useScroll,\r\n  useSpring,\r\n  useTransform,\r\n  useVelocity,\r\n  useAnimationFrame,\r\n  useMotionValue,\r\n} from 'motion/react';\r\nimport { wrap } from '@motionone/utils';\r\nimport { cn } from '@/lib/utils';\r\n\r\ninterface ParallaxProps {\r\n  children: string;\r\n  baseVelocity: number;\r\n  clasname?: string;\r\n  scrollDependent?: boolean; // Toggle scroll-dependent behavior\r\n  delay?: number; // Delay before animation starts\r\n}\r\n\r\nexport default function ScrollBaseAnimation({\r\n  children,\r\n  baseVelocity = -5,\r\n  clasname,\r\n  scrollDependent = false, // Default to false\r\n  delay = 0, // Default delay is 0 (no delay)\r\n}: ParallaxProps) {\r\n  const baseX = useMotionValue(0);\r\n  const { scrollY } = useScroll();\r\n  const scrollVelocity = useVelocity(scrollY);\r\n  const smoothVelocity = useSpring(scrollVelocity, {\r\n    damping: 50,\r\n    stiffness: 400,\r\n  });\r\n  const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 2], {\r\n    clamp: false,\r\n  });\r\n\r\n  const x = useTransform(baseX, (v) => `${wrap(-20, -45, v)}%`);\r\n\r\n  const directionFactor = useRef<number>(1);\r\n  const hasStarted = useRef(false); // Track animation start status\r\n\r\n  useEffect(() => {\r\n    const timer = setTimeout(() => {\r\n      hasStarted.current = true; // Start animation after the delay\r\n    }, delay);\r\n\r\n    return () => clearTimeout(timer); // Cleanup on unmount\r\n  }, [delay]);\r\n\r\n  useAnimationFrame((t, delta) => {\r\n    if (!hasStarted.current) return; // Skip if delay hasn't passed\r\n\r\n    let moveBy = directionFactor.current * baseVelocity * (delta / 1000);\r\n\r\n    // Reverse direction if scrollDependent is true\r\n    if (scrollDependent) {\r\n      if (velocityFactor.get() < 0) {\r\n        directionFactor.current = -1;\r\n      } else if (velocityFactor.get() > 0) {\r\n        directionFactor.current = 1;\r\n      }\r\n    }\r\n\r\n    moveBy += directionFactor.current * moveBy * velocityFactor.get();\r\n\r\n    baseX.set(baseX.get() + moveBy);\r\n  });\r\n\r\n  return (\r\n    <div className='overflow-hidden whitespace-nowrap flex flex-nowrap'>\r\n      <motion.div\r\n        className='flex whitespace-nowrap gap-10 flex-nowrap'\r\n        style={{ x }}\r\n      >\r\n        <span className={cn(`block sm:text-[8vw] text-[11vw]`, clasname)}>\r\n          {children}\r\n        </span>\r\n        <span className={cn(`block sm:text-[8vw] text-[11vw]`, clasname)}>\r\n          {children}\r\n        </span>\r\n        <span className={cn(`block sm:text-[8vw] text-[11vw]`, clasname)}>\r\n          {children}\r\n        </span>\r\n        <span className={cn(`block sm:text-[8vw] text-[11vw]`, clasname)}>\r\n          {children}\r\n        </span>\r\n      </motion.div>\r\n    </div>\r\n  );\r\n}\r\n",
+      "type": "registry:component"
+    }
+  ]
+}

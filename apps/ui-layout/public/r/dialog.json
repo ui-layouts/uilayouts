@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dialog",
+  "type": "registry:component",
+  "dependencies": [
+    "motion",
+    "lucide-react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "./components/ui/modal/dialog.tsx",
+      "content": "'use client';\r\nimport React, {\r\n  createContext,\r\n  useContext,\r\n  useState,\r\n  useEffect,\r\n  ReactNode,\r\n} from 'react';\r\nimport { AnimatePresence, motion } from 'motion/react';\r\nimport { X } from 'lucide-react';\r\n\r\ninterface ModalContextProps {\r\n  open: boolean;\r\n  setOpen: (open: boolean) => void;\r\n}\r\n\r\nconst ModalContext = createContext<ModalContextProps | undefined>(undefined);\r\n\r\nconst useModal = () => {\r\n  const context = useContext(ModalContext);\r\n  if (!context) {\r\n    throw new Error('useModal must be used within a ModalProvider');\r\n  }\r\n  return context;\r\n};\r\n\r\ninterface FramerModalProps {\r\n  children: ReactNode;\r\n  open?: boolean;\r\n  setOpen?: (open: boolean) => void;\r\n}\r\n\r\nexport function FramerModal({\r\n  children,\r\n  open: controlledOpen,\r\n  setOpen: controlledSetOpen,\r\n}: FramerModalProps) {\r\n  const [internalOpen, setInternalOpen] = useState(false);\r\n  const open = controlledOpen !== undefined ? controlledOpen : internalOpen;\r\n  const setOpen =\r\n    controlledSetOpen !== undefined ? controlledSetOpen : setInternalOpen;\r\n  useEffect(() => {\r\n    if (open) {\r\n      document.body.classList.add('overflow-hidden');\r\n    } else {\r\n      document.body.classList.remove('overflow-hidden');\r\n    }\r\n\r\n    const handleKeyDown = (event: KeyboardEvent) => {\r\n      if (event.key === 'Escape') {\r\n        setOpen(false);\r\n      }\r\n    };\r\n\r\n    document.addEventListener('keydown', handleKeyDown);\r\n    return () => {\r\n      document.removeEventListener('keydown', handleKeyDown);\r\n    };\r\n  }, [open, setOpen]);\r\n  return (\r\n    <ModalContext.Provider value={{ open, setOpen }}>\r\n      <AnimatePresence>\r\n        {open && (\r\n          <motion.div\r\n            initial={{ opacity: 0 }}\r\n            animate={{ opacity: 1 }}\r\n            exit={{ opacity: 0 }}\r\n            className='fixed inset-0 z-50 top-0 left-0 right-0 bottom-0 flex flex-col items-center w-full h-screen justify-center dark:bg-black/90 bg-white/90 backdrop-blur-sm cursor-zoom-out border'\r\n            onClick={() => setOpen(false)}\r\n          >\r\n            <motion.div\r\n              initial={{ opacity: 0, y: 8 }}\r\n              animate={{ opacity: 1, y: 0 }}\r\n              exit={{ opacity: 0, y: 8 }}\r\n              onClick={(e) => e.stopPropagation()}\r\n              className=' w-full max-w-md rounded-xl bg-white/5 p-6 backdrop-blur-2xl border'\r\n            >\r\n              <button\r\n                className='absolute top-2 right-2'\r\n                onClick={() => setOpen(false)}\r\n              >\r\n                <X />\r\n              </button>\r\n              {children}\r\n            </motion.div>\r\n          </motion.div>\r\n        )}\r\n      </AnimatePresence>\r\n    </ModalContext.Provider>\r\n  );\r\n}\r\n\r\nexport function ModalContent({ children }: { children: ReactNode }) {\r\n  return <>{children}</>;\r\n}\r\n",
+      "type": "registry:component"
+    }
+  ]
+}

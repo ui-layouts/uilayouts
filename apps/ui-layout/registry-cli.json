@@ -817,6 +817,19 @@
       ]
     },
     {
+      "name": "dialog",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/modal/dialog.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "responsive-modal",
       "type": "registry:component",
       "devDependencies": [],
