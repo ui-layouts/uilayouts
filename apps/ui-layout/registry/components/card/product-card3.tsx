@@ -1,7 +1,8 @@
 'use client';
 import React, { ReactNode, useState } from 'react';
 import Image from 'next/image';
-import Carousel, {
+import {
+  Carousel,
   Slider,
   SliderContainer,
   SliderDotButton,
@@ -39,11 +40,7 @@ function index() {
               </>
             )}
           </motion.button>
-          <Carousel
-            options={OPTIONS}
-            isAutoPlay={true}
-            className='h-full relative'
-          >
+          <Carousel options={OPTIONS} className='h-full relative'>
             <SliderContainer className='gap-2 h-full'>
               {CardArr.map((data, index) => (
                 <Slider key={index} className='w-full h-full'>
@@ -58,7 +55,7 @@ function index() {
               ))}
             </SliderContainer>
             <div className='flex justify-center py-2 absolute bottom-0 z-2 w-full'>
-              <SliderDotButton activeclass='dark:bg-black' />
+              <SliderDotButton activeClass='dark:bg-black' />
             </div>
           </Carousel>
         </div>

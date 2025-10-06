@@ -1,26 +1,26 @@
-import React, { ReactNode } from 'react';
-import { EmblaOptionsType } from 'embla-carousel';
-import Carousel, {
+import type { EmblaOptionsType } from 'embla-carousel';
+import {
+  Carousel,
   Slider,
   SliderContainer,
-  ThumsSlider,
+  ThumbsSlider,
 } from '@/components/ui/carousel';
-import Image from 'next/image';
-import { imgPreview } from '@/components/website/constant';
 
 function ThumnailSlider() {
   const OPTIONS: EmblaOptionsType = { loop: false };
   return (
     <>
-      <div className=' 2xl:w-[70%] dark:bg-neutral-800 bg-neutral-50 sm:w-[80%] w-[90%] mx-auto'>
-        <Carousel options={OPTIONS} className=' relative' isAutoPlay={true}>
+      <div className='w-[90%] mx-auto'>
+        <Carousel options={OPTIONS} className='relative'>
           <SliderContainer className='gap-2'>
             <Slider
               className='xl:h-[400px] sm:h-[350px] h-[300px] w-full'
-              thumnailSrc={imgPreview.img1}
+              thumbnailSrc={
+                'https://images.unsplash.com/photo-1759395073808-17782f3d8d66?q=80&w=1471&auto=format&fit=crop'
+              }
             >
-              <Image
-                src={imgPreview.img1}
+              <img
+                src='https://images.unsplash.com/photo-1759395073808-17782f3d8d66?q=80&w=1471&auto=format&fit=crop'
                 width={1400}
                 height={800}
                 alt='image'
@@ -29,10 +29,12 @@ function ThumnailSlider() {
             </Slider>
             <Slider
               className='xl:h-[400px] sm:h-[350px] h-[300px] w-full'
-              thumnailSrc={imgPreview.img2}
+              thumbnailSrc={
+                'https://images.unsplash.com/photo-1759434192768-fe3facebd5f6?q=80&w=1471&auto=format&fit=crop'
+              }
             >
-              <Image
-                src={imgPreview.img2}
+              <img
+                src='https://images.unsplash.com/photo-1759434192768-fe3facebd5f6?q=80&w=1471&auto=format&fit=crop'
                 width={1400}
                 height={800}
                 alt='image'
@@ -41,11 +43,13 @@ function ThumnailSlider() {
             </Slider>
             <Slider
               className='xl:h-[400px] sm:h-[350px] h-[300px] w-full'
-              thumnailSrc={imgPreview.img3}
+              thumbnailSrc={
+                'https://images.unsplash.com/photo-1758641008040-28cdd59ca8fb?q=80&w=687&auto=format&fit=crop'
+              }
             >
-              <Image
-                src={imgPreview.img3}
-                width={1400}
+              <img
+                src='https://images.unsplash.com/photo-1758641008040-28cdd59ca8fb?q=80&w=687&auto=format&fit=crop'
+                width={687}
                 height={800}
                 alt='image'
                 className='h-full object-cover rounded-lg w-full'
@@ -53,11 +57,13 @@ function ThumnailSlider() {
             </Slider>
             <Slider
               className='xl:h-[400px] sm:h-[350px] h-[300px] w-full'
-              thumnailSrc={imgPreview.img4}
+              thumbnailSrc={
+                'https://images.unsplash.com/photo-1618220649687-ba860f3176e7?q=80&w=1474&auto=format&fit=crop'
+              }
             >
-              <Image
-                src={imgPreview.img4}
-                width={1400}
+              <img
+                src='https://images.unsplash.com/photo-1618220649687-ba860f3176e7?q=80&w=1474&auto=format&fit=crop'
+                width={1474}
                 height={800}
                 alt='image'
                 className='h-full object-cover rounded-lg w-full'
@@ -65,11 +71,13 @@ function ThumnailSlider() {
             </Slider>
             <Slider
               className='xl:h-[400px] sm:h-[350px] h-[300px] w-full'
-              thumnailSrc={imgPreview.img5}
+              thumbnailSrc={
+                'https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?q=80&w=765&auto=format&fit=crop'
+              }
             >
-              <Image
-                src={imgPreview.img5}
-                width={1400}
+              <img
+                src='https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?q=80&w=765&auto=format&fit=crop'
+                width={765}
                 height={800}
                 alt='image'
                 className='h-full object-cover rounded-lg w-full'
@@ -77,11 +85,13 @@ function ThumnailSlider() {
             </Slider>
             <Slider
               className='xl:h-[400px] sm:h-[350px] h-[300px] w-full'
-              thumnailSrc={imgPreview.img6}
+              thumbnailSrc={
+                'https://images.unsplash.com/photo-1603338936206-9f7bd3c61cf0?q=80&w=730&auto=format&fit=crop'
+              }
             >
-              <Image
-                src={imgPreview.img6}
-                width={1400}
+              <img
+                src='https://images.unsplash.com/photo-1603338936206-9f7bd3c61cf0?q=80&w=730&auto=format&fit=crop'
+                width={730}
                 height={800}
                 alt='image'
                 className='h-full object-cover rounded-lg w-full'
@@ -89,54 +99,23 @@ function ThumnailSlider() {
             </Slider>
             <Slider
               className='xl:h-[400px] sm:h-[350px] h-[300px] w-full'
-              thumnailSrc={imgPreview.img7}
+              thumbnailSrc={
+                'https://images.unsplash.com/photo-1580411788548-eee17fc98883?q=80&w=687&auto=format&fit=crop'
+              }
             >
-              <Image
-                src={imgPreview.img7}
-                width={1200}
-                height={800}
-                alt='image'
-                className='h-full object-cover rounded-lg w-full'
-              />
-            </Slider>
-            <Slider
-              className='xl:h-[400px] sm:h-[350px] h-[300px] w-full'
-              thumnailSrc={imgPreview.img8}
-            >
-              <Image
-                src={imgPreview.img8}
-                width={1200}
-                height={800}
-                alt='image'
-                className='h-full object-cover rounded-lg w-full'
-              />
-            </Slider>
-            <Slider
-              className=' xl:h-[400px] sm:h-[350px] h-[300px] w-full'
-              thumnailSrc={imgPreview.img9}
-            >
-              <Image
-                src={imgPreview.img9}
-                width={1200}
-                height={800}
-                alt='image'
-                className='h-full object-cover rounded-lg w-full'
-              />
-            </Slider>
-            <Slider
-              className=' xl:h-[400px] sm:h-[350px] h-[300px] w-full'
-              thumnailSrc={imgPreview.img10}
-            >
-              <Image
-                src={imgPreview.img10}
-                width={1200}
+              <img
+                src='https://images.unsplash.com/photo-1580411788548-eee17fc98883?q=80&w=687&auto=format&fit=crop'
+                width={687}
                 height={800}
                 alt='image'
                 className='h-full object-cover rounded-lg w-full'
               />
             </Slider>
           </SliderContainer>
-          <ThumsSlider />
+          <ThumbsSlider
+            className='pb-1 px-1'
+            thumbsClassName='basis-[15%] h-24'
+          />
         </Carousel>
       </div>
     </>

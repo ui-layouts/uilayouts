@@ -1,15 +1,16 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { EmblaOptionsType } from 'embla-carousel';
-import Carousel, {
+
+import {
+  Carousel,
   Slider,
   SliderContainer,
   SliderDotButton,
   SliderNextButton,
   SliderPrevButton,
 } from '@/components/ui/carousel';
-import Image from 'next/image';
+
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { imgPreview } from '@/components/website/constant';
 
 function DefaultSlider() {
   const OPTIONS: EmblaOptionsType = { loop: false };
@@ -18,16 +19,16 @@ function DefaultSlider() {
       <Carousel options={OPTIONS}>
         <SliderContainer>
           <Slider className='w-full'>
-            <div className='bg-blue-500 md:h-[500px] sm:h-full h-[300px] w-full rounded-lg'></div>
+            <div className='bg-blue-500 md:h-[500px] sm:h-[400px] h-[300px] w-full rounded-lg'></div>
           </Slider>
           <Slider className='w-full'>
-            <div className='bg-green-500 md:h-[500px] sm:h-full h-[300px] w-full rounded-lg'></div>
+            <div className='bg-green-500 md:h-[500px] sm:h-[400px] h-[300px] w-full rounded-lg'></div>
           </Slider>
           <Slider className='w-full'>
-            <div className='bg-yellow-500 md:h-[500px] sm:h-full h-[300px] w-full rounded-lg'></div>
+            <div className='bg-yellow-500 md:h-[500px] sm:h-[400px] h-[300px] w-full rounded-lg'></div>
           </Slider>
           <Slider className='w-full'>
-            <div className='bg-red-500 md:h-[500px] sm:h-full h-[300px] w-full rounded-lg'></div>
+            <div className='bg-red-500 md:h-[500px] sm:h-[400px] h-[300px] w-full rounded-lg'></div>
           </Slider>
         </SliderContainer>
         <SliderPrevButton className='absolute top-[50%] p-2 border-2 rounded-full left-4 bg-white/25 dark:bg-black/25 dark:border-white backdrop-blur-sm text-primary disabled:opacity-20'>

@@ -2049,6 +2049,47 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     category: DOCS_CATEGORY_KEY['carousel'],
+    componentName: COMPONENT_KEYS.VERTICAL_SLIDER,
+    filesrc: 'components/carousel/vertical-slider.tsx',
+    componentSrc: React.lazy(
+      () => import('@/registry/components/carousel/vertical-slider')
+    ),
+    iframeSrc: 'live-components/vertical-slider',
+    tags: ['carousel', 'vertical', 'preview-slider', 'image-carousel'],
+  },
+  {
+    category: DOCS_CATEGORY_KEY['carousel'],
+    componentName: COMPONENT_KEYS.VERTICAL_THUMBNAIL_SLIDER,
+    filesrc: 'components/carousel/verticalthumbs-slider.tsx',
+    componentSrc: React.lazy(
+      () => import('@/registry/components/carousel/verticalthumbs-slider')
+    ),
+    iframeSrc: 'live-components/verticalthumbs-slider',
+    tags: ['carousel', 'vertical', 'preview-slider', 'image-carousel'],
+  },
+  {
+    category: DOCS_CATEGORY_KEY['carousel'],
+    componentName: COMPONENT_KEYS.VERTICAL_THUMBNAIL_AUTOSTART_SLIDER,
+    filesrc: 'components/carousel/verticalthumbs-autostart-slider.tsx',
+    componentSrc: React.lazy(
+      () =>
+        import('@/registry/components/carousel/verticalthumbs-autostart-slider')
+    ),
+    iframeSrc: 'live-components/verticalthumbs-autostart-slider',
+    tags: ['carousel', 'vertical', 'preview-slider', 'image-carousel'],
+  },
+  {
+    category: DOCS_CATEGORY_KEY['carousel'],
+    componentName: COMPONENT_KEYS.AUTOSCROLL_SLIDER,
+    filesrc: 'components/carousel/autoscroll-slider.tsx',
+    componentSrc: React.lazy(
+      () => import('@/registry/components/carousel/autoscroll-slider')
+    ),
+    iframeSrc: 'live-components/autoscroll-slider',
+    tags: ['carousel', 'autoscroller', 'auto-slider', 'autoplay-carousel'],
+  },
+  {
+    category: DOCS_CATEGORY_KEY['carousel'],
     componentName: COMPONENT_KEYS.AUTOSTART_SLIDER,
     filesrc: 'components/carousel/autostart-slider.tsx',
     componentSrc: React.lazy(
@@ -2095,6 +2136,74 @@ export const AllComponents: IAllComponents[] = [
       () => import('@/registry/components/carousel/framer-carousel1')
     ),
     iframeSrc: 'live-components/framer-carousel-1',
+    tags: ['carousel', 'motion/react', 'animated-carousel', 'carousel-1'],
+  },
+  {
+    category: DOCS_CATEGORY_KEY['framer-carousel'],
+    componentName: COMPONENT_KEYS.FRAMER_NORMAL_CAROUSEL,
+    filesrc: 'components/carousel/framer/framer-normal-carousel.tsx',
+    componentSrc: React.lazy(
+      () =>
+        import('@/registry/components/carousel/framer/framer-normal-carousel')
+    ),
+    iframeSrc: 'live-components/framer-normal-carousel',
+    tags: ['carousel', 'motion/react', 'animated-carousel', 'carousel-1'],
+  },
+  {
+    category: DOCS_CATEGORY_KEY['framer-carousel'],
+    componentName: COMPONENT_KEYS.FRAMER_AUTOPLAY_CAROUSEL,
+    filesrc: 'components/carousel/framer/framer-autoplay.tsx',
+    componentSrc: React.lazy(
+      () => import('@/registry/components/carousel/framer/framer-autoplay')
+    ),
+    iframeSrc: 'live-components/framer-autoplay-carousel',
+    tags: ['carousel', 'motion/react', 'animated-carousel', 'carousel-1'],
+  },
+  {
+    category: DOCS_CATEGORY_KEY['framer-carousel'],
+    componentName: COMPONENT_KEYS.FRAMER_DRAGGABLE_CAROUSEL,
+    filesrc: 'components/carousel/framer/framer-draggable-carousel.tsx',
+    componentSrc: React.lazy(
+      () =>
+        import(
+          '@/registry/components/carousel/framer/framer-draggable-carousel'
+        )
+    ),
+    iframeSrc: 'live-components/framer-draggable-carousel',
+    tags: ['carousel', 'motion/react', 'animated-carousel', 'carousel-1'],
+  },
+  {
+    category: DOCS_CATEGORY_KEY['framer-carousel'],
+    componentName: COMPONENT_KEYS.FRAMER_MULTI_CAROUSEL,
+    filesrc: 'components/carousel/framer/framer-multi-carousel.tsx',
+    componentSrc: React.lazy(
+      () =>
+        import('@/registry/components/carousel/framer/framer-multi-carousel')
+    ),
+    iframeSrc: 'live-components/framer-multi-carousel',
+    tags: ['carousel', 'motion/react', 'animated-carousel', 'carousel-1'],
+  },
+  {
+    category: DOCS_CATEGORY_KEY['framer-carousel'],
+    componentName: COMPONENT_KEYS.FRAMER_THUMBNAILS,
+    filesrc: 'components/carousel/framer/framer-thumnbails.tsx',
+    componentSrc: React.lazy(
+      () => import('@/registry/components/carousel/framer/framer-thumnbails')
+    ),
+    iframeSrc: 'live-components/framer-thumnbails',
+    tags: ['carousel', 'motion/react', 'animated-carousel', 'carousel-1'],
+  },
+  {
+    category: DOCS_CATEGORY_KEY['framer-carousel'],
+    componentName: COMPONENT_KEYS.FRAMER_MOVEABLE_THUMBNAILS,
+    filesrc: 'components/carousel/framer/framer-moveable-thumnbails.tsx',
+    componentSrc: React.lazy(
+      () =>
+        import(
+          '@/registry/components/carousel/framer/framer-moveable-thumnbails'
+        )
+    ),
+    iframeSrc: 'live-components/framer-moveable-thumnbails',
     tags: ['carousel', 'motion/react', 'animated-carousel', 'carousel-1'],
   },
   {

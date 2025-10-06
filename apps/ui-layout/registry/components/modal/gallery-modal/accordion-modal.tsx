@@ -85,7 +85,7 @@ export default function index() {
             <div onClick={(e) => e.stopPropagation()}>
               <motion.div
                 layoutId={items[index].id}
-                className='w-[400px] h-[400px] rounded-2xl relative cursor-default'
+                className='w-[400px] h-[400px] rounded-2xl relative cursor-default overflow-hidden'
               >
                 <Image
                   src={items[index].url}
@@ -94,7 +94,7 @@ export default function index() {
                   alt='single-image'
                   className='rounded-2xl h-full w-full object-cover'
                 />
-                <article className='dark:bg-black/40 bg-white/40 backdrop-blur-md absolute bottom-0 left-0 w-full rounded-md p-2'>
+                <article className='dark:bg-black/40 bg-white/40 backdrop-blur-md absolute -bottom-1 left-0 w-full rounded-md p-2'>
                   <motion.h1
                     initial={{ scaleY: 0.2 }}
                     animate={{ scaleY: 1 }}
