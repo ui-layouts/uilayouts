@@ -1,4 +1,10 @@
-import { AppWindowMac, LayoutPanelTop, MousePointerClick, Rocket, X } from 'lucide-react';
+import {
+  AppWindowMac,
+  LayoutPanelTop,
+  MousePointerClick,
+  Rocket,
+  X,
+} from 'lucide-react';
 import React, { useState } from 'react';
 import { ScrollArea } from './ui/scroll-area';
 import { usePathname, useRouter } from 'next/navigation';
@@ -48,7 +54,7 @@ function MobileHeader({ classname }: { classname?: string }) {
         setOpen={setSidebarOpen}
         direction={'left'}
         outsideClose={true}
-        className='sm:w-[60%] w-[70%] p-4 h-screen '
+        className='sm:w-80 w-[70%] p-4 h-screen '
       >
         <DrawerContent>
           <figure className='flex justify-between  w-full items-center'>
@@ -85,7 +91,7 @@ function MobileHeader({ classname }: { classname?: string }) {
           </figure>
           {/* <GitHubButton /> */}
 
-          <ScrollArea className='h-[95%] py-4 pb-12'>
+          <ScrollArea className='h-[95vh] py-4 pb-12'>
             <ul className='pb-3'>
               {basePath?.map((link, index) => {
                 return (

@@ -584,9 +584,9 @@ const appsDesign = [
 
 export default function Home() {
   return (
-    <div className='pt-24 pb-5'>
+    <div className='pt-24 pb-5 lg:px-0 px-4'>
       <h1 className={'sm:text-3xl text-2xl font-semibold tracking-tight pb-1'}>
-       Ui-Layouts Components
+        Ui-Layouts Components
       </h1>
 
       <p className='md:text-lg text-sm text-muted-foreground lg:w-[80%]'>
