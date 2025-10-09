@@ -213,7 +213,7 @@ export default function TableOfContents({ toc }: TableOfContentsProps) {
         </>
       ) : (
         <>
-          {tocItems?.length !== 0 && (
+          {/* {tocItems?.length !== 0 && (
             <div
               className='left-0 fixed border bottom-0  dark:shadow-[0px_0px_20px_10px_#141414] shadow-[0px_0px_20px_10px_#dadada] z-10 bg-primary-foreground/50 backdrop-blur-xl rounded-t-lg  p-2 w-full shrink-0 border-x overflow-hidden
             '
@@ -263,7 +263,7 @@ export default function TableOfContents({ toc }: TableOfContentsProps) {
                 </ul>
               </>
             </div>
-          )}
+          )} */}
         </>
       )}
     </>

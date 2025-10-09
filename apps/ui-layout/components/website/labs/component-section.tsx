@@ -97,7 +97,7 @@ const ComponentSection = () => {
                 className={`mx-auto border relative rounded-lg dark:bg-neutral-800 bg-neutral-50  ${
                   currentComponentData?.iframe
                     ? '   '
-                    : 'flex justify-center items-center  p-10 '
+                    : 'flex justify-center items-center  lg:p-10 sm:p-4 p-2 '
                 }`}
                 style={{
                   width: `${widthPercentage}%`,

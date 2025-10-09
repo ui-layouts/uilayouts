@@ -65,7 +65,7 @@ export default function FramerCarousel() {
   }, [index, x]);
 
   return (
-    <div className='w-full p-10'>
+    <div className='w-full lg:p-10 sm:p-4 p-2'>
       <div className='flex flex-col gap-3'>
         <div className='relative overflow-hidden rounded-lg' ref={containerRef}>
           <motion.div className='flex' style={{ x }}>

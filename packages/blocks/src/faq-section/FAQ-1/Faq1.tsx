@@ -1,8 +1,14 @@
-import { useState } from "react";
-import { motion } from "motion/react";
+import { useState } from 'react'
+import { motion } from 'motion/react'
 
-const FaqCard = ({ question, answer }:{ question: string; answer: string }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const FaqCard = ({
+  question,
+  answer,
+}: {
+  question: string
+  answer: string
+}) => {
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
     <div
@@ -12,19 +18,21 @@ const FaqCard = ({ question, answer }:{ question: string; answer: string }) => {
     >
       {/* Question */}
       <div className="flex justify-between items-center gap-4">
-        <h4 className="text-2xl text-gray-800 dark:text-white text-left">{question}</h4>
+        <h4 className="text-2xl text-gray-800 dark:text-white text-left">
+          {question}
+        </h4>
 
         {/* plus - minus icon */}
         <div className="relative flex-shrink-0 w-5 h-5">
           <motion.span
             className="absolute inset-0 w-full h-1 bg-gray-800 dark:bg-white rounded-full"
-            style={{ top: "calc(50% - 0.125rem)" }}
+            style={{ top: 'calc(50% - 0.125rem)' }}
             animate={{ rotate: isOpen ? 0 : 0 }}
             transition={{ duration: 0.3 }}
           />
           <motion.span
             className="absolute inset-0 w-1 h-full bg-gray-800 dark:bg-white rounded-full"
-            style={{ left: "calc(50% - 0.125rem)" }}
+            style={{ left: 'calc(50% - 0.125rem)' }}
             animate={{
               opacity: isOpen ? 0 : 1,
               rotate: isOpen ? 90 : 0,
@@ -37,7 +45,9 @@ const FaqCard = ({ question, answer }:{ question: string; answer: string }) => {
       {/* Answer */}
       <div
         className={`transition-all duration-300 ease-in-out ${
-          isOpen ? "max-h-[625rem] opacity-100 mt-3.5" : "max-h-0 opacity-0 overflow-hidden mt-0"
+          isOpen
+            ? 'max-h-[625rem] opacity-100 mt-3.5'
+            : 'max-h-0 opacity-0 overflow-hidden mt-0'
         }`}
       >
         <h6 className="text-lg text-gray-600 dark:text-gray-300 text-left leading-relaxed">
@@ -45,35 +55,52 @@ const FaqCard = ({ question, answer }:{ question: string; answer: string }) => {
         </h6>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export const FAQs = ({ faqs }: { faqs: { question: string; answer: string }[] })=> {
+export const FAQs = ({
+  faqs,
+}: {
+  faqs: { question: string; answer: string }[]
+}) => {
   return (
     <div className="mb-20">
       <div className="flex flex-col md:flex-row gap-10">
         {/* CEO Info */}
-        <div className="min-w-[31.25%] h-fit p-10 rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-neutral-900">
+        <div className="min-w-[31.25%] h-fit lg:p-10 sm:p-4 p-2 rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-neutral-900">
           <div className="flex gap-2.5 items-center">
             {/*  image */}
             <div className="size-24 rounded-full overflow-hidden bg-gray-300 dark:bg-gray-700">
-              <img src="/naymur.png" alt="profile" className="w-full h-full object-cover" />
+              <img
+                src="/naymur.png"
+                alt="profile"
+                className="w-full h-full object-cover"
+              />
             </div>
 
             {/* name and designation */}
             <div className="flex flex-col">
-              <h6 className="text-xl font-bold text-gray-800 dark:text-white">Naymur Rahman</h6>
-              <p className="text-gray-500 font-semibold dark:text-gray-400">Founder & CEO</p>
+              <h6 className="text-xl font-bold text-gray-800 dark:text-white">
+                Naymur Rahman
+              </h6>
+              <p className="text-gray-500 font-semibold dark:text-gray-400">
+                Founder & CEO
+              </p>
             </div>
           </div>
 
           <p className="my-5 text-xl text-gray-700 dark:text-gray-300 md:max-w-80">
-            “Something that represents visiting your profile to discuss about you.”
+            “Something that represents visiting your profile to discuss about
+            you.”
           </p>
 
-           
           <button
-            onClick={() => window.open("https://www.linkedin.com/in/naymur-rahman/", "_blank")}
+            onClick={() =>
+              window.open(
+                'https://www.linkedin.com/in/naymur-rahman/',
+                '_blank'
+              )
+            }
             className="mt-4 inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full transition"
           >
             <svg
@@ -99,5 +126,5 @@ export const FAQs = ({ faqs }: { faqs: { question: string; answer: string }[] })
         </div>
       </div>
     </div>
-  );
-};
+  )
+}

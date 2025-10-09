@@ -238,7 +238,7 @@ export default function ComponentPreview({
             <>
               <div
                 className={cn(
-                  `h-[600px] w-full rounded-lg border dark:bg-neutral-800 bg-neutral-200 overflow-hidden pt-16 p-0`,
+                  `lg:h-[600px] sm:h-[500px] h-[400px] w-full rounded-lg border dark:bg-neutral-800 bg-neutral-200 overflow-hidden pt-16 p-0`,
                   className
                 )}
               >
@@ -260,13 +260,15 @@ export default function ComponentPreview({
             <div
               className={cn(
                 `${
-                  isFitheight ? 'h-fit py-4' : 'h-[600px] '
+                  isFitheight
+                    ? 'h-fit py-4'
+                    : 'lg:h-[600px] sm:h-[500px] h-[400px]'
                 }  w-full rounded-lg dark:bg-neutral-800 bg-neutral-200 border dark:border-neutral-800 overflow-hidden p-0`,
                 className
               )}
             >
               <div
-                className='h-full  not-prose mx-auto  '
+                className='h-full not-prose mx-auto'
                 style={{ width: width }}
               >
                 <>
@@ -288,10 +290,10 @@ export default function ComponentPreview({
             className={cn(
               `w-full rounded-lg flex flex-col justify-center items-center dark:bg-neutral-800 bg-neutral-200 overflow-hidden`,
               isFitheight
-                ? 'h-fit p-6'
+                ? 'h-fit lg:p-6 p-2'
                 : isFit
                   ? 'h-fit p-0'
-                  : '2xl:h-[600px] xl:h-[550px] h-fit overflow-auto p-6'
+                  : '2xl:h-[600px] xl:h-[550px] h-fit overflow-auto lg:p-6 p-2'
             )}
           >
             {currentComponentData ? (

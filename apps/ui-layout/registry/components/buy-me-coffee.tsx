@@ -16,7 +16,7 @@ function BuyMeCoffee({
         href='https://buymeacoffee.com/uilayouts'
         target='_blank'
         className={cn(
-          'border relative group w-96 mx-auto cursor-pointer h-96 grid place-content-center p-10 py-14 my-14 dark:bg-neutral-50 bg-neutral-900  rounded-md  overflow-hidden',
+          'border relative group w-96 mx-auto cursor-pointer h-96 grid place-content-center lg:p-10 sm:p-4 p-2 py-14 my-14 dark:bg-neutral-50 bg-neutral-900  rounded-md  overflow-hidden',
           classname
         )}
       >

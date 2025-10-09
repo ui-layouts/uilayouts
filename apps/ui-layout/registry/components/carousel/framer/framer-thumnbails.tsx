@@ -128,7 +128,7 @@ function FramerCarouselThumbnails() {
   }, [index, x, isDragging]);
 
   return (
-    <div className='w-[80%] mx-auto p-10'>
+    <div className='w-[80%] mx-auto lg:p-10 p-2'>
       <div className='flex flex-col gap-3'>
         {/* Main Carousel */}
         <div className='relative overflow-hidden rounded-lg' ref={containerRef}>
