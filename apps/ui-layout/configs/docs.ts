@@ -15,7 +15,7 @@ export const DocsNavigationCategories: DocsNavigationCategory[] = [
     href: '/components/liquid-glass',
     name: 'Liquid-Glass',
     key: DOCS_CATEGORY_KEY['liquid-glass'],
-    group: DOCS_CATEGORY_GROUP.DataDisplay,
+    group: DOCS_CATEGORY_GROUP.VisualEffects,
     new: true,
     tags: [
       'Liquid-Glass',
@@ -31,6 +31,28 @@ export const DocsNavigationCategories: DocsNavigationCategory[] = [
       'liquid glass sidebar menu',
       'liquid glass sidebar menu component',
     ],
+  },
+  {
+    href: '/components/swapy',
+    name: 'Swapy Drag',
+    key: DOCS_CATEGORY_KEY['swapy'],
+    group: DOCS_CATEGORY_GROUP.AnimationMotion,
+    new: true,
+    updated: false,
+    tags: [
+      'Swapy drag',
+      'swapy draggable',
+      'swapy items',
+      'swapy sortable',
+      'swapy list',
+    ],
+  },
+  {
+    href: '/components/dialog',
+    name: 'Dialog',
+    key: DOCS_CATEGORY_KEY['dialog'],
+    group: DOCS_CATEGORY_GROUP.Overlays,
+    tags: ['dialog', 'popup', 'modal', 'UI-component'],
   },
   {
     href: '/components/color-picker',
@@ -92,27 +114,13 @@ export const DocsNavigationCategories: DocsNavigationCategory[] = [
       'supports',
     ],
   },
-  {
-    href: '/components/swapy',
-    name: 'Swapy Drag',
-    key: DOCS_CATEGORY_KEY['swapy'],
-    group: DOCS_CATEGORY_GROUP.Utilities,
-    new: true,
-    updated: false,
-    tags: [
-      'Swapy drag',
-      'swapy draggable',
-      'swapy items',
-      'swapy sortable',
-      'swapy list',
-    ],
-  },
+
   {
     href: '/components/drag-items',
     name: 'Drag Items',
     key: DOCS_CATEGORY_KEY['drag-items'],
     updated: false,
-    group: DOCS_CATEGORY_GROUP.Utilities,
+    group: DOCS_CATEGORY_GROUP.AnimationMotion,
 
     tags: ['drag', 'draggable', 'items', 'sortable', 'list'],
   },
@@ -483,7 +491,7 @@ export const DocsNavigationCategories: DocsNavigationCategory[] = [
     href: '/components/spotlight-cards',
     name: 'Spotlight cards',
     key: DOCS_CATEGORY_KEY['spotlight-cards'],
-    group: DOCS_CATEGORY_GROUP.DataDisplay,
+    group: DOCS_CATEGORY_GROUP.VisualEffects,
     tags: [
       'spotlight',
       'card',
@@ -646,13 +654,7 @@ export const DocsNavigationCategories: DocsNavigationCategory[] = [
       'visual-output',
     ],
   },
-  {
-    href: '/components/dialog',
-    name: 'Dialog',
-    key: DOCS_CATEGORY_KEY['dialog'],
-    group: DOCS_CATEGORY_GROUP.Overlays,
-    tags: ['dialog', 'popup', 'modal', 'UI-component'],
-  },
+
   {
     href: '/components/media-modal',
     name: 'Media Modal',

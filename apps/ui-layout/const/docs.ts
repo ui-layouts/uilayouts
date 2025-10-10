@@ -4,7 +4,7 @@ export const DOCS_CATEGORY_GROUP = {
   Disclosure: 'Disclosure',
   Overlays: 'Overlays',
   Forms: 'Forms',
-  DataDisplay: 'Data Display',
+  DataDisplay: 'Cards & Highlights',
   MediaGalleries: 'Media & Galleries',
   AnimationMotion: 'Animation & Motion',
   VisualEffects: 'Visual Effects',
