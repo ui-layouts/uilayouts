@@ -1282,6 +1282,42 @@ export const AllComponents: IAllComponents[] = [
     tags: ['Sparkles', '3D Globe Sparkles', 'Globe Hero Section'],
   },
   {
+    category: DOCS_CATEGORY_KEY['sparkles'],
+    componentName: COMPONENT_KEYS.SPARKLES_SECTION,
+    iframelink: 'sparkles-section',
+    tags: ['Sparkles', 'Sparkles Section'],
+  },
+  {
+    category: DOCS_CATEGORY_KEY['sparkles'],
+    componentName: COMPONENT_KEYS.SPARKLES_BRANDING,
+    iframelink: 'sparkles-branding',
+    tags: ['Sparkles', 'Sparkles Branding'],
+  },
+  {
+    category: DOCS_CATEGORY_KEY['sparkles'],
+    componentName: COMPONENT_KEYS.SPARKLES_TITLE,
+    iframelink: 'sparkles-title',
+    tags: ['Sparkles', 'Sparkles Title'],
+  },
+  {
+    category: DOCS_CATEGORY_KEY['sparkles'],
+    componentName: COMPONENT_KEYS.SPARKLES_TITLE2,
+    iframelink: 'sparkles-title2',
+    tags: ['Sparkles', 'Sparkles Title'],
+  },
+  {
+    category: DOCS_CATEGORY_KEY['sparkles'],
+    componentName: COMPONENT_KEYS.SPARKLES_TITLE3,
+    iframelink: 'sparkles-title3',
+    tags: ['Sparkles', 'Sparkles Title'],
+  },
+  {
+    category: DOCS_CATEGORY_KEY['sparkles'],
+    componentName: COMPONENT_KEYS.SPARKLES_TITLE4,
+    iframelink: 'sparkles-title4',
+    tags: ['Sparkles', 'Sparkles Title'],
+  },
+  {
     category: DOCS_CATEGORY_KEY['phone-input'],
     componentName: COMPONENT_KEYS.PHONE_INPUT,
     filesrc: 'components/form/phone-number/index.tsx',
