@@ -847,7 +847,7 @@ export const DocsNavigationCategories: DocsNavigationCategory[] = [
     href: '/components/carousel',
     name: 'Carousel',
     key: DOCS_CATEGORY_KEY['carousel'],
-    new: false,
+    updated: true,
     group: DOCS_CATEGORY_GROUP.MediaGalleries,
     tags: [
       'carousel',
@@ -880,6 +880,7 @@ export const DocsNavigationCategories: DocsNavigationCategory[] = [
     name: 'Framer Carousel',
     key: DOCS_CATEGORY_KEY['framer-carousel'],
     group: DOCS_CATEGORY_GROUP.MediaGalleries,
+    updated: true,
     tags: [
       'carousel',
       'motion/react',
