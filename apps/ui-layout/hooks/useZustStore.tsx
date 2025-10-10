@@ -1,3 +1,4 @@
+import { DocsNavigationCategories } from '@/configs/docs';
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
@@ -54,7 +55,12 @@ export const useRecentPagesStore = create<RecentPagesStore>()(
           return { recentPages: newRecentPages.slice(0, 5) };
         });
       },
-      getRecentPages: () => get().recentPages,
+      getRecentPages: () =>
+        get().recentPages.filter((page: IRecentPage) =>
+          DocsNavigationCategories.some(
+            (component) => component.name === page.name
+          )
+        ),
       // @ts-ignore
       removeAllRecentPages: () => set({ recentPages: [] }),
     }),
