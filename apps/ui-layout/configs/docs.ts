@@ -1206,7 +1206,7 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     category: DOCS_CATEGORY_KEY['image-ripple-effect'],
-    componentName: COMPONENT_KEYS.IMG_RIPPLE_EFFECT,
+    componentName: COMPONENT_KEYS.SINGLE_IMG_RIPPLE_EFFECT,
     iframelink: 'img-ripple-effect2',
     tags: [
       'single img-ripple-effect',
@@ -1233,13 +1233,6 @@ export const AllComponents: IAllComponents[] = [
     iframelink: 'horizontal-scrolling-section',
     tags: ['White 3D Globe', 'White 3D Globe Card'],
   },
-  {
-    category: DOCS_CATEGORY_KEY['horizontal-scroll'],
-    componentName: COMPONENT_KEYS.HORIZONTALSCROLL,
-    iframelink: 'horizontal-scrolling-section',
-    tags: ['White 3D Globe', 'White 3D Globe Card'],
-  },
-
   {
     category: DOCS_CATEGORY_KEY['stacking-card'],
     componentName: COMPONENT_KEYS.STACKING_CARD,
@@ -1462,7 +1455,7 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     category: DOCS_CATEGORY_KEY['range-slider'],
-    componentName: COMPONENT_KEYS.DUAL_RANGE_SLIDER,
+    componentName: COMPONENT_KEYS.MOTION_NUMBER_SLIDER,
     filesrc: 'components/number-flow/motion-number-slider.tsx',
     tags: [
       'input slider',
@@ -3017,16 +3010,6 @@ export const AllComponents: IAllComponents[] = [
     ),
     iframeSrc: 'live-components/watersplash-clippath',
     tags: ['clip-path ', 'Water Splash Clip-Path', 'creative', 'mask'],
-  },
-  {
-    category: DOCS_CATEGORY_KEY['clip-path'],
-    componentName: COMPONENT_KEYS.CREATIVE_MASK_CLIPPATH,
-    filesrc: 'components/clip-path/clip-path-creative-mask.tsx',
-    componentSrc: React.lazy(
-      () => import('@/registry/components/clip-path/clip-path-creative-mask')
-    ),
-    iframeSrc: 'live-components/creative-mask-clippath',
-    tags: ['clip-path', 'creative', 'mask'],
   },
   {
     category: DOCS_CATEGORY_KEY['image-masking'],
