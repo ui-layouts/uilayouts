@@ -80,7 +80,8 @@ const ComponentSection = () => {
   const category = DocsNavigationCategories.find(
     (category) => category.key === currentComponentData?.category
   );
-  const href = `${process.env.NEXT_PUBLIC_CLIENT_URL}/${category?.href}}`;
+  const href = `${process.env.NEXT_PUBLIC_CLIENT_URL}/${category?.href}`;
+
   return (
     <div
       className={`${
