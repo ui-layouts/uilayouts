@@ -118,6 +118,7 @@ export const COMPONENT_KEYS = {
 
   // ThreeJS category
   IMG_RIPPLE_EFFECT: 'img-ripple-effect',
+  SINGLE_IMG_RIPPLE_EFFECT: 'single-img-ripple-effect',
   R3F_BLOB: 'r3f-blob',
   MESH_SHADERGRADIENT: 'mesh-shadergradient',
   MESH_GRADIENT_BACKGROUND3: 'mesh-gradient-background3',
