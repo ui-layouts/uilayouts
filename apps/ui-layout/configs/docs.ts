@@ -522,8 +522,9 @@ export const DocsNavigationCategories: DocsNavigationCategory[] = [
     href: '/components/scroll-animation',
     name: 'Scroll Animation',
     key: DOCS_CATEGORY_KEY['scroll-animation'],
-    group: DOCS_CATEGORY_GROUP.AnimationMotion,
     new: false,
+    updated: true,
+    group: DOCS_CATEGORY_GROUP.AnimationMotion,
     tags: [
       'scroll',
       'animation',
@@ -538,6 +539,8 @@ export const DocsNavigationCategories: DocsNavigationCategory[] = [
     href: '/components/scroll-text',
     name: 'Scroll Text',
     key: DOCS_CATEGORY_KEY['scroll-text'],
+    new: false,
+    updated: true,
     group: DOCS_CATEGORY_GROUP.AnimationMotion,
     tags: ['scroll', 'text', 'animation'],
   },
@@ -573,14 +576,13 @@ export const DocsNavigationCategories: DocsNavigationCategory[] = [
       'interactive-animation',
       'mouse-motion',
       'Without Component Mousetrail',
-      'Image Mouse Trail Without Componnents',
+      'Image Mouse Trail Without Components',
     ],
   },
   {
     href: '/components/image-reveal',
     name: 'Image Reveal',
     key: DOCS_CATEGORY_KEY['image-reveal'],
-    new: false,
     group: DOCS_CATEGORY_GROUP.VisualEffects,
     tags: [
       'image',
@@ -698,6 +700,7 @@ export const DocsNavigationCategories: DocsNavigationCategory[] = [
     name: 'Responsive Modal',
     key: DOCS_CATEGORY_KEY['responsive-modal'],
     group: DOCS_CATEGORY_GROUP.Overlays,
+    updated: true,
     tags: ['drawer', 'responsive drawer', 'navigation', 'responsive', 'menu'],
   },
 
@@ -705,6 +708,7 @@ export const DocsNavigationCategories: DocsNavigationCategory[] = [
     href: '/components/directional-drawer',
     name: 'Directional Drawer',
     key: DOCS_CATEGORY_KEY['directional-drawer'],
+    new: true,
     group: DOCS_CATEGORY_GROUP.Overlays,
     tags: [
       'sidebar',
@@ -743,6 +747,7 @@ export const DocsNavigationCategories: DocsNavigationCategory[] = [
     name: 'Responsive-Header',
     key: DOCS_CATEGORY_KEY['responsive-header'],
     group: DOCS_CATEGORY_GROUP.Layout,
+    updated: true,
     tags: ['header', 'responsive', 'navigation-bar', 'menu'],
   },
   {

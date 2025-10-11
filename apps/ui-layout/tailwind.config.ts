@@ -95,7 +95,7 @@ const config: Config = {
         primary: {
           DEFAULT: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))',
-          base:'var(--primary-base)',
+          base: 'var(--primary-base)',
         },
         muted: {
           DEFAULT: 'hsl(var(--muted))',

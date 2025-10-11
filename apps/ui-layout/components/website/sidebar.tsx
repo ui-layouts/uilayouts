@@ -129,7 +129,7 @@ function DocsSidebar() {
                     {recentPages.map((page) => (
                       <li
                         key={page.id}
-                        className={`font-normal 2xl:text-sm xl:text-[0.81em] text-xs flex items-center dark:hover:text-white py-1 pl-2 border-l transition-all ${
+                        className={`font-normal 2xl:text-sm xl:text-base text-sm flex items-center dark:hover:text-white py-1 pl-2 border-l transition-all ${
                           page.id === pathname
                             ? 'dark:border-white border-black text-black dark:text-white font-semibold'
                             : 'dark:text-slate-400 border-neutral-800 hover:border-black/60 dark:hover:border-white/50 text-slate-500 hover:text-slate-900'

@@ -70,7 +70,7 @@ export default async function DocPage(props: {
       <div className='lg:container lg:px-0 px-3 mx-auto mt-0'>
         <div className='flex w-full lg:gap-3'>
           <div className='w-full'>
-            <section className='xl:max-w-5xl lg:max-w-[44rem] max-w-5xl mx-auto prose mt-[5rem] w-full prose-zinc min-w-0 pb-5 dark:prose-invert prose-h1:text-2xl prose-h1:font-semibold prose-h2:text-3xl prose-h2:my-4 prose-h2:pt-12 prose-h2:pb-4 prose-h3:py-1 prose-h2:mt-3 prose-h2:font-medium prose-h3:text-2xl prose-h3:mt-4 prose-h3:mb-2 prose-h3:font-medium prose-strong:font-medium prose-table:block prose-table:overflow-y-auto lg:pt-4'>
+            <section className='2xl:max-w-5xl xl:max-w-[52.5rem] lg:max-w-[44.5rem] max-w-5xl mx-auto prose mt-[5rem] w-full prose-zinc min-w-0 pb-5 dark:prose-invert prose-h1:text-2xl prose-h1:font-semibold prose-h2:text-3xl prose-h2:my-4 prose-h2:pt-12 prose-h2:pb-4 prose-h3:py-1 prose-h2:mt-3 prose-h2:font-medium prose-h3:text-2xl prose-h3:mt-4 prose-h3:mb-2 prose-h3:font-medium prose-strong:font-medium prose-table:block prose-table:overflow-y-auto lg:pt-4'>
               <article className='mb-4 mt-0'>
                 <div className='space-y-2 rounded-md dark:text-white text-black'>
                   <div className='flex items-center gap-2 justify-between'>
