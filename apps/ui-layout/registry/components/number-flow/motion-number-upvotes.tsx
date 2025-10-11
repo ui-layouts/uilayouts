@@ -25,7 +25,7 @@ const UpvoteDownvote: React.FC = () => {
           ? 'dark:bg-green-950 bg-green-300 border-green-600 text-white'
           : activeVote === 'down'
             ? 'dark:bg-red-950 bg-red-300 border-red-600 text-white'
-            : 'dark:bg-neutral-800 bg-neutral-50 text-primary'
+            : 'dark:bg-neutral-950 bg-neutral-50 text-primary'
       }`}
     >
       <div className='  text-lg font-medium'>

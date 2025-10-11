@@ -1,4 +1,4 @@
-"use client"
+'use client';
 import React, { ReactNode, ReactElement, isValidElement } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { ChevronDown } from 'lucide-react';
@@ -13,7 +13,7 @@ type AccordionContextType = {
 const AccordionContext = React.createContext<AccordionContextType>({
   isActive: false,
   value: '',
-  onChangeIndex: () => {}
+  onChangeIndex: () => {},
 });
 
 const useAccordion = () => React.useContext(AccordionContext);
@@ -30,11 +30,7 @@ export function AccordionContainer({
   );
 }
 
-export function AccordionWrapper({ 
-  children 
-}: { 
-  children: ReactNode 
-}) {
+export function AccordionWrapper({ children }: { children: ReactNode }) {
   return <div>{children}</div>;
 }
 
@@ -48,8 +44,17 @@ export function Accordion({
   defaultValue?: string | string[];
 }) {
   const [activeIndex, setActiveIndex] = React.useState<string[]>(
-    multiple ? (defaultValue ? (Array.isArray(defaultValue) ? defaultValue : [defaultValue]) : []) : 
-    (defaultValue ? (Array.isArray(defaultValue) ? [defaultValue[0]] : [defaultValue]) : [])
+    multiple
+      ? defaultValue
+        ? Array.isArray(defaultValue)
+          ? defaultValue
+          : [defaultValue]
+        : []
+      : defaultValue
+        ? Array.isArray(defaultValue)
+          ? [defaultValue[0]]
+          : [defaultValue]
+        : []
   );
 
   function onChangeIndex(value: string) {
@@ -82,25 +87,25 @@ export function Accordion({
   });
 }
 
-export function AccordionItem({ 
-  children, 
-  value 
-}: { 
-  children: ReactNode; 
-  value: string 
+export function AccordionItem({
+  children,
+  value,
+}: {
+  children: ReactNode;
+  value: string;
 }) {
   const { isActive } = useAccordion();
 
   return (
     <div
-    data-active={isActive || undefined}
+      data-active={isActive || undefined}
       className={`rounded-lg overflow-hidden mb-2  ${
         isActive
           ? 'active border-2 dark:border-[#656fe2]  border-[#F2F2F2] dark:bg-[#E0ECFB] bg-[#F2F2F2]'
           : 'bg-transparent border-2 dark:hover:border-[#656fe2]'
       }
     `}
-    data-value={value}
+      data-value={value}
     >
       {children}
     </div>
@@ -110,7 +115,7 @@ export function AccordionItem({
 export function AccordionHeader({
   children,
   customIcon,
-  className
+  className,
 }: {
   children: ReactNode;
   customIcon?: boolean;
@@ -120,10 +125,10 @@ export function AccordionHeader({
 
   return (
     <motion.div
-    data-active={isActive || undefined}
+      data-active={isActive || undefined}
       className={`group p-4 cursor-pointer transition-all font-semibold    dark:text-white text-black dark:hover:bg-[#1e2a78] hover:bg-[#F2F2F2] dark:hover:text-white hover:text-black flex justify-between items-center ${
         isActive
-          ? 'active  dark:bg-[#1e2a78] bg-[#F2F2F2] '
+          ? 'active dark:bg-[#1e2a78] bg-[#F2F2F2] '
           : 'dark:bg-[#11112b] bg-white'
       }
       `}
@@ -133,8 +138,8 @@ export function AccordionHeader({
       {!customIcon && (
         <ChevronDown
           className={cn(
-            "transition-transform ",
-            isActive ? "rotate-180" : "rotate-0",
+            'transition-transform ',
+            isActive ? 'rotate-180' : 'rotate-0'
           )}
         />
       )}
@@ -142,10 +147,10 @@ export function AccordionHeader({
   );
 }
 
-export function AccordionPanel({ 
+export function AccordionPanel({
   children,
-  className
-}: { 
+  className,
+}: {
   children: ReactNode;
   className?: string;
 }) {
@@ -155,7 +160,7 @@ export function AccordionPanel({
     <AnimatePresence initial={true}>
       {isActive && (
         <motion.div
-        data-active={isActive || undefined}
+          data-active={isActive || undefined}
           initial={{ height: 0, overflow: 'hidden' }}
           animate={{ height: 'auto', overflow: 'hidden' }}
           exit={{ height: 0 }}

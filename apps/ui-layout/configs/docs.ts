@@ -60,7 +60,6 @@ export const DocsNavigationCategories: DocsNavigationCategory[] = [
     key: DOCS_CATEGORY_KEY['color-picker'],
     group: DOCS_CATEGORY_GROUP.Forms,
     tags: [],
-    new: true,
   },
   {
     href: '/components/buttons',
@@ -727,6 +726,7 @@ export const DocsNavigationCategories: DocsNavigationCategory[] = [
     name: 'Motion Drawer',
     key: DOCS_CATEGORY_KEY['motion-drawer'],
     group: DOCS_CATEGORY_GROUP.Overlays,
+    new: true,
     tags: [
       'sidebar',
       'navigation',

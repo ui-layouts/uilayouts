@@ -12,7 +12,7 @@ function index() {
   return (
     <AccordionContainer className='md:grid-cols-2 grid-cols-1'>
       <AccordionWrapper>
-        <Accordion defaultValue={'item-1'}>
+        <Accordion defaultValue={'item-2'}>
           <AccordionItem value='item-1'>
             <AccordionHeader className='2xl:text-base text-sm'>
               What is a UI component?
@@ -46,7 +46,7 @@ function index() {
         </Accordion>
       </AccordionWrapper>
       <AccordionWrapper>
-        <Accordion defaultValue={'item-5'}>
+        <Accordion defaultValue={'item-4'}>
           <AccordionItem value='item-4'>
             <AccordionHeader className='2xl:text-base text-sm'>
               Does Component Improve UX?

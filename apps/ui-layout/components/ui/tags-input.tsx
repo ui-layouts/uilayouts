@@ -75,7 +75,7 @@ export const TagsInput: React.FC<TagsInputProps> = ({
   return (
     <div
       className={cn(
-        'flex flex-wrap w-full items-center gap-2 p-2 border-2 rounded-md focus-within:border-blue-500 dark:bg-neutral-800 bg-neutral-50',
+        'flex flex-wrap w-full items-center gap-2 p-2 border-2 rounded-md focus-within:border-blue-500 dark:bg-neutral-950 bg-neutral-50',
         className
       )}
     >

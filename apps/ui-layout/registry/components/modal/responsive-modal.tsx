@@ -27,7 +27,7 @@ export default function MyDrawer() {
       </div>
       <ResponsiveModal open={drawerOpen} setOpen={setDrawerOpen}>
         <ResponsiveModalContent>
-          <figure className='flex flex-col space-y-1.5 text-center  h-fit dark:bg-gray-900 md:p-0 p-6'>
+          <figure className='flex flex-col space-y-1.5 text-center  h-fit dark:bg-neutral-800 md:p-4 p-6'>
             <h1 className='font-medium  text-2xl'>Update Profile Image</h1>
             <p className='text-sm text-muted-foreground'>
               Upload a new profile image or remove the current one.

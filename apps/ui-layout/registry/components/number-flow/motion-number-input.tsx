@@ -59,7 +59,7 @@ export function Input({
     };
 
   return (
-    <div className='group flex items-stretch rounded-md text-3xl font-semibold border w-fit mx-auto dark:bg-neutral-800 bg-neutral-50'>
+    <div className='group flex items-stretch rounded-md text-3xl font-semibold border w-fit mx-auto dark:bg-neutral-950 bg-neutral-50'>
       <button
         aria-hidden
         tabIndex={-1}

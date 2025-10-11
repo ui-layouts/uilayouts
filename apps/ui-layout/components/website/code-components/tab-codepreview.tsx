@@ -60,7 +60,7 @@ export default function TabCodePreview({ children }: CodePreviewProps) {
         defaultValue={`${updatedCodes[0]?.props.componentname}-${updatedCodes[0]?.props.filename}`}
         className='w-full relative mt-1 mb-4'
       >
-        <TabsList className='mb-0  bg-muted px-0.5'>
+        <TabsList className='mb-0 dark:bg-neutral-800 bg-neutral-200 px-0.5'>
           {updatedCodes.map((componentName) => (
             <TabsTrigger
               key={`${componentName.props.componentname}-${componentName.props.filename}`}
