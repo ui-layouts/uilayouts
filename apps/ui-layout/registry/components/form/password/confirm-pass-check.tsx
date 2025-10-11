@@ -7,7 +7,6 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from '@/components/website/ui/hover-card';
-import { boolean } from 'zod';
 
 // Constants
 const PASSWORD_REQUIREMENTS = [
@@ -51,7 +50,7 @@ type PasswordStrength = {
 
 const PasswordInput = () => {
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState<null | boolean>(null);
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [isVisible, setIsVisible] = useState(false);
 
   const calculateStrength = useMemo((): PasswordStrength => {
@@ -66,10 +65,11 @@ const PasswordInput = () => {
     };
   }, [password]);
 
-  const handleConfirmpass = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const passwordsMatch = password !== '' && e.target.value === password;
-    setConfirmPassword(passwordsMatch);
-  };
+  const isMatch = useMemo(() => {
+    if (confirmPassword === '') return null; // 아직 입력 안 했으면 "미평가"
+    return password !== '' && confirmPassword === password;
+  }, [password, confirmPassword]);
+
   return (
     <div className='w-96 mx-auto py-12'>
       <form className='space-y-4'>
@@ -146,18 +146,19 @@ const PasswordInput = () => {
           <input
             id='confirm-password'
             type={isVisible ? 'text' : 'password'}
-            onChange={(e) => handleConfirmpass(e)}
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
             placeholder='Confirm Password'
-            aria-invalid={!confirmPassword}
+            aria-invalid={confirmPassword !== '' ? isMatch === false : undefined}
             className={`cursor-pointer w-full p-2 border-2 rounded-md dark:bg-neutral-800 bg-neutral-50 outline-none transition-all ${
-              confirmPassword == null
+              confirmPassword === ''
                 ? ''
-                : confirmPassword
+                : isMatch
                   ? 'border-green-400'
                   : 'border-red-500'
             }`}
           />
-          {!confirmPassword && confirmPassword && (
+          {confirmPassword !== '' && isMatch === false && (
             <p className='text-red-500 text-sm mt-1'>Passwords do not match</p>
           )}
         </div>
