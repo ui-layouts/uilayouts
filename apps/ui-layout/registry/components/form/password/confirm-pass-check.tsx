@@ -66,7 +66,7 @@ const PasswordInput = () => {
   }, [password]);
 
   const isMatch = useMemo(() => {
-    if (confirmPassword === '') return null; // 아직 입력 안 했으면 "미평가"
+    if (confirmPassword === '') return null;
     return password !== '' && confirmPassword === password;
   }, [password, confirmPassword]);
 
