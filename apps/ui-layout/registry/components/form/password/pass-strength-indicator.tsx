@@ -89,7 +89,7 @@ const PasswordInput = () => {
       </form>
 
       <div
-        className='mt-3 mb-2 h-1 rounded-full dark:bg-neutral-800 bg-neutral-50 overflow-hidden'
+        className='mt-3 mb-2 h-1 rounded-full dark:bg-neutral-950 bg-neutral-50 overflow-hidden'
         role='progressbar'
         aria-valuenow={calculateStrength.score}
         aria-valuemin={0}

@@ -29,11 +29,13 @@ export const basePath = [
     href: '/get-started',
     name: 'Get Started',
     icon: <Rocket />,
+    tags: ['get-started', 'get started', 'get-started', 'get started'],
   },
   {
     href: '/components',
     name: 'Components',
     icon: <Component />,
+    tags: ['components', 'components', 'components', 'components'],
   },
 ];
 
@@ -198,7 +200,7 @@ export const ItemsWithName = ({
   return (
     <div ref={groupRef} key={group}>
       <div
-        className={`text-lg relative flex w-full items-center justify-between pr-4 cursor-pointer  dark:text-gray-100 font-medium capitalize my-1`}
+        className={`xl:text-lg relative flex w-full items-center justify-between pr-4 cursor-pointer  dark:text-gray-100 font-medium capitalize my-1`}
       >
         {group}
         {/* {showExpandButton && (
@@ -238,7 +240,7 @@ export const ItemsWithName = ({
             ref={(el) => {
               itemRefs.current[index] = el;
             }}
-            className={`2xl:text-base xl:text-base text-xs flex items-center gap-1 dark:hover:text-white py-[1px] pl-2 border-l transition-all ${
+            className={`2xl:text-base xl:text-base text-sm flex items-center gap-1 dark:hover:text-white py-[1px] pl-2 border-l transition-all ${
               link.href === pathname
                 ? 'dark:border-white border-black text-black dark:text-white font-semibold'
                 : 'dark:text-slate-400 2xl:font-normal font-medium dark:border-neutral-800 hover:border-black/60 dark:hover:border-white/50 text-slate-500 hover:text-slate-900'

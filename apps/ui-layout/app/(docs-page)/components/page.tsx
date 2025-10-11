@@ -597,43 +597,41 @@ export default function Home() {
         <div className='grid md:grid-cols-3 grid-cols-2 gap-6 py-4'>
           {appsDesign.map((component, index) => {
             return (
-              <>
-                <Link
-                  key={component?.id}
-                  href={component?.url}
-                  className='border p-2    transition-all rounded-lg dark:bg-black/40 bg-primary-foreground backdrop-blur-sm'
-                >
-                  <>
-                    {component.imgSrc && (
-                      <AspectRatio.Root ratio={16 / 9}>
-                        <Image
-                          src={component.imgSrc}
-                          alt='hero-sec'
-                          width={400}
-                          height={400}
-                          className={cn(
-                            'w-full h-full rounded-md',
-                            component.imgclass
-                          )}
-                        />
-                      </AspectRatio.Root>
-                    )}
-                    {component.svgCom && (
-                      <AspectRatio.Root
-                        ratio={16 / 9}
-                        className='flex items-center justify-center'
-                      >
-                        <component.svgCom />
-                      </AspectRatio.Root>
-                    )}
-                  </>
-                  <div className='sm:py-2 py-1 sm:px-4 px-2'>
-                    <h1 className='2xl:text-xl xl:text-xl md:text-lg text-sm font-medium leading-[140%] capitalize'>
-                      {component.name}
-                    </h1>
-                  </div>
-                </Link>
-              </>
+              <Link
+                key={component?.id}
+                href={component?.url}
+                className='border p-2    transition-all rounded-lg dark:bg-black/40 bg-primary-foreground backdrop-blur-sm'
+              >
+                <>
+                  {component.imgSrc && (
+                    <AspectRatio.Root ratio={16 / 9}>
+                      <Image
+                        src={component.imgSrc}
+                        alt='hero-sec'
+                        width={400}
+                        height={400}
+                        className={cn(
+                          'w-full h-full rounded-md',
+                          component.imgclass
+                        )}
+                      />
+                    </AspectRatio.Root>
+                  )}
+                  {component.svgCom && (
+                    <AspectRatio.Root
+                      ratio={16 / 9}
+                      className='flex items-center justify-center'
+                    >
+                      <component.svgCom />
+                    </AspectRatio.Root>
+                  )}
+                </>
+                <div className='sm:py-2 py-1 sm:px-4 px-2'>
+                  <h1 className='2xl:text-xl xl:text-xl md:text-lg text-sm font-medium leading-[140%] capitalize'>
+                    {component.name}
+                  </h1>
+                </div>
+              </Link>
             );
           })}
         </div>
