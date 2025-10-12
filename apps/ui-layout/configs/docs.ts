@@ -2727,7 +2727,7 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     category: DOCS_CATEGORY_KEY['media-modal'],
-    componentName: COMPONENT_KEYS.IMAGEMODALSL,
+    componentName: COMPONENT_KEYS.IMAGEMODALS,
     filesrc: 'components/modal/image-modals.tsx',
     tags: ['image modal', 'modal', 'popup', 'UI'],
     componentSrc: React.lazy(
