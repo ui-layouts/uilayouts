@@ -232,7 +232,7 @@ export const COMPONENT_KEYS = {
   DIALOG: 'dialog',
   RESPONSIVE_MODAL: 'responsive-modal',
   MEDIA_MODAL: 'media-modal',
-  IMAGEMODALSL: 'imagemodalsl',
+  IMAGEMODALS: 'imagemodals',
   LINEAR_MODAL: 'linear-modal',
   LINEAR_MODAL_STANDALONE: 'linear-modal-standalone',
   LINEAR_MODAL_CENTER_CONTENT: 'linear-modal-center-content',
