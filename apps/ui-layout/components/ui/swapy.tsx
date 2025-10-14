@@ -101,7 +101,7 @@ export const SwapySlot = ({
   return (
     <div
       className={cn(
-        'data-[swapy-highlighted]:bg-neutral-200 data-[swapy-highlighted]:dark:bg-neutral-800',
+        'data-swapy-highlighted:bg-neutral-200 dark:data-swapy-highlighted:bg-neutral-800',
         className
       )}
       data-swapy-slot={id}
@@ -112,16 +112,16 @@ export const SwapySlot = ({
 };
 
 const dragOpacityClassMap: Record<number, string> = {
-  10: 'data-[swapy-dragging]:opacity-10',
-  20: 'data-[swapy-dragging]:opacity-20',
-  30: 'data-[swapy-dragging]:opacity-30',
-  40: 'data-[swapy-dragging]:opacity-40',
-  50: 'data-[swapy-dragging]:opacity-50',
-  60: 'data-[swapy-dragging]:opacity-60',
-  70: 'data-[swapy-dragging]:opacity-70',
-  80: 'data-[swapy-dragging]:opacity-80',
-  90: 'data-[swapy-dragging]:opacity-90',
-  100: 'data-[swapy-dragging]:opacity-100',
+  10: 'data-swapy-dragging:opacity-10',
+  20: 'data-swapy-dragging:opacity-20',
+  30: 'data-swapy-dragging:opacity-30',
+  40: 'data-swapy-dragging:opacity-40',
+  50: 'data-swapy-dragging:opacity-50',
+  60: 'data-swapy-dragging:opacity-60',
+  70: 'data-swapy-dragging:opacity-70',
+  80: 'data-swapy-dragging:opacity-80',
+  90: 'data-swapy-dragging:opacity-90',
+  100: 'data-swapy-dragging:opacity-100',
 };
 
 export const SwapyItem = ({
@@ -136,7 +136,7 @@ export const SwapyItem = ({
   dragItemOpacity?: number;
 }) => {
   const opacityClass =
-    dragOpacityClassMap[dragItemOpacity] ?? 'data-[swapy-dragging]:opacity-50';
+    dragOpacityClassMap[dragItemOpacity] ?? 'data-swapy-dragging:opacity-50';
   return (
     <div className={cn(opacityClass, className)} data-swapy-item={id}>
       {children}

@@ -64,19 +64,19 @@ export async function PreCoded({
       <Tabs defaultValue={'typescript'}>
         <TabsList
           className={cn(
-            'absolute dark:bg-zinc-800 right-[5.5rem] top-6 z-[1] h-9 p-0.5  border-2',
+            'absolute dark:bg-zinc-800 right-22 top-6 z-1 h-9 p-0.5  border-2',
             tabclassname
           )}
         >
           <TabsTrigger
             value={'typescript'}
-            className='h-7 rounded text-foreground'
+            className='h-7 rounded-sm text-foreground'
           >
             Ts
           </TabsTrigger>
           <TabsTrigger
             value={'javascript'}
-            className='rounded h-7  text-foreground'
+            className='rounded-sm h-7  text-foreground'
           >
             Js{' '}
           </TabsTrigger>

@@ -6,7 +6,7 @@ const NotificationLiquid = () => {
   return (
     <>
       <div
-        className='p-8 w-fit mx-auto gap-2 h-[40rem] flex flex-col justify-end pt-2 pb-10 rounded-xl'
+        className='p-8 w-fit mx-auto gap-2 h-160 flex flex-col justify-end pt-2 pb-10 rounded-xl'
         style={{
           background:
             'url("https://images.unsplash.com/photo-1534259070436-a95806b8621a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") center / cover no-repeat',
@@ -27,7 +27,7 @@ const NotificationLiquid = () => {
         >
           <div className='relative z-30 flex items-center p-4  text-white h-full'>
             {/* App Icon */}
-            <div className='flex-shrink-0 mr-4'>
+            <div className='shrink-0 mr-4'>
               <Image
                 src={'/apple-touch-icon.png'}
                 alt={`icon`}
@@ -37,14 +37,14 @@ const NotificationLiquid = () => {
               />
             </div>
 
-            <div className='flex-grow pr-4'>
+            <div className='grow pr-4'>
               <div className='font-semibold text-lg'>UI-Layouts</div>
               <div className='text-sm'>
                 New components are available for you
               </div>
               <div className='text-sm text-gray-200'>Liquid-Glass</div>
             </div>
-            <div className='flex-shrink-0 ml-4 text-sm text-gray-200 self-start pt-1'>
+            <div className='shrink-0 ml-4 text-sm text-gray-200 self-start pt-1'>
               12:34
             </div>
           </div>
@@ -67,7 +67,7 @@ const NotificationLiquid = () => {
         >
           <div className='relative z-30 flex items-center p-4 text-white z-10'>
             {/* App Icon */}
-            <div className='flex-shrink-0 mr-4'>
+            <div className='shrink-0 mr-4'>
               <Image
                 src={'/apple-touch-icon.png'}
                 alt={`icon`}
@@ -77,7 +77,7 @@ const NotificationLiquid = () => {
               />
             </div>
 
-            <div className='flex-grow pr-4'>
+            <div className='grow pr-4'>
               <div className='font-semibold text-lg'>
                 <svg
                   width='160'
@@ -110,7 +110,7 @@ const NotificationLiquid = () => {
                 New components are available for you
               </div>
             </div>
-            <div className='flex-shrink-0 ml-4 text-sm text-gray-200 self-start pt-1'>
+            <div className='shrink-0 ml-4 text-sm text-gray-200 self-start pt-1'>
               12:34
             </div>
           </div>

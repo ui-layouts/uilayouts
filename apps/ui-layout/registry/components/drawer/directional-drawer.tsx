@@ -34,7 +34,7 @@ export default function index() {
   </DrawerTrigger>
    <DrawerContent>
     <figure className='w-full h-full flex flex-col'>
-      <div className='p-5 rounded-t-[10px] flex-grow h-full w-full'>
+      <div className='p-5 rounded-t-[10px] grow h-full w-full'>
         <h1 className='font-medium text-2xl'>
           Update Profile Image
         </h1>
@@ -49,14 +49,14 @@ export default function index() {
           </span>
           <div className='mb-3'>
             <input
-              className='w-full border file:p-2 file:bg-black file:border-none file:text-white rounded-sm overflow-hidden'
+              className='w-full border file:p-2 file:bg-black file:border-none file:text-white rounded-xs overflow-hidden'
               type='file'
               id='formFile'
             />
           </div>
           <button
             type='submit'
-            className='w-full rounded-sm dark:bg-white bg-black p-2 dark:text-black text-white'
+            className='w-full rounded-xs dark:bg-white bg-black p-2 dark:text-black text-white'
           >
             Submit
           </button>

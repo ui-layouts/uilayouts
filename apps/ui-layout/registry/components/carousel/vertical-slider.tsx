@@ -53,11 +53,11 @@ function VerticalCarousel() {
           </Slider>
         </SliderContainer>
 
-        <SliderPrevButton className='absolute top-4 left-1/2 -translate-x-1/2 p-2 border-2 rounded-full bg-white/90 dark:bg-black/90 backdrop-blur-sm hover:bg-white dark:hover:bg-black transition-colors disabled:opacity-20 z-10'>
+        <SliderPrevButton className='absolute top-4 left-1/2 -translate-x-1/2 p-2 border-2 rounded-full bg-white/90 dark:bg-black/90 backdrop-blur-xs hover:bg-white dark:hover:bg-black transition-colors disabled:opacity-20 z-10'>
           <ChevronUp className='w-6 h-6' />
         </SliderPrevButton>
 
-        <SliderNextButton className='absolute bottom-4 left-1/2 -translate-x-1/2 p-2 border-2 rounded-full bg-white/90 dark:bg-black/90 backdrop-blur-sm hover:bg-white dark:hover:bg-black transition-colors disabled:opacity-20 z-10'>
+        <SliderNextButton className='absolute bottom-4 left-1/2 -translate-x-1/2 p-2 border-2 rounded-full bg-white/90 dark:bg-black/90 backdrop-blur-xs hover:bg-white dark:hover:bg-black transition-colors disabled:opacity-20 z-10'>
           <ChevronDown className='w-6 h-6' />
         </SliderNextButton>
 

@@ -102,7 +102,7 @@ export default function Dialog() {
                         autoPlay
                         muted
                         loop
-                        className='h-full w-full object-cover  rounded-sm'
+                        className='h-full w-full object-cover  rounded-xs'
                       >
                         <source src={item.videoSrc!} type='video/mp4' />
                       </video>
@@ -118,7 +118,7 @@ export default function Dialog() {
             <>
               <motion.div
                 key={`backdrop-${items[index].id}`}
-                className='fixed inset-0 h-full w-full dark:bg-black/25 bg-white/95 backdrop-blur-sm '
+                className='fixed inset-0 h-full w-full dark:bg-black/25 bg-white/95 backdrop-blur-xs '
                 variants={{ open: { opacity: 1 }, closed: { opacity: 0 } }}
                 initial='closed'
                 animate='open'
@@ -161,7 +161,7 @@ export default function Dialog() {
                         muted
                         loop
                         controls
-                        className='h-full w-full object-cover  rounded-sm'
+                        className='h-full w-full object-cover  rounded-xs'
                       >
                         <source src={items[index].videoSrc!} type='video/mp4' />
                       </video>

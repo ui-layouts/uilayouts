@@ -8,9 +8,9 @@ function index() {
                    [--gradient-center:#f3f4f6] [--gradient-edge:#f3f4f6]
                    dark:[--gradient-center:#02081765] dark:[--gradient-edge:#020817]'
     >
-      <div className='gap-10 sm:flex justify-between p-5 2xl:py-10 py-5 dark:bg-[#4c61ff]   bg-blue-500 rounded-sm rounded-b-none text-white'>
+      <div className='gap-10 sm:flex justify-between p-5 2xl:py-10 py-5 dark:bg-[#4c61ff]   bg-blue-500 rounded-xs rounded-b-none text-white'>
         <div className='w-fit flex-col  flex  justify-center'>
-          <div className='2xl:w-24 2xl:h-24 w-20 h-20 ml-3 bg-white  rounded-sm before:absolute relative before:w-full before:h-full before:bg-white/50  before:rounded-md before:-top-3 before:-left-3'></div>
+          <div className='2xl:w-24 2xl:h-24 w-20 h-20 ml-3 bg-white  rounded-xs before:absolute relative before:w-full before:h-full before:bg-white/50  before:rounded-md before:-top-3 before:-left-3'></div>
           <article className='py-2  2xl:w-80 w-64  space-y-1'>
             <h1 className='newFont text-3xl font-bold'>UI-LAYOUT</h1>
             <p className='text-sm  leading-[120%] '>
@@ -21,7 +21,7 @@ function index() {
           </article>
         </div>
 
-        <div className='sm:block flex sm:mt-0 mt-4  gap-2 sm:w-auto w-full sm:space-y-2 relative z-[1]'>
+        <div className='sm:block flex sm:mt-0 mt-4  gap-2 sm:w-auto w-full sm:space-y-2 relative z-1'>
           <a
             href='https://www.linkedin.com/in/naymur-rahman/'
             target='_blank'

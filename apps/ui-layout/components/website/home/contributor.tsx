@@ -50,7 +50,7 @@ export default function Contributors() {
         </p>
       </article>
       {/* Contributors Grid */}
-      <div className='mt-12 grid gap-6 md:w-[40rem] w-[95%] mx-auto grid-cols-2'>
+      <div className='mt-12 grid gap-6 md:w-160 w-[95%] mx-auto grid-cols-2'>
         {contributorProfile.map((contributor, i) => (
           <Dialog
             key={i}
@@ -70,7 +70,7 @@ export default function Contributors() {
                 alt={contributor.alt}
                 className='h-full w-full object-cover'
               />
-              <div className='flex flex-grow flex-row items-end justify-between p-3 pt-4 text-primary absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/50 to-transparent'>
+              <div className='flex grow flex-row items-end justify-between p-3 pt-4 text-primary absolute bottom-0 left-0 w-full bg-linear-to-t from-black/50 to-transparent'>
                 <DialogTitle className='text-xl text-white'>
                   {contributor.alt}
                 </DialogTitle>
@@ -86,7 +86,7 @@ export default function Contributors() {
                 style={{ borderRadius: '24px' }}
                 className='h-fit mx-auto'
               >
-                <div className='flex flex-col relative dark:bg-neutral-900 bg-neutral-100 lg:w-[28rem] w-[80%] lg:h-[50vh] h-[80vh] mx-auto overflow-y-auto'>
+                <div className='flex flex-col relative dark:bg-neutral-900 bg-neutral-100 lg:w-md w-[80%] lg:h-[50vh] h-[80vh] mx-auto overflow-y-auto'>
                   {/* Top Image */}
                   <div className='flex-1 overflow-hidden'>
                     <DialogImage

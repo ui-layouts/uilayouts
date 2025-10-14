@@ -91,7 +91,7 @@ function MagnifiedDocOneFile() {
                 <motion.div
                   onMouseMove={(e) => mouseX.set(e.pageX)}
                   onMouseLeave={() => mouseX.set(Infinity)}
-                  className='mx-auto flex sm:h-[57px] h-[52px] w-fit items-end gap-2 rounded-t-lg px-2 pb-2 dark:bg-gray-800/80 bg-white/50 backdrop-blur-sm border-t border-l border-r  '
+                  className='mx-auto flex sm:h-[57px] h-[52px] w-fit items-end gap-2 rounded-t-lg px-2 pb-2 dark:bg-gray-800/80 bg-white/50 backdrop-blur-xs border-t border-l border-r  '
                 >
                   {apps.map((app, i) => {
                     return (
@@ -101,7 +101,7 @@ function MagnifiedDocOneFile() {
                           <AppIcon mouseX={mouseX} src={app.icon} />
                         </TooltipTrigger>
                         <TooltipContent
-                          className='py-1 px-3 rounded-sm'
+                          className='py-1 px-3 rounded-xs'
                           sideOffset={8}
                         >
                           <p className='text-xs'>{app.name}</p>

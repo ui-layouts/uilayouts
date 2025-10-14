@@ -41,8 +41,8 @@ function EditComponents({
         classname={cn(
           ` p-2 xl:mx-0 mx-8 `,
           componentCenter
-            ? ' 2xl:max-w-screen-[1400px] max-w-screen-xl'
-            : ' max-w-full dark:bg-[#020203] bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:20px_20px] relative'
+            ? ' 2xl:max-w-screen-[1400px] max-w-(--breakpoint-xl)'
+            : ' max-w-full dark:bg-[#020203] bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[20px_20px] relative'
         )}
       
       >

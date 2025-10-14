@@ -116,13 +116,13 @@ const HomePasswordInput = () => {
             placeholder='password'
             aria-invalid={calculateStrength.score < 4}
             aria-describedby='password-strength'
-            className='w-full p-2 border-2  rounded-md bg-primary-base outline-none focus-within:border-blue-700 transition'
+            className='w-full p-2 border-2  rounded-md bg-primary-base outline-hidden focus-within:border-blue-700 transition'
           />
           <button
             type='button'
             onClick={() => setIsVisible((prev) => !prev)}
             aria-label={isVisible ? 'Hide password' : 'Show password'}
-            className='absolute inset-y-0 right-0 outline-none flex items-center justify-center w-9 text-muted-foreground/80 hover:text-foreground  '
+            className='absolute inset-y-0 right-0 outline-hidden flex items-center justify-center w-9 text-muted-foreground/80 hover:text-foreground  '
           >
             {isVisible ? <EyeOff size={16} /> : <Eye size={16} />}
           </button>

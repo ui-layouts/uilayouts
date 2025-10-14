@@ -165,7 +165,7 @@ export default function FramerMultiSlideCarousel({
             {items.map((item) => (
               <div
                 key={item.id}
-                className='flex-shrink-0 h-[300px] rounded-lg overflow-hidden relative'
+                className='shrink-0 h-[300px] rounded-lg overflow-hidden relative'
                 style={{
                   width: `calc((100% - ${
                     (slidesToShow - 1) * 16
@@ -178,7 +178,7 @@ export default function FramerMultiSlideCarousel({
                   className='w-full h-full object-cover select-none pointer-events-none'
                   draggable={false}
                 />
-                <div className='absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3'>
+                <div className='absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/60 to-transparent p-3'>
                   <p className='text-white text-sm font-medium'>{item.title}</p>
                 </div>
               </div>

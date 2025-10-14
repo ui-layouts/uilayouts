@@ -146,7 +146,7 @@ function HeroSec() {
   return (
     <>
       <section className='2xl:py-16 xl:py-20 sm:pb-24 pb-16 pt-6 relative'>
-        <div className='w-full absolute h-[113.625vh] z-0 overflow-hidden left-0 -top-[8rem]'>
+        <div className='w-full absolute h-[113.625vh] z-0 overflow-hidden left-0 -top-32'>
           <div className='hero-gradient1 ' data-border='true'></div>
           <div className='hero-gradient2' data-border='true'></div>
         </div>
@@ -160,7 +160,7 @@ function HeroSec() {
               <br />
               <span className=''>It's Your Frontend </span>
               <span className='dark:bg-neutral-800 bg-neutral-50 mt-3 relative rounded-md w-fit leading-[100%] inline-block px-1.5 py-0.5 border before:absolute before:top-0 before:left-0 before:w-full before:h-full before:content-[""] before:opacity-[0.09] before:z-10 before:pointer-events-none before:bg-[url("/noise.gif")]'>
-                <span className='bg-gradient-to-t from-blue-300 to-blue-600 bg-clip-text text-transparent font-semibold pr-1'>
+                <span className='bg-linear-to-t from-blue-300 to-blue-600 bg-clip-text text-transparent font-semibold pr-1'>
                   Universe
                 </span>
               </span>{' '}
@@ -173,7 +173,7 @@ function HeroSec() {
             <div className='flex gap-2 justify-center items-center pt-6'>
               <a
                 href='https://pro.ui-layouts.com/blocks'
-                className='flex items-center gap-2 w-fit sm:text-xl text-sm rounded-md shadow-lg shadow-blue-600 text-white bg-gradient-to-b from-blue-500  to-blue-600 sm:px-4 px-2 py-3'
+                className='flex items-center gap-2 w-fit sm:text-xl text-sm rounded-md shadow-lg shadow-blue-600 text-white bg-linear-to-b from-blue-500  to-blue-600 sm:px-4 px-2 py-3'
               >
                 <LayoutPanelTop className='sm:w-6 sm:h-6 h-5 w-5' /> Unlock
                 Blocks 🎉
@@ -192,7 +192,7 @@ function HeroSec() {
                     key={index}
                     href={profile.href}
                     target='_block'
-                    className={`dark:bg-neutral-800 bg-neutral-50 p-1 flex-shrink-0 rounded-full relative z-[1] hover:z-[2] ${profile.translateX}`}
+                    className={`dark:bg-neutral-800 bg-neutral-50 p-1 shrink-0 rounded-full relative z-1 hover:z-2 ${profile.translateX}`}
                   >
                     <Image
                       src={profile.src}
@@ -295,16 +295,16 @@ function HeroSec() {
                 <div className='mb-4 flex 2xl:h-72 lg:h-60 md:h-48 md:h-42 h-6 xl:px-8 relative z-10 items-center justify-center'>
                   {project.componentSrc?.()}
                 </div>
-                <div className='absolute bottom-0 left-0 right-0 top-0 dark:bg-[linear-gradient(to_right,#2120202e_1px,transparent_1px),linear-gradient(to_bottom,#2120202e_1px,transparent_1px)] bg-[linear-gradient(to_right,#acacac2d_1px,transparent_1px),linear-gradient(to_bottom,#acacac2d_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]'></div>
+                <div className='absolute bottom-0 left-0 right-0 top-0 dark:bg-[linear-gradient(to_right,#2120202e_1px,transparent_1px),linear-gradient(to_bottom,#2120202e_1px,transparent_1px)] bg-[linear-gradient(to_right,#acacac2d_1px,transparent_1px),linear-gradient(to_bottom,#acacac2d_1px,transparent_1px)] bg-size-[50px_50px] mask-[radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]'></div>
 
                 {project?.projectsName === 'tools' && (
-                  <div className='absolute inset-0 z-0 [mask-image:radial-gradient(ellipse_115%_60%_at_50%_100%,#000_70%,transparent_110%)] dark:bg-[radial-gradient(125%_125%_at_50%_10%,#000000_40%,#303030_100%)] bg-[radial-gradient(125%_125%_at_50%_10%,#ffffff_40%,#cecece_100%)]' />
+                  <div className='absolute inset-0 z-0 mask-[radial-gradient(ellipse_115%_60%_at_50%_100%,#000_70%,transparent_110%)] dark:bg-[radial-gradient(125%_125%_at_50%_10%,#000000_40%,#303030_100%)] bg-[radial-gradient(125%_125%_at_50%_10%,#ffffff_40%,#cecece_100%)]' />
                 )}
                 {project?.projectsName === 'cursify' && (
-                  <div className='absolute inset-0 z-0 [mask-image:radial-gradient(ellipse_115%_60%_at_50%_100%,#000_70%,transparent_110%)] dark:bg-[radial-gradient(125%_125%_at_50%_10%,#000000_40%,#FF006F_100%)] bg-[radial-gradient(125%_125%_at_50%_10%,#ffffff_40%,#FF006F_100%)]' />
+                  <div className='absolute inset-0 z-0 mask-[radial-gradient(ellipse_115%_60%_at_50%_100%,#000_70%,transparent_110%)] dark:bg-[radial-gradient(125%_125%_at_50%_10%,#000000_40%,#FF006F_100%)] bg-[radial-gradient(125%_125%_at_50%_10%,#ffffff_40%,#FF006F_100%)]' />
                 )}
                 {project?.projectsName === 'blocks' && (
-                  <div className='absolute inset-0 z-0 [mask-image:radial-gradient(ellipse_115%_60%_at_50%_100%,#000_70%,transparent_110%)] dark:bg-[radial-gradient(125%_125%_at_50%_10%,#000000_40%,#fd7627_100%)] bg-[radial-gradient(125%_125%_at_50%_10%,#ffffff_40%,#FF8E3D_100%)]' />
+                  <div className='absolute inset-0 z-0 mask-[radial-gradient(ellipse_115%_60%_at_50%_100%,#000_70%,transparent_110%)] dark:bg-[radial-gradient(125%_125%_at_50%_10%,#000000_40%,#fd7627_100%)] bg-[radial-gradient(125%_125%_at_50%_10%,#ffffff_40%,#FF8E3D_100%)]' />
                 )}
               </a>
             ))}

@@ -7,7 +7,7 @@ export default function index() {
   return (
     <div className='relative bg-black sm:p-8 px-4 rounded-md'>
       <Spotlight
-        className='sm:w-[30rem] w-full mx-auto'
+        className='sm:w-120 w-full mx-auto'
         ProximitySpotlight={true}
       >
         <SpotLightItem>

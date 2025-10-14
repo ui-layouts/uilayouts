@@ -152,13 +152,13 @@ export const TeamIntegration = () => {
       <div className="flex-1 flex flex-col items-center justify-center px-8 py-20 relative z-10">
         {/*  Badge */}
         <motion.div
-          className="group relative inline-flex items-center gap-3 bg-gradient-to-r from-gray-800/80 to-gray-900/80 backdrop-blur-sm border border-gray-700/50 rounded-full px-6 py-3 mb-8 overflow-hidden"
+          className="group relative inline-flex items-center gap-3 bg-linear-to-r from-gray-800/80 to-gray-900/80 backdrop-blur-xs border border-gray-700/50 rounded-full px-6 py-3 mb-8 overflow-hidden"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6 }}
           whileHover={{ scale: 1.05 }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="absolute inset-0 bg-linear-to-r from-emerald-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           <motion.div
             className="w-3 h-3 bg-emerald-400 rounded-full relative"
             animate={{
@@ -182,7 +182,7 @@ export const TeamIntegration = () => {
 
         {/*  title */}
         <motion.h1
-          className="text-6xl md:text-7xl lg:text-8xl text-center font-semibold bg-gradient-to-b from-blue-300 via-blue-400 to-blue-500 bg-clip-text text-transparent leading-[90%] tracking-tighter mb-6"
+          className="text-6xl md:text-7xl lg:text-8xl text-center font-semibold bg-linear-to-b from-blue-300 via-blue-400 to-blue-500 bg-clip-text text-transparent leading-[90%] tracking-tighter mb-6"
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -224,7 +224,7 @@ export const TeamIntegration = () => {
               whileHover={{ scale: 1.1 }}
             >
               <span className="text-2xl">📊</span>
-              <span className="text-orange-400 font-semibold bg-gradient-to-r from-orange-400 to-yellow-400 bg-clip-text text-transparent">
+              <span className="text-orange-400 font-semibold bg-linear-to-r from-orange-400 to-yellow-400 bg-clip-text text-transparent">
                 manage projects
               </span>
             </motion.span>
@@ -234,7 +234,7 @@ export const TeamIntegration = () => {
               whileHover={{ scale: 1.1 }}
             >
               <span className="text-2xl">🔄</span>
-              <span className="text-purple-400 font-semibold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="text-purple-400 font-semibold bg-linear-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                 automate tasks
               </span>
             </motion.span>
@@ -244,7 +244,7 @@ export const TeamIntegration = () => {
               whileHover={{ scale: 1.1 }}
             >
               <span className="text-2xl">💬</span>
-              <span className="text-pink-400 font-semibold bg-gradient-to-r from-pink-400 to-rose-400 bg-clip-text text-transparent">
+              <span className="text-pink-400 font-semibold bg-linear-to-r from-pink-400 to-rose-400 bg-clip-text text-transparent">
                 collaborate in real-time
               </span>
             </motion.span>
@@ -262,7 +262,7 @@ export const TeamIntegration = () => {
                 key={index}
                 href={profile.href}
                 target="_block"
-                className={`dark:bg-neutral-800 bg-neutral-50 p-1 flex-shrink-0 rounded-full relative z-[1] hover:z-[2] ${profile.translateX}`}
+                className={`dark:bg-neutral-800 bg-neutral-50 p-1 shrink-0 rounded-full relative z-1 hover:z-2 ${profile.translateX}`}
               >
                 <img
                   src={profile.src}
@@ -360,13 +360,13 @@ export const TeamIntegration = () => {
           transition={{ duration: 0.8, delay: 1.0 }}
         >
           <motion.button
-            className="group relative bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-emerald-500/25 overflow-hidden"
+            className="group relative bg-linear-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-emerald-500/25 overflow-hidden"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onHoverStart={() => setIsHovered(true)}
             onHoverEnd={() => setIsHovered(false)}
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-green-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="absolute inset-0 bg-linear-to-r from-emerald-400 to-green-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <span className="relative z-10 flex items-center gap-2">
               Get Started
               <motion.div
@@ -379,11 +379,11 @@ export const TeamIntegration = () => {
           </motion.button>
 
           <motion.button
-            className="group relative bg-gray-800/50 backdrop-blur-sm hover:bg-gray-700/50 text-white px-8 py-4 rounded-xl font-semibold border border-gray-600/50 hover:border-gray-500/50 transition-all duration-300 overflow-hidden"
+            className="group relative bg-gray-800/50 backdrop-blur-xs hover:bg-gray-700/50 text-white px-8 py-4 rounded-xl font-semibold border border-gray-600/50 hover:border-gray-500/50 transition-all duration-300 overflow-hidden"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-gray-700/20 to-gray-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="absolute inset-0 bg-linear-to-r from-gray-700/20 to-gray-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <span className="relative z-10 flex items-center gap-2">
               <Play className="w-5 h-5" />
               Watch Demo

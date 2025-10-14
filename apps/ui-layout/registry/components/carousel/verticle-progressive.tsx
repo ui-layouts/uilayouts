@@ -50,7 +50,7 @@ export default function index() {
         activeSlider='bbridge'
         className='sm:flex '
       >
-        <SliderBtnGroup className='sm:relative absolute bottom-0 lg:w-[28rem] sm:w-96 w-full z-10 sm:flex sm:flex-col grid grid-cols-2 sm:h-[500px] h-fit sm:dark:bg-black sm:bg-white dark:bg-black/80 bg-white/80 backdrop-blur-md overflow-hidden '>
+        <SliderBtnGroup className='sm:relative absolute bottom-0 lg:w-md sm:w-96 w-full z-10 sm:flex sm:flex-col grid grid-cols-2 sm:h-[500px] h-fit sm:dark:bg-black sm:bg-white dark:bg-black/80 bg-white/80 backdrop-blur-md overflow-hidden '>
           {items.map((item, index) => (
             <SliderBtn
               key={index}
@@ -58,7 +58,7 @@ export default function index() {
               className='text-left  p-3 sm:border-b border sm:pl-5 sm:pb-0 pb-6 sm:flex-1'
               progressBarClass='left-0 sm:top-0 bottom-0 dark:bg-white bg-black sm:w-3 sm:h-full h-4  before:h-full before:w-4 before:'
             >
-              <h2 className='relative px-4 rounded w-fit dark:bg-blue-500 bg-black text-white mb-2'>
+              <h2 className='relative px-4 rounded-sm w-fit dark:bg-blue-500 bg-black text-white mb-2'>
                 {item.title}
               </h2>
               <p className='text-sm font-medium dark:text-slate-200 text-slate-900 line-clamp-2'>

@@ -119,7 +119,7 @@ export default async function DrawerCodePreview({
       <div
         className={`${
           isCard ? 'p-10 h-[550px]' : '2xl:p-20 py-16 px-2 h-fit'
-        } my-2 w-full border-2  rounded-lg overflow-hidden  dark:bg-[#020203] bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:20px_20px] relative grid place-content-center`}
+        } my-2 w-full border-2  rounded-lg overflow-hidden  dark:bg-[#020203] bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[20px_20px] relative grid place-content-center`}
       >
         <div className='not-prose'>
           <ComponentBlocks componentfile={parsedCodeblock.filesrc} />
@@ -132,7 +132,7 @@ export default async function DrawerCodePreview({
           />
 
           <ResponsiveModal
-            classname=' max-w-screen-lg p-2 '
+            classname=' max-w-(--breakpoint-lg) p-2 '
             triggerContent={
               <button className=' flex gap-1 bg-foreground rounded-lg h-8 px-2 dark:text-black text-white text-sm font-semibold  items-center  '>
                 Code
@@ -147,7 +147,7 @@ export default async function DrawerCodePreview({
               >
                 <TabsList
                   className={cn(
-                    'absolute  right-[5.5rem] top-6 z-[1] h-9 p-0.5 border dark:border-background '
+                    'absolute  right-22 top-6 z-1 h-9 p-0.5 border dark:border-background '
                   )}
                 >
                   <TabsTrigger

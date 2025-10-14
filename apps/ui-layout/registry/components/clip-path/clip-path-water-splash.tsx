@@ -82,14 +82,14 @@ function index() {
           <img
             src='https://images.unsplash.com/photo-1718807469077-fc37dbe0fd74?w=500&auto=format&fit=crop'
             alt=''
-            className='transition-all duration-300  aspect-[2/2]  align-bottom object-cover  hover:scale-110 w-full'
+            className='transition-all duration-300  aspect-2/2  align-bottom object-cover  hover:scale-110 w-full'
           />
         </figure>
         <figure style={{ clipPath: 'url(#clip-splash2)' }}>
           <img
             src='https://images.unsplash.com/photo-1718183120769-ece47f31045b?w=500&auto=format&fit=crop'
             alt=''
-            className='transition-all duration-300  aspect-[2/2]  align-bottom object-cover  hover:scale-110 w-full'
+            className='transition-all duration-300  aspect-2/2  align-bottom object-cover  hover:scale-110 w-full'
           />
         </figure>
       </section>

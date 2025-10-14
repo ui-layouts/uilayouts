@@ -56,7 +56,7 @@ function index() {
       </svg>
 
       <section className="grid grid-cols-3 gap-8 dark:bg-black bg-white border rounded-lg p-5">
-        <figure className="group p-8 hover:p-4 transition-all duration-200 bg-gradient-to-b to-[#bd8122] from-[#c9ad66] rounded-xl">
+        <figure className="group p-8 hover:p-4 transition-all duration-200 bg-linear-to-b to-[#bd8122] from-[#c9ad66] rounded-xl">
           <div style={{ clipPath: 'url(#clip-goey1)' }}>
             <img
               src="https://images.unsplash.com/photo-1713727660632-841a92340a71?q=80&w=1985&auto=format&fit=crop"
@@ -65,7 +65,7 @@ function index() {
             />
           </div>
         </figure>
-        <figure className="p-8 group hover:p-4 transition-all duration-200  bg-gradient-to-t to-[#8c8a57] from-[#6f7957] rounded-xl">
+        <figure className="p-8 group hover:p-4 transition-all duration-200  bg-linear-to-t to-[#8c8a57] from-[#6f7957] rounded-xl">
           <div style={{ clipPath: 'url(#clip-goey2)' }}>
             <img
               className="transition-all duration-300  align-bottom object-cover aspect-square group-hover:scale-110 w-full"
@@ -74,7 +74,7 @@ function index() {
             />
           </div>
         </figure>
-        <figure className="p-8 group hover:p-4 transition-all duration-200 bg-gradient-to-t to-[#ba4344] from-[#d5685a] rounded-xl">
+        <figure className="p-8 group hover:p-4 transition-all duration-200 bg-linear-to-t to-[#ba4344] from-[#d5685a] rounded-xl">
           <div style={{ clipPath: 'url(#clip-goey3)' }}>
             <img
               className="transition-all duration-300 align-bottom  aspect-square object-cover group-hover:scale-110 w-full"
@@ -83,7 +83,7 @@ function index() {
             />
           </div>
         </figure>
-        <figure className="p-8 group hover:p-4 transition-all duration-200 bg-gradient-to-t to-[#9b2a08] from-[#f7d578] rounded-xl">
+        <figure className="p-8 group hover:p-4 transition-all duration-200 bg-linear-to-t to-[#9b2a08] from-[#f7d578] rounded-xl">
           <div style={{ clipPath: 'url(#clip-goey4)' }}>
             <img
               className="transition-all duration-300 align-bottom  aspect-square object-cover group-hover:scale-110 w-full"
@@ -92,7 +92,7 @@ function index() {
             />
           </div>
         </figure>
-        <figure className="p-8 group hover:p-4 transition-all duration-200 bg-gradient-to-b to-[#022641] from-[#356778] rounded-xl">
+        <figure className="p-8 group hover:p-4 transition-all duration-200 bg-linear-to-b to-[#022641] from-[#356778] rounded-xl">
           <div style={{ clipPath: 'url(#clip-goey5)' }}>
             <img
               className="transition-all duration-300 align-bottom  aspect-square object-cover group-hover:scale-110 w-full"
@@ -101,7 +101,7 @@ function index() {
             />
           </div>
         </figure>
-        <figure className="p-8 group hover:p-4 transition-all duration-200 bg-gradient-to-b to-[#324644] from-[#89a390] rounded-xl">
+        <figure className="p-8 group hover:p-4 transition-all duration-200 bg-linear-to-b to-[#324644] from-[#89a390] rounded-xl">
           <div style={{ clipPath: 'url(#clip-goey6)' }}>
             <img
               className="transition-all duration-300 align-bottom  aspect-square object-cover group-hover:scale-110 w-full"

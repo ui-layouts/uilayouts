@@ -10,13 +10,13 @@ function HomeTab() {
         <div className='flex justify-center pt-4'>
           <div className='flex items-center capitalize w-fit dark:bg-[#1a1c20] bg-gray-300 p-1 dark:text-white text-black rounded-md border'>
             <TabsBtn value='accordion'>
-              <span className='relative z-[2] '>Accordion</span>
+              <span className='relative z-2 '>Accordion</span>
             </TabsBtn>
             <TabsBtn value='globe'>
-              <span className='relative z-[2] '>Globe</span>
+              <span className='relative z-2 '>Globe</span>
             </TabsBtn>
             <TabsBtn value='mousetrail'>
-              <span className='relative z-[2] '>Mouse Trail</span>
+              <span className='relative z-2 '>Mouse Trail</span>
             </TabsBtn>
           </div>
         </div>

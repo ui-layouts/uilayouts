@@ -30,7 +30,7 @@ function index() {
             </button>
           </div>
         </article>
-        <article className='p-2 w-full h-[20%] flex flex-col justify-end  overflow-hidden  absolute bottom-0 rounded-b-md bg-gradient-to-t from-[#c34c32]  opacity-100 group-hover:opacity-0 group-hover:-bottom-4 transition-all duration-300'>
+        <article className='p-2 w-full h-[20%] flex flex-col justify-end  overflow-hidden  absolute bottom-0 rounded-b-md bg-linear-to-t from-[#c34c32]  opacity-100 group-hover:opacity-0 group-hover:-bottom-4 transition-all duration-300'>
           <h1 className='md:text-2xl font-semibold'>Naymur Rahman</h1>
           <p className='sm:text-base text-sm'>CEO &amp; Design Engineer</p>
         </article>

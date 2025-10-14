@@ -56,7 +56,7 @@ const WorkWithUs = () => {
     <>
       <HomeHeader />
       <section className='pt-32 font-poppins relative xl:px-0 px-4 pb-40'>
-        <article className='text-center max-w-3xl mx-auto space-y-3 relative z-[2]'>
+        <article className='text-center max-w-3xl mx-auto space-y-3 relative z-2'>
           {/* 🔥 */}
           <span className='text-center md:text-base sm:text-sm text-xs w-full flex items-center justify-center'>
             We’re Open-Source but now taking custom projects
@@ -74,7 +74,7 @@ const WorkWithUs = () => {
               />
             </picture>
           </span>
-          <h1 className='lg:text-5xl md:text-5xl sm:text-4xl text-3xl font-medium !leading-[130%] '>
+          <h1 className='lg:text-5xl md:text-5xl sm:text-4xl text-3xl font-medium leading-[130%]! '>
             <span className=']'>
               {' '}
               Got an{' '}
@@ -172,7 +172,7 @@ const WorkWithUs = () => {
             </picture>
           </span>
         </div>
-        <div className='absolute left-0 -z-10 w-full h-full -top-28 dark:bg-[repeating-linear-gradient(45deg,#1b1b1b_0px_1px,transparent_1px_8px)] bg-[repeating-linear-gradient(45deg,#f0f0f0_0px_1px,transparent_1px_8px)] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]'></div>
+        <div className='absolute left-0 -z-10 w-full h-full -top-28 dark:bg-[repeating-linear-gradient(45deg,#1b1b1b_0px_1px,transparent_1px_8px)] bg-[repeating-linear-gradient(45deg,#f0f0f0_0px_1px,transparent_1px_8px)] mask-[radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]'></div>
       </section>
       <HomeFooter />
     </>

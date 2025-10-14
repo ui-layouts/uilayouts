@@ -58,7 +58,7 @@ export default function App() {
                   alt=''
                   className='h-full w-full object-cover'
                 />
-                <div className='flex flex-grow flex-row items-end justify-between p-3 pt-4 text-primary'>
+                <div className='flex grow flex-row items-end justify-between p-3 pt-4 text-primary'>
                   <div>
                     <DialogTitle className='text-xl '>
                       {item.title}
@@ -76,7 +76,7 @@ export default function App() {
                   }}
                   className='h-fit mx-auto border-4'
                 >
-                  <div className='flex flex-col relative dark:bg-neutral-900 bg-neutral-100 lg:w-[44rem] w-[80%] h-[80vh] overflow-y-auto '>
+                  <div className='flex flex-col relative dark:bg-neutral-900 bg-neutral-100 lg:w-176 w-[80%] h-[80vh] overflow-y-auto '>
                     <div className='flex-1 overflow-hidden'>
                       <DialogImage
                         src={item.url}

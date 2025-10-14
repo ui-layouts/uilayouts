@@ -89,7 +89,7 @@ export const TagsInput: React.FC<TagsInputProps> = ({
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleAddTag}
               onBlur={handleBlur}
-              className='px-2 py-1 text-sm border dark:bg-neutral-950 bg-neutral-200 rounded outline-none'
+              className='px-2 py-1 text-sm border dark:bg-neutral-950 bg-neutral-200 rounded-sm outline-hidden'
               placeholder='Edit tag...'
               style={{ width: `${input.length + 1 * 1.2}px` }}
               autoFocus
@@ -97,7 +97,7 @@ export const TagsInput: React.FC<TagsInputProps> = ({
           ) : (
             <div
               onClick={() => handleEditTag(index)}
-              className='flex items-center gap-2 px-1 pl-2 py-1 text-sm font-medium text-white bg-blue-500 rounded cursor-pointer hover:bg-blue-600'
+              className='flex items-center gap-2 px-1 pl-2 py-1 text-sm font-medium text-white bg-blue-500 rounded-sm cursor-pointer hover:bg-blue-600'
             >
               {tag}
               <button
@@ -105,7 +105,7 @@ export const TagsInput: React.FC<TagsInputProps> = ({
                   e.stopPropagation();
                   handleRemoveTag(tag);
                 }}
-                className='text-primary px-1 focus:outline-none bg-primary-base rounded'
+                className='text-primary px-1 focus:outline-hidden bg-primary-base rounded-sm'
               >
                 &times;
               </button>
@@ -118,7 +118,7 @@ export const TagsInput: React.FC<TagsInputProps> = ({
         value={input}
         onChange={(e) => setInput(e.target.value)}
         onKeyDown={handleAddTag}
-        className={`flex-grow px-2 py-1 text-sm border-none outline-none  dark:bg-neutral-800 bg-neutral-50 rounded-md ${
+        className={`grow px-2 py-1 text-sm border-none outline-hidden  dark:bg-neutral-800 bg-neutral-50 rounded-md ${
           editingIndex !== null ? 'opacity-0' : 'opacity-100'
         }`}
         placeholder='Add a tag...'

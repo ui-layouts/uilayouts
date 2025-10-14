@@ -34,7 +34,7 @@ function FramerCarousel() {
                 {tab.id === activeItem.id && (
                   <motion.figure
                     key={tab?.id}
-                    className='dark:bg-gray-900/60 bg-gray-100/60 border  rounded-md p-4 backdrop-blur-sm'
+                    className='dark:bg-gray-900/60 bg-gray-100/60 border  rounded-md p-4 backdrop-blur-xs'
                   >
                     <motion.div
                       initial={{ opacity: 0 }}
@@ -83,7 +83,7 @@ function FramerCarousel() {
             {items.slice(0, 8)?.map((itemData, index) => {
               return (
                 <motion.div
-                  className={`relative p-2 flex-shrink-0`}
+                  className={`relative p-2 shrink-0`}
                   onClick={() => setActiveItem(itemData)}
                 >
                   <Image
@@ -91,7 +91,7 @@ function FramerCarousel() {
                     width={400}
                     height={400}
                     alt='img'
-                    className='w-28 h-16 object-cover cursor-pointer relative z-[2] rounded-md pointer-events-none'
+                    className='w-28 h-16 object-cover cursor-pointer relative z-2 rounded-md pointer-events-none'
                   />
                   {itemData?.id === activeItem?.id && (
                     <motion.div

@@ -12,10 +12,10 @@ function index() {
         <div className='flex justify-center mt-2'>
           <div className='flex items-center w-fit dark:bg-[#1a1c20] bg-gray-200 p-1 dark:text-white text-black rounded-md border'>
             <TabsBtn value='login'>
-              <span className='relative z-[2] uppercase'>Login</span>
+              <span className='relative z-2 uppercase'>Login</span>
             </TabsBtn>
             <TabsBtn value='register'>
-              <span className='relative z-[2] uppercase'>Register</span>
+              <span className='relative z-2 uppercase'>Register</span>
             </TabsBtn>
           </div>
         </div>
@@ -110,12 +110,12 @@ function index() {
               <input
                 type='email'
                 placeholder='Enter your Eamil..'
-                className='w-full p-2 border focus:outline-none rounded-md dark:bg-gray-800'
+                className='w-full p-2 border focus:outline-hidden rounded-md dark:bg-gray-800'
               />
               <input
                 type='password'
                 placeholder='Enter your password..'
-                className='w-full p-2 border focus:outline-none rounded-md dark:bg-gray-800'
+                className='w-full p-2 border focus:outline-hidden rounded-md dark:bg-gray-800'
               />
               <button
                 type='submit'
@@ -153,7 +153,7 @@ function index() {
               <input
                 type='text'
                 placeholder='Enter your username'
-                className='w-full p-2 border focus:outline-none rounded-md dark:bg-gray-800'
+                className='w-full p-2 border focus:outline-hidden rounded-md dark:bg-gray-800'
               />
               <div className='flex items-center'>
                 <div className='dark:bg-gray-50 bg-black h-full p-2 dark:text-black text-white rounded-md'>
@@ -162,18 +162,18 @@ function index() {
                 <input
                   type='tel'
                   placeholder='018XXXXXXXX'
-                  className='w-full p-2 border focus:outline-none rounded-md dark:bg-gray-800'
+                  className='w-full p-2 border focus:outline-hidden rounded-md dark:bg-gray-800'
                 />
               </div>
               <input
                 type='email'
                 placeholder='Enter your Eamil'
-                className='w-full p-2 border focus:outline-none rounded-md dark:bg-gray-800'
+                className='w-full p-2 border focus:outline-hidden rounded-md dark:bg-gray-800'
               />
               <input
                 type='password'
                 placeholder='Enter your password'
-                className='w-full p-2 border focus:outline-none rounded-md dark:bg-gray-800'
+                className='w-full p-2 border focus:outline-hidden rounded-md dark:bg-gray-800'
               />
               <button
                 type='submit'

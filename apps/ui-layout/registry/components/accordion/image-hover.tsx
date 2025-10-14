@@ -39,7 +39,7 @@ function Gallery({ items, setIndex, index }: GaleryProps) {
             whileTap={{ scale: 0.95 }}
             className={`rounded-xl relative ${
               index === i ? 'w-[450px] ' : 'w-[50px]'
-            } h-[400px] flex-shrink-0  transition-[width] ease-in-linear duration-500 origin-center  `}
+            } h-[400px] shrink-0  transition-[width] ease-in-linear duration-500 origin-center  `}
             key={i}
             onClick={() => {
               setIndex(i);
@@ -61,7 +61,7 @@ function Gallery({ items, setIndex, index }: GaleryProps) {
                   variants={article}
                   initial='hidden'
                   animate='show'
-                  className='absolute flex rounded-xl  flex-col justify-end h-full top-0 p-3 space-y-2 overflow-hidden bg-gradient-to-t dark:from-gray-900/60 from-gray-100/60  from-20% to-transparent to-80% '
+                  className='absolute flex rounded-xl  flex-col justify-end h-full top-0 p-3 space-y-2 overflow-hidden bg-linear-to-t dark:from-gray-900/60 from-gray-100/60  from-20% to-transparent to-80% '
                 >
                   <motion.h1
                   // @ts-ignore

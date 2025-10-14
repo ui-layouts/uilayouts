@@ -13,7 +13,7 @@ export default function Error({
     <div className='container mx-auto py-8'>
       <h2 className='mb-4 text-2xl font-bold'>Something went wrong!</h2>
       <button
-        className='rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700'
+        className='rounded-sm bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700'
         onClick={() => reset()}
       >
         Try again

@@ -52,7 +52,7 @@ function ImageItem({ item, index, setSelected }: ImageItemProps) {
       initial='hidden'
       animate={isInView && 'visible'}
       ref={ref}
-      className="inline-block group w-full rounded-md  relative dark:bg-black bg-white  before:absolute before:top-0 before:content-[''] before:h-full before:w-full hover:before:bg-gradient-to-t dark:before:from-gray-900  before:from-gray-200/90 before:from-5% before:to-transparent before:to-90% cursor-pointer"
+      className="inline-block group w-full rounded-md  relative dark:bg-black bg-white  before:absolute before:top-0 before:content-[''] before:h-full before:w-full hover:before:bg-linear-to-t dark:before:from-gray-900  before:from-gray-200/90 before:from-5% before:to-transparent before:to-90% cursor-pointer"
       onClick={() => setSelected(item)}
     >
       <motion.img
@@ -125,7 +125,7 @@ function Modal({ selected, setSelected }: ModalProps) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={() => setSelected(null)}
-          className='fixed inset-0 bg-black/50 backdrop-blur-sm z-50 cursor-pointer overflow-y-scroll'
+          className='fixed inset-0 bg-black/50 backdrop-blur-xs z-50 cursor-pointer overflow-y-scroll'
         >
           <motion.div
             onClick={(e) => e.stopPropagation()}

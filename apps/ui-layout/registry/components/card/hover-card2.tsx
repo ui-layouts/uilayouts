@@ -21,7 +21,7 @@ function index() {
             className='h-full w-full  scale-105 group-hover:scale-100 grayscale group-hover:grayscale-0 object-cover transition-all duration-300'
           />
         </div>
-        <article className='relative overflow-hidden  flex-grow'>
+        <article className='relative overflow-hidden  grow'>
           <div className='info p-2 translate-y-0 group-hover:-translate-y-20 transition-all duration-300'>
             <p className='md:text-2xl font-semibold'>Naymur Rahman</p>
             <p className='sm:text-base text-sm'>CEO &amp; Design Engineer</p>

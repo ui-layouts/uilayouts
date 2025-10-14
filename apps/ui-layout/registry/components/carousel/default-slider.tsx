@@ -32,10 +32,10 @@ function DefaultSlider() {
             <div className='bg-red-500 md:h-[500px] sm:h-[400px] h-[300px] w-full rounded-lg'></div>
           </Slider>
         </SliderContainer>
-        <SliderPrevButton className='absolute top-[50%] p-2 border-2 rounded-full left-4 bg-white/25 dark:bg-black/25 dark:border-white backdrop-blur-sm text-primary disabled:opacity-20'>
+        <SliderPrevButton className='absolute top-[50%] p-2 border-2 rounded-full left-4 bg-white/25 dark:bg-black/25 dark:border-white backdrop-blur-xs text-primary disabled:opacity-20'>
           <ChevronLeft className='w-8 h-8' />
         </SliderPrevButton>
-        <SliderNextButton className='absolute right-4 p-2 border-2 rounded-full top-[50%] bg-white/25 dark:bg-black/25 dark:border-white backdrop-blur-sm text-primary disabled:opacity-20'>
+        <SliderNextButton className='absolute right-4 p-2 border-2 rounded-full top-[50%] bg-white/25 dark:bg-black/25 dark:border-white backdrop-blur-xs text-primary disabled:opacity-20'>
           <ChevronRight className='w-8 h-8' />
         </SliderNextButton>
         <div className='flex justify-center py-2'>

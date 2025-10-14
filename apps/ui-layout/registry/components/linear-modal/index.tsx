@@ -60,7 +60,7 @@ export default function LinearCard() {
                   alt=''
                   className='h-52 w-full object-cover'
                 />
-                <div className='flex flex-grow flex-row items-end justify-between p-3'>
+                <div className='flex grow flex-row items-end justify-between p-3'>
                   <div>
                     <DialogTitle className='text-zinc-950 text-xl dark:text-zinc-50'>
                       {item.title}

@@ -34,7 +34,7 @@ function Blocks({
               <div
                 key={rowIndex}
                 className={cn(
-                  `h-[6vh] w-full border-[1px] border-[#5dcece09] ${
+                  `h-[6vh] w-full border border-[#5dcece09] ${
                     // @ts-ignore
                     activeDivs[columnIndex]?.has(rowIndex)
                       ? `${activeDivsClass}`

@@ -67,7 +67,7 @@ const FileUploaderTest = () => {
                 index={i}
                 className='dark:bg-neutral-800 bg-neutral-50'
               >
-                <Paperclip className='h-4 w-4 flex-shrink-0 stroke-current' />
+                <Paperclip className='h-4 w-4 shrink-0 stroke-current' />
                 <p className='text-ellipsis inline-block  overflow-hidden text-xs w-full'>
                   {file.name}
                 </p>

@@ -82,7 +82,7 @@ export function AgencyNeutral() {
             <div className="bg-blue-500 p-2 text-white rounded-full">
               <Send className="w-5 h-5" />
             </div>
-            <button className="bg-gradient-to-t from-blue-500 to-blue-600 text-white backdrop-blur-sm border border-blue-500 shadow-md shadow-blue-600 px-6 py-2 rounded-full hover:bg-blue-600 transition-all duration-200">
+            <button className="bg-linear-to-t from-blue-500 to-blue-600 text-white backdrop-blur-xs border border-blue-500 shadow-md shadow-blue-600 px-6 py-2 rounded-full hover:bg-blue-600 transition-all duration-200">
               Book a call
             </button>
           </div>
@@ -133,7 +133,7 @@ export function AgencyNeutral() {
               shadowIntensity="sm"
               borderRadius="12px"
               blurIntensity="sm"
-              className="p-4 ml-auto w-[28rem]"
+              className="p-4 ml-auto w-md"
             >
               {/* Avatar Stack */}
               <div className="flex items-center gap-10 mb-6">
@@ -171,7 +171,7 @@ export function AgencyNeutral() {
             <span className="">rating on Clutch</span>
             <div className="flex space-x-1">
               {[...Array(5)].map((_, i) => (
-                <div key={i} className="w-4 h-4 bg-yellow-400 rounded-sm"></div>
+                <div key={i} className="w-4 h-4 bg-yellow-400 rounded-xs"></div>
               ))}
             </div>
           </div>

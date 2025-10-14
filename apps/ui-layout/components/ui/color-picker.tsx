@@ -72,7 +72,7 @@ export function ColorPicker({
           <HexColorPicker
             color={color}
             onChange={onChange}
-            className="!w-full"
+            className="w-full!"
           />
           <div className="mt-2 flex w-full gap-2">
             <Input

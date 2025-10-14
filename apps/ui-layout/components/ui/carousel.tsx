@@ -316,7 +316,7 @@ export const Carousel = forwardRef<HTMLDivElement, CarouselProps>(
           ref={ref}
           tabIndex={0}
           onKeyDownCapture={handleKeyDown}
-          className={cn('relative w-full focus:outline-none', className)}
+          className={cn('relative w-full focus:outline-hidden', className)}
           dir={direction}
           {...props}
         >
@@ -552,7 +552,7 @@ export const SliderDotButton = forwardRef<HTMLDivElement, SliderDotButtonProps>(
                   }}
                   layoutId={`hover-${carouselId}`}
                   className={cn(
-                    'absolute z-[3] w-full h-full left-0 top-0 dark:bg-white bg-black rounded-full',
+                    'absolute z-3 w-full h-full left-0 top-0 dark:bg-white bg-black rounded-full',
                     orientation === 'vertical' ? 'h-6 w-1' : 'w-6 h-1',
                     activeClass
                   )}

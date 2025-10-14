@@ -86,7 +86,7 @@ const FileUploadDropzone = () => {
         </FileUploader>
         <input
           type='text'
-          className='outline-none dark:bg-neutral-800 bg-neutral-50 w-full'
+          className='outline-hidden dark:bg-neutral-800 bg-neutral-50 w-full'
           placeholder='Your message here...'
         />
       </div>

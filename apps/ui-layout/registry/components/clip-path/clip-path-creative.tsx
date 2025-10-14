@@ -37,7 +37,7 @@ function index() {
           <img
             src='https://images.unsplash.com/photo-1727889490721-4f27ef9b6673?q=80&w=870&auto=format&fit=crop'
             alt='Description'
-            className='transition-all duration-300 aspect-[4/6] min-h-full align-bottom object-cover hover:scale-105 w-full'
+            className='transition-all duration-300 aspect-4/6 min-h-full align-bottom object-cover hover:scale-105 w-full'
           />
         </figure>
         <figure style={{ clipPath: 'url(#clip-rect)' }}>
@@ -45,7 +45,7 @@ function index() {
             autoPlay
             muted
             loop
-            className='transition-all duration-300 aspect-[4/6] min-h-full align-bottom object-cover hover:scale-105 w-full'
+            className='transition-all duration-300 aspect-4/6 min-h-full align-bottom object-cover hover:scale-105 w-full'
           >
             <source
               src='https://videos.pexels.com/video-files/7710243/7710243-uhd_2560_1440_30fps.mp4'
@@ -57,7 +57,7 @@ function index() {
           <img
             src='https://images.unsplash.com/photo-1695239510467-f1e93d649c2b?q=80&w=874&auto=format&fit=crop'
             alt='Description'
-            className='transition-all duration-300 aspect-[4/6] min-h-full align-bottom object-cover hover:scale-105 w-full'
+            className='transition-all duration-300 aspect-4/6 min-h-full align-bottom object-cover hover:scale-105 w-full'
           />
         </figure>
       </section>

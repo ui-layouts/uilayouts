@@ -6,21 +6,21 @@ import { TabsBtn, TabsContent, TabsProvider } from '@/components/ui/tab';
 
 function Tab() {
   return (
-    <div className='border bg-white/10 dark:bg-black/40 backdrop-blur-sm rounded-md p-4  relative'>
+    <div className='border bg-white/10 dark:bg-black/40 backdrop-blur-xs rounded-md p-4  relative'>
       <TabsProvider defaultValue={'design'}>
         <div className='flex justify-center mt-2'>
           <div className='flex items-center w-fit dark:bg-[#1d2025] bg-gray-200 p-1 dark:text-white text-black rounded-md border'>
             <TabsBtn value='design'>
-              <span className='relative z-[2] uppercase'>design</span>
+              <span className='relative z-2 uppercase'>design</span>
             </TabsBtn>
             <TabsBtn value='collaborate'>
-              <span className='relative z-[2] uppercase'>collaborate</span>
+              <span className='relative z-2 uppercase'>collaborate</span>
             </TabsBtn>
             <TabsBtn value='share'>
-              <span className='relative z-[2] uppercase'>share</span>
+              <span className='relative z-2 uppercase'>share</span>
             </TabsBtn>
             <TabsBtn value='publish'>
-              <span className='relative z-[2] uppercase'>publish</span>
+              <span className='relative z-2 uppercase'>publish</span>
             </TabsBtn>
           </div>
         </div>

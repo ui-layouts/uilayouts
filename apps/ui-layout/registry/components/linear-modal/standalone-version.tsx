@@ -113,7 +113,7 @@ const LinearCardDialog: React.FC = () => {
           {items.map((item, i) => (
             <motion.div
               key={item.id}
-              className="flex-shrink-0 flex relative flex-col overflow-hidden border dark:bg-black bg-neutral-100 hover:bg-neutral-200 dark:hover:bg-neutral-950 cursor-pointer transition-colors"
+              className="shrink-0 flex relative flex-col overflow-hidden border dark:bg-black bg-neutral-100 hover:bg-neutral-200 dark:hover:bg-neutral-950 cursor-pointer transition-colors"
               layoutId={`dialog-${item.id}`}
               style={{ width: '250px', borderRadius: '12px' }}
               tabIndex={i}
@@ -135,7 +135,7 @@ const LinearCardDialog: React.FC = () => {
                   loading="lazy"
                 />
               </motion.div>
-              <div className="flex flex-grow flex-row items-end justify-between p-4">
+              <div className="flex grow flex-row items-end justify-between p-4">
                 <div className="flex-1">
                   <motion.h3
                     layoutId={`dialog-title-${item.id}`}
@@ -160,7 +160,7 @@ const LinearCardDialog: React.FC = () => {
           <AnimatePresence initial={false} mode="sync">
             <motion.div
               key={`backdrop-${currentItem.id}`}
-              className="fixed inset-0 h-full w-full dark:bg-black/50 bg-black/25 backdrop-blur-sm z-40"
+              className="fixed inset-0 h-full w-full dark:bg-black/50 bg-black/25 backdrop-blur-xs z-40"
               variants={{ open: { opacity: 1 }, closed: { opacity: 0 } }}
               initial="closed"
               animate="open"

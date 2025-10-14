@@ -112,7 +112,7 @@ function MobileHeader({ classname }: { classname?: string }) {
                             link.href === pathname
                               ? 'dark:text-black dark:bg-white bg-black text-white'
                               : 'dark:bg-zinc-800 dark:text-white group-hover:bg-black group-hover:text-white  dark:group-hover:bg-white dark:group-hover:text-black'
-                          } h-7 w-7 border transition-all  rounded-sm p-1.5`,
+                          } h-7 w-7 border transition-all  rounded-xs p-1.5`,
                         })}
 
                         {link.name}
@@ -148,7 +148,7 @@ function MobileHeader({ classname }: { classname?: string }) {
                         className='flex gap-2 group font-medium items-center py-1  transition-all'
                       >
                         {React.cloneElement(item?.icon, {
-                          className: `${'dark:bg-zinc-800 dark:text-white group-hover:bg-black group-hover:text-white  dark:group-hover:bg-white dark:group-hover:text-black'} h-7 w-7 border transition-all  rounded-sm p-1.5`,
+                          className: `${'dark:bg-zinc-800 dark:text-white group-hover:bg-black group-hover:text-white  dark:group-hover:bg-white dark:group-hover:text-black'} h-7 w-7 border transition-all  rounded-xs p-1.5`,
                         })}
                         {item.name}
                       </a>

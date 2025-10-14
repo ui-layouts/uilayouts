@@ -81,7 +81,7 @@ export function ResponsiveModal({
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className='fixed inset-0 z-50] flex items-center justify-center bg-black/50 backdrop-blur-sm cursor-zoom-out'
+                className='fixed inset-0 z-50] flex items-center justify-center bg-black/50 backdrop-blur-xs cursor-zoom-out'
                 onClick={() => setOpen(false)}
               >
                 <motion.div
@@ -97,7 +97,7 @@ export function ResponsiveModal({
                 >
                   <button
                     className={cn(
-                      'absolute top-2 right-2 bg-primary text-background p-2 border z-[1] rounded-md',
+                      'absolute top-2 right-2 bg-primary text-background p-2 border z-1 rounded-md',
                       clsBtnClassname
                     )}
                     onClick={() => setOpen(false)}
@@ -127,9 +127,9 @@ export function ResponsiveModal({
           onOpenChange={setOpen}
         >
           <VaulDrawer.Portal>
-            <VaulDrawer.Overlay className='fixed inset-0 z-50 bg-white/50 dark:bg-black/50 backdrop-blur-sm' />
+            <VaulDrawer.Overlay className='fixed inset-0 z-50 bg-white/50 dark:bg-black/50 backdrop-blur-xs' />
             <VaulDrawer.Content className='fixed bottom-0 left-0 z-50 w-full max-h-[96%] bg-white dark:bg-neutral-900'>
-              <div className='mx-auto w-16 h-[0.30rem] flex-shrink-0 rounded-full bg-neutral-600 my-4' />
+              <div className='mx-auto w-16 h-[0.30rem] shrink-0 rounded-full bg-neutral-600 my-4' />
               <div className='w-full mx-auto max-h-[96vh] overflow-auto px-4 pb-2'>
                 {content}
               </div>

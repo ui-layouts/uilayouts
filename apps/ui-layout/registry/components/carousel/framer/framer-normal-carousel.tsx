@@ -70,7 +70,7 @@ export default function FramerCarousel() {
         <div className='relative overflow-hidden rounded-lg' ref={containerRef}>
           <motion.div className='flex' style={{ x }}>
             {items.map((item) => (
-              <div key={item.id} className='flex-shrink-0 w-full h-[400px]'>
+              <div key={item.id} className='shrink-0 w-full h-[400px]'>
                 <img
                   src={item.url}
                   alt={item.title}

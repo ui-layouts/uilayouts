@@ -6,7 +6,7 @@ export function PlasticButton({ text, href ="/work-with-us",className }: { text:
       href={href}
       className={cn(
         "relative inline-block px-4 py-1.75 h-12 rounded-lg shadow-[-9px_16px_25px_-5px_rgba(0,0,0,0.1),-5px_6px_10px_-5px_rgba(0,0,0,0.04)] text-white font-medium text-xl transition-all duration-200",
-        "bg-gradient-to-b from-blue-500 to-blue-600",
+        "bg-linear-to-b from-blue-500 to-blue-600",
         "active:scale-[0.98] flex justify-center items-center",
         className
       )}

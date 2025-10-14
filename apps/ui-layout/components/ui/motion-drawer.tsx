@@ -209,7 +209,7 @@ const MotionDrawer: React.FC<SideMenuProps> = ({
       <AnimatePresence>
         {isOpen && (
           <div
-            className={`fixed w-full h-full top-0 left-0 z-[9999] ${className}`}
+            className={`fixed w-full h-full top-0 left-0 z-9999 ${className}`}
           >
             {/* Overlay */}
             <motion.div

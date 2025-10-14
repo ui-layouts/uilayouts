@@ -47,7 +47,7 @@ const GitHubButton: React.FC = () => {
             <span
               key={i}
               className={`absolute inset-0 rounded-lg border-solid border-[3px] border-gradient-to-b from-transparent to-white mix-blend-overlay filter ${
-                i <= 2 ? 'blur-[3px]' : i === 3 ? 'blur-[5px]' : 'blur-[4px]'
+                i <= 2 ? 'blur-[3px]' : i === 3 ? 'blur-[5px]' : 'blur-xs'
               }`}
             ></span>
           ))}
@@ -61,7 +61,7 @@ const GitHubButton: React.FC = () => {
           onMouseLeave={() => setIsHovered(false)}
         >
           <span className='flex items-center justify-center px-2 gap-1 rounded-lg group-hover:text-yellow-400 text-white text-xl font-semibold tracking-wide whitespace-nowrap'>
-            <Github className='inline-block group-hover:fill-yellow-400 fill-white w-6 h-6 flex-shrink-0' />{' '}
+            <Github className='inline-block group-hover:fill-yellow-400 fill-white w-6 h-6 shrink-0' />{' '}
             Github
           </span>
         </button>

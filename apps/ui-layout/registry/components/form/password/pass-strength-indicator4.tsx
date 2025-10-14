@@ -118,13 +118,13 @@ const PasswordInput = () => {
             aria-describedby='password-strength'
             className={`cursor-pointer  ${
               STRENGTH_CONFIG.colors[calculateStrength.score]
-            } transition-all w-full p-2 border-2 rounded-md dark:bg-neutral-950 bg-neutral-50 outline-none`}
+            } transition-all w-full p-2 border-2 rounded-md dark:bg-neutral-950 bg-neutral-50 outline-hidden`}
           />
           <button
             type='button'
             onClick={() => setIsVisible((prev) => !prev)}
             aria-label={isVisible ? 'Hide password' : 'Show password'}
-            className='absolute inset-y-0 right-0 outline-none flex items-center justify-center w-9 text-muted-foreground/80 hover:text-foreground  '
+            className='absolute inset-y-0 right-0 outline-hidden flex items-center justify-center w-9 text-muted-foreground/80 hover:text-foreground  '
           >
             {isVisible ? <EyeOff size={16} /> : <Eye size={16} />}
           </button>

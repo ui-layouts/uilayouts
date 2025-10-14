@@ -123,7 +123,7 @@ function HomeFooter() {
               <input
                 type='email'
                 name='newsletter_email'
-                className='border-none bg-transparent h-14 px-4 w-full outline-none focus:outline-none'
+                className='border-none bg-transparent h-14 px-4 w-full outline-hidden focus:outline-hidden'
                 placeholder='Your Email * '
                 required
               />{' '}
@@ -158,7 +158,7 @@ function HomeFooter() {
                 classname='sm:w-14 xl:w-12 sm:pr-0 sm:pl-2.5 dark:bg-neutral-900 bg-neutral-200 border dark:border-neutral-80 border-white/20'
                 searchBar={true}
               />
-              <ThemeSwitch className='dark:bg-neutral-900 bg-neutral-200 border dark:border-neutral-800 border-neutral-300 w-12 rounded-md h-11 flex-shrink-0' />
+              <ThemeSwitch className='dark:bg-neutral-900 bg-neutral-200 border dark:border-neutral-800 border-neutral-300 w-12 rounded-md h-11 shrink-0' />
             </div>
             <HomeGitHubButton />
           </div>
