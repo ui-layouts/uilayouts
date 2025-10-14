@@ -5,15 +5,6 @@
 
 @plugin "@tailwindcss/typography";
 
-
-@utility scrollbar-none {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-@utility scrollbar-none::-webkit-scrollbar {
-  display: none;
-}
-
 @custom-variant dark (&:is(.dark *));
 
 @theme {
@@ -333,6 +324,14 @@
 
   :root.dark {
     --scrollbar-color: rgba(255, 255, 255, 0.3);
+  }
+  .scrollbar-none {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
   }
 }
 @layer base {
