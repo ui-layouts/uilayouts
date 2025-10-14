@@ -182,7 +182,6 @@ pnpm install
 |     |     |     ├── motion-number.tsx
 |     |     ├── scroll-animation
 |     |     |     ├── framer-horizontal-scroll.tsx
-├── tailwind.config.ts
 ├── tsconfig.json
 ```
 

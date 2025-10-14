@@ -80,6 +80,16 @@ export const metadata = {
 ## Usage
 
 ```css global.css
+@import "tailwindcss";
+
+@theme {
+  --animate-border: border 4s linear infinite;
+
+  @keyframes border {
+    to { --border-angle: 360deg; }
+  }
+}
+
 @supports (property(--border-angle)) {
   @property --border-angle {
     inherits: false;
@@ -87,21 +97,4 @@ export const metadata = {
     syntax: '<angle>';
   }
 }
-```
-
-```ts tailwind.config.ts
-tailwind.config = {
-  theme: {
-    extend: {
-      animation: {
-        border: 'border 4s linear infinite',
-      },
-      keyframes: {
-        border: {
-          to: { '--border-angle': '360deg' },
-        },
-      },
-    },
-  },
-};
 ```

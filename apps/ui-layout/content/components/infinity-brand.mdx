@@ -76,22 +76,21 @@ export const metadata = {
 };
 
 <ComponentCodePreview name='infintyband' hasReTrigger isFitheight />
-Add the following animations to your `tailwind.config.js` file:
+Add the following animations to your `global.css` file:
 
-```jsx
-tailwind.config = {
-  theme: {
-    extend: {
-      animation: {
-        'infinite-scroll': 'infinite-scroll 25s linear infinite',
-      },
-      keyframes: {
-        'infinite-scroll': {
-          from: { transform: 'translateX(0)' },
-          to: { transform: 'translateX(-100%)' },
-        },
-      },
-    },
-  },
-};
+```css global.css
+@import "tailwindcss";
+
+@theme {
+  --animate-infinite-scroll: infinite-scroll 25s linear infinite;
+
+  @keyframes infinite-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+}
 ```
