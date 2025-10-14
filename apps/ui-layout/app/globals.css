@@ -555,10 +555,12 @@
     width: 100%;
   }
 
-  @property --border-angle {
-    inherits: false;
-    initial-value: 0deg;
-    syntax: '<angle>';
+  @supports (property(--border-angle)) {
+    @property --border-angle {
+      inherits: false;
+      initial-value: 0deg;
+      syntax: '<angle>';
+    }
   }
 
   /* Chrome, Safari, Edge, Opera */
