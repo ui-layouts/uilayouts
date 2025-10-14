@@ -3,6 +3,17 @@
 @source '../../../packages/ui/src/**/*.{js,ts,jsx,tsx}';
 @source '../../../packages/blocks/src/**/*.{js,ts,jsx,tsx}';
 
+@plugin "@tailwindcss/typography";
+
+
+@utility scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+@utility scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme {
