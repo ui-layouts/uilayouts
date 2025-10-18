@@ -20,7 +20,6 @@
   --font-mono: var(--font-geist-mono);
 
   --grid-template-columns-14: repeat(14, minmax(0, 1fr));
-
   --grid-column-span-14: span 14 / span 14;
 
   --grid-column-start-13: 13;
@@ -63,11 +62,11 @@
   --grid-row-end-26: 26;
   --grid-row-end-27: 27;
 
+  /* semantic tokens (computed from primitives in token.css) */
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
   --color-background: hsl(var(--background));
-  --color-codebg: hsl(var(--codebg) / var(--codebg-a));
   --color-foreground: hsl(var(--foreground));
 
   --color-primary: hsl(var(--primary));
@@ -79,6 +78,30 @@
 
   --color-accent: hsl(var(--accent));
   --color-accent-foreground: hsl(var(--accent-foreground));
+
+  /* alpha colors */
+  --color-codebg: hsl(var(--codebg) / var(--codebg-a));
+
+  /* UI extras */
+  --color-editor-bg: hsl(var(--background));
+  --color-gutter-bg: hsl(var(--background));
+  --color-scrollbar: hsl(var(--foreground) / 0.3);
+
+  /* Decorative tokens (hero & banners) */
+  --color-decorative-1: hsl(230 100% 60%);
+  --color-decorative-2: hsl(235 100% 68%);
+
+  /* Rainbow banner 1 */
+  --color-rainbow-1-start: hsl(220 100% 50% / 0.5);
+  --color-rainbow-1-mid:   hsl(320 100% 50% / 0.77);
+  --color-rainbow-1-end:   hsl(20  100% 50% / 0.4);
+  --color-rainbow-1-via:   hsl(90  100% 63% / 0.4);
+
+  /* Rainbow banner 2 */
+  --color-rainbow-2-start: hsl(0   100% 73% / 0.5);
+  --color-rainbow-2-mid:   hsl(198 100% 57% / 0.4);
+  --color-rainbow-2-end:   hsl(255 100% 50% / 0.51);
+  --color-rainbow-2-via:   hsl(20  100% 55% / 0.56);
 
   --animate-border: border 4s linear infinite;
   --animate-infinite-scroll: infinite-scroll 25s linear infinite;
@@ -116,21 +139,9 @@
   }
 }
 
-/*
-  The default border color has changed to `currentcolor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
 @layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentcolor);
+  *, ::after, ::before, ::backdrop, ::file-selector-button {
+    border-color: var(--color-border);
   }
 }
 
@@ -194,10 +205,13 @@
     radial-gradient(circle at top center, white, transparent);
   mask-composite: intersect;
   animation: moving-banner 16s linear infinite reverse;
-  --start: rgba(0, 87, 255, 0.5);
-  --mid: rgba(255, 0, 166, 0.77);
-  --end: rgba(255, 77, 0, 0.4);
-  --via: rgba(164, 255, 68, 0.4);
+
+  /* decorative tokens */
+  --start: var(--color-rainbow-1-start);
+  --mid:   var(--color-rainbow-1-mid);
+  --end:   var(--color-rainbow-1-end);
+  --via:   var(--color-rainbow-1-via);
+
   background-image: repeating-linear-gradient(
     60deg,
     var(--end),
@@ -224,10 +238,13 @@
     radial-gradient(circle at top center, white, transparent);
   mask-composite: intersect;
   animation: moving-banner 20s linear infinite;
-  --start: rgba(255, 120, 120, 0.5);
-  --mid: rgba(36, 188, 255, 0.4);
-  --end: rgba(64, 0, 255, 0.51);
-  --via: rgba(255, 89, 0, 0.56);
+
+  /* decorative tokens */
+  --start: var(--color-rainbow-2-start);
+  --mid:   var(--color-rainbow-2-mid);
+  --end:   var(--color-rainbow-2-end);
+  --via:   var(--color-rainbow-2-via);
+
   background-image: repeating-linear-gradient(
     45deg,
     var(--end),
@@ -311,7 +328,7 @@
   html {
     -webkit-tap-highlight-color: transparent;
     scrollbar-gutter: stable;
-    scrollbar-color: var(--scrollbar-color) transparent;
+    scrollbar-color: var(--color-scrollbar) transparent; /* 토큰 사용 */
     scrollbar-width: thin;
     scroll-behavior: smooth;
     font-size: 90%;
@@ -320,13 +337,6 @@
     overflow-x: hidden;
   }
 
-  :root {
-    --scrollbar-color: rgba(0, 0, 0, 0.3);
-  }
-
-  :root.dark {
-    --scrollbar-color: rgba(255, 255, 255, 0.3);
-  }
   .scrollbar-none {
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -338,12 +348,8 @@
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply dark:bg-black bg-zinc-50 text-foreground;
-  }
+  * { @apply border-border; }
+  body { @apply bg-background text-foreground; } /* 다크 강제 유틸 제거 */
 }
 
 @layer utilities {
@@ -358,7 +364,7 @@
 
   .hero-gradient1 {
     --border-bottom-width: 141px;
-    --border-color: #1640ff;
+    --border-color: var(--color-decorative-1);
     --border-left-width: 141px;
     --border-right-width: 141px;
     --border-style: solid;
@@ -376,7 +382,7 @@
 
   .hero-gradient2 {
     --border-bottom-width: 141px;
-    --border-color: #6160ff;
+    --border-color: var(--color-decorative-2);
     --border-left-width: 141px;
     --border-right-width: 141px;
     --border-style: solid;
@@ -519,12 +525,11 @@
     border-radius: 0.3em;
   }
 
-  html.dark .cm-editor {
-    background-color: #000000 !important;
+  .cm-editor {
+    background-color: var(--color-editor-bg) !important;
   }
-
-  html.dark .cm-gutters {
-    background-color: #000000;
+  .cm-gutters {
+    background-color: var(--color-gutter-bg);
     backdrop-filter: blur(5px);
   }
 }
