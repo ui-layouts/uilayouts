@@ -51,7 +51,7 @@ function Card2() {
             Lorem ipsum, dolor sit amet consectetur adipisicing
           </p>
 
-          <button className='w-full hover:text-white flex justify-center items-center gap-2 border-black border-2 text-black hover:bg-gradient-to-r dark:from-[#070e41] dark:to-[#263381] from-[#3e5068] to-[#0c1970] py-2  rounded-md'>
+          <button className='w-full hover:text-white flex justify-center items-center gap-2 border-black border-2 text-black hover:bg-linear-to-r dark:from-[#070e41] dark:to-[#263381] from-[#3e5068] to-[#0c1970] py-2  rounded-md'>
             Add to cart
           </button>
         </article>

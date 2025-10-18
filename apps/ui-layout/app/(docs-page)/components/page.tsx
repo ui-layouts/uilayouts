@@ -600,7 +600,7 @@ export default function Home() {
               <Link
                 key={component?.id}
                 href={component?.url}
-                className='border p-2    transition-all rounded-lg dark:bg-black/40 bg-primary-foreground backdrop-blur-sm'
+                className='border p-2    transition-all rounded-lg dark:bg-black/40 bg-primary-foreground backdrop-blur-xs'
               >
                 <>
                   {component.imgSrc && (

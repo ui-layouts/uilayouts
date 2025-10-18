@@ -99,7 +99,7 @@ export function AgencyHero() {
             <div className="bg-sky-500 p-2 text-white rounded-full">
               <Send className="w-5 h-5" />
             </div>
-            <button className="bg-white/10 text-white backdrop-blur-sm border border-white/20 px-6 py-2 rounded-full hover:bg-white/20 transition-all duration-200">
+            <button className="bg-white/10 text-white backdrop-blur-xs border border-white/20 px-6 py-2 rounded-full hover:bg-white/20 transition-all duration-200">
               Book a call
             </button>
           </div>
@@ -150,7 +150,7 @@ export function AgencyHero() {
               shadowIntensity="sm"
               borderRadius="12px"
               blurIntensity="sm"
-              className="p-4 ml-auto w-[28rem]"
+              className="p-4 ml-auto w-md"
             >
               {/* Avatar Stack */}
               <div className="flex items-center gap-10 mb-6">
@@ -188,7 +188,7 @@ export function AgencyHero() {
             <span className="">rating on Clutch</span>
             <div className="flex space-x-1">
               {[...Array(5)].map((_, i) => (
-                <div key={i} className="w-4 h-4 bg-yellow-400 rounded-sm"></div>
+                <div key={i} className="w-4 h-4 bg-yellow-400 rounded-xs"></div>
               ))}
             </div>
           </div>

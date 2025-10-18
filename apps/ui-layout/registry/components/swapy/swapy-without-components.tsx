@@ -63,7 +63,7 @@ function index() {
       {slots.map(({ slot, content, bg, hasHandle }) => (
         <div
           key={slot}
-          className={`slot w-full h-32 rounded-[10px] data-[swapy-highlighted]:bg-neutral-200 data-[swapy-highlighted]:dark:bg-neutral-800`}
+          className={`slot w-full h-32 rounded-[10px] data-swapy-highlighted:bg-neutral-200 dark:data-swapy-highlighted:bg-neutral-800`}
           data-swapy-slot={slot}
         >
           {content && (

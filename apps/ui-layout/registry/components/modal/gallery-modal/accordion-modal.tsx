@@ -19,7 +19,7 @@ function Gallery({ items, setIndex, setOpen, index }) {
                 index === i
                   ? 'w-[250px] '
                   : 'xl:w-[50px] md:w-[30px] sm:w-[20px] w-[14px]'
-              } h-[200px] flex-shrink-0  object-cover transition-[width] ease-in-out duration-300`}
+              } h-[200px] shrink-0  object-cover transition-[width] ease-in-out duration-300`}
               key={item}
               onMouseEnter={() => {
                 setIndex(i);

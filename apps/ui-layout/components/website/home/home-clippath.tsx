@@ -48,7 +48,7 @@ function HomeClipPath() {
               <img
                 src='https://images.unsplash.com/photo-1727889490721-4f27ef9b6673?q=80&w=870&auto=format&fit=crop'
                 alt='Description'
-                className='transition-all duration-300 xl:aspect-[5/6]  min-h-full align-bottom object-cover group-hover:scale-110 w-full'
+                className='transition-all duration-300 xl:aspect-5/6  min-h-full align-bottom object-cover group-hover:scale-110 w-full'
               />
             </figure>
           </>

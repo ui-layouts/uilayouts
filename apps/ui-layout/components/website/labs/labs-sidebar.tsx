@@ -83,7 +83,7 @@ function LabSidebar() {
           >
             <Link href='/' className='flex gap-2 items-center w-fit px-2 pb-3'>
               <div className='relative lg:flex hidden gap-2 '>
-                <div className='2xl:w-7 2xl:h-7 w-6 h-6 mx-auto dark:bg-white bg-black rounded-sm before:absolute relative before:w-full before:h-full dark:before:bg-white/50 before:bg-black/50 before:rounded-sm 2xl:before:-top-1.5 before:-top-1 2xl:before:-left-1.5 before:-left-1'></div>
+                <div className='2xl:w-7 2xl:h-7 w-6 h-6 mx-auto dark:bg-white bg-black rounded-xs before:absolute relative before:w-full before:h-full dark:before:bg-white/50 before:bg-black/50 before:rounded-xs 2xl:before:-top-1.5 before:-top-1 2xl:before:-left-1.5 before:-left-1'></div>
                 <h1 className='2xl:text-2xl text-2xl font-semibold'>
                   UI-LAYOUT
                 </h1>
@@ -100,7 +100,7 @@ function LabSidebar() {
                 <PopoverTrigger asChild>
                   <button
                     aria-expanded={open}
-                    className='w-full border border-input dark:bg-neutral-800 bg-neutral-50 hover:bg-accent   text-primary  inline-flex items-center justify-between gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0  capitalize h-10 px-4 py-2'
+                    className='w-full border border-input dark:bg-neutral-800 bg-neutral-50 hover:bg-accent   text-primary  inline-flex items-center justify-between gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0  capitalize h-10 px-4 py-2'
                   >
                     {value
                       ? AllComponents.find(
@@ -123,7 +123,7 @@ function LabSidebar() {
                           setSearchTerm(e.target.value);
                         }}
                         placeholder='Search a role...'
-                        className='flex h-11 w-full rounded-md bg-transparent py-3 text-sm outline-none placeholder:text-defaultText font-medium disabled:cursor-not-allowed disabled:opacity-50'
+                        className='flex h-11 w-full rounded-md bg-transparent py-3 text-sm outline-hidden placeholder:text-defaultText font-medium disabled:cursor-not-allowed disabled:opacity-50'
                       />
                     </div>
 

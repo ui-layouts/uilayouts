@@ -95,7 +95,7 @@ const formatDateTime = (
 };
 
 const inputBase =
-  'bg-transparent focus:outline-none focus:ring-0 focus-within:outline-none focus-within:ring-0 sm:text-sm disabled:cursor-not-allowed disabled:opacity-50';
+  'bg-transparent focus:outline-hidden focus:ring-0 focus-within:outline-hidden focus-within:ring-0 sm:text-sm disabled:cursor-not-allowed disabled:opacity-50';
 
 // @source: https://www.perplexity.ai/search/in-javascript-how-RfI7fMtITxKr5c.V9Lv5KA#1
 // use this pattern to validate the transformed date string for the natural language input
@@ -418,7 +418,7 @@ const TimePicker = () => {
                         ? 'secondary'
                         : isSelected
                           ? 'default'
-                          : 'outline',
+                          : 'outline-solid',
                     }),
                     'h-8 px-3 w-full text-sm focus-visible:outline-0 outline-0 focus-visible:border-0 cursor-default ring-0'
                   )}
@@ -550,7 +550,7 @@ const NaturalLanguageInput = React.forwardRef<
       onKeyDown={handleKeydown}
       onBlur={handleParse}
       className={cn(
-        'px-2 mr-0.5 dark:bg-neutral-800 bg-neutral-50 flex-1 border-none h-8 rounded',
+        'px-2 mr-0.5 dark:bg-neutral-800 bg-neutral-50 flex-1 border-none h-8 rounded-sm',
         inputBase
       )}
       {...props}

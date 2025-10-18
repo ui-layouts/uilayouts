@@ -131,7 +131,7 @@ export function SearchDialog({
     <>
       <button
         className={cn(
-          'relative inline-flex w-full items-center justify-start gap-2 whitespace-nowrap rounded-[0.5rem] border bg-neutral-200 px-4 py-2 text-sm font-normal text-muted-foreground shadow-none transition-colors hover:border-accent  hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 dark:bg-neutral-800 sm:pr-12',
+          'relative inline-flex w-full items-center justify-start gap-2 whitespace-nowrap rounded-lg border bg-neutral-200 px-4 py-2 text-sm font-normal text-muted-foreground shadow-none transition-colors hover:border-accent  hover:text-accent-foreground focus-visible:outline-hidden focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 dark:bg-neutral-800 sm:pr-12',
           classname
         )}
         onClick={() => setSearchOpen(true)}
@@ -140,7 +140,7 @@ export function SearchDialog({
         {!searchBar && (
           <>
             <span className='hidden sm:inline-flex'>Search...</span>
-            <kbd className='pointer-events-none absolute right-[0.3rem] top-[0.3rem] hidden h-7 select-none items-center gap-1 rounded border bg-primary-foreground px-1.5 font-mono text-[10px] font-medium opacity-100 xl:flex'>
+            <kbd className='pointer-events-none absolute right-[0.3rem] top-[0.3rem] hidden h-7 select-none items-center gap-1 rounded-sm border bg-primary-foreground px-1.5 font-mono text-[10px] font-medium opacity-100 xl:flex'>
               <span className='text-xs'>⌘</span>K
             </kbd>
           </>
@@ -158,7 +158,7 @@ export function SearchDialog({
               value={search}
               onValueChange={setSearch}
               placeholder='Type a command or search...'
-              className='w-full rounded-tl-lg rounded-tr-lg border-b dark:border-neutral-800 border-neutral-300 px-4 outline-none bg-primary/10'
+              className='w-full rounded-tl-lg rounded-tr-lg border-b dark:border-neutral-800 border-neutral-300 px-4 outline-hidden bg-primary/10'
             />
             <Command.List className='border-none'>
               <ScrollArea className='h-[350px]'>
@@ -247,21 +247,21 @@ export function SearchDialog({
                 <Command.Group className='rounded-xl '>
                   <span className='block p-1 py-2'>Theme</span>
                   <Command.Item
-                    className='relative flex cursor-default select-none items-center rounded-sm px-1 py-1 text-sm outline-none aria-selected:bg-neutral-200 aria-selected:text-neutral-900 dark:aria-selected:bg-neutral-800 dark:aria-selected:text-neutral-100 data-[disabled]:opacity-75'
+                    className='relative flex cursor-default select-none items-center rounded-xs px-1 py-1 text-sm outline-hidden aria-selected:bg-neutral-200 aria-selected:text-neutral-900 dark:aria-selected:bg-neutral-800 dark:aria-selected:text-neutral-100 data-disabled:opacity-75'
                     onSelect={() => runCommand(() => setTheme('light'))}
                   >
                     <SunIcon className='mr-2 h-4 w-4' />
                     Light
                   </Command.Item>
                   <Command.Item
-                    className='relative flex cursor-default select-none items-center rounded-sm px-1 py-1 text-sm outline-none aria-selected:bg-neutral-200 aria-selected:text-neutral-900 dark:aria-selected:bg-neutral-800 dark:aria-selected:text-neutral-100 data-[disabled]:opacity-75'
+                    className='relative flex cursor-default select-none items-center rounded-xs px-1 py-1 text-sm outline-hidden aria-selected:bg-neutral-200 aria-selected:text-neutral-900 dark:aria-selected:bg-neutral-800 dark:aria-selected:text-neutral-100 data-disabled:opacity-75'
                     onSelect={() => runCommand(() => setTheme('dark'))}
                   >
                     <MoonIcon className='mr-2 h-4 w-4' />
                     Dark
                   </Command.Item>
                   <Command.Item
-                    className='relative flex cursor-default select-none items-center rounded-sm px-1 py-1 text-sm outline-none aria-selected:bg-neutral-200 aria-selected:text-neutral-900 dark:aria-selected:bg-neutral-800 dark:aria-selected:text-neutral-100 data-[disabled]:opacity-75'
+                    className='relative flex cursor-default select-none items-center rounded-xs px-1 py-1 text-sm outline-hidden aria-selected:bg-neutral-200 aria-selected:text-neutral-900 dark:aria-selected:bg-neutral-800 dark:aria-selected:text-neutral-100 data-disabled:opacity-75'
                     onSelect={() => runCommand(() => setTheme('system'))}
                   >
                     <LaptopIcon className='mr-2 h-4 w-4' />

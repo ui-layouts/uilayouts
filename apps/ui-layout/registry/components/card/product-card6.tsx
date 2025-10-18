@@ -22,9 +22,9 @@ function Card() {
   return (
     <div
       // whileTap={{ scale: 0.9 }}
-      className="w-[350px] mx-auto relative rounded-md border before:content-[''] before:border before:h-full before:w-full before:absolute before:top-0 before:left-0 before:bg-white before:translate-y-8 before:scale-90 before:rounded-md before:shadow-md after:content-[''] after:h-full after:border after:w-full after:absolute after:top-0 after:left-0 after:bg-white after:shadow-md after:translate-y-4 after:z-[2] after:scale-95 after:rounded-md "
+      className="w-[350px] mx-auto relative rounded-md border before:content-[''] before:border before:h-full before:w-full before:absolute before:top-0 before:left-0 before:bg-white before:translate-y-8 before:scale-90 before:rounded-md before:shadow-md after:content-[''] after:h-full after:border after:w-full after:absolute after:top-0 after:left-0 after:bg-white after:shadow-md after:translate-y-4 after:z-2 after:scale-95 after:rounded-md "
     >
-      <div className='dark:bg-white bg-gray-100 rounded-md relative z-[4] shadow-lg'>
+      <div className='dark:bg-white bg-gray-100 rounded-md relative z-4 shadow-lg'>
         <div className='w-full h-60 relative'>
           <motion.button
             className='absolute top-3 right-1 px-4 z-20 text-2xl text-white'
@@ -88,7 +88,7 @@ function Card() {
           </div>
           <div className='flex justify-between py-2 items-center'>
             <span className='font-medium text-2xl text-black'>$39</span>
-            <button className='w-fit px-4 text-white flex justify-center items-center gap-2 bg-gradient-to-r dark:from-[#070e41] dark:to-[#263381] from-[#3e5068] to-[#0c1970] py-3 rounded-md'>
+            <button className='w-fit px-4 text-white flex justify-center items-center gap-2 bg-linear-to-r dark:from-[#070e41] dark:to-[#263381] from-[#3e5068] to-[#0c1970] py-3 rounded-md'>
               <ShoppingCart className='w-5 h-5' />
             </button>
           </div>

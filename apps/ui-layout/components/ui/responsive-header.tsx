@@ -74,7 +74,7 @@ export function HeaderDrawer({
           )}
           <VaulHeader.Portal>
             <VaulHeader.Overlay
-              className='fixed inset-0 dark:bg-black/40 bg-white/50 backdrop-blur-sm z-50  '
+              className='fixed inset-0 dark:bg-black/40 bg-white/50 backdrop-blur-xs z-50  '
               onClick={() => setOpen(false)}
             />
             <VaulHeader.Content className='dark:bg-gray-900 bg-white  border-b z-50 w-full h-fit py-3 fixed top-0 left-0'>

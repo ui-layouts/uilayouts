@@ -20,7 +20,7 @@ export default function MyDrawer() {
         <motion.button
           onClick={() => setDrawerOpen(true)}
           whileTap={{ scale: 0.9 }}
-          className='inline-flex h-12 w-fit mx-auto animate-background-shine items-center justify-center rounded-md  border-2 dark:border-[#656fe2] border-[#c0c6fc] dark:bg-[linear-gradient(110deg,#1e2a78,45%,#3749be,55%,#1e2a78)] bg-[linear-gradient(110deg,#3d5af1,45%,#5471ff,55%,#3d5af1)] bg-[length:200%_100%] dark:hover:border-white px-6 font-medium text-white dark:text-white transition-colors focus:outline-none focus:ring-2 dark:focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-50'
+          className='inline-flex h-12 w-fit mx-auto animate-background-shine items-center justify-center rounded-md  border-2 dark:border-[#656fe2] border-[#c0c6fc] dark:bg-[linear-gradient(110deg,#1e2a78,45%,#3749be,55%,#1e2a78)] bg-[linear-gradient(110deg,#3d5af1,45%,#5471ff,55%,#3d5af1)] bg-size-[200%_100%] dark:hover:border-white px-6 font-medium text-white dark:text-white transition-colors focus:outline-hidden focus:ring-2 dark:focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-50'
         >
           Open Dialog
         </motion.button>
@@ -40,7 +40,7 @@ export default function MyDrawer() {
               </span>
               <div className='mb-3'>
                 <input
-                  className='w-full border file:p-2 file:bg-black  file:border-none  file:text-white rounded-sm overflow-hidden'
+                  className='w-full border file:p-2 file:bg-black  file:border-none  file:text-white rounded-xs overflow-hidden'
                   type='file'
                   id='formFile'
                 />
@@ -50,7 +50,7 @@ export default function MyDrawer() {
                 onClick={() => {
                   setDrawerOpen(false);
                 }}
-                className='w-full rounded-sm dark:bg-white bg-black  p-2 dark:text-black text-white'
+                className='w-full rounded-xs dark:bg-white bg-black  p-2 dark:text-black text-white'
               >
                 Submit
               </button>

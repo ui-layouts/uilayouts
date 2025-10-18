@@ -144,7 +144,7 @@ function AllComponents() {
             return (
               <div className={`${component.className}`} key={index}>
                 <div
-                  className={`relative group  h-full w-full rounded-xl bg-white shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:bg-zinc-900 dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:-inset-px dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset] forced-colors:outline`}
+                  className={`relative group  h-full w-full rounded-xl bg-white shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:bg-zinc-900 dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:-inset-px dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,0,0,0.20),0px_1px_0px_0px_rgba(255,255,255,0.06)_inset] forced-colors:outline-solid`}
                 >
                   <Link
                     href={component.link}
@@ -161,7 +161,7 @@ function AllComponents() {
         <a
           href='/components'
           target='_blank'
-          className='flex sm:text-base text-sm absolute bottom-0 sm:w-fit w-60 left-[50%] translate-x-[-50%] py-2 px-3 dark:bg-neutral-900 bg-neutral-100 z-[10] justify-center group mx-auto font-medium items-center gap-2 rounded-md border dark:border-[#1d1d1d]'
+          className='flex sm:text-base text-sm absolute bottom-0 sm:w-fit w-60 left-[50%] translate-x-[-50%] py-2 px-3 dark:bg-neutral-900 bg-neutral-100 z-10 justify-center group mx-auto font-medium items-center gap-2 rounded-md border dark:border-[#1d1d1d]'
         >
           {' '}
           <span>Browse all </span>
@@ -170,7 +170,7 @@ function AllComponents() {
             <ArrowRight className=' group-hover:translate-x-1 transition-all' />
           </span>
         </a>
-        <div className='absolute -bottom-5 -left-0 w-[100%] h-40 bg-gradient-to-t dark:from-black from-zinc-50 dark:via-black via-zinc-50 '></div>
+        <div className='absolute -bottom-5 -left-0 w-full h-40 bg-linear-to-t dark:from-black from-zinc-50 dark:via-black via-zinc-50 '></div>
       </section>
     </>
   );

@@ -32,8 +32,8 @@ function Gallery({ items, setIndex, setOpen, index }) {
               setIndex(i);
               setOpen(true);
             }}
-            className={`w-full h-full flex-shrink-0 rounded-xl cursor-pointer  overflow-hidden   relative ${
-              index === i ? 'z-[50] ' : ''
+            className={`w-full h-full shrink-0 rounded-xl cursor-pointer  overflow-hidden   relative ${
+              index === i ? 'z-50 ' : ''
             }`}
           >
             <motion.img
@@ -109,7 +109,7 @@ export default function HomeAccordionModal() {
               exit='closed'
               tabIndex={-1}
               key={`backdrop-${items[index].id}`}
-              className='dark:bg-black/95 bg-white/95 backdrop-blur-sm fixed h-screen z-50 top-0 left-0 bottom-0 right-0 w-full  grid place-content-center 2xl:py-20 pt-10
+              className='dark:bg-black/95 bg-white/95 backdrop-blur-xs fixed h-screen z-50 top-0 left-0 bottom-0 right-0 w-full  grid place-content-center 2xl:py-20 pt-10
                 '
               onClick={() => {
                 setOpen(false);

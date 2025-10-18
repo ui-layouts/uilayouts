@@ -90,7 +90,7 @@ export const StreamLineHero: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.5 }}
             >
               Build{' '}
-              <span className="font-semibold bg-gradient-to-r from-red-500 to-orange-600 bg-clip-text text-transparent">
+              <span className="font-semibold bg-linear-to-r from-red-500 to-orange-600 bg-clip-text text-transparent">
                 Amazing
               </span>{' '}
               Products Faster
@@ -144,7 +144,7 @@ export const StreamLineHero: React.FC = () => {
             </motion.div>
           </motion.div>
         </div>
-        <div className="absolute top-0 2xl:-right-20 -right-72 overflow-hidden -skew-x-12 h-[44rem] [mask-image:radial-gradient(ellipse_80%_50%_at_100%_50%,#000_70%,transparent_110%)]">
+        <div className="absolute top-0 2xl:-right-20 -right-72 overflow-hidden -skew-x-12 h-176 mask-[radial-gradient(ellipse_80%_50%_at_100%_50%,#000_70%,transparent_110%)]">
           <CpuArchitecture text="UI-Layouts" />
           <div className="absolute bottom-0 left-0 right-0 -z-10 top-0 dark:bg-[repeating-linear-gradient(135deg,#131313_0px_1px,transparent_1px_16px)] bg-[repeating-linear-gradient(135deg,#d6d6d6_0px_1px,transparent_1px_16px)]"></div>
         </div>

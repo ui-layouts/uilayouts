@@ -20,13 +20,13 @@ function MotionDrawerExample() {
       <MotionDrawer direction='left' width={300} className='text-black'>
         <nav className='space-y-4'>
           <h2 className='text-xl font-bold mb-4'>Menu</h2>
-          <a href='#' className='block p-2 hover:bg-gray-100 rounded'>
+          <a href='#' className='block p-2 hover:bg-gray-100 rounded-sm'>
             Home
           </a>
-          <a href='#' className='block p-2 hover:bg-gray-100 rounded'>
+          <a href='#' className='block p-2 hover:bg-gray-100 rounded-sm'>
             About
           </a>
-          <a href='#' className='block p-2 hover:bg-gray-100 rounded'>
+          <a href='#' className='block p-2 hover:bg-gray-100 rounded-sm'>
             Contact
           </a>
         </nav>

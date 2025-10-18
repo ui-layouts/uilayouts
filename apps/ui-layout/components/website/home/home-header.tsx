@@ -54,13 +54,13 @@ function HomeHeader({ className }: { className?: string }) {
               classname='sm:w-14 xl:w-14 sm:pr-0 sm:pl-3 dark:bg-black/20 bg-white/40 border dark:border-black/20 border-white/20'
               searchBar={true}
             />
-            <ThemeSwitch className='dark:bg-black/20 bg-white/20 border dark:border-black/20 border-white/20 w-12 rounded-md h-11 flex-shrink-0' />
+            <ThemeSwitch className='dark:bg-black/20 bg-white/20 border dark:border-black/20 border-white/20 w-12 rounded-md h-11 shrink-0' />
           </div>
           <HomeGitHubButton />
           <a
             href='https://discord.gg/4bySmj75'
             target='_blank'
-            className='dark:bg-black/20 bg-white/20 border dark:border-black/20 border-white/20 w-12 rounded-md h-11 flex-shrink-0 grid place-content-center'
+            className='dark:bg-black/20 bg-white/20 border dark:border-black/20 border-white/20 w-12 rounded-md h-11 shrink-0 grid place-content-center'
           >
             <svg
               viewBox='0 0 256 199'

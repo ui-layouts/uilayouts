@@ -60,7 +60,7 @@ const InputComponent = React.forwardRef<HTMLInputElement, any>(
   ({ className, ...props }, ref) => (
     <input
       className={cn(
-        'rounded-e-lg rounded-s-none px-2 bg-primary-base outline-none w-full ',
+        'rounded-e-lg rounded-s-none px-2 bg-primary-base outline-hidden w-full ',
         className
       )}
       {...props}
@@ -156,7 +156,7 @@ const FlagComponent = ({ country, countryName }: RPNInput.FlagProps) => {
   const Flag = flags[country];
 
   return (
-    <span className='bg-foreground/20 flex h-4 w-6 overflow-hidden rounded-sm'>
+    <span className='bg-foreground/20 flex h-4 w-6 overflow-hidden rounded-xs'>
       {Flag && <Flag title={countryName} />}
     </span>
   );

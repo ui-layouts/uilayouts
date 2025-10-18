@@ -3,7 +3,7 @@ import { MapPin } from 'lucide-react'
 
 export const AboutSections3: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+    <div className="min-h-screen bg-linear-to-br from-slate-50 to-blue-50">
       {/* Enhanced Navigation */}
       <section className="border rounded-xl overflow-hidden">
         <div className="bg-gray-50 px-6 py-3 border-b">
@@ -31,15 +31,15 @@ export const AboutSections3: React.FC = () => {
             <div className="text-gray-600">Founded in 2020</div>
           </div>
           <div className="space-y-6">
-            <div className="bg-gradient-to-r from-blue-50 to-cyan-50 p-6 rounded-lg">
+            <div className="bg-linear-to-r from-blue-50 to-cyan-50 p-6 rounded-lg">
               <h3 className="text-2xl font-bold text-gray-900 mb-2">10M+</h3>
               <p className="text-gray-600">Active Users</p>
             </div>
-            <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-6 rounded-lg">
+            <div className="bg-linear-to-r from-green-50 to-emerald-50 p-6 rounded-lg">
               <h3 className="text-2xl font-bold text-gray-900 mb-2">150+</h3>
               <p className="text-gray-600">Countries Served</p>
             </div>
-            <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg">
+            <div className="bg-linear-to-r from-purple-50 to-pink-50 p-6 rounded-lg">
               <h3 className="text-2xl font-bold text-gray-900 mb-2">$100M+</h3>
               <p className="text-gray-600">Revenue Generated for Customers</p>
             </div>

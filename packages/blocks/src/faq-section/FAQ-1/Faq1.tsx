@@ -23,7 +23,7 @@ const FaqCard = ({
         </h4>
 
         {/* plus - minus icon */}
-        <div className="relative flex-shrink-0 w-5 h-5">
+        <div className="relative shrink-0 w-5 h-5">
           <motion.span
             className="absolute inset-0 w-full h-1 bg-gray-800 dark:bg-white rounded-full"
             style={{ top: 'calc(50% - 0.125rem)' }}
@@ -46,7 +46,7 @@ const FaqCard = ({
       <div
         className={`transition-all duration-300 ease-in-out ${
           isOpen
-            ? 'max-h-[625rem] opacity-100 mt-3.5'
+            ? 'max-h-2500 opacity-100 mt-3.5'
             : 'max-h-0 opacity-0 overflow-hidden mt-0'
         }`}
       >

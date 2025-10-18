@@ -31,19 +31,19 @@ function index() {
           <img
             src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&auto=format&fit=crop"
             alt=""
-            className="transition-all duration-300 aspect-[4/5] min-h-full align-bottom object-cover hover:scale-105 w-full"
+            className="transition-all duration-300 aspect-4/5 min-h-full align-bottom object-cover hover:scale-105 w-full"
           />
         </figure>
         <figure style={{ clipPath: 'url(#clip-another2)' }}>
           <img
-            className="transition-all duration-300 aspect-[4/5] min-h-full align-bottom object-cover hover:scale-105 w-full"
+            className="transition-all duration-300 aspect-4/5 min-h-full align-bottom object-cover hover:scale-105 w-full"
             src="https://images.unsplash.com/photo-1573165850883-9b0e18c44bd2?w=500&auto=format&fit=crop"
             alt=""
           />
         </figure>
         <figure style={{ clipPath: 'url(#clip-another3)' }}>
           <img
-            className="transition-all duration-300 aspect-[4/5] min-h-full align-bottom object-cover hover:scale-105 w-full"
+            className="transition-all duration-300 aspect-4/5 min-h-full align-bottom object-cover hover:scale-105 w-full"
             src="https://images.unsplash.com/photo-1573496358322-6d530124361d?w=500&auto=format&fit=crop"
             alt=""
           />

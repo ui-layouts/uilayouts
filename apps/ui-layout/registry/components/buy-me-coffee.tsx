@@ -494,7 +494,7 @@ function BuyMeCoffee({
 
         <div
           className={cn(
-            'relative z-[1] w-40 h-44 bg-[#FFDD06] border-background border-2 group-hover:p-0 p-2 rounded-md duration-500 transition-transform ease-in-out group-hover:scale-[2] group-hover:translate-y-24',
+            'relative z-1 w-40 h-44 bg-[#FFDD06] border-background border-2 group-hover:p-0 p-2 rounded-md duration-500 transition-transform ease-in-out group-hover:scale-[2] group-hover:translate-y-24',
             iconClassName
           )}
         >

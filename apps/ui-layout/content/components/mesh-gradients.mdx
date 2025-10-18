@@ -598,7 +598,7 @@ const Blob: React.FC<BlobProps> = ({ color = '#ffd717' }) => {
 const Home: React.FC = () => {
   return (
     <div className='relative h-screen w-screen flex items-center justify-center'>
-      <article className=' relative z-[2] text-center '>
+      <article className=' relative z-2 text-center '>
         <h1 className='text-8xl font-semibold uppercase text-white'>
           {' '}
           Mesh Gradient
@@ -606,7 +606,7 @@ const Home: React.FC = () => {
       </article>
       <Canvas
         camera={{ position: [0.0, 0.0, 8.0], fov: 10 }}
-        className='!absolute top-0 left-0 w-screen h-screen'
+        className='absolute! top-0 left-0 w-screen h-screen'
       >
         {/* <OrbitControls /> */}
         <Environment preset='studio' environmentIntensity={0.5} />
@@ -836,14 +836,14 @@ const Blob: React.FC<BlobProps> = ({ color = '#2cb978' }) => {
 const Home: React.FC = () => {
   return (
     <div className='relative flex items-center justify-center w-screen h-screen overflow-auto bg-[#22ff7e]'>
-      <article className=' relative z-[2]'>
+      <article className=' relative z-2'>
         <h1 className=' text-[9vw] w-full text-center text-white'>
           It's Lemon's Time
         </h1>
       </article>
       <Canvas
         camera={{ position: [0.0, 0.0, 8.0], fov: 15 }}
-        className=' !absolute top-0 left-0 w-screen h-screen'
+        className=' absolute! top-0 left-0 w-screen h-screen'
       >
         <spotLight
           position={[10, 10, 10]}

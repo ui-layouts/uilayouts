@@ -149,7 +149,7 @@ export default function TableOfContents({ toc }: TableOfContentsProps) {
                                 activeId === item.url.slice(1)
                                   ? ' font-semibold  text-primary py-1'
                                   : ''
-                              } no-underline rounded-sm px-1 hover:text-primary text-muted-foreground `}
+                              } no-underline rounded-xs px-1 hover:text-primary text-muted-foreground `}
                             >
                               {item.title}
                             </a>

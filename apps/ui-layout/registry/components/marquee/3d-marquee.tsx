@@ -30,7 +30,7 @@ const logos = [
 const Marquee3D = () => {
   return (
     <div className='relative flex h-full w-96 mx-auto flex-col items-center justify-center gap-4 overflow-hidden rounded-lg border dark:bg-neutral-800 bg-neutral-50 px-20 md:shadow-xl'>
-      <div className='flex flex-row gap-4 [perspective:300px]'>
+      <div className='flex flex-row gap-4 perspective-near'>
         <Marquee
           className='h-96 justify-center overflow-hidden [--duration:60s] [--gap:1rem]'
           vertical
@@ -50,8 +50,8 @@ const Marquee3D = () => {
         </Marquee>
       </div>
 
-      <div className='pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white dark:from-background'></div>
-      <div className='pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-white dark:from-background'></div>
+      <div className='pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-linear-to-r from-white dark:from-background'></div>
+      <div className='pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-linear-to-l from-white dark:from-background'></div>
     </div>
   );
 };

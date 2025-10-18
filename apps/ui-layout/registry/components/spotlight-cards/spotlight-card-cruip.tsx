@@ -52,7 +52,7 @@ export default function SpotlightPage() {
                     </p>
                   </div>
                   <a
-                    className='inline-flex justify-center items-center whitespace-nowrap rounded-lg bg-slate-800 hover:bg-[#0f0f0f] border border-slate-700 px-3 py-1.5 text-sm font-medium text-slate-300 focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300 dark:focus-visible:ring-slate-600 transition-colors duration-150'
+                    className='inline-flex justify-center items-center whitespace-nowrap rounded-lg bg-slate-800 hover:bg-[#0f0f0f] border border-slate-700 px-3 py-1.5 text-sm font-medium text-slate-300 focus-visible:outline-hidden focus-visible:ring-3 focus-visible:ring-indigo-300 dark:focus-visible:ring-slate-600 transition-colors duration-150'
                     href='#0'
                   >
                     <svg
@@ -106,7 +106,7 @@ export default function SpotlightPage() {
                     </p>
                   </div>
                   <a
-                    className='inline-flex justify-center items-center whitespace-nowrap rounded-lg bg-slate-800 hover:bg-[#0f0f0f] border border-slate-700 px-3 py-1.5 text-sm font-medium text-slate-300 focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300 dark:focus-visible:ring-slate-600 transition-colors duration-150'
+                    className='inline-flex justify-center items-center whitespace-nowrap rounded-lg bg-slate-800 hover:bg-[#0f0f0f] border border-slate-700 px-3 py-1.5 text-sm font-medium text-slate-300 focus-visible:outline-hidden focus-visible:ring-3 focus-visible:ring-indigo-300 dark:focus-visible:ring-slate-600 transition-colors duration-150'
                     href='#0'
                   >
                     <svg
@@ -160,7 +160,7 @@ export default function SpotlightPage() {
                     </p>
                   </div>
                   <a
-                    className='inline-flex justify-center items-center whitespace-nowrap rounded-lg bg-slate-800 hover:bg-[#0f0f0f] border border-slate-700 px-3 py-1.5 text-sm font-medium text-slate-300 focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300 dark:focus-visible:ring-slate-600 transition-colors duration-150'
+                    className='inline-flex justify-center items-center whitespace-nowrap rounded-lg bg-slate-800 hover:bg-[#0f0f0f] border border-slate-700 px-3 py-1.5 text-sm font-medium text-slate-300 focus-visible:outline-hidden focus-visible:ring-3 focus-visible:ring-indigo-300 dark:focus-visible:ring-slate-600 transition-colors duration-150'
                     href='#0'
                   >
                     <svg
@@ -214,7 +214,7 @@ export default function SpotlightPage() {
                     </p>
                   </div>
                   <a
-                    className='inline-flex justify-center items-center whitespace-nowrap rounded-lg bg-slate-800 hover:bg-[#0f0f0f] border border-slate-700 px-3 py-1.5 text-sm font-medium text-slate-300 focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300 dark:focus-visible:ring-slate-600 transition-colors duration-150'
+                    className='inline-flex justify-center items-center whitespace-nowrap rounded-lg bg-slate-800 hover:bg-[#0f0f0f] border border-slate-700 px-3 py-1.5 text-sm font-medium text-slate-300 focus-visible:outline-hidden focus-visible:ring-3 focus-visible:ring-indigo-300 dark:focus-visible:ring-slate-600 transition-colors duration-150'
                     href='#0'
                   >
                     <svg
@@ -268,7 +268,7 @@ export default function SpotlightPage() {
                     </p>
                   </div>
                   <a
-                    className='inline-flex justify-center items-center whitespace-nowrap rounded-lg bg-slate-800 hover:bg-[#0f0f0f] border border-slate-700 px-3 py-1.5 text-sm font-medium text-slate-300 focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300 dark:focus-visible:ring-slate-600 transition-colors duration-150'
+                    className='inline-flex justify-center items-center whitespace-nowrap rounded-lg bg-slate-800 hover:bg-[#0f0f0f] border border-slate-700 px-3 py-1.5 text-sm font-medium text-slate-300 focus-visible:outline-hidden focus-visible:ring-3 focus-visible:ring-indigo-300 dark:focus-visible:ring-slate-600 transition-colors duration-150'
                     href='#0'
                   >
                     <svg
@@ -322,7 +322,7 @@ export default function SpotlightPage() {
                     </p>
                   </div>
                   <a
-                    className='inline-flex justify-center items-center whitespace-nowrap rounded-lg bg-slate-800 hover:bg-[#0f0f0f] border border-slate-700 px-3 py-1.5 text-sm font-medium text-slate-300 focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300 dark:focus-visible:ring-slate-600 transition-colors duration-150'
+                    className='inline-flex justify-center items-center whitespace-nowrap rounded-lg bg-slate-800 hover:bg-[#0f0f0f] border border-slate-700 px-3 py-1.5 text-sm font-medium text-slate-300 focus-visible:outline-hidden focus-visible:ring-3 focus-visible:ring-indigo-300 dark:focus-visible:ring-slate-600 transition-colors duration-150'
                     href='#0'
                   >
                     <svg

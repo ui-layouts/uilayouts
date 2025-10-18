@@ -101,14 +101,14 @@ const PricingCard = ({ title, price, subtitle, gradient, tag, features }: Pricin
     transition={{ duration: 0.4 }}
     className={`relative flex flex-col p-8 border rounded-3xl text-center shadow-xl transition hover:scale-[1.02] ${
       gradient
-        ? "bg-gradient-to-br from-indigo-600 to-purple-600 text-white"
+        ? "bg-linear-to-br from-indigo-600 to-purple-600 text-white"
         : "bg-white dark:bg-gray-900 text-gray-900 dark:text-white border-gray-200 dark:border-gray-700"
     }`}
   >
     <h3 className="text-2xl font-bold font-manrope mb-4 flex justify-center items-center gap-2">
       {title}
       {tag && (
-        <span className="bg-white dark:bg-gray-800 text-indigo-600 dark:text-indigo-400 px-3 py-1 rounded-full text-xs font-semibold shadow-sm">
+        <span className="bg-white dark:bg-gray-800 text-indigo-600 dark:text-indigo-400 px-3 py-1 rounded-full text-xs font-semibold shadow-xs">
           {tag}
         </span>
       )}

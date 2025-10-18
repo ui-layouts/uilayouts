@@ -4,7 +4,7 @@ import { Play } from "lucide-react";
 export function FlowSync() {
   return (
     <section className="bg-black relative">
-       <div className="absolute bottom-0 left-0 -inset-0 right-0 top-0 bg-[radial-gradient(#53535333_1px,#000000_1px)] bg-[size:20px_20px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
+       <div className="absolute bottom-0 left-0 -inset-0 right-0 top-0 bg-[radial-gradient(#53535333_1px,#000000_1px)] bg-size-[20px_20px] mask-[radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
       <svg
         width="1440"
         height="697"
@@ -378,7 +378,7 @@ export function FlowSync() {
           <a href="#">Resources</a>
           <a href="#">Blog</a>
         </nav>
-        <button className="text-lg h-10 px-4 rounded-lg text-white flex items-center gap-2 bg-green-600 relative before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-2 before:bg-gradient-to-t before:from-green-600 before:to-green-300 before:rounded-t-lg  transition-all group">
+        <button className="text-lg h-10 px-4 rounded-lg text-white flex items-center gap-2 bg-green-600 relative before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-2 before:bg-linear-to-t before:from-green-600 before:to-green-300 before:rounded-t-lg  transition-all group">
           Log In
         </button>
       </header>
@@ -395,7 +395,7 @@ export function FlowSync() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.9 }}
         >
-          <button className="text-lg h-12 px-4 rounded-lg text-white flex items-center gap-2 bg-green-600 relative before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-2 before:bg-gradient-to-t before:from-green-600 before:to-green-300 before:rounded-t-lg  transition-all group">
+          <button className="text-lg h-12 px-4 rounded-lg text-white flex items-center gap-2 bg-green-600 relative before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-2 before:bg-linear-to-t before:from-green-600 before:to-green-300 before:rounded-t-lg  transition-all group">
             Start Your Free Trial{" "}
           </button>
           <button className="text-lg h-12 px-4 text-white flex items-center gap-1 rounded-lg group">

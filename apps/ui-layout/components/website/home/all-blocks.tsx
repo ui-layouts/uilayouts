@@ -189,7 +189,7 @@ function AllBlocks() {
           <a
             href='https://pro.ui-layouts.com/blocks'
             target='_blank'
-            className='flex sm:text-xl w-fit py-2 px-3 dark:bg-neutral-900 bg-neutral-100 z-[10] justify-center group mx-auto font-medium items-center gap-2  rounded-md border dark:border-[#1d1d1d]'
+            className='flex sm:text-xl w-fit py-2 px-3 dark:bg-neutral-900 bg-neutral-100 z-10 justify-center group mx-auto font-medium items-center gap-2  rounded-md border dark:border-[#1d1d1d]'
           >
             <span>Browse all </span>
             <span className='flex items-center gap-2'>
@@ -204,7 +204,7 @@ function AllBlocks() {
               key={section?.id}
               href={section?.link}
               target='_blank'
-              className='2xl:w-[28rem] md:w-[25rem] sm:w-72 w-60 rounded-md 2xl:h-72 md:h-64 sm:h-48 h-42 p-2 backdrop-blur-lg bg-primary/10'
+              className='2xl:w-md md:w-100 sm:w-72 w-60 rounded-md 2xl:h-72 md:h-64 sm:h-48 h-42 p-2 backdrop-blur-lg bg-primary/10'
             >
               <Image
                 src={section?.imgSrc[0].img}
@@ -222,7 +222,7 @@ function AllBlocks() {
               key={section?.id}
               href={section?.link}
               target='_blank'
-              className='2xl:w-[28rem] md:w-[25rem] sm:w-72 w-60 rounded-md 2xl:h-72 md:h-64 sm:h-48 h-42 p-2 backdrop-blur-lg bg-primary/10'
+              className='2xl:w-md md:w-100 sm:w-72 w-60 rounded-md 2xl:h-72 md:h-64 sm:h-48 h-42 p-2 backdrop-blur-lg bg-primary/10'
             >
               <Image
                 src={section?.imgSrc[1].img}

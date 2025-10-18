@@ -26,7 +26,7 @@ export default function Slider({
           <RadixSlider.Range className='absolute h-full rounded-full bg-black dark:bg-white' />
         </RadixSlider.Track>
         <RadixSlider.Thumb
-          className='relative block h-5 w-5 rounded-[1rem] bg-white shadow-md ring ring-black/10'
+          className='relative block h-5 w-5 rounded-2xl bg-white shadow-md ring-3 ring-black/10'
           aria-label='Volume'
         >
           {tooltip && (

@@ -125,7 +125,7 @@ export function CardBalanceCard() {
       <h3 className="text-xl font-bold mb-4 text-neutral-950">Cards balance</h3>
       <h2 className="text-3xl font-bold mb-6 text-neutral-800">$ 12,457</h2>
 
-      <div className="bg-black text-white rounded-lg p-4 shadow-sm">
+      <div className="bg-black text-white rounded-lg p-4 shadow-xs">
         <div className="flex justify-between text-sm mb-2">
           <span >Card Holder</span>
           <span >Expires</span>

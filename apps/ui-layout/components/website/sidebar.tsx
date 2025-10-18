@@ -232,7 +232,7 @@ export const ItemsWithName = ({
 
       <ul className='relative'>
         {/* {!expandedItems && showExpandButton && (
-          <div className='absolute w-full bottom-0 left-0 h-7 bg-gradient-to-t dark:from-neutral-950 from-zinc-50 from-20%' />
+          <div className='absolute w-full bottom-0 left-0 h-7 bg-linear-to-t dark:from-neutral-950 from-zinc-50 from-20%' />
         )} */}
         {itemsToShow.map((link, index) => (
           <li
@@ -240,7 +240,7 @@ export const ItemsWithName = ({
             ref={(el) => {
               itemRefs.current[index] = el;
             }}
-            className={`2xl:text-base xl:text-base text-sm flex items-center gap-1 dark:hover:text-white py-[1px] pl-2 border-l transition-all ${
+            className={`2xl:text-base xl:text-base text-sm flex items-center gap-1 dark:hover:text-white py-px pl-2 border-l transition-all ${
               link.href === pathname
                 ? 'dark:border-white border-black text-black dark:text-white font-semibold'
                 : 'dark:text-slate-400 2xl:font-normal font-medium dark:border-neutral-800 hover:border-black/60 dark:hover:border-white/50 text-slate-500 hover:text-slate-900'

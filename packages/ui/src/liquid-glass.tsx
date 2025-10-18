@@ -46,7 +46,7 @@ export const LiquidGlassCard = ({
   };
 
   const blurClasses = {
-    sm: 'backdrop-blur-sm',
+    sm: 'backdrop-blur-xs',
     md: 'backdrop-blur-md',
     lg: 'backdrop-blur-lg',
     xl: 'backdrop-blur-xl',

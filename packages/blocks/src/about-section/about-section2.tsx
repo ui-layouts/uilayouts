@@ -32,7 +32,7 @@ export const AboutSections2:React.FC = () => {
 
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+    <div className="min-h-screen bg-linear-to-br from-slate-50 to-blue-50">
     <section className="border rounded-xl overflow-hidden">
             <div className="bg-gray-50 px-6 py-3 border-b">
               <h3 className="font-semibold text-gray-900">Team Bio Grid</h3>
@@ -48,7 +48,7 @@ export const AboutSections2:React.FC = () => {
                 {teamMembers.map((member, index) => (
                   <div key={index} className="text-center hover:shadow-lg transition-shadow">
                     <div className="p-6">
-                      <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white text-xl font-bold mx-auto mb-4">
+                      <div className="w-20 h-20 bg-linear-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white text-xl font-bold mx-auto mb-4">
                         {member.avatar}
                       </div>
                       <h3 className="text-xl font-semibold text-gray-900 mb-1">{member.name}</h3>

@@ -76,8 +76,8 @@ export function DirectionalDrawer({
         return {
           position: 'right-0 bottom-0',
           size: outsideClose 
-            ? 'sm:w-[450px] w-[90%] h-[100%]' 
-            : 'w-full h-[100%]',
+            ? 'sm:w-[450px] w-[90%] h-full' 
+            : 'w-full h-full',
           border: 'border-l',
           handlePosition: 'top-[40%] left-2',
           handleSize: 'h-16 w-[0.30rem]'
@@ -86,8 +86,8 @@ export function DirectionalDrawer({
         return {
           position: 'top-0 left-0',
           size: outsideClose 
-            ? 'w-[100%] sm:h-[450px] h-[90%]' 
-            : 'w-[100%] h-full',
+            ? 'w-full sm:h-[450px] h-[90%]' 
+            : 'w-full h-full',
           border: 'border-b',
           handlePosition: 'bottom-2 left-[40%]',
           handleSize: 'w-16 h-[0.30rem]'
@@ -96,8 +96,8 @@ export function DirectionalDrawer({
         return {
           position: 'bottom-0 left-0',
           size: outsideClose 
-            ? 'w-[100%] sm:h-[450px] h-[90%]' 
-            : 'w-[100%] h-full',
+            ? 'w-full sm:h-[450px] h-[90%]' 
+            : 'w-full h-full',
           border: 'border-t',
           handlePosition: 'top-2 left-[40%]',
           handleSize: 'w-16 h-[0.30rem]'
@@ -107,8 +107,8 @@ export function DirectionalDrawer({
         return {
           position: 'left-0 bottom-0',
           size: outsideClose 
-            ? 'sm:w-[450px] w-[90%] h-[100%]' 
-            : 'w-full h-[100%]',
+            ? 'sm:w-[450px] w-[90%] h-full' 
+            : 'w-full h-full',
           border: 'border-r',
           handlePosition: 'top-[40%] right-2',
           handleSize: 'h-16 w-[0.30rem]'
@@ -133,7 +133,7 @@ export function DirectionalDrawer({
       >
         <VaulSidebar.Portal>
           <VaulSidebar.Overlay
-            className='fixed inset-0 dark:bg-black/40 bg-white/50 backdrop-blur-sm z-50'
+            className='fixed inset-0 dark:bg-black/40 bg-white/50 backdrop-blur-xs z-50'
             onClick={() => setOpen(false)}
           />
           <VaulSidebar.Content
@@ -162,7 +162,7 @@ export function DirectionalDrawer({
                 </button>
               ) : (
                 <div
-                  className={`absolute ${directionClasses.handlePosition} mx-auto ${directionClasses.handleSize} flex-shrink-0 rounded-full bg-gray-600 my-4`}
+                  className={`absolute ${directionClasses.handlePosition} mx-auto ${directionClasses.handleSize} shrink-0 rounded-full bg-gray-600 my-4`}
                 />
               )}
               {content}

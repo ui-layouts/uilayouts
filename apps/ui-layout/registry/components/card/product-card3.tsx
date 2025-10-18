@@ -71,7 +71,7 @@ function index() {
             porro quos quae autem vel praesentium.
           </p>
 
-          <button className='w-full text-white flex justify-center items-center gap-2 bg-gradient-to-r dark:from-[#070e41] dark:to-[#263381] from-[#3e5068] to-[#0c1970] py-3 rounded-md'>
+          <button className='w-full text-white flex justify-center items-center gap-2 bg-linear-to-r dark:from-[#070e41] dark:to-[#263381] from-[#3e5068] to-[#0c1970] py-3 rounded-md'>
             Add to cart
           </button>
         </article>

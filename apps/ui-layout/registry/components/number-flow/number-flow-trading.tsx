@@ -73,7 +73,7 @@ export default function index() {
       <PriceWithDiff value={numbers[currentIndex]} diff={diffs[currentIndex]} />
       <button
         onClick={handleCustomClick}
-        className='flex h-11 mt-4 w-fit mx-auto items-center gap-2 rounded-full bg-zinc-900 px-5 text-sm font-medium text-zinc-50 transition duration-[.16s] ease-[cubic-bezier(.4,0,.2,1)] hover:brightness-125 active:scale-[98%] active:brightness-[98%] active:duration-[25ms]'
+        className='flex h-11 mt-4 w-fit mx-auto items-center gap-2 rounded-full bg-zinc-900 px-5 text-sm font-medium text-zinc-50 transition duration-[.16s] ease-[cubic-bezier(.4,0,.2,1)] hover:brightness-125 active:scale-[98%] active:brightness-98 active:duration-25'
       >
         <svg className='size-4' strokeLinejoin='round' viewBox='0 0 16 16'>
           <path

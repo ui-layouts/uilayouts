@@ -62,7 +62,7 @@ export const BlurVignetteArticle: React.FC<BlurVignetteArticleProps> = ({
   return (
     <div
       className={cn(
-        'blur-vignette bottom-0 left-0 w-full h-full z-[1]',
+        'blur-vignette bottom-0 left-0 w-full h-full z-1',
         classname
       )}
       style={

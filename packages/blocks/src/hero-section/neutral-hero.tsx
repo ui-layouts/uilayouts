@@ -16,7 +16,7 @@ export function NuetralHero() {
           <a href="#">Resources</a>
           <a href="#">Blog</a>
         </nav>
-        <button className="text-lg h-10 px-4 rounded-lg text-white flex items-center gap-2 bg-neutral-900 relative before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-2 before:bg-gradient-to-t before:from-neutral-900 before:to-neutral-700 before:rounded-t-lg  transition-all group">
+        <button className="text-lg h-10 px-4 rounded-lg text-white flex items-center gap-2 bg-neutral-900 relative before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-2 before:bg-linear-to-t before:from-neutral-900 before:to-neutral-700 before:rounded-t-lg  transition-all group">
           Log In
         </button>
       </header>
@@ -37,11 +37,11 @@ export function NuetralHero() {
           transition={{ duration: 0.8, delay: 0.9 }}
         >
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="text-white bg-gradient-to-t from-blue-600 to-blue-800 shadow-md shadow-blue-600 border border-blue-600 px-4 py-2 rounded-lg flex items-center gap-2">
+            <button className="text-white bg-linear-to-t from-blue-600 to-blue-800 shadow-md shadow-blue-600 border border-blue-600 px-4 py-2 rounded-lg flex items-center gap-2">
               <Sparkles size={20} />
               Get started
             </button>
-            <button className="text-white bg-gradient-to-t from-neutral-900 to-neutral-800 shadow-md shadow-neutral-900 border border-neutral-900 px-4 py-2 rounded-lg flex items-center gap-2">
+            <button className="text-white bg-linear-to-t from-neutral-900 to-neutral-800 shadow-md shadow-neutral-900 border border-neutral-900 px-4 py-2 rounded-lg flex items-center gap-2">
               Watch demo
               <Play size={20} />
             </button>

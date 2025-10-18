@@ -10,14 +10,14 @@ import {
 const items = [
   {
     id: 1,
-    classname: 'bg-gradient-to-l from-red-400 to-orange-500',
+    classname: 'bg-linear-to-l from-red-400 to-orange-500',
   },
   {
-    classname: 'bg-gradient-to-r from-blue-300 to-blue-800',
+    classname: 'bg-linear-to-r from-blue-300 to-blue-800',
     id: 2,
   },
   {
-    classname: 'bg-gradient-to-tl from-amber-500 to-yellow-400',
+    classname: 'bg-linear-to-tl from-amber-500 to-yellow-400',
     id: 3,
   },
 ];
@@ -43,7 +43,7 @@ export default function index() {
           <DrawerContent>
             {!isDesktop && (
               <div className='flex justify-center w-full absolute bottom-1 left-0 '>
-                <div className=' w-16 h-[0.30rem] flex-shrink-0 rounded-full bg-gray-600 my-4' />
+                <div className=' w-16 h-[0.30rem] shrink-0 rounded-full bg-gray-600 my-4' />
               </div>
             )}
             <div className='container mx-auto  gap-4'>

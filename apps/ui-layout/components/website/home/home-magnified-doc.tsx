@@ -100,7 +100,7 @@ function HomeMagnifiedDocOneFile() {
                       <AppIcon mouseX={mouseX} src={app.icon} />
                     </TooltipTrigger>
                     <TooltipContent
-                      className='py-1 px-3 rounded-sm'
+                      className='py-1 px-3 rounded-xs'
                       sideOffset={8}
                     >
                       <p className='text-xs'>{app.name}</p>

@@ -106,9 +106,9 @@ export function NavigationMenuDemo() {
             "radix-motion-to-end:animate-exit-to-right",
           )}
         >
-          <div className="w-[37rem] l p-3">
+          <div className="w-148 l p-3">
             <a
-              className=' flex gap-2 mb-2  rounded-md bg-gradient-to-b from-muted/50 to-muted p-3 px-4 no-underline outline-none focus:shadow-md'
+              className=' flex gap-2 mb-2  rounded-md bg-linear-to-b from-muted/50 to-muted p-3 px-4 no-underline outline-hidden focus:shadow-md'
               href='/'
             >
               <div className='mb-2 mt-4 text-lg font-medium'>
@@ -164,10 +164,10 @@ export function NavigationMenuDemo() {
       <NavigationMenuPrimitive.Indicator
         className={cn(
           "z-10",
-          "top-[100%] flex items-end justify-center h-2 overflow-hidden",
+          "top-full flex items-end justify-center h-2 overflow-hidden",
           "radix-state-visible:animate-fade-in",
           "radix-state-hidden:animate-fade-out",
-          "transition-[width_transform] duration-[250ms] ease-[ease]",
+          "transition-[width_transform] duration-250 ease-[ease]",
         )}
       >
         <div className="top-1 relative bg-white  w-2 h-2 rotate-45" />
@@ -177,7 +177,7 @@ export function NavigationMenuDemo() {
     <div
       className={cn(
         "absolute flex justify-center",
-        "w-[140%] left-[-20%] top-[100%]",
+        "w-[140%] left-[-20%] top-full",
       )}
       style={{
         perspective: "2000px",
@@ -201,7 +201,7 @@ export function NavigationMenuDemo() {
     //       <NavigationMenuTrigger>Components </NavigationMenuTrigger>
     //       <NavigationMenuContent className='dark:bg-black bg-white p-6 '>
     //         <a
-    //           className=' flex gap-2 mb-2  rounded-md bg-gradient-to-b from-muted/50 to-muted p-3 px-4 no-underline outline-none focus:shadow-md'
+    //           className=' flex gap-2 mb-2  rounded-md bg-linear-to-b from-muted/50 to-muted p-3 px-4 no-underline outline-hidden focus:shadow-md'
     //           href='/'
     //         >
     //           <div className='mb-2 mt-4 text-lg font-medium'>
@@ -272,7 +272,7 @@ const ListItem = React.forwardRef<
         <a
           ref={ref}
           className={cn(
-            'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+            'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-hidden transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
             className
           )}
           {...props}

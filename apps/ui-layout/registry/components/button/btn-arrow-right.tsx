@@ -1,7 +1,7 @@
 const ButtonArrowRight = () => {
   return (
     <>
-      <button className='group relative inline-flex h-[calc(48px+8px)] w-[200px] bg-gradient-to-r dark:from-[#070e41] dark:to-[#141d57] from-[#c0c7ff] to-[#4c64ff] border-2 border-[#656fe2]  items-center justify-center rounded-full  py-1 pl-6 pr-14 font-medium text-neutral-50'>
+      <button className='group relative inline-flex h-[calc(48px+8px)] w-[200px] bg-linear-to-r dark:from-[#070e41] dark:to-[#141d57] from-[#c0c7ff] to-[#4c64ff] border-2 border-[#656fe2]  items-center justify-center rounded-full  py-1 pl-6 pr-14 font-medium text-neutral-50'>
         <span className='z-10 pr-2'>Contact Us</span>
         <div className='absolute right-1 inline-flex h-12 w-12 items-center justify-end rounded-full dark:bg-[#5052e7] bg-[#2b2da0] transition-[width] group-hover:w-[calc(100%-8px)]'>
           <div className='mr-3.5 flex items-center justify-center'>

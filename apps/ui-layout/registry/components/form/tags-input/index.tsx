@@ -14,7 +14,7 @@ export default function App() {
           {tags.map((tag) => (
             <span
               key={tag}
-              className='px-2 py-1 text-sm text-gray-700 bg-gray-200 rounded'
+              className='px-2 py-1 text-sm text-gray-700 bg-gray-200 rounded-sm'
             >
               {tag}
             </span>

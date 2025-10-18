@@ -74,7 +74,7 @@ export function Input({
           ref={inputRef}
           className={cn(
             showCaret ? 'caret-primary' : 'caret-transparent',
-            'spin-hide w-[1.5em] bg-transparent py-2 text-center font-[inherit] text-transparent outline-none appearance-none'
+            'spin-hide w-[1.5em] bg-transparent py-2 text-center font-[inherit] text-transparent outline-hidden appearance-none'
           )}
           // Make sure to disable kerning, to match NumberFlow:
           style={{ fontKerning: 'none' }}

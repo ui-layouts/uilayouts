@@ -6,7 +6,7 @@ function BlockOne() {
   const containerRef = useRef<HTMLDivElement>(null);
   return (
     <div
-      className='h-[550px] overflow-hidden dark:bg-black bg-white before:absolute before:w-full before:h-full before:bg-gradient-to-t  dark:before:from-[#070707] before:from-[#dbdbdb] before:z-[1]  w-full  relative'
+      className='h-[550px] overflow-hidden dark:bg-black bg-white before:absolute before:w-full before:h-full before:bg-linear-to-t  dark:before:from-[#070707] before:from-[#dbdbdb] before:z-1  w-full  relative'
       ref={containerRef}
     >
       <Blocks

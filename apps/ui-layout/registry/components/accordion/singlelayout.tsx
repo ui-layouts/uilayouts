@@ -14,7 +14,7 @@ function index() {
       <Accordion defaultValue={['item-1', 'item-2']}>
         <AccordionItem value='item-1'>
           <AccordionHeader customIcon >
-            What is a UI component?  <Plus className='group-data-[active]:rotate-45 transition-transform'/>
+            What is a UI component?  <Plus className='group-data-active:rotate-45 transition-transform'/>
           </AccordionHeader>
           <AccordionPanel>
             A UI (User Interface) component is a modular, reusable element that
@@ -25,7 +25,7 @@ function index() {
         </AccordionItem>
         <AccordionItem value='item-2'>
           <AccordionHeader customIcon>
-            Why are UI components important? <Plus className='group-data-[active]:rotate-45 transition-transform'/>
+            Why are UI components important? <Plus className='group-data-active:rotate-45 transition-transform'/>
           </AccordionHeader>
           <AccordionPanel>
             UI components promote consistency, efficiency, and scalability in
@@ -36,7 +36,7 @@ function index() {
         </AccordionItem>
         <AccordionItem value='item-3'>
           <AccordionHeader customIcon>
-            Key characteristics of UI components?  <Plus className='group-data-[active]:rotate-45 transition-transform'/>
+            Key characteristics of UI components?  <Plus className='group-data-active:rotate-45 transition-transform'/>
           </AccordionHeader>
           <AccordionPanel>
             Well-designed UI components should be modular, customizable, and

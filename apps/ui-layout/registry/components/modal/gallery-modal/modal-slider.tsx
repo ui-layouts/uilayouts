@@ -189,7 +189,7 @@ export const SliderModal = ({ item, uniqueId, itemArr }: ImageModalProps) => {
                             width={400}
                             height={400}
                             alt='img'
-                            className='sm:w-28 w-52 h-16 object-cover cursor-pointer relative z-[2] rounded-md pointer-events-none'
+                            className='sm:w-28 w-52 h-16 object-cover cursor-pointer relative z-2 rounded-md pointer-events-none'
                           />
                           {itemData?.id === newItem?.id && (
                             <motion.div

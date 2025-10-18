@@ -42,7 +42,7 @@ export async function PreCode({
 
   if (showCompilerTab) {
     return (
-      <div className={cn('relative z-[2]', cssclass)}>
+      <div className={cn('relative z-2', cssclass)}>
         {!metahide && tshighlighted.meta && (
           <div className='text-left text-sm px-2 py-1 mt-3 border-dotted rounded-md bg-primary-foreground w-fit'>
             {tshighlighted.meta}
@@ -109,7 +109,7 @@ export async function PreCode({
   // console.log(tshighlighted.meta);
 
   return (
-    <div className='relative z-[2]'>
+    <div className='relative z-2'>
       {!metahide && tshighlighted.meta && (
         <div className='text-left text-sm px-2 py-1 mt-3 border-dotted rounded-md bg-primary-foreground w-fit'>
           {tshighlighted.meta}
@@ -118,7 +118,7 @@ export async function PreCode({
 
       <>
         <Tabs defaultValue={'typescript'} className='relative'>
-          <TabsList className='absolute dark:bg-zinc-800 right-14 top-2 z-[1] h-9 p-0.5 border dark:border-background '>
+          <TabsList className='absolute dark:bg-zinc-800 right-14 top-2 z-1 h-9 p-0.5 border dark:border-background '>
             <TabsTrigger value={'typescript'} className='h-8'>
               Ts
             </TabsTrigger>

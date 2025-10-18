@@ -94,7 +94,7 @@ const SocialShareModal = () => {
           </button>
 
           <div className='p-8 text-center'>
-            <div className='mx-auto w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full flex items-center justify-center mb-1'>
+            <div className='mx-auto w-16 h-16 bg-linear-to-r from-orange-500 to-orange-600 rounded-full flex items-center justify-center mb-1'>
               <Heart className='w-8 h-8 fill-white text-white' />
             </div>
 
@@ -114,7 +114,7 @@ const SocialShareModal = () => {
                 onClick={() => handleShare('twitter')}
                 className='w-full flex items-center justify-start gap-3 bg-black text-white py-4 px-4 rounded-lg hover:bg-gray-800 transition-all duration-200 hover:scale-105 group'
               >
-                <Twitter size={22} className='flex-shrink-0 fill-white' />
+                <Twitter size={22} className='shrink-0 fill-white' />
                 <div className='text-left flex-1'>
                   <div className='font-medium'>Share on X</div>
                   <div className='text-xs text-gray-300 opacity-75 group-hover:opacity-100 transition-opacity'>
@@ -127,7 +127,7 @@ const SocialShareModal = () => {
                 onClick={() => handleShare('linkedin')}
                 className='w-full flex items-center justify-start gap-3 bg-blue-600 text-white py-4 px-4 rounded-lg hover:bg-blue-700 transition-all duration-200 hover:scale-105 group'
               >
-                <Linkedin size={22} className='flex-shrink-0 fill-white' />
+                <Linkedin size={22} className='shrink-0 fill-white' />
                 <div className='text-left flex-1'>
                   <div className='font-medium'>Share on LinkedIn</div>
                   <div className='text-xs text-blue-200 opacity-75 group-hover:opacity-100 transition-opacity'>
@@ -140,7 +140,7 @@ const SocialShareModal = () => {
                 onClick={() => handleShare('github')}
                 className='w-full flex items-center justify-start gap-3 bg-gray-800 text-white py-4 px-4 rounded-lg hover:bg-gray-700 transition-all duration-200 hover:scale-105 group'
               >
-                <Github size={22} className='flex-shrink-0 fill-white' />
+                <Github size={22} className='shrink-0 fill-white' />
                 <div className='text-left flex-1'>
                   <div className='font-medium'>Star on GitHub</div>
                   <div className='text-xs text-gray-300 opacity-75 group-hover:opacity-100 transition-opacity'>

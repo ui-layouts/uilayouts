@@ -151,7 +151,7 @@ function Others1() {
             <a
               href="https://discord.gg/4bySmj75"
               target="_blank"
-              className="dark:bg-black/20 bg-white/20 border dark:border-black/20 border-white/20 w-12 rounded-md h-11 flex-shrink-0 grid place-content-center"
+              className="dark:bg-black/20 bg-white/20 border dark:border-black/20 border-white/20 w-12 rounded-md h-11 shrink-0 grid place-content-center"
               rel="noreferrer"
             >
               <svg
@@ -171,7 +171,7 @@ function Others1() {
             <a
               href="http://github.com/naymurdev/uilayout"
               target="_blank"
-              className="dark:bg-black/20 bg-white/20 border dark:border-black/20 border-white/20 w-12 rounded-md h-11 flex-shrink-0 grid place-content-center"
+              className="dark:bg-black/20 bg-white/20 border dark:border-black/20 border-white/20 w-12 rounded-md h-11 shrink-0 grid place-content-center"
               rel="noreferrer"
             >
               <svg
@@ -204,7 +204,7 @@ function Others1() {
               customVariants={revealVariants}
               className="flex md:flex-row flex-col gap-4 justify-between mb-4 mt-0 rounded-lg dark:from-black/40 to-blue-100 to-100% from-zinc-100 border backdrop-blur-md p-6 2xl:w-[90%] mx-auto relative"
             >
-              <div className="absolute bottom-0 left-0 right-0 top-0 z-10 w-full h-full bg-[repeating-linear-gradient(135deg,#475aff33_0px_1px,transparent_1px_15px)] [mask-image:radial-gradient(ellipse_50%_135%_at_93%_0%,#000_55%,transparent_100%)]"></div>
+              <div className="absolute bottom-0 left-0 right-0 top-0 z-10 w-full h-full bg-[repeating-linear-gradient(135deg,#475aff33_0px_1px,transparent_1px_15px)] mask-[radial-gradient(ellipse_50%_135%_at_93%_0%,#000_55%,transparent_100%)]"></div>
               <div className="space-y-2 rounded-md dark:text-white text-black">
                 <span className="text-sm text-gray-600">blocks/FAQs</span>
                 <h1

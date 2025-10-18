@@ -71,7 +71,7 @@ export function MediaModal({ imgSrc, videoSrc, className }: IMediaModal) {
                   autoPlay
                   muted
                   loop
-                  className='h-full w-full object-cover  rounded-sm'
+                  className='h-full w-full object-cover  rounded-xs'
                 >
                   <source src={videoSrc!} type='video/mp4' />
                 </video>
@@ -85,7 +85,7 @@ export function MediaModal({ imgSrc, videoSrc, className }: IMediaModal) {
             <>
               <motion.div
                 key={`backdrop-${uniqueId}`}
-                className='fixed inset-0 h-full w-full z-50  dark:bg-black/25 bg-white/95 backdrop-blur-sm '
+                className='fixed inset-0 h-full w-full z-50  dark:bg-black/25 bg-white/95 backdrop-blur-xs '
                 variants={{ open: { opacity: 1 }, closed: { opacity: 0 } }}
                 initial='closed'
                 animate='open'
@@ -129,7 +129,7 @@ export function MediaModal({ imgSrc, videoSrc, className }: IMediaModal) {
                         muted
                         loop
                         controls
-                        className='h-full w-full object-cover  rounded-sm'
+                        className='h-full w-full object-cover  rounded-xs'
                       >
                         <source src={videoSrc!} type='video/mp4' />
                       </video>

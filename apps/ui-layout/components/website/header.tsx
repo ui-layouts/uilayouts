@@ -72,7 +72,7 @@ function Header() {
             <a
               target='_blank'
               href='https://x.com/naymur_dev'
-              className='border flex-shrink-0 bg-primary  text-primary-foreground text-2xl w-12 grid place-content-center rounded-md'
+              className='border shrink-0 bg-primary  text-primary-foreground text-2xl w-12 grid place-content-center rounded-md'
             >
               <svg
                 width='120'
@@ -87,7 +87,7 @@ function Header() {
             </a>
 
             <ThemeSwitch
-              className='dark:bg-zinc-900 dark:bg-neutral-800 bg-neutral-50 border w-12 rounded-md h-11 flex-shrink-0
+              className='dark:bg-zinc-900 dark:bg-neutral-800 bg-neutral-50 border w-12 rounded-md h-11 shrink-0
           '
             />
           </div>

@@ -14,7 +14,7 @@ import { motion } from 'motion/react'
 
 export const AboutSections1: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+    <div className="min-h-screen bg-linear-to-br from-slate-50 to-blue-50">
       <section className="border rounded-xl overflow-hidden">
         <div className="bg-gray-50 px-6 py-3 border-b">
           <h3 className="font-semibold text-gray-900">Mission / Vision</h3>

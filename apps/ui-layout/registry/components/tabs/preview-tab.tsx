@@ -39,7 +39,7 @@ function index() {
                       },
                     }}
                     layoutId={'magnetic'}
-                    className='absolute w-full h-full left-0 top-0 bg-[conic-gradient(from_90deg_at_50%_50%,#8494ff_0%,#3749be_50%,#7d8efc_100%)] rounded-md  z-[1] tab-shadow'
+                    className='absolute w-full h-full left-0 top-0 bg-[conic-gradient(from_90deg_at_50%_50%,#8494ff_0%,#3749be_50%,#7d8efc_100%)] rounded-md  z-1 tab-shadow'
                   />
                 )}
               </motion.button>
@@ -48,7 +48,7 @@ function index() {
         })}
       </div>
 
-      <div className='border bg-white/10 dark:bg-black/40 backdrop-blur-sm rounded-md p-4  relative'>
+      <div className='border bg-white/10 dark:bg-black/40 backdrop-blur-xs rounded-md p-4  relative'>
         <TabsProvider
           defaultValue={'design'}
           wobbly={checkEffect === 'wobbly' ? true : false}
@@ -57,22 +57,22 @@ function index() {
           <div className='flex justify-center mt-2'>
             <div className='flex items-center w-fit dark:bg-[#1d2025] bg-gray-200 p-1 dark:text-white text-black rounded-md border'>
               <TabsBtn value='design'>
-                <span className='relative z-[2] uppercase sm:text-base text-xs'>
+                <span className='relative z-2 uppercase sm:text-base text-xs'>
                   design
                 </span>
               </TabsBtn>
               <TabsBtn value='collaborate'>
-                <span className='relative z-[2] uppercase sm:text-base text-xs'>
+                <span className='relative z-2 uppercase sm:text-base text-xs'>
                   collaborate
                 </span>
               </TabsBtn>
               <TabsBtn value='share'>
-                <span className='relative z-[2] uppercase sm:text-base text-xs'>
+                <span className='relative z-2 uppercase sm:text-base text-xs'>
                   share
                 </span>
               </TabsBtn>
               <TabsBtn value='publish'>
-                <span className='relative z-[2] uppercase sm:text-base text-xs'>
+                <span className='relative z-2 uppercase sm:text-base text-xs'>
                   publish
                 </span>
               </TabsBtn>

@@ -44,11 +44,11 @@ export const callout: AnnotationHandler = {
         {children}
         <div
           style={{ minWidth: `${column + 4}ch` }}
-          className='w-fit border dark:bg-neutral-800 bg-neutral-50 border-current rounded px-2 relative -ml-[1ch] mt-1 whitespace-break-spaces'
+          className='w-fit border dark:bg-neutral-800 bg-neutral-50 border-current rounded-sm px-2 relative -ml-[1ch] mt-1 whitespace-break-spaces'
         >
           <div
             style={{ left: `${column}ch` }}
-            className='absolute border-l border-t border-current w-2 h-2 rotate-45 -translate-y-1/2 -top-[1px] dark:bg-neutral-800 bg-neutral-50'
+            className='absolute border-l border-t border-current w-2 h-2 rotate-45 -translate-y-1/2 -top-px dark:bg-neutral-800 bg-neutral-50'
           />
           {annotation.query}
         </div>
