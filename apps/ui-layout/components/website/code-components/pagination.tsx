@@ -33,7 +33,7 @@ export function ComponentPagination({ doc }: any) {
       {nextComponent && (
         <Link
           href={nextComponent.href}
-          className=' sm:text-base text-xs relative inline-flex h-12 no-underline items-center justify-center overflow-hidden rounded-md dark:bg-zinc-900 bg-gray-100   border px-3 font-medium dark:text-white text-black transition-all duration-200 hover:translate-x-[-3px] translate-x-[0px] hover:translate-y-[-3px] translate-y-[0px] hover:[box-shadow:5px_5px_rgb(28_39_56)] dark:hover:[box-shadow:5px_5px_rgb(229_231_235)] '
+          className='ml-auto sm:text-base text-xs relative inline-flex h-12 no-underline items-center justify-center overflow-hidden rounded-md dark:bg-zinc-900 bg-gray-100   border px-3 font-medium dark:text-white text-black transition-all duration-200 hover:translate-x-[-3px] translate-x-[0px] hover:translate-y-[-3px] translate-y-[0px] hover:[box-shadow:5px_5px_rgb(28_39_56)] dark:hover:[box-shadow:5px_5px_rgb(229_231_235)] '
         >
           {nextComponent.name}
           <ChevronsRight className='ml-1 h-4 w-4' />
