@@ -1,15 +1,19 @@
 'use client';
 
+import React, { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
 import { MoonIcon, SunIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 export default function ThemeSwitch({ className }: { className?: string }) {
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
 
   const toggleTheme = () => {
-    // Toggle between light and dark themes
-    setTheme(theme === 'light' ? 'dark' : 'light');
+    if (!mounted) return;
+    setTheme(resolvedTheme === 'light' ? 'dark' : 'light');
   };
 
   return (
@@ -22,11 +26,13 @@ export default function ThemeSwitch({ className }: { className?: string }) {
       aria-label='Toggle theme'
       type='button'
     >
-      {theme === 'light' ? (
-        <SunIcon className='h-5 w-5' />
-      ) : (
-        <MoonIcon className='h-5 w-5' />
-      )}
+      {mounted ? (
+        resolvedTheme === 'light' ? (
+          <SunIcon className='h-5 w-5' />
+        ) : (
+          <MoonIcon className='h-5 w-5' />
+        )
+      ) : null}
       <span className='sr-only'>Toggle theme</span>
     </button>
   );
