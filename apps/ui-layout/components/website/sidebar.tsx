@@ -14,7 +14,6 @@ import {
 } from 'lucide-react';
 import { IRecentPage, useRecentPagesStore } from '@/hooks/useZustStore';
 import { useTheme } from 'next-themes';
-import { DocsNavigationCategories } from '@/configs/docs';
 import {
   Tooltip,
   TooltipProvider,
@@ -22,7 +21,7 @@ import {
   TooltipTrigger,
 } from '@radix-ui/react-tooltip';
 import { useMediaQuery } from '@/hooks/use-media-query';
-import { DOCS_CATEGORY_GROUP } from '@/const/docs';
+import { groupedDocsNavigationCategories } from '@/lib/grouped-docs';
 
 export const basePath = [
   {
@@ -47,20 +46,6 @@ function DocsSidebar() {
   const { addVisitedPage, getRecentPages, removeAllRecentPages } =
     useRecentPagesStore();
   const [recentPages, setRecentPages] = useState<IRecentPage[]>([]);
-  const groupedComponents = DocsNavigationCategories.reduce(
-    (acc: Record<string, any[]>, component) => {
-      const group = component.group || null;
-      // @ts-ignore
-      if (!acc[group]) {
-        // @ts-ignore
-        acc[group] = [];
-      }
-      // @ts-ignore
-      acc[group].push(component);
-      return acc;
-    },
-    {}
-  );
 
   const handleRemoveAllRecentData = () => {
     removeAllRecentPages();
@@ -146,7 +131,7 @@ function DocsSidebar() {
                   </ul>
                 </div>
               )}
-              {Object.entries(groupedComponents).map(
+              {Object.entries(groupedDocsNavigationCategories).map(
                 ([group, items], index) => (
                   <ItemsWithName
                     group={group}

@@ -1,20 +1,22 @@
 import Link from 'next/link';
-import { DocsNavigationCategories } from '@/configs/docs';
 import { ChevronsLeft, ChevronsRight } from 'lucide-react';
+import { groupedDocsNavigationCategories } from '@/lib/grouped-docs';
 
 export function ComponentPagination({ doc }: any) {
-  const currentIndex = DocsNavigationCategories.findIndex(
+
+  const flatDocsNavigationCategories = Object.values(groupedDocsNavigationCategories).flat();
+  const currentIndex = flatDocsNavigationCategories.findIndex(
     (comp) => comp.href === `/components/${doc.slug}`
   );
 
   // Get the previous component, if it exists
   const previousComponent =
-    currentIndex > 0 ? DocsNavigationCategories[currentIndex - 1] : null;
+    currentIndex > 0 ? flatDocsNavigationCategories[currentIndex - 1] : null;
 
   // Get the next component, if it exists
   const nextComponent =
-    currentIndex < DocsNavigationCategories.length - 1
-      ? DocsNavigationCategories[currentIndex + 1]
+    currentIndex < flatDocsNavigationCategories.length - 1
+      ? flatDocsNavigationCategories[currentIndex + 1]
       : null;
 
   return (
