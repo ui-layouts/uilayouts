@@ -1,4 +1,6 @@
 @import 'tailwindcss';
+@import "./token.css";
+@import "./code-hike.css";
 
 @source '../../../packages/ui/src/**/*.{js,ts,jsx,tsx}';
 @source '../../../packages/blocks/src/**/*.{js,ts,jsx,tsx}';
@@ -18,7 +20,6 @@
   --font-mono: var(--font-geist-mono);
 
   --grid-template-columns-14: repeat(14, minmax(0, 1fr));
-
   --grid-column-span-14: span 14 / span 14;
 
   --grid-column-start-13: 13;
@@ -61,22 +62,46 @@
   --grid-row-end-26: 26;
   --grid-row-end-27: 27;
 
+  /* semantic tokens (computed from primitives in token.css) */
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
   --color-background: hsl(var(--background));
-  --color-codebg: var(--codebg);
   --color-foreground: hsl(var(--foreground));
 
   --color-primary: hsl(var(--primary));
   --color-primary-foreground: hsl(var(--primary-foreground));
-  --color-primary-base: var(--primary-base);
+  --color-primary-base: hsl(var(--primary-base));
 
   --color-muted: hsl(var(--muted));
   --color-muted-foreground: hsl(var(--muted-foreground));
 
   --color-accent: hsl(var(--accent));
   --color-accent-foreground: hsl(var(--accent-foreground));
+
+  /* alpha colors */
+  --color-codebg: hsl(var(--codebg) / var(--codebg-a));
+
+  /* UI extras */
+  --color-editor-bg: hsl(var(--background));
+  --color-gutter-bg: hsl(var(--background));
+  --color-scrollbar: hsl(var(--foreground) / 0.3);
+
+  /* Decorative tokens (hero & banners) */
+  --color-decorative-1: hsl(230 100% 60%);
+  --color-decorative-2: hsl(235 100% 68%);
+
+  /* Rainbow banner 1 */
+  --color-rainbow-1-start: hsl(220 100% 50% / 0.5);
+  --color-rainbow-1-mid:   hsl(320 100% 50% / 0.77);
+  --color-rainbow-1-end:   hsl(20  100% 50% / 0.4);
+  --color-rainbow-1-via:   hsl(90  100% 63% / 0.4);
+
+  /* Rainbow banner 2 */
+  --color-rainbow-2-start: hsl(0   100% 73% / 0.5);
+  --color-rainbow-2-mid:   hsl(198 100% 57% / 0.4);
+  --color-rainbow-2-end:   hsl(255 100% 50% / 0.51);
+  --color-rainbow-2-via:   hsl(20  100% 55% / 0.56);
 
   --animate-border: border 4s linear infinite;
   --animate-infinite-scroll: infinite-scroll 25s linear infinite;
@@ -114,21 +139,9 @@
   }
 }
 
-/*
-  The default border color has changed to `currentcolor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
 @layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentcolor);
+  *, ::after, ::before, ::backdrop, ::file-selector-button {
+    border-color: var(--color-border);
   }
 }
 
@@ -192,10 +205,13 @@
     radial-gradient(circle at top center, white, transparent);
   mask-composite: intersect;
   animation: moving-banner 16s linear infinite reverse;
-  --start: rgba(0, 87, 255, 0.5);
-  --mid: rgba(255, 0, 166, 0.77);
-  --end: rgba(255, 77, 0, 0.4);
-  --via: rgba(164, 255, 68, 0.4);
+
+  /* decorative tokens */
+  --start: var(--color-rainbow-1-start);
+  --mid:   var(--color-rainbow-1-mid);
+  --end:   var(--color-rainbow-1-end);
+  --via:   var(--color-rainbow-1-via);
+
   background-image: repeating-linear-gradient(
     60deg,
     var(--end),
@@ -222,10 +238,13 @@
     radial-gradient(circle at top center, white, transparent);
   mask-composite: intersect;
   animation: moving-banner 20s linear infinite;
-  --start: rgba(255, 120, 120, 0.5);
-  --mid: rgba(36, 188, 255, 0.4);
-  --end: rgba(64, 0, 255, 0.51);
-  --via: rgba(255, 89, 0, 0.56);
+
+  /* decorative tokens */
+  --start: var(--color-rainbow-2-start);
+  --mid:   var(--color-rainbow-2-mid);
+  --end:   var(--color-rainbow-2-end);
+  --via:   var(--color-rainbow-2-via);
+
   background-image: repeating-linear-gradient(
     45deg,
     var(--end),
@@ -309,7 +328,7 @@
   html {
     -webkit-tap-highlight-color: transparent;
     scrollbar-gutter: stable;
-    scrollbar-color: var(--scrollbar-color) transparent;
+    scrollbar-color: var(--color-scrollbar) transparent; /* 토큰 사용 */
     scrollbar-width: thin;
     scroll-behavior: smooth;
     font-size: 90%;
@@ -318,13 +337,6 @@
     overflow-x: hidden;
   }
 
-  :root {
-    --scrollbar-color: rgba(0, 0, 0, 0.3);
-  }
-
-  :root.dark {
-    --scrollbar-color: rgba(255, 255, 255, 0.3);
-  }
   .scrollbar-none {
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -334,137 +346,10 @@
     display: none;
   }
 }
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-    --radius: 0.5rem;
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --codebg: #f1f1f1f0;
-    --primary-base: #fcfcfc;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --ch-0: light;
-    --ch-1: #6e7781;
-    --ch-2: #0550ae;
-    --ch-3: #953800;
-    --ch-4: #24292f;
-    --ch-5: #8250df;
-    --ch-6: #116329;
-    --ch-7: #cf222e;
-    --ch-8: #0a3069;
-    --ch-9: #82071e;
-    --ch-10: #f6f8fa;
-    --ch-11: #ffebe9;
-    --ch-12: #dafbe1;
-    --ch-13: #ffd8b5;
-    --ch-14: #eaeef2;
-    --ch-15: #57606a;
-    --ch-16: #ffffff;
-    --ch-17: #eaeef280;
-    --ch-18: #fdff0033;
-    --ch-19: #1a85ff;
-    --ch-20: #add6ff;
-    --ch-21: #0969da;
-    --ch-22: #f8fafc;
-    --ch-23: #d1d5db;
-    --ch-24: #8c959f;
-    --ch-25: #afb8c133;
-    --ch-26: #ffffffe6;
-
-    /* Syntax Highlighting Colors (Light Mode) */
-    --token-null: #000000;
-    --token-operator: #000000;
-    --token-boolean: #000000;
-    --token-number: #000000;
-    --token-property: #fdcc59;
-    --token-tag: #f7801f;
-    --token-punctuation: #000000;
-    --token-template-string: #5bf8ee;
-    --token-script: #ffcb8b;
-    --token-selector: #c85e7c;
-    --token-attr-name: #b392f0;
-    --token-attr-value: #008422;
-    --token-function-variable: #b392f0;
-    --token-black: #000000;
-  }
-
-  .dark {
-    --background: 228 86% 5%;
-    --foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --border: 0 0% 0%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --radius: 0.5rem;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --codebg: #030608;
-    --primary-base: #0a0a0a;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --ch-0: dark;
-    --ch-1: #a1a1aa;
-    --ch-2: #7dd3fc;
-    --ch-3: #fb923c;
-    --ch-4: #cbd5e1;
-    --ch-5: #d8b4fe;
-    --ch-6: #86efac;
-    --ch-7: #f87171;
-    --ch-8: #93c5fd;
-    --ch-9: #fca5a5;
-    --ch-10: #eff6ff;
-    --ch-11: #450a0a;
-    --ch-12: #052e16;
-    --ch-13: #451a03;
-    --ch-14: #111827;
-    --ch-15: #a1a1aa;
-    --ch-16: #0a0a0a;
-    --ch-17: #6b72801a;
-    --ch-18: #ffffff0b;
-    --ch-19: #3b82f6;
-    --ch-20: #155e75;
-    --ch-21: #2563eb;
-    --ch-22: #171717;
-    --ch-23: #404040;
-    --ch-24: #6b7280;
-    --ch-25: #6b728066;
-    --ch-26: #171717e6;
-
-    /* Syntax Highlighting Colors (Dark Mode) */
-    --token-null: #ffffff;
-    --token-operator: #ffffff;
-    --token-boolean: #ffffff;
-    --token-number: #ffffff;
-    --token-property: #fdcc59;
-    --token-tag: #66befd;
-    --token-punctuation: #ffffff;
-    --token-template-string: #5bf8ee;
-    --token-script: #ffcb8b;
-    --token-selector: #c85e7c;
-    --token-attr-name: #b392f0;
-    --token-attr-value: #52b7ff;
-    --token-function-variable: #b392f0;
-    --token-black: #ffffff;
-  }
-}
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply dark:bg-black bg-zinc-50 text-foreground;
-  }
+  * { @apply border-border; }
+  body { @apply bg-background text-foreground; } /* 다크 강제 유틸 제거 */
 }
 
 @layer utilities {
@@ -479,7 +364,7 @@
 
   .hero-gradient1 {
     --border-bottom-width: 141px;
-    --border-color: #1640ff;
+    --border-color: var(--color-decorative-1);
     --border-left-width: 141px;
     --border-right-width: 141px;
     --border-style: solid;
@@ -497,7 +382,7 @@
 
   .hero-gradient2 {
     --border-bottom-width: 141px;
-    --border-color: #6160ff;
+    --border-color: var(--color-decorative-2);
     --border-left-width: 141px;
     --border-right-width: 141px;
     --border-style: solid;
@@ -640,12 +525,11 @@
     border-radius: 0.3em;
   }
 
-  html.dark .cm-editor {
-    background-color: #000000 !important;
+  .cm-editor {
+    background-color: var(--color-editor-bg) !important;
   }
-
-  html.dark .cm-gutters {
-    background-color: #000000;
+  .cm-gutters {
+    background-color: var(--color-gutter-bg);
     backdrop-filter: blur(5px);
   }
 }
