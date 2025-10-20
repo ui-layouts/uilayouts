@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "unsplashGrid",
+  "type": "registry:component",
+  "dependencies": [
+    "motion"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "./registry/components/grid/unsplash-grid.tsx",
+      "content": "'use client';\r\n// inspired by tom is loading\r\nimport React, { useRef, useState } from 'react';\r\nimport { motion, useInView } from 'motion/react';\r\nimport { items } from '@/components/website/constant';\r\n\r\nfunction UnsplashGrid() {\r\n  const [selected, setSelected] = useState(null);\r\n\r\n  return (\r\n    <>\r\n      <div className='container mx-auto p-4 '>\r\n        <div className='columns-2 md:columns-3 2xl:columns-4 gap-4'>\r\n          <>\r\n            {items.map((item, index) => (\r\n              <ImageItem\r\n                key={item.id}\r\n                item={item}\r\n                index={index}\r\n                setSelected={setSelected}\r\n              />\r\n            ))}\r\n          </>\r\n        </div>\r\n      </div>\r\n    </>\r\n  );\r\n}\r\ninterface Item {\r\n  id: number;\r\n  url: string;\r\n  title: string;\r\n}\r\n\r\ninterface ImageItemProps {\r\n  item: Item;\r\n  index: number | string;\r\n  setSelected: any;\r\n}\r\n\r\nfunction ImageItem({ item, index, setSelected }: ImageItemProps) {\r\n  const ref = useRef(null);\r\n  const isInView = useInView(ref, { once: true });\r\n\r\n  return (\r\n    <motion.figure\r\n      whileTap={{ scale: 0.9 }}\r\n      initial='hidden'\r\n      animate={isInView && 'visible'}\r\n      ref={ref}\r\n      className=\"inline-block group w-full rounded-md  relative dark:bg-black bg-white overflow-hidden before:absolute before:top-0 before:content-[''] before:h-full before:w-full hover:before:bg-linear-to-t dark:before:from-gray-900  before:from-gray-200/90 before:from-5% before:to-transparent before:to-90% cursor-pointer\"\r\n      onClick={() => setSelected(item)}\r\n    >\r\n      <motion.img\r\n        layoutId={`card-${item.id}`}\r\n        whileHover={{ scale: 1.025 }}\r\n        src={item.url}\r\n        className='w-full bg-base-100 shadow-xl image-full cursor-pointer'\r\n      />\r\n      <div className='flex flex-wrap mt-2 absolute bottom-0 left-0 p-2 group-hover:opacity-100 opacity-0 font-semibold '>\r\n        <h1>{item.title}</h1>\r\n      </div>\r\n    </motion.figure>\r\n  );\r\n}\r\n\r\nexport default UnsplashGrid;\r\n",
+      "type": "registry:component"
+    }
+  ]
+}

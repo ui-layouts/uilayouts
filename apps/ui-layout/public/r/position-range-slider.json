@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "position-range-slider",
+  "type": "registry:component",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "./registry/components/form/slider/position-range-slider.tsx",
+      "content": "'use client';\r\nimport React, { useState } from 'react';\r\nimport { DualRangeSlider } from '@/components/ui/slider';\r\n\r\nexport default function index() {\r\n  const [celPer, setCelPer] = useState(70);\r\n  const [values, setValues] = useState([0, 100]);\r\n  return (\r\n    <>\r\n      <div className=' w-3/5 mx-auto space-y-20 py-20'>\r\n        <DualRangeSlider\r\n          label={() => <>$</>}\r\n          lableContenPos={'left'}\r\n          value={values}\r\n          onValueChange={setValues}\r\n          min={0}\r\n          max={100}\r\n          step={1}\r\n        />\r\n\r\n        <DualRangeSlider\r\n          label={() => <>℃</>}\r\n          value={[celPer]}\r\n          labelPosition='bottom'\r\n          onValueChange={([celPer]) => celPer != null && setCelPer(celPer)}\r\n          min={0}\r\n          max={100}\r\n          step={1}\r\n        />\r\n      </div>\r\n    </>\r\n  );\r\n}\r\n",
+      "type": "registry:component"
+    }
+  ]
+}

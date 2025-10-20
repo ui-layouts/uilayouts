@@ -100,7 +100,7 @@ export async function CodeTabs(props: { tabs: RawCode[] }) {
 
           <Pre
             code={highlighted[i]}
-            className='m-0 text-xl rounded-xl bg-neutral-50 dark:bg-zinc-900'
+            className='m-0! text-xl rounded-xl bg-neutral-50 dark:bg-zinc-900'
           />
         </TabsContent>
       ))}

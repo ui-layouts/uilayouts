@@ -12,7 +12,7 @@ function index() {
   return (
     <>
       <Accordion defaultValue={['item-1', 'item-2']}>
-        <AccordionItem value='item-1'>
+        <AccordionItem value='item-1' className='w-full'>
           <AccordionHeader customIcon >
             What is a UI component?  <Plus className='group-data-active:rotate-45 transition-transform'/>
           </AccordionHeader>
@@ -23,7 +23,7 @@ function index() {
             checkboxes.
           </AccordionPanel>
         </AccordionItem>
-        <AccordionItem value='item-2'>
+        <AccordionItem value='item-2'  className='w-full'>
           <AccordionHeader customIcon>
             Why are UI components important? <Plus className='group-data-active:rotate-45 transition-transform'/>
           </AccordionHeader>
@@ -34,7 +34,7 @@ function index() {
             updates or modifications without affecting the entire system.
           </AccordionPanel>
         </AccordionItem>
-        <AccordionItem value='item-3'>
+        <AccordionItem value='item-3' className='w-full'>
           <AccordionHeader customIcon>
             Key characteristics of UI components?  <Plus className='group-data-active:rotate-45 transition-transform'/>
           </AccordionHeader>

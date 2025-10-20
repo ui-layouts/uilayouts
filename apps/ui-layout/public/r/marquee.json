@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "marquee",
+  "type": "registry:component",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "./components/ui/marquee.tsx",
+      "content": "import { cn } from '@/lib/utils'\r\n\r\ninterface MarqueeProps {\r\n  className?: string\r\n  reverse?: boolean\r\n  pauseOnHover?: boolean\r\n  children?: React.ReactNode\r\n  vertical?: boolean\r\n  repeat?: number\r\n  [key: string]: any\r\n}\r\n\r\nexport function Marquee({\r\n  className,\r\n  reverse,\r\n  pauseOnHover = false,\r\n  children,\r\n  vertical = false,\r\n  repeat = 4,\r\n  ...props\r\n}: MarqueeProps) {\r\n  return (\r\n    <div\r\n      {...props}\r\n      className={cn(\r\n        'group flex overflow-hidden p-2 [--duration:40s] [--gap:1rem] gap-(--gap)',\r\n        {\r\n          'flex-row': !vertical,\r\n          'flex-col': vertical,\r\n        },\r\n        className\r\n      )}\r\n    >\r\n      {Array(repeat)\r\n        .fill(0)\r\n        .map((_, i) => (\r\n          <div\r\n            key={i}\r\n            className={cn('flex shrink-0 justify-around gap-(--gap)', {\r\n              'animate-marquee flex-row': !vertical,\r\n              'animate-marquee-vertical flex-col': vertical,\r\n              'group-hover:[animation-play-state:paused]': pauseOnHover,\r\n              '[animation-direction:reverse]': reverse,\r\n            })}\r\n          >\r\n            {children}\r\n          </div>\r\n        ))}\r\n    </div>\r\n  )\r\n}\r\n",
+      "type": "registry:component"
+    }
+  ]
+}

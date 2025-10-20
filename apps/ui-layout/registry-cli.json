@@ -304,7 +304,87 @@
         }
       ]
     },
-
+    {
+      "name": "default-swapy",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["swapy"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/swapy/default-swapy.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/swapy.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "opacity-swapy",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["swapy"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/swapy/swapy-opacity.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/swapy.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "swapy-handle",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["swapy"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/swapy/swapy-handle.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/swapy.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "swapy-without-components",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["swapy"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/swapy/swapy-without-components.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/swapy.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "drag-items",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/drag/drag-items.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
     {
       "name": "blur-vignette",
       "type": "registry:component",
@@ -318,7 +398,6 @@
         }
       ]
     },
-
     {
       "name": "liquid-gradient",
       "type": "registry:component",
@@ -332,7 +411,45 @@
         }
       ]
     },
-
+    {
+      "name": "magnified-doc",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion", "@radix-ui/react-tooltip"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/magnified-doc.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "image-reveal",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/image-reveal/image-reveal.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "image-reveal2",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/image-reveal/index.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
     {
       "name": "slider",
       "type": "registry:component",
@@ -392,7 +509,7 @@
     },
 
     {
-      "name": "dateTime-input",
+      "name": "datetime-input",
       "type": "registry:component",
       "devDependencies": [],
       "dependencies": ["chrono-node", "react-day-picker", "lucide-react"],
@@ -428,6 +545,36 @@
       "dependencies": ["lucide-react"],
       "registryDependencies": [],
       "files": [
+        {
+          "path": "./components/ui/multi-selector.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/ui/button.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/ui/popover.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/ui/command.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+
+    {
+      "name": "multi-selector",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/multi-selector.tsx",
+          "type": "registry:component"
+        },
         {
           "path": "./components/website/ui/button.tsx",
           "type": "registry:component"
@@ -465,7 +612,7 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "./components/ui/main-spotlight.tsx",
+          "path": "./components/ui/spotlight.tsx",
           "type": "registry:component"
         }
       ]
@@ -496,7 +643,6 @@
         }
       ]
     },
-
     {
       "name": "scroll-text",
       "type": "registry:component",
@@ -524,9 +670,8 @@
         }
       ]
     },
-
     {
-      "name": "randomized-text",
+      "name": "randomized-text-effect",
       "type": "registry:component",
       "devDependencies": [],
       "dependencies": ["motion", "@motionone/utils"],
@@ -534,6 +679,19 @@
       "files": [
         {
           "path": "./components/ui/text-randomized.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sparkles",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/external/sparkles.txt",
           "type": "registry:component"
         }
       ]
@@ -552,31 +710,14 @@
       ]
     },
     {
-      "name": "default-mousetrail",
-      "type": "registry:component",
-      "devDependencies": [],
-      "dependencies": [],
-      "registryDependencies": [],
-      "files": [
-        {
-          "path": "./components/ui/mousetrail.tsx",
-          "type": "registry:component"
-        },
-        {
-          "path": "./registry/components/mousetrail/default-mousetrail.tsx",
-          "type": "registry:component"
-        }
-      ]
-    },
-    {
-      "name": "progress-carousel",
+      "name": "progressive-carousel",
       "type": "registry:component",
       "devDependencies": [],
       "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
-          "path": "./components/ui/progress-carousel.tsx",
+          "path": "./components/ui/progressive-carousel.tsx",
           "type": "registry:component"
         }
       ]
@@ -709,10 +850,23 @@
       ]
     },
     {
-      "name": "image-tabs",
+      "name": "tabs",
       "type": "registry:component",
       "devDependencies": [],
       "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/tabs.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "image-tabs",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
       "registryDependencies": [],
       "files": [
         {
@@ -721,23 +875,7 @@
         }
       ]
     },
-    {
-      "name": "tooltip-doc",
-      "type": "registry:component",
-      "devDependencies": [],
-      "dependencies": ["motion", "@radix-ui/react-tooltip", "codehike"],
-      "registryDependencies": [],
-      "files": [
-        {
-          "path": "./components/ui/tooltip-doc.tsx",
-          "type": "registry:component"
-        },
-        {
-          "path": "./components/website/constant.tsx",
-          "type": "registry:component"
-        }
-      ]
-    },
+
     {
       "name": "carousel",
       "type": "registry:component",
@@ -789,7 +927,6 @@
         }
       ]
     },
-
     {
       "name": "cursor-follow-text",
       "type": "registry:component",

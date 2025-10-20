@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hovercard2",
+  "type": "registry:component",
+  "dependencies": [
+    "motion"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "./registry/components/card/hover-card2.tsx",
+      "content": "import React, { useState } from 'react';\r\nimport Image from 'next/image';\r\nimport {\r\n  ArrowBigDown,\r\n  ArrowRight,\r\n  ChevronRight,\r\n  Heart,\r\n  MoveUpRight,\r\n} from 'lucide-react';\r\n\r\nfunction index() {\r\n  return (\r\n    <>\r\n      <div className='w-[400px] relative mt-4 h-[430px] group mx-auto dark:bg-black  bg-white dark:border-0 border rounded-md dark:text-white text-black flex flex-col'>\r\n        <div className='w-full  rounded-t-md h-[350px] group-hover:h-[410px] overflow-hidden transition-all duration-300'>\r\n          <Image\r\n            src={'/naymur.png'}\r\n            alt='shoes'\r\n            width={600}\r\n            height={600}\r\n            className='h-full w-full  scale-105 group-hover:scale-100 grayscale group-hover:grayscale-0 object-cover transition-all duration-300'\r\n          />\r\n        </div>\r\n        <article className='relative overflow-hidden  grow'>\r\n          <div className='info p-2 translate-y-0 group-hover:-translate-y-20 transition-all duration-300'>\r\n            <p className='md:text-2xl font-semibold'>Naymur Rahman</p>\r\n            <p className='sm:text-base text-sm'>CEO &amp; Design Engineer</p>\r\n          </div>\r\n          <button className='absolute h-10 -bottom-8 opacity-0 group-hover:opacity-100 cursor-pointer group-hover:bottom-3  text-3xl font-medium transition-all duration-300 w-full text-center'>\r\n            CEO &amp; Design Engineer\r\n          </button>\r\n        </article>\r\n      </div>\r\n    </>\r\n  );\r\n}\r\n\r\nexport default index;\r\n",
+      "type": "registry:component"
+    }
+  ]
+}

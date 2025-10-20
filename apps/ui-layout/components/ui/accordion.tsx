@@ -90,21 +90,25 @@ export function Accordion({
 export function AccordionItem({
   children,
   value,
+  className,
 }: {
   children: ReactNode;
   value: string;
+  className?: string;
 }) {
   const { isActive } = useAccordion();
 
   return (
     <div
       data-active={isActive || undefined}
-      className={`rounded-lg overflow-hidden mb-2  ${
-        isActive
-          ? 'active border-2 dark:border-[#656fe2]  border-[#F2F2F2] dark:bg-[#E0ECFB] bg-[#F2F2F2]'
-          : 'bg-transparent border-2 dark:hover:border-[#656fe2]'
-      }
-    `}
+      className={cn(
+        `rounded-lg overflow-hidden mb-2`,
+         isActive
+            ? 'active border-2 dark:border-[#656fe2]  border-[#F2F2F2] dark:bg-[#E0ECFB] bg-[#F2F2F2]'
+            : 'bg-transparent border-2 dark:hover:border-[#656fe2]'
+        ,
+        className
+      )}
       data-value={value}
     >
       {children}

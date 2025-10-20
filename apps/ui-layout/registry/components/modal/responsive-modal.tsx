@@ -1,9 +1,6 @@
 'use client';
-import { Drawer } from 'vaul';
-import { AnimatePresence, motion } from 'motion/react';
+import {  motion } from 'motion/react';
 import { useState } from 'react';
-import { X } from 'lucide-react';
-import Image from 'next/image';
 import { useMediaQuery } from '@/hooks/use-media-query';
 import {
   ResponsiveModalContent,

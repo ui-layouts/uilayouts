@@ -6,7 +6,7 @@ import {
   SliderBtn,
   SliderContent,
   SliderWrapper,
-} from '@/components/ui/progress-carousel';
+} from '@/components/ui/progressive-carousel';
 
 const items = [
   {

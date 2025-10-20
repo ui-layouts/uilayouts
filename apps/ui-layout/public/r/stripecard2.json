@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "stripecard2",
+  "type": "registry:component",
+  "dependencies": [
+    "motion"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "./registry/components/card/stripe-card2.tsx",
+      "content": "import React from 'react';\r\nimport Image from 'next/image';\r\nimport { ChevronsRight } from 'lucide-react';\r\n\r\nfunction StripeCard() {\r\n  return (\r\n    <>\r\n      <div className='w-[400px] relative mt-4 h-[400px] group mx-auto dark:bg-black  bg-white dark:border-0 border overflow-hidden rounded-md dark:text-white text-black '>\r\n        <figure className='w-full h-full rounded-md  overflow-hidden'>\r\n          <Image\r\n            src={\r\n              'https://images.unsplash.com/photo-1693581176773-a5f2362209e6?q=80&w=1200&auto=format'\r\n            }\r\n            alt='shoes'\r\n            width={600}\r\n            height={600}\r\n            className='h-full w-full  scale-105 group-hover:scale-100 rounded-lg object-cover transition-all duration-300'\r\n          />\r\n        </figure>\r\n        <div className='absolute top-0 left-0 w-full h-full  transition-all duration-300 bg-linear-to-b from-[#02cc6e25] via-[#02cc6e5b]  to-[#02cc6e]'></div>\r\n        <article className='p-4 space-y-2 absolute -bottom-10 group-hover:bottom-0 transition-all duration-300 '>\r\n          <h1 className='text-2xl font-semibold capitalize w-[90%]'>\r\n            Learn why going to the mountains can change your thoughts and\r\n            lifestyle forever\r\n          </h1>\r\n          <a\r\n            href='#'\r\n            className=' text-base dark:text-white text-blue-600 font-normal  group-hover:opacity-100 opacity-0 translate-y-2 group-hover:translate-y-0 pt-2 flex gap-1  transition-all duration-300  '\r\n          >\r\n            Read Story\r\n            <span>\r\n              <ChevronsRight />\r\n            </span>\r\n          </a>\r\n        </article>\r\n      </div>\r\n    </>\r\n  );\r\n}\r\n\r\nexport default StripeCard;\r\n",
+      "type": "registry:component"
+    }
+  ]
+}

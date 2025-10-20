@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "boxgrid",
+  "type": "registry:component",
+  "dependencies": [
+    "motion"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "./registry/components/grid/box-grid.tsx",
+      "content": "import React from 'react';\r\nimport { useState } from 'react';\r\nimport preview from '@/assets/preview/Preview';\r\nimport Image from 'next/image';\r\ninterface ProjectsTypes {\r\n  id: string;\r\n  img: string;\r\n  title: string;\r\n  des: string;\r\n}\r\n\r\nexport default function index() {\r\n  return (\r\n    <>\r\n      <div className='grid grid-rows-10  grid-cols-12 grid-flow-col gap-2  pt-10'>\r\n        <div className='row-start-1 col-span-2 row-end-6  dark:bg-gray-800 bg-gray-100 grid place-content-center h-full lg:rounded-xl rounded-md'>\r\n          <Image src={preview.dragitems} className=' object-cover' alt='' />\r\n        </div>\r\n        <div className='row-start-6 row-end-11  col-span-2 dark:bg-gray-800 bg-gray-100 grid place-content-center h-full lg:rounded-xl rounded-md'>\r\n          <Image src={preview.galleryNew} className=' object-cover' alt='' />\r\n        </div>\r\n        <div className='row-start-3 row-end-9  col-span-2 dark:bg-gray-800 bg-gray-100 grid place-content-center h-full lg:rounded-xl rounded-md'>\r\n          <Image src={preview.carousel} className=' object-cover' alt='' />\r\n        </div>\r\n        <div className='row-start-1 col-span-2 row-end-6  dark:bg-gray-800 bg-gray-100 grid place-content-center h-full lg:rounded-xl rounded-md'>\r\n          <Image src={preview.clippath} className=' object-cover' alt='' />\r\n        </div>\r\n        <div className='row-start-6 row-end-11  col-span-2 dark:bg-gray-800 bg-gray-100 grid place-content-center h-full lg:rounded-xl rounded-md'>\r\n          <Image src={preview.sparkles} className=' object-cover' alt='' />\r\n        </div>\r\n        <div className='row-start-3 row-end-9  col-span-2 dark:bg-gray-800 bg-gray-100 grid place-content-center h-full lg:rounded-xl rounded-md'>\r\n          <Image src={preview.carousel} className=' object-cover' alt='' />\r\n        </div>\r\n        <div className='row-start-1 col-span-2 row-end-6 dark:bg-gray-800 bg-gray-100 grid place-content-center h-full lg:rounded-xl rounded-md'>\r\n          <Image src={preview.faqs} className=' object-cover' alt='' />\r\n        </div>\r\n        <div className='row-start-6 row-end-11  col-span-2 dark:bg-gray-800 bg-gray-100 grid place-content-center  h-full lg:rounded-xl rounded-md'>\r\n          <Image src={preview.grid} className=' object-cover' alt='' />\r\n        </div>\r\n        <div className='row-start-3 row-end-9  col-span-2 dark:bg-gray-800 bg-gray-100 grid place-content-center h-full lg:rounded-xl rounded-md'>\r\n          <Image src={preview.image_masking} className=' object-cover' alt='' />\r\n        </div>\r\n      </div>\r\n    </>\r\n  );\r\n}\r\n",
+      "type": "registry:component"
+    }
+  ]
+}

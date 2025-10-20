@@ -2,7 +2,9 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "framer-autoplay-carousel",
   "type": "registry:component",
-  "dependencies": ["motion"],
+  "dependencies": [
+    "motion"
+  ],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [

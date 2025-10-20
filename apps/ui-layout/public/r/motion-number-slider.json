@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "motion-number-slider",
+  "type": "registry:component",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "./registry/components/motion-number/motion-number-slider.tsx",
+      "content": "'use client';\r\nimport React, { useState } from 'react';\r\nimport { DualRangeSlider } from '@/components/ui/slider';\r\n\r\nexport default function index() {\r\n  const [widthPercentage, setWidthPercentage] = useState(70);\r\n  return (\r\n    <>\r\n      <div className='w-3/5 mx-auto px-10 gap-10 py-16'>\r\n        <div>\r\n          <h1>Width</h1>\r\n          <DualRangeSlider\r\n            label\r\n            lableContenPos={'left'}\r\n            value={[widthPercentage]}\r\n            onValueChange={([widthPercentage]) =>\r\n              widthPercentage != null && setWidthPercentage(widthPercentage)\r\n            }\r\n            min={0}\r\n            max={100}\r\n            step={1}\r\n          />\r\n        </div>\r\n      </div>\r\n    </>\r\n  );\r\n}\r\n",
+      "type": "registry:component"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "textoverlay-videomasking",
+  "type": "registry:component",
+  "dependencies": [
+    "motion"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "./registry/components/clip-path/text-overlay-video-masking.tsx",
+      "content": "import React from 'react';\r\n\r\nfunction index() {\r\n  return (\r\n    <>\r\n      <section className='gap-2 dark:bg-black bg-white border rounded-lg p-5'>\r\n        <figure className=' relative w-full h-full bg-black'>\r\n          <svg\r\n            viewBox='0 0 285 80'\r\n            preserveAspectRatio='xMidYMid slice'\r\n            className='w-full absolute top-0 left-0 h-full '\r\n          >\r\n            <defs>\r\n              <mask id='mask' x='0' y='0' width={'100%'} height={'100%'}>\r\n                <rect\r\n                  x='0'\r\n                  y='0'\r\n                  width={'100%'}\r\n                  height={'100'}\r\n                  style={{ fill: 'white', mask: 'url(#mask)' }}\r\n                />\r\n                <text\r\n                  x='50%'\r\n                  y='50%'\r\n                  fill='red'\r\n                  textAnchor='middle'\r\n                  className=' italic underline font-bold'\r\n                >\r\n                  UI-LAYOUT\r\n                </text>\r\n              </mask>\r\n            </defs>\r\n            <rect\r\n              x='0'\r\n              y='0'\r\n              width={'100%'}\r\n              height={'100'}\r\n              style={{ fill: '#000105', mask: 'url(#mask)' }}\r\n            />\r\n          </svg>\r\n          <video autoPlay muted loop className='w-[80%] h-full '>\r\n            <source\r\n              src='https://videos.pexels.com/video-files/7710243/7710243-uhd_2560_1440_30fps.mp4'\r\n              type='video/mp4'\r\n            />\r\n          </video>\r\n        </figure>\r\n      </section>\r\n    </>\r\n  );\r\n}\r\n\r\nexport default index;\r\n",
+      "type": "registry:component"
+    }
+  ]
+}

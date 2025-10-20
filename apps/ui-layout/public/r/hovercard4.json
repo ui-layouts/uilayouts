@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hovercard4",
+  "type": "registry:component",
+  "dependencies": [
+    "motion"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "./registry/components/card/hover-card4.tsx",
+      "content": "import React, { useState } from 'react';\r\nimport Image from 'next/image';\r\nimport {\r\n  ArrowBigDown,\r\n  ArrowRight,\r\n  ChevronRight,\r\n  ChevronsRight,\r\n  Heart,\r\n} from 'lucide-react';\r\n\r\nfunction index() {\r\n  return (\r\n    <>\r\n      <div className='w-[90%] relative mt-4  group mx-auto dark:bg-black  bg-white dark:border-0 border overflow-hidden rounded-md dark:text-white text-black '>\r\n        <figure className='w-full h-62 rounded-md  overflow-hidden'>\r\n          <Image\r\n            src={\r\n              'https://images.unsplash.com/photo-1565759732117-a48f0bedbbfd?q=80&w=1000&auto=format&fit=crop'\r\n            }\r\n            alt='shoes'\r\n            width={600}\r\n            height={600}\r\n            className='h-full w-full  scale-105 group-hover:scale-100 rounded-lg object-cover transition-all duration-300'\r\n          />\r\n        </figure>\r\n        <div className='p-4 space-y-1  transition-all duration-300 '>\r\n          <span className='text-sm'>9 des 2023</span>\r\n          <h1 className='text-lg font-medium capitalize '>\r\n            Learn why UI/UX Important and How Implement well in your site.\r\n          </h1>\r\n          <a\r\n            href='#'\r\n            className='bg-green-400 w-fit text-base dark:text-white rounded-md text-blue-600 font-normal p-2 flex justify-center '\r\n          >\r\n            Read Story\r\n            <span className='relative'>\r\n              <ChevronRight className='group-hover:opacity-0 opacity-100 translate-y-0 group-hover:translate-y-2 transition-all duration-300 ' />\r\n              <ChevronsRight className='absolute top-0 group-hover:opacity-100 opacity-0 translate-y-2 group-hover:translate-y-0 transition-all duration-300 ' />\r\n            </span>\r\n          </a>\r\n        </div>\r\n      </div>\r\n    </>\r\n  );\r\n}\r\n\r\nexport default index;\r\n",
+      "type": "registry:component"
+    }
+  ]
+}

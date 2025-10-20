@@ -264,6 +264,93 @@
       ]
     },
     {
+      "name": "default-color-picker",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/color-picker.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./registry/components/color-picker/index.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "raws-color-picker",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/color-picker.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./registry/components/color-picker/raws-color-picker.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "motion-number-upvotes",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/motion-number/motion-number-upvotes.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "motion-number-input",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/motion-number/motion-number-input.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "motion-number-slider",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/motion-number/motion-number-slider.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "number-flow-trading",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/motion-number/number-flow-trading.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+
+    {
       "name": "noise-effect",
       "type": "registry:component",
       "devDependencies": [],
@@ -272,6 +359,36 @@
       "files": [
         {
           "path": "./registry/components/noise-effect/section-noise.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "scroll-text",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion", "@motionone/utils"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/scroll-text.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "text-scroll-animation",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion", "@motionone/utils"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/text-animation/scroll-text-animation.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/scroll-text.tsx",
           "type": "registry:component"
         }
       ]
@@ -290,6 +407,70 @@
       ]
     },
     {
+      "name": "scroll-text-marquee-unidirectional",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion", "@motionone/utils"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/text-animation/text-marque/animationone.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/scroll-text-marque.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "scroll-text-marquee-bidirectional",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion", "@motionone/utils"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/text-animation/text-marque/animationtwo.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/scroll-text-marque.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "randomized-text-effect",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion", "@motionone/utils"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/text-randomized.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "randomized-text-unveil",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion", "@motionone/utils"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/text-animation/text-randomized/index.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/text-randomized.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "globe",
       "type": "registry:component",
       "devDependencies": [],
@@ -297,7 +478,901 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "./registry/components/globe/globe.tsx",
+          "path": "./components/ui/globe.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "card-globe",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["cobe"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/globe.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./registry/components/globe/card-globe-default.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "card-globe-white",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["cobe"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/globe.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./registry/components/globe/card-globe-white.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "img-ripple-effect",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [
+        "three",
+        "@types/three",
+        "@react-three/fiber",
+        "@react-three/drei"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/external/image-ripple-effect/index.txt",
+          "type": "registry:component"
+        },
+        {
+          "path": "./registry/components/external/image-ripple-effect/useDimension.txt",
+          "type": "registry:component"
+        },
+        {
+          "path": "./registry/components/external/image-ripple-effect/useMouse.txt",
+          "type": "registry:component"
+        },
+        {
+          "path": "./registry/components/external/image-ripple-effect/shaders.txt",
+          "type": "registry:component"
+        },
+        {
+          "path": "./registry/components/external/image-ripple-effect/model.txt",
+          "type": "registry:component"
+        },
+        {
+          "path": "./registry/components/external/image-ripple-effect/scene.txt",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "img-ripple-effect",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [
+        "three",
+        "@types/three",
+        "@react-three/fiber",
+        "@react-three/drei"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/external/image-ripple-effect/index.txt",
+          "type": "registry:component"
+        },
+        {
+          "path": "./registry/components/external/image-ripple-effect/useDimension.txt",
+          "type": "registry:component"
+        },
+        {
+          "path": "./registry/components/external/image-ripple-effect/useMouse.txt",
+          "type": "registry:component"
+        },
+        {
+          "path": "./registry/components/external/image-ripple-effect/shaders.txt",
+          "type": "registry:component"
+        },
+        {
+          "path": "./registry/components/external/image-ripple-effect/model.txt",
+          "type": "registry:component"
+        },
+        {
+          "path": "./registry/components/external/image-ripple-effect/scene.txt",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "r3f-blob",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [
+        "three",
+        "@types/three",
+        "@react-three/fiber",
+        "@react-three/drei"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/external/r3f-blob.txt",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "mesh-shadergradient",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["@shadergradient/react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/external/mesh-shader-gradient.txt",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "mesh-gradient-background3",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [
+        "three",
+        "@types/three",
+        "@react-three/fiber",
+        "@react-three/drei"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/external/mesh-gradient-background3.txt",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "mesh-gradient-background2",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [
+        "three",
+        "@types/three",
+        "@react-three/fiber",
+        "@react-three/drei"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/external/mesh-gradient-background2.txt",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "mesh-gradient-background",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [
+        "three",
+        "@types/three",
+        "@react-three/fiber",
+        "@react-three/drei"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/external/mesh-gradient-background.txt",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "animated-logo-footer",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/footers/animated-logo-footer.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "hover-footer",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/footers/hover-footer.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "responsive-header",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/responsive-header.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "responsive-header-default",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/responsive-header.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./registry/components/drawer/responsive-header.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "boxgrid",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/grid/box-grid.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "conditionGrid",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/grid/condition-grid.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "conditionGrid",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/grid/condition-grid.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "normalGrid",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/grid/normal-grid.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "buyme-acoffee",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/buy-me-coffee.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "stripecard",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/card/stripe-card.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "creative-hover-card",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/card/creative-hover-card.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "stripecard2",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/card/stripe-card2.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "hovercard1",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/card/hover-card1.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "hovercard2",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/card/hover-card2.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "hovercard3",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/card/hover-card3.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "hovercard4",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/card/hover-card4.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "productcard1",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/card/product-card1.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "productcard2",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/card/product-card2.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "productcard3",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/card/product-card3.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "productcard4",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/card/product-card4.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "productcard5",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/card/product-card5.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "productcard6",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/card/product-card6.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "creative-clippath",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/clip-path/clip-path-creative.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "corporate-clippath",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/clip-path/clip-path-corporate.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "symbolic-clippath",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/clip-path/clip-path-symbolic.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "creative-mask-clippath",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/clip-path/clip-path-creative-mask.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "watersplash-clippath",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/clip-path/clip-path-water-splash.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "creative-imagemasking",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/clip-path/creative-image-masking.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "animal-imagemasking",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/clip-path/animal-image-masking.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "watersplash-imagemasking",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/clip-path/water-splash-image-masking.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "center-imagemasking",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/clip-path/center-image-masking.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "fixedbg-imagemasking",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/clip-path/fixed-bg-image-masking.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "creative-videomasking",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/clip-path/creative-video-masking.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "splashwater-videomasking",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/clip-path/splash-water-video-masking.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "textoverlay-videomasking",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/clip-path/text-overlay-video-masking.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "hexagon-videomasking",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/clip-path/hexagon-video-masking.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "hexagon2-videomasking",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/clip-path/hexagon2-video-masking.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "progressive-carousel",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/progressive-carousel.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "horizontal-progressive-carousel",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/progressive-carousel.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./registry/components/carousel/horizontal-progressive.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "vertical-progressive-carousel",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/progressive-carousel.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./registry/components/carousel/verticle-progressive.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "image-hover-accordion",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/accordion/image-hover.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "tailwind-image-accordion",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/accordion/tailwind-image-accordion.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "image-tab1",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/image-tabs.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./registry/components/tabs/img-tabs1.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "image-tab2",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/image-tabs.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./registry/components/tabs/img-tabs2.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "img-tabs-standalone",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/tabs/img-tabs-standalone.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "magnified-doc",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion", "@radix-ui/react-tooltip"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/magnified-doc.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "magnified-tab",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion", "@radix-ui/react-tooltip"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/tabs/magnified-tabs.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/magnified-doc.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/tab.tsx",
+          "type": "registry:component"  
+        }
+      ]
+    },
+    {
+      "name": "animated-tabs",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/tab.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./registry/components/tabs/preview-tab.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "creative-tab",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/tab.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./registry/components/tabs/home-tab.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "register-tab",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/tab.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./registry/components/tabs/register-tab.tsx",
           "type": "registry:component"
         }
       ]
@@ -316,12 +1391,110 @@
       ]
     },
     {
+      "name": "default-swapy",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["swapy"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/swapy/default-swapy.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/swapy.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "opacity-swapy",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["swapy"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/swapy/swapy-opacity.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/swapy.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "swapy-handle",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["swapy"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/swapy/swapy-handle.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/swapy.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "swapy-without-components",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["swapy"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/swapy/swapy-without-components.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/swapy.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "drag-items",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/drag/drag-items.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "timeline-animation",
       "type": "registry:component",
       "devDependencies": [],
       "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "timeline-animation-default",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/timeline-animation/index.tsx",
+          "type": "registry:component"
+        },
         {
           "path": "./components/ui/timeline-animation.tsx",
           "type": "registry:component"
@@ -337,6 +1510,481 @@
       "files": [
         {
           "path": "./components/ui/scroll-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "scroll-animation-default",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/scroll-animation/scroll-element.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/scroll-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "scroll-animation-repeat",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/scroll-animation/repeat-scroll.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/scroll-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "scroll-animation-text",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/scroll-animation/text-scroll.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/scroll-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "mousetrail",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/mousetrail.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "image-mousetrail-default",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/mousetrail.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./registry/components/mousetrail/default-mousetrail.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "image-mousetrail-small",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/mousetrail.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./registry/components/mousetrail/small-images.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "image-mousetrail-disappear",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/mousetrail.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./registry/components/mousetrail/disappear-images.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "image-mousetrail-without-component",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/mousetrail/without-component-mousetrail.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "horizontal-scroll",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/external/horizontal-scroll.txt",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "framerhorizontalscroll",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/scroll-animation/framer-horizontal-scroll.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "stacking-card",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/external/stacking-card.txt",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "css-image-stacking",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/external/css-image-stacking.txt",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "css-card-stacking",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/external/css-card-stacking.txt",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "smooth-scroll",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/external/smooth-scroll.txt",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sticky-gallery",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/external/sticky-gallery.txt",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sticky-gallery",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/external/sticky-gallery.txt",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sticky-hero-section",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/external/sticky-hero-section.txt",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sparkles",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/external/sparkles.txt",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sparkles-globe",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/external/sparkles-globe.txt",
+          "type": "registry:component"
+        },
+        {
+          "path": "./registry/components/external/sparkles.txt",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/globe.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sparkles-section",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/external/sparkles-section.txt",
+          "type": "registry:component"
+        },
+        {
+          "path": "./registry/components/external/sparkles.txt",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sparkles-title",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/external/sparkles-title.txt",
+          "type": "registry:component"
+        },
+        {
+          "path": "./registry/components/external/sparkles.txt",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sparkles-title2",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/external/sparkles-title2.txt",
+          "type": "registry:component"
+        },
+        {
+          "path": "./registry/components/external/sparkles.txt",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sparkles-title3",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/external/sparkles-title3.txt",
+          "type": "registry:component"
+        },
+        {
+          "path": "./registry/components/external/sparkles.txt",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sparkles-title4",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/external/sparkles-title4.txt",
+          "type": "registry:component"
+        },
+        {
+          "path": "./registry/components/external/sparkles.txt",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sparkles-branding",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/external/sparkles-branding.txt",
+          "type": "registry:component"
+        },
+        {
+          "path": "./registry/components/external/sparkles.txt",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "marquee",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/marquee.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "default-marquee",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/marquee/default-marquee.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/marquee.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "verticle-marquee",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/marquee/verticle-marquee.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/marquee.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "logos-marquee",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/marquee/logos-marquee.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/marquee.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "3d-marquee",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/marquee/3d-marquee.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/marquee.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "infintyband",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/marquee/infinity-band-scroll.tsx",
           "type": "registry:component"
         }
       ]
@@ -550,7 +2198,87 @@
         }
       ]
     },
-
+    {
+      "name": "accordion",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/accordion.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "grid-layout-accordion",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/accordion/gridlayout.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/accordion.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "single-layout-accordion",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/accordion/singlelayout.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/accordion.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "multi-layout-accordion",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/accordion/multilayout.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/accordion.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "faq-accordion",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/accordion/faq.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/accordion.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
     {
       "name": "slider",
       "type": "registry:component",
@@ -560,6 +2288,123 @@
       "files": [
         {
           "path": "./components/ui/slider.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "dual-range-slider",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/form/slider/dual-range-slider.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "position-range-slider",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/form/slider/position-range-slider.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "static-range-slider",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/form/slider/static-range-slider.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "showhide-pass",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/form/password/showhide-pass.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "pass-strengthindicator",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/form/password/pass-strength-indicator.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "pass-strength-dotted-indicator",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/form/password/pass-strength-dotted-indicator.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "pass-strength-hover-indicator",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/form/password/pass-strength-hover-indicator.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "pass-strength-inline-indicator",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/form/password/pass-strength-inline-indicator.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "confirm-pass-check",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/form/password/confirm-pass-check.tsx",
           "type": "registry:component"
         }
       ]
@@ -612,7 +2457,7 @@
       ]
     },
     {
-      "name": "phone-input",
+      "name": "phone-input-default",
       "type": "registry:component",
       "devDependencies": [],
       "dependencies": ["lucide-react", "react-phone-number-input", "zod"],
@@ -623,7 +2468,23 @@
           "type": "registry:component"
         },
         {
-          "path": "./registry/components/globe/globe.tsx",
+          "path": "./registry/components/form/phone-number/index.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/ui/button.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/ui/command.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/ui/popover.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/ui/scroll-area.tsx",
           "type": "registry:component"
         }
       ]
@@ -640,7 +2501,265 @@
           "type": "registry:component"
         },
         {
-          "path": "./registry/components/globe/globe.tsx",
+          "path": "./components/website/ui/button.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/ui/command.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/ui/popover.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/ui/scroll-area.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "datetime-input",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["chrono-node@latest", "react-day-picker@^8.9.1"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/datetime-input.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/ui/button.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/ui/calendar.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/ui/popover.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/ui/scroll-area.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "datetime-input-default",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["chrono-node@latest", "react-day-picker@^8.9.1"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/form/datetime-picker/index.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/datetime-input.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/ui/button.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/ui/calendar.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/ui/popover.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/ui/scroll-area.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "time-picker",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["chrono-node@latest", "react-day-picker@^8.9.1"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/form/datetime-picker/time-picker.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/datetime-input.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/ui/button.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/ui/calendar.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/ui/popover.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/ui/scroll-area.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "date-picker",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["chrono-node@latest", "react-day-picker@^8.9.1"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/form/datetime-picker/date-picker.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/datetime-input.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/ui/button.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/ui/calendar.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/ui/popover.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/ui/scroll-area.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "multi-selector",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/multi-selector.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/ui/button.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/ui/popover.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/ui/command.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "multi-selector-default",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/form/multiple-selector.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/multi-selector.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/ui/button.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/ui/popover.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/ui/command.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "file-upload",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["react-dropzone", "sonner", "lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/file-upload.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "file-upload-default",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/form/file-upload/index.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/file-upload.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "chat-form-dropzone",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/form/file-upload/chat-form.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/file-upload.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "imgpreview-dropzone",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/form/file-upload/img-preview.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/file-upload.tsx",
           "type": "registry:component"
         }
       ]
@@ -659,12 +2778,119 @@
       ]
     },
     {
+      "name": "linear-modal-default",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/linear-modal/index.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/linear-modal.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "linear-modal-center-content",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/linear-modal/center-content.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/linear-modal.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "linear-modal-standalone",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/linear-modal/standalone-version.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/linear-modal.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "gallery-modal-accordion",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/modal/gallery-modal/accordion-modal.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "gallery-modal-unsplash",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/modal/gallery-modal/unsplash-modal.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "gallery-modal-slider",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/modal/gallery-modal/modal-slider.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "dialog",
       "type": "registry:component",
       "devDependencies": [],
       "dependencies": ["motion", "lucide-react"],
       "registryDependencies": [],
       "files": [
+        {
+          "path": "./components/ui/modal/dialog.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "dialog-default",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/modal/dialog-default.tsx",
+          "type": "registry:component"
+        },
         {
           "path": "./components/ui/modal/dialog.tsx",
           "type": "registry:component"
@@ -685,6 +2911,40 @@
       ]
     },
     {
+      "name": "media-modal-default",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/modal/media-modal-default.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/modal/media-modal.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "imagemodals",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/modal/image-modals.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/modal/media-modal.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "responsive-modal",
       "type": "registry:component",
       "devDependencies": [],
@@ -693,6 +2953,23 @@
       "files": [
         {
           "path": "./components/ui/responsive-modal.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "responsive-modal-default",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/responsive-modal.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./registry/components/modal/responsive-modal.tsx",
           "type": "registry:component"
         }
       ]
@@ -711,6 +2988,87 @@
       ]
     },
     {
+      "name": "directional-drawer",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/directional-drawer.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "directional-drawer_default",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/directional-drawer.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./registry/components/drawer/directional-drawer-default.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "left-directional-drawer",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/directional-drawer.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./registry/components/drawer/left-directional-drawer.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "top-directional-drawer",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/directional-drawer.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./registry/components/drawer/top-directional-drawer.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "bottom-directional-drawer",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/directional-drawer.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./registry/components/drawer/bottom-directional-drawer.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "motion-drawer",
       "type": "registry:component",
       "devDependencies": [],
@@ -719,6 +3077,40 @@
       "files": [
         {
           "path": "./components/ui/motion-drawer.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "motion-drawer-default",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/motion-drawer.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./registry/components/drawer/motion-drawer.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "right-motion-drawer",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/motion-drawer.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./registry/components/drawer/right-motion-drawer.tsx",
           "type": "registry:component"
         }
       ]
@@ -839,6 +3231,97 @@
       "files": [
         {
           "path": "./registry/components/image-reveal/index.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "bg-blocks-one",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/bg-blocks/blocksone.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "animated-beam",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/animated-beam.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "animated-beam-default",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/animated-beam/default.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "animated-beam-bidirectional",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/animated-beam/bidirectional.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "animated-beam-unidirectional",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/animated-beam/unidirectional.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "animated-beam-multiple-input",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/animated-beam/multiple-input.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "animated-beam-multiple-output",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/animated-beam/multiple-output.tsx",
           "type": "registry:component"
         }
       ]

@@ -1226,14 +1226,28 @@ export const AllComponents: IAllComponents[] = [
   {
     category: DOCS_CATEGORY_KEY['globe'],
     componentName: COMPONENT_KEYS.CARD_GLOBE,
-    iframelink: 'card-globe',
+    componentSrc: React.lazy(
+      () => import('@/registry/components/globe/card-globe-default')
+    ),
+    filesrc: 'components/globe/card-globe-default.tsx',
+    iframeSrc: 'live-components/card-globe-default',
     tags: ['3D Globe', '3D Globe Card'],
   },
   {
     category: DOCS_CATEGORY_KEY['globe'],
-    componentName: COMPONENT_KEYS.CARD_GLOBE2,
-    iframelink: 'card-globe2',
+    componentName: COMPONENT_KEYS.CARD_GLOBE_WHITE,
+    componentSrc: React.lazy(
+      () => import('@/registry/components/globe/card-globe-white')
+    ),
+    filesrc: 'components/globe/card-globe-white.tsx',
+    iframeSrc: 'live-components/card-globe-white',
     tags: ['White 3D Globe', 'White 3D Globe Card'],
+  },
+  {
+    category: DOCS_CATEGORY_KEY['sparkles'],
+    componentName: COMPONENT_KEYS.SPARKLES_GLOBE,
+    iframelink: 'sparkles-globe',
+    tags: ['Sparkles', '3D Globe Sparkles', 'Globe Hero Section'],
   },
   {
     category: DOCS_CATEGORY_KEY['horizontal-scroll'],
@@ -1283,12 +1297,7 @@ export const AllComponents: IAllComponents[] = [
     iframelink: 'sticky-hero-section',
     tags: ['Sticky Hero', 'Hero Section'],
   },
-  {
-    category: DOCS_CATEGORY_KEY['sparkles'],
-    componentName: COMPONENT_KEYS.SPARKLES_GLOBE,
-    iframelink: 'sparkles-globe',
-    tags: ['Sparkles', '3D Globe Sparkles', 'Globe Hero Section'],
-  },
+
   {
     category: DOCS_CATEGORY_KEY['sparkles'],
     componentName: COMPONENT_KEYS.SPARKLES_SECTION,
@@ -1327,7 +1336,7 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     category: DOCS_CATEGORY_KEY['phone-input'],
-    componentName: COMPONENT_KEYS.PHONE_INPUT,
+    componentName: COMPONENT_KEYS.PHONE_INPUT_DEFAULT,
     filesrc: 'components/form/phone-number/index.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/form/phone-number')
@@ -1387,7 +1396,7 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     category: DOCS_CATEGORY_KEY['file-upload'],
-    componentName: COMPONENT_KEYS.FILE_UPLOAD,
+    componentName: COMPONENT_KEYS.FILE_UPLOAD_DEFAULT,
     filesrc: 'components/form/file-upload/index.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/form/file-upload')
@@ -1397,7 +1406,7 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     category: DOCS_CATEGORY_KEY['multi-selector'],
-    componentName: COMPONENT_KEYS.MULTI_SELECTOR,
+    componentName: COMPONENT_KEYS.MULTI_SELECTOR_DEFAULT,
     filesrc: 'components/form/multiple-selector.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/form/multiple-selector')
@@ -1483,7 +1492,7 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     category: DOCS_CATEGORY_KEY['datetime-picker'],
-    componentName: COMPONENT_KEYS.DATETIME_PICKER,
+    componentName: COMPONENT_KEYS.DATETIME_PICKER_DEFAULT,
     filesrc: 'components/form/datetime-picker/index.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/form/datetime-picker')
@@ -1509,7 +1518,7 @@ export const AllComponents: IAllComponents[] = [
       'motion input slider',
     ],
     componentSrc: React.lazy(
-      () => import('@/registry/components/number-flow/motion-number-slider')
+      () => import('@/registry/components/motion-number/motion-number-slider')
     ),
     iframeSrc: 'live-components/motion-number-slider',
   },
@@ -1603,13 +1612,15 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     category: DOCS_CATEGORY_KEY['password'],
-    componentName: COMPONENT_KEYS.PASS_STRENGTHINDICATOR2,
-    filesrc: 'components/form/password/pass-strength-indicator2.tsx',
+    componentName: COMPONENT_KEYS.PASS_STRENGTH_DOTTED_INDICATOR,
+    filesrc: 'components/form/password/pass-strength-dotted-indicator.tsx',
     componentSrc: React.lazy(
       () =>
-        import('@/registry/components/form/password/pass-strength-indicator2')
+        import(
+          '@/registry/components/form/password/pass-strength-dotted-indicator'
+        )
     ),
-    iframeSrc: 'live-components/pass-strengthindicator2',
+    iframeSrc: 'live-components/pass-strength-dotted-indicator',
     iframe: true,
 
     tags: [
@@ -1623,15 +1634,16 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     category: DOCS_CATEGORY_KEY['password'],
-    componentName: COMPONENT_KEYS.PASS_STRENGTHINDICATOR3,
-    filesrc: 'components/form/password/pass-strength-indicator3.tsx',
+    componentName: COMPONENT_KEYS.PASS_STRENGTH_HOVER_INDICATOR,
+    filesrc: 'components/form/password/pass-strength-hover-indicator.tsx',
     componentSrc: React.lazy(
       () =>
-        import('@/registry/components/form/password/pass-strength-indicator3')
+        import(
+          '@/registry/components/form/password/pass-strength-hover-indicator'
+        )
     ),
-    iframeSrc: 'live-components/pass-strengthindicator3',
+    iframeSrc: 'live-components/pass-strength-hover-indicator',
     iframe: true,
-
     tags: [
       'password',
       'pass',
@@ -1647,7 +1659,7 @@ export const AllComponents: IAllComponents[] = [
       {
         name: 'index.tsx',
         filesrc:
-          'registry/components/form/password/pass-strength-indicator3.tsx',
+          'registry/components/form/password/pass-strength-hover-indicator.tsx',
       },
       {
         name: 'hover-card.tsx',
@@ -1657,13 +1669,15 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     category: DOCS_CATEGORY_KEY['password'],
-    componentName: COMPONENT_KEYS.PASS_STRENGTHINDICATOR4,
-    filesrc: 'components/form/password/pass-strength-indicator4.tsx',
+    componentName: COMPONENT_KEYS.PASS_STRENGTH_INLINE_INDICATOR,
+    filesrc: 'components/form/password/pass-strength-inline-indicator.tsx',
     componentSrc: React.lazy(
       () =>
-        import('@/registry/components/form/password/pass-strength-indicator4')
+        import(
+          '@/registry/components/form/password/pass-strength-inline-indicator'
+        )
     ),
-    iframeSrc: 'live-components/pass-strengthindicator4',
+    iframeSrc: 'live-components/pass-strength-inline-indicator',
     iframe: true,
 
     tags: [
@@ -2503,7 +2517,7 @@ export const AllComponents: IAllComponents[] = [
       'number flow',
     ],
     componentSrc: React.lazy(
-      () => import('@/registry/components/number-flow/motion-number-input')
+      () => import('@/registry/components/motion-number/motion-number-input')
     ),
     iframeSrc: 'live-components/motion-number-input',
   },
@@ -2520,7 +2534,7 @@ export const AllComponents: IAllComponents[] = [
       'post-effect',
     ],
     componentSrc: React.lazy(
-      () => import('@/registry/components/number-flow/number-flow-trading')
+      () => import('@/registry/components/motion-number/number-flow-trading')
     ),
     iframeSrc: 'live-components/motion-number-trading',
     filesArray: [
@@ -2542,7 +2556,7 @@ export const AllComponents: IAllComponents[] = [
       'number-sequence',
     ],
     componentSrc: React.lazy(
-      () => import('@/registry/components/number-flow/motion-number-slider')
+      () => import('@/registry/components/motion-number/motion-number-slider')
     ),
     iframeSrc: 'live-components/motion-number-slider',
     filesArray: [
@@ -2572,7 +2586,7 @@ export const AllComponents: IAllComponents[] = [
       'downvotes',
     ],
     componentSrc: React.lazy(
-      () => import('@/registry/components/number-flow/motion-number-upvotes')
+      () => import('@/registry/components/motion-number/motion-number-upvotes')
     ),
     iframeSrc: 'live-components/motion-number-upvotes',
   },
@@ -2622,13 +2636,13 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     category: DOCS_CATEGORY_KEY['directional-drawer'],
-    componentName: COMPONENT_KEYS.DIRECTIONAL_DRAWER,
-    filesrc: 'components/drawer/directional-drawer.tsx',
+    componentName: COMPONENT_KEYS.DIRECTIONAL_DRAWER_DEFAULT,
+    filesrc: 'components/drawer/directional-drawer-default.tsx',
     tags: ['sidebar', 'navigation', 'drawer', 'responsive'],
     componentSrc: React.lazy(
-      () => import('@/registry/components/drawer/directional-drawer')
+      () => import('@/registry/components/drawer/directional-drawer-default')
     ),
-    iframeSrc: 'live-components/directional-drawer',
+    iframeSrc: 'live-components/directional-drawer-default',
     iframe: true,
   },
   {
@@ -2666,7 +2680,7 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     category: DOCS_CATEGORY_KEY['motion-drawer'],
-    componentName: COMPONENT_KEYS.MOTION_DRAWER,
+    componentName: COMPONENT_KEYS.MOTION_DRAWER_DEFAULT,
     filesrc: 'components/drawer/motion-drawer.tsx',
     tags: ['Left Sidebar', 'navigation', 'Left Drawer', 'Responsive Drawer'],
     componentSrc: React.lazy(
@@ -2688,7 +2702,7 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     category: DOCS_CATEGORY_KEY['responsive-header'],
-    componentName: COMPONENT_KEYS.RESPONSIVE_HEADER,
+    componentName: COMPONENT_KEYS.RESPONSIVE_HEADER_DEFAULT,
     filesrc: 'components/drawer/responsive-header.tsx',
     tags: ['header', 'responsive', 'navigation-bar', 'menu'],
     componentSrc: React.lazy(
@@ -2699,36 +2713,36 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     category: DOCS_CATEGORY_KEY['responsive-modal'],
-    componentName: COMPONENT_KEYS.RESPONSIVE_MODAL,
+    componentName: COMPONENT_KEYS.RESPONSIVE_MODAL_DEFAULT,
     filesrc: 'components/modal/responsive-modal.tsx',
     tags: ['modal', 'responsive', 'drawer', 'menu'],
     componentSrc: React.lazy(
       () => import('@/registry/components/modal/responsive-modal')
     ),
     iframe: true,
-    iframeSrc: 'live-components/responsive-modal',
+    iframeSrc: 'live-components/responsive-modal-default',
   },
   {
     category: DOCS_CATEGORY_KEY['dialog'],
-    componentName: COMPONENT_KEYS.DIALOG,
+    componentName: COMPONENT_KEYS.DIALOG_DEFAULT,
     filesrc: 'components/modal/dialog-default.tsx',
     tags: ['dialog', 'popup', 'modal', 'UI-component'],
     componentSrc: React.lazy(
       () => import('@/registry/components/modal/dialog-default')
     ),
-    iframeSrc: 'live-components/dialog',
+    iframeSrc: 'live-components/dialog-default',
     iframe: true,
   },
   {
     category: DOCS_CATEGORY_KEY['media-modal'],
-    componentName: COMPONENT_KEYS.MEDIA_MODAL,
+    componentName: COMPONENT_KEYS.MEDIA_MODAL_DEFAULT,
     filesrc: 'components/modal/media-modal-default.tsx',
     tags: ['media', 'modal', 'popup', 'UI'],
     componentSrc: React.lazy(
       () => import('@/registry/components/modal/media-modal-default')
     ),
-    iframeSrc: 'live-components/media-modal',
-    iframe: true,
+    iframeSrc: 'live-components/media-modal-default',
+    iframe: false,
   },
   {
     category: DOCS_CATEGORY_KEY['media-modal'],
@@ -2743,13 +2757,13 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     category: DOCS_CATEGORY_KEY['linear-modal'],
-    componentName: COMPONENT_KEYS.LINEAR_MODAL,
+    componentName: COMPONENT_KEYS.LINEAR_MODAL_DEFAULT,
     filesrc: 'components/linear-modal/index.tsx',
     tags: ['card', 'linear-layout', 'UI-component', 'modal-card'],
     componentSrc: React.lazy(
       () => import('@/registry/components/linear-modal')
     ),
-    iframeSrc: 'live-components/linear-modal',
+    iframeSrc: 'live-components/linear-modal-default',
     iframe: false,
   },
   {
@@ -2821,12 +2835,12 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     category: DOCS_CATEGORY_KEY['scroll-animation'],
-    componentName: COMPONENT_KEYS.SCROLL_ANIMATION,
+    componentName: COMPONENT_KEYS.SCROLL_ANIMATION_DEFAULT,
     filesrc: 'components/scroll-animation/scroll-element.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/scroll-animation/scroll-element')
     ),
-    iframeSrc: 'live-components/scroll-animation',
+    iframeSrc: 'live-components/scroll-animation-default',
     tags: ['scroll', 'animation', 'element'],
   },
   {
@@ -2851,12 +2865,12 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     category: DOCS_CATEGORY_KEY['timeline-animation'],
-    componentName: COMPONENT_KEYS.TIMELINE_ANIMATION,
+    componentName: COMPONENT_KEYS.TIMELINE_ANIMATION_DEFAULT,
     filesrc: 'components/timeline-animation/index.tsx',
     componentSrc: React.lazy(
       () => import('@/registry/components/timeline-animation')
     ),
-    iframeSrc: 'live-components/timeline-animation',
+    iframeSrc: 'live-components/timeline-animation-default',
     tags: ['timeline', 'animation', 'scroll'],
   },
   {
@@ -3062,7 +3076,7 @@ export const AllComponents: IAllComponents[] = [
     componentSrc: React.lazy(
       () => import('@/registry/components/clip-path/creative-image-masking')
     ),
-    iframeSrc: 'live-components/creative-imagemasking',
+    iframeSrc: 'live-components/hexagon2-videomasking',
     tags: ['image-masking', 'creative', 'masking'],
   },
   {
@@ -3273,12 +3287,12 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     category: DOCS_CATEGORY_KEY['hover-cards'],
-    componentName: COMPONENT_KEYS.CUIP_CARD,
-    filesrc: 'components/card/cuip-card.tsx',
+    componentName: COMPONENT_KEYS.CREATIVE_HOVER_CARD,
+    filesrc: 'components/card/creative-hover-card.tsx',
     componentSrc: React.lazy(
-      () => import('@/registry/components/card/cuip-card')
+      () => import('@/registry/components/card/creative-hover-card')
     ),
-    iframeSrc: 'live-components/cuip-card',
+    iframeSrc: 'live-components/creative-hover-card',
     tags: ['card', 'ui', 'design', 'interaction', 'hover', 'style'],
   },
   {
@@ -3443,12 +3457,12 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     category: DOCS_CATEGORY_KEY['image-tabs'],
-    componentName: COMPONENT_KEYS.IMAGE_TAB3,
-    filesrc: 'components/tabs/img-tabs3.tsx',
+    componentName: COMPONENT_KEYS.IMAGE_TAB_STANDALONE,
+    filesrc: 'components/tabs/img-tabs-standalone.tsx',
     componentSrc: React.lazy(
-      () => import('@/registry/components/tabs/img-tabs3')
+      () => import('@/registry/components/tabs/img-tabs-standalone')
     ),
-    iframeSrc: 'live-components/image-tab3',
+    iframeSrc: 'live-components/image-tab-standalone',
     tags: ['tabs', 'image', 'ui', 'gallery', 'design'],
   },
 ];

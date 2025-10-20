@@ -1,5 +1,6 @@
+
 import React from 'react';
-import Earth from './globe';
+import Earth from '@/components/ui/globe';
 
 function GlobeDemo() {
   return (

@@ -1,4 +1,3 @@
-// https://cruip.com/create-an-infinite-horizontal-scroll-animation-with-tailwind-css/
 import React from 'react';
 
 function index() {

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "productcard4",
+  "type": "registry:component",
+  "dependencies": [
+    "motion"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "./registry/components/card/product-card4.tsx",
+      "content": "'use client';\r\nimport React, { useState } from 'react';\r\nimport Image from 'next/image';\r\nimport { Heart } from 'lucide-react';\r\nimport { motion } from 'motion/react';\r\nfunction Card2() {\r\n  const [isActive, setIsActive] = useState(false);\r\n\r\n  const handleClick = () => {\r\n    setIsActive((prevState) => !prevState);\r\n  };\r\n\r\n  return (\r\n    <div className='w-[350px] mx-auto '>\r\n      <div className='dark:bg-white bg-gray-50 border dark:border-none  rounded-2xl'>\r\n        <div className='w-full h-56 relative'>\r\n          <motion.button\r\n            className='absolute top-2 right-3 z-20 text-2xl text-white'\r\n            onClick={handleClick}\r\n            animate={{ scale: isActive ? 1.2 : 1 }}\r\n            transition={{ type: 'spring', stiffness: 1000, damping: 10 }}\r\n          >\r\n            {isActive ? (\r\n              <>\r\n                <Heart className=' fill-white' />\r\n              </>\r\n            ) : (\r\n              <>\r\n                <Heart />\r\n              </>\r\n            )}\r\n          </motion.button>\r\n          <Image\r\n            src={\r\n              'https://images.unsplash.com/photo-1605733160314-4fc7dac4bb16?q=80&w=2090&auto=format&fit=crop'\r\n            }\r\n            alt='shoes'\r\n            width={1000}\r\n            height={1000}\r\n            className={`h-56 w-full rounded-2xl object-cover `}\r\n          />\r\n        </div>\r\n        <article className='text-black space-y-2 p-2 pb-3'>\r\n          <div className='flex justify-between'>\r\n            <h1 className='font-semibold text-xl text-primary-dark'>\r\n              Nike Air Max\r\n            </h1>\r\n            <span className='font-medium text-xl text-primary-dark'>$394</span>\r\n          </div>\r\n          <p className='text-xs  text-black'>\r\n            Lorem ipsum, dolor sit amet consectetur adipisicing\r\n          </p>\r\n\r\n          <button className='w-full hover:text-white flex justify-center items-center gap-2 border-black border-2 text-black hover:bg-linear-to-r dark:from-[#070e41] dark:to-[#263381] from-[#3e5068] to-[#0c1970] py-2  rounded-md'>\r\n            Add to cart\r\n          </button>\r\n        </article>\r\n      </div>\r\n    </div>\r\n  );\r\n}\r\n\r\nexport default Card2;\r\n",
+      "type": "registry:component"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "smooth-scroll",
+  "type": "registry:component",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "./registry/components/external/smooth-scroll.txt",
+      "content": "'use client';\r\nimport { ReactLenis } from 'lenis/react';\r\nexport default function index(): JSX.Element {\r\n  return (\r\n    <ReactLenis root>\r\n      <main>\r\n        <article>\r\n          <section className='text-white  h-screen  w-full bg-slate-950  grid place-content-center sticky top-0'>\r\n            <div className='absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-size-[54px_54px] mask-[radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]'></div>\r\n\r\n            <h1 className='2xl:text-7xl text-6xl px-8 font-semibold text-center tracking-tight leading-[120%]'>\r\n              I Know What Exactly you're <br /> Looking For! Scroll Please 👇\r\n            </h1>\r\n          </section>\r\n\r\n          <section className='bg-gray-300 text-black grid place-content-center h-screen sticky top-0 rounded-tr-2xl rounded-tl-2xl overflow-hidden'>\r\n            <div className='absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-size-[54px_54px] mask-[radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]'></div>\r\n            <h1 className='2xl:text-7xl text-4xl px-8 font-semibold text-center tracking-tight leading-[120%]'>\r\n              If you don't like this then I'm sorry, <br /> create your own and\r\n              make it open source 💼\r\n            </h1>\r\n          </section>\r\n          <section className='text-white  h-screen  w-full bg-slate-950  grid place-content-center sticky top-0'>\r\n            <div className='absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-size-[54px_54px] mask-[radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]'></div>\r\n            <h1 className='2xl:text-7xl text-5xl px-8 font-semibold text-center tracking-tight leading-[120%]'>\r\n              Thanks To Scroll.\r\n              <br /> Now Scroll Up Again☝️🏿\r\n            </h1>\r\n          </section>\r\n        </article>\r\n      </main>\r\n    </ReactLenis>\r\n  );\r\n}",
+      "type": "registry:component"
+    }
+  ]
+}

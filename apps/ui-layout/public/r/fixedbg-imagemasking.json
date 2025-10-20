@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "fixedbg-imagemasking",
+  "type": "registry:component",
+  "dependencies": [
+    "motion"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "./registry/components/clip-path/fixed-bg-image-masking.tsx",
+      "content": "import React from 'react';\r\n\r\nfunction index() {\r\n  return (\r\n    <>\r\n      <section className='w-full gap-2 dark:bg-black bg-white border rounded-lg p-5'>\r\n        <figure\r\n          className='relative h-[70vh] bg-fixed bg-cover bg-center '\r\n          style={{\r\n            backgroundImage:\r\n              \"url('https://images.unsplash.com/photo-1523612192437-66de9804ac3c?q=80&w=2070&auto=format&fit=crop')\",\r\n            maskImage: \"url('/splash-center.svg')\",\r\n            maskSize: 'contain',\r\n            maskRepeat: 'no-repeat',\r\n            maskPosition: 'center',\r\n          }}\r\n        ></figure>\r\n      </section>\r\n    </>\r\n  );\r\n}\r\n\r\nexport default index;\r\n",
+      "type": "registry:component"
+    }
+  ]
+}

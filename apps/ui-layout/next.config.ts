@@ -173,7 +173,11 @@ const nextConfig = {
       },
     ],
   },
-  webpack: (config: { resolve: { alias: any; }; }, { isServer }: any) => {
+  webpack: (config: { resolve: { alias: any; }; module: { rules: any; }; }, { isServer }: any) => {
+     config.module.rules.push({
+      test: /\.txt$/,
+      type: "asset/source",
+    })
     // Add path aliases
     config.resolve.alias = {
       ...config.resolve.alias,

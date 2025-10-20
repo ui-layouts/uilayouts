@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "randomized-text-effect",
+  "type": "registry:component",
+  "dependencies": [
+    "motion",
+    "@motionone/utils"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "./components/ui/text-randomized.tsx",
+      "content": "'use client'\r\n\r\nimport React, { useEffect, useState, useCallback } from 'react'\r\n\r\nconst lettersAndSymbols = 'abcdefghijklmnopqrstuvwxyz!@#$%^&*-_+=;:<>,'\r\n\r\ninterface AnimatedTextProps {\r\n  text: string\r\n}\r\n\r\nexport function RandomizedTextEffect({ text }: AnimatedTextProps) {\r\n  const [animatedText, setAnimatedText] = useState('')\r\n\r\n  const getRandomChar = useCallback(\r\n    () =>\r\n      lettersAndSymbols[Math.floor(Math.random() * lettersAndSymbols.length)],\r\n    []\r\n  )\r\n\r\n  const animateText = useCallback(async () => {\r\n    const duration = 50\r\n    const revealDuration = 80\r\n    const initialRandomDuration = 300\r\n\r\n    const generateRandomText = () =>\r\n      text\r\n        .split('')\r\n        .map(() => getRandomChar())\r\n        .join('')\r\n\r\n    setAnimatedText(generateRandomText())\r\n\r\n    const endTime = Date.now() + initialRandomDuration\r\n    while (Date.now() < endTime) {\r\n      await new Promise((resolve) => setTimeout(resolve, duration))\r\n      setAnimatedText(generateRandomText())\r\n    }\r\n\r\n    for (let i = 0; i < text.length; i++) {\r\n      await new Promise((resolve) => setTimeout(resolve, revealDuration))\r\n      setAnimatedText(\r\n        (prevText) =>\r\n          text.slice(0, i + 1) +\r\n          prevText\r\n            .slice(i + 1)\r\n            .split('')\r\n            .map(() => getRandomChar())\r\n            .join('')\r\n      )\r\n    }\r\n  }, [text, getRandomChar])\r\n\r\n  useEffect(() => {\r\n    animateText()\r\n  }, [text, animateText])\r\n\r\n  return <div className=\"relative inline-block\">{animatedText}</div>\r\n}\r\n",
+      "type": "registry:component"
+    }
+  ]
+}

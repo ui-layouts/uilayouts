@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "scroll-animation-text",
+  "type": "registry:component",
+  "dependencies": [
+    "motion"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "./registry/components/scroll-animation/text-scroll.tsx",
+      "content": "'use client';\r\nimport React from 'react';\r\nimport ScrollElement from '@/components/ui/scroll-animation';\r\n\r\nfunction index() {\r\n  return (\r\n    <section>\r\n      <div className='h-[500px] grid place-content-center'>\r\n        <h1 className='text-6xl font-semibold text-center py-8'>\r\n          Scroll Down 👇{' '}\r\n        </h1>\r\n      </div>\r\n      <div className='py-2'>\r\n        <div>\r\n          <ScrollElement\r\n            direction='left'\r\n            viewport={{ amount: 0.5, margin: '0px 0px 0px 0px' }}\r\n            className='text-6xl text-left py-44 2xl:max-w-xl max-w-lg'\r\n          >\r\n            <p>Take a glance over to the left side.</p>\r\n          </ScrollElement>\r\n\r\n          <ScrollElement\r\n            direction='right'\r\n            viewport={{ amount: 0.5, margin: '0px 0px 0px 0px' }}\r\n            className='text-6xl text-right py-44 2xl:max-w-xl max-w-lg ml-auto'\r\n          >\r\n            <p>Now shift your eyes to the right side.</p>\r\n          </ScrollElement>\r\n\r\n          <ScrollElement\r\n            viewport={{ amount: 0.5, margin: '0px 0px 0px 0px' }}\r\n            className='text-6xl max-w-md mx-auto text-center py-44 2xl:max-w-xl'\r\n          >\r\n            <p>And finally, don’t miss what’s waiting below.</p>\r\n          </ScrollElement>\r\n        </div>\r\n      </div>\r\n    </section>\r\n  );\r\n}\r\n\r\nexport default index;\r\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "./components/ui/scroll-animation.tsx",
+      "content": "'use client';\r\n\r\nimport { cn } from '@/lib/utils';\r\nimport {\r\n  motion,\r\n  HTMLMotionProps,\r\n  SVGMotionProps,\r\n} from 'motion/react';\r\nimport React from 'react';\r\ntype Direction = 'up' | 'down' | 'left' | 'right';\r\n\r\nconst generateVariants = (\r\n  direction: Direction\r\n): { hidden: any; visible: any } => {\r\n  const axis = direction === 'left' || direction === 'right' ? 'x' : 'y';\r\n  const value = direction === 'right' || direction === 'down' ? 100 : -100;\r\n\r\n  return {\r\n    hidden: { filter: 'blur(10px)', opacity: 0, [axis]: value },\r\n    visible: {\r\n      filter: 'blur(0px)',\r\n      opacity: 1,\r\n      [axis]: 0,\r\n      transition: {\r\n        duration: 0.5,\r\n        ease: 'easeOut',\r\n      },\r\n    },\r\n  };\r\n};\r\n\r\nconst defaultViewport = { amount: 0.3, margin: '0px 0px -200px 0px' };\r\ntype MotionComponentProps = HTMLMotionProps<any> & SVGMotionProps<any>;\r\n\r\ninterface ScrollElementProps extends Omit<MotionComponentProps, 'children'> {\r\n  children: React.ReactNode;\r\n  className?: string;\r\n  variants?: {\r\n    hidden?: any;\r\n    visible?: any;\r\n  };\r\n  viewport?: {\r\n    amount?: number;\r\n    margin?: string;\r\n    once?: boolean;\r\n  };\r\n  delay?: number;\r\n  direction?: Direction;\r\n}\r\n\r\nfunction ScrollElement({\r\n  children,\r\n  className,\r\n  variants,\r\n  viewport = defaultViewport,\r\n  delay = 0, \r\n  direction = 'down',\r\n  ...rest\r\n}: ScrollElementProps) {\r\n  const baseVariants = variants || generateVariants(direction);\r\n  const modifiedVariants = {\r\n    hidden: baseVariants.hidden,\r\n    visible: {\r\n      ...baseVariants.visible,\r\n      transition: {\r\n        ...baseVariants.visible.transition,\r\n        delay, \r\n      },\r\n    },\r\n  };\r\n\r\n  return (\r\n    <motion.div\r\n      whileInView='visible'\r\n      initial='hidden'\r\n      variants={modifiedVariants}\r\n      viewport={viewport}\r\n      className={cn(className)}\r\n      {...rest}\r\n    >\r\n      {children}\r\n    </motion.div>\r\n  );\r\n}\r\nexport default ScrollElement;\r\n",
+      "type": "registry:component"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "animal-imagemasking",
+  "type": "registry:component",
+  "dependencies": [
+    "motion"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "./registry/components/clip-path/animal-image-masking.tsx",
+      "content": "import React from 'react';\r\n\r\nfunction index() {\r\n  return (\r\n    <>\r\n      <section className='grid grid-cols-2 gap-2 dark:bg-black bg-white border rounded-lg p-5'>\r\n        <figure className='relative h-fit'>\r\n          <img\r\n            src='https://images.unsplash.com/photo-1535968881874-0c39f1503640?w=500&auto=format&fit=crop'\r\n            alt=''\r\n            className='w-full h-full object-cover  aspect-square'\r\n            style={{\r\n              maskImage: \"url('/cat.svg')\",\r\n              maskSize: 'contain',\r\n              maskRepeat: 'no-repeat',\r\n              maskPosition: 'center',\r\n            }}\r\n          />\r\n        </figure>\r\n\r\n        <figure className='relative h-fit '>\r\n          <img\r\n            src='https://images.unsplash.com/photo-1556648011-e01aca870a81?w=500&auto=format&fit=crop'\r\n            alt=''\r\n            className='w-full h-full object-cover  aspect-square '\r\n            style={{\r\n              maskImage: \"url('/panda.svg')\",\r\n              maskSize: 'contain',\r\n              maskRepeat: 'no-repeat',\r\n              maskPosition: 'center',\r\n            }}\r\n          />\r\n        </figure>\r\n      </section>\r\n    </>\r\n  );\r\n}\r\n\r\nexport default index;\r\n",
+      "type": "registry:component"
+    }
+  ]
+}

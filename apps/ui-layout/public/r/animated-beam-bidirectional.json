@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "animated-beam-bidirectional",
+  "type": "registry:component",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "./registry/components/animated-beam/bidirectional.tsx",
+      "content": "'use client';\r\n\r\nimport { cn } from '@/lib/utils';\r\nimport React, { forwardRef, useRef } from 'react';\r\nimport { AnimatedBeam } from '@/components/ui/animated-beam';\r\nimport { Icons } from '@/components/ui/animated-beam';\r\n\r\nconst Circle = forwardRef<\r\n  HTMLDivElement,\r\n  { className?: string; children?: React.ReactNode }\r\n>(({ className, children }, ref) => {\r\n  return (\r\n    <div\r\n      ref={ref}\r\n      className={cn(\r\n        'z-10 flex h-12 w-12 items-center justify-center rounded-full border-2 bg-white p-3 shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)]',\r\n        className\r\n      )}\r\n    >\r\n      {children}\r\n    </div>\r\n  );\r\n});\r\n\r\nexport default function index() {\r\n  const containerRef = useRef<HTMLDivElement>(null);\r\n  const div1Ref = useRef<HTMLDivElement>(null);\r\n  const div2Ref = useRef<HTMLDivElement>(null);\r\n\r\n  return (\r\n    <div\r\n      className='relative flex w-full max-w-[500px] mx-auto items-center justify-center overflow-hidden rounded-lg border dark:bg-neutral-800 bg-neutral-50 lg:p-10 sm:p-4 p-2 md:shadow-xl'\r\n      ref={containerRef}\r\n    >\r\n      <div className='flex h-full w-full flex-col items-stretch justify-between gap-10'>\r\n        <div className='flex flex-row justify-between'>\r\n          <Circle ref={div1Ref}>\r\n            <Icons.user />\r\n          </Circle>\r\n          <Circle className='p-2' ref={div2Ref}>\r\n            <Icons.claude />\r\n          </Circle>\r\n        </div>\r\n      </div>\r\n\r\n      <AnimatedBeam\r\n        containerRef={containerRef}\r\n        fromRef={div1Ref}\r\n        toRef={div2Ref}\r\n        startYOffset={10}\r\n        endYOffset={10}\r\n        curvature={-20}\r\n        dotted\r\n      />\r\n      <AnimatedBeam\r\n        containerRef={containerRef}\r\n        fromRef={div1Ref}\r\n        toRef={div2Ref}\r\n        startYOffset={-10}\r\n        endYOffset={-10}\r\n        curvature={20}\r\n        reverse\r\n        dotted\r\n        gradientStartColor='#CC9B7A'\r\n        gradientStopColor='#f5c7a8'\r\n      />\r\n    </div>\r\n  );\r\n}\r\n",
+      "type": "registry:component"
+    }
+  ]
+}

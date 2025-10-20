@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hovercard3",
+  "type": "registry:component",
+  "dependencies": [
+    "motion"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "./registry/components/card/hover-card3.tsx",
+      "content": "import React, { useState } from 'react';\r\nimport Image from 'next/image';\r\nimport { ChevronsRight, Heart } from 'lucide-react';\r\n\r\nfunction index() {\r\n  return (\r\n    <>\r\n      <div className='w-[400px] relative mt-4 h-[450px] overflow-hidden group mx-auto dark:bg-black  bg-white dark:border-0 border rounded-md dark:text-white text-black flex flex-col'>\r\n        <div className='w-full h-full '>\r\n          <Image\r\n            src={\r\n              'https://images.unsplash.com/photo-1583071299210-c6c113f4ac91?q=80&w=800&auto=format&fit=crop'\r\n            }\r\n            alt='shoes'\r\n            width={600}\r\n            height={600}\r\n            className='h-full w-full  scale-105 group-hover:scale-100 object-cover transition-all duration-300 rounded-md'\r\n          />\r\n        </div>\r\n        <article className='p-8 w-full h-full overflow-hidden z-10  absolute top-0 flex flex-col justify-end rounded-md   bg-[#c34c32]  opacity-0 group-hover:opacity-100  transition-all duration-300'>\r\n          <div className='translate-y-10 group-hover:translate-y-0 transition-all duration-300 space-y-2'>\r\n            <h1 className='md:text-2xl font-semibold'>Who We are</h1>\r\n            <p className='sm:text-base text-sm'>\r\n              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad\r\n              consectetur ducimus vel nemo deserunt possimus inventore ipsum\r\n              nostrum. Sapiente, facilis?\r\n            </p>\r\n            <button className='p-2 bg-black flex rounded-md text-white'>\r\n              Learn More <ChevronsRight />\r\n            </button>\r\n          </div>\r\n        </article>\r\n        <article className='p-2 w-full h-[20%] flex flex-col justify-end  overflow-hidden  absolute bottom-0 rounded-b-md bg-linear-to-t from-[#c34c32]  opacity-100 group-hover:opacity-0 group-hover:-bottom-4 transition-all duration-300'>\r\n          <h1 className='md:text-2xl font-semibold'>Naymur Rahman</h1>\r\n          <p className='sm:text-base text-sm'>CEO &amp; Design Engineer</p>\r\n        </article>\r\n      </div>\r\n    </>\r\n  );\r\n}\r\n\r\nexport default index;\r\n",
+      "type": "registry:component"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "animated-beam-unidirectional",
+  "type": "registry:component",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "./registry/components/animated-beam/unidirectional.tsx",
+      "content": "'use client';\r\n\r\nimport { cn } from '@/lib/utils';\r\nimport React, { forwardRef, useRef } from 'react';\r\nimport { AnimatedBeam, Circle } from '@/components/ui/animated-beam';\r\nimport { Icons } from '@/components/ui/animated-beam';\r\n\r\nexport default function index() {\r\n  const containerRef = useRef<HTMLDivElement>(null);\r\n  const div1Ref = useRef<HTMLDivElement>(null);\r\n  const div2Ref = useRef<HTMLDivElement>(null);\r\n\r\n  return (\r\n    <div\r\n      className='relative flex w-full max-w-[500px] mx-auto items-center justify-center overflow-hidden rounded-lg border dark:bg-neutral-800 bg-neutral-50 lg:p-10 sm:p-4 p-2 md:shadow-xl'\r\n      ref={containerRef}\r\n    >\r\n      <div className='flex h-full w-full flex-col items-stretch justify-between gap-10'>\r\n        <div className='flex flex-row justify-between'>\r\n          <Circle className='p-2' ref={div1Ref}>\r\n            <Icons.logo />\r\n          </Circle>\r\n          <Circle ref={div2Ref}>\r\n            <Icons.user />\r\n          </Circle>\r\n        </div>\r\n      </div>\r\n\r\n      <AnimatedBeam\r\n        duration={3}\r\n        containerRef={containerRef}\r\n        fromRef={div1Ref}\r\n        toRef={div2Ref}\r\n        dotted\r\n        dotSpacing={5}\r\n      />\r\n    </div>\r\n  );\r\n}\r\n",
+      "type": "registry:component"
+    }
+  ]
+}

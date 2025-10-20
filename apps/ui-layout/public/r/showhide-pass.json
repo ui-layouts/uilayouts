@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "showhide-pass",
+  "type": "registry:component",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "./registry/components/form/password/showhide-pass.tsx",
+      "content": "'use client';\r\nimport { Eye, EyeOff } from 'lucide-react';\r\nimport { useState } from 'react';\r\n\r\nconst PasswordInput = () => {\r\n  const [isVisible, setIsVisible] = useState(false);\r\n\r\n  return (\r\n    <div className='w-96 mx-auto py-14'>\r\n      <label htmlFor='pass' className='text-sm font-normal'>\r\n        Password\r\n      </label>\r\n      <div className='relative mt-1'>\r\n        <input\r\n          type={isVisible ? 'text' : 'password'}\r\n          id='pass'\r\n          placeholder='Password'\r\n          className='dark:bg-neutral-950 bg-neutral-50 w-full outline-hidden focus-within:border-blue-700 rounded-md p-2  border-2 '\r\n        />\r\n        <div\r\n          className='absolute top-3 right-4 text-2xl text-gray-500 cursor-pointer'\r\n          onClick={() => setIsVisible((prev) => !prev)}\r\n        >\r\n          {isVisible ? <Eye size={22} /> : <EyeOff size={22} />}\r\n        </div>\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n\r\nexport default PasswordInput;\r\n",
+      "type": "registry:component"
+    }
+  ]
+}

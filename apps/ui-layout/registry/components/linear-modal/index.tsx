@@ -52,7 +52,7 @@ export default function LinearCard() {
                 style={{
                   borderRadius: '12px',
                 }}
-                className='flex w-full flex-col overflow-hidden border dark:bg-neutral-900 bg-neutral-200 hover:bg-neutral-200 dark:hover:bg-neutral-900'
+                className='flex w-full flex-col overflow-hidden border dark:bg-neutral-900 bg-neutral-50 hover:bg-neutral-100 dark:hover:bg-neutral-900'
               >
                 <DialogImage
                   // @ts-ignore
@@ -66,7 +66,7 @@ export default function LinearCard() {
                       {item.title}
                     </DialogTitle>
                   </div>
-                  <button className='absolute bottom-2 right-2 p-2 dark:bg-neutral-800 bg-white hover:bg-neutral-50 rounded-lg dark:hover:bg-neutral-900'>
+                  <button className='absolute bottom-2 right-2 p-2 dark:bg-neutral-800 bg-neutral-200 hover:bg-neutral-300 rounded-lg dark:hover:bg-neutral-900'>
                     <Plus className='w-6 h-6' />
                   </button>
                 </div>

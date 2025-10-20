@@ -2,7 +2,49 @@
 import React, { SetStateAction } from 'react';
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { items } from '@/components/website/constant';
+
+export const items = [
+  {
+    id: 1,
+    url: "https://images.unsplash.com/photo-1709949908058-a08659bfa922?q=80&w=1200&auto=format",
+    title: 'Misty Mountain Majesty',
+    description:
+      'A breathtaking view of misty mountains shrouded in clouds, creating an ethereal landscape.',
+    tags: ['Misty', 'Mountains', 'Clouds', 'Ethereal', 'Landscape'],
+  },
+  {
+    id: 2,
+    url:  'https://images.unsplash.com/photo-1548192746-dd526f154ed9?q=80&w=1200&auto=format',
+    title: 'Winter Wonderland',
+    description:
+      "A serene winter scene with snow-covered trees and mountains, showcasing nature's pristine beauty.",
+    tags: ['Winter', 'Snow', 'Trees', 'Mountains', 'Serene'],
+  },
+  {
+    id: 3,
+    url: 'https://images.unsplash.com/photo-1693581176773-a5f2362209e6?q=80&w=1200&auto=format',
+    title: 'Autumn Mountain Retreat',
+    description:
+      'A cozy cabin nestled in the mountains, surrounded by the vibrant colors of autumn foliage.',
+    tags: ['Autumn', 'Cabin', 'Mountains', 'Foliage', 'Cozy'],
+  },
+  {
+    id: 4,
+    url:'https://images.unsplash.com/photo-1584043204475-8cc101d6c77a?q=80&w=1200&auto=format',
+    title: 'Tranquil Lake Reflection',
+    description:
+      'A calm mountain lake perfectly reflecting the surrounding peaks and sky, creating a mirror-like surface.',
+    tags: ['Lake', 'Reflection', 'Mountains', 'Tranquil', 'Mirror'],
+  },
+  {
+    id: 5,
+    url: 'https://images.unsplash.com/photo-1709949908058-a08659bfa922?q=80&w=1200&auto=format',
+    title: 'Misty Mountain Peaks',
+    description:
+      "Majestic mountain peaks emerging from a sea of clouds, showcasing nature's grandeur.",
+    tags: ['Misty', 'Peaks', 'Clouds', 'Majestic', 'Nature'],
+  },
+];
 
 const article = {
   hidden: { opacity: 0, y: 20 },

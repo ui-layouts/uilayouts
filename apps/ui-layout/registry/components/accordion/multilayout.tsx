@@ -11,7 +11,7 @@ function index() {
   return (
     <>
       <Accordion defaultValue={'item-2'} multiple>
-        <AccordionItem value='item-1'>
+        <AccordionItem value='item-1' className='w-full'>
           <AccordionHeader>What is a UI component?</AccordionHeader>
           <AccordionPanel>
             A UI (User Interface) component is a modular, reusable element that
@@ -20,7 +20,7 @@ function index() {
             checkboxes.
           </AccordionPanel>
         </AccordionItem>
-        <AccordionItem value='item-2'>
+        <AccordionItem value='item-2' className='w-full'>
           <AccordionHeader>Why are UI components important?</AccordionHeader>
           <AccordionPanel>
             UI components promote consistency, efficiency, and scalability in
@@ -29,7 +29,7 @@ function index() {
             updates or modifications without affecting the entire system.
           </AccordionPanel>
         </AccordionItem>
-        <AccordionItem value='item-3'>
+        <AccordionItem value='item-3' className='w-full'>
           <AccordionHeader>
             Key characteristics of UI components?
           </AccordionHeader>

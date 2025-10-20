@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "mesh-shadergradient",
+  "type": "registry:component",
+  "dependencies": [
+    "@shadergradient/react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "./registry/components/external/mesh-shader-gradient.txt",
+      "content": "'use client';\r\nimport React from 'react';\r\nimport { ShaderGradientCanvas, ShaderGradient } from '@shadergradient/react';\r\n\r\nfunction index() {\r\n  return (\r\n    <>\r\n      <div className='relative h-screen w-screen'>\r\n        <ShaderGradientCanvas\r\n          style={{\r\n            width: '100%',\r\n            height: '100%',\r\n          }}\r\n          lazyLoad={undefined}\r\n          fov={undefined}\r\n          pixelDensity={1}\r\n          pointerEvents='none'\r\n        >\r\n          <ShaderGradient\r\n            animate='on'\r\n            type='sphere'\r\n            wireframe={false}\r\n            shader='defaults'\r\n            uTime={0}\r\n            uSpeed={0.3}\r\n            uStrength={0.3}\r\n            uDensity={0.8}\r\n            uFrequency={5.5}\r\n            uAmplitude={3.2}\r\n            positionX={-0.1}\r\n            positionY={0}\r\n            positionZ={0}\r\n            rotationX={0}\r\n            rotationY={130}\r\n            rotationZ={70}\r\n            color1='#73bfc4'\r\n            color2='#ff810a'\r\n            color3='#8da0ce'\r\n            reflection={0.4}\r\n            // View (camera) props\r\n            cAzimuthAngle={270}\r\n            cPolarAngle={180}\r\n            cDistance={0.5}\r\n            cameraZoom={15.1}\r\n            // Effect props\r\n            lightType='env'\r\n            brightness={0.8}\r\n            envPreset='city'\r\n            grain='on'\r\n            // Tool props\r\n            toggleAxis={false}\r\n            zoomOut={false}\r\n            hoverState=''\r\n            // Optional - if using transition features\r\n            enableTransition={false}\r\n          />\r\n        </ShaderGradientCanvas>\r\n      </div>\r\n    </>\r\n  );\r\n}\r\n\r\nexport default index;",
+      "type": "registry:component"
+    }
+  ]
+}

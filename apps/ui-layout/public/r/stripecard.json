@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "stripecard",
+  "type": "registry:component",
+  "dependencies": [
+    "motion"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "./registry/components/card/stripe-card.tsx",
+      "content": "import React, { useState } from 'react';\r\nimport Image from 'next/image';\r\nimport { ArrowBigDown, ArrowRight, ChevronRight, Heart } from 'lucide-react';\r\n\r\nfunction StripeCard() {\r\n  return (\r\n    <>\r\n      <div className='w-[90%]] h-[480px] group mx-auto dark:bg-[#252525] p-2 bg-white dark:border-0 border overflow-hidden rounded-md dark:text-white text-black '>\r\n        <figure className='w-full h-80 group-hover:h-72 transition-all duration-300 dark:bg-[#0a121a] bg-[#f0f5fa] p-2 rounded-md relative overflow-hidden'>\r\n          <div\r\n            style={{\r\n              background:\r\n                'linear-gradient(123.9deg, #0B65ED 1.52%, rgba(0, 0, 0, 0) 68.91%)',\r\n            }}\r\n            className='absolute top-0 left-0 w-full h-full  group-hover:opacity-100 opacity-0  transition-all duration-300'\r\n          ></div>\r\n          <Image\r\n            src={'/og.jpg'}\r\n            alt='shoes'\r\n            width={600}\r\n            height={600}\r\n            className='absolute -bottom-1 group-hover:-bottom-5 right-0 h-64 w-[80%] group-hover:border-4 border-4 group-hover:border-[#76aaf82d] rounded-lg object-cover transition-all duration-300'\r\n          />\r\n        </figure>\r\n        <article className='  p-4 space-y-2'>\r\n          <div className='h-8 w-20 bg-[#4393fc] rounded-md'></div>\r\n          <h1 className='text-xl font-semibold capitalize'>\r\n            Incorporate your company\r\n          </h1>\r\n          <p className='text-base leading-[120%]'>\r\n            Form a legal entity, issue stock, and start accepting payments.\r\n          </p>\r\n          <a\r\n            href='#'\r\n            className=' text-base dark:text-white text-blue-600 font-normal  group-hover:opacity-100 opacity-0 translate-y-2 group-hover:translate-y-0 pt-2 flex gap-1  transition-all duration-300  '\r\n          >\r\n            Learn about Atlas\r\n            <span>\r\n              <ChevronRight />\r\n            </span>\r\n          </a>\r\n        </article>\r\n      </div>\r\n    </>\r\n  );\r\n}\r\n\r\nexport default StripeCard;\r\n",
+      "type": "registry:component"
+    }
+  ]
+}
