@@ -1509,7 +1509,7 @@ export const AllComponents: IAllComponents[] = [
   {
     category: DOCS_CATEGORY_KEY['range-slider'],
     componentName: COMPONENT_KEYS.MOTION_NUMBER_SLIDER,
-    filesrc: 'components/number-flow/motion-number-slider.tsx',
+    filesrc: 'components/motion-number/motion-number-slider.tsx',
     tags: [
       'input slider',
       'Default range slider',
@@ -1679,7 +1679,6 @@ export const AllComponents: IAllComponents[] = [
     ),
     iframeSrc: 'live-components/pass-strength-inline-indicator',
     iframe: true,
-
     tags: [
       'password',
       'pass',
@@ -1693,7 +1692,7 @@ export const AllComponents: IAllComponents[] = [
       {
         name: 'index.tsx',
         filesrc:
-          'registry/components/form/password/pass-strength-indicator4.tsx',
+          'registry/components/form/password/pass-strength-inline-indicator.tsx',
       },
       {
         name: 'hover-card.tsx',
@@ -2506,7 +2505,7 @@ export const AllComponents: IAllComponents[] = [
   {
     category: DOCS_CATEGORY_KEY['motion-number'],
     componentName: COMPONENT_KEYS.MOTION_NUMBER_INPUT,
-    filesrc: 'components/number-flow/motion-number-input.tsx',
+    filesrc: 'components/motion-number/motion-number-input.tsx',
     tags: [
       'animation',
       'number-animation',
@@ -2524,7 +2523,7 @@ export const AllComponents: IAllComponents[] = [
   {
     category: DOCS_CATEGORY_KEY['motion-number'],
     componentName: COMPONENT_KEYS.NUMBER_FLOW_TRADING,
-    filesrc: 'components/number-flow/number-flow-trading.tsx',
+    filesrc: 'components/motion-number/number-flow-trading.tsx',
     tags: [
       'animation',
       'number-increment',
@@ -2540,14 +2539,14 @@ export const AllComponents: IAllComponents[] = [
     filesArray: [
       {
         name: 'index.tsx',
-        filesrc: 'registry/components/number-flow/number-flow-trading.tsx',
+        filesrc: 'registry/components/motion-number/number-flow-trading.tsx',
       },
     ],
   },
   {
     category: DOCS_CATEGORY_KEY['motion-number'],
     componentName: COMPONENT_KEYS.MOTION_NUMBER_SLIDER,
-    filesrc: 'components/number-flow/motion-number-slider.tsx',
+    filesrc: 'components/motion-number/motion-number-slider.tsx',
     tags: [
       'animation',
       'shadcn slider',
@@ -2562,7 +2561,7 @@ export const AllComponents: IAllComponents[] = [
     filesArray: [
       {
         name: 'index.tsx',
-        filesrc: 'registry/components/number-flow/motion-number-slider.tsx',
+        filesrc: 'registry/components/motion-number/motion-number-slider.tsx',
       },
       {
         name: 'slider.tsx',
@@ -2573,7 +2572,7 @@ export const AllComponents: IAllComponents[] = [
   {
     category: DOCS_CATEGORY_KEY['motion-number'],
     componentName: COMPONENT_KEYS.MOTION_NUMBER_UPVOTES,
-    filesrc: 'components/number-flow/motion-number-upvotes.tsx',
+    filesrc: 'components/motion-number/motion-number-upvotes.tsx',
     tags: [
       'animation',
       'upvotes',

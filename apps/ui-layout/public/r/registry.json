@@ -2526,7 +2526,7 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "./components/ui/datetime-input.tsx",
+          "path": "./components/ui/date-time-input.tsx",
           "type": "registry:component"
         },
         {
@@ -2559,7 +2559,7 @@
           "type": "registry:component"
         },
         {
-          "path": "./components/ui/datetime-input.tsx",
+          "path": "./components/ui/date-time-input.tsx",
           "type": "registry:component"
         },
         {
@@ -2592,7 +2592,7 @@
           "type": "registry:component"
         },
         {
-          "path": "./components/ui/datetime-input.tsx",
+          "path": "./components/ui/date-time-input.tsx",
           "type": "registry:component"
         },
         {
@@ -2625,7 +2625,7 @@
           "type": "registry:component"
         },
         {
-          "path": "./components/ui/datetime-input.tsx",
+          "path": "./components/ui/date-time-input.tsx",
           "type": "registry:component"
         },
         {
