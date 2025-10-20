@@ -66,6 +66,7 @@ const Item = ({ children, item }: { children: React.ReactNode; item: any }) => {
   const y = useMotionValue(0);
   const boxShadow = useRaisedShadow(y);
   const dragControls = useDragControls();
+  const [isDragging, setIsDragging] = useState(false);
 
   return (
     <Reorder.Item
@@ -73,22 +74,32 @@ const Item = ({ children, item }: { children: React.ReactNode; item: any }) => {
       style={{ boxShadow, y }}
       dragListener={false}
       dragControls={dragControls}
+      onDragStart={() => setIsDragging(true)}
+      onDragEnd={() => setIsDragging(false)}
       className='flex justify-between items-center w-full p-3 text-primary-foreground bg-primary border rounded-md'
     >
       <div>{children}</div>
-      <ReorderIcon dragControls={dragControls} />
+      <ReorderIcon
+        dragControls={dragControls}
+        isDragging={isDragging}
+        onPressStart={() => setIsDragging(true)}
+      />
     </Reorder.Item>
   );
 };
 interface Props {
   dragControls: DragControls;
+  isDragging: boolean;
+  onPressStart?: () => void;
 }
-export function ReorderIcon({ dragControls }: Props) {
+export function ReorderIcon({ dragControls, isDragging, onPressStart }: Props) {
   return (
     <motion.div
-      whileTap={{ scale: 0.85 }}
+      animate={{ scale: isDragging ? 0.85 : 1 }}
+      transition={{ type: 'spring', stiffness: 500, damping: 30 }}
       onPointerDown={(e) => {
         e.preventDefault();
+        onPressStart?.();
         dragControls.start(e);
       }}
     >
