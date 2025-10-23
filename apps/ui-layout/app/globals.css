@@ -107,6 +107,8 @@
   --animate-infinite-scroll: infinite-scroll 25s linear infinite;
   --animate-marquee: marquee var(--duration) linear infinite;
   --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+  --animate-marquee-reverse: marquee-reverse var(--duration) linear infinite;
+  --animate-marquee-vertical-reverse: marquee-vertical-reverse var(--duration) linear infinite;
 
   @keyframes border {
     to {
@@ -135,6 +137,22 @@
     }
     to {
       transform: translateY(calc(-100% - var(--gap)));
+    }
+  }
+  @keyframes marquee-reverse {
+    from {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  @keyframes marquee-vertical-reverse {
+    from {
+      transform: translateY(calc(-100% - var(--gap)));
+    }
+    to {
+      transform: translateY(0);
     }
   }
 }
