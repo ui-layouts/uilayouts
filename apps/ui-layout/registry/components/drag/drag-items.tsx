@@ -120,7 +120,7 @@ export function ReorderIcon({ dragControls, isActive, onPress }: ReorderIconProp
         viewBox='0 0 39 39'
         width='39'
         height='39'
-        className=' fill-primary-foreground cursor-grab active:cursor-grabbing'
+        className='fill-primary-foreground'
       >
         <path d='M 5 0 C 7.761 0 10 2.239 10 5 C 10 7.761 7.761 10 5 10 C 2.239 10 0 7.761 0 5 C 0 2.239 2.239 0 5 0 Z'></path>
         <path d='M 19 0 C 21.761 0 24 2.239 24 5 C 24 7.761 21.761 10 19 10 C 16.239 10 14 7.761 14 5 C 14 2.239 16.239 0 19 0 Z'></path>
