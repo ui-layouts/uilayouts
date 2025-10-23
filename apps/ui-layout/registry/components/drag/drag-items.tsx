@@ -67,6 +67,7 @@ const Item = ({ children, item }: { children: React.ReactNode; item: any }) => {
   const boxShadow = useRaisedShadow(y);
   const dragControls = useDragControls();
   const [isDragging, setIsDragging] = useState(false);
+  const [pressed, setPressed] = useState(false);
 
   return (
     <Reorder.Item
@@ -75,40 +76,51 @@ const Item = ({ children, item }: { children: React.ReactNode; item: any }) => {
       dragListener={false}
       dragControls={dragControls}
       onDragStart={() => setIsDragging(true)}
-      onDragEnd={() => setIsDragging(false)}
+      onDragEnd={() => {
+        setIsDragging(false);
+        setPressed(false);
+      }}
+      onPointerUp={() => setPressed(false)}
+      onPointerCancel={() => setPressed(false)}
       className='flex justify-between items-center w-full p-3 text-primary-foreground bg-primary border rounded-md'
     >
       <div>{children}</div>
       <ReorderIcon
         dragControls={dragControls}
-        isDragging={isDragging}
-        onPressStart={() => setIsDragging(true)}
+        isActive={isDragging || pressed}
+        onPress={() => setPressed(true)}
       />
     </Reorder.Item>
   );
 };
-interface Props {
+
+interface ReorderIconProps {  
   dragControls: DragControls;
-  isDragging: boolean;
-  onPressStart?: () => void;
+  isActive: boolean;
+  onPress: () => void;
 }
-export function ReorderIcon({ dragControls, isDragging, onPressStart }: Props) {
+
+export function ReorderIcon({ dragControls, isActive, onPress }: ReorderIconProps) {
   return (
-    <motion.div
-      animate={{ scale: isDragging ? 0.85 : 1 }}
+    <motion.button
+      type="button"
+      aria-label="Reorder"
+      animate={{ scale: isActive ? 0.85 : 1 }}
       transition={{ type: 'spring', stiffness: 500, damping: 30 }}
       onPointerDown={(e) => {
         e.preventDefault();
-        onPressStart?.();
+        onPress();
         dragControls.start(e);
       }}
+      className="cursor-grab active:cursor-grabbing"
+      style={{ touchAction: 'none' }}
     >
       <svg
         xmlns='http://www.w3.org/2000/svg'
         viewBox='0 0 39 39'
         width='39'
         height='39'
-        className=' fill-primary-foreground cursor-grab active:cursor-grabbing'
+        className='fill-primary-foreground'
       >
         <path d='M 5 0 C 7.761 0 10 2.239 10 5 C 10 7.761 7.761 10 5 10 C 2.239 10 0 7.761 0 5 C 0 2.239 2.239 0 5 0 Z'></path>
         <path d='M 19 0 C 21.761 0 24 2.239 24 5 C 24 7.761 21.761 10 19 10 C 16.239 10 14 7.761 14 5 C 14 2.239 16.239 0 19 0 Z'></path>
@@ -120,7 +132,7 @@ export function ReorderIcon({ dragControls, isDragging, onPressStart }: Props) {
         <path d='M 19 28 C 21.761 28 24 30.239 24 33 C 24 35.761 21.761 38 19 38 C 16.239 38 14 35.761 14 33 C 14 30.239 16.239 28 19 28 Z'></path>
         <path d='M 33 28 C 35.761 28 38 30.239 38 33 C 38 35.761 35.761 38 33 38 C 30.239 38 28 35.761 28 33 C 28 30.239 30.239 28 33 28 Z'></path>
       </svg>
-    </motion.div>
+    </motion.button>
   );
 }
 
