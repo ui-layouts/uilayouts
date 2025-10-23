@@ -94,13 +94,13 @@ const Item = ({ children, item }: { children: React.ReactNode; item: any }) => {
   );
 };
 
-interface IconProps {
+interface ReorderIconProps {  
   dragControls: DragControls;
   isActive: boolean;
   onPress: () => void;
 }
 
-export function ReorderIcon({ dragControls, isActive, onPress }: IconProps) {
+export function ReorderIcon({ dragControls, isActive, onPress }: ReorderIconProps) {
   return (
     <motion.button
       type="button"
