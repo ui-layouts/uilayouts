@@ -82,9 +82,13 @@ export const metadata = {
 ```css global.css
 @import "tailwindcss";
 
-@theme {
+@theme inline {
+  --animate-border: border 4s linear infinite;
+  --animate-infinite-scroll: infinite-scroll 25s linear infinite;
   --animate-marquee: marquee var(--duration) linear infinite;
   --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+  --animate-marquee-reverse: marquee-reverse var(--duration) linear infinite;
+  --animate-marquee-vertical-reverse: marquee-vertical-reverse var(--duration) linear infinite;
 
   @keyframes marquee {
     from {
@@ -100,6 +104,22 @@ export const metadata = {
     }
     to {
       transform: translateY(calc(-100% - var(--gap)));
+    }
+  }
+  @keyframes marquee-reverse {
+    from {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  @keyframes marquee-vertical-reverse {
+    from {
+      transform: translateY(calc(-100% - var(--gap)));
+    }
+    to {
+      transform: translateY(0);
     }
   }
 }
@@ -131,7 +151,7 @@ export default function Marquee({
     <div
       {...props}
       className={cn(
-        'group flex overflow-hidden p-2 [--duration:40s] [--gap:1rem] gap-[var(--gap)]',
+        'group flex overflow-hidden p-2 [--duration:40s] [--gap:1rem] gap-(--gap)',
         {
           'flex-row': !vertical,
           'flex-col': vertical,
@@ -144,7 +164,7 @@ export default function Marquee({
         .map((_, i) => (
           <div
             key={i}
-            className={cn('flex shrink-0 justify-around gap-[var(--gap)]', {
+            className={cn('flex shrink-0 justify-around gap-(--gap)', {
               'animate-marquee flex-row': !vertical && !reverse,
               'animate-marquee-vertical flex-col': vertical && !reverse,
               'animate-marquee-reverse flex-row': !vertical && reverse,
@@ -156,7 +176,7 @@ export default function Marquee({
           </div>
         ))}
     </div>
-  );
+  )
 }
 ```
 
