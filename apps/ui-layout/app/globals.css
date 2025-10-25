@@ -468,13 +468,6 @@
     width: 100%;
   }
 
-  @supports (property(--border-angle)) {
-    @property --border-angle {
-      inherits: false;
-      initial-value: 0deg;
-      syntax: '<angle>';
-    }
-  }
 
   /* Chrome, Safari, Edge, Opera */
   input::-webkit-outer-spin-button,
@@ -571,4 +564,10 @@
 .code-tabs {
   margin: 0 !important;
   padding: 0 !important;
+}
+
+@property --border-angle {
+  inherits: false;
+  initial-value: 0deg;
+  syntax: '<angle>';
 }
