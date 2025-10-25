@@ -2,6 +2,11 @@
 @import "./token.css";
 @import "./code-hike.css";
 
+@source './pages/**/*.{js,ts,jsx,tsx,mdx}';
+@source './components/**/*.{js,ts,jsx,tsx,mdx}';
+@source './app/**/*.{js,ts,jsx,tsx,mdx}';
+@source './content/**/*.{md,mdx}';
+@source './registry/**/*.{js,ts,jsx,tsx}';
 @source '../../../packages/ui/src/**/*.{js,ts,jsx,tsx}';
 @source '../../../packages/blocks/src/**/*.{js,ts,jsx,tsx}';
 
@@ -103,12 +108,6 @@
   --color-rainbow-2-end:   hsl(255 100% 50% / 0.51);
   --color-rainbow-2-via:   hsl(20  100% 55% / 0.56);
 
-  --animate-border: border 4s linear infinite;
-  --animate-infinite-scroll: infinite-scroll 25s linear infinite;
-  --animate-marquee: marquee var(--duration) linear infinite;
-  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
-  --animate-marquee-reverse: marquee-reverse var(--duration) linear infinite;
-  --animate-marquee-vertical-reverse: marquee-vertical-reverse var(--duration) linear infinite;
 
   @keyframes border {
     to {
@@ -123,6 +122,16 @@
       transform: translateX(-100%);
     }
   }
+}
+
+@theme inline {
+  --animate-border: border 4s linear infinite;
+  --animate-infinite-scroll: infinite-scroll 25s linear infinite;
+  --animate-marquee: marquee var(--duration) linear infinite;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+  --animate-marquee-reverse: marquee-reverse var(--duration) linear infinite;
+  --animate-marquee-vertical-reverse: marquee-vertical-reverse var(--duration) linear infinite;
+
   @keyframes marquee {
     from {
       transform: translateX(0);
