@@ -7,7 +7,7 @@ import { animate, scroll, spring } from 'motion';
 import { ReactLenis } from 'lenis/react';
 
 export default function HorizontalScroll(): JSX.Element {
-  const ulRef = useRef<HTMLUListElement | null>();
+  const ulRef = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
     const items = document.querySelectorAll('li');
@@ -17,23 +17,31 @@ export default function HorizontalScroll(): JSX.Element {
         ulRef.current,
         {
           transform: ['none', `translateX(-${items.length - 1}00vw)`],
-        },
+        } as any,
         { easing: spring() }
       );
-      scroll(controls, { target: document.querySelector('section') });
+      const section = document.querySelector('section');
+      if (section) {
+        scroll(controls, { target: section });
+      }
     }
 
     const segmentLength = 1 / items.length;
     items.forEach((item, i) => {
       const header = item.querySelector('h2');
 
-      scroll(animate([header], { x: [800, -800] }), {
-        target: document.querySelector('section'),
-        offset: [
-          [i * segmentLength, 1],
-          [(i + 1) * segmentLength, 0],
-        ],
-      });
+      if (header) {
+        const section = document.querySelector('section');
+        if (section) {
+          scroll(animate([header] as any, { x: [800, -800] } as any), {
+            target: section,
+            offset: [
+              [i * segmentLength, 1],
+              [(i + 1) * segmentLength, 0],
+            ],
+          });
+        }
+      }
     });
   }, []);
 
@@ -56,7 +64,7 @@ export default function HorizontalScroll(): JSX.Element {
                   PASSION
                 </h2>
                 <Image
-                  src='https://res.cloudinary.com/dzl9yxixg/image/upload/v1713532202/ui-layout/team_gsu8ej.png'
+                  src='https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=600&fit=crop'
                   className='2xl:w-[550px] w-[380px] absolute bottom-0'
                   width={500}
                   height={500}
@@ -68,7 +76,7 @@ export default function HorizontalScroll(): JSX.Element {
                   WORK
                 </h2>
                 <Image
-                  src='https://res.cloudinary.com/dzl9yxixg/image/upload/v1713532202/ui-layout/team_gsu8ej.png'
+                  src='https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=600&fit=crop'
                   className='2xl:w-[550px] w-[380px] absolute bottom-0'
                   width={500}
                   height={500}
@@ -80,7 +88,7 @@ export default function HorizontalScroll(): JSX.Element {
                   MOTIVATION
                 </h2>
                 <Image
-                  src='https://res.cloudinary.com/dzl9yxixg/image/upload/v1713532202/ui-layout/team_gsu8ej.png'
+                  src='https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&h=600&fit=crop'
                   className='2xl:w-[550px] w-[380px] absolute bottom-0'
                   width={500}
                   height={500}
@@ -92,7 +100,7 @@ export default function HorizontalScroll(): JSX.Element {
                   INSPIRATION
                 </h2>
                 <Image
-                  src='https://res.cloudinary.com/dzl9yxixg/image/upload/v1713532202/ui-layout/team_gsu8ej.png'
+                  src='https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&h=600&fit=crop'
                   className='2xl:w-[550px] w-[380px] absolute bottom-0'
                   width={500}
                   height={500}
@@ -104,7 +112,7 @@ export default function HorizontalScroll(): JSX.Element {
                   BELIVE
                 </h2>
                 <Image
-                  src='https://res.cloudinary.com/dzl9yxixg/image/upload/v1713532202/ui-layout/team_gsu8ej.png'
+                  src='https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=600&h=600&fit=crop'
                   className='2xl:w-[550px] w-[380px] absolute bottom-0'
                   width={500}
                   height={500}
@@ -113,16 +121,15 @@ export default function HorizontalScroll(): JSX.Element {
               </li>
             </ul>
           </section>
-          <footer className='bg-red-600 text-white grid place-content-center h-[80vh]'>
+          <footer className='bg-red-600 font-medium text-white grid place-content-center h-[80vh]'>
             <p>
-              Created By{' '}
+              Inspired By{' '}
               <a target='_blank' href='https://twitter.com/mattgperry'>
                 Matt Perry
               </a>
             </p>
           </footer>
         </article>
-        <div className='progress fixed left-0 right-0  h-2 rounded-full bg-red-600 bottom-[50px] scale-x-0'></div>
       </main>
     </ReactLenis>
   );

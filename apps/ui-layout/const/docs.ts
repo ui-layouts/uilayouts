@@ -89,7 +89,7 @@ export const COMPONENT_KEYS = {
   LIQUID_GLASS_WEATHER: 'liquid-glass-weather',
   LIQUID_GLASS_NOTIFICATION: 'liquid-glass-notification',
   DRAG_ITEMS: 'drag-items',
-  CARD_GLOBE: 'card-globe',
+  CARD_GLOBE_DEFAULT: 'card-globe-default',
   CARD_GLOBE_WHITE: 'card-globe-white',
   SPARKLES_GLOBE: 'sparkles-globe',
   ANIMATED_LOGO_FOOTER: 'animated-logo-footer',

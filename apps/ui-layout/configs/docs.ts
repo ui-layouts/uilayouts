@@ -1225,7 +1225,7 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     category: DOCS_CATEGORY_KEY['globe'],
-    componentName: COMPONENT_KEYS.CARD_GLOBE,
+    componentName: COMPONENT_KEYS.CARD_GLOBE_DEFAULT,
     componentSrc: React.lazy(
       () => import('@/registry/components/globe/card-globe-default')
     ),
