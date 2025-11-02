@@ -50,10 +50,12 @@ export async function generateMetadata(props: {
     title: `${doc.content.metadata.title} | UI Layouts`,
     description: `${doc.content.metadata.description}${componentNamesStr}`,
     keywords: tags,
-    other: {
-      'component-names': componentNames.join(', '),
-      'available-components': componentNames.join('|'),
-    },
+    ...(componentNames.length > 0 && {
+      other: {
+        'component-names': componentNames.join(', '),
+        'available-components': componentNames.join('|'),
+      },
+    }),
     openGraph: {
       title: doc.content.metadata.title,
       description: `${doc.content.metadata.description}${componentNamesStr}`,
