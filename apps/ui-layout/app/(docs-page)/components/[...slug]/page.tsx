@@ -6,7 +6,10 @@ import { ChevronDown, Component } from 'lucide-react';
 import TableOfContents from '@/components/website/tableof-compoents';
 import { ComponentPagination } from '@/components/website/code-components/pagination';
 import Footer from '@/components/website/footer';
-import { DocsNavigationCategories } from '@/configs/docs';
+import {
+  DocsNavigationCategories,
+  AllComponents,
+} from '@/configs/docs';
 import CopyPage from '@/components/website/copy-page';
 
 export async function generateStaticParams() {
@@ -28,24 +31,41 @@ export async function generateMetadata(props: {
   );
   const tags = matchedComponent?.tags ?? [];
 
+  const componentNames =
+    matchedComponent?.key
+      ? AllComponents.filter(
+          (comp) => comp.category === matchedComponent.key
+        ).map((comp) => comp.componentName)
+      : [];
+
   if (!doc) {
     return {};
   }
 
+  const componentNamesStr = componentNames.length > 0
+    ? ` Available components: ${componentNames.join(', ')}.`
+    : '';
+
   return {
     title: `${doc.content.metadata.title} | UI Layouts`,
-    description: doc.content.metadata.description,
+    description: `${doc.content.metadata.description}${componentNamesStr}`,
     keywords: tags,
+    ...(componentNames.length > 0 && {
+      other: {
+        'component-names': componentNames.join(', '),
+        'available-components': componentNames.join('|'),
+      },
+    }),
     openGraph: {
       title: doc.content.metadata.title,
-      description: doc.content.metadata.description,
+      description: `${doc.content.metadata.description}${componentNamesStr}`,
       type: 'article',
       url: absoluteUrl(doc.slug),
     },
     twitter: {
       card: 'summary_large_image',
       title: doc.content.metadata.title,
-      description: doc.content.metadata.description,
+      description: `${doc.content.metadata.description}${componentNamesStr}`,
       creator: '@naymur_dev',
     },
   };
