@@ -20,7 +20,6 @@ const allBlocks = [
       },
     ],
   },
-
   {
     id: '03',
     link: 'https://pro.ui-layouts.com/blocks/experience',
@@ -47,22 +46,6 @@ const allBlocks = [
       },
       {
         img: '/blocks/testimonial3.png',
-        className:
-          'top-[58%] left-[43%] group-hover:left-[50%]  group-hover:top-[60%]',
-      },
-    ],
-  },
-  {
-    id: '02',
-    link: 'https://pro.ui-layouts.com/blocks/hero',
-    imgSrc: [
-      {
-        img: '/blocks/hero5.png',
-        className:
-          ' top-[40%] left-[55%]  group-hover:scale-90 group-hover:left-[50%]',
-      },
-      {
-        img: '/blocks/hero4.png',
         className:
           'top-[58%] left-[43%] group-hover:left-[50%]  group-hover:top-[60%]',
       },
@@ -145,22 +128,6 @@ const allBlocks = [
         img: '/blocks/faqs.png',
         className:
           'top-[58%] left-[43%] group-hover:left-[50%]  group-hover:top-[60%]',
-      },
-    ],
-  },
-  {
-    id: '10',
-    link: 'https://pro.ui-layouts.com/blocks/pricing',
-    imgSrc: [
-      {
-        img: '/blocks/pricing2.png',
-        className:
-          'top-[40%] left-[43%] group-hover:scale-90 group-hover:left-[50%]',
-      },
-      {
-        img: '/blocks/pricing5.png',
-        className:
-          'top-[58%] left-[55%] group-hover:left-[50%]  group-hover:top-[60%]',
       },
     ],
   },
