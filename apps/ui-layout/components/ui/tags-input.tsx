@@ -89,7 +89,7 @@ export const TagsInput: React.FC<TagsInputProps> = ({
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleAddTag}
               onBlur={handleBlur}
-              className='px-2 py-1 text-sm border dark:bg-neutral-950 bg-neutral-200 rounded-sm outline-hidden'
+              className='px-2 py-1 text-sm border dark:bg-neutral-800 bg-neutral-200 rounded-sm outline-hidden'
               placeholder='Edit tag...'
               style={{ width: `${input.length + 1 * 1.2}px` }}
               autoFocus

@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import { FramerModal, ModalContent } from '@/components/ui/modal/dialog';
+import { FramerModal, ModalContent } from '@/components/ui/dialog';
 
 const index: React.FC = () => {
   const [modalOpen, setModalOpen] = useState(false);

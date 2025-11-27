@@ -756,7 +756,7 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "./components/ui/modal/dialog.tsx",
+          "path": "./components/ui/dialog.tsx",
           "type": "registry:component"
         }
       ]
@@ -770,7 +770,7 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "./components/ui/modal/media-modal.tsx",
+          "path": "./components/ui/media-modal.tsx",
           "type": "registry:component"
         }
       ]
@@ -961,7 +961,7 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "./components/ui/modal/dialog.tsx",
+          "path": "./components/ui/dialog.tsx",
           "type": "registry:component"
         }
       ]

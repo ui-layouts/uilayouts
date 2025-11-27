@@ -30,82 +30,44 @@ export default function index() {
               </motion.button>
             </DrawerTrigger>
             <DrawerContent>
-              <figure className='w-full h-full flex flex-col'>
-                <div className='p-5 rounded-t-[10px] grow h-full w-full'>
-                  <h1 className='font-medium text-2xl'>Update Profile Image</h1>
-                  <p className='text-sm text-muted-foreground'>
-                    Upload a new profile image or remove the current one.
-                  </p>
-                  <div className='p-6 space-y-4'>
-                    <span className='relative flex justify-center overflow-hidden rounded-xl w-full'>
-                      <span className='grid place-content-center h-40 w-40 rounded-xl bg-muted'>
-                        JP
-                      </span>
-                    </span>
-                    <div className='mb-3'>
-                      <input
-                        className='w-full border file:p-2 file:bg-black file:border-none file:text-white rounded-xs overflow-hidden'
-                        type='file'
-                        id='formFile'
-                      />
+              <figure className='flex flex-col w-full h-full rounded-xl overflow-hidden'>
+                {/* Header / Body */}
+                <div className='p-6 flex flex-col gap-4 grow'>
+                  <div>
+                    <h1 className='font-semibold text-xl'>
+                      Update Profile Image
+                    </h1>
+                    <p className='text-sm text-muted-foreground mt-1'>
+                      Upload a new profile image or remove the current one.
+                    </p>
+                  </div>
+
+                  {/* Avatar Preview */}
+                  <div className='flex justify-center'>
+                    <div className='h-32 w-32 rounded-xl dark:bg-neutral-800 bg-muted grid place-content-center text-xl font-medium'>
+                      JP
                     </div>
-                    <button
-                      type='submit'
-                      className='w-full rounded-xs dark:bg-white bg-black p-2 dark:text-black text-white'
-                    >
-                      Submit
-                    </button>
                   </div>
-                </div>
-                <div className='p-4 bg-zinc-100 border-t border-zinc-200 mt-auto'>
-                  <div className='flex gap-6 justify-end max-w-md mx-auto'>
-                    <a
-                      className='text-xs text-zinc-600 flex items-center gap-0.25'
-                      href='https://github.com/naymurdev'
-                      target='_blank'
-                    >
-                      GitHub
-                      <svg
-                        fill='none'
-                        height='16'
-                        stroke='currentColor'
-                        strokeLinecap='round'
-                        strokeLinejoin='round'
-                        strokeWidth='2'
-                        viewBox='0 0 24 24'
-                        width='16'
-                        aria-hidden='true'
-                        className='w-3 h-3 ml-1'
-                      >
-                        <path d='M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6'></path>
-                        <path d='M15 3h6v6'></path>
-                        <path d='M10 14L21 3'></path>
-                      </svg>
-                    </a>
-                    <a
-                      className='text-xs text-zinc-600 flex items-center gap-0.25'
-                      href='https://twitter.com/naymur_dev'
-                      target='_blank'
-                    >
-                      Twitter
-                      <svg
-                        fill='none'
-                        height='16'
-                        stroke='currentColor'
-                        strokeLinecap='round'
-                        strokeLinejoin='round'
-                        strokeWidth='2'
-                        viewBox='0 0 24 24'
-                        width='16'
-                        aria-hidden='true'
-                        className='w-3 h-3 ml-1'
-                      >
-                        <path d='M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6'></path>
-                        <path d='M15 3h6v6'></path>
-                        <path d='M10 14L21 3'></path>
-                      </svg>
-                    </a>
+
+                  {/* File Input */}
+                  <div>
+                    <label className='text-sm font-medium mb-1 block'>
+                      Profile Picture
+                    </label>
+                    <input
+                      type='file'
+                      id='formFile'
+                      className='w-full bg-background border border-border rounded-md p-2 file:bg-black file:text-white file:border-none file:px-3 file:py-1 cursor-pointer'
+                    />
                   </div>
+
+                  {/* Submit */}
+                  <button
+                    type='submit'
+                    className='w-full rounded-md bg-black text-white dark:bg-white dark:text-black p-2 font-medium'
+                  >
+                    Save Changes
+                  </button>
                 </div>
               </figure>
             </DrawerContent>

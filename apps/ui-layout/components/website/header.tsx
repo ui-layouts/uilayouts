@@ -86,10 +86,7 @@ function Header() {
               </svg>
             </a>
 
-            <ThemeSwitch
-              className='dark:bg-zinc-900 dark:bg-neutral-800 bg-neutral-50 border w-12 rounded-md h-11 shrink-0
-          '
-            />
+            <ThemeSwitch className='dark:bg-zinc-900 bg-neutral-50 border w-12 rounded-md h-11 shrink-0' />
           </div>
         </div>
       </header>

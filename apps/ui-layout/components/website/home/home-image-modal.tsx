@@ -1,4 +1,4 @@
-import { MediaModal } from '@/components/ui/modal/media-modal';
+import { MediaModal } from '@/components/ui/media-modal';
 
 export default function HomeDialog() {
   return (

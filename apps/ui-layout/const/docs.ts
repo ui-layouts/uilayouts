@@ -220,7 +220,7 @@ export const COMPONENT_KEYS = {
 
   // Drawer category
   RESPONSIVE_HEADER_DEFAULT: 'responsive-header-default',
-  DIRECTIONAL_DRAWER_DEFAULT: 'directional-drawer_default',
+  DIRECTIONAL_DRAWER_DEFAULT: 'directional-drawer-default',
   LEFT_DIRECTIONAL_DRAWER: 'left-directional-drawer',
   TOP_DIRECTIONAL_DRAWER: 'top-directional-drawer',
   BOTTOM_DIRECTIONAL_DRAWER: 'bottom-directional-drawer',

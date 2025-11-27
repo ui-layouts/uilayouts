@@ -12,21 +12,8 @@ export default function App() {
         tags={tags}
         setTags={setTags}
         editTag={false}
-        className='lg:w-96 '
+        className='lg:w-96'
       />
-      {/* <div className='mt-4'>
-        <p>Current Tags:</p>
-        <div className='flex gap-2 mt-2'>
-          {tags.map((tag) => (
-            <span
-              key={tag}
-              className='px-2 py-1 text-sm text-gray-700 bg-gray-200 rounded-sm'
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-      </div> */}
     </div>
   );
 }

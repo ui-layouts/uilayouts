@@ -2685,7 +2685,7 @@ export const AllComponents: IAllComponents[] = [
     componentSrc: React.lazy(
       () => import('@/registry/components/drawer/motion-drawer')
     ),
-    iframeSrc: 'live-components/motion-drawer',
+    iframeSrc: 'live-components/motion-drawer-default',
     iframe: true,
   },
   {

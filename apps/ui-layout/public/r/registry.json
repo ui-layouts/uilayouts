@@ -1322,7 +1322,7 @@
       "files": [
         {
           "path": "./components/ui/tab.tsx",
-          "type": "registry:component"  
+          "type": "registry:component"
         }
       ]
     },
@@ -2875,7 +2875,7 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "./components/ui/modal/dialog.tsx",
+          "path": "./components/ui/dialog.tsx",
           "type": "registry:component"
         }
       ]
@@ -2892,7 +2892,7 @@
           "type": "registry:component"
         },
         {
-          "path": "./components/ui/modal/dialog.tsx",
+          "path": "./components/ui/dialog.tsx",
           "type": "registry:component"
         }
       ]

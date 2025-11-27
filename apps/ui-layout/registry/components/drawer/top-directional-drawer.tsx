@@ -21,15 +21,15 @@ export default function index() {
         outsideClose={true}
       >
         <DrawerContent>
-          <figure className=' w-full h-full  flex flex-col'>
-            <div className='p-5  rounded-t-[10px] grow  h-full w-full'>
-              <h1 className='font-medium  text-2xl'>Update Profile Image</h1>
+          <figure className='w-full h-full  flex flex-col'>
+            <div className='p-5 rounded-t-[10px] grow  h-full w-full'>
+              <h1 className='font-medium text-2xl'>Update Profile Image</h1>
               <p className='text-sm text-muted-foreground'>
                 Upload a new profile image or remove the current one.
               </p>
               <div className='p-2 space-y-4 '>
                 <span className='relative flex justify-center overflow-hidden rounded-xl w-full '>
-                  <span className='grid place-content-center h-40  w-40 rounded-xl bg-muted'>
+                  <span className='grid place-content-center h-40  w-40 rounded-xl dark:bg-neutral-800 bg-muted'>
                     JP
                   </span>
                 </span>
@@ -46,56 +46,6 @@ export default function index() {
                 >
                   Submit
                 </button>
-              </div>
-            </div>
-            <div className='p-4 bg-zinc-100 border-t border-zinc-200 '>
-              <div className='flex gap-6 justify-start max-w-md mx-auto'>
-                <a
-                  className='text-xs text-zinc-600 flex items-center gap-0.25'
-                  href='https://github.com/naymurdev'
-                  target='_blank'
-                >
-                  GitHub
-                  <svg
-                    fill='none'
-                    height='16'
-                    stroke='currentColor'
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    strokeWidth='2'
-                    viewBox='0 0 24 24'
-                    width='16'
-                    aria-hidden='true'
-                    className='w-3 h-3 ml-1'
-                  >
-                    <path d='M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6'></path>
-                    <path d='M15 3h6v6'></path>
-                    <path d='M10 14L21 3'></path>
-                  </svg>
-                </a>
-                <a
-                  className='text-xs text-zinc-600 flex items-center gap-0.25'
-                  href='https://twitter.com/naymur_dev'
-                  target='_blank'
-                >
-                  Twitter
-                  <svg
-                    fill='none'
-                    height='16'
-                    stroke='currentColor'
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    strokeWidth='2'
-                    viewBox='0 0 24 24'
-                    width='16'
-                    aria-hidden='true'
-                    className='w-3 h-3 ml-1'
-                  >
-                    <path d='M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6'></path>
-                    <path d='M15 3h6v6'></path>
-                    <path d='M10 14L21 3'></path>
-                  </svg>
-                </a>
               </div>
             </div>
           </figure>

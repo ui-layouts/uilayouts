@@ -1,16 +1,20 @@
 'use client';
-import {  motion } from 'motion/react';
+import { motion } from 'motion/react';
 import { useState } from 'react';
 import { useMediaQuery } from '@/hooks/use-media-query';
 import {
   ResponsiveModalContent,
   ResponsiveModal,
 } from '@/components/ui/responsive-modal';
+import { toast } from 'sonner';
 
 export default function MyDrawer() {
-  // const [open, setOpen] = useState(false)
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const isDesktop = useMediaQuery('(min-width: 768px)');
+
+  const handleSubmit = () => {
+    toast.success('Profile image updated successfully');
+    setDrawerOpen(false);
+  };
   return (
     <>
       <div className='flex justify-between'>
@@ -25,13 +29,13 @@ export default function MyDrawer() {
       <ResponsiveModal open={drawerOpen} setOpen={setDrawerOpen}>
         <ResponsiveModalContent>
           <figure className='flex flex-col space-y-1.5 text-center  h-fit dark:bg-neutral-800 md:p-4 p-6'>
-            <h1 className='font-medium  text-2xl'>Update Profile Image</h1>
-            <p className='text-sm text-muted-foreground'>
+            <h1 className='font-medium text-2xl'>Update Profile Image</h1>
+            <p className='text-sm text-muted-foreground w-4/5 mx-auto'>
               Upload a new profile image or remove the current one.
             </p>
             <div data-vaul-no-drag className='py-4 space-y-4'>
               <span className='relative flex justify-center overflow-hidden rounded-xl w-full '>
-                <span className='grid place-content-center h-40  w-40 rounded-xl bg-muted'>
+                <span className='grid place-content-center h-40 w-40 rounded-xl dark:bg-neutral-950 bg-muted'>
                   JP
                 </span>
               </span>
@@ -44,9 +48,7 @@ export default function MyDrawer() {
               </div>
               <button
                 type='submit'
-                onClick={() => {
-                  setDrawerOpen(false);
-                }}
+                onClick={handleSubmit}
                 className='w-full rounded-xs dark:bg-white bg-black  p-2 dark:text-black text-white'
               >
                 Submit

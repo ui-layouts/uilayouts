@@ -8,19 +8,6 @@ export default function App() {
   return (
     <div className='max-w-xl mx-auto py-16'>
       <TagsInput tags={tags} setTags={setTags} className='lg:w-96' />
-      {/* <div className='mt-4'>
-        <p>Current Tags:</p>
-        <div className='flex gap-2 mt-2'>
-          {tags.map((tag) => (
-            <span
-              key={tag}
-              className='px-2 py-1 text-sm text-gray-700 bg-gray-200 rounded-sm'
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-      </div> */}
     </div>
   );
 }

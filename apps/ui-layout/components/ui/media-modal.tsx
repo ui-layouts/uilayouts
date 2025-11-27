@@ -3,7 +3,14 @@ import React, { useEffect, useId, useState } from 'react';
 import { AnimatePresence, motion, MotionConfig } from 'motion/react';
 import { useMediaQuery } from '@/hooks/use-media-query';
 import { XIcon } from 'lucide-react';
-import { transition } from '@/lib/utils';
+import { cn } from '@/lib/utils';
+
+export const transition = {
+  type: 'spring',
+  stiffness: 300, // Increased from 80
+  damping: 30, // Increased from 10
+  mass: 0.5, // Decreased from 0.9
+} as const;
 
 interface IMediaModal {
   imgSrc?: string;
@@ -13,7 +20,6 @@ interface IMediaModal {
 
 export function MediaModal({ imgSrc, videoSrc, className }: IMediaModal) {
   const [isMediaModalOpen, setIsMediaModalOpen] = useState(false);
-  const isDesktop = useMediaQuery('(min-width:768px)');
   const uniqueId = useId();
 
   useEffect(() => {
@@ -39,8 +45,7 @@ export function MediaModal({ imgSrc, videoSrc, className }: IMediaModal) {
       <MotionConfig transition={transition}>
         <>
           <motion.div
-            // @ts-ignore
-            className='w-full h-full flex relative  flex-col overflow-hidden border    dark:bg-black bg-gray-300 hover:bg-gray-200 dark:hover:bg-gray-950'
+            className='w-full h-full flex relative flex-col overflow-hidden border cursor-zoom-in dark:bg-black bg-gray-300 hover:bg-gray-200 dark:hover:bg-gray-950'
             layoutId={`dialog-${uniqueId}`}
             style={{
               borderRadius: '12px',
@@ -54,7 +59,6 @@ export function MediaModal({ imgSrc, videoSrc, className }: IMediaModal) {
                 layoutId={`dialog-img-${uniqueId}`}
                 className='w-full h-full'
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={imgSrc}
                   alt='A desk lamp designed by Edouard Wilfrid Buquet in 1925. It features a double-arm design and is made from nickel-plated brass, aluminium and varnished wood.'
@@ -79,8 +83,7 @@ export function MediaModal({ imgSrc, videoSrc, className }: IMediaModal) {
             )}
           </motion.div>
         </>
-        {/* {createPortal( */}
-        <AnimatePresence initial={false} mode='sync'>
+        <AnimatePresence initial={false} mode='popLayout'>
           {isMediaModalOpen && (
             <>
               <motion.div
@@ -99,8 +102,12 @@ export function MediaModal({ imgSrc, videoSrc, className }: IMediaModal) {
                 className='pointer-events-none fixed inset-0 flex items-center justify-center z-50'
               >
                 <motion.div
-                  className='pointer-events-auto relative flex flex-col overflow-hidden   dark:bg-gray-950 bg-gray-200 border w-[80%] h-[90%] '
+                  className={cn(
+                    'pointer-events-auto relative flex flex-col overflow-hidden dark:bg-gray-950 bg-gray-200 border w-[80%] h-[90%]',
+                    imgSrc && 'cursor-zoom-out'
+                  )}
                   layoutId={`dialog-${uniqueId}`}
+                  layout={isMediaModalOpen}
                   tabIndex={-1}
                   style={{
                     borderRadius: '24px',
@@ -110,8 +117,8 @@ export function MediaModal({ imgSrc, videoSrc, className }: IMediaModal) {
                     <motion.div
                       layoutId={`dialog-img-${uniqueId}`}
                       className='w-full h-full'
+                      onClick={() => setIsMediaModalOpen(false)}
                     >
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={imgSrc}
                         alt=''
@@ -135,23 +142,21 @@ export function MediaModal({ imgSrc, videoSrc, className }: IMediaModal) {
                       </video>
                     </motion.div>
                   )}
-
-                  <button
-                    onClick={() => setIsMediaModalOpen(false)}
-                    className='absolute right-6 top-6 p-3 text-zinc-50 cursor-pointer dark:bg-gray-900 bg-gray-400 hover:bg-gray-500 rounded-xl dark:hover:bg-gray-800'
-                    type='button'
-                    aria-label='Close dialog'
-                  >
-                    <XIcon size={24} />
-                  </button>
+                  {videoSrc && (
+                    <button
+                      onClick={() => setIsMediaModalOpen(false)}
+                      className='absolute right-6 top-6 p-3 text-zinc-50 cursor-pointer dark:bg-gray-900 bg-gray-400 hover:bg-gray-500 rounded-xl dark:hover:bg-gray-800'
+                      type='button'
+                      aria-label='Close dialog'
+                    >
+                      <XIcon size={24} />
+                    </button>
+                  )}
                 </motion.div>
               </motion.div>
             </>
           )}
         </AnimatePresence>
-        {/* , */}
-        {/*    document.body
-       )} */}
       </MotionConfig>
     </>
   );
