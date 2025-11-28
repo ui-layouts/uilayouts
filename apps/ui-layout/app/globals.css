@@ -1,6 +1,6 @@
 @import 'tailwindcss';
-@import "./token.css";
-@import "./code-hike.css";
+@import './token.css';
+@import './code-hike.css';
 
 @source './pages/**/*.{js,ts,jsx,tsx,mdx}';
 @source './components/**/*.{js,ts,jsx,tsx,mdx}';
@@ -98,16 +98,15 @@
 
   /* Rainbow banner 1 */
   --color-rainbow-1-start: hsl(220 100% 50% / 0.5);
-  --color-rainbow-1-mid:   hsl(320 100% 50% / 0.77);
-  --color-rainbow-1-end:   hsl(20  100% 50% / 0.4);
-  --color-rainbow-1-via:   hsl(90  100% 63% / 0.4);
+  --color-rainbow-1-mid: hsl(320 100% 50% / 0.77);
+  --color-rainbow-1-end: hsl(20 100% 50% / 0.4);
+  --color-rainbow-1-via: hsl(90 100% 63% / 0.4);
 
   /* Rainbow banner 2 */
-  --color-rainbow-2-start: hsl(0   100% 73% / 0.5);
-  --color-rainbow-2-mid:   hsl(198 100% 57% / 0.4);
-  --color-rainbow-2-end:   hsl(255 100% 50% / 0.51);
-  --color-rainbow-2-via:   hsl(20  100% 55% / 0.56);
-
+  --color-rainbow-2-start: hsl(0 100% 73% / 0.5);
+  --color-rainbow-2-mid: hsl(198 100% 57% / 0.4);
+  --color-rainbow-2-end: hsl(255 100% 50% / 0.51);
+  --color-rainbow-2-via: hsl(20 100% 55% / 0.56);
 
   @keyframes border {
     to {
@@ -124,13 +123,29 @@
   }
 }
 
+html.dark .shiki,
+html.dark .shiki span {
+  color: var(--shiki-dark) !important;
+  font-style: var(--shiki-dark-font-style) !important;
+  font-weight: var(--shiki-dark-font-weight) !important;
+  text-decoration: var(--shiki-dark-text-decoration) !important;
+}
+
+.shiki {
+  @apply overflow-x-auto rounded-lg p-4 !bg-codebg;
+}
+.bash .shiki {
+  @apply overflow-x-auto rounded-lg p-4 !bg-codebg;
+}
+
 @theme inline {
   --animate-border: border 4s linear infinite;
   --animate-infinite-scroll: infinite-scroll 25s linear infinite;
   --animate-marquee: marquee var(--duration) linear infinite;
   --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
   --animate-marquee-reverse: marquee-reverse var(--duration) linear infinite;
-  --animate-marquee-vertical-reverse: marquee-vertical-reverse var(--duration) linear infinite;
+  --animate-marquee-vertical-reverse: marquee-vertical-reverse var(--duration)
+    linear infinite;
 
   @keyframes marquee {
     from {
@@ -167,7 +182,11 @@
 }
 
 @layer base {
-  *, ::after, ::before, ::backdrop, ::file-selector-button {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
     border-color: var(--color-border);
   }
 }
@@ -235,9 +254,9 @@
 
   /* decorative tokens */
   --start: var(--color-rainbow-1-start);
-  --mid:   var(--color-rainbow-1-mid);
-  --end:   var(--color-rainbow-1-end);
-  --via:   var(--color-rainbow-1-via);
+  --mid: var(--color-rainbow-1-mid);
+  --end: var(--color-rainbow-1-end);
+  --via: var(--color-rainbow-1-via);
 
   background-image: repeating-linear-gradient(
     60deg,
@@ -268,9 +287,9 @@
 
   /* decorative tokens */
   --start: var(--color-rainbow-2-start);
-  --mid:   var(--color-rainbow-2-mid);
-  --end:   var(--color-rainbow-2-end);
-  --via:   var(--color-rainbow-2-via);
+  --mid: var(--color-rainbow-2-mid);
+  --end: var(--color-rainbow-2-end);
+  --via: var(--color-rainbow-2-via);
 
   background-image: repeating-linear-gradient(
     45deg,
@@ -375,8 +394,12 @@
 }
 
 @layer base {
-  * { @apply border-border; }
-  body { @apply bg-background text-foreground; } /* 다크 강제 유틸 제거 */
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  } /* 다크 강제 유틸 제거 */
 }
 
 @layer utilities {
@@ -477,7 +500,6 @@
     width: 100%;
   }
 
-
   /* Chrome, Safari, Edge, Opera */
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {
@@ -555,7 +577,6 @@
 }
 
 @layer utilities {
-
   .ease-out-expo {
     transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
   }

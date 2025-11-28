@@ -8,7 +8,7 @@ import ComponentPreview from './component-preview';
 import { extractCodeFromFilePath } from '@/lib/code';
 import React from 'react';
 import { Code, Eye } from 'lucide-react';
-import { PreCoded } from './pre-coded';
+import { PreCode } from './pre-code';
 import { AllComponents } from '@/configs/docs';
 
 type TComponentCodePreview = {
@@ -58,6 +58,8 @@ export default async function ComponentCodePreview({
     `registry/${currComponent?.filesrc}`
   );
 
+  const codeContent = { value: fileContent, lang: 'tsx', meta: '' };
+
   return (
     <div className='not-prose relative z-0 flex items-center justify-between pb-3'>
       <Tabs
@@ -94,7 +96,7 @@ export default async function ComponentCodePreview({
           />
         </TabsContent>
         <TabsContent className='mt-14' value={`${name}code`}>
-          {!isTab && <PreCoded codeblock={fileContent} classname='p-0' />}
+          {!isTab && <PreCode codeblock={codeContent} classname='p-0' />}
           {children !== undefined && <div>{children}</div>}
         </TabsContent>
       </Tabs>

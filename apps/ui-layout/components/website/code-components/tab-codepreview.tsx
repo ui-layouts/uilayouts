@@ -1,5 +1,4 @@
 import React from 'react';
-import { PreCoded } from './pre-coded';
 import {
   Tabs,
   TabsContent,

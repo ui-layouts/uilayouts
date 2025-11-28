@@ -4,7 +4,6 @@ import { visit } from 'unist-util-visit';
 import { u } from 'unist-builder';
 import remarkGfm from 'remark-gfm';
 import createMDX from '@next/mdx';
-import { remarkCodeHike, recmaCodeHike } from 'codehike/mdx';
 import rehypeSlug from 'rehype-slug';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
@@ -24,7 +23,7 @@ function rehypeComponent() {
         // console.log('Found CodePreview element:', node);
 
         const nameAttribute = node.attributes.find(
-          (attr: { name: string; }) => attr.name === 'name'
+          (attr: { name: string }) => attr.name === 'name'
         );
         const name = nameAttribute ? nameAttribute.value : null;
 
@@ -36,7 +35,8 @@ function rehypeComponent() {
         }
 
         try {
-          const currentComponentData = AllComponents.find((comp) => comp.componentName === name) || null;
+          const currentComponentData =
+            AllComponents.find((comp) => comp.componentName === name) || null;
 
           if (!currentComponentData) {
             console.error(`Component not found: ${name}`);
@@ -46,31 +46,34 @@ function rehypeComponent() {
           // console.log('Found component data:', currentComponentData);
 
           const filesContent =
-            currentComponentData.filesArray?.map((file: { filesrc: string; name: any; }) => {
-              const filePath = path.join(process.cwd(), file.filesrc);
-              const source = fs.readFileSync(filePath, 'utf8');
-              return {
-                name: file.name,
-                content: source,
-                path: file.filesrc,
-                componentName: currentComponentData.componentName,
-              };
-            }) || [];
+            currentComponentData.filesArray?.map(
+              (file: { filesrc: string; name: any }) => {
+                const filePath = path.join(process.cwd(), file.filesrc);
+                const source = fs.readFileSync(filePath, 'utf8');
+                return {
+                  name: file.name,
+                  content: source,
+                  path: file.filesrc,
+                  componentName: currentComponentData.componentName,
+                };
+              }
+            ) || [];
           // console.log(filesContent);
 
           // console.log('Files content:', filesContent);
           // console.log('checking inner node:', node.children);
 
-          node.children = filesContent.map((file: { content: any; name: any; componentName: any; }) =>
-            u('element', {
-              tagName: 'PreCode',
-              properties: {
-                codeblock: JSON.stringify(file.content), // Stringify the content
-                filename: file.name,
-                componentname: file.componentName,
-              },
-              children: node.children,
-            })
+          node.children = filesContent.map(
+            (file: { content: any; name: any; componentName: any }) =>
+              u('element', {
+                tagName: 'PreCode',
+                properties: {
+                  codeblock: JSON.stringify(file.content), // Stringify the content
+                  filename: file.name,
+                  componentname: file.componentName,
+                },
+                children: node.children,
+              })
           );
 
           // console.log('Updated node children:', node.children);
@@ -85,7 +88,7 @@ function rehypeComponent() {
         // console.log('Found CodePreview element:', node);
 
         const nameAttribute = node.attributes.find(
-          (attr: { name: string; }) => attr.name === 'name'
+          (attr: { name: string }) => attr.name === 'name'
         );
         const name = nameAttribute ? nameAttribute.value : null;
 
@@ -97,7 +100,8 @@ function rehypeComponent() {
         }
 
         try {
-          const currentComponentData = AllComponents.find((comp) => comp.componentName === name) || null;
+          const currentComponentData =
+            AllComponents.find((comp) => comp.componentName === name) || null;
 
           if (!currentComponentData) {
             console.error(`Component not found: ${name}`);
@@ -137,8 +141,7 @@ function rehypeComponent() {
 const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [remarkGfm, [remarkCodeHike, chConfig]],
-    recmaPlugins: [[recmaCodeHike, chConfig]],
+    remarkPlugins: [remarkGfm],
     rehypePlugins: [rehypeSlug, rehypeComponent],
     jsx: true,
   },
@@ -173,11 +176,14 @@ const nextConfig = {
       },
     ],
   },
-  webpack: (config: { resolve: { alias: any; }; module: { rules: any; }; }, { isServer }: any) => {
-     config.module.rules.push({
+  webpack: (
+    config: { resolve: { alias: any }; module: { rules: any } },
+    { isServer }: any
+  ) => {
+    config.module.rules.push({
       test: /\.txt$/,
-      type: "asset/source",
-    })
+      type: 'asset/source',
+    });
     // Add path aliases
     config.resolve.alias = {
       ...config.resolve.alias,

@@ -10,7 +10,7 @@ If you need any help, feel free to reach out to [@naymur](https://x.com/naymur_d
 
 - We use [npm](https://docs.npmjs.com).
 - For animation [framer](https://www.framer.com/motion)
-- For Mdx [codehike](https://codehike.org/docs/)
+- For next-mdx [nextmdx](https://nextjs.org/docs/13/app/building-your-application/configuring/mdx)
 
 ## Development
 
@@ -29,6 +29,7 @@ git clone https://github.com/naymurdev/uilayout.git
 ```bash
 cd uilayout
 ```
+
 `Don't work on old-ui-layout`
 
 ### Create a new Branch

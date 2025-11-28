@@ -789,28 +789,6 @@
       ]
     },
     {
-      "name": "constant",
-      "type": "registry:component",
-      "devDependencies": [],
-      "dependencies": ["codehike"],
-      "registryDependencies": [],
-      "files": [
-        {
-          "path": "./components/website/constant.tsx",
-          "type": "registry:component"
-        },
-        {
-          "path": "./assets/icons/Icons.tsx",
-          "type": "registry:component"
-        },
-        {
-          "path": "./assets/preview/Preview.tsx",
-          "type": "registry:component"
-        }
-      ]
-    },
-
-    {
       "name": "drawer",
       "type": "registry:component",
       "devDependencies": [],

@@ -81,7 +81,9 @@ export const metadata = {
 
 <IframeTabCodePreview>
 
-```tsx !!tabs index.ts
+```tsx 
+index.ts
+
 'use client';
 import dynamic from 'next/dynamic';
 const Scene = dynamic(() => import('./scene'), {
@@ -120,7 +122,9 @@ export default function Home() {
 }
 ```
 
-```tsx !!tabs scene.ts
+```tsx 
+scene.ts
+
 import { Canvas } from '@react-three/fiber';
 import { OrthographicCamera } from '@react-three/drei';
 import Model from './model';
@@ -166,7 +170,9 @@ export default function Scene() {
 }
 ```
 
-```tsx !!tabs model.ts
+```tsx 
+model.ts
+
 // @ts-nocheck
 import React, { useRef, useEffect, useState } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
@@ -358,7 +364,9 @@ export default function Model() {
 }
 ```
 
-```tsx !!tabs shaders.ts
+```tsx 
+shaders.ts
+
 export const fragment = `
 uniform sampler2D uTexture;
 uniform sampler2D uDisplacement;
@@ -390,7 +398,9 @@ void main() {
 `;
 ```
 
-```tsx !!tabs useDimension.ts
+```tsx 
+useDimension.ts
+
 import * as React from 'react';
 
 export default function useDimension() {
@@ -423,7 +433,9 @@ export default function useDimension() {
 }
 ```
 
-```tsx !!tabs useMouse.ts
+```tsx 
+useMouse.ts
+
 import * as React from 'react';
 export default function useMouse() {
   const [mouse, setMouse] = React.useState({ x: 0, y: 0, pixelRatio: 0 });

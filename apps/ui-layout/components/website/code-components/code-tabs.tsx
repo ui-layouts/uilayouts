@@ -1,5 +1,3 @@
-import { Block, CodeBlock, parseProps } from 'codehike/blocks';
-import { Pre, RawCode, highlight } from 'codehike/code';
 import { z } from 'zod';
 import {
   Tabs,
@@ -7,28 +5,45 @@ import {
   TabsList,
   TabsTrigger,
 } from '@/components/website/ui/tabs';
-import { PreCode } from './pre-code';
+
 import { CopyButton } from './copy-button';
+import { highlightCode } from '@/lib/shiki-highlighter';
 
-const Schema = Block.extend({ tabs: z.array(CodeBlock) });
+// -------------------------------
+// PARSE THE MDX PROPS MANUALLY
+// -------------------------------
+const TabSchema = z.object({
+  value: z.string(),
+  lang: z.string(),
+  meta: z.string(),
+});
 
+const Schema = z.object({
+  tabs: z.array(TabSchema),
+});
+
+// -------------------------------
+// ENTRY FROM MDX <CodeWithTabs>
+// -------------------------------
 export async function CodeWithTabs(props: unknown) {
-  const { tabs } = parseProps(props, Schema);
+  const { tabs } = Schema.parse(props);
   return <CodeTabs tabs={tabs} />;
 }
 
-export async function CodeTabs(props: { tabs: RawCode[] }) {
-  const { tabs } = props;
+// -------------------------------
+// SHIKI VERSION OF CODEHIKETABS
+// -------------------------------
+export async function CodeTabs({ tabs }: { tabs: any[] }) {
   const highlighted = await Promise.all(
-    tabs.map((tab) => highlight(tab, 'github-from-css'))
+    tabs.map((tab) => highlightCode(tab.value, tab.lang))
   );
-  console.log(tabs);
+
   return (
     <Tabs
       defaultValue={tabs[0]?.meta}
-      className=' rounded-xl  bg-neutral-200 dark:bg-black/40 backdrop-blur-md border relative p-1 my-5'
+      className='rounded-xl bg-neutral-200 dark:bg-black/40 backdrop-blur-md border relative p-1 my-5'
     >
-      <TabsList className='rounded-lg mt-1 mx-1 bg-transparent dark:bg-transparent border-0'>
+      <TabsList className='rounded-lg mt-1 mx-1 bg-transparent border-0'>
         {tabs.map((tab) => (
           <TabsTrigger
             key={tab.meta}
@@ -50,7 +65,6 @@ export async function CodeTabs(props: { tabs: RawCode[] }) {
                     fill='currentColor'
                   />
                 </svg>
-
                 {tab.meta}
               </>
             ) : (
@@ -91,16 +105,17 @@ export async function CodeTabs(props: { tabs: RawCode[] }) {
           </TabsTrigger>
         ))}
       </TabsList>
+
       {tabs.map((tab, i) => (
-        <TabsContent key={tab.meta} value={tab.meta} className='mt-1 p-1 '>
+        <TabsContent key={tab.meta} value={tab.meta} className='mt-1 p-1'>
           <CopyButton
-            code={highlighted[i].code}
+            code={tab.value}
             classname='top-1.5 dark:bg-zinc-900 border bg-white absolute right-3'
           />
 
-          <Pre
-            code={highlighted[i]}
-            className='m-0! text-xl rounded-xl bg-neutral-50 dark:bg-zinc-900'
+          <div
+            className='m-0 text-xl rounded-xl bg-neutral-50 dark:bg-zinc-900 p-3'
+            dangerouslySetInnerHTML={{ __html: highlighted[i] }}
           />
         </TabsContent>
       ))}
