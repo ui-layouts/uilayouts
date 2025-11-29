@@ -5,7 +5,7 @@ interface ComponentCodePreviewProps {
   copyclass?: string;
 }
 import { getComponentCode } from '@/lib/get-component-code';
-import { PreCoded } from './pre-coded';
+import { PreCode } from './pre-code';
 
 export default async function CodeSnippets({
   name,
@@ -14,14 +14,15 @@ export default async function CodeSnippets({
   copyclass,
 }: ComponentCodePreviewProps) {
   const fileContent = await getComponentCode(name);
+  const codeContent = { value: fileContent, lang: 'tsx', meta: '' };
 
   return (
     <>
-      <PreCoded
-        codeblock={fileContent}
+      <PreCode
+        codeblock={codeContent}
         classname={classname}
-        tabclassname={tabclassname}
-        copyclass={copyclass}
+        // tabclassname={tabclassname}
+        // copyclass={copyclass}
       />
     </>
   );

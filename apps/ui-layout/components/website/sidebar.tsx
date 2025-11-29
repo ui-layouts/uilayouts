@@ -87,7 +87,7 @@ function DocsSidebar() {
                   </li>
                 ))}
               </ul>
-              {recentPages.length > 0 && (
+              {/* {recentPages.length > 0 && (
                 <div className='relative'>
                   <div className='flex justify-between items-center'>
                     <h1 className='xl:text-lg text-[1.05rem] font-semibold pb-1'>
@@ -130,7 +130,7 @@ function DocsSidebar() {
                     ))}
                   </ul>
                 </div>
-              )}
+              )} */}
               {Object.entries(groupedDocsNavigationCategories).map(
                 ([group, items], index) => (
                   <ItemsWithName

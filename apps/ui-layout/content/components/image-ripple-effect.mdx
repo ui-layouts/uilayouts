@@ -81,7 +81,9 @@ export const metadata = {
 
 <IframeTabCodePreview>
 
-```tsx !!tabs index.ts
+```tsx 
+index.ts
+
 'use client';
 import dynamic from 'next/dynamic';
 const Scene = dynamic(() => import('./scene'), {
@@ -120,7 +122,9 @@ export default function Home() {
 }
 ```
 
-```tsx !!tabs scene.ts
+```tsx 
+scene.ts
+
 import { Canvas } from '@react-three/fiber';
 import { OrthographicCamera } from '@react-three/drei';
 import Model from './model';
@@ -166,7 +170,9 @@ export default function Scene() {
 }
 ```
 
-```tsx !!tabs model.ts
+```tsx 
+model.ts
+
 // @ts-nocheck
 import React, { useRef, useEffect, useState } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
@@ -358,7 +364,9 @@ export default function Model() {
 }
 ```
 
-```tsx !!tabs shaders.ts
+```tsx 
+shaders.ts
+
 export const fragment = `
 uniform sampler2D uTexture;
 uniform sampler2D uDisplacement;
@@ -390,7 +398,9 @@ void main() {
 `;
 ```
 
-```tsx !!tabs useDimension.ts
+```tsx 
+useDimension.ts
+
 import * as React from 'react';
 
 export default function useDimension() {
@@ -423,7 +433,9 @@ export default function useDimension() {
 }
 ```
 
-```tsx !!tabs useMouse.ts
+```tsx 
+useMouse.ts
+
 import * as React from 'react';
 export default function useMouse() {
   const [mouse, setMouse] = React.useState({ x: 0, y: 0, pixelRatio: 0 });
@@ -466,28 +478,24 @@ Change `texture` from here
 const texture = useTexture('/brush.png');
 ```
 
-<HoverContainer>
 
 change [image](hover:one) and control the [position](hover:two) of image
 
 ```jsx
-// !hover one
+
+// change images
 const texture1 = useTexture('/picture3.jpeg');
+
 const material1 = new THREE.MeshBasicMaterial({ map: texture1 });
 const image1 = new THREE.Mesh(geometry, material1);
-// !hover two
+
+// positining
 image1.position.x = -0.0 * viewport.width;
-// !hover two
 image1.position.y = 40;
-// !hover two
 image1.position.z = 1;
-// !hover two
 image1.scale.x = viewport.width / 4;
-// !hover two
 image1.scale.y = viewport.width / 3.2;
 ```
-
-</HoverContainer>
 
 you can add multiple images
 

@@ -30,15 +30,7 @@ function index() {
             animate={{ scale: isActive ? 1.2 : 1 }}
             transition={{ type: 'spring', stiffness: 1000, damping: 10 }}
           >
-            {isActive ? (
-              <>
-                <Heart className=' fill-white' />
-              </>
-            ) : (
-              <>
-                <Heart />
-              </>
-            )}
+            {isActive ? <Heart className=' fill-white' /> : <Heart />}
           </motion.button>
           <Carousel options={OPTIONS} className='h-full relative'>
             <SliderContainer className='gap-2 h-full'>

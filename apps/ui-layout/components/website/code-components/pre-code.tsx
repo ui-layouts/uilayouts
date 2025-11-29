@@ -1,5 +1,7 @@
-import { Pre, RawCode, highlight } from 'codehike/code';
+import { highlightCode } from '@/lib/shiki-highlighter';
 import prettier from 'prettier';
+import ts from 'typescript';
+
 import {
   Tabs,
   TabsContent,
@@ -8,11 +10,8 @@ import {
 } from '@/components/website/ui/tabs';
 
 import { CopyButton } from './copy-button';
-import { cn } from '@/lib/utils';
-import ts from 'typescript';
-import { ScrollArea } from '../ui/scroll-area';
-import { callout, wordWrap, mark, lineNumbers, hover } from '../constant';
 import { CopyNpmCommandButton } from './copy-npm-button';
+import { cn } from '@/lib/utils';
 
 export async function PreCode({
   codeblock,
@@ -20,62 +19,51 @@ export async function PreCode({
   cssclass,
   metahide,
 }: {
-  codeblock: {
-    value: string;
-    lang: string;
-    meta: string;
-  };
+  codeblock: { value: string; lang: string; meta: string };
   classname?: string;
   cssclass?: string;
   metahide?: boolean;
 }) {
-  // console.log(codeblock);
+  const { value, lang } = codeblock;
+  const checkNpm = value?.startsWith('npm');
+  const showCompilerTab = lang !== 'tsx';
 
-  const checkNpm = codeblock.value?.startsWith('npm');
-  const showCompilerTab = codeblock.lang !== 'tsx';
-  // console.log(codeblock);
-
-  const tsCode = {
-    ...codeblock,
-  };
-  const tshighlighted = await highlight(tsCode, 'github-from-css');
+  // --- highlight TS/TSX with shiki
+  const tsHtml = await highlightCode(value, lang);
 
   if (showCompilerTab) {
     return (
       <div className={cn('relative z-2', cssclass)}>
-        {!metahide && tshighlighted.meta && (
+        {!metahide && codeblock.meta && (
           <div className='text-left text-sm px-2 py-1 mt-3 border-dotted rounded-md bg-primary-foreground w-fit'>
-            {tshighlighted.meta}
+            {codeblock.meta}
           </div>
         )}
+
         <div className='relative'>
           {checkNpm ? (
-            <>
-              <CopyNpmCommandButton
-                code={tshighlighted.code}
-                classname='top-3.5 dark:bg-neutral-800 bg-neutral-200'
-              />
-            </>
-          ) : (
-            <>
-              <CopyButton
-                code={tshighlighted.code}
-                classname='top-3.5 dark:bg-neutral-700 bg-neutral-200'
-              />
-            </>
-          )}
-          <div className='not-prose p-4 px-2 max-h-[550px] overflow-x-hidden   rounded-md text-sm  bg-codebg   border'>
-            <Pre
-              code={tshighlighted}
-              handlers={[callout, wordWrap, mark, hover]}
-              className={cn('m-0', classname)}
+            <CopyNpmCommandButton
+              code={value}
+              classname='top-2.5 dark:bg-neutral-800 bg-white'
             />
-          </div>
+          ) : (
+            <CopyButton
+              code={value}
+              classname='top-3.5 dark:bg-neutral-700 bg-neutral-200'
+            />
+          )}
+
+          <div
+            className='not-prose max-h-[550px] overflow-x-hidden rounded-md text-sm bg-codebg border p-0.1'
+            dangerouslySetInnerHTML={{ __html: tsHtml }}
+          />
         </div>
       </div>
     );
   }
-  const result = ts.transpileModule(codeblock.value, {
+
+  // --- transpile TSX → JS
+  const result = ts.transpileModule(value, {
     compilerOptions: {
       module: ts.ModuleKind.ESNext,
       target: ts.ScriptTarget.ESNext,
@@ -84,12 +72,8 @@ export async function PreCode({
     },
   });
 
-  // Remove 'use strict' and preserve original structure
-  // Format the transpiled JavaScript using Prettier
-  // Remove 'use strict'
   let jsCode = result.outputText.replace(/"use strict";\s*/, '');
 
-  // Format JavaScript code using Prettier
   const formattedJsCode = await prettier.format(jsCode, {
     parser: 'babel',
     semi: true,
@@ -98,66 +82,54 @@ export async function PreCode({
     printWidth: 80,
   });
 
-  const jsCodeblock = {
-    ...codeblock,
-    value: formattedJsCode,
-    lang: 'js',
-  };
-
-  // Highlight the code
-  const jshighlighted = await highlight(jsCodeblock, 'github-from-css');
-  // console.log(tshighlighted.meta);
+  const jsHtml = await highlightCode(formattedJsCode, 'js');
 
   return (
     <div className='relative z-2'>
-      {!metahide && tshighlighted.meta && (
+      {!metahide && codeblock.meta && (
         <div className='text-left text-sm px-2 py-1 mt-3 border-dotted rounded-md bg-primary-foreground w-fit'>
-          {tshighlighted.meta}
+          {codeblock.meta}
         </div>
       )}
 
-      <>
-        <Tabs defaultValue={'typescript'} className='relative'>
-          <TabsList className='absolute dark:bg-zinc-800 right-14 top-2 z-1 h-9 p-0.5 border dark:border-background '>
-            <TabsTrigger value={'typescript'} className='h-8'>
-              Ts
-            </TabsTrigger>
-            <TabsTrigger value={'javascript'} className=' h-8'>
-              Js{' '}
-            </TabsTrigger>
-          </TabsList>
-          <TabsContent value={'typescript'} className=''>
-            <div className='relative'>
-              <CopyButton
-                code={tshighlighted.code}
-                classname='right-2 dark:bg-zinc-900 border bg-white'
-              />
-              <div className='not-prose py-2 max-h-[550px]  overflow-x-hidden  rounded-md text-sm   bg-codebg border'>
-                <Pre
-                  code={tshighlighted}
-                  handlers={[callout, wordWrap, mark, lineNumbers, hover]}
-                  className={cn(' m-0', classname)}
-                />
-              </div>
-            </div>
-          </TabsContent>
-          <TabsContent value={'javascript'} className=''>
-            <div className='relative'>
-              <CopyButton
-                code={jshighlighted.code}
-                classname='right-2 dark:bg-zinc-900 border bg-white'
-              />
-              <div className='not-prose py-2 max-h-[550px] overflow-x-hidden  rounded-md text-sm  bg-codebg border'>
-                <Pre
-                  code={jshighlighted}
-                  handlers={[callout, wordWrap, mark, lineNumbers, hover]}
-                  className={cn('m-0', classname)}
-                />
-              </div>
-            </div>
-          </TabsContent>
-        </Tabs>
-      </>
+      <Tabs defaultValue={'typescript'} className='relative'>
+        <TabsList className='absolute dark:bg-zinc-800 right-14 top-2 z-1 h-9 p-0.5 border dark:border-background'>
+          <TabsTrigger value='typescript' className='h-8'>
+            Ts
+          </TabsTrigger>
+          <TabsTrigger value='javascript' className='h-8'>
+            Js
+          </TabsTrigger>
+        </TabsList>
+
+        {/* Typescript Block */}
+        <TabsContent value='typescript'>
+          <div className='relative'>
+            <CopyButton
+              code={value}
+              classname='right-2 dark:bg-zinc-900 border bg-white'
+            />
+            <div
+              className='not-prose max-h-[550px] overflow-x-hidden rounded-md text-sm bg-codebg border dark:border-neutral-900'
+              dangerouslySetInnerHTML={{ __html: tsHtml }}
+            />
+          </div>
+        </TabsContent>
+
+        {/* Javascript Block */}
+        <TabsContent value='javascript'>
+          <div className='relative'>
+            <CopyButton
+              code={formattedJsCode}
+              classname='right-2 dark:bg-zinc-900 border bg-white'
+            />
+            <div
+              className='not-prose max-h-[550px] overflow-x-hidden rounded-md text-sm bg-codebg border dark:border-neutral-900'
+              dangerouslySetInnerHTML={{ __html: jsHtml }}
+            />
+          </div>
+        </TabsContent>
+      </Tabs>
     </div>
   );
 }

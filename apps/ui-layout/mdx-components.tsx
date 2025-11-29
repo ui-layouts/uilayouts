@@ -1,14 +1,12 @@
 import type { MDXComponents } from 'mdx/types';
 import Image, { ImageProps } from 'next/image';
 import { cn } from './lib/utils';
-import { PreCode } from '@/components/website/code-components/pre-code';
 import CodeSnippets from '@/components/website/code-components/code-snippets';
 import ComponentCodePreview from '@/components/website/code-components/component-code-preview';
 import DrawerCodePreview from '@/components/website/code-components/drawer-code-preview';
 import TabCodePreview from '@/components/website/code-components/tab-codepreview';
 import IframeComponentPrieview from '@/components/website/code-components/iframe-component-preview';
-import CodeBlock from '@/components/website/code-components/code-block';
-import { CodeWithTabs } from '@/components/website/code-components/code-tabs';
+import CodeWithTabs from '@/components/website/code-components/code-tabs';
 import {
   Tabs,
   TabsContent,
@@ -16,7 +14,10 @@ import {
   TabsTrigger,
 } from '@/components/website/ui/tabs';
 import IframeTabCodePreview from './components/website/code-components/iframe-tab-codepreview';
-import { HoverContainer, Link } from './components/website/constant';
+import { Link } from './components/website/constant';
+import { InlineCodeRenderer } from './components/website/code-components/inlineCodeRenderer';
+import { InlinePreCodeRenderer } from './components/website/code-components/inlinePreCodeRenderer';
+import { PreCode } from './components/website/code-components/pre-code';
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     Tabs: ({ className, ...props }: React.ComponentProps<typeof Tabs>) => (
@@ -41,12 +42,12 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       <TabsContent className={cn('', className)} {...props} />
     ),
     CodeWithTabs: ({ ...props }) => <CodeWithTabs {...props} />,
-    HoverContainer: HoverContainer,
     IframeTabCodePreview: ({ ...props }) => <IframeTabCodePreview {...props} />,
     TabCodePreview: ({ ...props }) => <TabCodePreview {...props} />,
     DrawerCodePreview: ({ ...props }) => <DrawerCodePreview {...props} />,
+    PreCode: PreCode,
     ComponentCodePreview: ({ ...props }) => <ComponentCodePreview {...props} />,
-    CodeBlock: CodeBlock,
+    // CodeBlock: CodeBlock,
     img: (props) => (
       <Image
         sizes='100vw'
@@ -54,7 +55,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {...(props as ImageProps)}
       />
     ),
-    PreCode: ({ ...props }) => <PreCode {...props} />,
+    // PreCode: ({ ...props }) => <PreCode {...props} />,
     CodeSnippets: ({ ...props }) => <CodeSnippets {...props} />,
     IframeComponentPrieview: ({ ...props }) => (
       <IframeComponentPrieview {...props} />
@@ -75,18 +76,8 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       </div>
     ),
     a: Link,
-    code: ({
-      className,
-      ...props
-    }: React.HTMLAttributes<HTMLAnchorElement>) => (
-      <code
-        className={cn(
-          'not-prose italic border  bg-primary-foreground px-1 py-0.5',
-          className
-        )}
-        {...props}
-      />
-    ),
+    code: InlineCodeRenderer,
+    pre: InlinePreCodeRenderer,
     blockquote: ({
       className,
       ...props

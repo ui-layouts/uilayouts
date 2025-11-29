@@ -1,118 +1,5 @@
 import { Icons } from '@/assets/icons/Icons';
 import preview from '@/assets/preview/Preview';
-import {
-  InlineAnnotation,
-  AnnotationHandler,
-  InnerLine,
-  InnerPre,
-  InnerToken,
-} from 'codehike/code';
-
-export const wordWrap: AnnotationHandler = {
-  name: 'word-wrap',
-  Pre: (props) => <InnerPre merge={props} className='whitespace-pre-wrap' />,
-  Line: (props) => (
-    <InnerLine merge={props}>
-      <div
-        style={{
-          textIndent: `${-props.indentation}ch`,
-          marginLeft: `${props.indentation}ch`,
-        }}
-      >
-        {props.children}
-      </div>
-    </InnerLine>
-  ),
-  Token: (props) => <InnerToken merge={props} style={{ textIndent: 0 }} />,
-};
-export const callout: AnnotationHandler = {
-  name: 'callout',
-  transform: (annotation: InlineAnnotation) => {
-    const { name, query, lineNumber, fromColumn, toColumn, data } = annotation;
-    return {
-      name,
-      query,
-      fromLineNumber: lineNumber,
-      toLineNumber: lineNumber,
-      data: { ...data, column: (fromColumn + toColumn) / 2 },
-    };
-  },
-  Block: ({ annotation, children }) => {
-    const { column } = annotation.data;
-    return (
-      <>
-        {children}
-        <div
-          style={{ minWidth: `${column + 4}ch` }}
-          className='w-fit border dark:bg-neutral-800 bg-neutral-50 border-current rounded-sm px-2 relative -ml-[1ch] mt-1 whitespace-break-spaces'
-        >
-          <div
-            style={{ left: `${column}ch` }}
-            className='absolute border-l border-t border-current w-2 h-2 rotate-45 -translate-y-1/2 -top-px dark:bg-neutral-800 bg-neutral-50'
-          />
-          {annotation.query}
-        </div>
-      </>
-    );
-  },
-};
-
-export const mark: AnnotationHandler = {
-  name: 'mark',
-  Line: ({ annotation, ...props }) => {
-    const color = annotation?.query || 'rgb(14 165 233)';
-    return (
-      <div
-        className='...'
-        style={{
-          borderLeft: 'solid 2px transparent',
-          borderLeftColor: annotation && color,
-          backgroundColor: annotation && `rgb(from ${color} r g b / 0.1)`,
-          padding: '3px 4px',
-        }}
-      >
-        <InnerLine merge={props} className='...' />
-      </div>
-    );
-  },
-  Inline: ({ annotation, children }) => {
-    const color = annotation?.query || 'rgb(14 165 233)';
-    return (
-      <span
-        className='...'
-        style={{
-          outline: `solid 1px rgb(from ${color} r g b / 0.5)`,
-          background: `rgb(from ${color} r g b / 0.13)`,
-          padding: '2px 3px',
-        }}
-      >
-        {children}
-      </span>
-    );
-  },
-};
-
-export const lineNumbers: AnnotationHandler = {
-  name: 'line-numbers',
-  Line: (props) => {
-    const width = props.totalLines.toString().length + 1;
-    return (
-      <div className='flex'>
-        <span
-          className='text-right opacity-50 select-none'
-          style={{ minWidth: `${width}ch` }}
-        >
-          {props.lineNumber}
-        </span>
-        <InnerLine merge={props} className='flex-1 pl-2' />
-      </div>
-    );
-  },
-};
-
-export function HoverContainer(props: { children: React.ReactNode }) {
-  return <div className='hover-container'>{props.children}</div>;
-}
 
 export function Link(props: { href?: string; children?: React.ReactNode }) {
   if (props.href?.startsWith('hover:')) {
@@ -129,17 +16,7 @@ export function Link(props: { href?: string; children?: React.ReactNode }) {
     return <a {...props} />;
   }
 }
-export const hover: AnnotationHandler = {
-  name: 'hover',
-  onlyIfAnnotated: true,
-  Line: ({ annotation, ...props }) => (
-    <InnerLine
-      merge={props}
-      className='transition-opacity'
-      data-line={annotation?.query || ''}
-    />
-  ),
-};
+
 interface ComponentInfo {
   componentName: string;
   filesrc?: string;
@@ -158,7 +35,7 @@ interface SidebarItem {
 
 export const CardArr = [
   {
-    img: 'https://images.unsplash.com/photo-1543508282-6319a3e2621f?q=80&w=1200&auto=format&fit=crop',
+    img: 'https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?q=80&w=1025&auto=format&fit=crop',
     title: 'Nike Air1',
     color: '#202020',
   },

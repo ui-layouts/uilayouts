@@ -36,15 +36,7 @@ function Card2() {
             animate={{ scale: isActive ? 1.2 : 1 }}
             transition={{ type: 'spring', stiffness: 1000, damping: 10 }}
           >
-            {isActive ? (
-              <>
-                <Heart className=' fill-white' />
-              </>
-            ) : (
-              <>
-                <Heart />
-              </>
-            )}
+            {isActive ? <Heart className=' fill-white' /> : <Heart />}
           </motion.button>
           {/* <button className="absolute top-2 right-2 z-20">
             <Heart />
@@ -53,6 +45,7 @@ function Card2() {
             <Image
               src={data?.img}
               alt='shoes'
+              key={data.img}
               width={1000}
               height={1000}
               className={`absolute h-52 w-full rounded-t-md  object-cover  ${

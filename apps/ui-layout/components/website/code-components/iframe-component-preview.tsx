@@ -1,4 +1,3 @@
-import { Block, CodeBlock, parseProps } from 'codehike/blocks';
 import { z } from 'zod';
 import {
   Tabs,
@@ -6,32 +5,40 @@ import {
   TabsList,
   TabsTrigger,
 } from '@/components/website/ui/tabs';
+
 import ComponentPreview from './component-preview';
-import { PreCode } from './pre-code';
 import { AllComponents } from '@/configs/docs';
 import { Code, Eye } from 'lucide-react';
 import { ReactNode } from 'react';
 
-type TIframeCurrComponentProps = {
-  componentName: string;
-  iframelink?: string;
-};
-
-type IframeComponentPrieviewProps = {
-  children?: ReactNode; // Include children in the props
-};
-
-const Schema = Block.extend({
+// --------------------------------------------
+// REPLACE CODEHIKE PROPS PARSER WITH ZOD
+// --------------------------------------------
+const Schema = z.object({
   name: z.string(),
   hasReTrigger: z.boolean(),
   responsive: z.boolean().optional(),
   isFitheight: z.boolean().optional(),
   previewComp: z.boolean().optional(),
   hideDeviceOpt: z.boolean().optional(),
+  children: z.any().optional(),
 });
+
+function parsePropsNoCodehike(input: unknown) {
+  return Schema.parse(input);
+}
+
+// --------------------------------------------
+// COMPONENT
+// --------------------------------------------
+type IframeComponentPrieviewProps = {
+  children?: ReactNode;
+};
+
 export default async function IframeComponentPrieview(
   props: unknown & IframeComponentPrieviewProps
 ) {
+  // parse using Zod (no more CodeHike)
   const {
     name,
     hasReTrigger,
@@ -40,10 +47,11 @@ export default async function IframeComponentPrieview(
     isFitheight,
     hideDeviceOpt,
     previewComp,
-  } = parseProps(props, Schema);
+  } = parsePropsNoCodehike(props);
 
   const matchedComponent =
     AllComponents?.find((file) => file.componentName === name) || null;
+
   const currComponent = matchedComponent
     ? JSON.parse(JSON.stringify(matchedComponent))
     : null;
@@ -63,10 +71,11 @@ export default async function IframeComponentPrieview(
         <TabsList className='absolute left-0 pl-1 top-0 z-10 flex h-12 w-full justify-start rounded-b-none rounded-lg dark:bg-neutral-800'>
           <TabsTrigger
             value={`${name}preview`}
-            className='flex gap-2 items-center data-[state=active]:bg-zinc-200 data-[state=active]:border-b-2 '
+            className='flex gap-2 items-center data-[state=active]:bg-zinc-200 data-[state=active]:border-b-2'
           >
             <Eye className='w-5 h-5' /> Preview
           </TabsTrigger>
+
           <TabsTrigger
             value={`${name}code`}
             className='flex gap-2 items-center data-[state=active]:bg-zinc-200 data-[state=active]:border-b-2'
@@ -74,6 +83,8 @@ export default async function IframeComponentPrieview(
             <Code className='w-5 h-5' /> Code
           </TabsTrigger>
         </TabsList>
+
+        {/* Preview Section */}
         <TabsContent
           className='px-0 pb-0 pt-12 mt-2 rounded-xl ring-offset-background'
           value={`${name}preview`}
@@ -89,6 +100,8 @@ export default async function IframeComponentPrieview(
             isFitheight={isFitheight}
           />
         </TabsContent>
+
+        {/* Code Section */}
         <TabsContent className='mt-11' value={`${name}code`}>
           {children}
         </TabsContent>
