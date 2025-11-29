@@ -478,28 +478,24 @@ Change `texture` from here
 const texture = useTexture('/brush.png');
 ```
 
-<HoverContainer>
 
 change [image](hover:one) and control the [position](hover:two) of image
 
 ```jsx
-// !hover one
+
+// change images
 const texture1 = useTexture('/picture3.jpeg');
+
 const material1 = new THREE.MeshBasicMaterial({ map: texture1 });
 const image1 = new THREE.Mesh(geometry, material1);
-// !hover two
+
+// positining
 image1.position.x = -0.0 * viewport.width;
-// !hover two
 image1.position.y = 40;
-// !hover two
 image1.position.z = 1;
-// !hover two
 image1.scale.x = viewport.width / 4;
-// !hover two
 image1.scale.y = viewport.width / 3.2;
 ```
-
-</HoverContainer>
 
 you can add multiple images
 

@@ -54,7 +54,7 @@ export async function PreCode({
           )}
 
           <div
-            className='not-prose max-h-[550px] overflow-x-hidden rounded-md text-sm bg-codebg p-0.1 border'
+            className='not-prose max-h-[550px] overflow-x-hidden rounded-md text-sm bg-codebg border p-0.1'
             dangerouslySetInnerHTML={{ __html: tsHtml }}
           />
         </div>

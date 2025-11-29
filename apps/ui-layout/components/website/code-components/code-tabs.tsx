@@ -1,49 +1,62 @@
-import { z } from 'zod';
 import {
   Tabs,
-  TabsContent,
   TabsList,
   TabsTrigger,
+  TabsContent,
 } from '@/components/website/ui/tabs';
-
-import { CopyButton } from './copy-button';
 import { highlightCode } from '@/lib/shiki-highlighter';
+import { CopyButton } from './copy-button';
 
-// -------------------------------
-// PARSE THE MDX PROPS MANUALLY
-// -------------------------------
-const TabSchema = z.object({
-  value: z.string(),
-  lang: z.string(),
-  meta: z.string(),
-});
+export default async function CodeWithTabs({ children }: any) {
+  console.log('children', children);
 
-const Schema = z.object({
-  tabs: z.array(TabSchema),
-});
+  const blocks = Array.isArray(children) ? children : [children];
+  console.log('blocks', blocks);
 
-// -------------------------------
-// ENTRY FROM MDX <CodeWithTabs>
-// -------------------------------
-export async function CodeWithTabs(props: unknown) {
-  const { tabs } = Schema.parse(props);
-  return <CodeTabs tabs={tabs} />;
-}
+  // Extract raw code + language
+  const parsed = blocks
+    // .filter((n: any) => n?.type === 'pre')
+    .map((node: any) => {
+      const codeNode = node.props.children;
+      return {
+        value: codeNode.props.children || '',
+        lang: codeNode.props.className?.replace('language-', '') || 'txt',
+      };
+    });
 
-// -------------------------------
-// SHIKI VERSION OF CODEHIKETABS
-// -------------------------------
-export async function CodeTabs({ tabs }: { tabs: any[] }) {
+  console.log('parsed', parsed);
+
+  // Highlight everything
   const highlighted = await Promise.all(
-    tabs.map((tab) => highlightCode(tab.value, tab.lang))
+    parsed.map((t) => highlightCode(t.value, t.lang))
   );
+
+  // -------------------------
+  // CASE 1 — Only one block
+  // -------------------------
+  if (parsed.length === 1) {
+    return (
+      <div
+        className='rounded bg-zinc-900 p-4'
+        dangerouslySetInnerHTML={{ __html: highlighted[0] }}
+      />
+    );
+  }
+
+  // -------------------------
+  // CASE 2 — Always two blocks → fixed tabs
+  // -------------------------
+  const tabs = [
+    { meta: 'ui-layouts', html: highlighted[0], code: parsed[0].value },
+    { meta: 'shadcn', html: highlighted[1], code: parsed[1].value },
+  ];
 
   return (
     <Tabs
-      defaultValue={tabs[0]?.meta}
+      defaultValue='ui-layouts'
       className='rounded-xl bg-neutral-200 dark:bg-black/40 backdrop-blur-md border relative p-1 my-5'
     >
-      <TabsList className='rounded-lg mt-1 mx-1 bg-transparent border-0'>
+      <TabsList className='rounded-lg mt-1 mx-1 dark:bg-transparent bg-transparent border-0'>
         {tabs.map((tab) => (
           <TabsTrigger
             key={tab.meta}
@@ -65,57 +78,44 @@ export async function CodeTabs({ tabs }: { tabs: any[] }) {
                     fill='currentColor'
                   />
                 </svg>
-                {tab.meta}
+                ui-layouts
               </>
             ) : (
               <>
-                <svg
-                  xmlns='http://www.w3.org/2000/svg'
-                  viewBox='0 0 256 256'
-                  width='70'
-                  height='70'
-                  className='size-4'
-                  fill='none'
-                >
-                  <rect width='256' height='256' fill='none'></rect>
+                <svg viewBox='0 0 256 256' className='size-4' fill='none'>
                   <line
                     x1='208'
                     y1='128'
                     x2='128'
                     y2='208'
                     stroke='currentColor'
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
                     strokeWidth='32'
-                  ></line>
+                  />
                   <line
                     x1='192'
                     y1='40'
                     x2='40'
                     y2='192'
                     stroke='currentColor'
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
                     strokeWidth='32'
-                  ></line>
+                  />
                 </svg>
-                {tab.meta}
+                shadcn
               </>
             )}
           </TabsTrigger>
         ))}
       </TabsList>
 
-      {tabs.map((tab, i) => (
-        <TabsContent key={tab.meta} value={tab.meta} className='mt-1 p-1'>
+      {tabs.map((tab) => (
+        <TabsContent key={tab.meta} value={tab.meta} className='mt-1'>
           <CopyButton
-            code={tab.value}
+            code={tab.code}
             classname='top-1.5 dark:bg-zinc-900 border bg-white absolute right-3'
           />
-
           <div
-            className='m-0 text-xl rounded-xl bg-neutral-50 dark:bg-zinc-900 p-3'
-            dangerouslySetInnerHTML={{ __html: highlighted[i] }}
+            className='cliblocks rounded-xl p-1 px-2 border'
+            dangerouslySetInnerHTML={{ __html: tab.html }}
           />
         </TabsContent>
       ))}

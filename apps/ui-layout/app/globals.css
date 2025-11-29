@@ -1,6 +1,5 @@
 @import 'tailwindcss';
 @import './token.css';
-@import './code-hike.css';
 
 @source './pages/**/*.{js,ts,jsx,tsx,mdx}';
 @source './components/**/*.{js,ts,jsx,tsx,mdx}';
@@ -134,8 +133,8 @@ html.dark .shiki span {
 .shiki {
   @apply overflow-x-auto rounded-lg p-4 !bg-codebg;
 }
-.bash .shiki {
-  @apply overflow-x-auto rounded-lg p-4 !bg-codebg;
+.cliblocks .shiki {
+  @apply overflow-x-auto border rounded-lg p-2 py-3 text-lg !bg-neutral-50 dark:!bg-zinc-900 !my-0;
 }
 
 @theme inline {
@@ -510,13 +509,6 @@ html.dark .shiki span {
   /* Firefox */
   input[type='number'] {
     -moz-appearance: textfield;
-  }
-
-  .hover-container:has([data-hover='one']:hover)
-    [data-line]:not([data-line='one']),
-  .hover-container:has([data-hover='two']:hover)
-    [data-line]:not([data-line='two']) {
-    opacity: 0.2;
   }
 
   pre.prism-code.language-tsx {

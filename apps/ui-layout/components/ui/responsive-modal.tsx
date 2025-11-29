@@ -32,7 +32,6 @@ export const useResponsiveModal = () => {
 
 interface ResponsiveModalProps {
   children: ReactNode;
-  triggerContent?: ReactNode;
   open?: boolean;
   setOpen?: (open: boolean) => void;
   classname?: string;
@@ -81,7 +80,7 @@ export function ResponsiveModal({
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className='fixed inset-0 z-50] flex items-center justify-center bg-black/50 backdrop-blur-xs cursor-zoom-out'
+                className='fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-xs cursor-zoom-out'
                 onClick={() => setOpen(false)}
               >
                 <motion.div
@@ -151,7 +150,29 @@ export function ResponsiveModalContent({
   return <div className={cn('', className)}>{children}</div>;
 }
 
-export function ResponsiveModalTrigger({ children }: { children: ReactNode }) {
+interface ResponsiveModalTriggerProps {
+  children: ReactNode;
+  asChild?: boolean;
+}
+
+export function ResponsiveModalTrigger({
+  children,
+  asChild = false,
+}: ResponsiveModalTriggerProps) {
   const { setOpen } = useResponsiveModal();
+
+  if (asChild) {
+    // Clone the child element and add onClick handler
+    const child = React.Children.only(children) as React.ReactElement<any>;
+    return React.cloneElement(child, {
+      ...child.props,
+      onClick: (e: React.MouseEvent) => {
+        setOpen(true);
+        // Call original onClick if it exists
+        child.props.onClick?.(e);
+      },
+    } as any);
+  }
+
   return <div onClick={() => setOpen(true)}>{children}</div>;
 }

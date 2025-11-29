@@ -12,7 +12,11 @@ import { CopyButton } from './copy-button';
 import { useTheme } from 'next-themes';
 import { useMediaQuery } from '@/hooks/use-media-query';
 import { cn } from '@/lib/utils';
-import { ResponsiveModal, ResponsiveModalContent, ResponsiveModalTrigger } from '@/components/ui/responsive-modal';
+import {
+  ResponsiveModal,
+  ResponsiveModalContent,
+  ResponsiveModalTrigger,
+} from '@/components/ui/responsive-modal';
 
 const baseScope = {
   import: {
@@ -39,12 +43,9 @@ function EditComponents({
     <>
       <ResponsiveModal
         classname={cn(
-          ` p-2 xl:mx-0 mx-8 `,
-          componentCenter
-            ? ' 2xl:max-w-screen-[1400px] max-w-(--breakpoint-xl)'
-            : ' max-w-full dark:bg-[#020203] bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[20px_20px] relative'
+          ` p-2 xl:mx-0 mx-8 dark:bg-neutral-800 bg-neutral-200`,
+          componentCenter ? 'xl:max-w-6xl max-w-5xl' : ' max-w-full relative'
         )}
-      
       >
         <ResponsiveModalTrigger>
           <button className=' flex gap-1 bg-foreground rounded-lg h-8 px-2 text-black text-sm font-semibold  items-center  '>

@@ -1,10 +1,6 @@
 import { Icons } from '@/assets/icons/Icons';
 import preview from '@/assets/preview/Preview';
 
-export function HoverContainer(props: { children: React.ReactNode }) {
-  return <div className='hover-container'>{props.children}</div>;
-}
-
 export function Link(props: { href?: string; children?: React.ReactNode }) {
   if (props.href?.startsWith('hover:')) {
     const hover = props.href.slice('hover:'.length);
@@ -39,7 +35,7 @@ interface SidebarItem {
 
 export const CardArr = [
   {
-    img: 'https://images.unsplash.com/photo-1543508282-6319a3e2621f?q=80&w=1200&auto=format&fit=crop',
+    img: 'https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?q=80&w=1025&auto=format&fit=crop',
     title: 'Nike Air1',
     color: '#202020',
   },

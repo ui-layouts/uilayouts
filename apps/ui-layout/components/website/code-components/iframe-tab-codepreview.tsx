@@ -6,61 +6,73 @@ import {
   TabsTrigger,
 } from '@/components/website/ui/tabs';
 
-import { CopyButton } from './copy-button';
 import { highlightCode } from '@/lib/shiki-highlighter';
+import { PreCode } from './pre-code';
 
 function parseMdxTabs(rawChildren: any) {
   const preArray = Array.isArray(rawChildren) ? rawChildren : [rawChildren];
 
-  return preArray
-    .filter((node: any) => node?.type === 'pre')
-    .map((node: any) => {
-      const codeNode = node.props.children;
+  return (
+    preArray
+      // .filter((node: any) => node?.type === 'pre')
+      .map((node: any) => {
+        const codeNode = node.props.children;
 
-      const raw = codeNode.props.children || '';
-      const lang = codeNode.props.className?.replace('language-', '') ?? 'txt';
+        const raw = codeNode.props.children || '';
+        const lang =
+          codeNode.props.className?.replace('language-', '') ?? 'txt';
 
-      // split into lines
-      const lines = raw.split('\n');
+        // split into lines
+        const lines = raw.split('\n');
 
-      // If multiple blocks: filename = first non-empty line
-      const possibleFile = lines[0].trim();
-      const looksLikeFile =
-        possibleFile.includes('.') && !possibleFile.includes(' ');
+        // If multiple blocks: filename = first non-empty line
+        const possibleFile = lines[0].trim();
+        const looksLikeFile =
+          possibleFile.includes('.') && !possibleFile.includes(' ');
 
-      const meta = looksLikeFile ? possibleFile : null;
+        const meta = looksLikeFile ? possibleFile : null;
 
-      // code without filename line
-      const code = looksLikeFile ? lines.slice(1).join('\n') : raw;
+        // code without filename line
+        const code = looksLikeFile ? lines.slice(1).join('\n') : raw;
 
-      return { meta, lang, value: code };
-    });
+        return { meta, lang, value: code };
+      })
+  );
 }
 
 // --------------------------------------------
-// ENTRY FROM MDX
+// MAIN COMPONENT
 // --------------------------------------------
 export default async function IframeTabCodePreview(props: any) {
   const tabs = parseMdxTabs(props.children);
 
-  const highlightedHtml = await Promise.all(
+  // highlight all blocks
+  const highlighted = await Promise.all(
     tabs.map((t) => highlightCode(t.value, t.lang))
   );
 
-  // --------------- CASE 1: Single code block ---------------
+  // --------------------------------------------
+  // CASE 1: SINGLE BLOCK → NO TABS
+  // --------------------------------------------
   if (tabs.length === 1) {
     return (
-      <div
-        className='rounded bg-zinc-900 p-4'
-        dangerouslySetInnerHTML={{ __html: highlightedHtml[0] }}
+      <PreCode
+        codeblock={{
+          value: tabs[0].value,
+          lang: tabs[0].lang || 'tsx',
+          meta: '',
+        }}
+        classname='mt-4'
       />
     );
   }
 
-  // --------------- CASE 2: Multiple tabs -------------------
+  // --------------------------------------------
+  // CASE 2: MULTIPLE BLOCKS → SHOW TABS
+  // --------------------------------------------
   return (
     <Tabs defaultValue={tabs[0].meta}>
-      <TabsList>
+      <TabsList className='mt-0.5'>
         {tabs.map((tab) => (
           <TabsTrigger key={tab.meta} value={tab.meta}>
             {tab.meta}
@@ -70,10 +82,13 @@ export default async function IframeTabCodePreview(props: any) {
 
       {tabs.map((tab, i) => (
         <TabsContent key={tab.meta} value={tab.meta}>
-          <CopyButton code={tab.value} />
-          <div
-            className='rounded bg-zinc-900 p-4'
-            dangerouslySetInnerHTML={{ __html: highlightedHtml[i] }}
+          <PreCode
+            codeblock={{
+              value: tab.value,
+              lang: tab.lang || 'tsx',
+              meta: '',
+            }}
+            classname='mt-2'
           />
         </TabsContent>
       ))}
