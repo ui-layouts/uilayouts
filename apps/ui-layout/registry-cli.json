@@ -516,7 +516,7 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "./components/ui/dateTime-input.tsx",
+          "path": "./components/ui/datetime-input.tsx",
           "type": "registry:component"
         },
         {

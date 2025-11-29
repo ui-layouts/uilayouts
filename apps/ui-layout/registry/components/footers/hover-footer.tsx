@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import AnimatedText from '@/components/ui/cursor-follow-text';
 

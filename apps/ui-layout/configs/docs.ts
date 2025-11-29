@@ -2925,7 +2925,6 @@ export const AllComponents: IAllComponents[] = [
         )
     ),
     iframeSrc: 'live-components/framerhorizontalscroll',
-
     tags: ['horizontal', 'scroll', 'framer'],
   },
   {

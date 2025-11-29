@@ -231,25 +231,7 @@ npm install motion lenis
 
 ## Framer-Motion
 
-<ComponentCodePreview name='framerhorizontalscroll'  responsive isTab>
-
-<TabCodePreview name='framerhorizontalscroll' >
-
-```tsx lib.ts
-export function throttle(fn: (...args: any[]) => any, wait: number) {
-  let shouldWait = false;
-
-  return function throttledFunction(this: any, ...args: any[]) {
-    if (!shouldWait) {
-      fn.apply(this, args);
-      shouldWait = true;
-      setTimeout(() => (shouldWait = false), wait);
-    }
-  };
-}
-```
-
-</TabCodePreview>
+<ComponentCodePreview name='framerhorizontalscroll' responsive>
 
 > Don't add `flex` or `grid` to the parent `div/section` while using it.
 

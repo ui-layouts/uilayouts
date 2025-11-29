@@ -12,6 +12,8 @@ interface CodePreviewProps {
 }
 
 export default function TabCodePreview({ children }: CodePreviewProps) {
+  console.log('childre check', children);
+
   const Codes = React.Children.toArray(children) as React.ReactElement<any>[];
 
   const parsedCodes = Codes.map((code: React.ReactElement<any>) => {

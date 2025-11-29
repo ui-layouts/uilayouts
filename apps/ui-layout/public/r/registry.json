@@ -1,6 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
-  "name": "ui-layout",
+  "name": "ui-layouts",
   "homepage": "https://www.ui-layouts.com",
   "items": [
     {
@@ -2905,7 +2905,7 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "./components/ui/modal/media-modal.tsx",
+          "path": "./components/ui/media-modal.tsx",
           "type": "registry:component"
         }
       ]
@@ -2922,7 +2922,7 @@
           "type": "registry:component"
         },
         {
-          "path": "./components/ui/modal/media-modal.tsx",
+          "path": "./components/ui/media-modal.tsx",
           "type": "registry:component"
         }
       ]
@@ -2939,7 +2939,7 @@
           "type": "registry:component"
         },
         {
-          "path": "./components/ui/modal/media-modal.tsx",
+          "path": "./components/ui/media-modal.tsx",
           "type": "registry:component"
         }
       ]

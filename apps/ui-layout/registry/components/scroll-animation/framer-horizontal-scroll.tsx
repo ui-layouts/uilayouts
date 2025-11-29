@@ -9,8 +9,18 @@ import {
 
 // * based on: https://gist.github.com/coleturner/34396fb826c12fbd88d6591173d178c2
 import { useEffect, useRef, useState } from 'react';
-import { throttle } from '../../../lib/utils';
 
+export function throttle(fn: (...args: any[]) => any, wait: number) {
+  let shouldWait = false;
+
+  return function throttledFunction(this: any, ...args: any[]) {
+    if (!shouldWait) {
+      fn.apply(this, args);
+      shouldWait = true;
+      setTimeout(() => (shouldWait = false), wait);
+    }
+  };
+}
 export const items = [
   {
     id: 1,

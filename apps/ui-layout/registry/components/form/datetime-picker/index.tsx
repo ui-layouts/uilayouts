@@ -1,6 +1,6 @@
 'use client';
 
-import { SmartDatetimeInput } from '@/components/ui/date-time-input';
+import { SmartDatetimeInput } from '@/components/ui/datetime-input';
 import React, { useState } from 'react';
 
 export default function index() {
