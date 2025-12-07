@@ -55,7 +55,7 @@
     "hast-util-to-string": "^3.0.1",
     "lucide-react": "^0.400.0",
     "motion": "^12.5.0",
-    "next": "15.2.3",
+    "next": "15.2.6",
     "next-themes": "^0.3.0",
     "next13-progressbar": "^1.2.2",
     "raw-loader": "^4.0.2",
