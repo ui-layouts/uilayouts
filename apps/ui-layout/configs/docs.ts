@@ -2707,7 +2707,7 @@ export const AllComponents: IAllComponents[] = [
     componentSrc: React.lazy(
       () => import('@/registry/components/drawer/responsive-header')
     ),
-    iframeSrc: 'live-components/responsive-header',
+    iframeSrc: 'live-components/responsive-header-default',
     iframe: true,
   },
   {

@@ -93,7 +93,7 @@ const getOpenButtonVariants = (
 const MotionDrawer: React.FC<SideMenuProps> = ({
   // Appearance
   overlayColor = 'rgba(0, 0, 0, 0.3)',
-  width = 300,
+  width = 250,
   direction = 'left',
   backgroundColor = '#ffffff',
 
@@ -245,7 +245,7 @@ const MotionDrawer: React.FC<SideMenuProps> = ({
               {/* Close Button */}
               {showToggleButton && (
                 <motion.button
-                  className='absolute top-2 right-4 p-2 text-black cursor-pointer'
+                  className='absolute top-2 right-8 p-2 text-black cursor-pointer'
                   onClick={() => setIsOpen(false)}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}

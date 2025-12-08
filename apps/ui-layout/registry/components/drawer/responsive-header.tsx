@@ -3,10 +3,7 @@ import { useState } from 'react';
 import { MenuIcon, X } from 'lucide-react';
 import Link from 'next/link';
 import { useMediaQuery } from '@/hooks/use-media-query';
-import {
-  DrawerContent,
-  HeaderDrawer,
-} from '@/components/ui/responsive-header';
+import { DrawerContent, HeaderDrawer } from '@/components/ui/responsive-header';
 const items = [
   {
     id: 1,
@@ -27,7 +24,7 @@ export default function index() {
 
   return (
     <>
-      <header className='flex justify-between border items-center p-3 rounded-md dark:bg-black/45 backdrop-blur-md'>
+      <header className='flex justify-between border items-center p-3 bg-white rounded-md dark:bg-black/45 backdrop-blur-md'>
         <h1>Logo</h1>
         <HeaderDrawer
           open={headerOpen}
@@ -58,7 +55,7 @@ export default function index() {
                 )}
                 <h1 className='mx-auto text-2xl'>UI-LAYOUT</h1>
               </div>
-              <div className='flex justify-between  py-2'>
+              <div className='flex justify-between xl:px-0 px-2 py-2'>
                 <nav className='flex gap-8'>
                   <ul className='xl:text-2xl text-lg space-y-2 xl:space-y-4 font-semibold uppercase  pr-8'>
                     <li>
@@ -108,17 +105,18 @@ export default function index() {
                     </li>
                   </ul>
                 </nav>
-
-                <div className='grid grid-cols-3 gap-4 py-4 pr-20 w-full'>
-                  <>
-                    {items.map((item) => (
-                      <figure
-                        key={item.id}
-                        className={`${item.classname} inline-block group w-full xl:h-52 h-full relative rounded-md `}
-                      ></figure>
-                    ))}
-                  </>
-                </div>
+                {isDesktop && (
+                  <div className='grid grid-cols-3 gap-4 py-4 pr-20 w-full'>
+                    <>
+                      {items.map((item) => (
+                        <figure
+                          key={item.id}
+                          className={`${item.classname} inline-block group w-full xl:h-52 h-full relative rounded-md `}
+                        ></figure>
+                      ))}
+                    </>
+                  </div>
+                )}
               </div>
             </div>
           </DrawerContent>
