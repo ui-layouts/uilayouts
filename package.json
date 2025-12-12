@@ -2,31 +2,23 @@
   "name": "ui-layout",
   "private": true,
   "scripts": {
-    "build": "turbo build",
-    "dev": "turbo dev",
-    "lint": "turbo lint",
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "prettier": "^3.1.1",
-    "turbo": "latest"
+    "turbo": "^2.5.8"
   },
+  "packageManager": "bun@1.1.0",
   "workspaces": [
     "apps/*",
     "packages/*"
   ],
-  "packageManager": "pnpm@9.0.2+sha512.8bedf31de42705b97ff89330bbe177954ad5703a92fa894be0fb4d45b5dfab59a21f65a8419ad1cae82dd16fac2d41a8c343775e80efe7dab6d80b0408db2fd6",
   "engines": {
     "node": ">=18"
-  },
-  "pnpm": {
-    "overrides": {
-      "@types/react": "19.0.12",
-      "@types/react-dom": "19.0.4",
-      "react": "19.0.0",
-      "react-dom": "19.0.0"
-    }
   }
 }

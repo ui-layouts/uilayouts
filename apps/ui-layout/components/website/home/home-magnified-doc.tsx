@@ -63,7 +63,6 @@ function HomeMagnifiedDocOneFile() {
                     y: isForward ? -30 : 30,
                   }}
                   transition={{
-                    type: 'ease',
                     ease: 'easeInOut',
                     duration: 0.3,
                     delay: 0.4,

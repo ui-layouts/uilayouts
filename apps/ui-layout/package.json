@@ -55,14 +55,14 @@
     "hast-util-to-string": "^3.0.1",
     "lucide-react": "^0.400.0",
     "motion": "^12.5.0",
-    "next": "15.2.6",
+    "next": "15.2.8",
     "next-themes": "^0.3.0",
     "next13-progressbar": "^1.2.2",
     "raw-loader": "^4.0.2",
     "react-colorful": "^5.6.1",
     "react-day-picker": "^8.9.1",
-    "react": "19.1.2",
-    "react-dom": "19.1.2",
+    "react": "19.1.4",
+    "react-dom": "19.1.4",
     "react-dropzone": "^14.2.10",
     "react-hook-form": "^7.53.1",
     "react-live-runner": "^1.0.7",
@@ -103,11 +103,5 @@
     "tailwindcss": "^4.1.14",
     "ts-node": "^10.9.2",
     "typescript": "^5"
-  },
-  "pnpm": {
-    "overrides": {
-      "@types/react": "19.0.12",
-      "@types/react-dom": "19.0.4"
-    }
   }
 }

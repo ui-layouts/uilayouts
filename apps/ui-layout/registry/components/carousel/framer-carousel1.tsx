@@ -41,7 +41,6 @@ function FramerCarousel() {
                       animate={{
                         opacity: 1,
                         transition: {
-                          type: 'ease',
                           ease: 'easeInOut',
                           duration: 0.3,
                           delay: 0.2,
@@ -50,7 +49,6 @@ function FramerCarousel() {
                       exit={{
                         opacity: 0,
                         transition: {
-                          type: 'ease',
                           ease: 'easeInOut',
                           duration: 0.2,
                         },

@@ -45,7 +45,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     IframeTabCodePreview: ({ ...props }) => <IframeTabCodePreview {...props} />,
     TabCodePreview: ({ ...props }) => <TabCodePreview {...props} />,
     DrawerCodePreview: ({ ...props }) => <DrawerCodePreview {...props} />,
-    PreCode: PreCode,
+    PreCode: ({ ...props }) => <PreCode {...props} />,
     ComponentCodePreview: ({ ...props }) => <ComponentCodePreview {...props} />,
     // CodeBlock: CodeBlock,
     img: (props) => (
@@ -77,7 +77,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
     a: Link,
     code: InlineCodeRenderer,
-    pre: InlinePreCodeRenderer,
+    pre: ({ ...props }) => <InlinePreCodeRenderer {...props} />,
     blockquote: ({
       className,
       ...props
