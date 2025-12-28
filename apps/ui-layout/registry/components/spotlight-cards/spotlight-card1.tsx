@@ -1,4 +1,3 @@
-// https://codepen.io/sebastian-piskaty/pen/xxaZYOL
 import React from 'react';
 
 import Image from 'next/image';
