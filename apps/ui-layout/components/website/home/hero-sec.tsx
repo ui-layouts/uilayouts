@@ -311,7 +311,7 @@ function HeroSec() {
           </div>
         </div>
       </section>
-      <AllBlocks />
+      {/* <AllBlocks /> */}
       <AllComponents />
       <Contributors />
     </>

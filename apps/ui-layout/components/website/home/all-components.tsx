@@ -128,7 +128,7 @@ function AllComponents() {
     <>
       <section className='relative'>
         <h1
-          className='xl:text-5xl md:text-4xl sm:text-3xl text-2xl  font-medium text-center pt-44 pb-10 flex gap-2 items-start justify-center
+          className='xl:text-5xl md:text-4xl sm:text-3xl text-2xl font-medium text-center pt-20 pb-10 flex gap-2 items-start justify-center
         '
         >
           <img

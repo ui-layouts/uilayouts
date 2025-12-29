@@ -34,7 +34,8 @@
     ".next/types/**/*.ts",
     "types/**/*.d.ts",
     "lib/**/*",
-    "cli/src/index.js"
+    "cli/src/index.js",
+    "next.config.msj"
   ],
   "exclude": ["node_modules"]
 }
