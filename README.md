@@ -84,6 +84,7 @@ Visit [Labs](https://www.ui-layouts.com/labs) to explore more experiments and id
 
 ## Be A Sponsor
 
-<a href="https://buymeacoffee.com/naymurdev"> <img align="left" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50" width="210" alt="naymur-uilayout" /></a>
+<a href="https://buymeacoffee.com/uilayouts"> <img align="left" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50" width="210" alt="naymur-uilayout" /></a>
 <br/>
+
 
