@@ -48,7 +48,7 @@ const allProjects = [
   {
     id: 2,
     projectsName: 'cursify',
-    link: 'https://cursify.vercel.app',
+    link: 'https://cursify.ui-layouts.com',
     componentSrc: () => (
       <>
         <svg

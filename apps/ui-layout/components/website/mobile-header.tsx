@@ -130,7 +130,7 @@ function MobileHeader({ classname }: { classname?: string }) {
                 },
                 {
                   name: 'cursify',
-                  url: 'https://cursify.vercel.app/',
+                  url: 'https://cursify.ui-layouts.com/',
                   icon: <MousePointerClick />,
                 },
                 {

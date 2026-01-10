@@ -47,7 +47,7 @@ function Header() {
               Tools
             </a>
             <a
-              href={'https://cursify.vercel.app'}
+              href={'https://cursify.ui-layouts.com'}
               target='_blank'
               className={`flex gap-2 group font-medium items-center py-1  transition-all text-slate-600 hover:text-slate-900  dark:text-slate-300 dark:hover:text-white`}
             >
