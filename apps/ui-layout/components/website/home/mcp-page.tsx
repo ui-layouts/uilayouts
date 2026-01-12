@@ -95,7 +95,7 @@ function McpPage() {
                   Explore Components
                               </a> */}
                 <a
-                  href='https://github.com/ui-layouts/uilayouts'
+                  href='https://github.com/ui-layouts/mcp'
                   target='_blank'
                   className='relative inline-block md:w-40 w-12 h-[3em] group dark:bg-black bg-white dark:border-white border-black border-2 rounded-lg'
                 >
