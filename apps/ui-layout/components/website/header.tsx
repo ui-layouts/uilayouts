@@ -59,6 +59,16 @@ function Header() {
               className={`flex gap-2 group font-medium items-center py-1  transition-all text-slate-600 hover:text-slate-900  dark:text-slate-300 dark:hover:text-white`}
             >
               Blocks
+              {/* <span className='text-xs font-normal inline-block -translate-y-2 italic text-blue-600'>
+                New
+              </span> */}
+            </a>
+            <a
+              href={'/mcp'}
+              target='_blank'
+              className={`flex gap-2 group font-medium items-center py-1  transition-all text-slate-600 hover:text-slate-900  dark:text-slate-300 dark:hover:text-white`}
+            >
+              MCP
               <span className='text-xs font-normal inline-block -translate-y-2 italic text-blue-600'>
                 New
               </span>

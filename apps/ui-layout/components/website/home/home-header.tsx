@@ -7,8 +7,11 @@ import MobileHeader from '../mobile-header';
 import ThemeSwitch from '../theme-switch';
 import { PlasticButton } from '../ui/plastic-button';
 import { cn } from '@/lib/utils';
+import { usePathname } from 'next/navigation';
 
 function HomeHeader({ className }: { className?: string }) {
+  const pathName = usePathname();
+
   return (
     <header
       className={cn(
@@ -49,6 +52,32 @@ function HomeHeader({ className }: { className?: string }) {
         </Link>
 
         <div className='flex items-center gap-2'>
+          <a
+            href='/mcp'
+            className={cn(
+              'flex gap-1 group transition-all font-semibold items-center p-2 hover:bg-white bg-white hover:backdrop-blur-lg dark:bg-black/25 dark:hover:bg-black pr-4 relative rounded-lg dark:text-white text-black',
+              pathName === '/mcp' && 'dark:bg-black'
+            )}
+          >
+            <span className='absolute italic -top-1 -right-4 text-xs'>
+              (New)
+            </span>
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              viewBox='0 0 24 24'
+              width='24'
+              height='24'
+              fill='none'
+              stroke-width='1.2'
+              className='w-6 h-6 stroke-black dark:stroke-white dark:group-hover:stroke-white group-hover:stroke-black'
+              stroke-linecap='round'
+              stroke-linejoin='round'
+            >
+              <path d='M3.49994 11.7501L11.6717 3.57855C12.7762 2.47398 14.5672 2.47398 15.6717 3.57855C16.7762 4.68312 16.7762 6.47398 15.6717 7.57855M15.6717 7.57855L9.49994 13.7501M15.6717 7.57855C16.7762 6.47398 18.5672 6.47398 19.6717 7.57855C20.7762 8.68312 20.7762 10.474 19.6717 11.5785L12.7072 18.543C12.3167 18.9335 12.3167 19.5667 12.7072 19.9572L13.9999 21.2499' />
+              <path d='M17.4999 9.74921L11.3282 15.921C10.2237 17.0255 8.43272 17.0255 7.32822 15.921C6.22373 14.8164 6.22373 13.0255 7.32822 11.921L13.4999 5.74939' />
+            </svg>
+            MCP
+          </a>
           <div className='sm:flex hidden gap-2 items-center'>
             <SearchDialog
               classname='sm:w-14 xl:w-14 sm:pr-0 sm:pl-3 dark:bg-black/20 bg-white/40 border dark:border-black/20 border-white/20'

@@ -109,7 +109,7 @@ type Profile = {
   translateX: string; // Add the translateX values dynamically
 };
 
-const profiles: Profile[] = [
+export const profiles: Profile[] = [
   {
     href: 'https://github.com/sitek94',
     alt: 'Maciek',

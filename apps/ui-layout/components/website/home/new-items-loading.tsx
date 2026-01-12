@@ -2,21 +2,21 @@ import React, { useEffect, useState } from 'react';
 
 const newComponent = [
   {
-    href: '/components/framer-carousel',
-    title: 'Framer Carousel',
+    href: '/mcp',
+    title: 'MCP',
   },
-  {
-    href: '/components/carousel',
-    title: 'Carousel',
-  },
-  {
-    href: '/components/motion-drawer',
-    title: 'Motion Drawer',
-  },
-  {
-    href: '/components/directional-drawer',
-    title: 'Directional Drawer',
-  },
+  // {
+  //   href: '/components/carousel',
+  //   title: 'Carousel',
+  // },
+  // {
+  //   href: '/components/motion-drawer',
+  //   title: 'Motion Drawer',
+  // },
+  // {
+  //   href: '/components/directional-drawer',
+  //   title: 'Directional Drawer',
+  // },
 ];
 
 function NewItemsLoading() {

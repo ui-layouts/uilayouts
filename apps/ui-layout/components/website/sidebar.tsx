@@ -36,6 +36,12 @@ export const basePath = [
     icon: <Component />,
     tags: ['components', 'components', 'components', 'components'],
   },
+  // {
+  //   href: '/mcp',
+  //   name: 'MCP',
+  //   icon: <Atom />,
+  //   tags: ['mcp', 'mcp', 'mcp', 'mcp'],
+  // },
 ];
 
 function DocsSidebar() {

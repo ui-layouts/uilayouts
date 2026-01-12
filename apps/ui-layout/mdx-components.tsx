@@ -49,10 +49,10 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ComponentCodePreview: ({ ...props }) => <ComponentCodePreview {...props} />,
     // CodeBlock: CodeBlock,
     img: (props) => (
-      <Image
+      <img
         sizes='100vw'
         style={{ width: '100%', height: 'auto' }}
-        {...(props as ImageProps)}
+        {...(props as React.ImgHTMLAttributes<HTMLImageElement>)}
       />
     ),
     // PreCode: ({ ...props }) => <PreCode {...props} />,
@@ -122,7 +122,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     }: React.HTMLAttributes<HTMLTableCellElement>) => (
       <th
         className={cn(
-          'border  px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right',
+          'border  px-4 py-2 text-left font-bold [[align=center]]:text-center [[align=right]]:text-right',
           className
         )}
         {...props}
@@ -134,7 +134,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     }: React.HTMLAttributes<HTMLTableCellElement>) => (
       <td
         className={cn(
-          'border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right whitespace-nowrap ',
+          'border px-4 py-2 text-left [[align=center]]:text-center [[align=right]]:text-right whitespace-nowrap ',
           className
         )}
         {...props}
