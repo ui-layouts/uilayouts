@@ -283,6 +283,19 @@ function HeroSec() {
               </div>
             </div>
           </article>
+          <div className='flex justify-center pt-6'>
+            <a
+              href='https://peerlist.io/naymurr/project/uilayoutsmcp'
+              target='_blank'
+              rel='noreferrer'
+            >
+              <img
+                src='https://peerlist.io/api/v1/projects/embed/PRJH8OEDE6QMMJKLJ27N86LRNBE88D?showUpvote=false&theme=light'
+                alt='@ui-layouts/mcp'
+                style={{ width: 'auto', height: '72px' }}
+              />
+            </a>
+          </div>
           <div className='grid grid-cols-3 md:px-10 px-2 xl:gap-10 md:gap-5 gap-2 md:pt-16 pt-2 2xl:pb-40 xl:pb-36 lg:pb-24 md:pb-16'>
             {allProjects.map((project) => (
               <a
@@ -292,7 +305,7 @@ function HeroSec() {
                 rel='noopener noreferrer'
                 className='group flex flex-col items-center relative overflow-hidden justify-center rounded-2xl border dark:border-gray-900 border-gray-200 dark:bg-black p-6 shadow-md transition hover:shadow-lg hover:-translate-y-1'
               >
-                <div className='mb-4 flex 2xl:h-72 lg:h-60 md:h-48 md:h-42 h-6 xl:px-8 relative z-10 items-center justify-center'>
+                <div className='mb-4 flex 2xl:h-72 lg:h-60 md:h-48 h-6 xl:px-8 relative z-10 items-center justify-center'>
                   {project.componentSrc?.()}
                 </div>
                 <div className='absolute bottom-0 left-0 right-0 top-0 dark:bg-[linear-gradient(to_right,#2120202e_1px,transparent_1px),linear-gradient(to_bottom,#2120202e_1px,transparent_1px)] bg-[linear-gradient(to_right,#acacac2d_1px,transparent_1px),linear-gradient(to_bottom,#acacac2d_1px,transparent_1px)] bg-size-[50px_50px] mask-[radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]'></div>

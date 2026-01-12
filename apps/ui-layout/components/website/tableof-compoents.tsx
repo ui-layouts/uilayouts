@@ -199,6 +199,39 @@ export default function TableOfContents({ toc }: TableOfContentsProps) {
                 </div>
 
                 <div className='space-y-4 pt-5 mt-auto'>
+                  {/* add something for the pro version */}
+                  <div className='m-0 text-[0.8em] space-y-2 text-muted-foreground mb-6 p-3 rounded-xl bg-codebg dark:border-neutral-800 backdrop-blur-md border'>
+                    <p className='text-primary font-semibold'>
+                      Unlock advanced{' '}
+                      <a
+                        className='italic text-blue-600 hover:underline'
+                        href='https://pro.ui-layouts.com/blocks'
+                      >
+                        blocks
+                      </a>
+                      ,
+                      <a
+                        className='italic text-orange-600 hover:underline'
+                        href='https://pro.ui-layouts.com/templates'
+                      >
+                        templates
+                      </a>{' '}
+                      &{' '}
+                      <a
+                        className='italic text-emerald-600 hover:underline'
+                        href='https://pro.ui-layouts.com/template-builder'
+                      >
+                        template builder
+                      </a>
+                    </p>
+
+                    <a
+                      href='https://pro.ui-layouts.com/'
+                      className='inline-flex items-center hover:underline gap-1 text-primary font-medium '
+                    >
+                      Upgrade to Pro →
+                    </a>
+                  </div>
                   <BuyMeCoffee
                     classname='mt-10 w-36 h-32 my-0'
                     iconClassName='w-full h-full group-hover:translate-y-14'
