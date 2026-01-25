@@ -1,17 +1,18 @@
 {
-    "extends": "@repo/typescript-config/base.json",
-    "compilerOptions": {
-      "jsx": "react",
-      "module": "esnext",
-      "target": "es6",
-      "allowJs": true,
-      "esModuleInterop": true,
-      "moduleResolution": "node",
-      "isolatedModules": true,
-      "resolveJsonModule": true,
-      "strict": true,
-      "skipLibCheck": true,
-      "forceConsistentCasingInFileNames": true,
-    }
+  "extends": "@repo/typescript-config/base.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "lib": ["DOM", "ES2022"],
+    "moduleResolution": "bundler",
+    "skipLibCheck": true,
+    "types": ["react", "react-dom"],
+    "module": "esnext",
+    "target": "es6",
+    "allowJs": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true
   }
-  
+}

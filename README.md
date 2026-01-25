@@ -1,6 +1,6 @@
 <img alt="UI-Layout - Design That Really Makes Sense" src="ui-layouts.jpg" width="100%">
 
-UI LAYOUTs is an open-source component library that makes easier for developers and designers to build websites. It's focused on creative designs. I love to create comopnent that really matter or need your site and I belive in future I'll bring more as i kept bringing more just support me
+UI-LAYOUTs is an open-source component library that makes easier for developers and designers to build websites. It's focused on creative designs. I love to create comopnent that really matter or need your site and I belive in future I'll bring more as i kept bringing more just support me
 
 <!-- <h3 align="center">UI-Layout</h3>
 <p align="center">
@@ -84,7 +84,6 @@ Visit [Labs](https://www.ui-layouts.com/labs) to explore more experiments and id
 
 ## Be A Sponsor
 
-<a href="https://buymeacoffee.com/uilayouts"> <img align="left" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50" width="210" alt="naymur-uilayout" /></a>
+<a href="https://buymeacoffee.com/naymurdev"> <img align="left" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50" width="210" alt="naymur-uilayout" /></a>
 <br/>
-
 

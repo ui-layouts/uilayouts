@@ -1,7 +1,6 @@
 import { PreCode } from './pre-code';
 
 export async function InlinePreCodeRenderer({ children }: { children?: any }) {
-  // MDX gives: <pre><code class="lang-xxx">raw</code></pre>
   const codeElement = children?.props || {};
 
   const rawCode = String(codeElement.children || '');
@@ -13,11 +12,5 @@ export async function InlinePreCodeRenderer({ children }: { children?: any }) {
     meta: '', // future: derive meta from ```tsx !!meta
   };
 
-  return (
-    <PreCode
-      codeblock={codeblock}
-      classname='my-4'
-      cssclass='bg-zinc-900 rounded-md'
-    />
-  );
+  return <PreCode codeblock={codeblock} classname='my-2' />;
 }

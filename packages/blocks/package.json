@@ -18,9 +18,13 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
+    "@react-spring/three": "^10.0.3",
+    "@react-three/fiber": "^9.5.0",
     "@repo/ui": "workspace:*",
+    "@shadergradient/react": "^2.4.20",
     "lucide-react": "^0.400.0",
-    "motion": "^12.5.0"
+    "motion": "^12.5.0",
+    "three": "^0.182.0"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
@@ -28,6 +32,7 @@
     "@types/node": "^20.10.6",
     "@types/react": "19.0.12",
     "@types/react-dom": "19.0.4",
+    "@types/three": "^0.182.0",
     "eslint": "^8.56.0",
     "typescript": "^5.3.3"
   },

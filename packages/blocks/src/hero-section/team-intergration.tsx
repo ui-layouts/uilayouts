@@ -224,7 +224,7 @@ export const TeamIntegration = () => {
               whileHover={{ scale: 1.1 }}
             >
               <span className="text-2xl">📊</span>
-              <span className="text-orange-400 font-semibold bg-linear-to-r from-orange-400 to-yellow-400 bg-clip-text text-transparent">
+              <span className="text-orange-400 font-semibold bg-linear-to-r from-orange-400 to-yellow-400 bg-clip-text">
                 manage projects
               </span>
             </motion.span>
@@ -234,7 +234,7 @@ export const TeamIntegration = () => {
               whileHover={{ scale: 1.1 }}
             >
               <span className="text-2xl">🔄</span>
-              <span className="text-purple-400 font-semibold bg-linear-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="text-purple-400 font-semibold bg-linear-to-r from-purple-400 to-pink-400 bg-clip-text">
                 automate tasks
               </span>
             </motion.span>
@@ -244,7 +244,7 @@ export const TeamIntegration = () => {
               whileHover={{ scale: 1.1 }}
             >
               <span className="text-2xl">💬</span>
-              <span className="text-pink-400 font-semibold bg-linear-to-r from-pink-400 to-rose-400 bg-clip-text text-transparent">
+              <span className="text-pink-400 font-semibold bg-linear-to-r from-pink-400 to-rose-400 bg-clip-text">
                 collaborate in real-time
               </span>
             </motion.span>

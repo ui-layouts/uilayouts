@@ -9,13 +9,20 @@ import { PlasticButton } from '../ui/plastic-button';
 import { cn } from '@/lib/utils';
 import { usePathname } from 'next/navigation';
 
-function HomeHeader({ className }: { className?: string }) {
+function HomeHeader({
+  className,
+  headerClassName,
+}: {
+  className?: string;
+  headerClassName?: string;
+}) {
   const pathName = usePathname();
 
   return (
     <header
       className={cn(
-        'w-full top-1.5 left-0 z-50 transition-all duration-300 relative md:px-0 px-2'
+        'w-full top-1.5 left-0 z-50 transition-all duration-300 relative md:px-0 px-2',
+        headerClassName
       )}
     >
       <div
@@ -80,12 +87,11 @@ function HomeHeader({ className }: { className?: string }) {
           </a>
           <div className='sm:flex hidden gap-2 items-center'>
             <SearchDialog
-              classname='sm:w-14 xl:w-14 sm:pr-0 sm:pl-3 dark:bg-black/20 bg-white/40 border dark:border-black/20 border-white/20'
+              classname='sm:w-12 xl:w-12 sm:pr-0 sm:pl-3 dark:bg-black/20 bg-white/40 border dark:border-black/20 border-white/20'
               searchBar={true}
             />
             <ThemeSwitch className='dark:bg-black/20 bg-white/20 border dark:border-black/20 border-white/20 w-12 rounded-md h-11 shrink-0' />
           </div>
-          <HomeGitHubButton />
           <a
             href='https://discord.gg/4bySmj75'
             target='_blank'
@@ -105,7 +111,8 @@ function HomeHeader({ className }: { className?: string }) {
               />
             </svg>
           </a>
-          <PlasticButton text='Work With Us' className='h-10 text-lg' />
+          <HomeGitHubButton />
+          {/* <PlasticButton text='Work With Us' className='h-10 text-lg' /> */}
         </div>
       </div>
     </header>

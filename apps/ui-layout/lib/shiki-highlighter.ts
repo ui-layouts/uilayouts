@@ -1,25 +1,51 @@
-import { createHighlighter } from 'shiki';
+import { createHighlighter, Highlighter } from 'shiki';
+const SAFE_LANGS = new Set([
+  'ts',
+  'tsx',
+  'js',
+  'jsx',
+  'json',
+  'css',
+  'html',
+  'bash',
+]);
 
-let highlighterPromise: Promise<import('shiki').Highlighter> | null = null;
+function normalizeLang(lang?: string) {
+  if (!lang) return 'txt';
+  return SAFE_LANGS.has(lang) ? lang : 'txt';
+}
+let highlighterPromise: Promise<Highlighter> | null = null;
 
 function getHighlighterInstance() {
   if (!highlighterPromise) {
     highlighterPromise = createHighlighter({
       themes: ['github-dark', 'github-light', 'slack-dark'],
-      langs: ['ts', 'tsx', 'js', 'jsx', 'bash', 'json', 'css', 'html'],
+      langs: ['ts', 'tsx', 'js', 'jsx', 'json', 'css', 'html', 'bash', 'txt'],
     });
   }
+
   return highlighterPromise;
 }
-
 export async function highlightCode(code: string, lang = 'ts') {
   const highlighter = await getHighlighterInstance();
+  const safeLang = normalizeLang(lang);
 
-  return highlighter.codeToHtml(code, {
-    lang,
-    themes: {
-      light: 'github-light',
-      dark: 'slack-dark',
-    },
-  });
+  try {
+    return highlighter.codeToHtml(code, {
+      lang: safeLang,
+      themes: {
+        light: 'github-light',
+        dark: 'slack-dark',
+      },
+    });
+  } catch (err) {
+    console.warn('[Shiki error – fallback]', err);
+
+    // Fallback: plain escaped code
+    return `<pre><code>${escapeHtml(code)}</code></pre>`;
+  }
+}
+
+function escapeHtml(str: string) {
+  return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }

@@ -1,4 +1,3 @@
-import { z } from 'zod';
 import {
   Tabs,
   TabsContent,
@@ -72,9 +71,13 @@ export default async function IframeTabCodePreview(props: any) {
   // --------------------------------------------
   return (
     <Tabs defaultValue={tabs[0].meta}>
-      <TabsList className='mt-0.5'>
+      <TabsList className='px-1.5 h-11 w-fit flex justify-center dark:bg-neutral-800 bg-neutral-50'>
         {tabs.map((tab) => (
-          <TabsTrigger key={tab.meta} value={tab.meta}>
+          <TabsTrigger
+            key={tab.meta}
+            value={tab.meta}
+            className='text-sm flex gap-1.5 items-center'
+          >
             {tab.meta}
           </TabsTrigger>
         ))}

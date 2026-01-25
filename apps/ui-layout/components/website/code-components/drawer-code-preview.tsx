@@ -23,10 +23,6 @@ import { SafeSuspense } from '@/lib/safeSuspense';
 import { Button } from '../ui/button';
 import { AllComponents } from '@/configs/docs';
 
-import { highlightCode } from '@/lib/shiki-highlighter';
-
-const EditComponents = lazy(() => import('./drawer-components-edit'));
-
 const LoadingFallback = () => (
   <div className='fixed bottom-4 right-4 z-50'>
     <Button variant='outline' size='icon' disabled className='animate-pulse'>
@@ -86,10 +82,6 @@ export default async function DrawerCodePreview({
     }
   );
 
-  // ----------- SHIKI Highlight -----------
-  const tsHtml = await highlightCode(getcode, 'tsx');
-  const jsHtml = await highlightCode(jsFormattedCode, 'js');
-
   return (
     <div
       className={`${
@@ -108,60 +100,15 @@ export default async function DrawerCodePreview({
       <div className='absolute top-2 right-2 flex items-center gap-2'>
         <CopyButton
           code={parsedCodeblock.codeblock}
-          classname='dark:bg-muted bg-white right-10 top-0'
+          classname='bg-white right-10 top-0'
         />
-        {/* <ResponsiveModal classname='p-2'>
-          <ResponsiveModalTrigger asChild>
-            <button className='flex gap-1 rounded-lg h-8 px-2 text-sm font-semibold'>
-              Code
-              <Code className=' h-5 w-5' />
-            </button>
-          </ResponsiveModalTrigger>
-          <ResponsiveModalContent className='2xl:max-h-[62vh] max-h-[80vh] overflow-auto'>
-            <Tabs defaultValue={`${parsedCodeblock.comName}-typescript`}>
-              <TabsList className='absolute right-24 top-6 h-9 p-0.5 border dark:border-background'>
-                <TabsTrigger
-                  value={`${parsedCodeblock.comName}-typescript`}
-                  className='h-8'
-                >
-                  Ts
-                </TabsTrigger>
-                <TabsTrigger
-                  value={`${parsedCodeblock.comName}-javascript`}
-                  className='h-8'
-                >
-                  Js
-                </TabsTrigger>
-              </TabsList>
-
-              <TabsContent
-                value={`${parsedCodeblock.comName}-typescript`}
-                className='mt-0 p-4'
-              >
-                <CopyButton code={getcode} classname='top-6 right-10' />
-                <div
-                  className='bg-codebg border rounded-md p-3 max-h-[450px] overflow-auto'
-                  dangerouslySetInnerHTML={{ __html: tsHtml }}
-                />
-              </TabsContent>
-
-              <TabsContent value={`${parsedCodeblock.comName}-javascript`}>
-                <CopyButton code={jsFormattedCode} classname='top-6 right-10' />
-                <div
-                  className='bg-codebg border rounded-md p-3 max-h-[450px] overflow-auto'
-                  dangerouslySetInnerHTML={{ __html: jsHtml }}
-                />
-              </TabsContent>
-            </Tabs>
-          </ResponsiveModalContent>
-        </ResponsiveModal> */}
 
         {isEdit && (
           <SafeSuspense fallback={<LoadingFallback />}>
-            <EditComponents
+            {/* <EditComponents
               baseCode={getcode}
               componentCenter={componentCenter}
-            />
+            /> */}
           </SafeSuspense>
         )}
       </div>
