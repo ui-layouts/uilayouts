@@ -39,7 +39,7 @@ export default async function SectionPage(props: {
     <section
       className={`${
         isFramerScrolling ? '' : 'flex justify-center items-center h-full'
-      } min-h-screen rounded-md dark:bg-neutral-900 bg-neutral-200`}
+      } min-h-screen rounded-md bg-codebg`}
     >
       <div className='px-4 w-full'>
         {ComponentPreview ? (

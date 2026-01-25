@@ -1,21 +1,17 @@
-import FaqImage1 from './faq1.png'
-import StreamLineHeroImg from './hero/streamline-hero.png'
-import TeamIntegrationImg from './hero/team-integration.png'
-import AgencyHeroImg from './hero/agency-hero.png'
-import OrganizationHeroImg from './hero/organization.png'
-import WorkflowAutomationImg from './hero/workflow-automation.png'
-import FlowsyncHeroImg from './hero/flowsync.png'
-import AgencyNeutralHeroImg from './hero/agency-nuetral-hero.png'
-import NuetralHerImg from './hero/nuetral-hero.png'
+import PhoneMockup from './hero/phonemockup.png'
+import EcommerceDash from './hero/e-commerce-dash.png'
+import HeroDigitalSuccessImg from './hero/digital-success.png'
+import HeroAiInfrastructureImg from './hero/ai-infrastructure.png'
+import HeroAiValuePropositionImg from './hero/ai-value-proposition.png'
+import FaqQuestionImg from './faq/question.png'
+import FaqImg from './faq/faq.png'
 
 export {
-  FaqImage1,
-  TeamIntegrationImg,
-  AgencyHeroImg,
-  OrganizationHeroImg,
-  WorkflowAutomationImg,
-  FlowsyncHeroImg,
-  AgencyNeutralHeroImg,
-  NuetralHerImg,
-  StreamLineHeroImg,
+  PhoneMockup,
+  EcommerceDash,
+  HeroDigitalSuccessImg,
+  HeroAiInfrastructureImg,
+  HeroAiValuePropositionImg,
+  FaqQuestionImg,
+  FaqImg,
 }

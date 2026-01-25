@@ -1,19 +1,23 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Poppins } from 'next/font/google';
 import Script from 'next/script';
 import { ThemeProvider } from '@/components/website/theme-provider';
-import { GeistMono } from 'geist/font/mono';
-import Progressbar from '@/lib/progressbar';
 import { siteConfig } from '@/lib/utils';
 import { Toaster } from 'sonner';
-import { Banner } from '@/components/website/ui/banner';
-import { ArrowUpRight } from 'lucide-react';
-import SocialShareModal from '@/components/website/social-media-sharing-modal';
+import Progressbar from '@/lib/progressbar';
+import { Poppins, Space_Grotesk } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/next';
 
-const poppins = Poppins({
+export const poppins = Poppins({
   subsets: ['latin'],
   weight: ['200', '300', '400', '500', '600', '700', '800'],
+  variable: '--font-poppins',
+});
+
+export const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-spaceGrotesk',
 });
 
 export const metadata: Metadata = {
@@ -137,7 +141,14 @@ export default async function RootLayout({
         `}
         </Script>
 
-        <body className={poppins.className}>
+        <body
+          className={`
+    ${poppins.variable}
+    ${spaceGrotesk.variable}
+    font-poppins
+  `}
+        >
+          <Analytics />
           <Progressbar>
             <ThemeProvider attribute='class'>
               <div className='isolate min-h-screen' vaul-drawer-wrapper=''>

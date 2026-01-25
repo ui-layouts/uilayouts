@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils';
 import {
   Check,
   Copy,
+  Expand,
   ExternalLink,
   Monitor,
   RotateCw,
@@ -220,9 +221,9 @@ export default function ComponentPreview({
                 <a
                   href={`${process.env.NEXT_PUBLIC_ANIMATION_URL}/${iframeComponent}`}
                   target='_blank'
-                  className='relative  flex cursor-pointer underline items-center  gap-1 rounded-lg border dark:bg-neutral-800 bg-neutral-200  text-background p-1 px-2.5'
+                  className='relative flex cursor-pointer  items-center  gap-1 rounded-lg border dark:bg-neutral-700 text-primary bg-neutral-200 p-1 px-2.5'
                 >
-                  Open <ExternalLink size={20} />
+                  Open <Expand size={20} />
                 </a>
               </>
             ) : (
@@ -238,7 +239,7 @@ export default function ComponentPreview({
             <>
               <div
                 className={cn(
-                  `lg:h-[600px] sm:h-[500px] h-[400px] w-full rounded-lg border dark:bg-neutral-800 bg-neutral-200 overflow-hidden pt-16 p-0`,
+                  `lg:h-[600px] sm:h-[500px] h-[400px] w-full rounded-lg bg-codebg border dark:border-neutral-800 overflow-hidden pt-16 p-0`,
                   className
                 )}
               >
@@ -263,7 +264,7 @@ export default function ComponentPreview({
                   isFitheight
                     ? 'h-fit py-4'
                     : 'lg:h-[600px] sm:h-[500px] h-[400px]'
-                }  w-full rounded-lg dark:bg-neutral-800 bg-neutral-200 border dark:border-neutral-800 overflow-hidden p-0`,
+                }  w-full rounded-lg bg-codebg border dark:border-neutral-800 overflow-hidden p-0`,
                 className
               )}
             >
@@ -288,7 +289,7 @@ export default function ComponentPreview({
         <>
           <div
             className={cn(
-              `w-full rounded-lg flex flex-col justify-center items-center dark:bg-neutral-800 bg-neutral-200 overflow-hidden`,
+              `w-full rounded-lg flex flex-col justify-center items-center bg-codebg border dark:border-neutral-800 overflow-hidden`,
               isFitheight
                 ? 'h-fit lg:p-6 p-2'
                 : isFit

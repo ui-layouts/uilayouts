@@ -30,3 +30,38 @@ export const extractCodeFromPackages = (filePaths: string[] | string) => {
     }
   });
 };
+
+export function transformCodeFiles(filePath: any[]) {
+  return filePath.map((file) => {
+    const fileExtension = file.fileName.split('.').pop() || '';
+
+    const langMap: Record<string, string> = {
+      tsx: 'tsx',
+      ts: 'tsx',
+      jsx: 'jsx',
+      js: 'jsx',
+      css: 'css',
+      scss: 'scss',
+      html: 'html',
+      json: 'json',
+    };
+
+    const rawContent =
+      typeof file.fileSrc === 'object' &&
+      file.fileSrc !== null &&
+      'default' in file.fileSrc
+        ? file.fileSrc.default
+        : typeof file.fileSrc === 'string'
+          ? file.fileSrc
+          : `// ERROR: Code content not found for ${file.fileName}`;
+
+    return {
+      ...file,
+      code: {
+        value: rawContent,
+        lang: langMap[fileExtension] || fileExtension,
+        meta: '',
+      },
+    };
+  });
+}

@@ -141,19 +141,7 @@ function McpPage() {
                   </button>
                 </a>
               </div>
-              <div className='flex justify-center pt-6'>
-                <a
-                  href='https://peerlist.io/naymurr/project/uilayoutsmcp'
-                  target='_blank'
-                  rel='noreferrer'
-                >
-                  <img
-                    src='https://peerlist.io/api/v1/projects/embed/PRJH8OEDE6QMMJKLJ27N86LRNBE88D?showUpvote=false&theme=light'
-                    alt='@ui-layouts/mcp'
-                    style={{ width: 'auto', height: '72px' }}
-                  />
-                </a>
-              </div>
+
               <div className='flex w-fit mx-auto sm:items-center justify-center mt-2 lg:pb-0 pb-10 sm:translate-x-8'>
                 <div className='flex w-fit sm:translate-x-0 translate-x-8'>
                   {profiles.map((profile, index) => (

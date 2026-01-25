@@ -283,19 +283,6 @@ function HeroSec() {
               </div>
             </div>
           </article>
-          <div className='flex justify-center pt-6'>
-            <a
-              href='https://peerlist.io/naymurr/project/uilayoutsmcp'
-              target='_blank'
-              rel='noreferrer'
-            >
-              <img
-                src='https://peerlist.io/api/v1/projects/embed/PRJH8OEDE6QMMJKLJ27N86LRNBE88D?showUpvote=false&theme=light'
-                alt='@ui-layouts/mcp'
-                style={{ width: 'auto', height: '72px' }}
-              />
-            </a>
-          </div>
           <div className='grid grid-cols-3 md:px-10 px-2 xl:gap-10 md:gap-5 gap-2 md:pt-16 pt-2 2xl:pb-40 xl:pb-36 lg:pb-24 md:pb-16'>
             {allProjects.map((project) => (
               <a

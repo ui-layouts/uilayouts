@@ -20,7 +20,9 @@
     "paths": {
       "#*": ["./src/*"],
       "@/components/ui/*": ["../../apps/ui-layout/components/ui/*"],
-      "@/components/website/ui/*": ["../../apps/ui-layout/components/website/ui/*"],
+      "@/components/website/ui/*": [
+        "../../apps/ui-layout/components/website/ui/*"
+      ],
       "@/lib/*": ["../../apps/ui-layout/lib/*"],
       "@/hooks/*": ["../../apps/ui-layout/hooks/*"]
     }

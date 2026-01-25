@@ -10,7 +10,7 @@ If you need any help, feel free to reach out to [@naymur](https://x.com/naymur_d
 
 - We use [npm](https://docs.npmjs.com).
 - For animation [framer](https://www.framer.com/motion)
-- For next-mdx [nextmdx](https://nextjs.org/docs/13/app/building-your-application/configuring/mdx)
+- For Mdx [next-mdx](https://nextjs.org/docs/pages/guides/mdx)
 
 ## Development
 

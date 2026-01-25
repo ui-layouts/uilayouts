@@ -35,7 +35,7 @@ export async function PreCode({
     return (
       <div className={cn('relative z-2', cssclass)}>
         {!metahide && codeblock.meta && (
-          <div className='text-left text-sm px-2 py-1 mt-3 border-dotted rounded-md bg-primary-foreground w-fit'>
+          <div className='text-left text-sm px-2 py-1 mt-3 border-dotted rounded-md w-fit'>
             {codeblock.meta}
           </div>
         )}
@@ -47,14 +47,11 @@ export async function PreCode({
               classname='top-2.5 dark:bg-neutral-800 bg-white'
             />
           ) : (
-            <CopyButton
-              code={value}
-              classname='top-3.5 dark:bg-neutral-700 bg-neutral-200'
-            />
+            <CopyButton code={value} classname='top-3.5 bg-white' />
           )}
 
           <div
-            className='not-prose max-h-[550px] overflow-x-hidden rounded-md text-sm bg-codebg border p-0.1'
+            className='not-prose max-h-[550px] overflow-x-hidden rounded-md text-sm border p-0.1 dark:border-neutral-800'
             dangerouslySetInnerHTML={{ __html: tsHtml }}
           />
         </div>
@@ -107,10 +104,10 @@ export async function PreCode({
           <div className='relative'>
             <CopyButton
               code={value}
-              classname='right-2 dark:bg-zinc-900 border bg-white'
+              classname='right-2 dark:bg-zinc-800 border bg-white'
             />
             <div
-              className='not-prose max-h-[550px] overflow-x-hidden rounded-md text-sm bg-codebg border dark:border-neutral-900'
+              className='not-prose max-h-[550px] overflow-x-hidden rounded-md text-sm border dark:border-neutral-800'
               dangerouslySetInnerHTML={{ __html: tsHtml }}
             />
           </div>
@@ -121,10 +118,10 @@ export async function PreCode({
           <div className='relative'>
             <CopyButton
               code={formattedJsCode}
-              classname='right-2 dark:bg-zinc-900 border bg-white'
+              classname='right-2 dark:bg-zinc-800 border bg-white'
             />
             <div
-              className='not-prose max-h-[550px] overflow-x-hidden rounded-md text-sm bg-codebg border dark:border-neutral-900'
+              className='not-prose max-h-[550px] overflow-x-hidden rounded-md text-sm border dark:border-neutral-800'
               dangerouslySetInnerHTML={{ __html: jsHtml }}
             />
           </div>

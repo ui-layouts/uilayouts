@@ -102,7 +102,7 @@ export default async function IframeComponentPrieview(
         </TabsContent>
 
         {/* Code Section */}
-        <TabsContent className='mt-11' value={`${name}code`}>
+        <TabsContent className='mt-14' value={`${name}code`}>
           {children}
         </TabsContent>
       </Tabs>

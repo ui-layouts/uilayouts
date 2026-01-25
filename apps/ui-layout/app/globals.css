@@ -22,6 +22,8 @@
   --breakpoint-2xl: 1536px;
 
   --font-mono: var(--font-geist-mono);
+  --font-spaceGrotesk: var(--font-spaceGrotesk);
+  --font-poppins: var(--font-poppins);
 
   --grid-template-columns-14: repeat(14, minmax(0, 1fr));
   --grid-column-span-14: span 14 / span 14;
@@ -84,7 +86,8 @@
   --color-accent-foreground: hsl(var(--accent-foreground));
 
   /* alpha colors */
-  --color-codebg: hsl(var(--codebg) / var(--codebg-a));
+  --color-codebg: hsl(var(--codebg));
+  --color-cliCodeBg: hsl(var(--cliCodeBg));
 
   /* UI extras */
   --color-editor-bg: hsl(var(--background));
@@ -131,10 +134,10 @@ html.dark .shiki span {
 }
 
 .shiki {
-  @apply overflow-x-auto rounded-lg p-4 !bg-codebg;
+  @apply overflow-x-auto rounded-lg p-4 bg-codebg!;
 }
 .cliblocks .shiki {
-  @apply overflow-x-auto border rounded-lg p-2 py-3 text-lg !bg-neutral-50 dark:!bg-zinc-900 !my-0;
+  @apply overflow-x-auto border rounded-lg p-2 py-3 text-lg bg-cliCodeBg! my-0!;
 }
 
 @theme inline {

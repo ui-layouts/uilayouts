@@ -1,18 +1,6 @@
 {
   "name": "ui-layout",
   "private": true,
-  "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev",
-    "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
-  },
-  "devDependencies": {
-    "@repo/eslint-config": "workspace:*",
-    "@repo/typescript-config": "workspace:*",
-    "prettier": "^3.1.1",
-    "turbo": "^2.5.8"
-  },
   "packageManager": "bun@1.1.0",
   "workspaces": [
     "apps/*",
@@ -20,5 +8,25 @@
   ],
   "engines": {
     "node": ">=18"
+  },
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+  },
+  "dependencies": {
+    "@vercel/analytics": "^1.6.1",
+    "raw-loader": "^4.0.2",
+    "react": "^19.1.4",
+    "react-dom": "^19.1.4"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.12",
+    "@types/react-dom": "^19.0.4",
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "prettier": "^3.1.1",
+    "turbo": "^2.5.8"
   }
 }

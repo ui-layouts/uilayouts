@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 export type SideMenuDirection = 'left' | 'right';
 export type ButtonOpeningVariants = 'push' | 'merge' | 'stay';
@@ -26,8 +27,10 @@ interface SideMenuProps {
   };
 
   // Styling
+  btnClassName?: string;
   className?: string;
   contentClassName?: string;
+  clsBtnClassName?: string;
   overlayClassName?: string;
 
   // Animation
@@ -106,6 +109,8 @@ const MotionDrawer: React.FC<SideMenuProps> = ({
   showToggleButton = true,
 
   // Styling
+  btnClassName = '',
+  clsBtnClassName = '',
   className = '',
   contentClassName = '',
   overlayClassName = '',
@@ -193,7 +198,10 @@ const MotionDrawer: React.FC<SideMenuProps> = ({
     <>
       {showToggleButton && (
         <motion.button
-          className={`fixed z-50 text-primary cursor-pointer ${openButtonPositionClasses}`}
+          className={cn(
+            `fixed z-99 text-primary cursor-pointer ${openButtonPositionClasses}`,
+            btnClassName
+          )}
           onClick={() => setIsOpen(true)}
           variants={buttonVariants}
           animate={isOpen ? 'open' : 'closed'}
@@ -245,7 +253,10 @@ const MotionDrawer: React.FC<SideMenuProps> = ({
               {/* Close Button */}
               {showToggleButton && (
                 <motion.button
-                  className='absolute top-2 right-8 p-2 text-black cursor-pointer'
+                  className={cn(
+                    'absolute top-2 right-8 p-2 text-black cursor-pointer',
+                    clsBtnClassName
+                  )}
                   onClick={() => setIsOpen(false)}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}

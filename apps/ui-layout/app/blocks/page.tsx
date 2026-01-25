@@ -1,27 +1,24 @@
 'use client';
-import { useState } from 'react';
-import { motion } from 'motion/react';
+
 import Link from 'next/link';
 import * as AspectRatio from '@radix-ui/react-aspect-ratio';
 import Image from 'next/image';
-import preview from '@/assets/preview/Preview';
 import { cn } from '@/lib/utils';
 import Footer from '@/components/website/footer';
-import HomeHeader from '@/components/website/home/home-header';
-import { blocksDesign } from '@/configs/blocks-docs';
-export default function Home() {
+import { blocksDesign } from '@/blocks-docs';
+
+export default function BlocksHome() {
   return (
     <>
-      <HomeHeader className='max-w-screen-xl dark:bg-neutral-900 dark:border-neutral-800 bg-neutral-200 border-neutral-300' />
-      <div className='pt-36 pb-5 max-w-screen-2xl mx-auto min-h-screen'>
-        <article className='w-fit mx-auto max-w-4xl text-center space-y-4'>
+      <div className='pt-36 pb-5 max-w-screen-2xl mx-auto min-h-screen border-x'>
+        <article className='w-fit mx-auto max-w-4xl text-center space-y-4 pb-10'>
           <h1 className='text-6xl leading-[100%]'>
             Build Faster with{' '}
-            <span className='font-semibold bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent'>
+            <span className='font-semibold bg-linear-to-r from-red-500 to-orange-500 bg-clip-text text-transparent'>
               Premium
             </span>{' '}
             Quality{' '}
-            <span className='font-semibold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent'>
+            <span className='font-semibold bg-linear-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent'>
               Blocks
             </span>{' '}
             For Free.
@@ -31,17 +28,29 @@ export default function Home() {
             apps. Accessible. Customizable. Open Source.
           </p>
         </article>
-
-        <div className='grid md:grid-cols-3 grid-cols-2 gap-6 pt-20'>
+        <div
+          className={cn(
+            'border-y dark:border-neutral-800 dark:bg-neutral-900 bg-white h-10',
+            'dark:bg-[repeating-linear-gradient(135deg,#1f1f1f_0px_1px,transparent_1px_10px)] bg-[repeating-linear-gradient(135deg,#f0f0f0_0px_1px,transparent_1px_10px)]'
+          )}
+        ></div>
+        <div className='grid md:grid-cols-3 grid-cols-2'>
           {blocksDesign.map((component, index) => {
+            // console.log(
+            //   'checking blocks data',
+            //   component?.blocks?.length,
+            //   component.name
+            // );
+
             return (
               <>
                 <Link
                   href={component?.url}
-                  className='border p-2    transition-all rounded-lg dark:bg-black/40 bg-primary-foreground backdrop-blur-sm'
+                  className='relative transition-all p-4 hover:bg-neutral-100
+                  '
                 >
                   <>
-                    {component.imgSrc && (
+                    {component?.imgSrc && (
                       <AspectRatio.Root ratio={16 / 9}>
                         <Image
                           src={component.imgSrc}
@@ -49,16 +58,19 @@ export default function Home() {
                           width={400}
                           height={400}
                           className={cn(
-                            'w-full h-full rounded-md',
+                            'w-full object-cover h-full rounded-md absolute top-0 left-0',
                             component.imgclass
                           )}
                         />
                       </AspectRatio.Root>
                     )}
                   </>
-                  <div className='sm:py-2 py-1 sm:px-4 px-2'>
-                    <h1 className='2xl:text-xl xl:text-xl md:text-lg text-sm font-medium leading-[140%] capitalize'>
-                      {component.name}
+                  <div className='sm:py-2 py-1'>
+                    <h1 className='2xl:text-3xl xl:text-2xl md:text-xl text-lg font-medium leading-[140%] capitalize'>
+                      {component.name}*
+                    </h1>
+                    <h1 className='2xl:text-xl xl:text-xl md:text-lg text-sm font-medium leading-[140%] capitalize opacity-70'>
+                      {component?.blocks?.length} Blocks
                     </h1>
                   </div>
                 </Link>
