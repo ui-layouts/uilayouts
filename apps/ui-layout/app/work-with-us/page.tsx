@@ -108,7 +108,7 @@ const WorkWithUs = () => {
                 <div className='flex items-center gap-3'>
                   <div className='relative'>
                     <img
-                      className='h-12 w-12 rounded-full border border-gray-800'
+                      className='h-12 w-12 rounded-full border border-neutral-800'
                       src='/naymur.png'
                       alt='Founder'
                     />
@@ -147,8 +147,8 @@ const WorkWithUs = () => {
                 >
                   Book a free call
                   <span className='relative flex size-3'>
-                    <span className='absolute inline-flex h-full w-full animate-ping rounded-full bg-gray-100 opacity-75'></span>
-                    <span className='relative inline-flex size-3 rounded-full bg-gray-100'></span>
+                    <span className='absolute inline-flex h-full w-full animate-ping rounded-full bg-neutral-100 opacity-75'></span>
+                    <span className='relative inline-flex size-3 rounded-full bg-neutral-100'></span>
                   </span>
                 </a>
               </div>

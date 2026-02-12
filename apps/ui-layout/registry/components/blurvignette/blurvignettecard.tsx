@@ -23,7 +23,7 @@ function index() {
             className='mx-auto w-full relative h-full object-cover'
             height={600}
           />
-          <BlurVignetteArticle classname='h-[35%] w-[96%] ml-2 mt-auto mb-1 border border-gray-900/20 rounded-xl text-white '>
+          <BlurVignetteArticle classname='h-[35%] w-[96%] ml-2 mt-auto mb-1 border border-neutral-900/20 rounded-xl text-white '>
             <article className=' py-5 px-3'>
               <h1 className='2xl:text-3xl text-2xl'>UiLayout</h1>
               <p className='2xl:text-sm text-xs'>
@@ -46,7 +46,7 @@ function index() {
             className='mx-auto w-full relative h-full object-cover'
             height={600}
           />
-          <BlurVignetteArticle classname='h-[35%] w-[96%] ml-2 mt-auto mb-1 border border-gray-900/20 text-white '>
+          <BlurVignetteArticle classname='h-[35%] w-[96%] ml-2 mt-auto mb-1 border border-neutral-900/20 text-white '>
             <article className=' py-5 px-3'>
               <h1 className='2xl:text-3xl text-2xl'>UiLayout</h1>
               <p className='2xl:text-sm text-xs'>

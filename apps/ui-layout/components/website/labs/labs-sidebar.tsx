@@ -79,7 +79,7 @@ function LabSidebar() {
               damping: 30,
               opacity: { duration: 0.4 },
             }}
-            className='relative h-[98vh] mt-1.5 mr-3 rounded-md dark:bg-gray-900 bg-gray-300 border-l border-2 p-4 py-5'
+            className='relative h-[98vh] mt-1.5 mr-3 rounded-md dark:bg-neutral-900 bg-neutral-300 border-l border-2 p-4 py-5'
           >
             <Link href='/' className='flex gap-2 items-center w-fit px-2 pb-3'>
               <div className='relative lg:flex hidden gap-2 '>
@@ -87,7 +87,7 @@ function LabSidebar() {
                 <h1 className='2xl:text-2xl text-2xl font-semibold'>
                   UI-LAYOUT
                 </h1>
-                <span className='dark:bg-gray-100 bg-gray-300 dark:text-black text-black font-medium  px-2 rounded-[0.15em] text-xs absolute -top-2 -right-12'>
+                <span className='dark:bg-neutral-100 bg-neutral-300 dark:text-black text-black font-medium  px-2 rounded-[0.15em] text-xs absolute -top-2 -right-12'>
                   beta
                 </span>
               </div>

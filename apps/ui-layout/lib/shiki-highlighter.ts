@@ -27,6 +27,8 @@ function getHighlighterInstance() {
   return highlighterPromise;
 }
 export async function highlightCode(code: string, lang = 'ts') {
+  // console.log('checking code', code);
+
   const highlighter = await getHighlighterInstance();
   const safeLang = normalizeLang(lang);
 
@@ -46,6 +48,11 @@ export async function highlightCode(code: string, lang = 'ts') {
   }
 }
 
-function escapeHtml(str: string) {
+function escapeHtml(str: unknown) {
+  if (typeof str !== 'string') {
+    console.warn('escapeHtml got non-string:', str);
+    return '';
+  }
+
   return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }

@@ -21,7 +21,7 @@ function index() {
   const [checkEffect, setCheckEffect] = useState('basic');
   return (
     <>
-      <div className='flex bg-black dark:bg-gray-900 w-fit ml-auto mb-4 gap-1 p-1 rounded-md text-white'>
+      <div className='flex bg-black dark:bg-neutral-900 w-fit ml-auto mb-4 gap-1 p-1 rounded-md text-white'>
         {effectArr?.map((effect, index) => {
           return (
             <>
@@ -55,7 +55,7 @@ function index() {
           hover={checkEffect === 'hover' ? true : false}
         >
           <div className='flex justify-center mt-2'>
-            <div className='flex items-center w-fit dark:bg-[#1d2025] bg-gray-200 p-1 dark:text-white text-black rounded-md border'>
+            <div className='flex items-center w-fit dark:bg-[#1d2025] bg-neutral-200 p-1 dark:text-white text-black rounded-md border'>
               <TabsBtn value='design'>
                 <span className='relative z-2 uppercase sm:text-base text-xs'>
                   design

@@ -1,31 +1,28 @@
 'use client';
-
 import { cn } from '@/lib/utils';
 import {
   Check,
   Copy,
   Expand,
-  ExternalLink,
   Monitor,
   RotateCw,
   Smartphone,
   Tablet,
 } from 'lucide-react';
 import React, { useState, useEffect, useRef, Suspense, useMemo } from 'react';
-import { TCurrComponentProps } from './component-code-preview';
-import dynamic from 'next/dynamic';
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from '@radix-ui/react-tooltip';
-import { AllComponents } from '@/configs/docs';
+import { getComponentPreview } from '@/lib/component-projections';
+
 type ComponentPreviewProps = {
-  component?: TCurrComponentProps;
   hasReTrigger?: boolean;
   className?: string;
-  code: string;
+  code?: string;
+  iframeSrc?: string;
   responsive?: boolean;
   isFitheight?: boolean;
   isFit?: boolean;
@@ -34,13 +31,15 @@ type ComponentPreviewProps = {
   previewComp?: boolean;
   isNotCopy?: boolean;
   iframeComponent?: string;
+  componentName?: string;
 };
 type DynamicComponentType = React.ComponentType<any>;
 export default function ComponentPreview({
-  component,
   hasReTrigger = false,
   className,
   code,
+  iframeSrc,
+  componentName,
   responsive,
   isFitheight,
   jsonName,
@@ -55,6 +54,8 @@ export default function ComponentPreview({
   const [width, setWidth] = useState('100%');
   const [mode, setMode] = useState<'desktop' | 'tablet' | 'mobile'>('desktop');
 
+  const ComponentPreview = getComponentPreview(componentName || '');
+
   const handleReTrigger = () => {
     if (hasReTrigger) {
       setReTriggerKey((prevKey) => prevKey + 1);
@@ -62,17 +63,13 @@ export default function ComponentPreview({
   };
 
   const onCopy = () => {
-    navigator.clipboard.writeText(code);
+    navigator.clipboard.writeText(code || '');
     setHasCheckIcon(true);
 
     setTimeout(() => {
       setHasCheckIcon(false);
     }, 1000);
   };
-  // console.log(component);
-  const currentComponentData = AllComponents.find(
-    (com) => com.iframeSrc === component?.iframeSrc
-  );
 
   return (
     <>
@@ -192,10 +189,9 @@ export default function ComponentPreview({
             target='_blank'
             rel='noreferrer'
             data-slot='button'
-            className='inline-flex items-center justify-center font-medium transition-colors focus-visible:outline-hidden focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 shadow-sm py-2 h-8 gap-1 rounded-[6px] bg-black px-3 text-xs text-white hover:bg-black hover:text-white dark:bg-white dark:text-black '
+            className='inline-flex items-center justify-center font-medium transition-colors focus-visible:outline-hidden focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 shadow-sm py-2 h-8 gap-1 rounded-[6px] bg-black px-2 text-xs text-white hover:bg-black hover:text-white dark:bg-white dark:text-black '
             aria-label='Open in v0'
           >
-            Open in{' '}
             <svg
               viewBox='0 0 40 20'
               fill='none'
@@ -274,7 +270,7 @@ export default function ComponentPreview({
               >
                 <>
                   <iframe
-                    src={`${process.env.NEXT_PUBLIC_CLIENT_URL}/${component?.iframeSrc}`}
+                    src={`${process.env.NEXT_PUBLIC_CLIENT_URL}/${iframeSrc}`}
                     className='h-full w-full'
                     style={{ maxWidth: '100%' }}
                     loading='lazy'
@@ -297,10 +293,12 @@ export default function ComponentPreview({
                   : '2xl:h-[600px] xl:h-[550px] h-fit overflow-auto lg:p-6 p-2'
             )}
           >
-            {currentComponentData ? (
+            {ComponentPreview ? (
               React.createElement(
-                currentComponentData.componentSrc as DynamicComponentType,
-                { key: reTriggerKey }
+                ComponentPreview?.componentSrc as unknown as DynamicComponentType,
+                {
+                  key: reTriggerKey,
+                }
               )
             ) : (
               <>Component Not Found</>

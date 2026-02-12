@@ -6,19 +6,19 @@ const reviews = [
     name: 'Jack',
     username: '@jack',
     body: "I've never seen anything like this before. It's amazing. I love it.",
-    img: 'https://avatar.vercel.sh/jack',
+    img: 'bg-blue-500',
   },
   {
     name: 'Jill',
     username: '@jill',
     body: "I don't know what to say. I'm speechless. This is amazing.",
-    img: 'https://avatar.vercel.sh/jill',
+    img: 'bg-green-500',
   },
   {
     name: 'John',
     username: '@john',
     body: "I'm at a loss for words. This is amazing. I love it.",
-    img: 'https://avatar.vercel.sh/john',
+    img: 'bg-red-500',
   },
 ];
 
@@ -41,13 +41,16 @@ const ReviewCard = ({
       className={cn(
         'relative h-40 w-36 cursor-pointer overflow-hidden rounded-xl border p-4',
         // light styles
-        'border-gray-950/10 bg-gray-950/1 hover:bg-gray-950/5',
+        'border-neutral-950/10 bg-neutral-950/1 hover:bg-neutral-950/5',
         // dark styles
-        'dark:border-gray-50/10 dark:bg-gray-50/10 dark:hover:bg-gray-50/15'
+        'dark:border-neutral-50/10 dark:bg-neutral-50/10 dark:hover:bg-neutral-50/15'
       )}
     >
+      <div className='absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(125%_125%_at_50%_10%,rgba(255,255,255,0)_40%,#335fee_100%)] pointer-events-none'></div>
+
       <div className='flex flex-row items-center gap-2'>
-        <img className='rounded-full' width='32' height='32' alt='' src={img} />
+        <div className={cn('rounded-full w-8 h-8', img)}></div>
+
         <div className='flex flex-col'>
           <figcaption className='text-sm font-medium dark:text-white'>
             {name}
@@ -62,7 +65,7 @@ const ReviewCard = ({
 
 const MarqueeDemoVertical = () => {
   return (
-    <div className='relative flex h-96 flex-row items-center justify-center overflow-hidden rounded-lg border dark:bg-neutral-800 bg-neutral-50 sm:px-20 md:shadow-xl'>
+    <div className='relative flex h-96 flex-row items-center justify-center overflow-hidden rounded-lg dark:bg-neutral-800 bg-neutral-50 sm:px-10 '>
       <Marquee pauseOnHover vertical className='[--duration:20s]'>
         {firstRow.map((review) => (
           <ReviewCard key={review.username} {...review} />
@@ -73,8 +76,8 @@ const MarqueeDemoVertical = () => {
           <ReviewCard key={review.username} {...review} />
         ))}
       </Marquee>
-      <div className='pointer-events-none absolute inset-x-0 top-0 h-1/3 bg-linear-to-b from-white dark:from-background'></div>
-      <div className='pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-linear-to-t from-white dark:from-background'></div>
+      <div className='pointer-events-none absolute inset-x-0 top-0 h-1/3 bg-linear-to-b from-white dark:from-neutral-900'></div>
+      <div className='pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-linear-to-t from-white dark:from-neutral-900'></div>
     </div>
   );
 };

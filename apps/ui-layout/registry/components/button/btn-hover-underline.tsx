@@ -1,3 +1,5 @@
+'use client';
+
 const ButtonHoverUnderLine = () => {
   return (
     <button

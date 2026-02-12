@@ -995,6 +995,1316 @@
           "type": "registry:component"
         }
       ]
+    },
+        {
+      "name": "hero-digital-success",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/hero-section/hero-digital-success.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/motion-drawer.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./hooks/use-media-query.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "hero-ai-value-proposition",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/hero-section/hero-ai-value-proposition.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "hero-share-app",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/hero-section/hero-share-app.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/motion-drawer.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./hooks/use-media-query.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "hero-social-app",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/hero-section/hero-social-app.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/motion-drawer.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./hooks/use-media-query.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "hero-ai-ecommerce",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/hero-section/hero-ai-ecommerce.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/motion-drawer.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./hooks/use-media-query.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "hero-ai-infrastructure",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/hero-section/hero-ai-infrastructure.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/motion-drawer.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./hooks/use-media-query.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "hero-financial",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/hero-section/hero-financial.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/motion-drawer.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./hooks/use-media-query.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "feature-flow",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/feature-section/feature-flow.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/carousel.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "feature-hero",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/feature-section/feature-hero.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "feature-bento",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/feature-section/feature-bento.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "feature-nature",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/feature-section/feature-nature.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "feature-velocity",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/feature-section/feature-velocity.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "feature-highlights",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/feature-section/feature-highlights.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "feature-platform",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/feature-section/feature-platform.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "feature-service",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/feature-section/feature-service.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "about-ecommerse",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/about-section/about-ecommerse.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "about-creative",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/about-section/about-creative.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "about-me",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/about-section/about-me.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "about-sass",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/about-section/about-sass.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "about-agency",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/about-section/about-agency.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "about-architecture",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/about-section/about-architecture.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "about-mission",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/about-section/about-mission.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "about-bento",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/about-section/about-bento.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "about-business",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/about-section/about-business.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "about-whyus",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/about-section/about-whyus.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "about-vision",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/about-section/about-vision.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "about-experience",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/about-section/about-experience.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "team-clippath",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/faq-section/faq-founder.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "team-classic",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/team-section/team-classic.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "team-expert",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/team-section/team-expert.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "team-magic",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/team-section/team-magic.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "team-modern",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/team-section/team-modern.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "team-social",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/team-section/team-social.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "team-synth",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/team-section/team-synth.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "team-troops",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/team-section/team-synth.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "team-vr",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/team-section/team-vr.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "advanced-stats",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/stats-section/advanced-stats/index.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "stats-banner",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/stats-section/stats-banner.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "stats-bento",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/stats-section/stats-bento.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "stats-section",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/stats-section/stats-section.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "stats-details",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/stats-section/stats-details.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "stats-bold",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/stats-section/stats-bold.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "stats-minimal",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/stats-section/stats-minimal.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "stack-testimonial",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/testimonial-section/stack-testimonial.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "spotlight-testimonial",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/testimonial-section/spotlight-testimonial.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "messenger-testimonial",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/testimonial-section/messenger-testimonial.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "chat-interface-testimonial",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/testimonial-section/chat-interface.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "testimonial-basic",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/testimonial-section/testimonial-basic.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "testimonial-carousel",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/testimonial-section/testimonial-carousel.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "marque-testimonial",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/testimonial-section/marque-testimonial.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "impact-experience",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/experience-section/impact-experience.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "portfolio-experience",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/experience-section/portfolio-experience.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "creative-experience",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/experience-section/creative-experience.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "work-experience",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/experience-section/work-experience.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "customer-experience",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/experience-section/customer-experience.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "growth-plans",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/pricing-section/growth-plans.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "pricing-overview",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/pricing-section/pricing-overview.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "pricing-grow-business",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/pricing-section/grow-business.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "product-packs",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/pricing-section/product-packs.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "startup-plans",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/pricing-section/startup-plans.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "subscription-details",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/pricing-section/subscription-details.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "faq-founder",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/faq-section/faq-founder.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "faq-tabbed-explorer",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/faq-section/faq-tabbed-explorer.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "faq-glass-card",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/faq-section/faq-glass-card.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "faq-interactive-preview",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/faq-section/faq-interactive-preview.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "faq-journey",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/faq-section/faq-journey.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "faq-minimilastic",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/faq-section/faq-minimilastic.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "footer-hero",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/footer-section/hero-footer.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "footer-bento",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/footer-section/footer-bento.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "footer-bold",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/footer-section/footer-bold.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "footer-detailed",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/footer-section/footer-detailed.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "footer-minimal",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/footer-section/footer-minimal.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "footer-privilege",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/footer-section/footer-privilege.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "footer-simple",
+      "type": "registry:block",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "../../packages/blocks/src/footer-section/footer-simple.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "./components/ui/timeline-animation.tsx",
+          "type": "registry:component"
+        }
+      ]
     }
   ]
 }

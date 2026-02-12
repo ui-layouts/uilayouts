@@ -1,22 +1,22 @@
 // @ts-nocheck
-'use client'
+'use client';
 // // https://buildui.com/recipes/spotlight
 
-import { cn } from '@/lib/utils'
-import Image from 'next/image'
-import React, { MouseEvent, useRef, useState } from 'react'
+import { cn } from '@/lib/utils';
+import Image from 'next/image';
+import React, { MouseEvent, useRef, useState } from 'react';
 
 export default function index() {
-  const boxWrapper = useRef(null)
-  const [overlayColor, setOverlayColor] = useState({ x: 0, y: 0 })
+  const boxWrapper = useRef(null);
+  const [overlayColor, setOverlayColor] = useState({ x: 0, y: 0 });
   const handleMouemove = ({ currentTarget, clientX, clientY }): MouseEvent => {
-    let { left, top } = currentTarget.getBoundingClientRect()
+    let { left, top } = currentTarget.getBoundingClientRect();
 
-    const x = clientX - left
-    const y = clientY - top
+    const x = clientX - left;
+    const y = clientY - top;
 
-    setOverlayColor({ x, y })
-  }
+    setOverlayColor({ x, y });
+  };
 
   return (
     <>
@@ -26,7 +26,7 @@ export default function index() {
         className={`group relative rounded-lg border-2 bg-black   overflow-hidden w-fit mx-auto`}
       >
         <div
-          className="pointer-events-none absolute opacity-0 z-50 rounded-lg w-full h-full group-hover:opacity-100  transition duration-300 "
+          className='pointer-events-none absolute opacity-0 z-50 rounded-lg w-full h-full group-hover:opacity-100  transition duration-300 '
           style={{
             background: `
             radial-gradient(
@@ -44,15 +44,15 @@ export default function index() {
               src={
                 'https://res.cloudinary.com/dzl9yxixg/image/upload/chat_se21ao.png'
               }
-              alt="grid"
+              alt='grid'
               width={600}
-              className="mx-auto w-[85%]"
+              className='mx-auto w-[85%]'
               height={600}
             />
-            <h1 className="text-xl font-semibold tracking-tight text-white">
+            <h1 className='text-xl font-semibold tracking-tight text-white'>
               Create Group Effortlessly
             </h1>
-            <p className="pt-2  lg:text-base text-sm  text-gray-300 capitalize">
+            <p className='pt-2  lg:text-base text-sm  text-neutral-300 capitalize'>
               Seamless chats, crystal-clear videos, and <br />
               premium audio quality
             </p>
@@ -60,5 +60,5 @@ export default function index() {
         </div>
       </div>
     </>
-  )
+  );
 }

@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import ScrollBaseAnimation from '@/components/ui/scroll-text-marque';
 

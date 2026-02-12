@@ -1,3 +1,5 @@
+'use client';
+
 import { ChevronsRight } from 'lucide-react';
 
 const ButtonHoverOutLine = () => {

@@ -86,7 +86,7 @@ export const FaqGlassCard = () => {
         timelineRef={timelineRef}
         animationNum={0}
         as="h1"
-        className="text-2xl sm:text-4xl font-medium text-gray-900 dark:text-white mb-10 text-center"
+        className="text-2xl sm:text-4xl font-medium text-neutral-900 dark:text-white mb-10 text-center"
       >
         Frequently Asked Questions
       </TimelineAnimation>

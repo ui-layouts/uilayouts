@@ -1,10 +1,8 @@
 import type { MDXComponents } from 'mdx/types';
-import Image, { ImageProps } from 'next/image';
 import { cn } from './lib/utils';
 import CodeSnippets from '@/components/website/code-components/code-snippets';
 import ComponentCodePreview from '@/components/website/code-components/component-code-preview';
-import DrawerCodePreview from '@/components/website/code-components/drawer-code-preview';
-import TabCodePreview from '@/components/website/code-components/tab-codepreview';
+import BoxComponentPreview from '@/components/website/code-components/box-preview';
 import IframeComponentPrieview from '@/components/website/code-components/iframe-component-preview';
 import CodeWithTabs from '@/components/website/code-components/code-tabs';
 import {
@@ -13,7 +11,6 @@ import {
   TabsList,
   TabsTrigger,
 } from '@/components/website/ui/tabs';
-import IframeTabCodePreview from './components/website/code-components/iframe-tab-codepreview';
 import { Link } from './components/website/constant';
 import { InlineCodeRenderer } from './components/website/code-components/inlineCodeRenderer';
 import { InlinePreCodeRenderer } from './components/website/code-components/inlinePreCodeRenderer';
@@ -42,9 +39,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       <TabsContent className={cn('', className)} {...props} />
     ),
     CodeWithTabs: ({ ...props }) => <CodeWithTabs {...props} />,
-    IframeTabCodePreview: ({ ...props }) => <IframeTabCodePreview {...props} />,
-    TabCodePreview: ({ ...props }) => <TabCodePreview {...props} />,
-    DrawerCodePreview: ({ ...props }) => <DrawerCodePreview {...props} />,
+    BoxComponentPreview: ({ ...props }) => <BoxComponentPreview {...props} />,
     PreCode: ({ ...props }) => <PreCode {...props} />,
     ComponentCodePreview: ({ ...props }) => <ComponentCodePreview {...props} />,
     // CodeBlock: CodeBlock,

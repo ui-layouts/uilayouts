@@ -133,7 +133,7 @@ export const HeroShareApp = () => {
         <TimelineAnimation
           timelineRef={timelineRef}
           animationNum={3}
-          className="flex items-center gap-2 bg-red-100 px-4 py-2 rounded-full border border-gray-100 shadow-sm mb-8"
+          className="flex items-center gap-2 bg-red-100 px-4 py-2 rounded-full border border-neutral-100 shadow-sm mb-8"
         >
           <div className="flex -space-x-3">
             <img
@@ -149,12 +149,12 @@ export const HeroShareApp = () => {
               src="https://picsum.photos/seed/u3/100"
             />
           </div>
-          <span className="text-sm font-bold text-gray-600">
+          <span className="text-sm font-bold text-neutral-600">
             Trusted by 12,000+ People
           </span>
         </TimelineAnimation>
 
-        <h1 className="text-7xl md:text-9xl font-black tracking-tighter text-gray-800 max-w-5xl leading-[0.9] mb-10">
+        <h1 className="text-7xl md:text-9xl font-black tracking-tighter text-neutral-800 max-w-5xl leading-[0.9] mb-10">
           <TimelineAnimation
             as="span"
             timelineRef={timelineRef}
@@ -176,7 +176,7 @@ export const HeroShareApp = () => {
           as="p"
           timelineRef={timelineRef}
           animationNum={6}
-          className="text-xl md:text-2xl text-gray-800 font-bold max-w-2xl mb-12"
+          className="text-xl md:text-2xl text-neutral-800 font-bold max-w-2xl mb-12"
         >
           Emphasizes meaningful sharing and inspiration, inviting users to join
           a positive community.

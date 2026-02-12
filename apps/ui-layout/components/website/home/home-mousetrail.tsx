@@ -119,7 +119,7 @@ export default function HomeMouseTrail() {
       {items.map((item, index) => (
         <figure key={index}>
           <Image
-            className="object-contain border dark:bg-black bg-gray-50 z-10 w-32 h-32 scale-0 opacity:0 data-[status='active']:scale-100  data-[status='active']:opacity-100 transition-transform duration-500 data-[status='active']:ease-out-expo  absolute  -translate-y-[50%] -translate-x-[50%]"
+            className="object-contain border dark:bg-black bg-neutral-50 z-10 w-32 h-32 scale-0 opacity:0 data-[status='active']:scale-100  data-[status='active']:opacity-100 transition-transform duration-500 data-[status='active']:ease-out-expo  absolute  -translate-y-[50%] -translate-x-[50%]"
             data-index={index}
             data-status='inactive'
             src={item.url}

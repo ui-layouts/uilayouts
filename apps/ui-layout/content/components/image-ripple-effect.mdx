@@ -79,10 +79,7 @@ export const metadata = {
 
 <IframeComponentPrieview name='img-ripple-effect' hasReTrigger responsive hideDeviceOpt previewComp>
 
-<IframeTabCodePreview>
-
-```tsx 
-index.ts
+```index.tsx
 
 'use client';
 import dynamic from 'next/dynamic';
@@ -94,7 +91,7 @@ const Scene = dynamic(() => import('./scene'), {
     >
       <svg
         aria-hidden='true'
-        className='w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600'
+        className='w-8 h-8 text-neutral-200 animate-spin dark:text-neutral-600 fill-blue-600'
         viewBox='0 0 100 101'
         fill='none'
         xmlns='http://www.w3.org/2000/svg'
@@ -122,9 +119,7 @@ export default function Home() {
 }
 ```
 
-```tsx 
-scene.ts
-
+```scene.tsx 
 import { Canvas } from '@react-three/fiber';
 import { OrthographicCamera } from '@react-three/drei';
 import Model from './model';
@@ -141,7 +136,7 @@ export default function Scene() {
   const aspect = device.width / device.height;
 
   return (
-    <div className='h-screen w-full relative bg-gray-950 text-white'>
+    <div className='h-screen w-full relative bg-neutral-950 text-white'>
       <Canvas>
         <OrthographicCamera
           makeDefault
@@ -170,9 +165,7 @@ export default function Scene() {
 }
 ```
 
-```tsx 
-model.ts
-
+```model.tsx 
 // @ts-nocheck
 import React, { useRef, useEffect, useState } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
@@ -364,9 +357,7 @@ export default function Model() {
 }
 ```
 
-```tsx 
-shaders.ts
-
+```shaders.tsx 
 export const fragment = `
 uniform sampler2D uTexture;
 uniform sampler2D uDisplacement;
@@ -398,8 +389,7 @@ void main() {
 `;
 ```
 
-```tsx 
-useDimension.ts
+```useDimension.tsx 
 
 import * as React from 'react';
 
@@ -433,9 +423,7 @@ export default function useDimension() {
 }
 ```
 
-```tsx 
-useMouse.ts
-
+```useMouse.tsx 
 import * as React from 'react';
 export default function useMouse() {
   const [mouse, setMouse] = React.useState({ x: 0, y: 0, pixelRatio: 0 });
@@ -461,7 +449,6 @@ export default function useMouse() {
 }
 ```
 
-</IframeTabCodePreview>
 </IframeComponentPrieview>
 
 ## Installation

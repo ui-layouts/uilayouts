@@ -40,7 +40,7 @@ export default function index() {
           <DrawerContent>
             {!isDesktop && (
               <div className='flex justify-center w-full absolute bottom-1 left-0 '>
-                <div className=' w-16 h-[0.30rem] shrink-0 rounded-full bg-gray-600 my-4' />
+                <div className=' w-16 h-[0.30rem] shrink-0 rounded-full bg-neutral-600 my-4' />
               </div>
             )}
             <div className='container mx-auto  gap-4'>

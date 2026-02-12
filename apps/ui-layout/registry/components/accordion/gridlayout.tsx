@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import {
   Accordion,
@@ -8,7 +10,7 @@ import {
   AccordionWrapper,
 } from '@/components/ui/accordion';
 
-function index() {
+function SingleLayout() {
   return (
     <AccordionContainer className='md:grid-cols-2 grid-cols-1'>
       <AccordionWrapper>
@@ -83,4 +85,4 @@ function index() {
   );
 }
 
-export default index;
+export default SingleLayout;

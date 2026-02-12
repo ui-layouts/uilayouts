@@ -20,10 +20,12 @@
   "dependencies": {
     "@react-spring/three": "^10.0.3",
     "@react-three/fiber": "^9.5.0",
+    "@repo/shadcn": "workspace:*",
     "@repo/ui": "workspace:*",
     "@shadergradient/react": "^2.4.20",
     "lucide-react": "^0.400.0",
     "motion": "^12.5.0",
+    "recharts": "2.15.4",
     "three": "^0.182.0"
   },
   "devDependencies": {

@@ -17,9 +17,9 @@ function index() {
           </article>
         </div>
         <div className='relative h-64 w-screen overflow-hidden '>
-          <div className='absolute inset-x-20 top-0 bg-linear-to-r from-transparent via-gray-500 to-transparent h-[2px] w-2/4 mx-auto blur-xs' />
-          <div className='absolute inset-x-20 top-0 bg-linear-to-r from-transparent via-gray-400 to-transparent h-px w-2/4 mx-auto' />
-          <div className='absolute inset-x-20 top-0 bg-linear-to-r from-transparent via-gray-50 to-transparent h-px w-1/4 mx-auto' />
+          <div className='absolute inset-x-20 top-0 bg-linear-to-r from-transparent via-neutral-500 to-transparent h-[2px] w-2/4 mx-auto blur-xs' />
+          <div className='absolute inset-x-20 top-0 bg-linear-to-r from-transparent via-neutral-400 to-transparent h-px w-2/4 mx-auto' />
+          <div className='absolute inset-x-20 top-0 bg-linear-to-r from-transparent via-neutral-50 to-transparent h-px w-1/4 mx-auto' />
 
           <Sparkles
             density={1200}

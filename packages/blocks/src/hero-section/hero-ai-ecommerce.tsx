@@ -151,7 +151,7 @@ export const HeroAiEcommerce = () => {
           as="p"
           animationNum={5}
           timelineRef={timelineRef}
-          className="text-gray-500 text-lg md:text-xl max-w-2xl mx-auto mb-5 font-normal leading-relaxed"
+          className="text-neutral-500 text-lg md:text-xl max-w-2xl mx-auto mb-5 font-normal leading-relaxed"
         >
           Join AI-powered course communities that help you study faster,
           collaborate with peers, and excel in your classes.
@@ -171,7 +171,7 @@ export const HeroAiEcommerce = () => {
             as="p"
             animationNum={6}
             timelineRef={timelineRef}
-            className="text-gray-600 text-sm flex items-center gap-2 font-medium"
+            className="text-neutral-600 text-sm flex items-center gap-2 font-medium"
           >
             <CreditCard size={16} /> No Credit Card Required
           </TimelineAnimation>

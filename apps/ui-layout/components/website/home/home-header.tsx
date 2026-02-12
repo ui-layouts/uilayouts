@@ -8,6 +8,7 @@ import ThemeSwitch from '../theme-switch';
 import { PlasticButton } from '../ui/plastic-button';
 import { cn } from '@/lib/utils';
 import { usePathname } from 'next/navigation';
+import { Blocks } from 'lucide-react';
 
 function HomeHeader({
   className,
@@ -35,7 +36,7 @@ function HomeHeader({
 
         <Link
           href='/'
-          className='relative xl:flex hidden items-center gap-2 dark:bg-black/10 bg-gray-100/10 p-2 rounded-md'
+          className='relative xl:flex hidden items-center gap-2 dark:bg-black/10 bg-neutral-100/10 p-2 rounded-md'
         >
           <svg
             width='288'
@@ -59,10 +60,29 @@ function HomeHeader({
         </Link>
 
         <div className='flex items-center gap-2'>
+          {/* <a
+            href='/blocks'
+            className={cn(
+              'flex gap-1 group transition-all font-semibold items-center p-2 hover:bg-white bg-white/70 hover:backdrop-blur-lg dark:bg-black/25 dark:hover:bg-black pr-4 relative rounded-lg dark:text-white text-black',
+              pathName === '/blocks' &&
+                'dark:bg-white dark:hover:bg-white hover:bg-black bg-black text-white dark:text-black hover:text-white'
+            )}
+          >
+            <span className='absolute italic -top-1 -right-4 text-xs text-blue-500'>
+              (New)
+            </span>
+            <Blocks
+              className={cn(
+                'w-6 h-6 stroke-black dark:stroke-white dark:group-hover:stroke-black group-hover:stroke-white',
+                pathName === '/blocks' && 'stroke-white dark:stroke-black'
+              )}
+            />
+            Blocks
+          </a> */}
           <a
             href='/mcp'
             className={cn(
-              'flex gap-1 group transition-all font-semibold items-center p-2 hover:bg-white bg-white hover:backdrop-blur-lg dark:bg-black/25 dark:hover:bg-black pr-4 relative rounded-lg dark:text-white text-black',
+              'flex gap-1 group transition-all font-semibold items-center p-2 hover:bg-white bg-white/60 hover:backdrop-blur-lg dark:bg-black/25 dark:hover:bg-black pr-4 relative rounded-lg dark:text-white text-black',
               pathName === '/mcp' && 'dark:bg-black'
             )}
           >

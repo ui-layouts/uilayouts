@@ -1,7 +1,7 @@
 'use client'
 
 import { TimelineAnimation } from '@/components/ui/timeline-animation'
-import { Button } from '@repo/ui'
+import { Button } from '@repo/shadcn'
 import { LinkedinIcon, TwitterIcon } from 'lucide-react'
 import React, { useRef } from 'react'
 const TEAM_MEMBERS_3 = [
@@ -54,7 +54,7 @@ export const TeamSocial = () => {
             timelineRef={timelineRef}
             animationNum={2}
             as="h2"
-            className="text-5xl font-serif font-bold text-gray-900 mb-6"
+            className="text-5xl font-serif font-bold text-neutral-900 mb-6"
           >
             Meet our team
           </TimelineAnimation>
@@ -62,7 +62,7 @@ export const TeamSocial = () => {
             timelineRef={timelineRef}
             animationNum={3}
             as="p"
-            className="text-lg text-gray-500 leading-relaxed max-w-2xl mx-auto mb-10"
+            className="text-lg text-neutral-500 leading-relaxed max-w-2xl mx-auto mb-10"
           >
             Unleashing creativity, our team of design visionaries turns ordinary
             spaces into extraordinary experiences.
@@ -75,7 +75,7 @@ export const TeamSocial = () => {
             <Button className="px-6 py-3 font-spaceGrotesk bg-orange-500 shadow-lg shadow-orange-500 text-white font-bold rounded-xl hover:bg-ornage-600 transition-all ">
               Get started
             </Button>
-            <Button className="px-4 py-3 font-spaceGrotesk border border-gray-200 font-bold rounded-xl text-white transition-all">
+            <Button className="px-4 py-3 font-spaceGrotesk border border-neutral-200 font-bold rounded-xl text-white transition-all">
               Explore features
             </Button>
           </TimelineAnimation>
@@ -96,15 +96,21 @@ export const TeamSocial = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-1">
+              <h3 className="text-xl font-bold text-neutral-900 mb-1">
                 {member.name}
               </h3>
-              <p className="text-gray-500 mb-4">{member.role}</p>
-              <div className="flex gap-4 text-gray-400">
-                <a href="#" className="hover:text-gray-600 transition-colors">
+              <p className="text-neutral-500 mb-4">{member.role}</p>
+              <div className="flex gap-4 text-neutral-400">
+                <a
+                  href="#"
+                  className="hover:text-neutral-600 transition-colors"
+                >
                   <TwitterIcon />
                 </a>
-                <a href="#" className="hover:text-gray-600 transition-colors">
+                <a
+                  href="#"
+                  className="hover:text-neutral-600 transition-colors"
+                >
                   <LinkedinIcon />
                 </a>
               </div>

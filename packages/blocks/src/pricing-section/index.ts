@@ -1,4 +1,6 @@
-export * from './Pricing-sections1'
-
-// export * from "./about-section2"
-// export * from "./about-section3"
+export * from './growth-plans'
+export * from './pricing-overview'
+export * from './product-packs'
+export * from './startup-plans'
+export * from './grow-business'
+export * from './subscription-details'

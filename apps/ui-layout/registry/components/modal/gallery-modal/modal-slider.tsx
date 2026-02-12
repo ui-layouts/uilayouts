@@ -23,11 +23,9 @@ const modal: React.FC = () => {
   return (
     <>
       <div className='columns-3 '>
-        {items
-          .slice(0, 8)
-          ?.map((item, index) => (
-            <SliderModal item={item} itemArr={items} uniqueId={`id-${index}`} />
-          ))}
+        {items.slice(0, 8)?.map((item, index) => (
+          <SliderModal item={item} itemArr={items} uniqueId={`id-${index}`} />
+        ))}
       </div>
     </>
   );
@@ -93,14 +91,14 @@ export const SliderModal = ({ item, uniqueId, itemArr }: ImageModalProps) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className='fixed inset-0 z-50 top-0 left-0  right-0 bottom-0  flex flex-col items-center w-full h-screen justify-center dark:bg-black/80 bg-gray-300/80 backdrop-blur-lg cursor-zoom-out'
+            className='fixed inset-0 z-50 top-0 left-0  right-0 bottom-0  flex flex-col items-center w-full h-screen justify-center dark:bg-black/80 bg-neutral-300/80 backdrop-blur-lg cursor-zoom-out'
             onClick={() => {
               setNewItem(null);
               setIsOpen(false);
             }}
           >
             <button
-              className='absolute top-2 right-2 p-4 border dark:bg-black/80 text-white  bg-gray-400/40 backdrop-blur-lg '
+              className='absolute top-2 right-2 p-4 border dark:bg-black/80 text-white  bg-neutral-400/40 backdrop-blur-lg '
               onClick={() => setIsOpen(false)}
             >
               <X />
@@ -120,7 +118,7 @@ export const SliderModal = ({ item, uniqueId, itemArr }: ImageModalProps) => {
                             {tab.id === newItem.id && (
                               <motion.figure
                                 key={tab?.id}
-                                className='dark:bg-gray-900/40 bg-gray-100/40 border  rounded-md p-4'
+                                className='dark:bg-neutral-900/40 bg-neutral-100/40 border  rounded-md p-4'
                               >
                                 <motion.div
                                   initial={{ opacity: 0 }}
@@ -159,7 +157,7 @@ export const SliderModal = ({ item, uniqueId, itemArr }: ImageModalProps) => {
                 </AnimatePresence>
               )}
               <motion.div
-                className='h-[300px] overflow-hidden dark:bg-gray-900/40 bg-white/40 border rounded-md'
+                className='h-[300px] overflow-hidden dark:bg-neutral-900/40 bg-white/40 border rounded-md'
                 ref={carousel}
               >
                 <motion.div
@@ -198,7 +196,7 @@ export const SliderModal = ({ item, uniqueId, itemArr }: ImageModalProps) => {
                                   ease: 'easeOut',
                                 },
                               }}
-                              className='absolute top-0 left-0 h-full w-full dark:bg-gray-100 bg-gray-800 rounded-md'
+                              className='absolute top-0 left-0 h-full w-full dark:bg-neutral-100 bg-neutral-800 rounded-md'
                             ></motion.div>
                           )}
                         </motion.div>

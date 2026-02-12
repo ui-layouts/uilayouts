@@ -5,63 +5,63 @@ import { motion, useMotionValue, animate } from 'motion/react';
 export const items = [
   {
     id: 1,
-    url: 'https://images.unsplash.com/photo-1471899236350-e3016bf1e69e?q=80&w=880&auto=format&fit=crop',
-    title: 'Misty Mountain Majesty',
+    url: 'https://images.unsplash.com/photo-1761882835101-02ab45ac0726?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=690',
+    title: 'MAXX PHAM',
   },
   {
     id: 2,
-    url: 'https://images.unsplash.com/photo-1539552678512-4005a33c64db?q=80&w=880&auto=format&fit=crop',
-    title: 'Winter Wonderland',
+    url: 'https://images.unsplash.com/photo-1661980494567-40a5e01b699b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=685',
+    title: 'BOXIEN BAY',
   },
   {
     id: 3,
-    url: 'https://images.unsplash.com/photo-1709983966747-58c311fa6976?q=80&w=880&auto=format&fit=crop',
-    title: 'Autumn Mountain Retreat',
+    url: 'https://images.unsplash.com/photo-1761882725885-d3d8bd2032d1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687',
+    title: 'AUSIZE MAM',
   },
   {
     id: 4,
-    url: 'https://images.unsplash.com/photo-1683722319473-f851deb3fdf2?q=80&w=880&auto=format&fit=crop',
-    title: 'Tranquil Lake Reflection',
+    url: 'https://images.unsplash.com/photo-1761775915848-467e41c1c4db?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=689',
+    title: 'RECLKTIKA',
   },
   {
     id: 5,
-    url: 'https://images.unsplash.com/photo-1560790671-b76ca4de55ef?q=80&w=734&auto=format&fit=crop',
-    title: 'Misty Mountain Peaks',
+    url: 'https://images.unsplash.com/photo-1761078980679-e89e25fe279b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687',
+    title: 'SONYPOO',
   },
   {
     id: 6,
-    url: 'https://images.unsplash.com/photo-1698774303292-7af9410c3a57?q=80&w=436&auto=format&fit=cropv',
-    title: 'Golden Hour Glow',
+    url: 'https://images.unsplash.com/photo-1760389005000-bf02bf24f463?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1123',
+    title: 'DONM FLY',
   },
   {
     id: 7,
-    url: 'https://images.unsplash.com/photo-1643994542584-1247b5266429?q=80&w=869&auto=format&fit=crop',
+    url: 'https://images.unsplash.com/photo-1761165307495-56bd564d322f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=663',
     title: 'Snowy Mountain Highway',
   },
   {
     id: 8,
-    url: 'https://images.unsplash.com/photo-1613681230409-6423a38c43e1?q=80&w=871&auto=format&fit=crop',
-    title: 'Foggy Mountain Forest',
+    url: 'https://images.unsplash.com/photo-1756299792672-157811bf1005?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1074',
+    title: 'FOGGY FOLS',
   },
   {
     id: 9,
-    url: 'https://images.unsplash.com/photo-1486102515046-44130769cb25?q=80&w=435&auto=format&fit=crop',
-    title: 'Sunset Mountain Silhouette',
+    url: 'https://images.unsplash.com/photo-1572851899646-a1f69c664e1e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170',
+    title: 'DIM DARKO',
   },
   {
     id: 10,
-    url: 'https://images.unsplash.com/photo-1610397648930-477b8c7f0943?q=80&w=430&auto=format&fit=crop',
-    title: 'Alpine Meadow Bliss',
+    url: 'https://images.unsplash.com/photo-1759247178379-0e8eba83a4a6?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687',
+    title: 'BEALIVE',
   },
   {
     id: 11,
-    url: 'https://images.unsplash.com/photo-1546471180-335a013cb87b?q=80&w=387&auto=format&fit=crop',
-    title: 'Mountain Lake Serenity',
+    url: 'https://images.unsplash.com/photo-1754968230523-052635c98f99?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=736',
+    title: 'DOMEDOM ROME',
   },
   {
     id: 12,
-    url: 'https://images.unsplash.com/photo-1540163502599-a3284e17072d?q=80&w=880&auto=format&fit=crop',
-    title: 'Icy Mountain Stream',
+    url: 'https://images.unsplash.com/photo-1643037508102-46fb319979c5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=764',
+    title: 'IKEIMON POVE',
   },
   {
     id: 13,
@@ -156,7 +156,7 @@ export default function FramerMultiSlideCarousel({
 
   return (
     <div className='w-full lg:p-10 sm:p-4 p-2'>
-      <h2 className='text-2xl mb-4'>
+      <h2 className='text-2xl mb-4 sr-only'>
         Responsive Multi-Slide Carousel (Showing {slidesToShow})
       </h2>
       <div className='flex flex-col gap-3'>
@@ -192,7 +192,7 @@ export default function FramerMultiSlideCarousel({
             className={`absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-transform z-10
               ${
                 index === 0
-                  ? 'opacity-40 cursor-not-allowed bg-gray-300'
+                  ? 'opacity-40 cursor-not-allowed bg-neutral-300'
                   : 'bg-white hover:scale-110 hover:opacity-100 opacity-70'
               }`}
           >
@@ -217,7 +217,7 @@ export default function FramerMultiSlideCarousel({
             className={`absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-transform z-10
               ${
                 index === maxIndex
-                  ? 'opacity-40 cursor-not-allowed bg-gray-300'
+                  ? 'opacity-40 cursor-not-allowed bg-neutral-300'
                   : 'bg-white hover:scale-110 hover:opacity-100 opacity-70'
               }`}
           >

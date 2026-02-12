@@ -5,12 +5,12 @@ import { ThemeProvider } from '@/components/website/theme-provider';
 import { siteConfig } from '@/lib/utils';
 import { Toaster } from 'sonner';
 import Progressbar from '@/lib/progressbar';
-import { Poppins, Space_Grotesk } from 'next/font/google';
+import { DM_Sans, Manrope, Poppins, Space_Grotesk } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
 
 export const poppins = Poppins({
   subsets: ['latin'],
-  weight: ['200', '300', '400', '500', '600', '700', '800'],
+  weight: ['200', '300', '400', '500', '600', '700', '800', '900'],
   variable: '--font-poppins',
 });
 
@@ -18,6 +18,16 @@ export const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700'],
   variable: '--font-spaceGrotesk',
+});
+export const dmSans = DM_Sans({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700', '800', '900', '1000'],
+  variable: '--font-dmSans',
+});
+export const manrope = Manrope({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700', '800'],
+  variable: '--font-manrope',
 });
 
 export const metadata: Metadata = {
@@ -84,7 +94,7 @@ export const metadata: Metadata = {
   authors: [
     {
       name: 'naymur rahman',
-      url: 'https://naymur-rahman.com/',
+      url: 'https://naymur.com/',
     },
   ],
   creator: 'naymur',
@@ -145,6 +155,8 @@ export default async function RootLayout({
           className={`
     ${poppins.variable}
     ${spaceGrotesk.variable}
+    ${dmSans.variable}
+    ${manrope.variable}
     font-poppins
   `}
         >

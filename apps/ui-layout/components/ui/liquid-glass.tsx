@@ -2,13 +2,7 @@
 'use client';
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-
-import { ClassValue, clsx } from 'clsx';
-import { twMerge } from 'tailwind-merge';
-
-function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
+import { cn } from '@/lib/utils';
 
 interface LiquidGlassCardProps {
   children: React.ReactNode;

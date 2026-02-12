@@ -26,7 +26,7 @@ function index() {
           <a
             href='https://www.linkedin.com/in/naymur-rahman/'
             target='_blank'
-            className='bg-gray-50 sm:w-auto w-full   grid place-content-center 2xl:h-40 h-32 2xl:p-10 p-5 rounded-lg'
+            className='bg-neutral-50 sm:w-auto w-full   grid place-content-center 2xl:h-40 h-32 2xl:p-10 p-5 rounded-lg'
           >
             <svg
               xmlns='http://www.w3.org/2000/svg'
@@ -45,7 +45,7 @@ function index() {
           <a
             href='https://x.com/naymur_dev'
             target='_blank'
-            className='bg-gray-50 sm:w-auto w-full  grid place-content-center  2xl:h-40 h-32 2xl:p-10 p-5 rounded-lg'
+            className='bg-neutral-50 sm:w-auto w-full  grid place-content-center  2xl:h-40 h-32 2xl:p-10 p-5 rounded-lg'
           >
             <svg
               xmlns='http://www.w3.org/2000/svg'

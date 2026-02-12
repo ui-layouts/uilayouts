@@ -22,7 +22,7 @@ function index() {
 
   return (
     <div className='w-[350px] mx-auto '>
-      <div className='dark:bg-white bg-gray-100 rounded-md p-2'>
+      <div className='dark:bg-white bg-neutral-100 rounded-md p-2'>
         <div className='w-full h-72  relative'>
           <motion.button
             className='absolute top-2 right-2 z-20 text-2xl text-white'

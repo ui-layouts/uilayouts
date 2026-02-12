@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 import React, { forwardRef, useRef } from 'react';
 import { AnimatedBeam, Circle } from '@/components/ui/animated-beam';
 import { Icons } from '@/components/ui/animated-beam';
-export default function index() {
+export default function AnimatedBeamMultipleInput() {
   const containerRef = useRef<HTMLDivElement>(null);
   const div1Ref = useRef<HTMLDivElement>(null);
   const div2Ref = useRef<HTMLDivElement>(null);

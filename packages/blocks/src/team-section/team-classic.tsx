@@ -40,7 +40,7 @@ export const TeamClassic = () => {
           timelineRef={timelineRef}
           animationNum={1}
           as="h2"
-          className="text-5xl font-cursive text-gray-800 mb-6"
+          className="text-5xl font-cursive text-neutral-800 mb-6"
         >
           Our Team Of Professionals
         </TimelineAnimation>
@@ -48,7 +48,7 @@ export const TeamClassic = () => {
           timelineRef={timelineRef}
           animationNum={2}
           as="p"
-          className="text-gray-500 max-w-xl mx-auto mb-20 text-sm tracking-wide"
+          className="text-neutral-500 max-w-xl mx-auto mb-20 text-sm tracking-wide"
         >
           Awesome site on the top advertising a business online includes
           assembling <br /> Having the most well-planned
@@ -116,13 +116,13 @@ export const TeamClassic = () => {
                   {member.emoji}
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-gray-800 tracking-wider mb-1 font-spaceGrotesk">
+              <h3 className="text-xl font-bold text-neutral-800 tracking-wider mb-1 font-spaceGrotesk">
                 {member.name}
               </h3>
               <p className="text-green-500 font-medium text-xs tracking-widest uppercase mb-4">
                 {member.role}
               </p>
-              <div className="flex gap-6 text-gray-500">
+              <div className="flex gap-6 text-neutral-500">
                 <a href="#" className="hover:text-black transition-colors">
                   <Icons.Facebook />
                 </a>

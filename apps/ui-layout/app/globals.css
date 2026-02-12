@@ -23,6 +23,8 @@
 
   --font-mono: var(--font-geist-mono);
   --font-spaceGrotesk: var(--font-spaceGrotesk);
+  --font-dmSans: var(--font-dmSans);
+  --font-manrope: var(--font-manrope);
   --font-poppins: var(--font-poppins);
 
   --grid-template-columns-14: repeat(14, minmax(0, 1fr));

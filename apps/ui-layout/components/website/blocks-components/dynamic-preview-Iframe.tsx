@@ -147,12 +147,12 @@ export default function DynamicPreviewIframe({
       </div>
 
       {/* TOOLBAR */}
-      <div className='absolute top-0 left-[12.5rem] flex gap-2'>
+      <div className='absolute top-0 2xl:right-[11.3rem] lg:right-[10.1rem] sm:right-[8.8rem] right-[7.6rem] pl-2 flex gap-2'>
         <Tooltip>
           <TooltipTrigger asChild>
             <button
               onClick={handleRefresh}
-              className='grid h-10 w-10 cursor-pointer place-items-center border bg-neutral-100 text-primary dark:bg-neutral-800'
+              className='grid h-10 w-10 cursor-pointer place-items-center border bg-neutral-100 text-primary dark:bg-neutral-700'
             >
               <RefreshCcw className='h-5 w-5' />
             </button>

@@ -36,7 +36,7 @@ const tabs = [
       'https://images.unsplash.com/photo-1693581176773-a5f2362209e6?q=80&w=1200&auto=format',
   },
 ];
-function index() {
+function ImageTabs2() {
   return (
     <>
       <div className=' w-full  h-full'>
@@ -79,4 +79,4 @@ function index() {
   );
 }
 
-export default index;
+export default ImageTabs2;

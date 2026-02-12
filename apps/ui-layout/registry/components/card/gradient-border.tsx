@@ -6,7 +6,7 @@ function index() {
   return (
     <>
       <div className='w-full max-w-[422px] mx-auto [background:linear-gradient(45deg,#080b11,--theme(--color-slate-800)_50%,#172033)_padding-box,conic-gradient(from_var(--border-angle),--theme(--color-slate-600/.48)_80%,--theme(--color-indigo-500)_86%,--theme(--color-indigo-300)_90%,--theme(--color-indigo-500)_94%,--theme(--color-slate-600/.48))_border-box] rounded-2xl border border-transparent animate-border '>
-        <div className="relative text-center z-10 px-0 py-16 rounded-2xl  w-fit h-full mx-auto">
+        <div className='relative text-center z-10 px-0 py-16 rounded-2xl  w-fit h-full mx-auto'>
           <>
             <Image
               src={'/chat_zinhdw.webp'}
@@ -18,7 +18,7 @@ function index() {
             <h1 className='text-xl font-semibold tracking-tight text-white'>
               Create Group Effortlessly
             </h1>
-            <p className='text-base pt-2  text-gray-300 capitalize'>
+            <p className='text-base pt-2  text-neutral-300 capitalize'>
               Seamless chats, crystal-clear videos, and <br />
               premium audio quality
             </p>

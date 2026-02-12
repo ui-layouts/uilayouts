@@ -275,11 +275,7 @@ export const apps = [
     icon: Icons.doc_rectangle,
     name: 'MouseTrail',
     onClick: () =>
-      window.open(
-        'https://naymur-rahman.com/',
-        '_blank',
-        'noopener,noreferrer'
-      ),
+      window.open('https://naymur.com/', '_blank', 'noopener,noreferrer'),
     imgSrc: preview.image_mousetrail,
   },
   {

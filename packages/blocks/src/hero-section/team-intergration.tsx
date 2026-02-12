@@ -62,7 +62,7 @@ export const TeamIntegration = () => {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
-    <section className="relative bg-gray-900 text-white min-h-screen flex flex-col overflow-hidden">
+    <section className="relative bg-neutral-900 text-white min-h-screen flex flex-col overflow-hidden">
       <div className="absolute inset-0">
         <motion.div
           className="absolute inset-0"
@@ -152,7 +152,7 @@ export const TeamIntegration = () => {
       <div className="flex-1 flex flex-col items-center justify-center px-8 py-20 relative z-10">
         {/*  Badge */}
         <motion.div
-          className="group relative inline-flex items-center gap-3 bg-linear-to-r from-gray-800/80 to-gray-900/80 backdrop-blur-xs border border-gray-700/50 rounded-full px-6 py-3 mb-8 overflow-hidden"
+          className="group relative inline-flex items-center gap-3 bg-linear-to-r from-neutral-800/80 to-neutral-900/80 backdrop-blur-xs border border-neutral-700/50 rounded-full px-6 py-3 mb-8 overflow-hidden"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6 }}
@@ -169,14 +169,14 @@ export const TeamIntegration = () => {
             }}
             transition={{ duration: 2, repeat: Infinity }}
           />
-          <span className="text-gray-300 text-sm font-medium relative z-10">
+          <span className="text-neutral-300 text-sm font-medium relative z-10">
             All in One Team Integration
           </span>
           <motion.div
             animate={{ x: [0, 4, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
           >
-            <ArrowRight className="w-4 h-4 text-gray-400" />
+            <ArrowRight className="w-4 h-4 text-neutral-400" />
           </motion.div>
         </motion.div>
 
@@ -217,7 +217,7 @@ export const TeamIntegration = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <p className="text-xl lg:text-2xl text-gray-300 mb-4 leading-relaxed">
+          <p className="text-xl lg:text-2xl text-neutral-300 mb-4 leading-relaxed">
             Seamlessly
             <motion.span
               className="inline-flex items-center gap-2 mx-2"
@@ -249,7 +249,7 @@ export const TeamIntegration = () => {
               </span>
             </motion.span>
           </p>
-          <p className="text-xl lg:text-2xl text-gray-300 leading-relaxed">
+          <p className="text-xl lg:text-2xl text-neutral-300 leading-relaxed">
             across all apps and devices—all in one platform
           </p>
         </motion.div>
@@ -379,11 +379,11 @@ export const TeamIntegration = () => {
           </motion.button>
 
           <motion.button
-            className="group relative bg-gray-800/50 backdrop-blur-xs hover:bg-gray-700/50 text-white px-8 py-4 rounded-xl font-semibold border border-gray-600/50 hover:border-gray-500/50 transition-all duration-300 overflow-hidden"
+            className="group relative bg-neutral-800/50 backdrop-blur-xs hover:bg-neutral-700/50 text-white px-8 py-4 rounded-xl font-semibold border border-neutral-600/50 hover:border-neutral-500/50 transition-all duration-300 overflow-hidden"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <div className="absolute inset-0 bg-linear-to-r from-gray-700/20 to-gray-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="absolute inset-0 bg-linear-to-r from-neutral-700/20 to-neutral-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <span className="relative z-10 flex items-center gap-2">
               <Play className="w-5 h-5" />
               Watch Demo

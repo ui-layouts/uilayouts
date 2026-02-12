@@ -65,3 +65,48 @@ export function transformCodeFiles(filePath: any[]) {
     };
   });
 }
+
+export function normalizeCodeChildren(children: any) {
+  // Step 1: normalize to array
+  const nodes = Array.isArray(children) ? children : [children];
+
+  // Step 2: extract code block props safely
+  return nodes.map((child) => child?.props?.children?.props).filter(Boolean);
+}
+
+export function filesArrayToFiles(filesArray: any[]) {
+  return filesArray.map((file) => ({
+    name: file.name,
+    lang: file.name.split('.').pop(),
+    value: file.filesrc?.default ?? file.filesrc,
+    meta: '',
+    fromChildren: false,
+  }));
+}
+export function childrenToFiles(childrenBlocks: any[]) {
+  return childrenBlocks.map((block, index) => ({
+    name: block.className?.replace('language-', '') || `file-${index + 1}`,
+    lang: block.className?.split('.')?.[1] || 'txt',
+    value: block.children,
+    meta: '',
+    fromChildren: true,
+  }));
+}
+export function buildFinalFiles({
+  filesArray,
+  childrenBlocks,
+}: {
+  filesArray?: any[];
+  childrenBlocks?: any[];
+}) {
+  const filesFromArray = filesArray?.length
+    ? filesArrayToFiles(filesArray)
+    : [];
+
+  const filesFromChildren = childrenBlocks?.length
+    ? childrenToFiles(childrenBlocks)
+    : [];
+
+  // children ALWAYS last
+  return [...filesFromArray, ...filesFromChildren];
+}

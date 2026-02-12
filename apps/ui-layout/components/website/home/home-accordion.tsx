@@ -66,7 +66,7 @@ function HomeAccordion() {
                 <Plus
                   className={`${
                     activeIndex === index ? 'rotate-45' : 'rotate-0 '
-                  } transition-transform ease-in-out w-5 h-5 dark:text-gray-200 text-gray-600`}
+                  } transition-transform ease-in-out w-5 h-5 dark:text-neutral-200 text-neutral-600`}
                 />
                 {tab.title}
               </button>

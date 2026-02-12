@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import {
   Accordion,
@@ -8,13 +9,14 @@ import {
 } from '@/components/ui/accordion';
 import { Plus } from 'lucide-react';
 
-function index() {
+function SingleLayout() {
   return (
     <>
       <Accordion defaultValue={['item-1', 'item-2']}>
         <AccordionItem value='item-1' className='w-full'>
-          <AccordionHeader customIcon >
-            What is a UI component?  <Plus className='group-data-active:rotate-45 transition-transform'/>
+          <AccordionHeader customIcon>
+            What is a UI component?{' '}
+            <Plus className='group-data-active:rotate-45 transition-transform' />
           </AccordionHeader>
           <AccordionPanel>
             A UI (User Interface) component is a modular, reusable element that
@@ -23,9 +25,10 @@ function index() {
             checkboxes.
           </AccordionPanel>
         </AccordionItem>
-        <AccordionItem value='item-2'  className='w-full'>
+        <AccordionItem value='item-2' className='w-full'>
           <AccordionHeader customIcon>
-            Why are UI components important? <Plus className='group-data-active:rotate-45 transition-transform'/>
+            Why are UI components important?{' '}
+            <Plus className='group-data-active:rotate-45 transition-transform' />
           </AccordionHeader>
           <AccordionPanel>
             UI components promote consistency, efficiency, and scalability in
@@ -36,7 +39,8 @@ function index() {
         </AccordionItem>
         <AccordionItem value='item-3' className='w-full'>
           <AccordionHeader customIcon>
-            Key characteristics of UI components?  <Plus className='group-data-active:rotate-45 transition-transform'/>
+            Key characteristics of UI components?{' '}
+            <Plus className='group-data-active:rotate-45 transition-transform' />
           </AccordionHeader>
           <AccordionPanel>
             Well-designed UI components should be modular, customizable, and
@@ -50,4 +54,4 @@ function index() {
   );
 }
 
-export default index;
+export default SingleLayout;

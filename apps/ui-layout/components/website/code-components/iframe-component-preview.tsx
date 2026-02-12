@@ -10,6 +10,25 @@ import ComponentPreview from './component-preview';
 import { AllComponents } from '@/configs/docs';
 import { Code, Eye } from 'lucide-react';
 import { ReactNode } from 'react';
+import { normalizeCodeChildren } from '@/lib/code';
+import { PreCode } from './pre-code';
+
+function blocksToFiles(blocks: any[]) {
+  return blocks.map((block, index) => {
+    const blocksname = block.className?.replace('language-', '') ?? 'txt';
+    const lang =
+      block.className?.split('.')?.[1] ||
+      block.className?.replace('language-', '') ||
+      'tsx';
+
+    return {
+      name: blocksname.toLowerCase(),
+      lang,
+      value: block.children,
+      meta: '',
+    };
+  });
+}
 
 // --------------------------------------------
 // REPLACE CODEHIKE PROPS PARSER WITH ZOD
@@ -48,6 +67,9 @@ export default async function IframeComponentPrieview(
     hideDeviceOpt,
     previewComp,
   } = parsePropsNoCodehike(props);
+  const codeBlocks = normalizeCodeChildren(children);
+
+  const files = blocksToFiles(codeBlocks);
 
   const matchedComponent =
     AllComponents?.find((file) => file.componentName === name) || null;
@@ -56,7 +78,7 @@ export default async function IframeComponentPrieview(
     ? JSON.parse(JSON.stringify(matchedComponent))
     : null;
 
-  console.log('component', name, currComponent);
+  // console.log('component', name, currComponent);
 
   if (!currComponent) {
     return <div>Componentss not found</div>;
@@ -94,7 +116,6 @@ export default async function IframeComponentPrieview(
             hideDeviceOpt={hideDeviceOpt}
             hasReTrigger={hasReTrigger}
             iframeComponent={currComponent.iframelink}
-            code={''}
             responsive={responsive || false}
             isNotCopy={true}
             isFitheight={isFitheight}
@@ -103,7 +124,39 @@ export default async function IframeComponentPrieview(
 
         {/* Code Section */}
         <TabsContent className='mt-14' value={`${name}code`}>
-          {children}
+          {files.length === 1 ? (
+            <PreCode
+              codeblock={{
+                value: files[0].value,
+                lang: files[0].lang,
+                meta: files[0].meta,
+              }}
+              classname='p-0'
+            />
+          ) : (
+            <Tabs defaultValue={files[0].name} className='w-full'>
+              <TabsList>
+                {files.map((file) => (
+                  <TabsTrigger key={file.name} value={file.name}>
+                    {file.name}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+
+              {files.map((file) => (
+                <TabsContent key={file.name} value={file.name}>
+                  <PreCode
+                    codeblock={{
+                      value: file.value,
+                      lang: file.lang,
+                      meta: file.meta,
+                    }}
+                    classname='p-0'
+                  />
+                </TabsContent>
+              ))}
+            </Tabs>
+          )}
         </TabsContent>
       </Tabs>
     </div>

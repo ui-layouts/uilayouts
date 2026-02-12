@@ -46,15 +46,15 @@ const ActivityCard = ({
   <TimelineAnimation
     timelineRef={timelineRef}
     animationNum={animationNum}
-    className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-shadow group cursor-default"
+    className="bg-white p-8 rounded-2xl shadow-sm border border-neutral-100 flex flex-col items-center text-center hover:shadow-md transition-shadow group cursor-default"
   >
     <div className="w-12 h-12 bg-orange-500 rounded-2xl flex items-center justify-center text-orange-50 group-hover:scale-110 transition-transform">
       <Boxes />
     </div>
-    <h4 className="text-lg font-spaceGrotesk font-bold text-gray-800 my-1">
+    <h4 className="text-lg font-spaceGrotesk font-bold text-neutral-800 my-1">
       {title}
     </h4>
-    <p className="text-gray-400 text-sm">Strategy and M&A teams</p>
+    <p className="text-neutral-400 text-sm">Strategy and M&A teams</p>
   </TimelineAnimation>
 )
 
@@ -69,7 +69,7 @@ export const TeamExpert = () => {
             timelineRef={timelineRef}
             animationNum={1}
             as="h2"
-            className="text-4xl font-light text-gray-800 mb-4"
+            className="text-4xl font-light text-neutral-800 mb-4"
           >
             Activities from{' '}
             <span className="font-bold font-spaceGrotesk">
@@ -80,7 +80,7 @@ export const TeamExpert = () => {
             timelineRef={timelineRef}
             animationNum={2}
             as="p"
-            className="max-w-4xl mx-auto text-gray-500 text-lg leading-relaxed"
+            className="max-w-4xl mx-auto text-neutral-500 text-lg leading-relaxed"
           >
             'Pleazers' are short team activities led by world record holders,
             Olympic gold medalists, and other inspiring athletes and experts.
@@ -101,10 +101,10 @@ export const TeamExpert = () => {
                   alt={member.name}
                 />
               </div>
-              <h3 className="font-spaceGrotesk text-2xl font-semibold mb-2 text-gray-900 group-hover:text-white transition-colors">
+              <h3 className="font-spaceGrotesk text-2xl font-semibold mb-2 text-neutral-900 group-hover:text-white transition-colors">
                 {member.name}
               </h3>
-              <p className="text-sm mb-6 text-gray-500 group-hover:text-white/80 transition-colors">
+              <p className="text-sm mb-6 text-neutral-500 group-hover:text-white/80 transition-colors">
                 {member.role}
               </p>
               <button className="font-spaceGrotesk text-sm font-semibold flex items-center gap-2 text-[#FF6B00] group-hover:text-white transition-colors">

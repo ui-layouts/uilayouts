@@ -449,7 +449,7 @@ export const SliderProgress = forwardRef<
     <div
       ref={ref}
       className={cn(
-        'bg-gray-500 relative rounded-md h-2 w-96 max-w-full overflow-hidden',
+        'bg-neutral-500 relative rounded-md h-2 w-96 max-w-full overflow-hidden',
         className
       )}
       {...props}
@@ -536,7 +536,7 @@ export const SliderDotButton = forwardRef<HTMLDivElement, SliderDotButtonProps>(
           >
             <div
               className={cn(
-                'bg-gray-500/40 rounded-full ',
+                'bg-neutral-500/40 rounded-full ',
                 orientation === 'vertical' ? 'h-6 w-1' : 'w-6 h-1'
               )}
             />
@@ -569,8 +569,7 @@ export const SliderDotButton = forwardRef<HTMLDivElement, SliderDotButtonProps>(
 SliderDotButton.displayName = 'SliderDotButton';
 
 // ============= CAROUSEL INDICATORS =============
-interface CarouselIndicatorProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface CarouselIndicatorProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   index: number;
 }
 

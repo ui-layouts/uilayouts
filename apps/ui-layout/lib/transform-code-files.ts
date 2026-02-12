@@ -78,6 +78,8 @@ export async function transformCodeFiles(
       typeof fileSrc === 'object' && fileSrc !== null && 'default' in fileSrc
         ? fileSrc.default
         : fileSrc;
+        
+    // console.log('fileSrc', fileSrc);
 
     const html = await highlightCode(raw, ext);
 
