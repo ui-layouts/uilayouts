@@ -1,6 +1,6 @@
 export * from './team-intergration'
 export * from './hero-social-app'
-export * from './hero-digital-sucess'
+export * from './hero-digital-success'
 export * from './hero-ai-ecommerce'
 export * from './hero-ai-infrastructure'
 export * from './hero-financial'

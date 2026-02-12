@@ -95,31 +95,31 @@ export const HeroAiInfrastructure = () => {
               </div>
               <a
                 href="#"
-                className="block p-2 hover:bg-gray-100 hover:text-black rounded-sm"
+                className="block p-2 hover:bg-neutral-100 hover:text-black rounded-sm"
               >
                 Products
               </a>
               <a
                 href="#"
-                className="block p-2 hover:bg-gray-100 hover:text-black rounded-sm"
+                className="block p-2 hover:bg-neutral-100 hover:text-black rounded-sm"
               >
                 Leaderboards
               </a>
               <a
                 href="#"
-                className="block p-2 hover:bg-gray-100 hover:text-black rounded-sm"
+                className="block p-2 hover:bg-neutral-100 hover:text-black rounded-sm"
               >
                 Enterprise
               </a>
               <a
                 href="#"
-                className="block p-2 hover:bg-gray-100 hover:text-black rounded-sm"
+                className="block p-2 hover:bg-neutral-100 hover:text-black rounded-sm"
               >
                 Government
               </a>
               <a
                 href="#"
-                className="block p-2 hover:bg-gray-100 hover:text-black rounded-sm"
+                className="block p-2 hover:bg-neutral-100 hover:text-black rounded-sm"
               >
                 Customers
               </a>
@@ -154,7 +154,7 @@ export const HeroAiInfrastructure = () => {
                 <path d="M55.5 0C61.0005 0.00109895 64.5005 2.50586 64.5 7.5V17C64.5 24.5059 68.5005 27.5 81 27.5H88C94.0005 27.5059 96.5 29.5059 96.5 37.5V98.5C96.5 106.006 95.0005 107.5 88 107.5H41.5C36.5005 107.5 32 104.506 32 98.5V88C32 84.5 28.5 80 20.5 80H8.5C3 80 0 76.5 0 71.5V6.5C0.00048844 1.50586 2.50049 0.00585937 8.5 0H55.5ZM31 20C28.7909 20 27 21.7909 27 24V74C27 76.2091 28.7909 78 31 78H58C60.2091 78 62 76.2091 62 74V24C62 21.7909 60.2091 20 58 20H31Z" />
               </svg>
             </div>
-            <nav className="hidden md:flex items-center gap-6 text-md text-gray-300">
+            <nav className="hidden md:flex items-center gap-6 text-md text-neutral-300">
               <a href="#" className="hover:text-white transition">
                 Products
               </a>
@@ -213,7 +213,7 @@ export const HeroAiInfrastructure = () => {
           timelineRef={timelineRef}
           as="p"
           animationNum={5}
-          className="text-gray-300 text-lg md:text-xl max-w-xl mb-10 font-light"
+          className="text-neutral-300 text-lg md:text-xl max-w-xl mb-10 font-light"
         >
           High-quality data, scalable tooling, and reliable infrastructure to
           build, train, and deploy AI systems faster and with confidence.
@@ -224,7 +224,7 @@ export const HeroAiInfrastructure = () => {
             timelineRef={timelineRef}
             as="button"
             animationNum={6}
-            className="cursor-pointer bg-white text-black px-6 py-3 rounded-sm font-semibold flex items-center gap-2 hover:bg-gray-200 transition"
+            className="cursor-pointer bg-white text-black px-6 py-3 rounded-sm font-semibold flex items-center gap-2 hover:bg-neutral-200 transition"
           >
             Book a Free Demo <ArrowRight size={18} />
           </TimelineAnimation>
@@ -245,7 +245,7 @@ export const HeroAiInfrastructure = () => {
           timelineRef={timelineRef}
           as="p"
           animationNum={7}
-          className="text-gray-400 md:text-xl text-nd text-center mb-8"
+          className="text-neutral-400 md:text-xl text-nd text-center mb-8"
         >
           Scale works with{' '}
           <span className="text-white font-medium">

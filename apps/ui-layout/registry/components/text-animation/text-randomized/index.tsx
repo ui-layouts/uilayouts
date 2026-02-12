@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { RandomizedTextEffect } from '@/components/ui/text-randomized';
 

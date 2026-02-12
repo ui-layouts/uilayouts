@@ -39,7 +39,6 @@ import Slider from '@/components/website/ui/slider';
 import LabSidebar from './labs-sidebar';
 import { AllComponents, DocsNavigationCategories } from '@/configs/docs';
 import { ScrollArea } from '../ui/scroll-area';
-import { DOCS_CATEGORY_GROUP } from '@/const/docs';
 
 const ComponentSection = () => {
   const { theme, setTheme } = useTheme();
@@ -279,7 +278,7 @@ const ComponentSection = () => {
               <TooltipProvider>
                 <Tooltip delayDuration={200}>
                   <TooltipTrigger
-                    className='group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md dark:bg-primary-foreground bg-gray-100   border px-3 font-medium dark:text-white text-black transition-all duration-200 hover:translate-x-[-3px] translate-x-[0px] hover:translate-y-[-3px] translate-y-[0px] hover:[box-shadow:5px_5px_rgb(28_39_56)] dark:hover:[box-shadow:5px_5px_rgb(229_231_235)] '
+                    className='group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md dark:bg-primary-foreground bg-neutral-100   border px-3 font-medium dark:text-white text-black transition-all duration-200 hover:translate-x-[-3px] translate-x-[0px] hover:translate-y-[-3px] translate-y-[0px] hover:[box-shadow:5px_5px_rgb(28_39_56)] dark:hover:[box-shadow:5px_5px_rgb(229_231_235)] '
                     onClick={() => {
                       // (window.location.href = currentComopnents?.pagelink)
                       window.open(
@@ -291,7 +290,7 @@ const ComponentSection = () => {
                   >
                     <Component />
                   </TooltipTrigger>
-                  <TooltipContent className='dark:bg-primary-base bg-gray-50 text-primary border p-2 rounded-md -translate-y-1'>
+                  <TooltipContent className='dark:bg-primary-base bg-neutral-50 text-primary border p-2 rounded-md -translate-y-1'>
                     <p className='capitalize'>Components</p>
                   </TooltipContent>
                 </Tooltip>
@@ -299,7 +298,7 @@ const ComponentSection = () => {
               <TooltipProvider>
                 <Tooltip delayDuration={200}>
                   <TooltipTrigger
-                    className='group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md dark:bg-primary-foreground bg-gray-100   border px-3 font-medium dark:text-white text-black transition-all duration-200 hover:translate-x-[-3px] translate-x-[0px] hover:translate-y-[-3px] translate-y-[0px] hover:[box-shadow:5px_5px_rgb(28_39_56)] dark:hover:[box-shadow:5px_5px_rgb(229_231_235)] '
+                    className='group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md dark:bg-primary-foreground bg-neutral-100   border px-3 font-medium dark:text-white text-black transition-all duration-200 hover:translate-x-[-3px] translate-x-[0px] hover:translate-y-[-3px] translate-y-[0px] hover:[box-shadow:5px_5px_rgb(28_39_56)] dark:hover:[box-shadow:5px_5px_rgb(229_231_235)] '
                     onClick={() => {
                       // (window.location.href = currentComopnents?.pagelink)
                       window.open(
@@ -325,7 +324,7 @@ const ComponentSection = () => {
                       <path d='M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z' />
                     </svg>
                   </TooltipTrigger>
-                  <TooltipContent className='dark:bg-primary-base bg-gray-50 text-primary border p-2 rounded-md -translate-y-1'>
+                  <TooltipContent className='dark:bg-primary-base bg-neutral-50 text-primary border p-2 rounded-md -translate-y-1'>
                     <p className='capitalize'>Home</p>
                   </TooltipContent>
                 </Tooltip>
@@ -333,7 +332,7 @@ const ComponentSection = () => {
 
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <button className='group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md dark:bg-primary-foreground bg-gray-100   border px-4 font-medium dark:text-white text-black transition-all duration-200 hover:translate-x-[-3px] translate-x-[0px] hover:translate-y-[-3px] translate-y-[0px] hover:[box-shadow:5px_5px_rgb(28_39_56)] dark:hover:[box-shadow:5px_5px_rgb(229_231_235)] '>
+                  <button className='group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md dark:bg-primary-foreground bg-neutral-100   border px-4 font-medium dark:text-white text-black transition-all duration-200 hover:translate-x-[-3px] translate-x-[0px] hover:translate-y-[-3px] translate-y-[0px] hover:[box-shadow:5px_5px_rgb(28_39_56)] dark:hover:[box-shadow:5px_5px_rgb(229_231_235)] '>
                     <SunIcon className='h-[1.2rem] w-[1.2rem] transition-all dark:hidden block' />
                     <MoonIcon className='h-[1.2rem] w-[1.2rem]   transition-all  dark:block hidden' />
                     <span className='sr-only'>Toggle theme</span>
@@ -357,14 +356,14 @@ const ComponentSection = () => {
               <TooltipProvider>
                 <Tooltip delayDuration={200}>
                   <TooltipTrigger
-                    className='group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md dark:bg-primary-foreground bg-gray-100   border px-3 font-medium dark:text-white text-black transition-all duration-200 hover:translate-x-[-3px] translate-x-[0px] hover:translate-y-[-3px] translate-y-[0px] hover:[box-shadow:5px_5px_rgb(28_39_56)] dark:hover:[box-shadow:5px_5px_rgb(229_231_235)] '
+                    className='group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md dark:bg-primary-foreground bg-neutral-100   border px-3 font-medium dark:text-white text-black transition-all duration-200 hover:translate-x-[-3px] translate-x-[0px] hover:translate-y-[-3px] translate-y-[0px] hover:[box-shadow:5px_5px_rgb(28_39_56)] dark:hover:[box-shadow:5px_5px_rgb(229_231_235)] '
                     onClick={() =>
                       window.open(href, '_blank', 'noopener,noreferrer')
                     }
                   >
                     View Component
                   </TooltipTrigger>
-                  <TooltipContent className='dark:bg-primary-base bg-gray-50 text-primary border p-2 rounded-md -translate-y-1'>
+                  <TooltipContent className='dark:bg-primary-base bg-neutral-50 text-primary border p-2 rounded-md -translate-y-1'>
                     <p className='capitalize'>
                       {currentComponentData?.componentName}
                     </p>
@@ -374,12 +373,12 @@ const ComponentSection = () => {
               <TooltipProvider>
                 <Tooltip delayDuration={200}>
                   <TooltipTrigger
-                    className='group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md dark:bg-primary-foreground bg-gray-100 border px-3 font-medium dark:text-white text-black transition-all duration-200 hover:translate-x-[-3px] translate-x-[0px] hover:translate-y-[-3px] translate-y-[0px] hover:[box-shadow:5px_5px_rgb(28_39_56)] dark:hover:[box-shadow:5px_5px_rgb(229_231_235)]'
+                    className='group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md dark:bg-primary-foreground bg-neutral-100 border px-3 font-medium dark:text-white text-black transition-all duration-200 hover:translate-x-[-3px] translate-x-[0px] hover:translate-y-[-3px] translate-y-[0px] hover:[box-shadow:5px_5px_rgb(28_39_56)] dark:hover:[box-shadow:5px_5px_rgb(229_231_235)]'
                     onClick={handleTriggerClick}
                   >
                     <Settings2 />
                   </TooltipTrigger>
-                  <TooltipContent className='dark:bg-primary-base bg-gray-50 text-primary border p-2 rounded-md -translate-y-1'>
+                  <TooltipContent className='dark:bg-primary-base bg-neutral-50 text-primary border p-2 rounded-md -translate-y-1'>
                     <p className='capitalized'>Style Component</p>
                   </TooltipContent>
                 </Tooltip>
@@ -388,7 +387,7 @@ const ComponentSection = () => {
                 <Tooltip delayDuration={200}>
                   <TooltipTrigger
                     onClick={toggleSidebar}
-                    className='group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md dark:bg-primary-foreground bg-gray-100 border px-3 font-medium dark:text-white text-black transition-all duration-200 hover:translate-x-[-3px] translate-x-[0px] hover:translate-y-[-3px] translate-y-[0px] hover:[box-shadow:5px_5px_rgb(28_39_56)] dark:hover:[box-shadow:5px_5px_rgb(229_231_235)] '
+                    className='group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md dark:bg-primary-foreground bg-neutral-100 border px-3 font-medium dark:text-white text-black transition-all duration-200 hover:translate-x-[-3px] translate-x-[0px] hover:translate-y-[-3px] translate-y-[0px] hover:[box-shadow:5px_5px_rgb(28_39_56)] dark:hover:[box-shadow:5px_5px_rgb(229_231_235)] '
                   >
                     {isSidebarOpen ? (
                       <GalleryHorizontalEnd />
@@ -398,7 +397,7 @@ const ComponentSection = () => {
                       </>
                     )}
                   </TooltipTrigger>
-                  <TooltipContent className='dark:bg-primary-base bg-gray-50 text-primary  border p-2 rounded-md -translate-y-1'>
+                  <TooltipContent className='dark:bg-primary-base bg-neutral-50 text-primary  border p-2 rounded-md -translate-y-1'>
                     <p className='capitalized'>
                       {isSidebarOpen ? <>Get Sidebar</> : <>Close Sidebar</>}
                     </p>

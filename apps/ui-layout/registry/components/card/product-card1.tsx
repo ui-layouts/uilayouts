@@ -19,7 +19,7 @@ function Card1() {
   };
   return (
     <div className='w-[300px] mx-auto'>
-      <div className='rounded-md p-2 dark:bg-white bg-gray-100'>
+      <div className='rounded-md p-2 dark:bg-white bg-neutral-100'>
         <Image
           src={selectedImage}
           alt='shoes'
@@ -64,7 +64,7 @@ function Card1() {
                   className={` relative w-6 h-6 border  rounded-full grid place-content-center transition-all ${
                     selectedColor === data.color
                       ? ' border-black'
-                      : 'border-gray-200'
+                      : 'border-neutral-200'
                   }`}
                 >
                   <span

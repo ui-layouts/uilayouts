@@ -199,8 +199,21 @@ export default function TableOfContents({ toc }: TableOfContentsProps) {
                 </div>
 
                 <div className='space-y-4 pt-5 mt-auto'>
+                  <a
+                    href='https://www.producthunt.com/products/ui-layouts?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-ui-layouts'
+                    target='_blank'
+                    className='mb-3'
+                    rel='noopener noreferrer'
+                  >
+                    <img
+                      alt="Ui-Layouts - Not another component library, It's your frontend universe  | Product Hunt"
+                      width='250'
+                      height='54'
+                      src='https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1069263&amp;theme=light&amp;t=1769576764705'
+                    />
+                  </a>
                   {/* add something for the pro version */}
-                  <div className='m-0 text-[0.8em] space-y-2 text-muted-foreground mb-6 p-3 rounded-xl bg-codebg dark:border-neutral-800 backdrop-blur-md border'>
+                  <div className='m-0 mt-3 text-[0.8em] space-y-2 text-muted-foreground mb-6 p-3 rounded-xl bg-codebg dark:border-neutral-800 backdrop-blur-md border'>
                     <p className='text-primary font-semibold'>
                       Unlock advanced{' '}
                       <a

@@ -73,7 +73,7 @@ export const HeroSocialApp = () => {
             timelineRef={timelineRef}
             className="flex gap-4"
           >
-            <button className="cursor-pointer px-8 py-3 rounded-xl bg-white border border-gray-100 shadow-sm font-semibold text-sm">
+            <button className="cursor-pointer px-8 py-3 rounded-xl bg-white border border-neutral-100 shadow-sm font-semibold text-sm">
               Login
             </button>
             <button className="cursor-pointer px-8 py-3 rounded-xl bg-[#2b2b2b] text-white shadow-xl font-semibold text-sm hover:bg-black transition">
@@ -117,21 +117,21 @@ export const HeroSocialApp = () => {
               as="nav"
               animationNum={1}
               timelineRef={timelineRef}
-              className="hidden md:flex items-center gap-10 text-sm font-medium text-gray-500"
+              className="hidden md:flex items-center gap-10 text-sm font-medium text-neutral-500"
             >
-              <a href="#" className="text-gray-900">
+              <a href="#" className="text-neutral-900">
                 Home
               </a>
-              <a href="#" className="hover:text-gray-900">
+              <a href="#" className="hover:text-neutral-900">
                 About
               </a>
-              <a href="#" className="hover:text-gray-900">
+              <a href="#" className="hover:text-neutral-900">
                 Reviews
               </a>
-              <a href="#" className="hover:text-gray-900">
+              <a href="#" className="hover:text-neutral-900">
                 Pricing
               </a>
-              <a href="#" className="hover:text-gray-900">
+              <a href="#" className="hover:text-neutral-900">
                 Blog
               </a>
             </TimelineAnimation>
@@ -140,7 +140,7 @@ export const HeroSocialApp = () => {
               timelineRef={timelineRef}
               className="flex gap-4"
             >
-              <button className="cursor-pointer px-8 py-3 rounded-xl bg-white border border-gray-100 shadow-sm font-semibold text-sm">
+              <button className="cursor-pointer px-8 py-3 rounded-xl bg-white border border-neutral-100 shadow-sm font-semibold text-sm">
                 Login
               </button>
               <button className="cursor-pointer px-8 py-3 rounded-xl bg-[#2b2b2b] text-white shadow-xl font-semibold text-sm hover:bg-black transition">
@@ -170,7 +170,7 @@ export const HeroSocialApp = () => {
               as="h1"
               animationNum={3}
               timelineRef={timelineRef}
-              className="xl:text-5xl text-4xl 2xl:text-7xl font-semibold leading-none tracking-tight text-gray-900 mb-8"
+              className="xl:text-5xl text-4xl 2xl:text-7xl font-semibold leading-none tracking-tight text-neutral-900 mb-8"
             >
               Turn Ideas into
               <TimelineAnimation
@@ -199,7 +199,7 @@ export const HeroSocialApp = () => {
               as="p"
               animationNum={5}
               timelineRef={timelineRef}
-              className="xl:text-xl text-gray-500 leading-relaxed mb-12 font-medium"
+              className="xl:text-xl text-neutral-500 leading-relaxed mb-12 font-medium"
             >
               Just drop your idea, we'll turn it into a viral post, complete
               with scroll-stopping copy, clean formatting, and a publish-ready
@@ -273,7 +273,7 @@ export const HeroSocialApp = () => {
                 as="span"
                 animationNum={7}
                 timelineRef={timelineRef}
-                className="font-bold text-gray-800"
+                className="font-bold text-neutral-800"
               >
                 Or
               </TimelineAnimation>
@@ -363,7 +363,7 @@ export const HeroSocialApp = () => {
                   <Smartphone className="text-neutral-900 size-5" />
                 </span>
                 <p className="text-2xl font-black mt-4">45k+</p>
-                <p className="text-gray-400 xl:text-md text-sm">Downloads</p>
+                <p className="text-neutral-400 xl:text-md text-sm">Downloads</p>
               </TimelineAnimation>
               <TimelineAnimation
                 animationNum={9}
@@ -393,7 +393,9 @@ export const HeroSocialApp = () => {
                   </svg>
                 </span>
                 <p className="text-2xl font-black mt-4">20k+</p>
-                <p className="text-gray-400 xl:text-md text-sm">Active Users</p>
+                <p className="text-neutral-400 xl:text-md text-sm">
+                  Active Users
+                </p>
               </TimelineAnimation>
               <TimelineAnimation
                 animationNum={10}
@@ -413,7 +415,9 @@ export const HeroSocialApp = () => {
                   </svg>
                 </span>
                 <p className="text-2xl font-black mt-4">25k+</p>
-                <p className="text-gray-400 xl:text-md text-sm">Active Users</p>
+                <p className="text-neutral-400 xl:text-md text-sm">
+                  Active Users
+                </p>
               </TimelineAnimation>
             </div>
           </div>

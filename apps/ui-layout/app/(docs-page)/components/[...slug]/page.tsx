@@ -2,19 +2,17 @@ import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { getDocBySlug, getAllDocs } from '@/lib/docs';
 import { absoluteUrl, cn } from '@/lib/utils';
-import { ChevronDown, Component } from 'lucide-react';
+import { Component } from 'lucide-react';
 import TableOfContents from '@/components/website/tableof-compoents';
 import { ComponentPagination } from '@/components/website/code-components/pagination';
 import Footer from '@/components/website/footer';
-import {
-  DocsNavigationCategories,
-  AllComponents,
-} from '@/configs/docs';
 import CopyPage from '@/components/website/copy-page';
+
+export const dynamic = 'force-static';
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
   const docs = await getAllDocs();
-
   return docs.map((doc) => ({
     slug: doc.slug === 'index' ? [] : doc.slug.split('/'),
   }));
@@ -25,48 +23,82 @@ export async function generateMetadata(props: {
 }): Promise<Metadata> {
   const params = await props.params;
   const slug = params.slug?.join('/') || '';
+
   const doc = await getDocBySlug(slug);
-  const matchedComponent = DocsNavigationCategories.find(
-    (comp) => comp.href === `/components/${slug}`
-  );
-  const tags = matchedComponent?.tags ?? [];
+  if (!doc?.content?.metadata) return {};
 
-  const componentNames =
-    matchedComponent?.key
-      ? AllComponents.filter(
-          (comp) => comp.category === matchedComponent.key
-        ).map((comp) => comp.componentName)
-      : [];
+  const md = doc.content.metadata;
 
-  if (!doc) {
-    return {};
-  }
+  const title =
+    typeof md.title === 'string'
+      ? md.title
+      : ((md.title as any)?.absolute ??
+        (md.title as any)?.default ??
+        'UI Layouts');
 
-  const componentNamesStr = componentNames.length > 0
-    ? ` Available components: ${componentNames.join(', ')}.`
-    : '';
+  const description = md.description ?? '';
 
   return {
-    title: `${doc.content.metadata.title} | UI Layouts`,
-    description: `${doc.content.metadata.description}${componentNamesStr}`,
-    keywords: tags,
-    ...(componentNames.length > 0 && {
-      other: {
-        'component-names': componentNames.join(', '),
-        'available-components': componentNames.join('|'),
-      },
-    }),
+    // Core
+    metadataBase: md.metadataBase,
+    title: title.includes('| UI Layouts') ? title : `${title} | UI Layouts`,
+    description,
+
+    // Keywords (still useful for Bing + some SEO tools)
+    keywords: md.keywords ?? [],
+
+    // Authors / branding
+    authors: md.authors,
+    creator: md.creator ?? '@naymur_dev',
+    publisher: md.publisher ?? 'UI Layouts',
+    category: md.category ?? 'technology',
+
+    // Open Graph (VERY important)
     openGraph: {
-      title: doc.content.metadata.title,
-      description: `${doc.content.metadata.description}${componentNamesStr}`,
-      type: 'article',
-      url: absoluteUrl(doc.slug),
+      ...(md.openGraph ?? {}),
+      title:
+        md.openGraph?.title ??
+        (title.includes('| UI Layouts') ? title : `${title} | UI Layouts`),
+      description: md.openGraph?.description ?? description,
+      url: md.openGraph?.url ?? absoluteUrl(doc.slug),
+      images: md.openGraph?.images ?? [
+        {
+          url: 'https://ui-layouts.com/component-og.jpg',
+          width: 1200,
+          height: 630,
+          alt: 'UI Layouts Components',
+        },
+      ],
+      siteName: md.openGraph?.siteName ?? 'UI Layouts',
+      locale: md.openGraph?.locale ?? 'en_US',
+      type: md.openGraph?.type ?? 'website',
     },
+
+    // Twitter
     twitter: {
-      card: 'summary_large_image',
-      title: doc.content.metadata.title,
-      description: `${doc.content.metadata.description}${componentNamesStr}`,
-      creator: '@naymur_dev',
+      ...(md.twitter ?? {}),
+      card: md.twitter?.card ?? 'summary_large_image',
+      title:
+        md.twitter?.title ??
+        (title.includes('| UI Layouts') ? title : `${title} | UI Layouts`),
+      description: md.twitter?.description ?? description,
+      images: md.twitter?.images ?? ['https://ui-layouts.com/component-og.jpg'],
+      creator: md.twitter?.creator ?? '@naymur_dev',
+    },
+
+    // Robots (Google uses this heavily)
+    robots: {
+      index: true,
+      follow: true,
+      ...md.robots,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+        ...md.robots?.googleBot,
+      },
     },
   };
 }
@@ -77,11 +109,8 @@ export default async function DocPage(props: {
   const params = await props.params;
   const slug = params.slug?.join('/') || '';
   const doc = await getDocBySlug(slug);
-  // console.log(doc);
 
-  if (!doc) {
-    notFound();
-  }
+  if (!doc) notFound();
 
   const { default: Content } = doc.content;
 

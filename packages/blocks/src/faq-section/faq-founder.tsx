@@ -57,7 +57,7 @@ export const FaqCard = ({
         className="grid overflow-hidden px-2 sm:px-4"
       >
         <div className="overflow-hidden">
-          <p className="pb-6 text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+          <p className="pb-6 text-sm sm:text-base text-neutral-600 dark:text-neutral-300 leading-relaxed">
             {answer}
           </p>
         </div>
@@ -110,7 +110,7 @@ export const FaqFounder = () => {
           timelineRef={timelineRef}
           animationNum={0}
           as="h1"
-          className="text-2xl sm:text-3xl font-medium text-gray-900 dark:text-white mb-10 text-center"
+          className="text-2xl sm:text-3xl font-medium text-neutral-900 dark:text-white mb-10 text-center"
         >
           Frequently Asked Questions
         </TimelineAnimation>
@@ -120,10 +120,10 @@ export const FaqFounder = () => {
           <TimelineAnimation
             timelineRef={timelineRef}
             animationNum={1}
-            className="col-span-5 h-fit p-3 sm:p-4 lg:p-5 rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-neutral-900"
+            className="col-span-5 h-fit p-3 sm:p-4 lg:p-5 rounded-2xl border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900"
           >
             <div className="flex gap-3 items-center">
-              <div className="size-10 sm:size-16 rounded-xl overflow-hidden bg-gray-300 dark:bg-gray-700">
+              <div className="size-10 sm:size-16 rounded-xl overflow-hidden bg-neutral-300 dark:bg-neutral-700">
                 <img
                   src="/naymur.png"
                   alt="profile"
@@ -132,16 +132,16 @@ export const FaqFounder = () => {
               </div>
 
               <div>
-                <h6 className="text-lg sm:text-xl font-semibold text-gray-800 dark:text-white">
+                <h6 className="text-lg sm:text-xl font-semibold text-neutral-800 dark:text-white">
                   Naymur Rahman
                 </h6>
-                <p className="text-gray-500 font-medium dark:text-gray-400">
+                <p className="text-neutral-500 font-medium dark:text-neutral-400">
                   Founder & CEO
                 </p>
               </div>
             </div>
 
-            <p className="my-4 sm:my-5 text-base sm:text-lg text-gray-700 dark:text-gray-300">
+            <p className="my-4 sm:my-5 text-base sm:text-lg text-neutral-700 dark:text-neutral-300">
               “Something that represents visiting your profile to discuss about
               you.”
             </p>

@@ -42,9 +42,9 @@ const NotificationLiquid = () => {
               <div className='text-sm'>
                 New components are available for you
               </div>
-              <div className='text-sm text-gray-200'>Liquid-Glass</div>
+              <div className='text-sm text-neutral-200'>Liquid-Glass</div>
             </div>
-            <div className='shrink-0 ml-4 text-sm text-gray-200 self-start pt-1'>
+            <div className='shrink-0 ml-4 text-sm text-neutral-200 self-start pt-1'>
               12:34
             </div>
           </div>
@@ -99,7 +99,10 @@ const NotificationLiquid = () => {
                     d='M110.782 17.6914C111.873 17.6914 112.805 18.08 113.578 18.8571C114.351 19.6343 114.737 20.5486 114.737 21.6V44.0914C114.737 45.1429 114.351 46.0571 113.578 46.8343C112.805 47.6114 111.873 48 110.782 48H82.9593C81.9133 48 81.0043 47.6114 80.2313 46.8343C79.4583 46.0571 79.0723 45.1429 79.0723 44.0914V21.6C79.0723 20.5486 79.4583 19.6343 80.2313 18.8571C81.0043 18.08 81.9133 17.6914 82.9593 17.6914H110.782ZM102.94 34.08V31.6114C102.94 31.2914 102.826 31.0171 102.599 30.7886C102.371 30.56 102.098 30.4457 101.78 30.4457H91.3473C91.0283 30.4457 90.7563 30.56 90.5283 30.7886C90.3013 31.0171 90.1873 31.2914 90.1873 31.6114V34.08C90.1873 34.4 90.3013 34.6743 90.5283 34.9029C90.7563 35.1314 91.0283 35.2457 91.3473 35.2457H101.78C102.098 35.2457 102.371 35.1314 102.599 34.9029C102.826 34.6743 102.94 34.4 102.94 34.08Z'
                     fill='currentColor'
                   />
-                  <path d='M132.049 48H119.365V0H132.049V48Z' fill='currentColor' />
+                  <path
+                    d='M132.049 48H119.365V0H132.049V48Z'
+                    fill='currentColor'
+                  />
                   <path
                     d='M142.953 22.2853V13.7139H160.001V22.2853H151.477V30.8567H134.428V22.2853H142.953ZM160.001 39.4282H151.477V30.8567H160.001V39.4282ZM151.477 39.4282V47.9996H134.428V39.4282H151.477Z'
                     fill='currentColor'
@@ -110,7 +113,7 @@ const NotificationLiquid = () => {
                 New components are available for you
               </div>
             </div>
-            <div className='shrink-0 ml-4 text-sm text-gray-200 self-start pt-1'>
+            <div className='shrink-0 ml-4 text-sm text-neutral-200 self-start pt-1'>
               12:34
             </div>
           </div>

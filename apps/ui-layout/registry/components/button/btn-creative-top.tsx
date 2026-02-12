@@ -1,4 +1,5 @@
-import { ArrowBigRight, ArrowRight } from 'lucide-react';
+'use client';
+
 import React from 'react';
 
 function ButtonCreativeTop() {

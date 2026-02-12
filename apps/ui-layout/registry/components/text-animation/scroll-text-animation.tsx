@@ -1,3 +1,4 @@
+'use client';
 import TextAnimation from '@/components/ui/scroll-text';
 import React, { useRef } from 'react';
 

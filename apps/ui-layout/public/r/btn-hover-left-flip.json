@@ -1,15 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "btn-hover-left-flip",
-  "type": "registry:component",
   "dependencies": [],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [
     {
       "path": "./registry/components/button/btn-hover-left-flip.tsx",
-      "content": "const ButtonHoverLeftFlip = () => {\r\n  return (\r\n    <>\r\n      <button className='group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md border-2 dark:border-[#656fe2] border-[#394481] font-medium'>\r\n        <div className='inline-flex h-12 translate-x-0 items-center justify-center bg-linear-to-r dark:from-[#070e41] dark:to-[#263381] from-[#f5f6f8] to-[#fafbff]  px-6 dark:text-white text-[#394481] transition group-hover:-translate-x-[150%]'>\r\n          Hover me\r\n        </div>\r\n        <div className='absolute inline-flex h-12 w-full translate-x-full items-center justify-center bg-[#394481] dark:bg-[#656fe2] px-6 text-white transition duration-300 group-hover:translate-x-0'>\r\n          Hover me\r\n        </div>\r\n      </button>\r\n    </>\r\n  );\r\n};\r\n\r\nexport default ButtonHoverLeftFlip;",
+      "content": "'use client';\r\n\r\nconst ButtonHoverLeftFlip = () => {\r\n  return (\r\n    <>\r\n      <button className='group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md border-2 dark:border-[#656fe2] border-[#394481] font-medium'>\r\n        <div className='inline-flex h-12 translate-x-0 items-center justify-center bg-linear-to-r dark:from-[#070e41] dark:to-[#263381] from-[#f5f6f8] to-[#fafbff]  px-6 dark:text-white text-[#394481] transition group-hover:-translate-x-[150%]'>\r\n          Hover me\r\n        </div>\r\n        <div className='absolute inline-flex h-12 w-full translate-x-full items-center justify-center bg-[#394481] dark:bg-[#656fe2] px-6 text-white transition duration-300 group-hover:translate-x-0'>\r\n          Hover me\r\n        </div>\r\n      </button>\r\n    </>\r\n  );\r\n};\r\n\r\nexport default ButtonHoverLeftFlip;\r\n",
       "type": "registry:component"
     }
-  ]
+  ],
+  "type": "registry:component"
 }

@@ -56,7 +56,7 @@ export const TeamModern = () => {
                 timelineRef={timelineRef}
                 animationNum={2}
                 as="h2"
-                className="text-5xl font-spaceGrotesk font-bold text-gray-900 mb-6"
+                className="text-5xl font-spaceGrotesk font-bold text-neutral-900 mb-6"
               >
                 Meet our team
               </TimelineAnimation>
@@ -64,7 +64,7 @@ export const TeamModern = () => {
                 timelineRef={timelineRef}
                 animationNum={3}
                 as="p"
-                className="text-lg text-gray-500 leading-relaxed"
+                className="text-lg text-neutral-500 leading-relaxed"
               >
                 Unleashing creativity, our team of design visionaries turns
                 ordinary spaces into extraordinary experiences.
@@ -78,7 +78,7 @@ export const TeamModern = () => {
               <button className="font-spaceGrotesk px-3 py-2.5 bg-orange-500 shadow-lg shadow-orange-500 text-white font-semibold rounded-lg hover:bg-orange-600 transition-colors">
                 Get started
               </button>
-              <button className="font-spaceGrotesk bg-neutral-100 px-3 py-2.5 border border-gray-300 text-gray-700 font-semibold rounded-lg hover:bg-gray-50 transition-colors">
+              <button className="font-spaceGrotesk bg-neutral-100 px-3 py-2.5 border border-neutral-300 text-neutral-700 font-semibold rounded-lg hover:bg-neutral-50 transition-colors">
                 Explore features
               </button>
             </TimelineAnimation>
@@ -88,18 +88,18 @@ export const TeamModern = () => {
         <TimelineAnimation
           timelineRef={timelineRef}
           animationNum={5}
-          className="flex flex-wrap gap-8 py-12 mb-12 border-b border-gray-100"
+          className="flex flex-wrap gap-8 py-12 mb-12 border-b border-neutral-100"
         >
-          <div className="flex items-center gap-2 text-gray-900 font-semibold text-xl">
+          <div className="flex items-center gap-2 text-neutral-900 font-semibold text-xl">
             <Codesandbox color="#7C3AED" size={32} /> UI-Layouts
           </div>
-          <div className="flex items-center gap-2 text-gray-900 font-semibold text-xl">
+          <div className="flex items-center gap-2 text-neutral-900 font-semibold text-xl">
             <Codesandbox color="#4F46E5" size={32} /> Tools UI
           </div>
-          <div className="flex items-center gap-2 text-gray-900 font-semibold text-xl">
+          <div className="flex items-center gap-2 text-neutral-900 font-semibold text-xl">
             <Codesandbox color="#DC2626" size={32} /> Logoipsum
           </div>
-          <div className="flex items-center gap-2 text-gray-900 font-semibold text-xl">
+          <div className="flex items-center gap-2 text-neutral-900 font-semibold text-xl">
             <Codesandbox color="#F59E0B" size={32} /> Logoipsum
           </div>
         </TimelineAnimation>
@@ -112,17 +112,17 @@ export const TeamModern = () => {
               animationNum={6 + i}
               className="group"
             >
-              <div className="relative overflow-hidden rounded-2xl mb-4 bg-gray-100 aspect-4/5">
+              <div className="relative overflow-hidden rounded-2xl mb-4 bg-neutral-100 aspect-4/5">
                 <img
                   src={member.image}
                   alt={member.name}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
-              <h3 className="text-xl font-spaceGrotesk font-semibold text-gray-900 mb-1">
+              <h3 className="text-xl font-spaceGrotesk font-semibold text-neutral-900 mb-1">
                 {member.name}
               </h3>
-              <p className="text-gray-500">{member.role}</p>
+              <p className="text-neutral-500">{member.role}</p>
             </TimelineAnimation>
           ))}
         </div>

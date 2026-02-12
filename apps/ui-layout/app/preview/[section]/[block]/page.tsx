@@ -34,7 +34,11 @@ export default async function BlocksPage(props: {
   return (
     <>
       <PreviewHeightReporter>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense
+          fallback={
+            <div className='min-h-screen w-full h-full bg-neutral-200 dark:bg-neutral-900 animate-pulse'></div>
+          }
+        >
           <blockData.componentSrc />
         </Suspense>
       </PreviewHeightReporter>

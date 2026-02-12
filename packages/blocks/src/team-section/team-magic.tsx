@@ -1,7 +1,7 @@
 'use client'
 
 import { TimelineAnimation } from '@/components/ui/timeline-animation'
-import { Button } from '@repo/ui'
+import { Button } from '@repo/shadcn'
 import React, { useRef } from 'react'
 
 const MAGIC_TEAM = [
@@ -68,7 +68,7 @@ export const TeamMagic = () => {
           timelineRef={timelineRef}
           animationNum={2}
           as="p"
-          className="text-gray-400 text-lg mb-20 max-w-3xl mx-auto leading-relaxed"
+          className="text-neutral-400 text-lg mb-20 max-w-3xl mx-auto leading-relaxed"
         >
           We're a group of passionate designers, developers, and strategists
           united by a mission to craft beautiful and impactful digital
@@ -115,7 +115,7 @@ export const TeamMagic = () => {
             <h3 className="text-3xl font-spaceGrotesk font-bold mb-4">
               Follow us to see what we're creating.
             </h3>
-            <p className="text-gray-500 max-w-xl">
+            <p className="text-neutral-500 max-w-xl">
               We're a diverse team of problem-solvers, designers, and tech
               lovers — passionate about creating impact through digital
               experiences.
@@ -149,13 +149,13 @@ export const TeamMagic = () => {
           animationNum={7}
           className="flex gap-4 mt-8"
         >
-          <div className="p-3 bg-white/5 rounded-xl text-gray-400 hover:text-white transition-colors cursor-pointer">
+          <div className="p-3 bg-white/5 rounded-xl text-neutral-400 hover:text-white transition-colors cursor-pointer">
             <Icons.LinkedIn />
           </div>
-          <div className="p-3 bg-white/5 rounded-xl text-gray-400 hover:text-white transition-colors cursor-pointer">
+          <div className="p-3 bg-white/5 rounded-xl text-neutral-400 hover:text-white transition-colors cursor-pointer">
             <Icons.Instagram />
           </div>
-          <div className="p-3 bg-white/5 rounded-xl text-gray-400 hover:text-white transition-colors cursor-pointer">
+          <div className="p-3 bg-white/5 rounded-xl text-neutral-400 hover:text-white transition-colors cursor-pointer">
             <Icons.Twitter />
           </div>
         </TimelineAnimation>

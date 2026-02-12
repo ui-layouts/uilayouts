@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "stats-minimal",
+  "dependencies": [
+    "motion"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "../../packages/blocks/src/stats-section/stats-minimal.tsx",
+      "content": "import React from 'react'\r\n\r\nconst stats = [\r\n  { label: 'Active Users', value: '1.2M+' },\r\n  { label: 'Uptime', value: '99.9%' },\r\n  { label: 'Response Time', value: '42ms' },\r\n  { label: 'Global Edge', value: '250+' },\r\n]\r\n\r\nexport const MinimalStats = () => {\r\n  return (\r\n    <section className=\"bg-white min-h-screen flex flex-col justify-center font-manrope\">\r\n      <div className=\"max-w-7xl mx-auto px-5\">\r\n        <div className=\"flex justify-between\">\r\n          {stats.map((stat) => (\r\n            <div\r\n              key={stat.label}\r\n              className=\"flex flex-col gap-1 border-l border-zinc-200 px-6 py-2 hover:bg-zinc-200\"\r\n            >\r\n              <p className=\"text-3xl font-bold tracking-tight text-zinc-900 \">\r\n                {stat.value}\r\n              </p>\r\n              <p className=\"text-xs font-medium text-zinc-500 uppercase tracking-widest\">\r\n                {stat.label}\r\n              </p>\r\n            </div>\r\n          ))}\r\n        </div>\r\n      </div>\r\n    </section>\r\n  )\r\n}\r\n",
+      "type": "registry:block"
+    },
+    {
+      "path": "./components/ui/timeline-animation.tsx",
+      "content": "import { type HTMLMotionProps, motion, useInView } from 'motion/react';\r\nimport type React from 'react';\r\nimport type { Variants } from 'motion/react';\r\n\r\ntype TimelineContentProps<T extends keyof HTMLElementTagNameMap> = {\r\n  children?: React.ReactNode;\r\n  animationNum: number;\r\n  className?: string;\r\n  timelineRef: React.RefObject<HTMLElement | null>;\r\n  as?: T;\r\n  customVariants?: Variants;\r\n  once?: boolean;\r\n} & HTMLMotionProps<T>;\r\n\r\nexport const TimelineAnimation = <\r\n  T extends keyof HTMLElementTagNameMap = 'div',\r\n>({\r\n  children,\r\n  animationNum,\r\n  timelineRef,\r\n  className,\r\n  as,\r\n  customVariants,\r\n  once = true,\r\n  ...props\r\n}: TimelineContentProps<T>) => {\r\n  const defaultSequenceVariants = {\r\n    visible: (i: number) => ({\r\n      filter: 'blur(0px)',\r\n      y: 0,\r\n      opacity: 1,\r\n      transition: {\r\n        delay: i * 0.5,\r\n        duration: 0.5,\r\n      },\r\n    }),\r\n    hidden: {\r\n      filter: 'blur(20px)',\r\n      y: 0,\r\n      opacity: 0,\r\n    },\r\n  };\r\n\r\n  const sequenceVariants = customVariants || defaultSequenceVariants;\r\n\r\n  const isInView = useInView(timelineRef, {\r\n    once,\r\n  });\r\n\r\n  const MotionComponent = motion[as || 'div'] as React.ElementType;\r\n\r\n  return (\r\n    <MotionComponent\r\n      initial='hidden'\r\n      animate={isInView ? 'visible' : 'hidden'}\r\n      custom={animationNum}\r\n      variants={sequenceVariants}\r\n      className={className}\r\n      {...props}\r\n    >\r\n      {children}\r\n    </MotionComponent>\r\n  );\r\n};\r\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:block"
+}

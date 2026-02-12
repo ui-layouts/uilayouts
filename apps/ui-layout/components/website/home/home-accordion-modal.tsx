@@ -47,7 +47,7 @@ function Gallery({ items, setIndex, setOpen, index }) {
               </motion.h1>
             </motion.div>
 
-            <button className='absolute bottom-2 right-2 p-2 text-white dark:bg-black bg-gray-400 hover:bg-gray-500 rounded-xl dark:hover:bg-gray-800'>
+            <button className='absolute bottom-2 right-2 p-2 text-white dark:bg-black bg-neutral-400 hover:bg-neutral-500 rounded-xl dark:hover:bg-neutral-800'>
               <Plus className='2xl:w-8 w-6 2xl:h-8 h-6' />
             </button>
           </motion.article>
@@ -123,7 +123,7 @@ export default function HomeAccordionModal() {
                   className=' p-5  sm:w-[600px] w-[80%] mx-auto  relative  overflow-x-hidden  rounded-md cursor-default  bg-white shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:bg-zinc-900 dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)]'
                 >
                   <button
-                    className='absolute top-2 z-10 right-2 p-2 dark:bg-black bg-gray-300 hover:bg-gray-400 rounded-lg dark:hover:bg-gray-800'
+                    className='absolute top-2 z-10 right-2 p-2 dark:bg-black bg-neutral-300 hover:bg-neutral-400 rounded-lg dark:hover:bg-neutral-800'
                     onClick={() => {
                       setOpen(false);
                     }}

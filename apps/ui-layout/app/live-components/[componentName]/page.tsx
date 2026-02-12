@@ -1,39 +1,38 @@
-import React, { Suspense } from 'react';
 import { notFound } from 'next/navigation';
-import dynamic from 'next/dynamic';
+import React, { Suspense } from 'react';
 import { AllComponents } from '@/configs/docs';
 
+export const dynamic = 'force-static';
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
-  const paths = AllComponents.map((component) => ({
-    componentName: component.componentName,
+  const safe = AllComponents.filter(
+    (c: any) => c && typeof c.componentName === 'string'
+  );
+
+  return safe.map((c: any) => ({
+    componentName: c.componentName,
   }));
-  return paths;
 }
 
 export default async function SectionPage(props: {
   params: Promise<{ componentName: string }>;
 }) {
   const params = await props.params;
-  const { componentName } = params;
-  console.log('component', componentName);
+  const componentName = params.componentName;
 
-  // Find the component data based on componentName
+  if (!componentName) notFound();
+
   const component =
-    AllComponents.find((comp) => comp.componentName === componentName) || null;
-  // console.log(component);
+    AllComponents.find(
+      (c: any) =>
+        c?.slug === componentName || c?.componentName === componentName
+    ) ?? null;
 
-  // console.log(component, !component?.iframeSrc);
+  if (!component || !component.componentSrc) notFound();
 
-  if (!component) {
-    notFound();
-  }
   const isFramerScrolling = componentName === 'framerhorizontalscroll';
-
-  const ComponentPreview = component?.filesrc
-    ? dynamic(() => import(`../../../registry/${component.filesrc}`), {
-        loading: () => <div>Loading preview...</div>,
-      })
-    : null;
+  const ComponentPreview = component.componentSrc;
 
   return (
     <section
@@ -42,13 +41,13 @@ export default async function SectionPage(props: {
       } min-h-screen rounded-md bg-codebg`}
     >
       <div className='px-4 w-full'>
-        {ComponentPreview ? (
-          <Suspense fallback={<div>Loading preview...</div>}>
-            <ComponentPreview />
-          </Suspense>
-        ) : (
-          <div>Component not found</div>
-        )}
+        <Suspense
+          fallback={
+            <div className='bg-neutral-200 dark:bg-neutral-900 w-full min-h-screen animate-pulse' />
+          }
+        >
+          <ComponentPreview />
+        </Suspense>
       </div>
     </section>
   );

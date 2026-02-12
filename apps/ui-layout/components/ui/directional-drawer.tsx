@@ -20,7 +20,9 @@ const DrawerContext = createContext<DrawerContextProps | undefined>(undefined);
 export const useDirectionalDrawer = () => {
   const context = useContext(DrawerContext);
   if (!context) {
-    throw new Error('useDirectionalDrawer must be used within a DirectionalDrawer');
+    throw new Error(
+      'useDirectionalDrawer must be used within a DirectionalDrawer'
+    );
   }
   return context;
 };
@@ -75,51 +77,48 @@ export function DirectionalDrawer({
       case 'right':
         return {
           position: 'right-0 bottom-0',
-          size: outsideClose 
-            ? 'sm:w-[450px] w-[90%] h-full' 
-            : 'w-full h-full',
+          size: outsideClose ? 'sm:w-[450px] w-[90%] h-full' : 'w-full h-full',
           border: 'border-l',
           handlePosition: 'top-[40%] left-2',
-          handleSize: 'h-16 w-[0.30rem]'
+          handleSize: 'h-16 w-[0.30rem]',
         };
       case 'top':
         return {
           position: 'top-0 left-0',
-          size: outsideClose 
-            ? 'w-full sm:h-[450px] h-[90%]' 
-            : 'w-full h-full',
+          size: outsideClose ? 'w-full sm:h-[450px] h-[90%]' : 'w-full h-full',
           border: 'border-b',
           handlePosition: 'bottom-2 left-[40%]',
-          handleSize: 'w-16 h-[0.30rem]'
+          handleSize: 'w-16 h-[0.30rem]',
         };
       case 'bottom':
         return {
           position: 'bottom-0 left-0',
-          size: outsideClose 
-            ? 'w-full sm:h-[450px] h-[90%]' 
-            : 'w-full h-full',
+          size: outsideClose ? 'w-full sm:h-[450px] h-[90%]' : 'w-full h-full',
           border: 'border-t',
           handlePosition: 'top-2 left-[40%]',
-          handleSize: 'w-16 h-[0.30rem]'
+          handleSize: 'w-16 h-[0.30rem]',
         };
       case 'left':
       default:
         return {
           position: 'left-0 bottom-0',
-          size: outsideClose 
-            ? 'sm:w-[450px] w-[90%] h-full' 
-            : 'w-full h-full',
+          size: outsideClose ? 'sm:w-[450px] w-[90%] h-full' : 'w-full h-full',
           border: 'border-r',
           handlePosition: 'top-[40%] right-2',
-          handleSize: 'h-16 w-[0.30rem]'
+          handleSize: 'h-16 w-[0.30rem]',
         };
     }
   };
 
   const directionClasses = getDirectionClasses();
-  const vaulDirection = direction === 'right' ? 'right' : 
-                       direction === 'top' ? 'top' : 
-                       direction === 'bottom' ? 'bottom' : 'left';
+  const vaulDirection =
+    direction === 'right'
+      ? 'right'
+      : direction === 'top'
+        ? 'top'
+        : direction === 'bottom'
+          ? 'bottom'
+          : 'left';
 
   return (
     <DrawerContext.Provider value={{ open, setOpen }}>
@@ -139,9 +138,7 @@ export function DirectionalDrawer({
           <VaulSidebar.Content
             className={cn(
               `${directionClasses.border} z-50 ${directionClasses.size} fixed ${directionClasses.position} ${
-                outsideClose 
-                  ? 'dark:bg-zinc-950 bg-zinc-100'
-                  : ''
+                outsideClose ? 'dark:bg-zinc-950 bg-zinc-100' : ''
               }`,
               className
             )}
@@ -150,7 +147,7 @@ export function DirectionalDrawer({
               className={`${
                 outsideClose
                   ? 'w-full h-full'
-                  : `dark:bg-gray-900 relative bg-white ${directionClasses.border} ${directionClasses.size}`
+                  : `dark:bg-neutral-900 relative bg-white ${directionClasses.border} ${directionClasses.size}`
               }`}
             >
               {isDesktop ? (
@@ -162,7 +159,7 @@ export function DirectionalDrawer({
                 </button>
               ) : (
                 <div
-                  className={`absolute ${directionClasses.handlePosition} mx-auto ${directionClasses.handleSize} shrink-0 rounded-full bg-gray-600 my-4`}
+                  className={`absolute ${directionClasses.handlePosition} mx-auto ${directionClasses.handleSize} shrink-0 rounded-full bg-neutral-600 my-4`}
                 />
               )}
               {content}

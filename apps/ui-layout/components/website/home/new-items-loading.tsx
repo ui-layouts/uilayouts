@@ -2,21 +2,13 @@ import React, { useEffect, useState } from 'react';
 
 const newComponent = [
   {
+    href: '/blocks',
+    title: 'BLOCKS',
+  },
+  {
     href: '/mcp',
     title: 'MCP',
   },
-  // {
-  //   href: '/components/carousel',
-  //   title: 'Carousel',
-  // },
-  // {
-  //   href: '/components/motion-drawer',
-  //   title: 'Motion Drawer',
-  // },
-  // {
-  //   href: '/components/directional-drawer',
-  //   title: 'Directional Drawer',
-  // },
 ];
 
 function NewItemsLoading() {

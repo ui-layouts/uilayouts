@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import {
   Accordion,
@@ -7,7 +8,7 @@ import {
   AccordionWrapper,
 } from '@/components/ui/accordion';
 
-function index() {
+function SingleLayout() {
   return (
     <>
       <Accordion defaultValue={'item-2'} multiple>
@@ -45,4 +46,4 @@ function index() {
   );
 }
 
-export default index;
+export default SingleLayout;

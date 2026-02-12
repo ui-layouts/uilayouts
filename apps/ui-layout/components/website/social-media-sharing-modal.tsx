@@ -63,15 +63,14 @@ const SocialShareModal = () => {
   };
 
   const handleShare = (platform: string) => {
-    const targetUrl = "https://pro.ui-layouts.com/dashboard/rewards";
-  
-    localStorage.setItem("ui-layouts-share-modal-shared", "true");
-  
-    window.open(targetUrl, "_blank");
-  
+    const targetUrl = 'https://pro.ui-layouts.com/dashboard/rewards';
+
+    localStorage.setItem('ui-layouts-share-modal-shared', 'true');
+
+    window.open(targetUrl, '_blank');
+
     setShowModal(false);
   };
-  
 
   if (!showModal) return null;
 
@@ -112,12 +111,12 @@ const SocialShareModal = () => {
             {/* <div className='space-y-3 mb-6'>
               <button
                 onClick={() => handleShare('twitter')}
-                className='w-full flex items-center justify-start gap-3 bg-black text-white py-4 px-4 rounded-lg hover:bg-gray-800 transition-all duration-200 hover:scale-105 group'
+                className='w-full flex items-center justify-start gap-3 bg-black text-white py-4 px-4 rounded-lg hover:bg-neutral-800 transition-all duration-200 hover:scale-105 group'
               >
                 <Twitter size={22} className='shrink-0 fill-white' />
                 <div className='text-left flex-1'>
                   <div className='font-medium'>Share on X</div>
-                  <div className='text-xs text-gray-300 opacity-75 group-hover:opacity-100 transition-opacity'>
+                  <div className='text-xs text-neutral-300 opacity-75 group-hover:opacity-100 transition-opacity'>
                     "🚀 Just discovered UI Layouts - amazing collection..."
                   </div>
                 </div>
@@ -138,12 +137,12 @@ const SocialShareModal = () => {
 
               <button
                 onClick={() => handleShare('github')}
-                className='w-full flex items-center justify-start gap-3 bg-gray-800 text-white py-4 px-4 rounded-lg hover:bg-gray-700 transition-all duration-200 hover:scale-105 group'
+                className='w-full flex items-center justify-start gap-3 bg-neutral-800 text-white py-4 px-4 rounded-lg hover:bg-neutral-700 transition-all duration-200 hover:scale-105 group'
               >
                 <Github size={22} className='shrink-0 fill-white' />
                 <div className='text-left flex-1'>
                   <div className='font-medium'>Star on GitHub</div>
-                  <div className='text-xs text-gray-300 opacity-75 group-hover:opacity-100 transition-opacity'>
+                  <div className='text-xs text-neutral-300 opacity-75 group-hover:opacity-100 transition-opacity'>
                     Show support & get updates
                   </div>
                 </div>
@@ -152,7 +151,7 @@ const SocialShareModal = () => {
 
             <button
               onClick={handleClose}
-              className='text-gray-500 text-sm hover:text-gray-700 transition-colors underline-offset-2 hover:underline'
+              className='text-neutral-500 text-sm hover:text-neutral-700 transition-colors underline-offset-2 hover:underline'
             >
               Maybe later
             </button> */}

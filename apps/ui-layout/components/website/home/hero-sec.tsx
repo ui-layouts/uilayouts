@@ -155,13 +155,13 @@ function HeroSec() {
             <NewItemsLoading />
             <h1 className='2xl:text-6xl xl:text-6xl md:text-6xl sm:text-5xl text-[1.7rem] tracking-tighter text-center font-semibold '>
               <span className='xl:text-[3.35rem] md:text-5xl sm:text-4xl text-[1.7rem]'>
-                More Than Components,
+                Copy, Paste UI Components,
               </span>
               <br />
-              <span className=''>It's Your Frontend </span>
+              <span className=''>& Blocks for</span>
               <span className='dark:bg-neutral-800 bg-neutral-50 mt-3 relative rounded-md w-fit leading-[100%] inline-block px-1.5 py-0.5 border before:absolute before:top-0 before:left-0 before:w-full before:h-full before:content-[""] before:opacity-[0.09] before:z-10 before:pointer-events-none before:bg-[url("/noise.gif")]'>
                 <span className='bg-linear-to-t from-blue-300 to-blue-600 bg-clip-text text-transparent font-semibold pr-1'>
-                  Universe
+                  Developer
                 </span>
               </span>{' '}
             </h1>
@@ -282,6 +282,20 @@ function HeroSec() {
                 </div>
               </div>
             </div>
+            <div className='flex justify-center items-center'>
+              <a
+                href='https://www.producthunt.com/products/ui-layouts?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-ui-layouts'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                <img
+                  alt="Ui-Layouts - Not another component library, It's your frontend universe  | Product Hunt"
+                  width='250'
+                  height='54'
+                  src='https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1069263&amp;theme=light&amp;t=1769576764705'
+                />
+              </a>
+            </div>
           </article>
           <div className='grid grid-cols-3 md:px-10 px-2 xl:gap-10 md:gap-5 gap-2 md:pt-16 pt-2 2xl:pb-40 xl:pb-36 lg:pb-24 md:pb-16'>
             {allProjects.map((project) => (
@@ -290,7 +304,7 @@ function HeroSec() {
                 href={project.link}
                 target='_blank'
                 rel='noopener noreferrer'
-                className='group flex flex-col items-center relative overflow-hidden justify-center rounded-2xl border dark:border-gray-900 border-gray-200 dark:bg-black p-6 shadow-md transition hover:shadow-lg hover:-translate-y-1'
+                className='group flex flex-col items-center relative overflow-hidden justify-center rounded-2xl border dark:border-neutral-900 border-neutral-200 dark:bg-black p-6 shadow-md transition hover:shadow-lg hover:-translate-y-1'
               >
                 <div className='mb-4 flex 2xl:h-72 lg:h-60 md:h-48 h-6 xl:px-8 relative z-10 items-center justify-center'>
                   {project.componentSrc?.()}

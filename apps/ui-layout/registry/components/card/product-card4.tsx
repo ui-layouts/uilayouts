@@ -12,7 +12,7 @@ function Card2() {
 
   return (
     <div className='w-[350px] mx-auto '>
-      <div className='dark:bg-white bg-gray-50 border dark:border-none  rounded-2xl'>
+      <div className='dark:bg-white bg-neutral-50 border dark:border-none  rounded-2xl'>
         <div className='w-full h-56 relative'>
           <motion.button
             className='absolute top-2 right-3 z-20 text-2xl text-white'

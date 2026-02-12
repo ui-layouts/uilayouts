@@ -42,7 +42,7 @@ function MagnifiedDocOneFile() {
 
   return (
     <>
-      <div className='relative [box-shadow] w-4/5 mx-auto  rounded-xl  dark:bg-gray-950 bg-gray-300  [box-shadow:inset_1px_-1px_4px_rgba(0_0_0,0.5)] overflow-hidden '>
+      <div className='relative [box-shadow] w-4/5 mx-auto  rounded-xl  dark:bg-neutral-950 bg-neutral-300  [box-shadow:inset_1px_-1px_4px_rgba(0_0_0,0.5)] overflow-hidden '>
         <div className='relative'>
           {apps.map((app, i) => {
             return (
@@ -90,7 +90,7 @@ function MagnifiedDocOneFile() {
                 <motion.div
                   onMouseMove={(e) => mouseX.set(e.pageX)}
                   onMouseLeave={() => mouseX.set(Infinity)}
-                  className='mx-auto flex sm:h-[57px] h-[52px] w-fit items-end gap-2 rounded-t-lg px-2 pb-2 dark:bg-gray-800/80 bg-white/50 backdrop-blur-xs border-t border-l border-r  '
+                  className='mx-auto flex sm:h-[57px] h-[52px] w-fit items-end gap-2 rounded-t-lg px-2 pb-2 dark:bg-neutral-800/80 bg-white/50 backdrop-blur-xs border-t border-l border-r  '
                 >
                   {apps.map((app, i) => {
                     return (

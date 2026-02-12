@@ -18,7 +18,7 @@ const PasswordInput = () => {
           className='dark:bg-neutral-950 bg-neutral-50 w-full outline-hidden focus-within:border-blue-700 rounded-md p-2  border-2 '
         />
         <div
-          className='absolute top-3 right-4 text-2xl text-gray-500 cursor-pointer'
+          className='absolute top-3 right-4 text-2xl text-neutral-500 cursor-pointer'
           onClick={() => setIsVisible((prev) => !prev)}
         >
           {isVisible ? <Eye size={22} /> : <EyeOff size={22} />}

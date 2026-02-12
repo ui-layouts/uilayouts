@@ -3,11 +3,9 @@ import { useTheme } from 'next-themes';
 import React from 'react';
 import Link from 'next/link';
 
-import { Github, MousePointerClick, PenTool } from 'lucide-react';
 import { SearchDialog } from './searchbar';
 import MobileHeader from './mobile-header';
 import ThemeSwitch from './theme-switch';
-import MainComponentsDownloader from './downloadallarray';
 import HomeGitHubButton from './home/github-repo-button';
 // import MobileHeader from './moibile-header'
 
@@ -53,20 +51,27 @@ function Header() {
             >
               Cursify
             </a>
-            <a
+            {/* <a
               href={'https://pro.ui-layouts.com/blocks'}
               target='_blank'
               className={`flex gap-2 group font-medium items-center py-1  transition-all text-slate-600 hover:text-slate-900  dark:text-slate-300 dark:hover:text-white`}
             >
               Blocks
-              {/* <span className='text-xs font-normal inline-block -translate-y-2 italic text-blue-600'>
+            </a> */}
+            {/* <a
+              href={'/blocks'}
+              target='_blank'
+              className={`flex gap-2 group font-medium items-center py-1 transition-all text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white`}
+            >
+              Blocks
+              <span className='text-xs font-normal inline-block -translate-y-2 italic text-blue-600'>
                 New
-              </span> */}
-            </a>
+              </span>
+            </a> */}
             <a
               href={'/mcp'}
               target='_blank'
-              className={`flex gap-2 group font-medium items-center py-1  transition-all text-slate-600 hover:text-slate-900  dark:text-slate-300 dark:hover:text-white`}
+              className={`flex gap-2 group font-medium items-center py-1 transition-all text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white`}
             >
               MCP
               <span className='text-xs font-normal inline-block -translate-y-2 italic text-blue-600'>
@@ -77,7 +82,7 @@ function Header() {
           <MobileHeader classname='lg:hidden block' />
 
           <div className='flex gap-2 '>
-            <SearchDialog classname='sm:w-52 md:w-72' />
+            <SearchDialog classname='sm:w-52 w-12 md:w-72 sm:px-4 px-2.5' />
             <HomeGitHubButton />
             <a
               target='_blank'

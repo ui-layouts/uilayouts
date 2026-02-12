@@ -10,7 +10,7 @@ function index() {
     <>
       <TabsProvider defaultValue={'login'} wobbly={false}>
         <div className='flex justify-center mt-2'>
-          <div className='flex items-center w-fit dark:bg-[#1a1c20] bg-gray-200 p-1 dark:text-white text-black rounded-md border'>
+          <div className='flex items-center w-fit dark:bg-[#1a1c20] bg-neutral-200 p-1 dark:text-white text-black rounded-md border'>
             <TabsBtn value='login'>
               <span className='relative z-2 uppercase'>Login</span>
             </TabsBtn>
@@ -37,7 +37,7 @@ function index() {
             </div>
 
             <div className='flex gap-2 justify-between'>
-              <button className='bg-white border dark:bg-gray-900 w-full p-2 rounded-md text-2xl flex justify-center '>
+              <button className='bg-white border dark:bg-neutral-900 w-full p-2 rounded-md text-2xl flex justify-center '>
                 <svg
                   width='84'
                   height='84'
@@ -64,7 +64,7 @@ function index() {
                   />
                 </svg>
               </button>
-              <button className='bg-white border dark:bg-gray-900 w-full p-2 rounded-md text-2xl flex justify-center '>
+              <button className='bg-white border dark:bg-neutral-900 w-full p-2 rounded-md text-2xl flex justify-center '>
                 <svg
                   width='123'
                   height='143'
@@ -81,7 +81,7 @@ function index() {
                   />
                 </svg>
               </button>
-              <button className='bg-white border dark:bg-gray-900 w-full p-2 rounded-md text-2xl text-blue-500 flex justify-center '>
+              <button className='bg-white border dark:bg-neutral-900 w-full p-2 rounded-md text-2xl text-blue-500 flex justify-center '>
                 <svg
                   width='80'
                   height='80'
@@ -110,16 +110,16 @@ function index() {
               <input
                 type='email'
                 placeholder='Enter your Eamil..'
-                className='w-full p-2 border focus:outline-hidden rounded-md dark:bg-gray-800'
+                className='w-full p-2 border focus:outline-hidden rounded-md dark:bg-neutral-800'
               />
               <input
                 type='password'
                 placeholder='Enter your password..'
-                className='w-full p-2 border focus:outline-hidden rounded-md dark:bg-gray-800'
+                className='w-full p-2 border focus:outline-hidden rounded-md dark:bg-neutral-800'
               />
               <button
                 type='submit'
-                className='dark:bg-gray-50 mt-2 bg-primary-base flex gap-1 items-center justify-center p-3 text-center w-full dark:text-black text-white rounded-md font-medium'
+                className='dark:bg-neutral-50 mt-2 bg-primary-base flex gap-1 items-center justify-center p-3 text-center w-full dark:text-black text-white rounded-md font-medium'
               >
                 Sign in
                 <Lock className='w-4 h-4' />
@@ -153,31 +153,31 @@ function index() {
               <input
                 type='text'
                 placeholder='Enter your username'
-                className='w-full p-2 border focus:outline-hidden rounded-md dark:bg-gray-800'
+                className='w-full p-2 border focus:outline-hidden rounded-md dark:bg-neutral-800'
               />
               <div className='flex items-center'>
-                <div className='dark:bg-gray-50 bg-black h-full p-2 dark:text-black text-white rounded-md'>
+                <div className='dark:bg-neutral-50 bg-black h-full p-2 dark:text-black text-white rounded-md'>
                   <Phone />
                 </div>
                 <input
                   type='tel'
                   placeholder='018XXXXXXXX'
-                  className='w-full p-2 border focus:outline-hidden rounded-md dark:bg-gray-800'
+                  className='w-full p-2 border focus:outline-hidden rounded-md dark:bg-neutral-800'
                 />
               </div>
               <input
                 type='email'
                 placeholder='Enter your Eamil'
-                className='w-full p-2 border focus:outline-hidden rounded-md dark:bg-gray-800'
+                className='w-full p-2 border focus:outline-hidden rounded-md dark:bg-neutral-800'
               />
               <input
                 type='password'
                 placeholder='Enter your password'
-                className='w-full p-2 border focus:outline-hidden rounded-md dark:bg-gray-800'
+                className='w-full p-2 border focus:outline-hidden rounded-md dark:bg-neutral-800'
               />
               <button
                 type='submit'
-                className='dark:bg-gray-50 bg-primary-base flex gap-1 items-center justify-center p-3 text-center w-full dark:text-black text-white rounded-md font-medium'
+                className='dark:bg-neutral-50 bg-primary-base flex gap-1 items-center justify-center p-3 text-center w-full dark:text-black text-white rounded-md font-medium'
               >
                 Sign up
               </button>
@@ -194,7 +194,7 @@ function index() {
               <span className='inline-block w-full border '></span>
             </div>
             <div className='flex gap-2 justify-between w-[90%] mx-auto'>
-              <button className='bg-white border dark:bg-gray-900 w-full p-2 rounded-md text-2xl flex justify-center '>
+              <button className='bg-white border dark:bg-neutral-900 w-full p-2 rounded-md text-2xl flex justify-center '>
                 <svg
                   width='84'
                   height='84'
@@ -221,7 +221,7 @@ function index() {
                   />
                 </svg>
               </button>
-              <button className='bg-white border dark:bg-gray-900 w-full p-2 rounded-md text-2xl flex justify-center '>
+              <button className='bg-white border dark:bg-neutral-900 w-full p-2 rounded-md text-2xl flex justify-center '>
                 <svg
                   width='123'
                   height='143'
@@ -238,7 +238,7 @@ function index() {
                   />
                 </svg>
               </button>
-              <button className='bg-white border dark:bg-gray-900 w-full p-2 rounded-md text-2xl text-blue-500 flex justify-center '>
+              <button className='bg-white border dark:bg-neutral-900 w-full p-2 rounded-md text-2xl text-blue-500 flex justify-center '>
                 <svg
                   width='80'
                   height='80'

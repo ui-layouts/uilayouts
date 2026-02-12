@@ -70,7 +70,7 @@ export default function Dialog() {
                 <motion.div
                   // @ts-ignore
                   key={item}
-                  className='w-full flex relative  flex-col overflow-hidden border    dark:bg-black bg-gray-300 hover:bg-gray-200 dark:hover:bg-gray-950'
+                  className='w-full flex relative  flex-col overflow-hidden border    dark:bg-black bg-neutral-300 hover:bg-neutral-200 dark:hover:bg-neutral-950'
                   layoutId={`dialog-${item?.id}`}
                   style={{
                     borderRadius: '12px',
@@ -132,7 +132,7 @@ export default function Dialog() {
                 className='pointer-events-none fixed inset-0 flex items-center justify-center z-50'
               >
                 <motion.div
-                  className='pointer-events-auto relative flex flex-col overflow-hidden   dark:bg-gray-950 bg-gray-200 border w-[80%] h-[90%] '
+                  className='pointer-events-auto relative flex flex-col overflow-hidden   dark:bg-neutral-950 bg-neutral-200 border w-[80%] h-[90%] '
                   layoutId={`dialog-${items[index].id}`}
                   tabIndex={-1}
                   style={{
@@ -170,7 +170,7 @@ export default function Dialog() {
 
                   <button
                     onClick={() => setIsOpen(false)}
-                    className='absolute right-6 top-6 p-3 text-zinc-50 cursor-pointer dark:bg-gray-900 bg-gray-400 hover:bg-gray-500 rounded-full dark:hover:bg-gray-800'
+                    className='absolute right-6 top-6 p-3 text-zinc-50 cursor-pointer dark:bg-neutral-900 bg-neutral-400 hover:bg-neutral-500 rounded-full dark:hover:bg-neutral-800'
                     type='button'
                     aria-label='Close dialog'
                   >

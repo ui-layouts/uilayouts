@@ -104,7 +104,7 @@ function DocsSidebar() {
                         <TooltipTrigger asChild>
                           <button
                             onClick={handleRemoveAllRecentData}
-                            className='xl:h-7 h-5 xl:w-7 w-5 rounded-md border dark:bg-zinc-900 bg-gray-100 grid place-content-center'
+                            className='xl:h-7 h-5 xl:w-7 w-5 rounded-md border dark:bg-zinc-900 bg-neutral-100 grid place-content-center'
                           >
                             <X className={`h-5 w-5 transition-all`} />
                           </button>
@@ -191,7 +191,7 @@ export const ItemsWithName = ({
   return (
     <div ref={groupRef} key={group}>
       <div
-        className={`xl:text-lg relative flex w-full items-center justify-between pr-4 cursor-pointer  dark:text-gray-100 font-medium capitalize my-1`}
+        className={`xl:text-lg relative flex w-full items-center justify-between pr-4 cursor-pointer  dark:text-neutral-100 font-medium capitalize my-1`}
       >
         {group}
         {/* {showExpandButton && (
@@ -199,7 +199,7 @@ export const ItemsWithName = ({
             <Tooltip delayDuration={200}>
               <TooltipTrigger asChild>
                 <button
-                  className='h-7 w-7 rounded-md dark:bg-zinc-900 border bg-gray-100 grid place-content-center absolute top-0 right-3'
+                  className='h-7 w-7 rounded-md dark:bg-zinc-900 border bg-neutral-100 grid place-content-center absolute top-0 right-3'
                   onClick={() => setExpandedItems(!expandedItems)}
                 >
                   <ChevronsDown
@@ -211,7 +211,7 @@ export const ItemsWithName = ({
                   />
                 </button>
               </TooltipTrigger>
-              <TooltipContent className='dark:bg-primary-base bg-gray-50 text-primary border 2xl:text-base text-sm rounded-md px-2 py-1 -translate-y-1'>
+              <TooltipContent className='dark:bg-primary-base bg-neutral-50 text-primary border 2xl:text-base text-sm rounded-md px-2 py-1 -translate-y-1'>
                 <p className='capitalize'>
                   {expandedItems ? 'Collapse' : 'Expand'}
                 </p>

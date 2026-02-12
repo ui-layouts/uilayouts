@@ -42,14 +42,14 @@ export const TeamVR = () => {
       className="bg-neutral-950 min-h-screen py-24 px-6 overflow-hidden"
       ref={timelineRef}
     >
-      <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#292929_1px,transparent_1px),linear-gradient(to_bottom,#292929_1px,transparent_1px)] bg-[size:6rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
-      <div className="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(125%_125%_at_50%_10%,rgba(255,255,255,0)_40%,#ee33a6_100%)]"></div>
-      <div className="max-w-7xl mx-auto text-center">
+      <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#292929_1px,transparent_1px),linear-gradient(to_bottom,#292929_1px,transparent_1px)] bg-size-[6rem_4rem] mask-[radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)] pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(125%_125%_at_50%_10%,rgba(255,255,255,0)_40%,#ee33a6_100%)] pointer-events-none"></div>
+      <div className="max-w-7xl mx-auto text-center relative z-10">
         <TimelineAnimation
           timelineRef={timelineRef}
           animationNum={1}
           as="p"
-          className="text-gray-500 uppercase tracking-widest text-xs font-bold mb-4"
+          className="text-neutral-500 uppercase tracking-widest text-xs font-bold mb-4"
         >
           Meet the Team
         </TimelineAnimation>
@@ -62,7 +62,7 @@ export const TeamVR = () => {
           The Minds behind Social VR
         </TimelineAnimation>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 z-10 relative">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 ">
           {VR_TEAM.map((member, i) => (
             <TimelineAnimation
               key={member.id}
@@ -77,7 +77,7 @@ export const TeamVR = () => {
                 </div>
                 <img
                   src={member.image}
-                  className="absolute inset-0 w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 z-0"
+                  className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700 z-0"
                   alt={member.name}
                 />
               </div>
@@ -85,7 +85,7 @@ export const TeamVR = () => {
               <h3 className="font-spaceGrotesk text-white text-2xl font-bold mb-1 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-linear-to-r group-hover:from-[#FF0080] group-hover:to-[#FF8C00] transition-all duration-300">
                 {member.name}
               </h3>
-              <p className="text-gray-500 font-medium uppercase tracking-widest text-[10px] group-hover:text-gray-300 transition-colors">
+              <p className="text-neutral-500 font-medium uppercase tracking-widest text-[10px] group-hover:text-neutral-300 transition-colors">
                 {member.role}
               </p>
             </TimelineAnimation>

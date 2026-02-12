@@ -81,9 +81,9 @@ export function NavigationMenuDemo() {
         <NavigationMenuPrimitive.Item>
           <NavigationMenuPrimitive.Trigger
             className={cn(
-              'px-3 py-2 text-sm rounded-md hover:bg-gray-100 ',
+              'px-3 py-2 text-sm rounded-md hover:bg-neutral-100 ',
               'text-sm font-medium',
-              'text-gray-700 ',
+              'text-neutral-700 ',
               'focus:outline-hidden focus-visible:ring-3 focus-visible:ring-purple-500 focus-visible:ring-opacity-75'
             )}
           >
@@ -146,8 +146,8 @@ export function NavigationMenuDemo() {
           <NavigationMenuPrimitive.Link
             href='https://cursify.ui-layouts.com'
             className={cn(
-              'px-3 py-2 text-sm rounded-md hover:bg-gray-100',
-              'text-sm font-medium text-gray-700 '
+              'px-3 py-2 text-sm rounded-md hover:bg-neutral-100',
+              'text-sm font-medium text-neutral-700 '
             )}
           >
             Cursify

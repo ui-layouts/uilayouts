@@ -15,7 +15,7 @@ function index() {
           />
         </div>
         <div className='mx-auto -mt-52  w-screen max-w-2xl relative z-10'>
-          <div className='bg-white backdrop-blur-lg border border-gray-800 p-4  w-28 h-28 mx-auto grid place-content-center rounded-full'>
+          <div className='bg-white backdrop-blur-lg border border-neutral-800 p-4  w-28 h-28 mx-auto grid place-content-center rounded-full'>
             <div className=' w-12 h-12 translate-x-1 translate-y-1 mx-auto bg-black rounded-lg before:absolute relative before:w-full before:h-full before:bg-black/50 before:rounded-lg before:-top-2 before:-left-2'></div>
           </div>
         </div>

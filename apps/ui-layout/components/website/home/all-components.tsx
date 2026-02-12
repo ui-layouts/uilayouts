@@ -148,7 +148,7 @@ function AllComponents() {
                 >
                   <Link
                     href={component.link}
-                    className='absolute top-1 transition-all group-hover:opacity-100 opacity-0 text-[0.85rem] px-2 py-0.5 dark:bg-gray-800  bg-gray-200 right-2 z-10 rounded-md grid place-content-center cursor-pointer'
+                    className='absolute top-1 transition-all group-hover:opacity-100 opacity-0 text-[0.85rem] px-2 py-0.5 dark:bg-neutral-800  bg-neutral-200 right-2 z-10 rounded-md grid place-content-center cursor-pointer'
                   >
                     Preview
                   </Link>

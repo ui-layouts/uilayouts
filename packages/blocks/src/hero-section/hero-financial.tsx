@@ -244,7 +244,7 @@ export const HeroFinancial = () => {
           as="p"
           animationNum={3}
           timelineRef={timelineRef}
-          className="text-xl md:text-2xl text-gray-500 font-medium max-w-3xl mx-auto leading-relaxed px-4"
+          className="text-xl md:text-2xl text-neutral-500 font-medium max-w-3xl mx-auto leading-relaxed px-4"
         >
           Take control of your finances with Startive the next-generation
           finance software built to simplify, automate, and elevate your

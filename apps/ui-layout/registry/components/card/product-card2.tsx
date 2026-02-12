@@ -28,7 +28,7 @@ function Card2() {
 
   return (
     <div className='w-[350px] mx-auto '>
-      <div className='dark:bg-white bg-gray-100 rounded-md'>
+      <div className='dark:bg-white bg-neutral-100 rounded-md'>
         <div className='w-full h-52 relative'>
           <motion.button
             className='absolute top-2 right-2 z-20 text-2xl text-white '
@@ -112,7 +112,7 @@ function Card2() {
                   className={` relative w-6 h-6 border  rounded-full grid place-content-center transition-all ${
                     selectedColor === data.color
                       ? ' border-black'
-                      : 'border-gray-200'
+                      : 'border-neutral-200'
                   }`}
                 >
                   <span

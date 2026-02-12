@@ -28,7 +28,7 @@ const tabs = [
       'https://images.unsplash.com/photo-1693581176773-a5f2362209e6?q=80&w=1200&auto=format',
   },
 ];
-function index() {
+function ImageTabsStandalone() {
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
 
   const handleClick = async (index: number) => {
@@ -121,4 +121,4 @@ function index() {
   );
 }
 
-export default index;
+export default ImageTabsStandalone;

@@ -5,7 +5,11 @@ import React, { forwardRef, useRef } from 'react';
 import { AnimatedBeam, Circle } from '@/components/ui/animated-beam';
 import { Icons } from '@/components/ui/animated-beam';
 
-export default function index({ className }: { className?: string }) {
+export default function AnimatedBeamMultipleOutput({
+  className,
+}: {
+  className?: string;
+}) {
   const containerRef = useRef<HTMLDivElement>(null);
   const div1Ref = useRef<HTMLDivElement>(null);
   const div2Ref = useRef<HTMLDivElement>(null);

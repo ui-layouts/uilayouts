@@ -14,7 +14,7 @@ export default function Scene() {
   const aspect = device.width / device.height;
 
   return (
-    <div className='h-screen w-full relative bg-gray-950 text-white'>
+    <div className='h-screen w-full relative bg-neutral-950 text-white'>
       <Canvas>
         <OrthographicCamera
           makeDefault

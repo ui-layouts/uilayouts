@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "card-globe-white",
-  "type": "registry:component",
   "dependencies": [
     "cobe"
   ],
@@ -18,5 +17,6 @@
       "content": "import React from 'react';\r\nimport Earth from '@/components/ui/globe';\r\n\r\nfunction index() {\r\n  return (\r\n    <>\r\n      <div className='min-h-screen overflow-hidden bg-white text-white'>\r\n        <article className='max-w-[500px] overflow-hidden mx-auto mt-6 p-5 text-center   border rounded-lg relative h-[500px]'>\r\n          <div className='absolute top-0 left-0 z-[1] h-full w-full  bg-[radial-gradient(#83838352_1px,#ececec_1px)] bg-[size:20px_20px]'></div>\r\n          <div className='relative z-10 pt-4 h-full'>\r\n            <h1 className='sm:text-7xl text-5xl font-semibold bg-gradient-to-b from-[#202020] to-[#9c9c9c] bg-clip-text text-transparent leading-[100%] tracking-tighter'>\r\n              DESIGN A MASTERPIECE\r\n            </h1>\r\n            <Earth\r\n              mapBrightness={6}\r\n              dark={0}\r\n              baseColor={[1, 1, 1]}\r\n              glowColor={[1, 1, 1]}\r\n              className='sm:max-w-[800px] max-w-[1000px] absolute sm:bottom-auto -bottom-20 translate-y-4 sm:-right-20 -right-0 sm:h-[450px] h-[550px]'\r\n            />\r\n          </div>\r\n        </article>\r\n      </div>\r\n    </>\r\n  );\r\n}\r\n\r\nexport default index;\r\n",
       "type": "registry:component"
     }
-  ]
+  ],
+  "type": "registry:component"
 }

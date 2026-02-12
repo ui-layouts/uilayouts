@@ -45,7 +45,7 @@ export function MediaModal({ imgSrc, videoSrc, className }: IMediaModal) {
       <MotionConfig transition={transition}>
         <>
           <motion.div
-            className='w-full h-full flex relative flex-col overflow-hidden border cursor-zoom-in dark:bg-black bg-gray-300 hover:bg-gray-200 dark:hover:bg-gray-950'
+            className='w-full h-full flex relative flex-col overflow-hidden border cursor-zoom-in dark:bg-black bg-neutral-300 hover:bg-neutral-200 dark:hover:bg-neutral-950'
             layoutId={`dialog-${uniqueId}`}
             style={{
               borderRadius: '12px',
@@ -103,7 +103,7 @@ export function MediaModal({ imgSrc, videoSrc, className }: IMediaModal) {
               >
                 <motion.div
                   className={cn(
-                    'pointer-events-auto relative flex flex-col overflow-hidden dark:bg-gray-950 bg-gray-200 border w-[80%] h-[90%]',
+                    'pointer-events-auto relative flex flex-col overflow-hidden dark:bg-neutral-950 bg-neutral-200 border w-[80%] h-[90%]',
                     imgSrc && 'cursor-zoom-out'
                   )}
                   layoutId={`dialog-${uniqueId}`}
@@ -145,7 +145,7 @@ export function MediaModal({ imgSrc, videoSrc, className }: IMediaModal) {
                   {videoSrc && (
                     <button
                       onClick={() => setIsMediaModalOpen(false)}
-                      className='absolute right-6 top-6 p-3 text-zinc-50 cursor-pointer dark:bg-gray-900 bg-gray-400 hover:bg-gray-500 rounded-xl dark:hover:bg-gray-800'
+                      className='absolute right-6 top-6 p-3 text-zinc-50 cursor-pointer dark:bg-neutral-900 bg-neutral-400 hover:bg-neutral-500 rounded-xl dark:hover:bg-neutral-800'
                       type='button'
                       aria-label='Close dialog'
                     >

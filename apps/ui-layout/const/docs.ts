@@ -28,7 +28,7 @@ export const DOCS_CATEGORY_KEY = {
   'mesh-gradients': 'mesh-gradients',
   'blur-vignette': 'blur-vignette',
   'motion-number': 'motion-number',
-  'uilayouts-github-button': 'uilayouts-github-button',
+  'liquid-button': 'liquid-button',
   'liquid-gradient': 'liquid-gradient',
   'range-slider': 'range-slider',
   password: 'password',
@@ -200,6 +200,7 @@ export const COMPONENT_KEYS = {
   IMAGE_REVEAL2: 'image-reveal2',
   UILAYOUTS_GITHUB_BUTTON: 'uilayouts-github-button',
   LIQUID_GRADIENT: 'liquid-gradient',
+  LIQUID_BUTTON: 'liquid-button',
   BLUR_VIGNETTE_VIDEO: 'blur-vignette-video',
   BLUR_VIGNETTE_IMG: 'blur-vignette-img',
   BLUR_VIGNETTE_CARD: 'blur-vignette-card',
@@ -248,8 +249,8 @@ export const COMPONENT_KEYS = {
 
   // TextAnimation category
   TEXT_SCROLL_ANIMATION: 'text-scroll-animation',
-  SCROLL_TEXT_MARQUEE: 'scroll-text-marquee-unidirectional',
-  SCROLL_TEXT_MARQUEE2: 'scroll-text-marquee-bidirectional',
+  SCROLL_TEXT_MARQUEE_UNIDIRECTIONAL: 'scroll-text-marquee-unidirectional',
+  SCROLL_TEXT_MARQUEE_BIDIRECTIONAL: 'scroll-text-marquee-bidirectional',
   RANDOMIZED_TEXT_UNVEIL: 'randomized-text-unveil',
 
   // Scroll category

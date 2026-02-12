@@ -1,3 +1,4 @@
+'use client';
 import { Marquee } from '@/components/ui/marquee';
 
 const logos = [
@@ -29,7 +30,7 @@ const logos = [
 
 const Marquee3D = () => {
   return (
-    <div className='relative flex h-full w-96 mx-auto flex-col items-center justify-center gap-4 overflow-hidden rounded-lg border dark:bg-neutral-800 bg-neutral-50 px-20 md:shadow-xl'>
+    <div className='relative flex h-full w-96 mx-auto flex-col items-center justify-center gap-4 overflow-hidden rounded-lg dark:bg-neutral-800 bg-neutral-50 px-10'>
       <div className='flex flex-row gap-4 perspective-near'>
         <Marquee
           className='h-96 justify-center overflow-hidden [--duration:60s] [--gap:1rem]'
@@ -50,8 +51,8 @@ const Marquee3D = () => {
         </Marquee>
       </div>
 
-      <div className='pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-linear-to-r from-white dark:from-background'></div>
-      <div className='pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-linear-to-l from-white dark:from-background'></div>
+      <div className='pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-linear-to-r from-white dark:from-neutral-900'></div>
+      <div className='pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-linear-to-l from-white dark:from-neutral-900'></div>
     </div>
   );
 };

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "feature-highlights",
+  "dependencies": [
+    "motion"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "../../packages/blocks/src/feature-section/feature-highlights.tsx",
+      "content": "'use client'\r\nimport React from 'react'\r\nimport { Layout, Box, BookOpen, ArrowRight } from 'lucide-react'\r\n\r\nconst darkFeatures = [\r\n  {\r\n    icon: Layout,\r\n    title: 'Pixel Perfect Layout',\r\n    desc: 'All the sections are perfectly designed with pixel perfect grids and layouts. Everything you see is responsive for all devices.',\r\n  },\r\n  {\r\n    icon: Box,\r\n    title: 'Editable Components',\r\n    desc: 'With the help of variables, everything is under your control. Just click the component and start changing everything but not anything.',\r\n  },\r\n  {\r\n    icon: BookOpen,\r\n    title: 'Scalable Library',\r\n    desc: 'Since each component is custom made, you can easily scale your library with new components, icons, colors, etc.',\r\n  },\r\n]\r\n\r\nexport const FeatureHighlights = () => {\r\n  return (\r\n    <section className=\"bg-black py-32 px-6 min-h-screen font-dmSans\">\r\n      <div className=\"max-w-7xl mx-auto\">\r\n        <span className=\"text-pink-500 text-sm font-bold uppercase tracking-widest block mb-6\">\r\n          Key Highlights\r\n        </span>\r\n        <h2 className=\"text-white text-5xl font-bold mb-20 text-balance tracking-tight\">\r\n          Why Toast only?\r\n        </h2>\r\n\r\n        <div className=\"grid grid-cols-1 md:grid-cols-3 gap-8\">\r\n          {darkFeatures.map((f, i) => (\r\n            <div\r\n              key={i}\r\n              className=\"group p-8 border border-neutral-800 rounded-xl hover:bg-neutral-900 bg-neutral-950 transition-all duration-300\"\r\n            >\r\n              <div className=\"size-10 flex items-center justify-center mb-10 text-pink-500\">\r\n                <f.icon className=\"size-8\" />\r\n              </div>\r\n              <h3 className=\"text-2xl font-bold text-white mb-4 tracking-tight\">\r\n                {f.title}\r\n              </h3>\r\n              <p className=\"text-slate-400 leading-relaxed mb-10 text-pretty\">\r\n                {f.desc}\r\n              </p>\r\n              <button className=\"flex items-center gap-2 text-slate-300 group-hover:text-pink-500 transition-colors font-medium\">\r\n                Learn more <ArrowRight className=\"size-4\" />\r\n              </button>\r\n            </div>\r\n          ))}\r\n        </div>\r\n      </div>\r\n    </section>\r\n  )\r\n}\r\n",
+      "type": "registry:block"
+    },
+    {
+      "path": "./components/ui/timeline-animation.tsx",
+      "content": "import { type HTMLMotionProps, motion, useInView } from 'motion/react';\r\nimport type React from 'react';\r\nimport type { Variants } from 'motion/react';\r\n\r\ntype TimelineContentProps<T extends keyof HTMLElementTagNameMap> = {\r\n  children?: React.ReactNode;\r\n  animationNum: number;\r\n  className?: string;\r\n  timelineRef: React.RefObject<HTMLElement | null>;\r\n  as?: T;\r\n  customVariants?: Variants;\r\n  once?: boolean;\r\n} & HTMLMotionProps<T>;\r\n\r\nexport const TimelineAnimation = <\r\n  T extends keyof HTMLElementTagNameMap = 'div',\r\n>({\r\n  children,\r\n  animationNum,\r\n  timelineRef,\r\n  className,\r\n  as,\r\n  customVariants,\r\n  once = true,\r\n  ...props\r\n}: TimelineContentProps<T>) => {\r\n  const defaultSequenceVariants = {\r\n    visible: (i: number) => ({\r\n      filter: 'blur(0px)',\r\n      y: 0,\r\n      opacity: 1,\r\n      transition: {\r\n        delay: i * 0.5,\r\n        duration: 0.5,\r\n      },\r\n    }),\r\n    hidden: {\r\n      filter: 'blur(20px)',\r\n      y: 0,\r\n      opacity: 0,\r\n    },\r\n  };\r\n\r\n  const sequenceVariants = customVariants || defaultSequenceVariants;\r\n\r\n  const isInView = useInView(timelineRef, {\r\n    once,\r\n  });\r\n\r\n  const MotionComponent = motion[as || 'div'] as React.ElementType;\r\n\r\n  return (\r\n    <MotionComponent\r\n      initial='hidden'\r\n      animate={isInView ? 'visible' : 'hidden'}\r\n      custom={animationNum}\r\n      variants={sequenceVariants}\r\n      className={className}\r\n      {...props}\r\n    >\r\n      {children}\r\n    </MotionComponent>\r\n  );\r\n};\r\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:block"
+}

@@ -205,7 +205,7 @@ const Footer = () => {
               </ul>
             </div>
           </div>
-          <div className='border-y-2 md:py-4 border-gray-200'>
+          <div className='border-y-2 md:py-4 border-neutral-200'>
             <motion.svg
               width='776'
               ref={ref}

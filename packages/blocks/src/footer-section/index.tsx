@@ -1,0 +1,7 @@
+export * from './footer-simple'
+export * from './footer-privilege'
+export * from './footer-bento'
+export * from './footer-bold'
+export * from './footer-detailed'
+export * from './footer-minimal'
+export * from './hero-footer'

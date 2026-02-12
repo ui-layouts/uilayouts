@@ -41,7 +41,7 @@ export const HeroAiValueProposition = () => {
           </span>
         </div>
 
-        <button className="bg-white border border-gray-100 text-gray-500 px-4 py-2.5 rounded-full font-bold text-sm shadow-sm hover:text-black hover:border-gray-300 transition-all cursor-pointer">
+        <button className="bg-white border border-neutral-100 text-neutral-500 px-4 py-2.5 rounded-full font-bold text-sm shadow-sm hover:text-black hover:border-neutral-300 transition-all cursor-pointer">
           Sign in
         </button>
       </TimelineAnimation>
@@ -65,7 +65,7 @@ export const HeroAiValueProposition = () => {
               as="p"
               animationNum={3}
               timelineRef={timelineRef}
-              className="text-gray-400 text-lg md:text-xl max-w-4xl font-medium leading-relaxed"
+              className="text-neutral-400 text-lg md:text-xl max-w-4xl font-medium leading-relaxed"
             >
               Turn rough ideas into clear, structured project briefs in seconds.
               Let AI handle the planning so you can focus on design, creativity,
@@ -91,7 +91,7 @@ export const HeroAiValueProposition = () => {
                 as="p"
                 animationNum={5}
                 timelineRef={timelineRef}
-                className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em]"
+                className="text-[10px] font-bold text-neutral-400 uppercase tracking-[0.2em]"
               >
                 Join 80,000+ designers
               </TimelineAnimation>
@@ -152,27 +152,27 @@ export const HeroAiValueProposition = () => {
                   once={true}
                   animationNum={11}
                   timelineRef={timelineRef}
-                  className="absolute -top-8 left-16 -z-2 bg-neutral-100 border border-gray-100/50 w-[85%] h-full rounded-t-4xl"
+                  className="absolute -top-8 left-16 -z-2 bg-neutral-100 border border-neutral-100/50 w-[85%] h-full rounded-t-4xl"
                 />
                 <TimelineAnimation
                   once={true}
                   animationNum={12}
                   timelineRef={timelineRef}
-                  className="absolute -top-4 left-5 -z-2 bg-neutral-50 border border-gray-100/50 w-[95%] h-full rounded-t-4xl"
+                  className="absolute -top-4 left-5 -z-2 bg-neutral-50 border border-neutral-100/50 w-[95%] h-full rounded-t-4xl"
                 />
                 {/* Internal Layout */}
                 <TimelineAnimation
                   once={true}
                   animationNum={10}
                   timelineRef={timelineRef}
-                  className="flex flex-col gap-12 bg-white backdrop-blur-md border border-gray-100/50 rounded-t-4xl p-12"
+                  className="flex flex-col gap-12 bg-white backdrop-blur-md border border-neutral-100/50 rounded-t-4xl p-12"
                 >
                   {/* Breadcrumbs & Profile */}
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-4">
                       <div className="w-3 h-3 bg-emerald-500 rounded-full"></div>
                       <div className="flex items-center gap-2 text-sm">
-                        <span className="text-gray-400 font-medium">
+                        <span className="text-neutral-400 font-medium">
                           My briefs /
                         </span>
                         <span className="font-bold text-slate-800">
@@ -181,7 +181,7 @@ export const HeroAiValueProposition = () => {
                       </div>
                     </div>
                     <div className="flex items-center gap-4">
-                      <div className="w-16 h-4 bg-gray-50 rounded-full"></div>
+                      <div className="w-16 h-4 bg-neutral-50 rounded-full"></div>
                       <img
                         src="https://picsum.photos/seed/bb-avatar/100"
                         className="w-10 h-10 rounded-full border-2 border-white shadow-sm"
@@ -198,9 +198,9 @@ export const HeroAiValueProposition = () => {
                           Introduction
                         </p>
                         <div className="space-y-3">
-                          <div className="w-full h-2.5 bg-gray-50 rounded-full"></div>
-                          <div className="w-[95%] h-2.5 bg-gray-50 rounded-full"></div>
-                          <div className="w-[90%] h-2.5 bg-gray-50 rounded-full"></div>
+                          <div className="w-full h-2.5 bg-neutral-50 rounded-full"></div>
+                          <div className="w-[95%] h-2.5 bg-neutral-50 rounded-full"></div>
+                          <div className="w-[90%] h-2.5 bg-neutral-50 rounded-full"></div>
                         </div>
                       </div>
 
@@ -229,7 +229,7 @@ export const HeroAiValueProposition = () => {
                         once={true}
                         animationNum={13}
                         timelineRef={timelineRef}
-                        className="bg-[#fcfcfc] p-8 rounded-4xl border border-gray-100 shadow-sm"
+                        className="bg-[#fcfcfc] p-8 rounded-4xl border border-neutral-100 shadow-sm"
                       >
                         <p className="text-[11px] font-bold text-slate-900 mb-8 uppercase tracking-widest">
                           What type of project?
@@ -259,9 +259,9 @@ export const HeroAiValueProposition = () => {
                             once={true}
                             animationNum={15}
                             timelineRef={timelineRef}
-                            className="bg-white/80 p-5 rounded-2xl border border-gray-100 flex flex-col gap-4 opacity-80 grayscale hover:grayscale-0 hover:opacity-100 transition-all cursor-pointer"
+                            className="bg-white/80 p-5 rounded-2xl border border-neutral-100 flex flex-col gap-4 opacity-80 grayscale hover:grayscale-0 hover:opacity-100 transition-all cursor-pointer"
                           >
-                            <div className="w-10 h-10 bg-gray-100 text-gray-400 rounded-xl flex items-center justify-center">
+                            <div className="w-10 h-10 bg-neutral-100 text-neutral-400 rounded-xl flex items-center justify-center">
                               <PenTool size={20} />
                             </div>
                             <p className="text-[11px] font-bold text-slate-900">
@@ -272,9 +272,9 @@ export const HeroAiValueProposition = () => {
                             once={true}
                             animationNum={16}
                             timelineRef={timelineRef}
-                            className="bg-white/80 p-5 rounded-2xl border border-gray-100 flex flex-col gap-4 opacity-80 grayscale hover:grayscale-0 hover:opacity-100 transition-all cursor-pointer"
+                            className="bg-white/80 p-5 rounded-2xl border border-neutral-100 flex flex-col gap-4 opacity-80 grayscale hover:grayscale-0 hover:opacity-100 transition-all cursor-pointer"
                           >
-                            <div className="w-10 h-10 bg-gray-100 text-gray-400 rounded-xl flex items-center justify-center">
+                            <div className="w-10 h-10 bg-neutral-100 text-neutral-400 rounded-xl flex items-center justify-center">
                               <Smartphone size={20} />
                             </div>
                             <p className="text-[11px] font-bold text-slate-900">
@@ -285,9 +285,9 @@ export const HeroAiValueProposition = () => {
                             once={true}
                             animationNum={17}
                             timelineRef={timelineRef}
-                            className="bg-white/80 p-5 rounded-2xl border border-gray-100 flex flex-col gap-4 opacity-80 grayscale hover:grayscale-0 hover:opacity-100 transition-all cursor-pointer"
+                            className="bg-white/80 p-5 rounded-2xl border border-neutral-100 flex flex-col gap-4 opacity-80 grayscale hover:grayscale-0 hover:opacity-100 transition-all cursor-pointer"
                           >
-                            <div className="w-10 h-10 bg-gray-100 text-gray-400 rounded-xl flex items-center justify-center">
+                            <div className="w-10 h-10 bg-neutral-100 text-neutral-400 rounded-xl flex items-center justify-center">
                               <Layout size={20} />
                             </div>
                             <p className="text-[11px] font-bold text-slate-900">

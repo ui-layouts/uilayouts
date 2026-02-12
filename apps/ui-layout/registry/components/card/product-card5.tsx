@@ -19,7 +19,7 @@ function Card() {
 
   return (
     <div className='w-[350px] mx-auto '>
-      <div className='dark:bg-white bg-gray-100 rounded-md p-2'>
+      <div className='dark:bg-white bg-neutral-100 rounded-md p-2'>
         <div className='w-full h-52 relative'>
           <motion.button
             className='absolute top-2 right-2 z-20 text-2xl text-white'
@@ -61,8 +61,8 @@ function Card() {
               {sizes.map((size) => (
                 <motion.span
                   key={size}
-                  className={`border cursor-pointer hover:bg-gray-800 hover:text-white w-8 grid place-content-center h-8 rounded-md ${
-                    selectedSize === size ? 'bg-gray-800 text-white' : ''
+                  className={`border cursor-pointer hover:bg-neutral-800 hover:text-white w-8 grid place-content-center h-8 rounded-md ${
+                    selectedSize === size ? 'bg-neutral-800 text-white' : ''
                   }`}
                   onClick={() => handleSelectSize(size)}
                   whileHover={{ scale: 1.1 }}

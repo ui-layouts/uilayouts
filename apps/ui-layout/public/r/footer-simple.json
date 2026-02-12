@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "footer-simple",
+  "dependencies": [
+    "motion"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "../../packages/blocks/src/footer-section/footer-simple.tsx",
+      "content": "import React from 'react'\r\n\r\nexport const FooterSimple = () => {\r\n  return (\r\n    <footer className=\"bg-white text-black px-6 py-20 min-h-screen\">\r\n      <div className=\"max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12\">\r\n        <div className=\"space-y-6\">\r\n          <div className=\"text-2xl font-bold\">UI-LAYOUTS.</div>\r\n          <p className=\"text-zinc-500 max-w-xs text-pretty\">\r\n            Redefining the digital frontier with elegance and precision.\r\n          </p>\r\n        </div>\r\n\r\n        <div className=\"grid grid-cols-2 sm:grid-cols-3 gap-16\">\r\n          <div className=\"space-y-4\">\r\n            <div className=\"font-bold text-sm uppercase tracking-widest text-zinc-400\">\r\n              Social\r\n            </div>\r\n            <div className=\"flex flex-col gap-2 text-sm text-zinc-600\">\r\n              <a href=\"#\" className=\"hover:text-black\">\r\n                Twitter\r\n              </a>\r\n              <a href=\"#\" className=\"hover:text-black\">\r\n                LinkedIn\r\n              </a>\r\n              <a href=\"#\" className=\"hover:text-black\">\r\n                Instagram\r\n              </a>\r\n            </div>\r\n          </div>\r\n          <div className=\"space-y-4\">\r\n            <div className=\"font-bold text-sm uppercase tracking-widest text-zinc-400\">\r\n              Legal\r\n            </div>\r\n            <div className=\"flex flex-col gap-2 text-sm text-zinc-600\">\r\n              <a href=\"#\" className=\"hover:text-black\">\r\n                Privacy\r\n              </a>\r\n              <a href=\"#\" className=\"hover:text-black\">\r\n                Terms\r\n              </a>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div className=\"max-w-7xl mx-auto mt-20 pt-8 border-t border-zinc-50 text-xs text-zinc-400 flex justify-between\">\r\n        <span>&copy; 2026 UI-Layouts. All rights reserved.</span>\r\n        <span>Made with Precision.</span>\r\n      </div>\r\n    </footer>\r\n  )\r\n}\r\n",
+      "type": "registry:block"
+    },
+    {
+      "path": "./components/ui/timeline-animation.tsx",
+      "content": "import { type HTMLMotionProps, motion, useInView } from 'motion/react';\r\nimport type React from 'react';\r\nimport type { Variants } from 'motion/react';\r\n\r\ntype TimelineContentProps<T extends keyof HTMLElementTagNameMap> = {\r\n  children?: React.ReactNode;\r\n  animationNum: number;\r\n  className?: string;\r\n  timelineRef: React.RefObject<HTMLElement | null>;\r\n  as?: T;\r\n  customVariants?: Variants;\r\n  once?: boolean;\r\n} & HTMLMotionProps<T>;\r\n\r\nexport const TimelineAnimation = <\r\n  T extends keyof HTMLElementTagNameMap = 'div',\r\n>({\r\n  children,\r\n  animationNum,\r\n  timelineRef,\r\n  className,\r\n  as,\r\n  customVariants,\r\n  once = true,\r\n  ...props\r\n}: TimelineContentProps<T>) => {\r\n  const defaultSequenceVariants = {\r\n    visible: (i: number) => ({\r\n      filter: 'blur(0px)',\r\n      y: 0,\r\n      opacity: 1,\r\n      transition: {\r\n        delay: i * 0.5,\r\n        duration: 0.5,\r\n      },\r\n    }),\r\n    hidden: {\r\n      filter: 'blur(20px)',\r\n      y: 0,\r\n      opacity: 0,\r\n    },\r\n  };\r\n\r\n  const sequenceVariants = customVariants || defaultSequenceVariants;\r\n\r\n  const isInView = useInView(timelineRef, {\r\n    once,\r\n  });\r\n\r\n  const MotionComponent = motion[as || 'div'] as React.ElementType;\r\n\r\n  return (\r\n    <MotionComponent\r\n      initial='hidden'\r\n      animate={isInView ? 'visible' : 'hidden'}\r\n      custom={animationNum}\r\n      variants={sequenceVariants}\r\n      className={className}\r\n      {...props}\r\n    >\r\n      {children}\r\n    </MotionComponent>\r\n  );\r\n};\r\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:block"
+}

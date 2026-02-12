@@ -18,12 +18,7 @@ export default async function CodeSnippets({
 
   return (
     <>
-      <PreCode
-        codeblock={codeContent}
-        classname={classname}
-        // tabclassname={tabclassname}
-        // copyclass={copyclass}
-      />
+      <PreCode codeblock={codeContent} classname={classname} />
     </>
   );
 }

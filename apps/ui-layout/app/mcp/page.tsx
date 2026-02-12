@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   authors: [
     {
       name: 'Naymur Rahman',
-      url: 'https://naymur-rahman.com/',
+      url: 'https://naymur.com/',
     },
   ],
   creator: 'naymur',

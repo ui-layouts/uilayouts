@@ -62,7 +62,7 @@ export const DragHandle = ({ className }: { className?: string }) => {
     <div
       data-swapy-handle
       className={cn(
-        'absolute top-2 left-2 cursor-grab  text-gray-500  rounded-md bg-transparent  active:cursor-grabbing  ',
+        'absolute top-2 left-2 cursor-grab  text-neutral-500  rounded-md bg-transparent  active:cursor-grabbing  ',
         className
       )}
     >

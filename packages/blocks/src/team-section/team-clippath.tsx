@@ -52,7 +52,7 @@ export function TeamClipPath() {
           as="h1"
           animationNum={0}
           timelineRef={timelineRef}
-          className="text-5xl font-semibold text-gray-900 mb-4 text-center"
+          className="text-5xl font-semibold text-neutral-900 mb-4 text-center"
         >
           Meet Our Team
         </TimelineAnimation>
@@ -60,7 +60,7 @@ export function TeamClipPath() {
           as="p"
           animationNum={1}
           timelineRef={timelineRef}
-          className="text-gray-600 mb-2 text-center"
+          className="text-neutral-600 mb-2 text-center"
         >
           We lead with care — our core value — and a shared passion for
           connecting the world.

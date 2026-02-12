@@ -94,7 +94,7 @@ export const FaqInteractivePreview = () => {
         timelineRef={timelineRef}
         animationNum={0}
         as="h1"
-        className="text-2xl sm:text-3xl font-medium text-gray-900 mb-10 text-center"
+        className="text-2xl sm:text-3xl font-medium text-neutral-900 mb-10 text-center"
       >
         Frequently Asked Questions
       </TimelineAnimation>

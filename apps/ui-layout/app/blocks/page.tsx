@@ -1,85 +1,249 @@
-'use client';
+import { getMinimalBlocksBySection } from '@/blocks-docs';
+import BlocksHomeClient from '@/components/website/blocks-components/blocks-page';
+import { siteConfig } from '@/lib/utils';
+import { Metadata } from 'next';
 
-import Link from 'next/link';
-import * as AspectRatio from '@radix-ui/react-aspect-ratio';
-import Image from 'next/image';
-import { cn } from '@/lib/utils';
-import Footer from '@/components/website/footer';
-import { blocksDesign } from '@/blocks-docs';
-
+export const metadata: Metadata = {
+  title: {
+    default: 'Blocks | UI-Layouts',
+    template: `%s - ${siteConfig.blocksName}`,
+  },
+  metadataBase: new URL(siteConfig.url),
+  description: siteConfig.blocksDescription,
+  keywords: [
+    'React blocks',
+    'Next.js blocks',
+    'UI blocks',
+    'Tailwind CSS blocks',
+    'shadcn ui blocks',
+    'React components',
+    'Next.js components',
+    'UI components',
+    'web components',
+    'frontend components',
+    'React UI kit',
+    'Next.js UI kit',
+    'Tailwind CSS components',
+    'shadcn components',
+    'Framer Motion',
+    'React animations',
+    'web animations',
+    'scroll animations',
+    'parallax effects',
+    'interactive components',
+    'responsive design',
+    'modern UI',
+    'landing page blocks',
+    'hero sections',
+    'feature sections',
+    'about sections',
+    'footer components',
+    'header components',
+    'card components',
+    'pricing sections',
+    'team sections',
+    'testimonials',
+    'contact forms',
+    'navigation components',
+    'sidebar components',
+    'carousel components',
+    'slider components',
+    'modal components',
+    'dropdown components',
+    'accordion components',
+    'tabs components',
+    'button components',
+    'form components',
+    'layout components',
+    'grid layouts',
+    'flex layouts',
+    'dark mode',
+    'light mode',
+    'responsive design',
+    'mobile first',
+    'accessibility',
+    'WCAG compliant',
+    'SEO friendly',
+    'performance optimized',
+    'clean code',
+    'modern React',
+    'Next.js 15',
+    'React 19',
+    'TypeScript components',
+    'JavaScript components',
+    'open source',
+    'free components',
+    'MIT license',
+    'copy paste',
+    'ready to use',
+    'production ready',
+    'enterprise ready',
+    'startup UI',
+    'SaaS UI',
+    'dashboard blocks',
+    'portfolio blocks',
+    'blog components',
+    'ecommerce components',
+    'marketing components',
+    'business website',
+    'agency website',
+    'portfolio website',
+    'personal website',
+    'startup website',
+    'web development',
+    'frontend development',
+    'UI design',
+    'UX design',
+    'component library',
+    'design system',
+    'UI framework',
+    'CSS framework',
+    'React framework',
+    'Next.js framework',
+    'modern web development',
+    'web design',
+    'interface design',
+    'user interface',
+    'user experience',
+    'web components',
+    'custom components',
+    'reusable components',
+    'modular design',
+    'component architecture',
+    'scalable UI',
+    'maintainable code',
+    'best practices',
+    'industry standards',
+    'professional UI',
+    'high quality components',
+    'premium components',
+    'free UI kit',
+    'component marketplace',
+    'UI templates',
+    'web templates',
+    'React templates',
+    'Next.js templates',
+    'Tailwind templates',
+    'shadcn templates',
+    'UI blocks',
+    'section blocks',
+    'page sections',
+    'website sections',
+    'landing page sections',
+    'pre-built sections',
+    'UI sections',
+    'web sections',
+    'component sections',
+    'design blocks',
+    'layout blocks',
+    'content blocks',
+    'feature blocks',
+    'hero blocks',
+    'CTA blocks',
+    'testimonial blocks',
+    'pricing blocks',
+    'team blocks',
+    'about blocks',
+    'contact blocks',
+    'footer blocks',
+    'header blocks',
+    'navigation blocks',
+    'card blocks',
+    'form blocks',
+    'gallery blocks',
+    'portfolio blocks',
+    'blog blocks',
+    'ecommerce blocks',
+    'dashboard blocks',
+    'admin blocks',
+    'SaaS blocks',
+    'startup blocks',
+    'business blocks',
+    'agency blocks',
+    'creative blocks',
+    'modern blocks',
+    'minimal blocks',
+    'clean blocks',
+    'professional blocks',
+    'corporate blocks',
+    'enterprise blocks',
+  ],
+  authors: [
+    {
+      name: 'naymur rahman',
+      url: 'https://naymur.com/',
+    },
+  ],
+  creator: 'naymur',
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: siteConfig.blocksUrl,
+    title: siteConfig.blocksName,
+    description: siteConfig.blocksDescription,
+    siteName: siteConfig.name,
+    images: [
+      {
+        url: siteConfig.BlocksOgImage,
+        width: 1200,
+        height: 630,
+        alt: siteConfig.blocksName,
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: siteConfig.blocksName,
+    description: siteConfig.blocksDescription,
+    images: [siteConfig.BlocksOgImage],
+    creator: '@naymur_dev',
+    site: '@naymur_dev',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: 'google-site-verification-code',
+    yandex: 'yandex-verification-code',
+    yahoo: 'yahoo-site-verification-code',
+  },
+  alternates: {
+    canonical: siteConfig.blocksUrl,
+    languages: {
+      'en-US': siteConfig.blocksUrl,
+      'en-GB': siteConfig.blocksUrl,
+    },
+  },
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon-16x16.png',
+    apple: '/apple-touch-icon.png',
+  },
+  manifest: `${siteConfig.url}/site.webmanifest`,
+  other: {
+    'theme-color': '#000000',
+    'msapplication-TileColor': '#000000',
+    'apple-mobile-web-app-title': 'UI-Layouts Blocks',
+    'application-name': 'UI-Layouts Blocks',
+    'msapplication-config': '/browserconfig.xml',
+  },
+  category: 'technology',
+  classification: 'Web Development',
+  referrer: 'origin-when-cross-origin',
+};
 export default function BlocksHome() {
+  const blocksData = getMinimalBlocksBySection();
   return (
     <>
-      <div className='pt-36 pb-5 max-w-screen-2xl mx-auto min-h-screen border-x'>
-        <article className='w-fit mx-auto max-w-4xl text-center space-y-4 pb-10'>
-          <h1 className='text-6xl leading-[100%]'>
-            Build Faster with{' '}
-            <span className='font-semibold bg-linear-to-r from-red-500 to-orange-500 bg-clip-text text-transparent'>
-              Premium
-            </span>{' '}
-            Quality{' '}
-            <span className='font-semibold bg-linear-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent'>
-              Blocks
-            </span>{' '}
-            For Free.
-          </h1>
-          <p className='text-xl max-w-2xl mx-auto'>
-            Beautifully designed Sections that you can copy and paste into your
-            apps. Accessible. Customizable. Open Source.
-          </p>
-        </article>
-        <div
-          className={cn(
-            'border-y dark:border-neutral-800 dark:bg-neutral-900 bg-white h-10',
-            'dark:bg-[repeating-linear-gradient(135deg,#1f1f1f_0px_1px,transparent_1px_10px)] bg-[repeating-linear-gradient(135deg,#f0f0f0_0px_1px,transparent_1px_10px)]'
-          )}
-        ></div>
-        <div className='grid md:grid-cols-3 grid-cols-2'>
-          {blocksDesign.map((component, index) => {
-            // console.log(
-            //   'checking blocks data',
-            //   component?.blocks?.length,
-            //   component.name
-            // );
-
-            return (
-              <>
-                <Link
-                  href={component?.url}
-                  className='relative transition-all p-4 hover:bg-neutral-100
-                  '
-                >
-                  <>
-                    {component?.imgSrc && (
-                      <AspectRatio.Root ratio={16 / 9}>
-                        <Image
-                          src={component.imgSrc}
-                          alt='hero-sec'
-                          width={400}
-                          height={400}
-                          className={cn(
-                            'w-full object-cover h-full rounded-md absolute top-0 left-0',
-                            component.imgclass
-                          )}
-                        />
-                      </AspectRatio.Root>
-                    )}
-                  </>
-                  <div className='sm:py-2 py-1'>
-                    <h1 className='2xl:text-3xl xl:text-2xl md:text-xl text-lg font-medium leading-[140%] capitalize'>
-                      {component.name}*
-                    </h1>
-                    <h1 className='2xl:text-xl xl:text-xl md:text-lg text-sm font-medium leading-[140%] capitalize opacity-70'>
-                      {component?.blocks?.length} Blocks
-                    </h1>
-                  </div>
-                </Link>
-              </>
-            );
-          })}
-        </div>
-        <Footer />
-      </div>
+      <BlocksHomeClient blocksData={blocksData} />
     </>
   );
 }

@@ -44,7 +44,7 @@ export default function NotFound() {
     <div className='h-screen flex flex-col justify-center w-4/5 mx-auto  2xl:text-2xl'>
       <p className='text-left'>
         Could not find{' '}
-        <code className=' dark:bg-primary-foreground bg-gray-100 border text-primary rounded-md p-2 text-lg'>
+        <code className=' dark:bg-primary-foreground bg-neutral-100 border text-primary rounded-md p-2 text-lg'>
           {lastSegment}
         </code>{' '}
       </p>

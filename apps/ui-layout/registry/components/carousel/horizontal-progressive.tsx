@@ -60,7 +60,7 @@ export default function index() {
               className='text-left  p-3 border-r'
               progressBarClass='dark:bg-black bg-white h-full'
             >
-              <h2 className='relative px-4 rounded-full w-fit dark:bg-white dark:text-black text-white bg-gray-900 mb-2'>
+              <h2 className='relative px-4 rounded-full w-fit dark:bg-white dark:text-black text-white bg-neutral-900 mb-2'>
                 {item.title}
               </h2>
               <p className='text-sm font-medium  line-clamp-2'>{item.desc}</p>

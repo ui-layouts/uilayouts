@@ -57,7 +57,7 @@ export const TeamTroops = () => {
           timelineRef={timelineRef}
           animationNum={2}
           as="p"
-          className="max-w-2xl mx-auto text-gray-500 text-lg"
+          className="max-w-2xl mx-auto text-neutral-500 text-lg"
         >
           Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
           posuere cubilia curae; Ut fringilla orci vel lacus suscipit
@@ -84,7 +84,7 @@ export const TeamTroops = () => {
               <h4 className="text-blue-600 md:text-base text-2xl font-bold whitespace-nowrap font-spaceGrotesk">
                 {TROOPS[i]?.name}
               </h4>
-              <p className="text-gray-400 text-sm whitespace-nowrap">
+              <p className="text-neutral-400 text-sm whitespace-nowrap">
                 {TROOPS[i]?.role}
               </p>
             </div>

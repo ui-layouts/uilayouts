@@ -1,41 +1,41 @@
 // @ts-nocheck
-'use client'
+'use client';
 
 // https://buildui.com/recipes/spotlight
 
-import { cn } from '@/lib/utils'
-import Image from 'next/image'
-import React, { MouseEvent, useRef, useState } from 'react'
+import { cn } from '@/lib/utils';
+import Image from 'next/image';
+import React, { MouseEvent, useRef, useState } from 'react';
 
 export default function index() {
-  const boxWrapper = useRef(null)
-  const [isHovered, setIsHovered] = useState(false)
+  const boxWrapper = useRef(null);
+  const [isHovered, setIsHovered] = useState(false);
   const [mousePosition, setMousePosition] = React.useState({
     x: null,
     y: null,
-  })
+  });
   React.useEffect(() => {
     const updateMousePosition = (ev: { clientX: any; clientY: any }) => {
-      setMousePosition({ x: ev.clientX, y: ev.clientY })
-    }
-    window.addEventListener('mousemove', updateMousePosition)
+      setMousePosition({ x: ev.clientX, y: ev.clientY });
+    };
+    window.addEventListener('mousemove', updateMousePosition);
     return () => {
-      window.removeEventListener('mousemove', updateMousePosition)
-    }
-  }, [])
+      window.removeEventListener('mousemove', updateMousePosition);
+    };
+  }, []);
 
-  const [overlayColor, setOverlayColor] = useState({ x: 0, y: 0 })
+  const [overlayColor, setOverlayColor] = useState({ x: 0, y: 0 });
   const handleMouemove = ({ currentTarget, clientX, clientY }): MouseEvent => {
-    let { left, top } = currentTarget.getBoundingClientRect()
+    let { left, top } = currentTarget.getBoundingClientRect();
 
-    const x = clientX - left
-    const y = clientY - top
+    const x = clientX - left;
+    const y = clientY - top;
 
-    setOverlayColor({ x, y })
-  }
+    setOverlayColor({ x, y });
+  };
 
   return (
-    <div className="relative bg-black sm:p-8 px-4 rounded-md">
+    <div className='relative bg-black sm:p-8 px-4 rounded-md'>
       <div
         onMouseMove={handleMouemove}
         onMouseEnter={() => setIsHovered(true)}
@@ -47,7 +47,7 @@ export default function index() {
       >
         {isHovered && (
           <div
-            className="pointer-events-none absolute opacity-0 z-50 rounded-xl w-full h-full group-hover:opacity-100  transition duration-300 "
+            className='pointer-events-none absolute opacity-0 z-50 rounded-xl w-full h-full group-hover:opacity-100  transition duration-300 '
             style={{
               background: `
             radial-gradient(
@@ -61,7 +61,7 @@ export default function index() {
         )}
 
         <div
-          className="absolute inset-0 z-0  bg-fixed rounded-lg"
+          className='absolute inset-0 z-0  bg-fixed rounded-lg'
           style={{
             background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, #ffffff6e 0%,transparent 20%,transparent) fixed`,
           }}
@@ -73,15 +73,15 @@ export default function index() {
               src={
                 'https://res.cloudinary.com/dzl9yxixg/image/upload/star_tb9ivg.png'
               }
-              alt="grid"
+              alt='grid'
               width={600}
-              className="w-fit mx-auto "
+              className='w-fit mx-auto '
               height={600}
             />
-            <h1 className="text-2xl pt-5 font-semibold tracking-tight text-white">
+            <h1 className='text-2xl pt-5 font-semibold tracking-tight text-white'>
               Seamless Animation For All
             </h1>
-            <p className="pt-2 lg:text-base text-sm  text-gray-300 capitalize">
+            <p className='pt-2 lg:text-base text-sm  text-neutral-300 capitalize'>
               Effortlessly connect with today's leading technologies
               <br />
               including React, TypeScript, Next.js, Tailwind CSS, Motion, and
@@ -91,5 +91,5 @@ export default function index() {
         </div>
       </div>
     </div>
-  )
+  );
 }

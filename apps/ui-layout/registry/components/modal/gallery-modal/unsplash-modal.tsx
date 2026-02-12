@@ -14,16 +14,14 @@ function UnsplashGrid() {
       <div className='container mx-auto sm:p-4 px-0 '>
         <div className='columns-2 md:columns-3 2xl:columns-4 gap-4'>
           <>
-            {items
-              .slice(5, 14)
-              ?.map((item, index) => (
-                <ImageItem
-                  key={item.id}
-                  item={item}
-                  index={index}
-                  setSelected={setSelected}
-                />
-              ))}
+            {items.slice(5, 14)?.map((item, index) => (
+              <ImageItem
+                key={item.id}
+                item={item}
+                index={index}
+                setSelected={setSelected}
+              />
+            ))}
           </>
         </div>
       </div>
@@ -52,7 +50,7 @@ function ImageItem({ item, index, setSelected }: ImageItemProps) {
       initial='hidden'
       animate={isInView && 'visible'}
       ref={ref}
-      className="inline-block group w-full rounded-md  relative dark:bg-black bg-white  before:absolute before:top-0 before:content-[''] before:h-full before:w-full hover:before:bg-linear-to-t dark:before:from-gray-900  before:from-gray-200/90 before:from-5% before:to-transparent before:to-90% cursor-pointer"
+      className="inline-block group w-full rounded-md  relative dark:bg-black bg-white  before:absolute before:top-0 before:content-[''] before:h-full before:w-full hover:before:bg-linear-to-t dark:before:from-neutral-900  before:from-neutral-200/90 before:from-5% before:to-transparent before:to-90% cursor-pointer"
       onClick={() => setSelected(item)}
     >
       <motion.img
@@ -164,7 +162,7 @@ function Modal({ selected, setSelected }: ModalProps) {
                 {selected.tags.map((tag) => {
                   return (
                     <div
-                      className='bg-base-300 border  dark:bg-gray-100 bg-gray-50 text-zinc-600 px-2 py-1 rounded-md'
+                      className='bg-base-300 border  dark:bg-neutral-100 bg-neutral-50 text-zinc-600 px-2 py-1 rounded-md'
                       key={tag}
                     >
                       {tag}
