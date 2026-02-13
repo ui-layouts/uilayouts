@@ -114,12 +114,12 @@ export default async function SectionPage(props: {
   return (
     <section className='dark:prose-invert max-w-full pt-16'>
       {/* Table of Contents */}
-        <TableOfContents
-          // blocks={blocksWithCode.map((block) => ({
-          //   id: block.id,
-          //   name: block.name,
-          // }))}
-        />
+      <TableOfContents
+      // blocks={blocksWithCode.map((block) => ({
+      //   id: block.id,
+      //   name: block.name,
+      // }))}
+      />
       <article
         className='2xl:max-w-7xl xl:max-w-5xl lg:max-w-4xl relative overflow-hidden mt-10
        mx-auto border dark:border-neutral-800 bg-linear-to-r from-neutral-100 to-neutral-50 dark:from-neutral-800 dark:to-neutral-900 p-6 2xl:w-[90%]'
@@ -151,11 +151,12 @@ export default async function SectionPage(props: {
 
       {/* BLOCKS */}
       <div className='space-y-5 py-10 prose max-w-full relative'>
-        
-
         {blocksWithCode.map((block, index) => {
           const isMultiple = block.transformedCodeFiles.length > 1;
-
+          const url = encodeURIComponent(
+            `https://www.ui-layouts.com/r/${block?.id}.json`
+          );
+          const finalUrl = `https://v0.dev/chat/api/open?url=${url}`;
           return (
             <div key={block.id} id={block.id} className='relative'>
               <div
@@ -195,12 +196,14 @@ export default async function SectionPage(props: {
                       </TabsTrigger>
                     </div>
                     <div className='flex justify-between items-center gap-2 pr-0'>
+                      {/* cli copy button */}
+                      <CliCopyBtn id={block.id} />
                       <Tooltip>
                         <TooltipTrigger asChild>
                           <a
                             href={`/preview/${section}/${block.id}`}
                             target='_blank'
-                            className='h-10 grid place-items-center p-2 text-primary dark:bg-neutral-700 bg-neutral-100 border'
+                            className='h-10 md:grid hidden place-items-center p-2 text-primary dark:bg-neutral-700 bg-neutral-100 border'
                           >
                             <Expand className='w-6 h-6' />
                           </a>
@@ -209,13 +212,11 @@ export default async function SectionPage(props: {
                           <p>Expand</p>
                         </TooltipContent>
                       </Tooltip>
-                      {/* cli copy button */}
-                      <CliCopyBtn />
-                      <Tooltip>
+                      {/* <Tooltip>
                         <TooltipTrigger asChild>
                           <a
-                            target="_blank"
-                            href={`https://v0.dev/chat/api/open?url=https://ui-layouts.com/r/${block?.id}.json`}
+                            target='_blank'
+                            href={finalUrl}
                             className='px-1.5 h-10 grid place-items-center dark:bg-neutral-700 bg-neutral-100 border'
                           >
                             <svg
@@ -238,7 +239,7 @@ export default async function SectionPage(props: {
                         <TooltipContent>
                           <p>Open in v0</p>
                         </TooltipContent>
-                      </Tooltip>
+                      </Tooltip> */}
                     </div>
                   </TabsList>
                   {/* PREVIEW */}

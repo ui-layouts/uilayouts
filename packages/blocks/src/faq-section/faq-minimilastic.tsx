@@ -81,7 +81,7 @@ export const FaqMinimalist = () => {
   console.log(FaqQuestionImg)
 
   return (
-    <section className="w-full bg-blue-50/50 relative py-20" ref={timelineRef}>
+    <section className="w-full bg-blue-50 relative py-20" ref={timelineRef}>
       {/* <div
         className="absolute inset-0 z-0 h-full w-full"
         style={{

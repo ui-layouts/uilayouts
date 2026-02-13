@@ -1,4 +1,4 @@
-## uilayouts CLI
+## ui-layouts CLI
 
 A simple CLI tool to scaffold UI components from a shared registry directly into your project. Supports both TypeScript (`.tsx`) and JavaScript (`.jsx`) and installs necessary dependencies automatically.
 
@@ -9,15 +9,15 @@ A simple CLI tool to scaffold UI components from a shared registry directly into
 #### 1. List Available Components (optional if needed)
 
 ```bash
-npx uilayouts list
+npx ui-layouts list
 ```
 #### 2. Run the CLI
 
 ```bash
-npx uilayouts add <component-name>
+npx ui-layouts add <component-name>
 
 # Example
-npx uilayouts add phone-input
+npx ui-layouts add phone-input
 ```
 
 #### 3. Select Language

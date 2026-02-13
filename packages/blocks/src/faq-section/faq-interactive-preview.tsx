@@ -82,7 +82,7 @@ const FAQ_DATA: FAQItem[] = [
 
 export const FaqInteractivePreview = () => {
   const timelineRef = React.useRef<HTMLDivElement>(null)
-
+  // @ts-ignore
   const [activeItem, setActiveItem] = useState<FAQItem | null>(FAQ_DATA[0])
 
   return (

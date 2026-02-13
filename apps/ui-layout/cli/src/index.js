@@ -9,14 +9,14 @@ import fs from "fs";
 import path from "path";
 import { execa } from "execa";
 import fetch from "node-fetch";
-const registryPath = `https://raw.githubusercontent.com/ui-layouts/uilayouts/main/apps/ui-layout/registry-cli.json`;
-const basePath = `https://raw.githubusercontent.com/ui-layouts/uilayouts/main/apps/ui-layout`;
+const registryPath = `https://raw.githubusercontent.com/ui-layouts/ui-layouts/main/apps/ui-layout/registry-cli.json`;
+const basePath = `https://raw.githubusercontent.com/ui-layouts/ui-layouts/main/apps/ui-layout`;
 
 
 // CLI args
 const [command, componentName] = process.argv.slice(2);
 
-intro(colors.bold("Welcome to uilayouts CLI"));
+intro(colors.bold("Welcome to ui-layouts CLI"));
 
 if (command === "list") {
   const s = spinner();
@@ -36,7 +36,7 @@ if (command === "list") {
   }
 }
 if (command !== "add" || !componentName) {
-  cancel(colors.red("Usage: npx uilayouts add component-name"));
+  cancel(colors.red("Usage: npx ui-layouts add component-name"));
   process.exit(0);
 }
 
@@ -90,8 +90,8 @@ async function downloadFileFromGitHub(filePath) {
   const isCss = fileName.endsWith(".css");
 
   const targetDir = isCss
-    ? path.join(process.cwd(), "components", "uilayouts", "styles")
-    : path.join(process.cwd(), "components", "uilayouts");
+    ? path.join(process.cwd(), "components", "ui-layouts", "styles")
+    : path.join(process.cwd(), "components", "ui-layouts");
 
   const targetPath = path.join(targetDir, fileName);
 
