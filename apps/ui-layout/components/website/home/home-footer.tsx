@@ -8,7 +8,7 @@ import { SearchDialog } from '../searchbar';
 import ThemeSwitch from '../theme-switch';
 import HomeGitHubButton from './github-repo-button';
 import { cn } from '@/lib/utils';
-import { Blocks } from 'lucide-react';
+import { GapPattern } from '@/components/ui/gap-pattern';
 
 const pathArr = [
   'M1700.03 150.053V93.2598H1813.22V150.053H1756.62V206.847H1643.44V150.053H1700.03ZM1813.22 263.64L1756.62 249.442V206.847H1813.22V263.64ZM1756.62 249.442L1813.22 263.64H1756.62V320.434H1643.44V249.442H1756.62Z',
@@ -20,7 +20,13 @@ const pathArr = [
   'M0.614283 112.21V29.99C0.614283 21.8295 4.34064 14.689 11.7934 8.56859C18.7492 2.85622 27.1957 0 37.1326 0H216.743C228.668 0 238.853 3.46826 247.3 10.4047C255.746 17.3412 259.969 25.5016 259.969 34.8863V65.4883C259.969 74.0568 262.453 82.0133 267.422 89.3578C272.39 96.7023 279.346 102.415 288.29 106.495C296.736 110.983 306.176 113.431 316.61 113.839H347.911C359.339 113.839 369.276 117.104 377.722 123.632C386.169 130.568 390.392 138.933 390.392 148.726V313.017C390.392 313.379 390.39 313.74 390.387 314.101V409.199C390.387 417.581 386.661 424.914 379.208 431.2C372.252 437.067 363.806 440 353.869 440H174.258C162.334 440 152.148 436.438 143.702 429.314C135.255 422.19 131.032 413.809 131.032 404.171V372.742C131.032 363.942 128.548 355.77 123.579 348.227C118.611 340.684 111.655 334.817 102.712 330.627C94.2653 326.017 84.8252 323.503 74.3914 323.084H43.0899C31.6624 323.084 21.7254 319.731 13.279 313.026C4.83259 305.903 0.609375 297.312 0.609375 287.255V113.143C0.609375 112.832 0.611014 112.521 0.614283 112.21ZM259.224 317.826V124.856C259.224 122 258.23 119.552 256.243 117.512C253.759 115.472 250.778 114.451 247.3 114.451H142.216C138.738 114.451 135.757 115.472 133.273 117.512C132.891 117.825 132.539 118.148 132.216 118.48L131.777 311.769C131.777 314.703 132.771 317.217 134.759 319.312C137.243 321.408 140.224 322.455 143.702 322.455H248.785C252.263 322.455 255.244 321.408 257.729 319.312C258.291 318.838 258.789 318.343 259.224 317.826Z',
 ];
 
-function HomeFooter({className,isHideCollaboration =false}:{className?:string,isHideCollaboration?:boolean}) {
+function HomeFooter({
+  className,
+  isHideCollaboration = false,
+}: {
+  className?: string;
+  isHideCollaboration?: boolean;
+}) {
   const [Send, cilentData] = useNewsLetter();
 
   const handleNewsLetterData = (e: FormEvent) => {
@@ -40,202 +46,204 @@ function HomeFooter({className,isHideCollaboration =false}:{className?:string,is
   };
 
   return (
-    <footer className={cn('relative -mt-24 md:px-0 px-4',className)}>
-      <div className='max-w-6xl mx-auto relative pb-10'>
-            {!isHideCollaboration &&
-        <div className='h-full w-full rounded-lg bg-white shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:bg-zinc-900 dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] px-5'>
-          <div className='w-full mx-auto py-10'>
-            <div className='w-full dark:bg-zinc-950 bg-zinc-50 border rounded-3xl relative'>
-              <div className='flex lg:flex-row flex-col lg:items-center lg:justify-between lg:gap-0 gap-4 py-6 px-4'>
-                <div className='flex items-center gap-0'>
-                  {/* Left side - Avatar and You label */}
-                  <div className='flex items-center gap-3'>
-                    <div className='relative'>
-                      <img
-                        className='h-12 w-12 rounded-full border border-neutral-800'
-                        src='/naymur.png'
-                        alt='Founder'
-                      />
-                      <div className='h-10 w-10 rounded-full absolute bottom-1 -right-4 grid place-items-center bg-purple-100 text-blue-600 border border-blue-300 text-xs px-2 py-0.5 font-medium'>
-                        You
+    <footer className={cn('relative', className)}>
+      {!isHideCollaboration && (
+        <div className='max-w-5xl mx-auto p-10'>
+          <div className='h-full w-full rounded-lg bg-white shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:bg-zinc-900 dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] px-5'>
+            <div className='w-full mx-auto py-10 relative z-2'>
+              <div className='w-full dark:bg-zinc-950 bg-zinc-50 border rounded-3xl relative'>
+                <div className='flex lg:flex-row flex-col lg:items-center lg:justify-between lg:gap-0 gap-4 py-6 px-4'>
+                  <div className='flex items-center gap-0'>
+                    {/* Left side - Avatar and You label */}
+                    <div className='flex items-center gap-3'>
+                      <div className='relative'>
+                        <img
+                          className='h-12 w-12 rounded-full border border-neutral-800'
+                          src='/naymur.png'
+                          alt='Founder'
+                        />
+                        <div className='h-10 w-10 rounded-full absolute bottom-1 -right-4 grid place-items-center bg-purple-100 text-blue-600 border border-blue-300 text-xs px-2 py-0.5 font-medium'>
+                          You
+                        </div>
                       </div>
+                    </div>
+
+                    {/* Center - Content */}
+                    <div className='flex-1 pl-7'>
+                      <h3 className='font-librecaslon text-xl font-medium text-pirmary mb-1'>
+                        Got a Project?
+                      </h3>
+                      <p className='text-primary/90 text-sm font-medium'>
+                        Book a free discovery call.
+                      </p>
                     </div>
                   </div>
 
-                  {/* Center - Content */}
-                  <div className='flex-1 pl-7'>
-                    <h3 className='font-librecaslon text-xl font-medium text-pirmary mb-1'>
-                      Got a Project?
-                    </h3>
-                    <p className='text-primary/90 text-sm font-medium'>
-                      Book a free discovery call.
-                    </p>
+                  {/* Right side - Action buttons */}
+                  <div className='flex items-center sm:gap-2 gap-1 shrink-0'>
+                    <a
+                      href='mailto:naymur@ui-layouts.com'
+                      className='flex items-center bg-zinc-900 text-white border shadow-none sm:h-14 h-12 rounded-full sm:px-5 px-4'
+                    >
+                      Email us
+                    </a>
+                    <a
+                      href='https://cal.com/ui-layouts'
+                      target='_blank'
+                      className='flex items-center bg-blue-600 hover:bg-blue-700 text-white sm:h-14 h-12 rounded-full sm:px-6 px-4 gap-2'
+                    >
+                      Book a free call
+                      <span className='relative flex size-3'>
+                        <span className='absolute inline-flex h-full w-full animate-ping rounded-full bg-neutral-100 opacity-75'></span>
+                        <span className='relative inline-flex size-3 rounded-full bg-neutral-100'></span>
+                      </span>
+                    </a>
                   </div>
                 </div>
-
-                {/* Right side - Action buttons */}
-                <div className='flex items-center gap-2 shrink-0'>
-                  <a
-                    href='mailto:naymur@ui-layouts.com'
-                    className='flex items-center bg-zinc-900 text-white border shadow-none h-14 rounded-full px-5'
-                  >
-                    Email us
-                  </a>
-                  <a
-                    href='https://cal.com/ui-layouts'
-                    target='_blank'
-                    className='flex items-center bg-blue-600 hover:bg-blue-700 text-white h-14 rounded-full px-6 gap-2'
-                  >
-                    Book a free call
-                    <span className='relative flex size-3'>
-                      <span className='absolute inline-flex h-full w-full animate-ping rounded-full bg-neutral-100 opacity-75'></span>
-                      <span className='relative inline-flex size-3 rounded-full bg-neutral-100'></span>
-                    </span>
-                  </a>
-                </div>
               </div>
-            </div>
 
-            <span className='text-primary/90 sm:w-[94%] w-[85%] mx-auto flex gap-1 sm:text-sm text-xs items-center font-medium border px-4 bg-neutral-100 dark:bg-neutral-800 py-1.5 rounded-b-xl'>
-              We believe in people, not forms. Book a call and let’s talk
-              directly.
-              <picture className='shrink-0'>
-                <source
-                  srcSet='https://fonts.gstatic.com/s/e/notoemoji/latest/1f60e/512.webp'
-                  type='image/webp'
-                />
-                <img
-                  src='https://fonts.gstatic.com/s/e/notoemoji/latest/1f60e/512.gif'
-                  alt='🔥'
-                  className='sm:w-6 w-5 sm:h-6 h-5 shrink-0'
-                  width={24}
-                  height={24}
-                />
-              </picture>
-            </span>
+              <span className='text-primary/90 sm:w-[94%] w-[85%] mx-auto flex gap-1 sm:text-sm text-xs items-center font-medium border px-4 bg-neutral-100 dark:bg-neutral-800 py-1.5 rounded-b-xl'>
+                We believe in people, not forms. Book a call and let’s talk
+                directly.
+                <picture className='shrink-0'>
+                  <source
+                    srcSet='https://fonts.gstatic.com/s/e/notoemoji/latest/1f60e/512.webp'
+                    type='image/webp'
+                  />
+                  <img
+                    src='https://fonts.gstatic.com/s/e/notoemoji/latest/1f60e/512.gif'
+                    alt='🔥'
+                    className='sm:w-6 w-5 sm:h-6 h-5 shrink-0'
+                    width={24}
+                    height={24}
+                  />
+                </picture>
+              </span>
+            </div>
           </div>
         </div>
-            }
-{isHideCollaboration && <>
-   <article
-        className='2xl:max-w-7xl xl:max-w-5xl lg:max-w-4xl relative overflow-hidden
-       mx-auto border dark:border-neutral-800 bg-linear-to-r from-zinc-100 to-zinc-50 dark:from-zinc-900/70 dark:to-zinc-900/60 p-6 2xl:w-[90%]'
-      >
-        <div className='absolute bottom-0 left-0 right-0 top-0 dark:bg-[radial-gradient(#ededed33_1px,#171717_1px)] bg-[radial-gradient(#0000001a_1px,#f8fafc_1px)] bg-size-[16px_16px] mask-[radial-gradient(ellipse_85%_55%_at_100%_0%,#000_70%,transparent_110%)]'></div>
-        <a href='http://pro.ui-layouts.com/blocks' target='_blank' className='space-y-2 relative z-4'>
-          <div className='flex items-center text-primary/70'>
-            <span className='hover:underline flex gap-1'>
-              Pro Blocks
-            </span>
-          </div>
-          <h1 className='not-prose flex items-center gap-2 text-2xl lg:text-3xl font-medium'>
-            {/* <div className='h-6 w-6 2xl:h-8 2xl:w-8 bg-primary text-primary-foreground grid place-content-center'>
+      )}
+      {isHideCollaboration && (
+        <div className='2xl:max-w-7xl xl:max-w-5xl lg:max-w-4xl mx-auto p-10 relative z-2'>
+          <article className='relative overflow-hidden border dark:border-neutral-800 bg-linear-to-r from-zinc-100 to-zinc-50 dark:from-zinc-900/70 dark:to-zinc-900/60 p-6'>
+            <div className='absolute bottom-0 left-0 right-0 top-0 dark:bg-[radial-gradient(#ededed33_1px,#171717_1px)] bg-[radial-gradient(#0000001a_1px,#f8fafc_1px)] bg-size-[16px_16px] mask-[radial-gradient(ellipse_85%_55%_at_100%_0%,#000_70%,transparent_110%)]'></div>
+            <a
+              href='http://pro.ui-layouts.com/blocks'
+              target='_blank'
+              className='space-y-2 relative z-4'
+            >
+              <div className='flex items-center text-primary/70'>
+                <span className='hover:underline flex gap-1'>Pro Blocks</span>
+              </div>
+              <h1 className='not-prose flex items-center gap-2 text-2xl lg:text-3xl font-medium'>
+                {/* <div className='h-6 w-6 2xl:h-8 2xl:w-8 bg-primary text-primary-foreground grid place-content-center'>
               <Blocks />
             </div> */}
-            Premium Blocks for Serious Products
-          </h1>
-          <p className='text-xs sm:text-sm max-w-2xl'>Designed for startups, agencies, and indie makers who care about speed and design quality. Save hours with ready-to-use premium components.</p>
-        </a>
-        <div
-          className='absolute -top-12 right-0 sm:opacity-100 opacity-30'
-        >
-          <img src='/50off.png' className='w-72 h-full' alt='' />
-        </div>
-      </article>
-</>}
-        <div className='py-2 mx-auto max-w-xl space-y-2 pt-20 text-center'>
-          <p className='sm:text-4xl text-2xl py-2'>
-            Sign up for our newsletter
-          </p>
-          <div className='relative bg-neutral-100 dark:bg-neutral-800 flex justify-between items-center border-2 overflow-hidden dark:border-neutral-900 border-neutral-300 rounded-lg'>
-            <form
-              onSubmit={(e) => handleNewsLetterData(e)}
-              className='relative z-2 flex w-full'
-            >
-              <input
-                type='email'
-                name='newsletter_email'
-                className='border-none bg-transparent h-14 px-4 w-full outline-hidden focus:outline-hidden'
-                placeholder='Your Email * '
-                required
-              />{' '}
-              <button
-                type='submit'
-                className='cursor-pointer hover:bg-primaryColor bg-white text-white shrink-0 w-fit px-4'
-              >
-                <svg
-                  width='15'
-                  height='15'
-                  viewBox='0 0 15 15'
-                  fill='none'
-                  className='w-10 h-10 '
-                  xmlns='http://www.w3.org/2000/svg'
-                >
-                  <path
-                    d='M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z'
-                    fill='#000'
-                    fillRule='evenodd'
-                    clipRule='evenodd'
-                  ></path>
-                </svg>
-              </button>
-            </form>
-          </div>
-        </div>
-
-        <div className='flex flex-col justify-center items-center gap-6 pt-16 relative z-10'>
-          <div className='flex items-center gap-4'>
-            <div className='sm:flex hidden gap-4 items-center'>
-              <SearchDialog
-                classname='sm:w-14 xl:w-12 sm:pr-0 sm:pl-2.5 dark:bg-neutral-900 bg-neutral-200 border dark:border-neutral-80 border-white/20'
-                searchBar={true}
-              />
-              <ThemeSwitch className='dark:bg-neutral-900 bg-neutral-200 border dark:border-neutral-800 border-neutral-300 w-12 rounded-md h-11 shrink-0' />
+                Premium Blocks for Serious Products
+              </h1>
+              <p className='text-xs sm:text-sm 2xl:max-w-2xl max-w-xl'>
+                Designed for startups, agencies, and indie makers who care about
+                speed and design quality. Save hours with ready-to-use premium
+                components.
+              </p>
+            </a>
+            <div className='absolute -top-12 right-0 sm:opacity-100 opacity-30'>
+              <img src='/50off.png' className='w-72 h-full' alt='' />
             </div>
-            <HomeGitHubButton />
-          </div>
-          <div className='flex flex-wrap justify-center sm:gap-4 gap-2 items-center'>
-            <a
-              href='/components/image-reveal'
-              className='relative block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 dark:after:bg-white 
-              after:bg-white after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100'
-            >
-              Image Reveal
-            </a>
-            <a
-              href='/components/accordion'
-              className='relative block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-left after:scale-x-0 dark:after:bg-white 
-              after:bg-white after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)]  hover:after:scale-x-100'
-            >
-              Accordion
-            </a>
-            <a
-              href='/components/buttons'
-              className='relative block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-left after:scale-x-0 dark:after:bg-white 
-              after:bg-white after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)]  hover:after:scale-x-100'
-            >
-              Buttons
-            </a>
-
-            <a
-              href='/components/clip-path'
-              className='relative block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-left after:scale-x-0 dark:after:bg-white 
-              after:bg-white after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)]  hover:after:scale-x-100'
-            >
-              Clip Path Image
-            </a>
-            <a
-              href='/components/magnified-doc'
-              className='relative block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 dark:after:bg-white 
-              after:bg-white after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100'
-            >
-              Magnified Doc
-            </a>
-          </div>
-          <span className='font-normal'>
-            &copy; 2025 UI-Layouts. All Rights Reserved.
-          </span>
+          </article>
         </div>
+      )}
+      <GapPattern />
+      <div className='p-10 mx-auto max-w-2xl space-y-2 text-center relative z-2'>
+        <p className='sm:text-4xl text-2xl'>Sign up for our newsletter</p>
+        <div className='relative bg-neutral-100 dark:bg-neutral-800 flex justify-between items-center border-2 overflow-hidden dark:border-neutral-900 border-neutral-300 rounded-lg'>
+          <form
+            onSubmit={(e) => handleNewsLetterData(e)}
+            className='relative z-2 flex w-full'
+          >
+            <input
+              type='email'
+              name='newsletter_email'
+              className='border-none bg-transparent h-14 px-4 w-full outline-hidden focus:outline-hidden'
+              placeholder='Your Email * '
+              required
+            />{' '}
+            <button
+              type='submit'
+              className='cursor-pointer hover:bg-primaryColor bg-white text-white shrink-0 w-fit px-4'
+            >
+              <svg
+                width='15'
+                height='15'
+                viewBox='0 0 15 15'
+                fill='none'
+                className='w-10 h-10 '
+                xmlns='http://www.w3.org/2000/svg'
+              >
+                <path
+                  d='M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z'
+                  fill='#000'
+                  fillRule='evenodd'
+                  clipRule='evenodd'
+                ></path>
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+      <GapPattern />
+      <div className='flex flex-col justify-center items-center gap-6 pt-10 relative z-10'>
+        <div className='flex items-center gap-4'>
+          <div className='sm:flex hidden gap-4 items-center'>
+            <SearchDialog
+              classname='sm:w-14 xl:w-12 sm:pr-0 sm:pl-2.5 dark:bg-neutral-900 bg-neutral-200 border dark:border-neutral-80 border-white/20'
+              searchBar={true}
+            />
+            <ThemeSwitch className='dark:bg-neutral-900 bg-neutral-200 border dark:border-neutral-800 border-neutral-300 w-12 rounded-md h-11 shrink-0' />
+          </div>
+          <HomeGitHubButton />
+        </div>
+        <div className='flex flex-wrap justify-center sm:gap-4 gap-2 items-center'>
+          <a
+            href='/components/image-reveal'
+            className='relative block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 dark:after:bg-white 
+              after:bg-white after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100'
+          >
+            Image Reveal
+          </a>
+          <a
+            href='/components/accordion'
+            className='relative block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-left after:scale-x-0 dark:after:bg-white 
+              after:bg-white after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)]  hover:after:scale-x-100'
+          >
+            Accordion
+          </a>
+          <a
+            href='/components/buttons'
+            className='relative block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-left after:scale-x-0 dark:after:bg-white 
+              after:bg-white after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)]  hover:after:scale-x-100'
+          >
+            Buttons
+          </a>
+
+          <a
+            href='/components/clip-path'
+            className='relative block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-left after:scale-x-0 dark:after:bg-white 
+              after:bg-white after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)]  hover:after:scale-x-100'
+          >
+            Clip Path Image
+          </a>
+          <a
+            href='/components/magnified-doc'
+            className='relative block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 dark:after:bg-white 
+              after:bg-white after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100'
+          >
+            Magnified Doc
+          </a>
+        </div>
+        <span className='font-normal'>
+          &copy; 2025 UI-Layouts. All Rights Reserved.
+        </span>
       </div>
       <div className=' md:py-4 '>
         <motion.svg
@@ -244,20 +252,21 @@ function HomeFooter({className,isHideCollaboration =false}:{className?:string,is
           viewBox='0 0 1814 440'
           fill='none'
           xmlns='http://www.w3.org/2000/svg'
-          className='sm:h-fit h-20 md:px-8 px-2 relative sm:z-0 z-10 footer-logo w-full'
+          className='sm:h-fit h-20 md:px-8 px-2 relative sm:z-0 z-10 footer-logo w-full fill-primary'
         >
           {pathArr.map((path, index) => {
-            return <path key={path} d={path} fill='#324aff' />;
+            return <path key={path} d={path} />;
           })}
         </motion.svg>
       </div>
       <div
         className='
         absolute
+        pointer-events-none
     w-full 
     h-[630px] 
     left-0 
-    -bottom-10 
+    bottom-0
     bg-[radial-gradient(108.09%_118.89%_at_50%_-23.55%,#1b98ff_20.88%,#5c9dff_31.25%,rgba(0,0,0,0)_51.21%,rgba(0,0,0,0)_100%)] 
     dark:bg-[radial-gradient(108.09%_118.89%_at_50%_-23.55%,#1b98ff_20.88%,#0c4eb0_31.25%,rgba(0,0,0,0)_51.21%,rgba(0,0,0,0)_100%)] 
     rotate-180

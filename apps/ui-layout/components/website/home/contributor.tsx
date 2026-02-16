@@ -38,7 +38,7 @@ const contributorProfile = [
 
 export default function Contributors() {
   return (
-    <section className='relative py-20 pb-52 px-4'>
+    <section className='relative py-20 xl:pb-52 sm:pb-32 px-4'>
       <div className='absolute top-0 left-0 w-full h-full dark:bg-[radial-gradient(125%_125%_at_50%_10%,#050505_40%,#243aff_100%)] bg-[radial-gradient(125%_125%_at_50%_10%,#ffffff_40%,#243aff_100%)]'></div>
       <article className='space-y-4 relative z-10'>
         <h1 className='md:text-5xl sm:text-4xl text-3xl font-medium text-center'>

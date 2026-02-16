@@ -126,20 +126,20 @@ const homeComponents = [
 function AllComponents() {
   return (
     <>
-      <section className='relative'>
+      <section className='relative sm:p-10 p-5 mb-5'>
         <h1
-          className='xl:text-5xl md:text-4xl sm:text-3xl text-2xl font-medium text-center pt-20 pb-10 flex gap-2 items-start justify-center
+          className='xl:text-5xl md:text-4xl lg:pb-0 pb-5 sm:text-3xl text-2xl font-medium text-center flex gap-2 items-start justify-center
         '
         >
           <img
             src='https://fonts.gstatic.com/s/e/notoemoji/latest/1f525/512.gif'
             alt='🔥'
-            className='w-12 h-12 sm:block hidden'
+            className='w-12 h-12 md:block hidden'
           />
           Supercharge Your Projects with <br className='md:block hidden' />{' '}
           Ready-to-Use Components.
         </h1>
-        <div className='relative grid grid-cols-14  gap-4 lg:container xl:px-0 px-3 mx-auto'>
+        <div className='relative grid grid-cols-14 gap-4 xl:px-0 px-3 mx-auto'>
           {homeComponents?.slice(0, 13).map((component, index) => {
             return (
               <div className={`${component.className}`} key={index}>
@@ -161,7 +161,7 @@ function AllComponents() {
         <a
           href='/components'
           target='_blank'
-          className='flex sm:text-base text-sm absolute bottom-0 sm:w-fit w-60 left-[50%] translate-x-[-50%] py-2 px-3 dark:bg-neutral-900 bg-neutral-100 z-10 justify-center group mx-auto font-medium items-center gap-2 rounded-md border dark:border-[#1d1d1d]'
+          className='flex sm:text-base text-sm relative z-2 sm:w-fit w-60 py-2 px-3 dark:bg-neutral-900 bg-neutral-100 justify-center group mx-auto font-medium items-center gap-2 rounded-md border dark:border-[#1d1d1d]'
         >
           {' '}
           <span>Browse all </span>
@@ -170,7 +170,7 @@ function AllComponents() {
             <ArrowRight className=' group-hover:translate-x-1 transition-all' />
           </span>
         </a>
-        <div className='absolute -bottom-5 -left-0 w-full h-40 bg-linear-to-t dark:from-black from-zinc-50 dark:via-black via-zinc-50 '></div>
+        <div className='absolute -bottom-5 left-0 w-full h-60 bg-linear-to-t dark:from-neutral-950 from-white dark:via-neutral-950 via-white '></div>
       </section>
     </>
   );

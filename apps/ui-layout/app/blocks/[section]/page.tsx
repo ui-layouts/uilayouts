@@ -22,6 +22,8 @@ import DynamicPreviewIframe from '@/components/website/blocks-components/dynamic
 import { cn } from '@/lib/utils';
 import { TableOfContents } from '@/components/website/table-of-contents';
 import CliCopyBtn from '@/components/website/blocks-components/cli-copy-btn';
+import { Container } from '@/components/ui/container';
+import HomeFooter from '@/components/website/home/home-footer';
 
 export const dynamic = 'force-static';
 export const dynamicParams = false;
@@ -112,110 +114,107 @@ export default async function SectionPage(props: {
   );
 
   return (
-    <section className='dark:prose-invert max-w-full pt-16'>
-      {/* Table of Contents */}
-        <TableOfContents
-          // blocks={blocksWithCode.map((block) => ({
-          //   id: block.id,
-          //   name: block.name,
-          // }))}
-        />
-      <article
-        className='2xl:max-w-7xl xl:max-w-5xl lg:max-w-4xl relative overflow-hidden mt-10
+    <section className='dark:prose-invert max-w-full'>
+      <TableOfContents />
+      <Container className='pb-10 pt-32 -mt-20'>
+        <article
+          className='2xl:max-w-7xl xl:max-w-5xl lg:max-w-4xl relative overflow-hidden
        mx-auto border dark:border-neutral-800 bg-linear-to-r from-neutral-100 to-neutral-50 dark:from-neutral-800 dark:to-neutral-900 p-6 2xl:w-[90%]'
-      >
-        <div className='absolute bottom-0 left-0 right-0 top-0 dark:bg-[radial-gradient(#ededed33_1px,#171717_1px)] bg-[radial-gradient(#0000001a_1px,#f8fafc_1px)] bg-size-[16px_16px] mask-[radial-gradient(ellipse_85%_55%_at_100%_0%,#000_70%,transparent_110%)]'></div>
-        <div className='space-y-2 relative z-4'>
-          <div className='flex items-center text-primary/70'>
-            <a href='/blocks' className='hover:underline flex gap-1'>
-              blocks
-            </a>
-            /{sectionData.id}
-          </div>
-          <h1 className='not-prose flex items-center gap-2 text-2xl lg:text-3xl font-medium'>
-            <div className='h-6 w-6 xl:h-8 xl:w-8 bg-primary text-primary-foreground p-1 grid place-content-center'>
-              <Blocks className='xl:w-5 xl:h-5 w-4 h-4' />
-            </div>
-            {sectionData.name}
-          </h1>
-          <p className='text-xs sm:text-sm'>{sectionData.des}</p>
-        </div>
-        <a
-          href='https://pro.ui-layouts.com/pricing'
-          target='_blank'
-          className='absolute -top-12 right-0 sm:opacity-100 opacity-30'
         >
-          <img src='/50off.png' className='w-72 h-full' alt='' />
-        </a>
-      </article>
-
-      {/* BLOCKS */}
-      <div className='space-y-5 py-10 prose max-w-full relative'>
-        
-
-        {blocksWithCode.map((block, index) => {
-          const isMultiple = block.transformedCodeFiles.length > 1;
-
-          return (
-            <div key={block.id} id={block.id} className='relative'>
-              <div
-                className={cn(
-                  'border-y dark:border-neutral-800 mb-3 dark:bg-neutral-800 bg-white',
-                  index % 2
-                    ? 'dark:bg-[repeating-linear-gradient(135deg,#2f2f2f_0px_1px,transparent_1px_10px)] bg-[repeating-linear-gradient(135deg,#f0f0f0_0px_1px,transparent_1px_10px)]'
-                    : 'dark:bg-[repeating-linear-gradient(45deg,#2f2f2f_0px_1px,transparent_1px_10px)] bg-[repeating-linear-gradient(45deg,#f0f0f0_0px_1px,transparent_1px_10px)]'
-                )}
-              >
-                <div className='2xl:container 2xl:px-20 lg:px-14 sm:px-10 px-5 mx-auto items-center gap-2 p-2.5'>
-                  <h2 className='text-2xl font-medium dark:text-neutral-200 flex items-center gap-1'>
-                    <div className='h-8 w-8 lg:h-8 lg:w-8 text-primary grid place-content-center'>
-                      <Component className='w-6 h-6' />
-                    </div>{' '}
-                    {block.name}
-                  </h2>
-                </div>
+          <div className='absolute bottom-0 left-0 right-0 top-0 dark:bg-[radial-gradient(#ededed33_1px,#171717_1px)] bg-[radial-gradient(#0000001a_1px,#f8fafc_1px)] bg-size-[16px_16px] mask-[radial-gradient(ellipse_85%_55%_at_100%_0%,#000_70%,transparent_110%)]'></div>
+          <div className='space-y-2 relative z-4'>
+            <div className='flex items-center text-primary/70'>
+              <a href='/blocks' className='hover:underline flex gap-1'>
+                blocks
+              </a>
+              /{sectionData.id}
+            </div>
+            <h1 className='not-prose flex items-center gap-2 text-2xl lg:text-3xl font-medium'>
+              <div className='h-6 w-6 xl:h-8 xl:w-8 bg-primary text-primary-foreground p-1 grid place-content-center'>
+                <Blocks className='xl:w-5 xl:h-5 w-4 h-4' />
               </div>
-              <div className='2xl:container mx-auto 2xl:px-20 lg:px-14 sm:px-10 px-5 relative'>
-                <Tabs defaultValue='preview'>
-                  <TabsList className='p-0 h-auto justify-between w-full bg-transparent shadow-none dark:bg-transparent border-none'>
-                    <div className='flex p-1 h-10 dark:bg-neutral-700 bg-white rounded-none shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_1px_1px_0px_rgba(0,0,0,0.05),0px_1px_2px_0px_rgba(0,0,0,0.05)]'>
-                      <TabsTrigger
-                        value='preview'
-                        className='flex gap-1 h-8 px-2 text-md items-center cursor-pointer rounded-none'
-                      >
-                        <Eye className='w-4 h-4' />
-                        Preview
-                      </TabsTrigger>
-                      <TabsTrigger
-                        value='code'
-                        className='flex gap-1 px-2 h-8 text-md items-center cursor-pointer rounded-none'
-                      >
-                        <Code className='w-4 h-4' />
-                        Code
-                      </TabsTrigger>
-                    </div>
-                    <div className='flex justify-between items-center gap-2 pr-0'>
-                      <Tooltip>
+              {sectionData.name}
+            </h1>
+            <p className='text-xs sm:text-sm'>{sectionData.des}</p>
+          </div>
+          <a
+            href='https://pro.ui-layouts.com/pricing'
+            target='_blank'
+            className='absolute -top-12 right-0 sm:opacity-100 opacity-30'
+          >
+            <img src='/50off.png' className='w-72 h-full' alt='' />
+          </a>
+        </article>
+      </Container>
+      {/* BLOCKS */}
+      <Container>
+        <div className='space-y-5 pb-10 prose max-w-full relative'>
+          {blocksWithCode.map((block, index) => {
+            const isMultiple = block.transformedCodeFiles.length > 1;
+            const url = encodeURIComponent(
+              `https://www.ui-layouts.com/r/${block?.id}.json`
+            );
+            const finalUrl = `https://v0.dev/chat/api/open?url=${url}`;
+            return (
+              <div key={block.id} id={block.id} className='relative'>
+                <div
+                  className={cn(
+                    'border-y dark:border-neutral-800 mb-3 dark:bg-neutral-800 bg-white',
+                    index % 2
+                      ? 'dark:bg-[repeating-linear-gradient(135deg,#2f2f2f_0px_1px,transparent_1px_10px)] bg-[repeating-linear-gradient(135deg,#f0f0f0_0px_1px,transparent_1px_10px)]'
+                      : 'dark:bg-[repeating-linear-gradient(45deg,#2f2f2f_0px_1px,transparent_1px_10px)] bg-[repeating-linear-gradient(45deg,#f0f0f0_0px_1px,transparent_1px_10px)]'
+                  )}
+                >
+                  <div className='2xl:container 2xl:px-20 lg:px-14 sm:px-10 px-5 mx-auto items-center gap-2 p-2.5'>
+                    <h2 className='text-2xl font-medium dark:text-neutral-200 flex items-center gap-1'>
+                      <div className='h-8 w-8 lg:h-8 lg:w-8 text-primary grid place-content-center'>
+                        <Component className='w-6 h-6' />
+                      </div>{' '}
+                      {block.name}
+                    </h2>
+                  </div>
+                </div>
+                <div className='2xl:container mx-auto 2xl:px-20 lg:px-14 sm:px-10 px-5 relative'>
+                  <Tabs defaultValue='preview'>
+                    <TabsList className='p-0 h-auto justify-between w-full bg-transparent shadow-none dark:bg-transparent border-none'>
+                      <div className='flex p-1 h-10 dark:bg-neutral-700 bg-white rounded-none shadow-[0px_0px_0px_1px_rgba(0,0,0,0.04),0px_1px_1px_0px_rgba(0,0,0,0.05),0px_1px_2px_0px_rgba(0,0,0,0.05)]'>
+                        <TabsTrigger
+                          value='preview'
+                          className='flex gap-1 h-8 px-2 text-md items-center cursor-pointer rounded-none'
+                        >
+                          <Eye className='w-4 h-4' />
+                          Preview
+                        </TabsTrigger>
+                        <TabsTrigger
+                          value='code'
+                          className='flex gap-1 px-2 h-8 text-md items-center cursor-pointer rounded-none'
+                        >
+                          <Code className='w-4 h-4' />
+                          Code
+                        </TabsTrigger>
+                      </div>
+                      <div className='flex justify-between items-center gap-2 pr-0'>
+                        {/* cli copy button */}
+                        <CliCopyBtn id={block.id} />
+                        <Tooltip>
+                          <TooltipTrigger asChild>
+                            <a
+                              href={`/preview/${section}/${block.id}`}
+                              target='_blank'
+                              className='h-10 md:grid hidden place-items-center p-2 text-primary dark:bg-neutral-700 bg-neutral-100 border'
+                            >
+                              <Expand className='w-6 h-6' />
+                            </a>
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p>Expand</p>
+                          </TooltipContent>
+                        </Tooltip>
+                        {/* <Tooltip>
                         <TooltipTrigger asChild>
                           <a
-                            href={`/preview/${section}/${block.id}`}
                             target='_blank'
-                            className='h-10 grid place-items-center p-2 text-primary dark:bg-neutral-700 bg-neutral-100 border'
-                          >
-                            <Expand className='w-6 h-6' />
-                          </a>
-                        </TooltipTrigger>
-                        <TooltipContent>
-                          <p>Expand</p>
-                        </TooltipContent>
-                      </Tooltip>
-                      {/* cli copy button */}
-                      <CliCopyBtn />
-                      <Tooltip>
-                        <TooltipTrigger asChild>
-                          <a
-                            target="_blank"
-                            href={`https://v0.dev/chat/api/open?url=https://ui-layouts.com/r/${block?.id}.json`}
+                            href={finalUrl}
                             className='px-1.5 h-10 grid place-items-center dark:bg-neutral-700 bg-neutral-100 border'
                           >
                             <svg
@@ -238,37 +237,42 @@ export default async function SectionPage(props: {
                         <TooltipContent>
                           <p>Open in v0</p>
                         </TooltipContent>
-                      </Tooltip>
-                    </div>
-                  </TabsList>
-                  {/* PREVIEW */}
-                  <TabsContent value='preview'>
-                    <DynamicPreviewIframe
-                      src={`/preview/${section}/${block.id}`}
-                      blockId={block.id}
-                      section={section || ''}
-                    />
-                  </TabsContent>
-                  {/* CODE */}
-                  <TabsContent value='code'>
-                    {isMultiple ? (
-                      // ✅ TREE ONLY FOR MULTIPLE FILES
-                      <TreeCodeViewer files={block.transformedCodeFiles} />
-                    ) : (
-                      // ✅ SINGLE FILE → DIRECT PRECODE
-                      <ClientPreCode
-                        html={block.transformedCodeFiles[0].html}
-                        raw={block.transformedCodeFiles[0].raw}
+                      </Tooltip> */}
+                      </div>
+                    </TabsList>
+                    {/* PREVIEW */}
+                    <TabsContent value='preview'>
+                      <DynamicPreviewIframe
+                        src={`/preview/${section}/${block.id}`}
+                        blockId={block.id}
+                        section={section || ''}
                       />
-                    )}
-                  </TabsContent>
-                </Tabs>
+                    </TabsContent>
+                    {/* CODE */}
+                    <TabsContent value='code'>
+                      {isMultiple ? (
+                        // ✅ TREE ONLY FOR MULTIPLE FILES
+                        <TreeCodeViewer files={block.transformedCodeFiles} />
+                      ) : (
+                        // ✅ SINGLE FILE → DIRECT PRECODE
+                        <ClientPreCode
+                          html={block.transformedCodeFiles[0].html}
+                          raw={block.transformedCodeFiles[0].raw}
+                        />
+                      )}
+                    </TabsContent>
+                  </Tabs>
+                </div>
               </div>
-            </div>
-          );
-        })}
-      </div>
-      {/* <Footer /> */}
+            );
+          })}
+        </div>
+        {/* <Footer /> */}
+        <HomeFooter
+          className='bg-linear-to-t dark:from-neutral-800 from-neutral-200 to-transparent'
+          isHideCollaboration={true}
+        />
+      </Container>
     </section>
   );
 }

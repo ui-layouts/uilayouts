@@ -1,14 +1,16 @@
 'use client'
-import React, { useId, useState } from 'react'
+import React, { useId, useState, useRef } from 'react'
 import { Calendar, Check } from 'lucide-react'
 import { motion } from 'motion/react'
 import NumberFlow from '@number-flow/react'
 import { Button, Switch } from '@repo/shadcn'
 import { cn } from '@/lib/utils'
+import { TimelineAnimation } from '@/components/ui/timeline-animation'
 
 export const PricingOverview = () => {
   const [billing, setBilling] = useState<'monthly' | 'yearly'>('monthly')
   const id = useId()
+  const timelineRef = useRef<HTMLDivElement>(null)
 
   // Calculate prices based on billing cycle (20% discount for yearly)
   const landingPagePrice = billing === 'monthly' ? 1699 : 1500
@@ -16,19 +18,40 @@ export const PricingOverview = () => {
   const partnershipPrice = billing === 'monthly' ? 4099 : 3100
 
   return (
-    <section className="py-20 px-6 max-w-5xl mx-auto font-dmSans">
+    <section
+      ref={timelineRef}
+      className="py-20 px-6 max-w-5xl mx-auto font-dmSans"
+    >
       <div className="text-left mb-12">
-        <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-balance mb-4">
+        <TimelineAnimation
+          animationNum={1}
+          timelineRef={timelineRef}
+          as="h1"
+          className="text-4xl md:text-5xl font-bold tracking-tight text-balance mb-4"
+        >
           Flexible plans for every business
-        </h1>
-        <p className="text-neutral-500 text-pretty max-w-lg leading-relaxed">
+        </TimelineAnimation>
+        <TimelineAnimation
+          animationNum={2}
+          timelineRef={timelineRef}
+          as="p"
+          className="text-neutral-500 text-pretty max-w-lg leading-relaxed"
+        >
           Your product design partner. Unlock instant, world-class design with a
           simple monthly fee.
-        </p>
+        </TimelineAnimation>
       </div>
 
-      <div className="flex flex-col items-start gap-6 mb-6">
-        <div className="flex items-center gap-4">
+      <TimelineAnimation
+        animationNum={3}
+        timelineRef={timelineRef}
+        className="flex flex-col items-start gap-6 mb-6"
+      >
+        <TimelineAnimation
+          animationNum={4}
+          timelineRef={timelineRef}
+          className="flex items-center gap-4"
+        >
           <span
             className={cn(
               'text-md transition-colors',
@@ -65,12 +88,20 @@ export const PricingOverview = () => {
               Save 20%
             </span>
           </div>
-        </div>
-      </div>
+        </TimelineAnimation>
+      </TimelineAnimation>
 
-      <div className="grid md:grid-cols-2 gap-6">
+      <TimelineAnimation
+        animationNum={4}
+        timelineRef={timelineRef}
+        className="grid md:grid-cols-2 gap-6"
+      >
         {/* Landing Page Card */}
-        <div className="bg-gray-100 border border-neutral-200 rounded-xl p-2 flex flex-col hover:shadow-md transition-shadow">
+        <TimelineAnimation
+          animationNum={5}
+          timelineRef={timelineRef}
+          className="bg-gray-100 border border-neutral-200 rounded-xl p-2 flex flex-col hover:shadow-md transition-shadow"
+        >
           <div className="bg-white p-1.5 rounded-lg">
             <div className="p-4 bg-neutral-100 border border-zinc-100 rounded-lg space-y-2">
               <h3 className="text-3xl font-bold mb-2">Landing Page</h3>
@@ -89,9 +120,11 @@ export const PricingOverview = () => {
                   /{billing === 'monthly' ? 'fixed' : 'fixed (yearly rate)'}
                 </span>
               </div>
-              <Button className="w-full gap-2 mt-2 text-lg" size="lg">
-                Book a call <Calendar className="size-4" />
-              </Button>
+              <TimelineAnimation animationNum={6} timelineRef={timelineRef}>
+                <Button className="w-full gap-2 mt-2 text-lg" size="lg">
+                  Book a call <Calendar className="size-4" />
+                </Button>
+              </TimelineAnimation>
             </div>
           </div>
 
@@ -124,10 +157,14 @@ export const PricingOverview = () => {
               </div>
             ))}
           </div>
-        </div>
+        </TimelineAnimation>
 
         {/* Product Design Card */}
-        <div className="bg-gray-100 border border-neutral-200 rounded-xl p-2 flex flex-col hover:shadow-md transition-shadow">
+        <TimelineAnimation
+          animationNum={7}
+          timelineRef={timelineRef}
+          className="bg-gray-100 border border-neutral-200 rounded-xl p-2 flex flex-col hover:shadow-md transition-shadow"
+        >
           <div className="bg-white p-1.5 rounded-lg">
             <div className="p-4 bg-neutral-100 border border-zinc-100 rounded-lg relative overflow-hidden space-y-2">
               <div className="absolute top-0 right-0 size-32 bg-red-500/40 blur-3xl -mr-16 -mt-16 group-hover:bg-[#FF7777]/20 transition-colors" />
@@ -147,9 +184,11 @@ export const PricingOverview = () => {
                   /{billing === 'monthly' ? 'fixed' : 'fixed (yearly rate)'}
                 </span>
               </div>
-              <Button className="w-full mt-2 gap-2 text-lg" size="lg">
-                Book a call <Calendar className="size-4" />
-              </Button>
+              <TimelineAnimation animationNum={8} timelineRef={timelineRef}>
+                <Button className="w-full mt-2 gap-2 text-lg" size="lg">
+                  Book a call <Calendar className="size-4" />
+                </Button>
+              </TimelineAnimation>
             </div>
           </div>
 
@@ -185,11 +224,15 @@ export const PricingOverview = () => {
               </div>
             ))}
           </div>
-        </div>
-      </div>
+        </TimelineAnimation>
+      </TimelineAnimation>
 
       {/* Partnership Card */}
-      <div className="mt-6 bg-linear-to-b from-neutral-950 to-neutral-800 text-white rounded-3xl p-10 md:flex items-center gap-4 relative overflow-hidden">
+      <TimelineAnimation
+        animationNum={9}
+        timelineRef={timelineRef}
+        className="mt-6 bg-linear-to-b from-neutral-950 to-neutral-800 text-white rounded-3xl p-10 md:flex items-center gap-4 relative overflow-hidden"
+      >
         <div className="flex-1 space-y-3 relative z-10">
           <div className="flex items-center gap-2 text-lime-400 text-sm font-medium">
             <div className="size-2 rounded-full bg-lime-500 animate-pulse" />
@@ -212,12 +255,14 @@ export const PricingOverview = () => {
               /{billing === 'monthly' ? 'month' : 'yearly'}
             </span>
           </div>
-          <Button
-            variant="outline"
-            className="w-fit text-black bg-white hover:bg-neutral-100 gap-2 px-8 text-lg"
-          >
-            Book a call <Calendar className="size-5" />
-          </Button>
+          <TimelineAnimation animationNum={10} timelineRef={timelineRef}>
+            <Button
+              variant="outline"
+              className="w-fit text-black bg-white hover:bg-neutral-100 gap-2 px-8 text-lg"
+            >
+              Book a call <Calendar className="size-5" />
+            </Button>
+          </TimelineAnimation>
         </div>
         <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-2 relative z-10">
           {[
@@ -228,8 +273,10 @@ export const PricingOverview = () => {
             'Pause or resume anytime',
             'Revisions',
           ].map((item, i) => (
-            <div
+            <TimelineAnimation
               key={i}
+              animationNum={11 + i}
+              timelineRef={timelineRef}
               className="flex items-center gap-3 text-sm text-neutral-300"
             >
               <svg
@@ -245,10 +292,10 @@ export const PricingOverview = () => {
                 <path d="M9 12.8929C9 12.8929 10.2 13.5447 10.8 14.5C10.8 14.5 12.6 10.75 15 9.5" />
               </svg>
               {item}
-            </div>
+            </TimelineAnimation>
           ))}
         </div>
-      </div>
+      </TimelineAnimation>
     </section>
   )
 }

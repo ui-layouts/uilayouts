@@ -15,11 +15,13 @@
 
 @theme {
   --breakpoint-*: initial;
-  --breakpoint-sm: 576px;
+  --breakpoint-sm: 640px;
   --breakpoint-md: 768px;
-  --breakpoint-lg: 992px;
-  --breakpoint-xl: 1200px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
   --breakpoint-2xl: 1536px;
+  --breakpoint-3xl: 1600px;
+  --breakpoint-4xl: 2000px;
 
   --font-mono: var(--font-geist-mono);
   --font-spaceGrotesk: var(--font-spaceGrotesk);
@@ -135,6 +137,13 @@ html.dark .shiki span {
   text-decoration: var(--shiki-dark-text-decoration) !important;
 }
 
+.container-wrapper {
+  @apply 3xl:max-w-[calc(var(--breakpoint-2xl)+2rem)] mx-auto w-full px-2;
+}
+
+.container {
+  @apply 3xl:max-w-screen-2xl mx-auto max-w-[1400px] px-5 lg:px-10;
+}
 .shiki {
   @apply overflow-x-auto rounded-lg p-4 bg-codebg!;
 }
@@ -383,10 +392,6 @@ html.dark .shiki span {
     scroll-behavior: smooth;
     font-size: 90%;
   }
-  body {
-    overflow-x: hidden;
-  }
-
   .scrollbar-none {
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -402,7 +407,7 @@ html.dark .shiki span {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply dark:bg-neutral-950 bg-background text-foreground overflow-x-hidden;
   } /* 다크 강제 유틸 제거 */
 }
 

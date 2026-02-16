@@ -1,7 +1,8 @@
 'use client'
 import { cn } from '@/lib/utils'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { TimelineAnimation } from '@/components/ui/timeline-animation'
 
 const testimonials = [
   {
@@ -37,6 +38,7 @@ const testimonials = [
 
 export const SpotlightTestimonial: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0)
+  const timelineRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -53,20 +55,35 @@ export const SpotlightTestimonial: React.FC = () => {
   const activeTestimonial = testimonials[activeIndex]
 
   return (
-    <section className="bg-zinc-100 min-h-screen flex flex-col justify-center font-manrope">
+    <section
+      ref={timelineRef}
+      className="bg-zinc-100 min-h-screen flex flex-col justify-center font-manrope"
+    >
       {/* Header */}
       <div className="max-w-7xl mx-auto px-6 mb-16 text-center">
-        <h2 className="text-5xl font-bold tracking-tight text-zinc-900 mb-4">
+        <TimelineAnimation
+          animationNum={1}
+          timelineRef={timelineRef}
+          className="text-5xl font-bold tracking-tight text-zinc-900 mb-4"
+        >
           Success Stories
-        </h2>
-        <p className="text-lg text-zinc-600 max-w-3xl mx-auto">
+        </TimelineAnimation>
+        <TimelineAnimation
+          animationNum={2}
+          timelineRef={timelineRef}
+          className="text-lg text-zinc-600 max-w-3xl mx-auto"
+        >
           Real results from real teams. Discover how industry leaders are
           achieving remarkable outcomes with our design system.
-        </p>
+        </TimelineAnimation>
       </div>
 
       <div className="max-w-4xl mx-auto px-6 flex flex-col items-center text-center">
-        <div className="size-16 rounded-full bg-zinc-100 flex items-center justify-center border border-zinc-200">
+        <TimelineAnimation
+          animationNum={3}
+          timelineRef={timelineRef}
+          className="size-16 rounded-full bg-zinc-200 flex items-center justify-center border border-zinc-300"
+        >
           <svg
             className="size-8 text-zinc-400"
             fill="currentColor"
@@ -74,9 +91,13 @@ export const SpotlightTestimonial: React.FC = () => {
           >
             <path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017V14H17.017C14.8079 14 13.017 12.2091 13.017 10V5H21.017V16L19.017 21H14.017ZM3.01709 21L3.01709 18C3.01709 16.8954 3.91252 16 5.01709 16H8.01709V14H6.01709C3.80795 14 2.01709 12.2091 2.01709 10V5H10.0171V16L8.01709 21H3.01709Z" />
           </svg>
-        </div>
+        </TimelineAnimation>
 
-        <div className="relative min-h-[200px] flex items-center justify-center mb-5">
+        <TimelineAnimation
+          animationNum={4}
+          timelineRef={timelineRef}
+          className="relative min-h-[200px] flex items-center justify-center mb-5"
+        >
           <AnimatePresence mode="wait">
             <motion.blockquote
               key={activeTestimonial?.id}
@@ -93,9 +114,13 @@ export const SpotlightTestimonial: React.FC = () => {
               {activeTestimonial?.quoteEnd}"
             </motion.blockquote>
           </AnimatePresence>
-        </div>
+        </TimelineAnimation>
 
-        <div className="relative min-h-24 flex items-center">
+        <TimelineAnimation
+          animationNum={5}
+          timelineRef={timelineRef}
+          className="relative min-h-24 flex items-center"
+        >
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTestimonial?.id}
@@ -119,21 +144,25 @@ export const SpotlightTestimonial: React.FC = () => {
               </p>
             </motion.div>
           </AnimatePresence>
-        </div>
+        </TimelineAnimation>
 
-        <div className="mt-6 flex gap-1.5">
+        <TimelineAnimation
+          animationNum={6}
+          timelineRef={timelineRef}
+          className="mt-6 flex gap-1.5"
+        >
           {testimonials.map((_, index) => (
             <button
               key={index}
               onClick={() => handleDotClick(index)}
               className={cn(
-                'h-1.5 rounded-full transition-all duration-300 cursor-pointer hover:bg-zinc-400',
-                index === activeIndex ? 'bg-zinc-900 w-8' : 'bg-zinc-300 w-1.5'
+                'h-2 rounded-full transition-all duration-300 cursor-pointer hover:bg-zinc-400',
+                index === activeIndex ? 'bg-zinc-900 w-8' : 'bg-zinc-300 w-2'
               )}
               aria-label={`Go to testimonial ${index + 1}`}
             />
           ))}
-        </div>
+        </TimelineAnimation>
       </div>
     </section>
   )

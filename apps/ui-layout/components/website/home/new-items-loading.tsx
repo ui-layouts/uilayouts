@@ -31,7 +31,7 @@ function NewItemsLoading() {
               <a
                 key={item.href}
                 href={item?.href}
-                className='inline-flex w-fit mx-auto items-center gap-1 rounded-full  bg-[#334cec] border-4  shadow-[#6175f8]  py-0.5 pl-0.5 pr-3 text-xs '
+                className='inline-flex w-fit mx-auto items-center gap-1 rounded-full  bg-[#334cec] border-4 dark:border-[#363d6b] shadow-[#6175f8] py-0.5 pl-0.5 pr-3 text-xs '
               >
                 <div className='rounded-full bg-[#fcfdff] px-2 py-1 text-xs text-black '>
                   Update

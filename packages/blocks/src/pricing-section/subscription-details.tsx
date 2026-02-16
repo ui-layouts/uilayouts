@@ -1,9 +1,10 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { Plus, Zap } from 'lucide-react'
 import NumberFlow from '@number-flow/react'
 import { cn } from '@/lib/utils'
 import { Button } from '@repo/shadcn'
+import { TimelineAnimation } from '@/components/ui/timeline-animation'
 
 const PLANS = [
   {
@@ -61,13 +62,28 @@ const PLANS = [
 
 export const SubscriptionDetails = () => {
   const [billing, setBilling] = useState<'monthly' | 'yearly'>('monthly')
+  const timelineRef = useRef<HTMLDivElement>(null)
 
   return (
-    <section className="py-24 md:px-16 px-10 font-dmSans min-h-screen bg-white text-black">
+    <section
+      ref={timelineRef}
+      className="py-24 md:px-16 px-10 font-dmSans min-h-screen bg-white text-black"
+    >
       <div className="container mx-auto">
         <div className="flex justify-between items-center mb-16">
-          <h2 className="md:text-4xl text-2xl font-bold">Subscription</h2>
-          <div className="bg-neutral-100 p-1 rounded-full flex gap-1">
+          <TimelineAnimation
+            animationNum={1}
+            timelineRef={timelineRef}
+            as="h2"
+            className="md:text-4xl text-2xl font-bold"
+          >
+            Subscription
+          </TimelineAnimation>
+          <TimelineAnimation
+            animationNum={2}
+            timelineRef={timelineRef}
+            className="bg-neutral-100 p-1 rounded-full flex gap-1"
+          >
             <Button
               onClick={() => setBilling('monthly')}
               className={cn(
@@ -90,7 +106,7 @@ export const SubscriptionDetails = () => {
             >
               Annual <span className="text-neutral-900">-15%</span>
             </Button>
-          </div>
+          </TimelineAnimation>
         </div>
 
         <div className="grid grid-cols-1 xl:grid-cols-4 sm:grid-cols-2 gap-6">
@@ -98,7 +114,9 @@ export const SubscriptionDetails = () => {
             const displayPrice =
               billing === 'monthly' ? plan.price : Math.round(plan.price * 0.85)
             return (
-              <div
+              <TimelineAnimation
+                animationNum={idx + 3}
+                timelineRef={timelineRef}
                 key={idx}
                 className={cn(
                   'xl:p-8 md:p-4 p-6 rounded-2xl relative border transition-all flex flex-col',
@@ -179,7 +197,7 @@ export const SubscriptionDetails = () => {
                   </svg>{' '}
                   Subscribe
                 </Button>
-              </div>
+              </TimelineAnimation>
             )
           })}
         </div>
@@ -187,19 +205,27 @@ export const SubscriptionDetails = () => {
         <div className="mt-10">
           <div className="grid md:grid-cols-2 gap-x-20 gap-y-12">
             <div className="space-y-2">
-              <h4 className="font-semibold text-neutral-900 text-pretty">
+              <TimelineAnimation
+                animationNum={7}
+                timelineRef={timelineRef}
+                as="h4"
+                className="font-semibold text-neutral-900 text-pretty"
+              >
                 How many interiors can I generate with a basic plan?
-              </h4>
+              </TimelineAnimation>
             </div>
             <div className="relative">
-              <p className="text-neutral-500 text-sm leading-relaxed mb-4 text-pretty">
-                Replace the couch: Current leather couch feels too lightweight.
-              </p>
-              <p className="text-neutral-500 text-sm leading-relaxed text-pretty">
-                Go for a deep brutalist frame in dark suede or stonewashed linen
-                — think low, wide, grounded. See Mario Bellini Camaleonda, or a
-                custom slab-style bench sofa in ecru mohair.
-              </p>
+              <TimelineAnimation animationNum={8} timelineRef={timelineRef}>
+                <p className="text-neutral-500 text-sm leading-relaxed mb-4 text-pretty">
+                  Replace the couch: Current leather couch feels too
+                  lightweight.
+                </p>
+                <p className="text-neutral-500 text-sm leading-relaxed text-pretty">
+                  Go for a deep brutalist frame in dark suede or stonewashed
+                  linen — think low, wide, grounded. See Mario Bellini
+                  Camaleonda, or a custom slab-style bench sofa in ecru mohair.
+                </p>
+              </TimelineAnimation>
             </div>
           </div>
         </div>

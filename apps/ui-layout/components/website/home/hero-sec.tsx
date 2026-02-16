@@ -1,5 +1,5 @@
 'use client';
-import { ArrowRight, Component, LayoutPanelTop } from 'lucide-react';
+import { ArrowRight, Blocks, Component, LayoutPanelTop } from 'lucide-react';
 import React from 'react';
 import NewItemsLoading from './new-items-loading';
 import Image from 'next/image';
@@ -8,6 +8,7 @@ import AllBlocks from './all-blocks';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import Contributors from './contributor';
+import { GapPattern } from '@/components/ui/gap-pattern';
 
 const allProjects = [
   {
@@ -79,14 +80,14 @@ const allProjects = [
   {
     id: 3,
     projectsName: 'blocks',
-    link: 'https://pro.ui-layouts.com/blocks',
+    link: 'https://ui-layouts.com/blocks',
     componentSrc: () => (
       <>
         <svg
           width='261'
           height='79'
           viewBox='0 0 261 79'
-          className='w-full dark:fill-[#fd7627] fill-[#FF8E3D]'
+          className='w-full dark:fill-[#2784fd] fill-[#2784fd]'
           fill='none'
           xmlns='http://www.w3.org/2000/svg'
         >
@@ -142,16 +143,29 @@ export const profiles: Profile[] = [
   },
 ];
 
-function HeroSec() {
+function HeroSec({ blocksData }: { blocksData: any[] }) {
   return (
     <>
-      <section className='2xl:py-16 xl:py-20 sm:pb-24 pb-16 pt-6 relative'>
-        <div className='w-full absolute h-[113.625vh] z-0 overflow-hidden left-0 -top-32'>
+      <section className='relative pt-2'>
+        <GapPattern className='lg:h-20 h-16' />
+        <div
+          className='
+        absolute
+    w-full 
+    h-[630px] 
+    left-0 
+    -bottom-10 
+    bg-[radial-gradient(108.09%_118.89%_at_50%_-23.55%,#1b98ff_20.88%,#5c9dff_31.25%,rgba(0,0,0,0)_51.21%,rgba(0,0,0,0)_100%)] 
+    dark:bg-[radial-gradient(108.09%_118.89%_at_50%_-23.55%,#1b98ff_20.88%,#0c4eb0_31.25%,rgba(0,0,0,0)_51.21%,rgba(0,0,0,0)_100%)] 
+    rotate-180
+  '
+        ></div>
+        {/* <div className='w-full absolute h-[113.625vh] z-0 overflow-hidden left-0 -top-32'>
           <div className='hero-gradient1 ' data-border='true'></div>
           <div className='hero-gradient2' data-border='true'></div>
-        </div>
-        <div className='2xl:container 2xl:px-0 px-4 mx-auto relative z-10'>
-          <article className='grid gap-4 2xl:pt-10 pt-10 xl:pb-0 pb-2 sm:px-0 px-4'>
+        </div> */}
+        <div className='relative z-10'>
+          <article className='grid gap-4 p-5'>
             <NewItemsLoading />
             <h1 className='2xl:text-6xl xl:text-6xl md:text-6xl sm:text-5xl text-[1.7rem] tracking-tighter text-center font-semibold '>
               <span className='xl:text-[3.35rem] md:text-5xl sm:text-4xl text-[1.7rem]'>
@@ -159,24 +173,26 @@ function HeroSec() {
               </span>
               <br />
               <span className=''>& Blocks for</span>
-              <span className='dark:bg-neutral-800 bg-neutral-50 mt-3 relative rounded-md w-fit leading-[100%] inline-block px-1.5 py-0.5 border before:absolute before:top-0 before:left-0 before:w-full before:h-full before:content-[""] before:opacity-[0.09] before:z-10 before:pointer-events-none before:bg-[url("/noise.gif")]'>
-                <span className='bg-linear-to-t from-blue-300 to-blue-600 bg-clip-text text-transparent font-semibold pr-1'>
+              <span className='dark:bg-neutral-800 ml-2 bg-neutral-50 mt-3 relative rounded-md w-fit leading-[100%] inline-block px-1.5 py-0.5 border before:absolute before:top-0 before:left-0 before:w-full before:h-full before:content-[""] before:opacity-[0.09] before:z-10 before:pointer-events-none before:bg-[url("/noise.gif")]'>
+                <span className='bg-linear-to-t from-blue-400 to-blue-600 bg-clip-text text-transparent font-semibold pr-1'>
                   Developer
                 </span>
               </span>{' '}
             </h1>
             <p className='mx-auto 2xl:w-[600px] lg:w-[450px] 2xl:text-lg  sm:w-[80%] text-center sm:text-base text-sm'>
-              UI Layouts isn’t just a library. It’s a complete toolkit with
-              components, effects, design tools, and ready-to-use blocks,
-              everything you need to build modern interfaces, faster.
+              UI Layouts isn’t just a library. It’s your complete front-end
+              universe with components, effects, design tools, and ready-to-use
+              blocks, everything you need to build modern interfaces, faster.
             </p>
-            <div className='flex gap-2 justify-center items-center pt-6'>
+          </article>
+          <GapPattern />
+          <div className='p-5'>
+            <div className='flex gap-2 justify-center items-center'>
               <a
                 href='https://pro.ui-layouts.com/blocks'
-                className='flex items-center gap-2 w-fit sm:text-xl text-sm rounded-md shadow-lg shadow-blue-600 text-white bg-linear-to-b from-blue-500  to-blue-600 sm:px-4 px-2 py-3'
+                className='flex items-center gap-2 w-fit sm:text-xl text-sm rounded-md shadow-lg shadow-orange-600 text-white bg-linear-to-b from-orange-500  to-orange-600 sm:px-4 px-2 py-3'
               >
-                <LayoutPanelTop className='sm:w-6 sm:h-6 h-5 w-5' /> Unlock
-                Blocks 🎉
+                <Blocks className='sm:w-6 sm:h-6 h-5 w-5' /> Premium Blocks
               </a>
               <a
                 href='/components'
@@ -185,7 +201,7 @@ function HeroSec() {
                 <Component className='sm:w-6 sm:h-6 h-5 w-5' /> Browse Component
               </a>
             </div>
-            <div className='flex w-fit mx-auto sm:items-center justify-center mt-2 lg:pb-0 pb-10 sm:translate-x-8'>
+            <div className='flex w-fit mx-auto sm:items-center justify-center mt-5 sm:translate-x-8'>
               <div className='flex w-fit sm:translate-x-0 translate-x-8'>
                 {profiles.map((profile, index) => (
                   <a
@@ -282,7 +298,9 @@ function HeroSec() {
                 </div>
               </div>
             </div>
-            <div className='flex justify-center items-center'>
+          </div>
+          <GapPattern />
+          {/* <div className='flex justify-center items-center'>
               <a
                 href='https://www.producthunt.com/products/ui-layouts?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-ui-layouts'
                 target='_blank'
@@ -295,39 +313,44 @@ function HeroSec() {
                   src='https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1069263&amp;theme=light&amp;t=1769576764705'
                 />
               </a>
-            </div>
-          </article>
-          <div className='grid grid-cols-3 md:px-10 px-2 xl:gap-10 md:gap-5 gap-2 md:pt-16 pt-2 2xl:pb-40 xl:pb-36 lg:pb-24 md:pb-16'>
+            </div> */}
+          <div className='grid grid-cols-3 lg:p-10 p-5 xl:gap-10 md:gap-5 gap-2'>
             {allProjects.map((project) => (
-              <a
-                key={project.id}
-                href={project.link}
-                target='_blank'
-                rel='noopener noreferrer'
-                className='group flex flex-col items-center relative overflow-hidden justify-center rounded-2xl border dark:border-neutral-900 border-neutral-200 dark:bg-black p-6 shadow-md transition hover:shadow-lg hover:-translate-y-1'
-              >
-                <div className='mb-4 flex 2xl:h-72 lg:h-60 md:h-48 h-6 xl:px-8 relative z-10 items-center justify-center'>
-                  {project.componentSrc?.()}
-                </div>
-                <div className='absolute bottom-0 left-0 right-0 top-0 dark:bg-[linear-gradient(to_right,#2120202e_1px,transparent_1px),linear-gradient(to_bottom,#2120202e_1px,transparent_1px)] bg-[linear-gradient(to_right,#acacac2d_1px,transparent_1px),linear-gradient(to_bottom,#acacac2d_1px,transparent_1px)] bg-size-[50px_50px] mask-[radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]'></div>
+              <div key={project.id}>
+                <a
+                  href={project.link}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='group flex flex-col items-center relative overflow-hidden justify-center rounded-2xl border dark:border-neutral-900 border-neutral-100 dark:bg-black p-6 transition'
+                >
+                  <div className='mb-4 flex 2xl:h-72 lg:h-60 md:h-48 h-6 xl:px-8 relative z-10 items-center justify-center'>
+                    {project.componentSrc?.()}
+                  </div>
+                  <div className='absolute bottom-0 left-0 right-0 top-0 dark:bg-[linear-gradient(to_right,#2120202e_1px,transparent_1px),linear-gradient(to_bottom,#2120202e_1px,transparent_1px)] bg-[linear-gradient(to_right,#acacac2d_1px,transparent_1px),linear-gradient(to_bottom,#acacac2d_1px,transparent_1px)] bg-size-[50px_50px] mask-[radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]'></div>
 
-                {project?.projectsName === 'tools' && (
-                  <div className='absolute inset-0 z-0 mask-[radial-gradient(ellipse_115%_60%_at_50%_100%,#000_70%,transparent_110%)] dark:bg-[radial-gradient(125%_125%_at_50%_10%,#000000_40%,#303030_100%)] bg-[radial-gradient(125%_125%_at_50%_10%,#ffffff_40%,#cecece_100%)]' />
-                )}
-                {project?.projectsName === 'cursify' && (
-                  <div className='absolute inset-0 z-0 mask-[radial-gradient(ellipse_115%_60%_at_50%_100%,#000_70%,transparent_110%)] dark:bg-[radial-gradient(125%_125%_at_50%_10%,#000000_40%,#FF006F_100%)] bg-[radial-gradient(125%_125%_at_50%_10%,#ffffff_40%,#FF006F_100%)]' />
-                )}
-                {project?.projectsName === 'blocks' && (
-                  <div className='absolute inset-0 z-0 mask-[radial-gradient(ellipse_115%_60%_at_50%_100%,#000_70%,transparent_110%)] dark:bg-[radial-gradient(125%_125%_at_50%_10%,#000000_40%,#fd7627_100%)] bg-[radial-gradient(125%_125%_at_50%_10%,#ffffff_40%,#FF8E3D_100%)]' />
-                )}
-              </a>
+                  {project?.projectsName === 'tools' && (
+                    <div className='absolute inset-0 z-0 mask-[radial-gradient(ellipse_115%_60%_at_50%_100%,#000_70%,transparent_110%)] dark:bg-[radial-gradient(125%_125%_at_50%_10%,#000000_40%,#303030_100%)] bg-[radial-gradient(125%_125%_at_50%_10%,#ffffff_40%,#cecece_100%)]' />
+                  )}
+                  {project?.projectsName === 'cursify' && (
+                    <div className='absolute inset-0 z-0 mask-[radial-gradient(ellipse_115%_60%_at_50%_100%,#000_70%,transparent_110%)] dark:bg-[radial-gradient(125%_125%_at_50%_10%,#000000_40%,#FF006F_100%)] bg-[radial-gradient(125%_125%_at_50%_10%,#ffffff_40%,#FF006F_100%)]' />
+                  )}
+                  {project?.projectsName === 'blocks' && (
+                    <div className='absolute inset-0 z-0 mask-[radial-gradient(ellipse_115%_60%_at_50%_100%,#000_70%,transparent_110%)] dark:bg-[radial-gradient(125%_125%_at_50%_10%,#000000_40%,#2784fd_100%)] bg-[radial-gradient(125%_125%_at_50%_10%,#ffffff_40%,#3d6aff_100%)]' />
+                  )}
+                </a>
+              </div>
             ))}
           </div>
+          <GapPattern />
         </div>
       </section>
-      {/* <AllBlocks /> */}
+
+      <AllBlocks blocksData={blocksData} />
+      <GapPattern />
       <AllComponents />
+      <GapPattern />
       <Contributors />
+      <GapPattern />
     </>
   );
 }

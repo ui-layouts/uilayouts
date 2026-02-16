@@ -54,7 +54,7 @@ export default function NotFound() {
             {relevantMatches.map((item) => (
               <li
                 key={item.href}
-                className=' p-2 px-3 hover:bg-primary  text-blue-600 hover:underline hover:text-primary-foreground border rounded-md  bg-background'
+                className=' p-2 px-3 hover:bg-primary  text-blue-600 hover:underline hover:text-primary-foreground border rounded-md bg-background'
               >
                 <Link href={item.href}>{item.name}</Link>
               </li>

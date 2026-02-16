@@ -509,7 +509,7 @@ export const blocksDesign = [
         name: 'About e-commerse',
         des: 'A modern FAAQ section',
         tags: ['ecommerse', 'modern', 'about'],
-        componentSrc: AboutECommerce, 
+        componentSrc: AboutECommerce,
         filePath: [
           {
             fileSrc: require('../../packages/blocks/src/about-section/about-ecommerse.tsx?raw'),
@@ -1581,7 +1581,7 @@ export const blocksDesign = [
       },
       {
         id: 'faq-minimilastic',
-        name: 'Interactive Preview',
+        name: 'Minimilastic',
         des: 'A modern FAAQ section .',
         tags: ['FAQ', 'modern', 'faq minimilastic'],
         componentSrc: FaqMinimalist,

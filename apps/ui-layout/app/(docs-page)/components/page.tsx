@@ -584,7 +584,7 @@ const appsDesign = [
 
 export default function Home() {
   return (
-    <div className='pt-24 pb-5 lg:px-0 px-4'>
+    <div className='lg:pt-8 pt-16 pl-10 pb-5'>
       <h1 className={'sm:text-3xl text-2xl font-semibold tracking-tight pb-1'}>
         Ui-Layouts Components
       </h1>
@@ -636,7 +636,6 @@ export default function Home() {
           })}
         </div>
       </>
-      <Footer />
     </div>
   );
 }

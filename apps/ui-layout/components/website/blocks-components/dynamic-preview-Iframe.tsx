@@ -147,7 +147,7 @@ export default function DynamicPreviewIframe({
       </div>
 
       {/* TOOLBAR */}
-      <div className='absolute top-0 2xl:right-[11.3rem] lg:right-[10.1rem] sm:right-[8.8rem] right-[7.6rem] pl-2 flex gap-2'>
+      <div className='absolute top-0 2xl:left-[16.8rem] lg:left-[15.2rem] sm:left-[14.2rem] left-[7.6rem] pl-2 gap-2 md:flex hidden'>
         <Tooltip>
           <TooltipTrigger asChild>
             <button

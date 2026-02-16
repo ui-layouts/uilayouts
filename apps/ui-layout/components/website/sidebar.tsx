@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
   Atom,
+  Blocks,
   ChevronsDown,
   Component,
   MousePointerClick,
@@ -14,13 +15,6 @@ import {
 } from 'lucide-react';
 import { IRecentPage, useRecentPagesStore } from '@/hooks/useZustStore';
 import { useTheme } from 'next-themes';
-import {
-  Tooltip,
-  TooltipProvider,
-  TooltipContent,
-  TooltipTrigger,
-} from '@radix-ui/react-tooltip';
-import { useMediaQuery } from '@/hooks/use-media-query';
 import { groupedDocsNavigationCategories } from '@/lib/grouped-docs';
 
 export const basePath = [
@@ -36,64 +30,54 @@ export const basePath = [
     icon: <Component />,
     tags: ['components', 'components', 'components', 'components'],
   },
-  // {
-  //   href: '/mcp',
-  //   name: 'MCP',
-  //   icon: <Atom />,
-  //   tags: ['mcp', 'mcp', 'mcp', 'mcp'],
-  // },
+  {
+    href: '/blocks',
+    name: 'Blocks',
+    icon: <Blocks />,
+    tags: ['blocks', 'blocks', 'blocks', 'blocks'],
+  },
+  {
+    href: '/mcp',
+    name: 'MCP',
+    icon: <Atom />,
+    tags: ['mcp', 'mcp', 'mcp', 'mcp'],
+  },
 ];
 
 function DocsSidebar() {
   const pathname = usePathname();
-  const { setTheme } = useTheme();
-  const isDesktop = useMediaQuery('(min-width: 992px)');
 
-  const { addVisitedPage, getRecentPages, removeAllRecentPages } =
-    useRecentPagesStore();
-  const [recentPages, setRecentPages] = useState<IRecentPage[]>([]);
-
-  const handleRemoveAllRecentData = () => {
-    removeAllRecentPages();
-    setRecentPages([]);
-  };
-
-  useEffect(() => {
-    const recentPage = getRecentPages();
-    setRecentPages(recentPage);
-  }, [getRecentPages]);
-
+  const { addVisitedPage } = useRecentPagesStore();
   return (
     <>
-      {isDesktop && (
-        <aside className='h-full'>
-          <div className='sticky top-0 h-screen w-full pt-[4.5em]'>
-            <ScrollArea className='h-[98%] px-3 py-3'>
-              <ul className='pb-1'>
-                {basePath?.map((link, index) => (
-                  <li key={`id-${index}`}>
-                    <Link
-                      href={link.href}
-                      onClick={() => addVisitedPage(link.href, link.name)}
-                      className={`flex gap-2 group font-medium items-center py-1 transition-all ${
+      <aside className='h-full lg:block hidden'>
+        <div className='h-full w-full'>
+          <ScrollArea className='h-[calc(100vh-6em)] px-3'>
+            <ul className='pb-1 pt-12'>
+              {basePath?.map((link, index) => (
+                <li key={`id-${index}`}>
+                  <Link
+                    href={link.href}
+                    onClick={() => addVisitedPage(link.href, link.name)}
+                    className={`flex gap-2 group font-medium items-center py-1 transition-all ${
+                      link.href === pathname
+                        ? 'active-nav'
+                        : 'text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white'
+                    }`}
+                  >
+                    {React.cloneElement(link?.icon, {
+                      className: `${
                         link.href === pathname
-                          ? 'active-nav'
-                          : 'text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white'
-                      }`}
-                    >
-                      {React.cloneElement(link?.icon, {
-                        className: `${
-                          link.href === pathname
-                            ? 'dark:text-black dark:bg-white bg-black text-white'
-                            : 'dark:bg-zinc-900 dark:text-white group-hover:bg-black group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-black'
-                        } h-7 w-7 border transition-all rounded-md p-1`,
-                      })}
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-              {/* {recentPages.length > 0 && (
+                          ? 'dark:text-black dark:bg-white bg-black text-white'
+                          : 'dark:bg-zinc-900 dark:text-white group-hover:bg-black group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-black'
+                      } h-7 w-7 border transition-all rounded-md p-1`,
+                    })}
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            {/* {recentPages.length > 0 && (
                 <div className='relative'>
                   <div className='flex justify-between items-center'>
                     <h1 className='xl:text-lg text-[1.05rem] font-semibold pb-1'>
@@ -137,6 +121,7 @@ function DocsSidebar() {
                   </ul>
                 </div>
               )} */}
+            <div className='pb-16'>
               {Object.entries(groupedDocsNavigationCategories).map(
                 ([group, items], index) => (
                   <ItemsWithName
@@ -148,10 +133,10 @@ function DocsSidebar() {
                   />
                 )
               )}
-            </ScrollArea>
-          </div>
-        </aside>
-      )}
+            </div>
+          </ScrollArea>
+        </div>
+      </aside>
     </>
   );
 }
