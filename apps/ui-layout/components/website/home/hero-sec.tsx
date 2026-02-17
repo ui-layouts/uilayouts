@@ -148,24 +148,8 @@ function HeroSec({ blocksData }: { blocksData: any[] }) {
     <>
       <section className='relative pt-2'>
         <GapPattern className='2xl:h-20 lg:h-16 h-16' />
-        {/* <div
-          className='
-        absolute
-    w-full 
-    h-[630px] 
-    left-0 
-    -bottom-10 
-    bg-[radial-gradient(108.09%_118.89%_at_50%_-23.55%,#1b98ff_20.88%,#5c9dff_31.25%,rgba(0,0,0,0)_51.21%,rgba(0,0,0,0)_100%)] 
-    dark:bg-[radial-gradient(108.09%_118.89%_at_50%_-23.55%,#1b98ff_20.88%,#0c4eb0_31.25%,rgba(0,0,0,0)_51.21%,rgba(0,0,0,0)_100%)] 
-    rotate-180
-  '
-        ></div> */}
-        {/* <div className='w-full absolute h-[113.625vh] z-0 overflow-hidden left-0 -top-32'>
-          <div className='hero-gradient1 ' data-border='true'></div>
-          <div className='hero-gradient2' data-border='true'></div>
-        </div> */}
         <div className='relative z-10'>
-          <article className='grid gap-4 p-5'>
+          <article className='grid gap-4 2xl:p-10 p-5'>
             <NewItemsLoading />
             <h1 className='2xl:text-6xl xl:text-6xl md:text-6xl sm:text-5xl text-[1.7rem] tracking-tighter text-center font-semibold '>
               <span className='xl:text-[3.35rem] md:text-5xl sm:text-4xl text-[1.7rem]'>
@@ -184,9 +168,6 @@ function HeroSec({ blocksData }: { blocksData: any[] }) {
               universe with components, effects, design tools, and ready-to-use
               blocks, everything you need to build modern interfaces, faster.
             </p>
-          </article>
-          <GapPattern />
-          <div className='p-5'>
             <div className='flex gap-2 justify-center items-center'>
               <a
                 href='https://pro.ui-layouts.com/blocks'
@@ -298,7 +279,8 @@ function HeroSec({ blocksData }: { blocksData: any[] }) {
                 </div>
               </div>
             </div>
-          </div>
+          </article>
+
           <GapPattern />
           <div className='flex flex-wrap justify-center items-center md:p-5 p-2 lg:gap-10 gap-5'>
             <a
@@ -334,7 +316,7 @@ function HeroSec({ blocksData }: { blocksData: any[] }) {
                   id={project.id.toString()}
                 >
                   {index < allProjects.length - 1 && (
-                    <GapPattern className='2xl:h-20 lg:h-20 h-20 shrink-0 2xl:w-10 lg:w-7 w-5 border-x border-y-0' />
+                    <GapPattern className='absolute top-0 right-0 2xl:h-full lg:h-full h-full 2xl:w-10 lg:w-7 w-5 border-x border-y-0' />
                   )}
                   <a
                     href={project.link}

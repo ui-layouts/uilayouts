@@ -58,10 +58,10 @@ export async function generateMetadata(props: {
       url: md.openGraph?.url ?? absoluteUrl(doc.slug),
       images: md.openGraph?.images ?? [
         {
-          url: 'https://ui-layouts.com/component-og.jpg',
+          url: `/og?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`,
           width: 1200,
           height: 630,
-          alt: 'UI Layouts Components',
+          alt: title,
         },
       ],
       siteName: md.openGraph?.siteName ?? 'UI Layouts',
@@ -77,23 +77,13 @@ export async function generateMetadata(props: {
         md.twitter?.title ??
         (title.includes('| UI Layouts') ? title : `${title} | UI Layouts`),
       description: md.twitter?.description ?? description,
-      images: md.twitter?.images ?? ['https://ui-layouts.com/component-og.jpg'],
+      images: md.twitter?.images ?? [
+        {
+          url: `/og?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`,
+          alt: title,
+        },
+      ],
       creator: md.twitter?.creator ?? '@naymur_dev',
-    },
-
-    // Robots (Google uses this heavily)
-    robots: {
-      index: true,
-      follow: true,
-      ...md.robots,
-      googleBot: {
-        index: true,
-        follow: true,
-        'max-video-preview': -1,
-        'max-image-preview': 'large',
-        'max-snippet': -1,
-        ...md.robots?.googleBot,
-      },
     },
   };
 }

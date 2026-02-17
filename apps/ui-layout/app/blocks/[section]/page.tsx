@@ -48,7 +48,7 @@ export async function generateMetadata({
   const keywords = sectionData.tags || [];
 
   const canonical = `https://ui-layouts.com${sectionData.url || `/blocks/${sectionData.id}`}`;
-  const ogImage = `https://ui-layouts.com/og/blocks/${sectionData.id}.png`;
+  const ogImage = `/og?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`;
 
   return {
     metadataBase: new URL('https://ui-layouts.com'),
@@ -59,19 +59,6 @@ export async function generateMetadata({
     alternates: {
       canonical,
     },
-
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-        'max-image-preview': 'large',
-        'max-snippet': -1,
-        'max-video-preview': -1,
-      },
-    },
-
     openGraph: {
       title,
       description,
@@ -87,7 +74,6 @@ export async function generateMetadata({
         },
       ],
     },
-
     twitter: {
       card: 'summary_large_image',
       title,

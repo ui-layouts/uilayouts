@@ -79,7 +79,7 @@ const homeComponents = [
 
     componentSrc: <HomeBtn />,
     className:
-      'xl:col-start-13 lg:col-start-6  lg:col-end-15  2xl:row-start-7 lg:row-start-20 xl:row-start-6 lg:row-span-4 2xl:row-end-11  xl:row-end-10  lg:row-end-21 sm:col-span-9 col-span-7 sm:row-span-2 row-span-4',
+      'xl:col-start-13 lg:col-start-8 lg:col-end-15 2xl:row-start-7 lg:row-start-7 lg:row-end-8 xl:row-start-6 lg:row-span-4 2xl:row-end-11  xl:row-end-10  sm:col-span-9 col-span-7 sm:row-span-2 row-span-4',
   },
   {
     id: 9,
@@ -126,7 +126,7 @@ const homeComponents = [
 function AllComponents() {
   return (
     <>
-      <section className='relative sm:p-10 p-5 mb-5'>
+      <section className='relative xl:p-10 pb-5 p-5 mb-5'>
         <h1
           className='xl:text-5xl md:text-4xl lg:pb-0 pb-5 sm:text-3xl text-2xl font-medium text-center flex gap-2 items-start justify-center
         '

@@ -141,7 +141,7 @@ function AllBlocks({ blocksData }: { blocksData: any[] }) {
 
   return (
     <>
-      <section className='py-10 relative mb-5'>
+      <section className='xl:py-10 py-5 pb-5 relative mb-5'>
         <article className='space-y-4 pb-10 relative z-2'>
           <h1 className='xl:text-5xl md:text-4xl sm:text-3xl text-4xl font-medium text-center flex items-start sm:gap-2 justify-center'>
             <img
@@ -234,42 +234,6 @@ function AllBlocks({ blocksData }: { blocksData: any[] }) {
             <ArrowRight className=' group-hover:translate-x-1 transition-all' />
           </span>
         </a>
-        {/* <Marquee className='[--duration:30s]' pauseOnHover>
-          {allBlocks.map((section, index) => (
-            <a
-              key={section?.id}
-              href={section?.link}
-              target='_blank'
-              className='2xl:w-md md:w-100 sm:w-72 w-60 rounded-md 2xl:h-72 md:h-64 sm:h-48 h-42 p-2 backdrop-blur-lg bg-primary/10'
-            >
-              <Image
-                src={section?.imgSrc[0].img}
-                alt={section?.id}
-                width={400}
-                className='w-full h-full object-cover rounded-md'
-                height={400}
-              />
-            </a>
-          ))}
-        </Marquee>
-        <Marquee className='[--duration:30s]' pauseOnHover reverse>
-          {allBlocks.map((section, index) => (
-            <a
-              key={section?.id}
-              href={section?.link}
-              target='_blank'
-              className='2xl:w-md md:w-100 sm:w-72 w-60 rounded-md 2xl:h-72 md:h-64 sm:h-48 h-42 p-2 backdrop-blur-lg bg-primary/10'
-            >
-              <Image
-                src={section?.imgSrc[1].img}
-                alt={section?.id}
-                width={400}
-                className='w-full h-full object-cover rounded-md'
-                height={400}
-              />
-            </a>
-          ))}
-        </Marquee> */}
       </section>
     </>
   );
