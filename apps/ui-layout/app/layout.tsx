@@ -31,10 +31,7 @@ export const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: {
-    default: siteConfig.name,
-    template: `%s - ${siteConfig.name}`,
-  },
+  title: siteConfig.name,
   metadataBase: new URL(siteConfig.url),
   description: siteConfig.description,
   keywords: [

@@ -106,7 +106,7 @@ function Header() {
             <ThemeSwitch className='dark:bg-zinc-900 bg-neutral-50 border w-12 rounded-md h-11 shrink-0' />
           </div>
         </div>
-        <GapPattern className='absolute left-0 top-0 lg:h-15 h-15 border-t-0 -z-1' />
+        <GapPattern className='absolute left-0 top-0 2xl:h-15 lg:h-15 h-14 border-t-0 -z-1' />
       </header>
     </>
   );

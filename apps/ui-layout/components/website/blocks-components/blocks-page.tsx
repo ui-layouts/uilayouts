@@ -12,7 +12,7 @@ export default function BlocksHomeClient({ blocksData }: { blocksData: any }) {
     <>
       <Container>
         <section className='p'>
-          <GapPattern className='lg:h-20 h-16' />
+          <GapPattern className='2xl:h-20 xl:h-20 h-20' />
           <article className='w-fit mx-auto max-w-5xl text-center space-y-4 p-10'>
             <h1 className='font-manrope font-medium xl:text-7xl lg:text-6xl md:text-5xl sm:text-4xl text-3xl'>
               <span>

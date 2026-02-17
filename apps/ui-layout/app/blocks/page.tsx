@@ -4,10 +4,7 @@ import { siteConfig } from '@/lib/utils';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: {
-    default: 'Blocks | UI-Layouts',
-    template: `%s - ${siteConfig.blocksName}`,
-  },
+  title: 'Blocks | UI-Layouts',
   metadataBase: new URL(siteConfig.url),
   description: siteConfig.blocksDescription,
   keywords: [

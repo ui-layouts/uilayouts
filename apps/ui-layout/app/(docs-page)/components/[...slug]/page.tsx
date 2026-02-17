@@ -40,21 +40,15 @@ export async function generateMetadata(props: {
   const description = md.description ?? '';
 
   return {
-    // Core
     metadataBase: md.metadataBase,
     title: title.includes('| UI Layouts') ? title : `${title} | UI Layouts`,
     description,
-
-    // Keywords (still useful for Bing + some SEO tools)
     keywords: md.keywords ?? [],
-
-    // Authors / branding
     authors: md.authors,
     creator: md.creator ?? '@naymur_dev',
     publisher: md.publisher ?? 'UI Layouts',
     category: md.category ?? 'technology',
 
-    // Open Graph (VERY important)
     openGraph: {
       ...(md.openGraph ?? {}),
       title:
@@ -144,7 +138,7 @@ export default async function DocPage(props: {
             <ComponentPagination doc={doc} />
           </section>
           <Footer />
-          <GapPattern className='lg:h-full h-full lg:block hidden lg:w-10 w-5 border-x border-y-0 absolute -right-8 top-0' />
+          <GapPattern className='2xl:h-full lg:h-full h-full lg:block hidden 2xl:w-10 lg:w-7 w-5 border-x border-y-0 absolute -right-8 top-0' />
         </div>
         <TableOfContents toc={doc.toc} />
       </div>
