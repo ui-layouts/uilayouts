@@ -55,10 +55,13 @@ export async function generateMetadata({
     title,
     description,
     keywords,
-
     alternates: {
       canonical,
     },
+    authors: [{ name: 'Naymur Rahman', url: 'https://twitter.com/naymur_dev' }],
+    creator: '@naymur_dev',
+    publisher: 'UI Layouts',
+    category: 'technology',
     openGraph: {
       title,
       description,

@@ -32,7 +32,7 @@ export const metadata = {
   creator: '@naymur_dev',
   publisher: 'UI Layouts',
   openGraph: {
-    title: 'UI Layouts Components | Ui-Layouts',
+    title: 'Components | Ui-Layouts',
     description:
       '60+ open-source React, Next.js, and TailwindCSS components. Accessible, customizable, and beautifully designed — ready to copy and paste into your apps.',
     url: 'https://ui-layouts.com/components',

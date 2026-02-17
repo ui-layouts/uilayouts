@@ -30,33 +30,24 @@ export async function generateMetadata(props: {
 
   const md = doc.content.metadata;
 
-  const title =
-    typeof md.title === 'string'
-      ? md.title
-      : ((md.title as any)?.absolute ??
-        (md.title as any)?.default ??
-        'UI Layouts');
+  const title = md?.title ?? '';
 
   const description = md.description ?? '';
 
   return {
     metadataBase: md.metadataBase,
-    title: title.includes('| UI Layouts') ? title : `${title} | UI Layouts`,
+    title: `${title} | UI Layouts`,
     description,
     keywords: md.keywords ?? [],
-    authors: md.authors,
-    creator: md.creator ?? '@naymur_dev',
-    publisher: md.publisher ?? 'UI Layouts',
-    category: md.category ?? 'technology',
-
+    authors: [{ name: 'Naymur Rahman', url: 'https://twitter.com/naymur_dev' }],
+    creator: '@naymur_dev',
+    publisher: 'UI Layouts',
+    category: 'technology',
     openGraph: {
-      ...(md.openGraph ?? {}),
-      title:
-        md.openGraph?.title ??
-        (title.includes('| UI Layouts') ? title : `${title} | UI Layouts`),
-      description: md.openGraph?.description ?? description,
-      url: md.openGraph?.url ?? absoluteUrl(doc.slug),
-      images: md.openGraph?.images ?? [
+      title: `${title} | UI Layouts`,
+      description: description,
+      url: absoluteUrl(doc.slug),
+      images: [
         {
           url: `/og?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`,
           width: 1200,
@@ -64,26 +55,22 @@ export async function generateMetadata(props: {
           alt: title,
         },
       ],
-      siteName: md.openGraph?.siteName ?? 'UI Layouts',
-      locale: md.openGraph?.locale ?? 'en_US',
-      type: md.openGraph?.type ?? 'website',
+      siteName: 'UI Layouts',
+      locale: 'en_US',
+      type: 'website',
     },
 
-    // Twitter
     twitter: {
-      ...(md.twitter ?? {}),
-      card: md.twitter?.card ?? 'summary_large_image',
-      title:
-        md.twitter?.title ??
-        (title.includes('| UI Layouts') ? title : `${title} | UI Layouts`),
-      description: md.twitter?.description ?? description,
-      images: md.twitter?.images ?? [
+      card: 'summary_large_image',
+      title: `${title} | UI Layouts`,
+      description: description,
+      images: [
         {
           url: `/og?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`,
           alt: title,
         },
       ],
-      creator: md.twitter?.creator ?? '@naymur_dev',
+      creator: '@naymur_dev',
     },
   };
 }
