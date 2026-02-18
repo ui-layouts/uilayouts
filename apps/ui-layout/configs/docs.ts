@@ -979,6 +979,7 @@ export const DocsNavigationCategories: DocsNavigationCategory[] = [
     tags: ['infinity', 'brand', 'marquee'],
   },
 ];
+
 const humanize = (key: string) =>
   key
     .replace(/[_-]+/g, ' ')
@@ -4512,3 +4513,29 @@ export const ComponentMetaByCategory = AllComponents.reduce((map, m) => {
   map.set(m.category, list);
   return map;
 }, new Map<string, ComponentMeta[]>());
+
+export const getAllComponentsArray = () => {
+  const result: {
+    category: string;
+    slug: string;
+    href: string;
+    title: string;
+    description: string;
+    tags: string[];
+  }[] = [];
+
+  for (const [category, components] of ComponentMetaByCategory) {
+    for (const component of components) {
+      result.push({
+        category,
+        slug: component.slug,
+        href: component.href,
+        title: component.title,
+        description: component.description,
+        tags: component.tags,
+      });
+    }
+  }
+
+  return result;
+};
