@@ -11,6 +11,7 @@ import {
   MousePointerClick,
   PenTool,
   Rocket,
+  Target,
   X,
 } from 'lucide-react';
 import { IRecentPage, useRecentPagesStore } from '@/hooks/useZustStore';
@@ -41,6 +42,12 @@ export const basePath = [
     name: 'MCP',
     icon: <Atom />,
     tags: ['mcp', 'mcp', 'mcp', 'mcp'],
+  },
+  {
+    href: '/llms',
+    name: 'LLMs',
+    icon: <Target />,
+    tags: ['llms', 'llms', 'llms', 'llms'],
   },
 ];
 

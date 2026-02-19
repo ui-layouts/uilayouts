@@ -20,10 +20,12 @@ import { ClientPreCode } from '@/components/website/code-components/client-pre-c
 
 import DynamicPreviewIframe from '@/components/website/blocks-components/dynamic-preview-Iframe';
 import { cn } from '@/lib/utils';
-import { TableOfContents } from '@/components/website/table-of-contents';
+import { TableOfContents } from '@/components/website/blocks-components/table-of-contents';
 import CliCopyBtn from '@/components/website/blocks-components/cli-copy-btn';
 import { Container } from '@/components/ui/container';
 import HomeFooter from '@/components/website/home/home-footer';
+import { StructuredData } from '@/components/seo/structured-data';
+import { BreadcrumbStructuredData } from '@/components/seo/breadcrumb-structured-data';
 
 export const dynamic = 'force-static';
 export const dynamicParams = false;
@@ -104,6 +106,23 @@ export default async function SectionPage(props: {
 
   return (
     <section className='dark:prose-invert max-w-full'>
+      <StructuredData
+        type='component'
+        componentData={{
+          name: sectionData.name,
+          description: sectionData.des,
+        }}
+      />
+      <BreadcrumbStructuredData
+        items={[
+          { name: 'Home', url: 'https://ui-layouts.com' },
+          { name: 'Blocks', url: 'https://ui-layouts.com/blocks' },
+          {
+            name: sectionData.name,
+            url: `https://ui-layouts.com/blocks/${sectionData.id}`,
+          },
+        ]}
+      />
       <TableOfContents />
       <Container className='pb-10 pt-32 -mt-20'>
         <article

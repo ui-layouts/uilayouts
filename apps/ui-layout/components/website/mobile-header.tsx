@@ -178,7 +178,6 @@ function MobileHeader({ classname }: { classname?: string }) {
             </a>
 
             <h1 className='text-sm font-semibold pb-1'>Components</h1>
-            <ul>
               <ul>
                 {Object.values(DOCS_CATEGORY_GROUP).map((groupName) => {
                   // Filter components for this group
@@ -228,7 +227,6 @@ function MobileHeader({ classname }: { classname?: string }) {
                   );
                 })}
               </ul>
-            </ul>
           </ScrollArea>
         </DrawerContent>
       </DirectionalDrawer>

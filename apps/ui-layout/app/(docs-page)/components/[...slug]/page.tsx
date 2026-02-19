@@ -8,6 +8,7 @@ import { ComponentPagination } from '@/components/website/code-components/pagina
 import Footer from '@/components/website/footer';
 import CopyPage from '@/components/website/copy-page';
 import { GapPattern } from '@/components/ui/gap-pattern';
+import { StructuredData } from '@/components/seo/structured-data';
 
 export const dynamic = 'force-static';
 export const dynamicParams = false;
@@ -88,6 +89,13 @@ export default async function DocPage(props: {
 
   return (
     <>
+      <StructuredData
+        type='component'
+        componentData={{
+          name: doc.content.metadata.title,
+          description: doc.content.metadata.description,
+        }}
+      />
       <div className='lg:px-0 lg:pt-0 pt-6 px-3 mt-0 flex w-full lg:gap-10 '>
         <div className='w-full relative xl:pl-0 lg:pl-4 pl-0'>
           <section className='3xl:max-w-5xl 2xl:max-w-210 xl:max-w-190 lg:max-w-140 max-w-5xl mx-auto prose prose-zinc pb-5 dark:prose-invert prose-h1:text-2xl prose-h1:font-semibold prose-h2:text-3xl prose-h2:my-4 prose-h2:pt-12 prose-h2:pb-4 prose-h3:py-1 prose-h2:mt-3 prose-h2:font-medium prose-h3:text-2xl prose-h3:mt-4 prose-h3:mb-2 prose-h3:font-medium prose-strong:font-medium prose-table:block prose-table:overflow-y-auto lg:pt-4'>
