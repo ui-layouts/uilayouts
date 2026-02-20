@@ -168,6 +168,12 @@ export function StructuredData({ type, componentData }: StructuredDataProps) {
             priceCurrency: 'USD',
             description: 'Free open-source UI component',
             availability: 'https://schema.org/InStock',
+            validFrom: '2024-01-01',
+            seller: {
+              '@type': 'Organization',
+              name: 'UI Layouts',
+              url: siteConfig.url,
+            },
           },
           screenshot: componentData?.image || siteConfig.ogImage,
           creator: {
@@ -185,12 +191,19 @@ export function StructuredData({ type, componentData }: StructuredDataProps) {
           browserRequirements: 'Requires JavaScript. Requires HTML5.',
           softwareVersion: '1.0.0',
           dateModified: new Date().toISOString(),
+          datePublished: '2024-01-01',
+          downloadUrl: `${siteConfig.url}/components/${componentData?.name?.toLowerCase()}`,
+          installUrl: `${siteConfig.url}/components/${componentData?.name?.toLowerCase()}`,
           aggregateRating: {
             '@type': 'AggregateRating',
             ratingValue: '4.8',
             reviewCount: '100',
             bestRating: '5',
             worstRating: '1',
+            itemReviewed: {
+              '@type': 'SoftwareApplication',
+              name: componentData?.name,
+            },
           },
           featureList: [
             'TypeScript Support',
@@ -201,6 +214,23 @@ export function StructuredData({ type, componentData }: StructuredDataProps) {
             'Well Documented',
             'Copy & Paste',
             'No Dependencies',
+            'Open Source',
+            'MIT License',
+          ],
+          license: 'https://opensource.org/licenses/MIT',
+          maintainer: {
+            '@type': 'Organization',
+            name: 'UI Layouts',
+            url: siteConfig.url,
+          },
+          keywords: [
+            'React Component',
+            'TypeScript',
+            'Tailwind CSS',
+            'UI Component',
+            'Frontend Development',
+            'Modern UI',
+            'Accessible Design',
           ],
         };
 
