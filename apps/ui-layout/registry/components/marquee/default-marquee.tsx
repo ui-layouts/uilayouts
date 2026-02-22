@@ -92,6 +92,25 @@ const MarqueeDemo = () => {
           <ReviewCard key={review.username} {...review} />
         ))}
       </Marquee>
+      <svg
+        className="absolute top-0 left-0 z-2 w-full h-full mix-blend-overlay opacity-50"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <filter id="noise6">
+            <feTurbulence
+              type="fractalNoise"
+              baseFrequency="0.6"
+              numOctaves="4"
+            />
+          </filter>
+        </defs>
+        <rect
+          width="100%"
+          height="100%"
+          filter="url(#noise6)"
+        />
+      </svg>
       <div className='pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-linear-to-r from-white dark:from-neutral-900'></div>
       <div className='pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-linear-to-l from-white dark:from-neutral-900'></div>
     </div>

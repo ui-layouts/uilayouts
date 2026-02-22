@@ -324,6 +324,25 @@ function HeroSec({ blocksData }: { blocksData: any[] }) {
                     rel='noopener noreferrer'
                     className='group flex flex-col relative items-center overflow-hidden justify-center dark:bg-black p-6 transition'
                   >
+                    <svg
+                      className='absolute top-0 left-0 z-2 w-full h-full mix-blend-multiply opacity-50'
+                      xmlns='http://www.w3.org/2000/svg'
+                    >
+                      <defs>
+                        <filter id='noise6'>
+                          <feTurbulence
+                            type='fractalNoise'
+                            baseFrequency='0.6'
+                                numOctaves='4'
+                              />
+                            </filter>
+                          </defs>
+                          <rect
+                            width='100%'
+                            height='100%'
+                            filter='url(#noise6)'
+                          />
+                    </svg>
                     <div className='mb-4 flex 2xl:h-72 lg:h-60 md:h-48 h-6 xl:px-8 relative z-10 items-center justify-center'>
                       {project.componentSrc?.()}
                     </div>
