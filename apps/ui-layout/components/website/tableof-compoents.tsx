@@ -11,6 +11,7 @@ import { SquareArrowOutUpRight } from 'lucide-react';
 import { Bug } from 'lucide-react';
 import { Lightbulb } from 'lucide-react';
 import { Pencil } from 'lucide-react';
+import CarbonAd from './carbon-ads';
 
 interface TocItem {
   title: string;
@@ -121,10 +122,10 @@ export default function TableOfContents({ toc }: TableOfContentsProps) {
   return (
     <>
       <aside className='hidden lg:block xl:w-[170px] w-[150px] shrink-0'>
-        <div className='sticky top-14 h-[calc(100vh-6em)]'>
-          <div className='absolute -bottom-5 left-0 z-2 xl:w-[162px] w-[142px] h-20 bg-linear-to-t dark:from-neutral-950 from-white dark:via-neutral-950 via-white'></div>
+        <div className='sticky top-14 h-[calc(100vh-2em)]'>
+          <div className='absolute bottom-0 left-0 z-2 xl:w-[162px] w-[142px] h-20 bg-linear-to-t dark:from-neutral-950 from-white dark:via-neutral-950 via-white'></div>
           <div className='absolute -top-5 left-0 xl:w-[162px] w-[142px] h-20 z-2 bg-linear-to-b dark:from-neutral-950 from-white dark:via-neutral-950 via-white'></div>
-          <ScrollArea className='h-[calc(100vh-6em)] px-3 py-3 rounded-md'>
+          <ScrollArea className='h-[calc(100vh-2em)] px-3 py-3 rounded-md'>
             <div className='flex flex-col h-full pt-10 pb-10'>
               <style jsx global>{`
                 [data-radix-scroll-area-viewport] > div {
@@ -197,22 +198,9 @@ export default function TableOfContents({ toc }: TableOfContentsProps) {
                 </div>
               </div>
 
-              <div className='space-y-4 pt-5 mt-auto'>
-                {/* <a
-                  href='https://www.producthunt.com/products/ui-layouts?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-ui-layouts'
-                  target='_blank'
-                  className='mb-3'
-                  rel='noopener noreferrer'
-                >
-                  <img
-                    alt="Ui-Layouts - Not another component library, It's your frontend universe  | Product Hunt"
-                    width='250'
-                    height='54'
-                    src='https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1069263&amp;theme=light&amp;t=1769576764705'
-                  />
-                </a> */}
+              <div className='mt-auto relative pt-10'>
                 {/* add something for the pro version */}
-                <div className='m-0 mt-3 text-[0.8em] space-y-2 text-muted-foreground mb-6 p-3 rounded-xl bg-codebg dark:border-neutral-800 backdrop-blur-md border'>
+                {/* <div className='m-0 mt-3 text-[0.8em] space-y-2 text-muted-foreground mb-6 p-3 rounded-xl bg-codebg dark:border-neutral-800 backdrop-blur-md border'>
                   <p className='text-primary font-semibold'>
                     Unlock advanced{' '}
                     <a
@@ -243,12 +231,15 @@ export default function TableOfContents({ toc }: TableOfContentsProps) {
                   >
                     Upgrade to Pro →
                   </a>
+                </div> */}
+                <div className='-translate-x-2.5 pb-5'>
+                  <BuyMeCoffee
+                    classname='w-36 h-32 my-0'
+                    iconClassName='w-full h-full group-hover:translate-y-14'
+                    textSvgClassName='group-hover:scale-[1.5] top-[0.8rem]'
+                  />
                 </div>
-                <BuyMeCoffee
-                  classname='mt-10 w-36 h-32 my-0'
-                  iconClassName='w-full h-full group-hover:translate-y-14'
-                  textSvgClassName='group-hover:scale-[1.5] top-[0.8rem]'
-                />
+                <CarbonAd />
               </div>
             </div>
           </ScrollArea>
