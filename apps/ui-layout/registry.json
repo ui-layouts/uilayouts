@@ -2118,7 +2118,7 @@
       ]
     },
     {
-      "name": "uilayouts-github-button",
+      "name": "liquid-button",
       "type": "registry:component",
       "devDependencies": [],
       "dependencies": ["motion"],

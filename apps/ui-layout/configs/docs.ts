@@ -2890,7 +2890,7 @@ export const AllComponents: IAllComponents[] = [
     componentSrc: React.lazy(
       () => import('@/registry/components/liquid-gradient/github-repo-btn')
     ),
-    iframeSrc: 'live-components/uilayouts-github-button',
+    iframeSrc: 'live-components/liquid-button',
     tags: [
       'github',
       'button',
