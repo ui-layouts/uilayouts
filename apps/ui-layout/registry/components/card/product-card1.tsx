@@ -59,7 +59,7 @@ function Card1() {
             <div className='flex gap-2 items-center'>
               {CardArr.map((data, index) => (
                 <button
-                  key={index}
+                  key={data.color}
                   onClick={() => handleColorButtonClick(data.img, data.color)}
                   className={` relative w-6 h-6 border  rounded-full grid place-content-center transition-all ${
                     selectedColor === data.color

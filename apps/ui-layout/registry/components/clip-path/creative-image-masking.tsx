@@ -1,6 +1,6 @@
 import React from 'react';
 
-function index() {
+function CreativeImageMasking() {
   return (
     <>
       <section
@@ -28,4 +28,4 @@ function index() {
   );
 }
 
-export default index;
+export default CreativeImageMasking;

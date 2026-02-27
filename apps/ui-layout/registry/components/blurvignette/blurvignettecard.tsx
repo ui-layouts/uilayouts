@@ -6,7 +6,7 @@ import {
   BlurVignetteArticle,
 } from '@/components/ui/blur-vignette';
 
-function index() {
+function Blurvignettecard() {
   return (
     <>
       <div className='w-fit mx-auto sm:flex gap-2 justify-center md:p-8 sm:p-4'>
@@ -61,4 +61,4 @@ function index() {
   );
 }
 
-export default index;
+export default Blurvignettecard;

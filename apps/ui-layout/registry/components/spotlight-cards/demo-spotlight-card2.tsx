@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import React, { MouseEvent, useRef, useState } from 'react';
 
-export default function index() {
+export default function DemoSpotlightCard2() {
   const boxWrapper = useRef(null);
   const [overlayColor, setOverlayColor] = useState({ x: 0, y: 0 });
   const handleMouemove = ({ currentTarget, clientX, clientY }): MouseEvent => {

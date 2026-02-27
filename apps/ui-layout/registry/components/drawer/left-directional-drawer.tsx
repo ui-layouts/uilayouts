@@ -10,7 +10,7 @@ import {
   DrawerContent,
   DrawerTrigger,
 } from '@/components/ui/directional-drawer';
-export default function index() {
+export default function LeftDirectionalDrawer() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   return (
     <>

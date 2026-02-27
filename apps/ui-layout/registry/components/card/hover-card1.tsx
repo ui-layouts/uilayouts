@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { MoveUpRight } from 'lucide-react';
-function index() {
+function HoverCard1() {
   return (
     <>
       <article className={` relative pb-4  overflow-hidden`}>
@@ -35,4 +35,4 @@ function index() {
   );
 }
 
-export default index;
+export default HoverCard1;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function index() {
+function CreativeVideoMasking() {
   return (
     <>
       <section
@@ -34,4 +34,4 @@ function index() {
   );
 }
 
-export default index;
+export default CreativeVideoMasking;

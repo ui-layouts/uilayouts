@@ -11,7 +11,7 @@ import {
 } from '@/components/ui/carousel';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-function index() {
+function ScaleSlider() {
   const OPTIONS: EmblaOptionsType = { loop: true };
   return (
     <>
@@ -46,4 +46,4 @@ function index() {
   );
 }
 
-export default index;
+export default ScaleSlider;

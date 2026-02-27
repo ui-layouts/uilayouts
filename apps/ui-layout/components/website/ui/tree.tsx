@@ -283,12 +283,14 @@ export const TreeLines = () => {
           return null;
         }
 
+        const lineLeft = index * (indent ?? 0) + 12;
+
         return (
           <div
             className='absolute top-0 bottom-0 border dark:border-neutral-800 border-l'
-            key={index.toString()}
+            key={lineLeft}
             style={{
-              left: index * (indent ?? 0) + 12,
+              left: lineLeft,
               display: shouldHideLine ? 'none' : 'block',
             }}
           />

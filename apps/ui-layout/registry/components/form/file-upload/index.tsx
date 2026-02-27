@@ -63,7 +63,7 @@ const FileUploaderTest = () => {
             files.length > 0 &&
             files.map((file, i) => (
               <FileUploaderItem
-                key={i}
+                key={`${file.name}-${file.lastModified}-${file.size}`}
                 index={i}
                 className='dark:bg-neutral-800 bg-neutral-50'
               >

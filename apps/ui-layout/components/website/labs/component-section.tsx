@@ -116,7 +116,7 @@ const ComponentSection = () => {
                         padding: `${compPadding}px`,
                       }}
                       loading='lazy'
-                    />
+                     title='Lab component preview' />
                   </>
                 ) : (
                   <>
@@ -169,7 +169,7 @@ const ComponentSection = () => {
                               scale: scalePercentage,
                             }}
                             loading='lazy'
-                          />
+                           title='Lab component preview' />
                         }
                       </>
                     )}

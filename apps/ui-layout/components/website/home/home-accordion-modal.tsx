@@ -108,7 +108,7 @@ export default function HomeAccordionModal() {
               animate='open'
               exit='closed'
               tabIndex={-1}
-              key={`backdrop-${items[index].id}`}
+              key={`backdrop-${currentItem.id}`}
               className='dark:bg-black/95 bg-white/95 backdrop-blur-xs fixed h-screen z-50 top-0 left-0 bottom-0 right-0 w-full  grid place-content-center 2xl:py-20 pt-10
                 '
               onClick={() => {
@@ -118,7 +118,7 @@ export default function HomeAccordionModal() {
               <>
                 <motion.div
                   key='dialog'
-                  layoutId={`dialog-${items[index].id}`}
+                  layoutId={`dialog-${currentItem.id}`}
                   onClick={(e) => e.stopPropagation()}
                   className=' p-5  sm:w-[600px] w-[80%] mx-auto  relative  overflow-x-hidden  rounded-md cursor-default  bg-white shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:bg-zinc-900 dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)]'
                 >
@@ -131,8 +131,8 @@ export default function HomeAccordionModal() {
                     <X className='w-6 h-6' />
                   </button>
                   <motion.img
-                    layoutId={`dialog-img-${items[index].id}`}
-                    src={items[index].url.src}
+                    layoutId={`dialog-img-${currentItem.id}`}
+                    src={currentItem.url.src}
                     width={400}
                     height={400}
                     alt='single-image'
@@ -140,14 +140,14 @@ export default function HomeAccordionModal() {
                   />
                   <motion.div
                     layout='position'
-                    layoutId={`dialog-title-${items[index].id}`}
+                    layoutId={`dialog-title-${currentItem.id}`}
                   >
                     <motion.h1 className='text-4xl font-semibold'>
-                      {items[index].title}
+                      {currentItem.title}
                     </motion.h1>
                   </motion.div>
                   <motion.p
-                    key={items[index].id} // Add this line
+                    key={currentItem.id}
                     initial={{
                       scale: 1,
                       opacity: 0,
@@ -158,7 +158,7 @@ export default function HomeAccordionModal() {
                     transition={{ duration: 0.2 }}
                     className='sm:text-sm text-xs  py-2'
                   >
-                    {items[index].description}
+                    {currentItem.description}
                   </motion.p>
                 </motion.div>
               </>

@@ -13,6 +13,8 @@ import {
   TooltipTrigger,
 } from '@/components/website/ui/tooltip';
 import { Metadata } from 'next';
+import Link from 'next/link';
+import Image from 'next/image';
 import { blocksDesign, getBlocksDesignMeta } from '@/blocks-docs';
 import { TreeCodeViewer } from '@/components/website/code-components/tree-view-code';
 import { transformCodeFiles } from '@/lib/transform-code-files';
@@ -132,9 +134,9 @@ export default async function SectionPage(props: {
           <div className='absolute bottom-0 left-0 right-0 top-0 dark:bg-[radial-gradient(#ededed33_1px,#171717_1px)] bg-[radial-gradient(#0000001a_1px,#f8fafc_1px)] bg-size-[16px_16px] mask-[radial-gradient(ellipse_85%_55%_at_100%_0%,#000_70%,transparent_110%)]'></div>
           <div className='space-y-2 relative z-4'>
             <div className='flex items-center text-primary/70'>
-              <a href='/blocks' className='hover:underline flex gap-1'>
+              <Link href='/blocks' className='hover:underline flex gap-1'>
                 blocks
-              </a>
+              </Link>
               /{sectionData.id}
             </div>
             <h1 className='not-prose flex items-center gap-2 text-2xl lg:text-3xl font-medium'>
@@ -150,7 +152,7 @@ export default async function SectionPage(props: {
             target='_blank'
             className='absolute -top-12 right-0 sm:opacity-100 opacity-30'
           >
-            <img src='/50off.png' className='w-72 h-full' alt='' />
+            <Image src='/50off.png' className='w-72 h-full' alt='' width={288} height={96} />
           </a>
         </article>
       </Container>

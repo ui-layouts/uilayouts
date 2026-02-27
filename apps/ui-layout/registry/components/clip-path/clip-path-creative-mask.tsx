@@ -1,6 +1,6 @@
 import React from 'react';
 
-function index() {
+function ClipPathCreativeMask() {
   return (
     <>
       <svg className='clipppy absolute -top-[999px] -left-[999px] w-0 h-0'>
@@ -164,4 +164,4 @@ function index() {
   );
 }
 
-export default index;
+export default ClipPathCreativeMask;

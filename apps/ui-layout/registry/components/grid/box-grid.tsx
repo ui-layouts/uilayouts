@@ -9,7 +9,7 @@ interface ProjectsTypes {
   des: string;
 }
 
-export default function index() {
+export default function BoxGrid() {
   return (
     <>
       <div className='grid grid-rows-10  grid-cols-12 grid-flow-col gap-2  pt-10'>

@@ -23,6 +23,7 @@ function DefaultSlider() {
             {/* <div className='bg-blue-500 md:h-[500px] sm:h-[400px] h-[300px] w-full rounded-lg'></div> */}
             <img
               src='https://images.unsplash.com/photo-1760389005000-bf02bf24f463?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1123'
+              alt='Nature slide 1'
               className='w-full object-cover aspect-square'
             />
           </Slider>
@@ -30,6 +31,7 @@ function DefaultSlider() {
             {/* <div className='bg-green-500 md:h-[500px] sm:h-[400px] h-[300px] w-full rounded-lg'></div> */}
             <img
               src='https://images.unsplash.com/photo-1761078980679-e89e25fe279b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687'
+              alt='Nature slide 2'
               className='w-full object-cover aspect-square'
             />
           </Slider>
@@ -37,12 +39,14 @@ function DefaultSlider() {
             {/* <div className='bg-yellow-500 md:h-[500px] sm:h-[400px] h-[300px] w-full rounded-lg'></div> */}
             <img
               src='https://images.unsplash.com/photo-1761882725885-d3d8bd2032d1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687'
+              alt='Nature slide 3'
               className='w-full object-cover aspect-square'
             />
           </Slider>
           <Slider className='w-full h-full'>
             <img
               src='https://images.unsplash.com/photo-1761775915848-467e41c1c4db?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=689'
+              alt='Nature slide 4'
               className='w-full object-cover aspect-square'
             />
             {/* <div className='bg-red-500 md:h-[500px] sm:h-[400px] h-[300px] w-full rounded-lg'></div> */}

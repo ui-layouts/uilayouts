@@ -36,7 +36,7 @@ const projects: ProjectsTypes[] = [
   },
 ];
 
-export default function index() {
+export default function ConditionGrid() {
   return (
     <>
       <div className='grid grid-cols-12  gap-4 overflow-hidden px-5 lg:pb-5 pb-2'>
@@ -54,7 +54,7 @@ export default function index() {
           return (
             <>
               <motion.article
-                key={index}
+                key={project.id ?? project.title}
                 initial={{ y: 50, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ ease: 'easeOut' }}

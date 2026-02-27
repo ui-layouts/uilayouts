@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import React from 'react';
 
-function index() {
+function CreativeHoverCard() {
   return (
     <>
       <section className='grid md:grid-cols-3 gap-6 max-md:max-w-xs mx-auto '>
@@ -119,4 +119,4 @@ function index() {
   );
 }
 
-export default index;
+export default CreativeHoverCard;

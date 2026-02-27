@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { ChevronsRight, Heart } from 'lucide-react';
 
-function index() {
+function HoverCard3() {
   return (
     <>
       <div className='w-[400px] relative mt-4 h-[450px] overflow-hidden group mx-auto dark:bg-black  bg-white dark:border-0 border rounded-md dark:text-white text-black flex flex-col'>
@@ -39,4 +39,4 @@ function index() {
   );
 }
 
-export default index;
+export default HoverCard3;

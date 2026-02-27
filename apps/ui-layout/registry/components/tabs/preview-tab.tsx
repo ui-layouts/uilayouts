@@ -17,7 +17,7 @@ const effectArr = [
     name: 'wobbly',
   },
 ];
-function index() {
+function PreviewTab() {
   const [checkEffect, setCheckEffect] = useState('basic');
   return (
     <>
@@ -136,4 +136,4 @@ function index() {
   );
 }
 
-export default index;
+export default PreviewTab;

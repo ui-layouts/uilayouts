@@ -9,7 +9,7 @@ export function absoluteUrl(path: string) {
   return `${process.env.NEXT_PUBLIC_CLIENT_URL}${path}`;
 }
 
-export function debounce(
+function debounce(
   func: (...args: any[]) => any,
   wait: number,
   immediate: boolean = false
@@ -69,7 +69,6 @@ export const siteConfig = {
   },
 };
 
-export type SiteConfig = typeof siteConfig;
 
 export const transition = {
   type: 'spring',

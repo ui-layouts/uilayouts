@@ -42,7 +42,7 @@ function ImageTabsStandalone() {
         <div className='rounded-xs   col-span-5'>
           {tabs.map((tab, index) => (
             <motion.div
-              key={index}
+              key={tab.id}
               className={`rounded-lg overflow-hidden mb-2  ${
                 activeIndex === index
                   ? 'active border-2 dark:border-[#656fe2]  border-[#F2F2F2] dark:bg-[#E0ECFB] bg-[#F2F2F2]'

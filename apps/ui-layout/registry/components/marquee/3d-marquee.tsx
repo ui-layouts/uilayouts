@@ -40,9 +40,9 @@ const Marquee3D = () => {
               'translateX(0px) translateY(0px) translateZ(-50px) rotateX(0deg) rotateY(-20deg) rotateZ(10deg) scale(1.5)',
           }}
         >
-          {logos.map((data, idx) => (
+          {logos.map((data) => (
             <img
-              key={idx}
+              key={data.name}
               src={data.img}
               alt={data.name}
               className='mx-auto h-full w-3/4 cursor-pointer rounded-xl border border-neutral-300 transition-all duration-300 hover:ring-1 hover:ring-neutral-300'

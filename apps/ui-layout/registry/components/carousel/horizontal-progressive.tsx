@@ -34,13 +34,13 @@ const items = [
     desc: 'A stunning foggy view over the foresh, with the sun casting a golden glow across the forest',
   },
 ];
-export default function index() {
+export default function HorizontalProgressive() {
   return (
     <>
       <ProgressSlider vertical={false} activeSlider='bridge'>
         <SliderContent>
           {items.map((item, index) => (
-            <SliderWrapper key={index} value={item?.sliderName}>
+            <SliderWrapper key={item.sliderName} value={item?.sliderName}>
               <Image
                 className='rounded-xl 2xl:h-[500px] xl:h-[400px] h-[350px] w-full object-cover'
                 src={item.img}
@@ -55,7 +55,7 @@ export default function index() {
         <SliderBtnGroup className='absolute bottom-0 h-fit cursor-pointer dark:text-white text-black dark:bg-black/40 bg-white/40  backdrop-blur-md overflow-hidden grid grid-cols-2 md:grid-cols-4  rounded-md'>
           {items.map((item, index) => (
             <SliderBtn
-              key={index}
+              key={item.sliderName}
               value={item?.sliderName}
               className='text-left  p-3 border-r'
               progressBarClass='dark:bg-black bg-white h-full'

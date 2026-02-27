@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { FramerModal, ModalContent } from '@/components/ui/dialog';
 
-const index: React.FC = () => {
+const DialogDefault: React.FC = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
@@ -61,4 +61,4 @@ const index: React.FC = () => {
   );
 };
 
-export default index;
+export default DialogDefault;

@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useCallback } from 'react';
 
-const index = () => {
+const SectionNoise = () => {
   const [opacity, setOpacity] = useState(0.05);
 
   const handleOpacityChange = useCallback(
@@ -43,4 +43,4 @@ const index = () => {
     </>
   );
 };
-export default index;
+export default SectionNoise;

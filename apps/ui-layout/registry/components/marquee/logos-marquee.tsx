@@ -36,8 +36,8 @@ const MarqueeLogos = () => {
   return (
     <div className='relative flex h-full w-full flex-col items-center justify-center gap-4 overflow-hidden rounded-lg dark:bg-neutral-800 bg-neutral-50 py-20 '>
       <Marquee className='[--gap:3rem]'>
-        {logos.map((logo, idx) => (
-          <Logo key={idx} {...logo} />
+        {logos.map((logo) => (
+          <Logo key={logo.name} {...logo} />
         ))}
       </Marquee>
       <div className='pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-linear-to-r from-white dark:from-neutral-900'></div>

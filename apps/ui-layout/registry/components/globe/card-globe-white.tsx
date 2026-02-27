@@ -1,7 +1,7 @@
 import React from 'react';
 import Earth from '@/components/ui/globe';
 
-function index() {
+function CardGlobeWhite() {
   return (
     <>
       <div className='min-h-screen overflow-hidden bg-white text-white'>
@@ -25,4 +25,4 @@ function index() {
   );
 }
 
-export default index;
+export default CardGlobeWhite;

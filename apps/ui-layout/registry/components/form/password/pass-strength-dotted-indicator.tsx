@@ -144,7 +144,7 @@ const PasswordInput = () => {
 
       <ul className='space-y-1.5' aria-label='Password requirements'>
         {calculateStrength.requirements.map((req, index) => (
-          <li key={index} className='flex items-center space-x-2'>
+          <li key={req.text} className='flex items-center space-x-2'>
             {req.met ? (
               <CheckCheck size={16} className='text-emerald-500' />
             ) : (

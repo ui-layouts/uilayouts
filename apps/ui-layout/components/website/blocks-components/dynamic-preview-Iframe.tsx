@@ -124,7 +124,7 @@ export default function DynamicPreviewIframe({
                 frameBorder={0}
                 sandbox='allow-scripts allow-same-origin'
                 className='h-full w-full'
-              />
+               title='Component preview iframe' />
             </Panel>
 
             {/* RESIZE HANDLE */}

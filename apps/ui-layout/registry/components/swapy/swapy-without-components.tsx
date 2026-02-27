@@ -15,7 +15,7 @@ const slots = [
   { slot: "i", content: "I", bg: "bg-cyan-500", hasHandle: false },
 ];
 
-function index() {
+function SwapyWithoutComponents() {
   const swapyRef = useRef<Swapy | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -106,4 +106,4 @@ function index() {
   );
 }
 
-export default index;
+export default SwapyWithoutComponents;

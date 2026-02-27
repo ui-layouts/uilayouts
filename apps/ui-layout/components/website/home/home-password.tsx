@@ -83,7 +83,7 @@ const HomePasswordInput = () => {
             <HoverCardContent className='dark:bg-neutral-800 bg-neutral-50'>
               <ul className='space-y-1.5' aria-label='Password requirements'>
                 {calculateStrength.requirements.map((req, index) => (
-                  <li key={index} className='flex items-center space-x-2'>
+                  <li key={req.text} className='flex items-center space-x-2'>
                     {req.met ? (
                       <Check size={16} className='text-emerald-500' />
                     ) : (

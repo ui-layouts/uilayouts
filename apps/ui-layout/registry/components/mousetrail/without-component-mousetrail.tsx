@@ -55,7 +55,7 @@ export default function ImageMouseTrail3() {
     >
       {items.map((item, index) => (
         <img
-          key={index}
+          key={item.src}
           className="object-cover z-10   w-40 h-48 scale-0 opacity:0 data-[status='active']:scale-100  data-[status='active']:opacity-100 transition-transform duration-500 data-[status='active']:ease-out-expo  absolute  -translate-y-[50%] -translate-x-[50%]"
           data-index={index}
           data-status='inactive'

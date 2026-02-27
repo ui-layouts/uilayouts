@@ -17,7 +17,7 @@ const FormSchema = z.object({
 });
 type FormData = z.infer<typeof FormSchema>;
 
-export default function index() {
+export default function PhoneNumber() {
   const {
     control,
     handleSubmit,

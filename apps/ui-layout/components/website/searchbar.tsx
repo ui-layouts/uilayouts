@@ -29,7 +29,7 @@ function highlightMatch(text: string, query: string) {
   const parts = text.split(new RegExp(`(${query})`, 'gi'));
   return parts.map((part, i) =>
     part.toLowerCase() === query.toLowerCase() ? (
-      <span key={i} className='bg-yellow-200 dark:bg-yellow-600'>
+      <span key={`${part}-${query}`} className='bg-yellow-200 dark:bg-yellow-600'>
         {part}
       </span>
     ) : (
@@ -201,7 +201,7 @@ export function SearchDialog({
                 >
                   {basePath.map((item, index) => (
                     <Command.Item
-                      key={index}
+                      key={item.href}
                       value={item.name}
                       onSelect={() => runCommand(() => router.push(item.href))}
                       className='relative flex select-none items-center gap-2 rounded-lg p-0 text-sm cursor-pointer aria-selected:bg-neutral-200 aria-selected:text-neutral-900 dark:aria-selected:bg-neutral-800 dark:aria-selected:text-neutral-100'
@@ -218,7 +218,7 @@ export function SearchDialog({
                   <Command.Group key={group} heading={group}>
                     {items.map((item, index) => (
                       <Command.Item
-                        key={index}
+                        key={item.href}
                         value={`${item.name} ${item?.tags?.join(' ') || ''}`}
                         onSelect={() =>
                           runCommand(() => router.push(item.href))

@@ -82,7 +82,7 @@ function Gallery({ items, setIndex, index }: GaleryProps) {
             className={`rounded-xl relative ${
               index === i ? 'w-[450px] ' : 'w-[50px]'
             } h-[400px] shrink-0  transition-[width] ease-in-linear duration-500 origin-center  `}
-            key={i}
+            key={item.id ?? item.title}
             onClick={() => {
               setIndex(i);
             }}

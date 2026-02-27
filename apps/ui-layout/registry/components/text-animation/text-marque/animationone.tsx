@@ -2,7 +2,7 @@
 import React from 'react';
 import ScrollBaseAnimation from '@/components/ui/scroll-text-marque';
 
-function index() {
+function Animationone() {
   return (
     <>
       <div className='h-[500px] grid place-content-center'>
@@ -25,4 +25,4 @@ function index() {
   );
 }
 
-export default index;
+export default Animationone;

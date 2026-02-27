@@ -18,7 +18,7 @@ const items = [
     id: 3,
   },
 ];
-export default function index() {
+export default function ResponsiveHeader() {
   const [headerOpen, setHeaderOpen] = useState(false);
   const isDesktop = useMediaQuery('(min-width: 768px)');
 

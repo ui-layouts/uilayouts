@@ -136,7 +136,7 @@ function Gallery({ items, setIndex, setOpen, index }:{
   );
 }
 
-export default function index() {
+export default function AccordionModal() {
   const [index, setIndex] = useState(5);
   const [open, setOpen] = useState(false);
   useEffect(() => {

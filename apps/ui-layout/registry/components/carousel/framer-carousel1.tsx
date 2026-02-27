@@ -138,6 +138,7 @@ function FramerCarousel() {
             {items.slice(0, 8)?.map((itemData, index) => {
               return (
                 <motion.div
+                  key={itemData?.id ?? itemData?.url}
                   className={`relative p-2 shrink-0`}
                   onClick={() => setActiveItem(itemData)}
                 >

@@ -2,7 +2,7 @@
 import React from 'react';
 import ScrollElement from '@/components/ui/scroll-animation';
 
-function index() {
+function ScrollElementDemo() {
   return (
     <section>
       <div className='h-[500px] grid place-content-center'>
@@ -110,4 +110,4 @@ function index() {
   );
 }
 
-export default index;
+export default ScrollElementDemo;

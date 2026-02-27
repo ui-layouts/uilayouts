@@ -45,7 +45,7 @@ const GitHubButton: React.FC = () => {
           <Liquid isHovered={isHovered} colors={COLORS} />
           {[1, 2, 3, 4, 5].map((i) => (
             <span
-              key={i}
+              key={`spark-${i}`}
               className={`absolute inset-0 rounded-lg border-solid border-[3px] border-gradient-to-b from-transparent to-white mix-blend-overlay filter ${
                 i <= 2 ? 'blur-[3px]' : i === 3 ? 'blur-[5px]' : 'blur-xs'
               }`}

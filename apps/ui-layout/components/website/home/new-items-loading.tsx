@@ -27,7 +27,7 @@ function NewItemsLoading() {
     <>
       {newComponent.map((item, index) => {
         return (
-          <React.Fragment key={item.href + index}>
+          <React.Fragment key={item.href}>
             {activeIndex === index && (
               <a
                 key={item.href}

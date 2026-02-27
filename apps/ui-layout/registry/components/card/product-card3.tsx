@@ -12,7 +12,7 @@ import { CheckIcon, Heart } from 'lucide-react';
 import { EmblaOptionsType } from 'embla-carousel';
 import { CardArr } from '@/components/website/constant';
 
-function index() {
+function ProductCard3() {
   const [isActive, setIsActive] = useState(false);
 
   const handleClick = () => {
@@ -35,7 +35,7 @@ function index() {
           <Carousel options={OPTIONS} className='h-full relative'>
             <SliderContainer className='gap-2 h-full'>
               {CardArr.map((data, index) => (
-                <Slider key={index} className='w-full h-full'>
+                <Slider key={data.color} className='w-full h-full'>
                   <Image
                     src={data?.img}
                     alt='shoes'
@@ -72,4 +72,4 @@ function index() {
   );
 }
 
-export default index;
+export default ProductCard3;

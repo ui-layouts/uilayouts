@@ -3,7 +3,7 @@
 import { SmartDatetimeInput } from '@/components/ui/datetime-input';
 import React, { useState } from 'react';
 
-export default function index() {
+export default function DatetimePicker() {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined);
 
   const handleDateChange = (date: Date) => {

@@ -128,8 +128,8 @@ const appsDesign = [
     imgSrc: preview.image_masking,
   },
   {
-    id: 'clip-path',
-    url: '/components/clip-path',
+    id: 'clipPath',
+    url: '/components/clipPath',
     name: 'Clip-Path',
     imgSrc: preview.clippath,
   },

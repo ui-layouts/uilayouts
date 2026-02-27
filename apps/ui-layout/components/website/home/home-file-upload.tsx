@@ -66,7 +66,7 @@ const HomeFileUpload = () => {
       <FileUploaderContent className='flex items-center flex-row gap-2'>
         {files?.map((file, i) => (
           <FileUploaderItem
-            key={i}
+            key={`${file.name}-${file.lastModified}-${file.size}`}
             index={i}
             className='2xl:size-20 size-16 p-0 rounded-md overflow-hidden border'
             aria-roledescription={`file ${i + 1} containing ${file.name}`}
