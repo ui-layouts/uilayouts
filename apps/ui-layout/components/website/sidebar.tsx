@@ -61,8 +61,8 @@ function DocsSidebar() {
         <div className='h-full w-full'>
           <ScrollArea className='h-[calc(100vh-6em)] px-3'>
             <ul className='pb-1 pt-12'>
-              {basePath?.map((link, index) => (
-                <li key={item.url ?? item.title}>
+              {basePath?.map((link) => (
+                <li key={link.href}>
                   <Link
                     href={link.href}
                     onClick={() => addVisitedPage(link.href, link.name)}
@@ -134,7 +134,7 @@ function DocsSidebar() {
                   <ItemsWithName
                     group={group}
                     items={items}
-                    key={item.url ?? item.title}
+                    key={index}
                     pathname={pathname}
                     addVisitedPage={addVisitedPage}
                   />

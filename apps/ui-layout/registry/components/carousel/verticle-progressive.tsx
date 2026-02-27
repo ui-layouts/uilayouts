@@ -51,9 +51,9 @@ export default function VerticleProgressive() {
         className='sm:flex '
       >
         <SliderBtnGroup className='sm:relative absolute bottom-0 lg:w-md sm:w-96 w-full z-10 sm:flex sm:flex-col grid grid-cols-2 sm:h-[500px] h-fit sm:dark:bg-black sm:bg-white dark:bg-black/80 bg-white/80 backdrop-blur-md overflow-hidden '>
-          {items.map((item, index) => (
+          {items.map((item) => (
             <SliderBtn
-              key={item.id ?? item.sliderName}
+              key={item.sliderName}
               value={item?.sliderName}
               className='text-left  p-3 sm:border-b border sm:pl-5 sm:pb-0 pb-6 sm:flex-1'
               progressBarClass='left-0 sm:top-0 bottom-0 dark:bg-white bg-black sm:w-3 sm:h-full h-4  before:h-full before:w-4 before:'
@@ -68,10 +68,10 @@ export default function VerticleProgressive() {
           ))}
         </SliderBtnGroup>
         <SliderContent className='w-full'>
-          {items.map((item, index) => (
+          {items.map((item) => (
             <SliderWrapper
               className='h-full'
-              key={item.id ?? item.sliderName}
+              key={item.sliderName}
               value={item?.sliderName}
             >
               <Image

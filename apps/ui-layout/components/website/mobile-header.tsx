@@ -97,7 +97,7 @@ function MobileHeader({ classname }: { classname?: string }) {
               {basePath?.map((link, index) => {
                 return (
                   <>
-                    <li key={item.url ?? item.title}>
+                    <li key={link.href}>
                       <Link
                         href={link.href}
                         onClick={() => setSidebarOpen(false)}
@@ -138,10 +138,10 @@ function MobileHeader({ classname }: { classname?: string }) {
                   url: 'https://ui-layouts.com/blocks',
                   icon: <LayoutPanelTop />,
                 },
-              ].map((item, index) => {
+              ].map((item) => {
                 return (
                   <>
-                    <li key={item.url ?? item.title}>
+                    <li key={item.url}>
                       <a
                         href={item.url}
                         target='_blank'
@@ -178,55 +178,55 @@ function MobileHeader({ classname }: { classname?: string }) {
             </a>
 
             <h1 className='text-sm font-semibold pb-1'>Components</h1>
-              <ul>
-                {Object.values(DOCS_CATEGORY_GROUP).map((groupName) => {
-                  // Filter components for this group
-                  const groupLinks = DocsNavigationCategories.filter(
-                    (link) => link.group === groupName
-                  );
+            <ul>
+              {Object.values(DOCS_CATEGORY_GROUP).map((groupName) => {
+                // Filter components for this group
+                const groupLinks = DocsNavigationCategories.filter(
+                  (link) => link.group === groupName
+                );
 
-                  if (groupLinks.length === 0) return null;
+                if (groupLinks.length === 0) return null;
 
-                  return (
-                    <li key={groupName} className='mb-4'>
-                      {/* Category Title */}
-                      <h3 className='text-sm font-semibold uppercase text-black dark:text-white px-2'>
-                        {groupName}
-                      </h3>
+                return (
+                  <li key={groupName} className='mb-4'>
+                    {/* Category Title */}
+                    <h3 className='text-sm font-semibold uppercase text-black dark:text-white px-2'>
+                      {groupName}
+                    </h3>
 
-                      {/* Components under this category */}
-                      <ul className='mt-1'>
-                        {groupLinks.map((link) => (
-                          <li key={link.href}>
-                            <Link
-                              href={link.href}
-                              className={`font-normal py-1 pl-4 border-l border-primary/20 transition-all block ${
-                                link.href === pathname
-                                  ? 'dark:border-white border-black text-black dark:text-white font-medium'
-                                  : 'dark:text-slate-400 hover:border-black/60 dark:hover:border-white/50 text-slate-500 hover:text-slate-900'
-                              }`}
-                              onClick={() => setSidebarOpen(false)}
-                            >
-                              {link.name}
-                              {/* Optional badge for new/updated */}
-                              {link.new && (
-                                <span className='ml-2 text-xs text-green-500 font-medium'>
-                                  New
-                                </span>
-                              )}
-                              {link.updated && (
-                                <span className='ml-2 text-xs text-blue-500 font-medium'>
-                                  Updated
-                                </span>
-                              )}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </li>
-                  );
-                })}
-              </ul>
+                    {/* Components under this category */}
+                    <ul className='mt-1'>
+                      {groupLinks.map((link) => (
+                        <li key={link.href}>
+                          <Link
+                            href={link.href}
+                            className={`font-normal py-1 pl-4 border-l border-primary/20 transition-all block ${
+                              link.href === pathname
+                                ? 'dark:border-white border-black text-black dark:text-white font-medium'
+                                : 'dark:text-slate-400 hover:border-black/60 dark:hover:border-white/50 text-slate-500 hover:text-slate-900'
+                            }`}
+                            onClick={() => setSidebarOpen(false)}
+                          >
+                            {link.name}
+                            {/* Optional badge for new/updated */}
+                            {link.new && (
+                              <span className='ml-2 text-xs text-green-500 font-medium'>
+                                New
+                              </span>
+                            )}
+                            {link.updated && (
+                              <span className='ml-2 text-xs text-blue-500 font-medium'>
+                                Updated
+                              </span>
+                            )}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
+                );
+              })}
+            </ul>
           </ScrollArea>
         </DrawerContent>
       </DirectionalDrawer>

@@ -40,7 +40,7 @@ export default function HorizontalProgressive() {
       <ProgressSlider vertical={false} activeSlider='bridge'>
         <SliderContent>
           {items.map((item, index) => (
-            <SliderWrapper key={item.id ?? item.sliderName} value={item?.sliderName}>
+            <SliderWrapper key={item.sliderName} value={item?.sliderName}>
               <Image
                 className='rounded-xl 2xl:h-[500px] xl:h-[400px] h-[350px] w-full object-cover'
                 src={item.img}
@@ -55,7 +55,7 @@ export default function HorizontalProgressive() {
         <SliderBtnGroup className='absolute bottom-0 h-fit cursor-pointer dark:text-white text-black dark:bg-black/40 bg-white/40  backdrop-blur-md overflow-hidden grid grid-cols-2 md:grid-cols-4  rounded-md'>
           {items.map((item, index) => (
             <SliderBtn
-              key={item.id ?? item.sliderName}
+              key={item.sliderName}
               value={item?.sliderName}
               className='text-left  p-3 border-r'
               progressBarClass='dark:bg-black bg-white h-full'

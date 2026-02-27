@@ -51,7 +51,7 @@ function SingleLayout() {
         <div className='h-fit border  rounded-lg p-2 dark:bg-[#111111] bg-[#F2F2F2]'>
           {tabs.map((tab, index) => (
             <motion.div
-              key={tab.id ?? tab.title}
+              key={tab.title}
               className={`overflow-hidden ${
                 index !== tabs.length - 1 ? 'border-b' : ''
               }`}
