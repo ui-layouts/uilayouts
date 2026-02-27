@@ -63,7 +63,7 @@ const FileUploadDropzone = () => {
                 <FileUploaderContent className='flex items-start flex-row gap-1'>
                   {files?.map((file, i) => (
                     <FileUploaderItem
-                      key={file.name}
+                      key={`${file.name}-${file.lastModified}-${file.size}`}
                       index={i}
                       className='size-12 w-fit p-0 rounded-md overflow-hidden border'
                       aria-roledescription={`file ${i + 1} containing ${

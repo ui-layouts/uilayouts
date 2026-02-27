@@ -100,7 +100,7 @@ const TextAnimation = ({
         <>
           {text.split(' ').map((word: string, index: number) => (
             <motion.span
-              key={name}
+              key={`${word}-${index}`}
               className={`inline-block`}
               variants={letterAnime === false ? modifiedVariants : {}}
             >

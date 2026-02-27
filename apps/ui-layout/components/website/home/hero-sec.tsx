@@ -186,7 +186,7 @@ function HeroSec({ blocksData }: { blocksData: any[] }) {
               <div className='flex w-fit sm:translate-x-0 translate-x-8'>
                 {profiles.map((profile, index) => (
                   <a
-                    key={name}
+                    key={profile.href}
                     href={profile.href}
                     target='_block'
                     className={`dark:bg-neutral-800 bg-neutral-50 p-1 shrink-0 rounded-full relative z-1 hover:z-2 ${profile.translateX}`}

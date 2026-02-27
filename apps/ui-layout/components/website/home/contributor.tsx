@@ -53,7 +53,7 @@ export default function Contributors() {
       <div className='mt-12 grid gap-6 md:w-160 w-[95%] mx-auto grid-cols-2'>
         {contributorProfile.map((contributor, i) => (
           <Dialog
-            key={contributor.login}
+            key={contributor.href}
             transition={{
               type: 'spring',
               bounce: 0.05,
