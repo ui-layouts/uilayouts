@@ -262,9 +262,9 @@ const logo = ({ className }: { className: string }) => {
             y2="79.8295"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FAD295" />
-            <stop offset="0.5" stop-color="#FA9906" />
-            <stop offset="1" stop-color="#FBB957" />
+            <stop stopColor="#FAD295" />
+            <stop offset="0.5" stopColor="#FA9906" />
+            <stop offset="1" stopColor="#FBB957" />
           </linearGradient>
         </defs>
       </svg>
@@ -298,10 +298,10 @@ const homebg = ({ className }: { className: string }) => {
           >
             <stop
               offset="0.453748"
-              stop-color={className}
-              stop-opacity="0.48"
+              stopColor={className}
+              stopOpacity="0.48"
             />
-            <stop offset="0.510779" stop-color={className} />
+            <stop offset="0.510779" stopColor={className} />
             <stop offset="0.873977" />
           </linearGradient>
         </defs>

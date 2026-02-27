@@ -525,7 +525,7 @@ export const SliderDotButton = forwardRef<HTMLDivElement, SliderDotButtonProps>(
       <div ref={ref} className={cn('flex gap-2', className)} {...props}>
         {scrollSnaps.map((_, index) => (
           <button
-            key={index}
+            key={`${carouselId}-dot-${_}`}
             type='button'
             onClick={() => onDotButtonClick(index)}
             className={cn(
@@ -633,7 +633,7 @@ export const ThumbsSlider = forwardRef<
       >
         {slidesArr.map((src, index) => (
           <div
-            key={index}
+            key={src}
             onClick={() => onThumbClick(index)}
             className={cn(
               'shrink-0 cursor-pointer transition-opacity',

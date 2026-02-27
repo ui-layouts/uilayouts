@@ -42,7 +42,7 @@ const Marquee3D = () => {
         >
           {logos.map((data, idx) => (
             <img
-              key={idx}
+              key={data.name ?? data.image}
               src={data.img}
               alt={data.name}
               className='mx-auto h-full w-3/4 cursor-pointer rounded-xl border border-neutral-300 transition-all duration-300 hover:ring-1 hover:ring-neutral-300'

@@ -46,7 +46,7 @@ function ImageTabs2() {
         >
           <TabImageContainer className='md:col-span-7'>
             {tabs.map((tab, index) => (
-              <TabImage key={index} value={tab.id}>
+              <TabImage key={tab.id} value={tab.id}>
                 <img
                   src={tab.imageUrl}
                   alt={tab.title}
@@ -57,7 +57,7 @@ function ImageTabs2() {
           </TabImageContainer>
           <TabList className='md:col-span-5 '>
             {tabs.map((tab, index) => (
-              <TabItem key={index} value={tab.id}>
+              <TabItem key={tab.id} value={tab.id}>
                 <TabHeader value={tab.id}>{tab.title}</TabHeader>
                 <TabDes value={tab.id}>
                   <p className={`dark:bg-white bg-[#F2F2F2] text-black p-3`}>

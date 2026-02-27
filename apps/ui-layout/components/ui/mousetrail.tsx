@@ -87,7 +87,7 @@ export default function ImageMouseTrail({
         <>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            key={index}
+            key={item.src}
             className={cn(
               "object-cover  scale-0 opacity:0 data-[status='active']:scale-100  data-[status='active']:opacity-100 transition-transform data-[status='active']:duration-500 duration-300 data-[status='active']:ease-out-expo  absolute   -translate-y-[50%] -translate-x-[50%] ",
               imgClass

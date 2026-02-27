@@ -198,7 +198,7 @@ const GradientSvg: React.FC<GradientSvgProps> = ({
           animate={isHovered ? variants.hovered : variants.notHovered}
         >
           {stopsAnimationArray.map((stopConfigs, index) => (
-            <AnimatePresence key={index}>
+            <AnimatePresence key={word}>
               <motion.stop
                 initial={{
                   offset: stopConfigs[0].offset,
@@ -237,7 +237,7 @@ export const Liquid: React.FC<LiquidProps> = ({
     <>
       {Array.from({ length: 7 }).map((_, index) => (
         <div
-          key={index}
+          key={word}
           className={`absolute ${
             index < 3 ? 'w-[443px] h-[121px]' : 'w-[756px] h-[207px]'
           } ${

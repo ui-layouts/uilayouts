@@ -54,7 +54,7 @@ export default function ConditionGrid() {
           return (
             <>
               <motion.article
-                key={index}
+                key={project.id ?? project.title}
                 initial={{ y: 50, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ ease: 'easeOut' }}

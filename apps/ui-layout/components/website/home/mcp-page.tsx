@@ -146,7 +146,7 @@ function McpPage() {
                 <div className='flex w-fit sm:translate-x-0 translate-x-8'>
                   {profiles.map((profile, index) => (
                     <a
-                      key={index}
+                      key={profile.href}
                       href={profile.href}
                       target='_block'
                       className={`dark:bg-neutral-800 bg-neutral-50 p-1 shrink-0 rounded-full relative z-1 hover:z-2 ${profile.translateX}`}
@@ -260,7 +260,7 @@ function McpPage() {
                   },
                 ].map((item, i) => (
                   <div
-                    key={i}
+                    key={item.title}
                     className='rounded-xl border shadow-2xl dark:border-neutral-800 bg-white/70 dark:bg-neutral-900/60 backdrop-blur p-4 text-center'
                   >
                     <div className='font-semibold'>{item.title}</div>

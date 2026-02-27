@@ -97,7 +97,7 @@ function MobileHeader({ classname }: { classname?: string }) {
               {basePath?.map((link, index) => {
                 return (
                   <>
-                    <li key={`id-${index}`}>
+                    <li key={item.url ?? item.title}>
                       <Link
                         href={link.href}
                         onClick={() => setSidebarOpen(false)}
@@ -141,7 +141,7 @@ function MobileHeader({ classname }: { classname?: string }) {
               ].map((item, index) => {
                 return (
                   <>
-                    <li key={`id-${index}`}>
+                    <li key={item.url ?? item.title}>
                       <a
                         href={item.url}
                         target='_blank'

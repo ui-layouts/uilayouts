@@ -53,7 +53,7 @@ export default function Contributors() {
       <div className='mt-12 grid gap-6 md:w-160 w-[95%] mx-auto grid-cols-2'>
         {contributorProfile.map((contributor, i) => (
           <Dialog
-            key={i}
+            key={contributor.login}
             transition={{
               type: 'spring',
               bounce: 0.05,
@@ -112,7 +112,7 @@ export default function Contributors() {
                     >
                       <ul className='mt-4 list-disc space-y-2 pl-5 text-left text-zinc-700 dark:text-zinc-300'>
                         {contributor.workDetails.map((detail, idx) => (
-                          <li key={idx}>{detail}</li>
+                          <li key={detail}>{detail}</li>
                         ))}
                       </ul>
                     </DialogDescription>

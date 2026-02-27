@@ -44,6 +44,7 @@ export default function Dialog() {
         'https://videos.pexels.com/video-files/7710243/7710243-uhd_2560_1440_30fps.mp4',
     },
   ];
+  const currentItem = items[index];
   const [carouselWidth, setCarouselWidth] = useState(0);
   const carousel = useRef(null);
   useEffect(() => {
@@ -117,7 +118,7 @@ export default function Dialog() {
           {isOpen && (
             <>
               <motion.div
-                key={`backdrop-${items[index].id}`}
+                key={`backdrop-${currentItem.id}`}
                 className='fixed inset-0 h-full w-full dark:bg-black/25 bg-white/95 backdrop-blur-xs '
                 variants={{ open: { opacity: 1 }, closed: { opacity: 0 } }}
                 initial='closed'
@@ -133,7 +134,7 @@ export default function Dialog() {
               >
                 <motion.div
                   className='pointer-events-auto relative flex flex-col overflow-hidden   dark:bg-neutral-950 bg-neutral-200 border w-[80%] h-[90%] '
-                  layoutId={`dialog-${items[index].id}`}
+                  layoutId={`dialog-${currentItem.id}`}
                   tabIndex={-1}
                   style={{
                     borderRadius: '24px',
@@ -141,11 +142,11 @@ export default function Dialog() {
                 >
                   {items[index]?.imgSrc && (
                     <motion.div
-                      layoutId={`dialog-img-${items[index].id}`}
+                      layoutId={`dialog-img-${currentItem.id}`}
                       className='w-full h-full'
                     >
                       <img
-                        src={items[index].imgSrc}
+                        src={currentItem.imgSrc}
                         alt=''
                         className='h-full w-full object-cover'
                       />
@@ -153,7 +154,7 @@ export default function Dialog() {
                   )}
                   {items[index]?.videoSrc && (
                     <motion.div
-                      layoutId={`dialog-video-${items[index].id}`}
+                      layoutId={`dialog-video-${currentItem.id}`}
                       className='w-full h-full'
                     >
                       <video
@@ -163,7 +164,7 @@ export default function Dialog() {
                         controls
                         className='h-full w-full object-cover  rounded-xs'
                       >
-                        <source src={items[index].videoSrc!} type='video/mp4' />
+                        <source src={currentItem.videoSrc!} type='video/mp4' />
                       </video>
                     </motion.div>
                   )}

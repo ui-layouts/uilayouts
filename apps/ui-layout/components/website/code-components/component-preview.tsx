@@ -249,7 +249,7 @@ export default function ComponentPreview({
                     style={{ maxWidth: '100%' }}
                     loading='lazy'
                     key={reTriggerKey}
-                  />
+                   title='Component live preview' />
                 </div>
               </div>
             </>
@@ -275,7 +275,7 @@ export default function ComponentPreview({
                     style={{ maxWidth: '100%' }}
                     loading='lazy'
                     key={reTriggerKey}
-                  />
+                   title='Component live preview' />
                 </>
               </div>
             </div>

@@ -35,7 +35,7 @@ function ProductCard3() {
           <Carousel options={OPTIONS} className='h-full relative'>
             <SliderContainer className='gap-2 h-full'>
               {CardArr.map((data, index) => (
-                <Slider key={index} className='w-full h-full'>
+                <Slider key={data.color} className='w-full h-full'>
                   <Image
                     src={data?.img}
                     alt='shoes'

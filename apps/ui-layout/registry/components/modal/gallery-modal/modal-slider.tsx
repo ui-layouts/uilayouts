@@ -25,7 +25,7 @@ const modal: React.FC = () => {
       <div className='columns-3 '>
         {items.slice(0, 8)?.map((item, index) => (
           <SliderModal
-            key={item.id ?? `id-${index}`}
+            key={item.id ?? item.url}
             item={item}
             itemArr={items}
             uniqueId={`id-${index}`}
@@ -118,7 +118,7 @@ export const SliderModal = ({ item, uniqueId, itemArr }: ImageModalProps) => {
                   {itemArr.map(
                     (tab: any, index: React.Key | null | undefined) => (
                       <>
-                        <React.Fragment key={index}>
+                        <React.Fragment key={item.id ?? item.url}>
                           <AnimatePresence mode='popLayout'>
                             {tab.id === newItem.id && (
                               <motion.figure
@@ -181,7 +181,7 @@ export const SliderModal = ({ item, uniqueId, itemArr }: ImageModalProps) => {
                     ) => {
                       return (
                         <motion.div
-                          key={index}
+                          key={item.id ?? item.url}
                           className={`relative p-2   cursor-grab active:cursor-grabbing`}
                           onClick={() => setNewItem(itemData)}
                         >

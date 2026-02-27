@@ -20,7 +20,7 @@ import buttons from '@/assets/preview/buttons.svg';
 import faqs from '@/assets/preview/faqs.svg';
 import carousel from '@/assets/preview/carousel.svg';
 import motionNumber from '@/assets/preview/motion-number.svg';
-import clippath from '@/assets/preview/clip-path.svg';
+import clippath from '@/assets/preview/clipPath.svg';
 import dragitems from '@/assets/preview/drag-items.svg';
 import sparkles from '@/assets/preview/sparkles.svg';
 import password from '@/assets/preview/password.svg';

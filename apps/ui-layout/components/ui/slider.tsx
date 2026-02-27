@@ -45,7 +45,7 @@ const DualRangeSlider = React.forwardRef<
         </SliderPrimitive.Track>
         <>
           {initialValue.map((value, index) => (
-            <React.Fragment key={index}>
+            <React.Fragment key={value}>
               <SliderPrimitive.Thumb className='relative grid h-6 w-3 cursor-grab place-content-center dark:bg-neutral-100 bg-neutral-950 shadow-sm focus-visible:outline-hidden focus-visible:ring-1 focus-visible:ring-white'>
                 {label && labelPosition !== 'static' && (
                   <div

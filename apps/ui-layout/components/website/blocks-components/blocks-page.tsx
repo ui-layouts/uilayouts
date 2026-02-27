@@ -51,7 +51,7 @@ export default function BlocksHomeClient({ blocksData }: { blocksData: any }) {
                   fill='none'
                   xmlns='http://www.w3.org/2000/svg'
                 >
-                  <g clip-path='url(#clip0_1567_3282)'>
+                  <g clipPath='url(#clip0_1567_3282)'>
                     <path
                       d='M285.5 201C255.4 201 231 225.4 231 255.5C231 285.6 255.4 310 285.5 310C315.6 310 340 285.6 340 255.5C340 225.4 315.6 201 285.5 201Z'
                       fill='#58C4DC'
@@ -82,7 +82,7 @@ export default function BlocksHomeClient({ blocksData }: { blocksData: any }) {
                   xmlns='http://www.w3.org/2000/svg'
                 >
                   <path
-                    fill-rule='evenodd'
+                    fillRule='evenodd'
                     clip-rule='evenodd'
                     d='M112 0C82.1333 0 63.4667 14.8889 56 44.6667C67.2 29.7778 80.2667 24.1944 95.2 27.9167C103.72 30.0383 109.81 36.2048 116.551 43.0248C127.531 54.1377 140.241 67 168 67C197.867 67 216.533 52.1111 224 22.3333C212.8 37.2222 199.733 42.8056 184.8 39.0833C176.28 36.9617 170.19 30.7952 163.449 23.9752C152.469 12.8623 139.759 0 112 0ZM56 67C26.1333 67 7.46667 81.8889 0 111.667C11.2 96.7778 24.2667 91.1944 39.2 94.9167C47.7203 97.0425 53.8098 103.205 60.5505 110.025C71.5307 121.138 84.2406 134 112 134C141.867 134 160.533 119.111 168 89.3333C156.8 104.222 143.733 109.806 128.8 106.083C120.28 103.962 114.19 97.7952 107.449 90.9752C96.4693 79.8623 83.7594 67 56 67Z'
                     fill='#38BDF8'
@@ -102,7 +102,7 @@ export default function BlocksHomeClient({ blocksData }: { blocksData: any }) {
                   fill='none'
                   xmlns='http://www.w3.org/2000/svg'
                 >
-                  <g clip-path='url(#clip0_1557_3113)'>
+                  <g clipPath='url(#clip0_1557_3113)'>
                     <path d='M124.602 0L59.4 115.898H0L50.9121 25.4004C58.8043 11.3722 78.499 0 94.9021 0H124.602ZM270.267 28.9745C270.267 12.9722 283.564 0 299.967 0C316.37 0 329.667 12.9722 329.667 28.9745C329.667 44.9764 316.37 57.9489 299.967 57.9489C283.564 57.9489 270.267 44.9764 270.267 28.9745ZM135.74 0H195.14L129.937 115.898H70.5374L135.74 0ZM205.896 0H265.296L214.383 90.4974C206.491 104.526 186.796 115.898 170.394 115.898H140.694L205.896 0Z' />
                   </g>
                   <defs>
@@ -127,15 +127,15 @@ export default function BlocksHomeClient({ blocksData }: { blocksData: any }) {
                 >
                   <path
                     d='M184 104L104 184'
-                    stroke-width='32'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
+                    strokeWidth='32'
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
                   />
                   <path
                     d='M168 16L16 168'
-                    stroke-width='32'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
+                    strokeWidth='32'
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
                   />
                 </svg>
               </a>
