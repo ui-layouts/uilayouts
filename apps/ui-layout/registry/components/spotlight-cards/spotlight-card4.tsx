@@ -3,7 +3,7 @@ import { SpotLightItem, Spotlight } from '@/components/ui/spotlight';
 import Image from 'next/image';
 import React from 'react';
 
-export default function index() {
+export default function SpotlightCard4() {
   return (
     <div className='relative bg-black sm:p-8 px-4 rounded-md'>
       <Spotlight className='sm:w-120 w-full mx-auto' ProximitySpotlight={true}>

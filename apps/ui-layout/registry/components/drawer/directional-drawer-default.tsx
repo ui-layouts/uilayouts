@@ -8,7 +8,7 @@ import {
   DrawerTrigger,
 } from '@/components/ui/directional-drawer';
 
-export default function index() {
+export default function DirectionalDrawerDefault() {
   return (
     <>
       <div className='flex justify-center'>

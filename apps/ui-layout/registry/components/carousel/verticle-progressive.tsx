@@ -39,7 +39,7 @@ const items = [
     desc: 'A stunning foggy view over the foresh, with the sun casting a golden glow across the forest. ',
   },
 ];
-export default function index() {
+export default function VerticleProgressive() {
   const isMobile = useMediaQuery('(min-width: 640px)');
   return (
     <>

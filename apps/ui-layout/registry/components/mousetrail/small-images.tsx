@@ -18,7 +18,7 @@ const images = [
   'https://images.unsplash.com/photo-1546942113-a6c43b63104a?q=80&w=1200&auto=format',
   'https://images.unsplash.com/photo-1726551195764-f98a8e8a57c3?q=80&w=1200&auto=format',
 ];
-export default function index() {
+export default function SmallImages() {
   return (
     <section>
       <ImageMouseTrail

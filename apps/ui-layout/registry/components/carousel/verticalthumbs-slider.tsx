@@ -9,7 +9,7 @@ import {
   ThumbsSlider,
 } from '@/components/ui/carousel';
 
-function index() {
+function VerticalthumbsSlider() {
   const OPTIONS: EmblaOptionsType = {
     loop: false,
     axis: 'y',
@@ -106,4 +106,4 @@ function index() {
   );
 }
 
-export default index;
+export default VerticalthumbsSlider;

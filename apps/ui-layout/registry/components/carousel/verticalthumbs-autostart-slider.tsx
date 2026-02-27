@@ -10,7 +10,7 @@ import {
 } from '@/components/ui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
 
-function index() {
+function VerticalthumbsAutostartSlider() {
   const OPTIONS: EmblaOptionsType = {
     loop: false,
     axis: 'y',
@@ -98,4 +98,4 @@ function index() {
   );
 }
 
-export default index;
+export default VerticalthumbsAutostartSlider;

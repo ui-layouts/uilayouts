@@ -36,7 +36,7 @@ const projects: ProjectsTypes[] = [
   },
 ];
 
-export default function index() {
+export default function ConditionGrid() {
   return (
     <>
       <div className='grid grid-cols-12  gap-4 overflow-hidden px-5 lg:pb-5 pb-2'>

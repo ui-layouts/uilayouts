@@ -111,7 +111,7 @@ export function Input({
   );
 }
 
-export default function index() {
+export default function MotionNumberInput() {
   const [value, setValue] = React.useState(0);
   return (
     <>

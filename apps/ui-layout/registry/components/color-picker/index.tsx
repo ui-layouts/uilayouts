@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { ColorPicker } from '@/components/ui/color-picker'
 
-function index() {
+function ColorPickerDemo() {
     const [color,setColor] = useState("#002fff")
     const [color2,setColor2] = useState("#ff3c00")
   return (
@@ -13,4 +13,4 @@ function index() {
   )
 }
 
-export default index
+export default ColorPickerDemo

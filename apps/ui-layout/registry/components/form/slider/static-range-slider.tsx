@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { DualRangeSlider } from '@/components/ui/slider';
 
-export default function index() {
+export default function StaticRangeSlider() {
   const [celPer, setCelPer] = useState(70);
   const [values, setValues] = useState([0, 100]);
   return (

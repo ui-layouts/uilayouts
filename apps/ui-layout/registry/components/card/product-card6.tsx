@@ -44,6 +44,7 @@ function Card() {
           </motion.button>
           {CardArr.map((data, index) => (
             <Image
+              key={`${data.color}-${index}`}
               src={data?.img}
               alt='shoes'
               width={1000}

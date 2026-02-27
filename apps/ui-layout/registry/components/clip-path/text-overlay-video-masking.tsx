@@ -1,6 +1,6 @@
 import React from 'react';
 
-function index() {
+function TextOverlayVideoMasking() {
   return (
     <>
       <section className='gap-2 dark:bg-black bg-white border rounded-lg p-5'>
@@ -50,4 +50,4 @@ function index() {
   );
 }
 
-export default index;
+export default TextOverlayVideoMasking;

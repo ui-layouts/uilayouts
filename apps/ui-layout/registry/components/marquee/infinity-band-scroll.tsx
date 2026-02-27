@@ -1,6 +1,6 @@
 import React from 'react';
 
-function index() {
+function InfinityBandScroll() {
   return (
     <>
       <div className='w-full text-5xl py-8 inline-flex flex-nowrap overflow-hidden mask-[linear-gradient(to_right,transparent_0,black_128px,black_calc(100%-200px),transparent_100%)] '>
@@ -388,4 +388,4 @@ function index() {
   );
 }
 
-export default index;
+export default InfinityBandScroll;

@@ -4,7 +4,7 @@
 import { useScroll, useTransform, motion } from 'motion/react';
 import { useEffect, useRef } from 'react';
 
-export default function index() {
+export default function StickyHeroScroll() {
   const container = useRef(undefined);
   const { scrollYProgress } = useScroll({
     target: container,

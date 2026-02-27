@@ -24,7 +24,12 @@ const modal: React.FC = () => {
     <>
       <div className='columns-3 '>
         {items.slice(0, 8)?.map((item, index) => (
-          <SliderModal item={item} itemArr={items} uniqueId={`id-${index}`} />
+          <SliderModal
+            key={item.id ?? `id-${index}`}
+            item={item}
+            itemArr={items}
+            uniqueId={`id-${index}`}
+          />
         ))}
       </div>
     </>

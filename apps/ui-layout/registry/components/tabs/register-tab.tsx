@@ -5,7 +5,7 @@ import { Lock, Phone } from 'lucide-react';
 import Image from 'next/image';
 import { TabsBtn, TabsContent, TabsProvider } from '@/components/ui/tab';
 
-function index() {
+function RegisterTab() {
   return (
     <>
       <TabsProvider defaultValue={'login'} wobbly={false}>
@@ -265,4 +265,4 @@ function index() {
   );
 }
 
-export default index;
+export default RegisterTab;

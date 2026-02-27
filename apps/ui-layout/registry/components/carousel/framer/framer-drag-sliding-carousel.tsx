@@ -98,7 +98,7 @@ function Carousel() {
       >
         {items.slice(0, 8)?.map((itemData, index) => {
           return (
-            <motion.div className='min-w-[20rem] min-h-100 p-2'>
+            <motion.div key={itemData?.id ?? index} className='min-w-[20rem] min-h-100 p-2'>
               <Image
                 src={itemData?.url}
                 width={400}

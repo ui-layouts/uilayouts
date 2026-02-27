@@ -3,7 +3,7 @@
 import React from 'react';
 import { RandomizedTextEffect } from '@/components/ui/text-randomized';
 
-function index() {
+function TextRandomized() {
   return (
     <>
       <div className=' py-10 rounded-md'>
@@ -15,4 +15,4 @@ function index() {
   );
 }
 
-export default index;
+export default TextRandomized;

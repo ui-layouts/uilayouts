@@ -3,7 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 import { SpotLightItem, Spotlight } from '@/components/ui/spotlight';
 
-export default function index() {
+export default function SpotlightCard1() {
   const boxes = [
     {
       id: '12',

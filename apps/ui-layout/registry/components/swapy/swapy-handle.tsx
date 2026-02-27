@@ -57,7 +57,7 @@ const initialItems: Item[] = [
 ];
 
 
-function index() {
+function SwapyHandle() {
   const [slotItemMap, setSlotItemMap] = useState<SlotItemMapArray>(
     utils.initSlotItemMap(initialItems, "id")
   );
@@ -102,4 +102,4 @@ function index() {
   );
 }
 
-export default index;
+export default SwapyHandle;

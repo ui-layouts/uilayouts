@@ -2,7 +2,7 @@
 import TextAnimation from '@/components/ui/scroll-text';
 import React, { useRef } from 'react';
 
-function index() {
+function ScrollTextAnimation() {
   return (
     <div>
       <div className='h-[550px] grid place-content-center'>
@@ -65,4 +65,4 @@ function index() {
   );
 }
 
-export default index;
+export default ScrollTextAnimation;

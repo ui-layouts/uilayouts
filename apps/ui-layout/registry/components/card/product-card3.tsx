@@ -12,7 +12,7 @@ import { CheckIcon, Heart } from 'lucide-react';
 import { EmblaOptionsType } from 'embla-carousel';
 import { CardArr } from '@/components/website/constant';
 
-function index() {
+function ProductCard3() {
   const [isActive, setIsActive] = useState(false);
 
   const handleClick = () => {
@@ -72,4 +72,4 @@ function index() {
   );
 }
 
-export default index;
+export default ProductCard3;

@@ -11,7 +11,7 @@ import Image from 'next/image';
 import { imgPreview } from '@/components/website/constant';
 import Autoplay from 'embla-carousel-autoplay';
 
-function index() {
+function AutostartSlider() {
   const OPTIONS: EmblaOptionsType = { loop: true };
   return (
     <>
@@ -53,4 +53,4 @@ function index() {
   );
 }
 
-export default index;
+export default AutostartSlider;

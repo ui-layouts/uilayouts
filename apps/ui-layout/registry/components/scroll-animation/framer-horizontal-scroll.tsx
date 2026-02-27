@@ -117,7 +117,7 @@ const slideAnimation: MotionProps = {
   viewport: { amount: 1, once: false },
 };
 
-export default function index() {
+export default function FramerHorizontalScroll() {
   const mainRef = useRef<HTMLDivElement>(null);
   const carouselRef = useRef<HTMLDivElement>(null);
   const { position } = useElementViewportPosition(mainRef);

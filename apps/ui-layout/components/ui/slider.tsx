@@ -110,6 +110,7 @@ const DualRangeSlider = React.forwardRef<
           <>
             {initialValue.map((value, index) => (
               <div
+                key={`${value}-${index}`}
                 className={cn(
                   'absolute -top-7 w-fit right-0 flex  justify-center items-start gap-0.5'
                 )}

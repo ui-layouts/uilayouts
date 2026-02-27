@@ -471,10 +471,9 @@ export const SliderSnapDisplay = forwardRef<
 >(({ className, ...props }, ref) => {
   const { selectedSnap, snapCount } = useCarousel();
   const prevSnapRef = useRef(selectedSnap);
-  const [direction, setDirection] = useState<number>(0);
+  const direction = selectedSnap > prevSnapRef.current ? 1 : -1;
 
   useEffect(() => {
-    setDirection(selectedSnap > prevSnapRef.current ? 1 : -1);
     prevSnapRef.current = selectedSnap;
   }, [selectedSnap]);
 

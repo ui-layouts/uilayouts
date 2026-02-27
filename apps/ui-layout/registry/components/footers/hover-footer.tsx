@@ -2,7 +2,7 @@
 import React from 'react';
 import AnimatedText from '@/components/ui/cursor-follow-text';
 
-function index() {
+function HoverFooter() {
   return (
     <footer
       className='footer-bg relative border 2xl:h-[550px] h-fit lg:pb-20 w-[95%] mx-auto mb-8 rounded-lg overflow-hidden radial-gradient-bg
@@ -73,4 +73,4 @@ function index() {
   );
 }
 
-export default index;
+export default HoverFooter;

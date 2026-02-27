@@ -14,7 +14,7 @@ const images = [
   'https://images.unsplash.com/photo-1709949908219-fd9046282019?q=80&w=1200&auto=format',
   'https://images.unsplash.com/photo-1508873881324-c92a3fc536ba?q=80&w=1200&auto=format',
 ];
-export default function index() {
+export default function DisappearImages() {
   return (
     <section>
       <ImageMouseTrail

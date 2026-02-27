@@ -8,7 +8,7 @@ import {
   Heart,
 } from 'lucide-react';
 
-function index() {
+function HoverCard4() {
   return (
     <>
       <div className='w-[90%] relative mt-4  group mx-auto dark:bg-black  bg-white dark:border-0 border overflow-hidden rounded-md dark:text-white text-black '>
@@ -44,4 +44,4 @@ function index() {
   );
 }
 
-export default index;
+export default HoverCard4;

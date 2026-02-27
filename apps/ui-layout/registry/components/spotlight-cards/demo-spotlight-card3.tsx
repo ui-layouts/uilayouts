@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import React, { MouseEvent, useRef, useState } from 'react';
 
-export default function index() {
+export default function DemoSpotlightCard3() {
   const boxWrapper = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
   const [mousePosition, setMousePosition] = React.useState({

@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { DualRangeSlider } from '@/components/ui/slider';
 
-export default function index() {
+export default function MotionNumberSlider() {
   const [widthPercentage, setWidthPercentage] = useState(70);
   return (
     <>

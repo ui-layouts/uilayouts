@@ -10,7 +10,7 @@ import {
   DragControls,
 } from 'motion/react';
 
-export default function index() {
+export default function DragItems() {
   const [items, setItems] = useState([
     {
       id: 1,

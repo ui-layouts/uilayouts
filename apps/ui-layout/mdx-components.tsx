@@ -43,13 +43,19 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     PreCode: ({ ...props }) => <PreCode {...props} />,
     ComponentCodePreview: ({ ...props }) => <ComponentCodePreview {...props} />,
     // CodeBlock: CodeBlock,
-    img: (props) => (
-      <img
-        sizes='100vw'
-        style={{ width: '100%', height: 'auto' }}
-        {...(props as React.ImgHTMLAttributes<HTMLImageElement>)}
-      />
-    ),
+    img: (props) => {
+      const { alt, ...restProps } =
+        props as React.ImgHTMLAttributes<HTMLImageElement>;
+
+      return (
+        <img
+          alt={alt ?? ''}
+          sizes='100vw'
+          style={{ width: '100%', height: 'auto' }}
+          {...restProps}
+        />
+      );
+    },
     // PreCode: ({ ...props }) => <PreCode {...props} />,
     CodeSnippets: ({ ...props }) => <CodeSnippets {...props} />,
     IframeComponentPrieview: ({ ...props }) => (

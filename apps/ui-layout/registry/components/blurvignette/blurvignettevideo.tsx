@@ -6,7 +6,7 @@ import {
   BlurVignetteArticle,
 } from '@/components/ui/blur-vignette';
 
-function index() {
+function Blurvignettevideo() {
   return (
     <>
       <BlurVignette
@@ -34,4 +34,4 @@ function index() {
   );
 }
 
-export default index;
+export default Blurvignettevideo;

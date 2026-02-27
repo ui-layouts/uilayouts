@@ -8,7 +8,7 @@ import {
   MoveUpRight,
 } from 'lucide-react';
 
-function index() {
+function HoverCard2() {
   return (
     <>
       <div className='w-[400px] relative mt-4 h-[430px] group mx-auto dark:bg-black  bg-white dark:border-0 border rounded-md dark:text-white text-black flex flex-col'>
@@ -35,4 +35,4 @@ function index() {
   );
 }
 
-export default index;
+export default HoverCard2;

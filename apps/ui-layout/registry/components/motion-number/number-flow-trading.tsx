@@ -58,7 +58,7 @@ export function PriceWithDiff({
   );
 }
 
-export default function index() {
+export default function NumberFlowTrading() {
   const numbers = [124.23, 41.75, 2125.95];
   const diffs = [0.0564, -0.114, 0.0029];
 

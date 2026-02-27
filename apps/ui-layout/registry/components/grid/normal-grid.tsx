@@ -35,7 +35,7 @@ const projects: ProjectsTypes[] = [
     des: 'We specialize in crafting marketing solutions that propel your brand to new heights',
   },
 ];
-export default function index() {
+export default function NormalGrid() {
   return (
     <>
       <div className='lg:columns-2 columns-1 overflow-hidden  px-5 pb-5'>
