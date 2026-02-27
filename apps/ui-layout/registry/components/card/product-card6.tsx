@@ -3,7 +3,9 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { Bookmark, ShoppingCart } from 'lucide-react';
 
-import { motion } from 'motion/react';
+
+import * as m from 'motion/react-m';
+import { LazyMotion, domAnimation } from 'motion/react';
 import { CardArr } from '@/components/website/constant';
 
 function Card() {
@@ -26,7 +28,7 @@ function Card() {
     >
       <div className='dark:bg-white bg-neutral-100 rounded-md relative z-4 shadow-lg'>
         <div className='w-full h-60 relative'>
-          <motion.button
+          <m.button
             className='absolute top-3 right-1 px-4 z-20 text-2xl text-white'
             onClick={handleClick}
             animate={{ scale: isActive ? 1.2 : 1 }}
@@ -41,7 +43,7 @@ function Card() {
                 <Bookmark />
               </>
             )}
-          </motion.button>
+          </m.button>
           {CardArr.map((data, index) => (
             <Image
               key={`${data.color}-${index}`}

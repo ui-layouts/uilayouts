@@ -7,19 +7,14 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/components/ui/magnified-doc';
-import {
-  type MotionValue,
-  motion,
-  useMotionValue,
-  useSpring,
-  useTransform,
-  AnimatePresence,
-} from 'motion/react';
+import { AnimatePresence, LazyMotion, domAnimation } from 'motion/react';
+import * as m from 'motion/react-m';
 import Image from 'next/image';
 import React, { useState } from 'react';
 import { useRef } from 'react';
 import { Icons } from '@/assets/icons/Icons';
 import preview from '@/assets/preview/Preview';
+import { LazyMotion, domAnimation } from 'motion/react';
 import { apps } from '@/components/website/constant';
 const Component = React.forwardRef((props, ref) => (
   <Image {...props} ref={ref} alt='App' />
@@ -49,7 +44,7 @@ function MagnifiedDocOneFile() {
               <>
                 <AnimatePresence mode={'popLayout'}>
                   {index === i && (
-                    <motion.div
+                    <m.div
                       initial={{
                         opacity: 0,
                         y: isForward ? 30 : -30,
@@ -77,7 +72,7 @@ function MagnifiedDocOneFile() {
                         height={1000}
                         className='w-full sm:h-[500px] h-[400px] object-cover  rounded-lg'
                       />
-                    </motion.div>
+                    </m.div>
                   )}
                 </AnimatePresence>
               </>
@@ -87,7 +82,7 @@ function MagnifiedDocOneFile() {
           <div className='absolute bottom-0 left-0 w-full z-20'>
             <div className='w-fit mx-auto'>
               <TooltipProvider delayDuration={0}>
-                <motion.div
+                <m.div
                   onMouseMove={(e) => mouseX.set(e.pageX)}
                   onMouseLeave={() => mouseX.set(Infinity)}
                   className='mx-auto flex sm:h-[57px] h-[52px] w-fit items-end gap-2 rounded-t-lg px-2 pb-2 dark:bg-neutral-800/80 bg-white/50 backdrop-blur-xs border-t border-l border-r  '
@@ -108,7 +103,7 @@ function MagnifiedDocOneFile() {
                       </Tooltip>
                     );
                   })}
-                </motion.div>
+                </m.div>
               </TooltipProvider>
             </div>
           </div>

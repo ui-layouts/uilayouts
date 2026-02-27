@@ -2,7 +2,9 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { Heart } from 'lucide-react';
-import { motion } from 'motion/react';
+
+import * as m from 'motion/react-m';
+import { LazyMotion, domAnimation } from 'motion/react';
 import { CardArr } from '@/components/website/constant';
 
 function Card1() {
@@ -33,7 +35,7 @@ function Card1() {
         <div className='text-black pt-2'>
           <div className='flex justify-between'>
             <h1 className='font-semibold text-xl'>Nike Air Max</h1>
-            <motion.button
+            <m.button
               className=' text-2xl text-red-400 pr-2 '
               onClick={handleClick}
               animate={{ scale: isActive ? 1.2 : 1 }}
@@ -48,7 +50,7 @@ function Card1() {
                   <Heart />
                 </>
               )}
-            </motion.button>
+            </m.button>
           </div>
           <p className='text-xs'>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore

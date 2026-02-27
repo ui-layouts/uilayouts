@@ -3,6 +3,8 @@ import * as React from 'react';
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import { Check, ChevronRight, Circle } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { LazyMotion, domAnimation } from 'motion/react';
+import * as m from 'motion/react-m';
 
 const DropdownMenu = DropdownMenuPrimitive.Root;
 

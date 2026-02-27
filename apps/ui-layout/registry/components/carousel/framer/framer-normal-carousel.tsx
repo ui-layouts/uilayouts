@@ -1,6 +1,12 @@
 'use client';
 import React, { useEffect, useRef, useState } from 'react';
-import { motion, useMotionValue, animate } from 'motion/react';
+import {
+  LazyMotion,
+  animate,
+  domAnimation,
+  useMotionValue,
+} from 'motion/react';
+import * as m from 'motion/react-m';
 
 export const items = [
   {
@@ -86,87 +92,92 @@ export default function FramerCarousel() {
   }, [index, x]);
 
   return (
-    <div className='w-full lg:p-10 sm:p-4 p-2'>
-      <div className='flex flex-col gap-3'>
-        <div className='relative overflow-hidden rounded-lg' ref={containerRef}>
-          <motion.div className='flex' style={{ x }}>
-            {items.map((item) => (
-              <div key={item.id} className='shrink-0 w-full h-[400px]'>
-                <img
-                  src={item.url}
-                  alt={item.title}
-                  className='w-full h-full object-cover rounded-lg select-none pointer-events-none'
-                  draggable={false}
-                />
-              </div>
-            ))}
-          </motion.div>
+    <LazyMotion features={domAnimation}>
+      <div className='w-full lg:p-10 sm:p-4 p-2'>
+        <div className='flex flex-col gap-3'>
+          <div
+            className='relative overflow-hidden rounded-lg'
+            ref={containerRef}
+          >
+            <m.div className='flex' style={{ x }}>
+              {items.map((item) => (
+                <div key={item.id} className='shrink-0 w-full h-[400px]'>
+                  <img
+                    src={item.url}
+                    alt={item.title}
+                    className='w-full h-full object-cover rounded-lg select-none pointer-events-none'
+                    draggable={false}
+                  />
+                </div>
+              ))}
+            </m.div>
 
-          {/* Navigation Buttons */}
-          <motion.button
-            disabled={index === 0}
-            onClick={() => setIndex((i) => Math.max(0, i - 1))}
-            className={`absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-transform z-10
+            {/* Navigation Buttons */}
+            <m.button
+              disabled={index === 0}
+              onClick={() => setIndex((i) => Math.max(0, i - 1))}
+              className={`absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-transform z-10
               ${
                 index === 0
                   ? 'opacity-40 cursor-not-allowed'
                   : 'bg-white hover:scale-110 hover:opacity-100 opacity-70'
               }`}
-          >
-            <svg
-              className='w-6 h-6'
-              fill='none'
-              stroke='currentColor'
-              viewBox='0 0 24 24'
             >
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth={2}
-                d='M15 19l-7-7 7-7'
-              />
-            </svg>
-          </motion.button>
+              <svg
+                className='w-6 h-6'
+                fill='none'
+                stroke='currentColor'
+                viewBox='0 0 24 24'
+              >
+                <path
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  strokeWidth={2}
+                  d='M15 19l-7-7 7-7'
+                />
+              </svg>
+            </m.button>
 
-          {/* Next Button */}
-          <motion.button
-            disabled={index === items.length - 1}
-            onClick={() => setIndex((i) => Math.min(items.length - 1, i + 1))}
-            className={`absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-transform z-10
+            {/* Next Button */}
+            <m.button
+              disabled={index === items.length - 1}
+              onClick={() => setIndex((i) => Math.min(items.length - 1, i + 1))}
+              className={`absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-transform z-10
               ${
                 index === items.length - 1
                   ? 'opacity-40 cursor-not-allowed'
                   : 'bg-white hover:scale-110 hover:opacity-100 opacity-70'
               }`}
-          >
-            <svg
-              className='w-6 h-6'
-              fill='none'
-              stroke='currentColor'
-              viewBox='0 0 24 24'
             >
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth={2}
-                d='M9 5l7 7-7 7'
-              />
-            </svg>
-          </motion.button>
-          {/* Progress Indicator */}
-          <div className='absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2'>
-            {items.map((_, i) => (
-              <button
-                key={items[i]?.id ?? items[i]?.url ?? `dot-${i}`}
-                onClick={() => setIndex(i)}
-                className={`h-2 rounded-full transition-all ${
-                  i === index ? 'w-8 bg-white' : 'w-2 bg-white/50'
-                }`}
-              />
-            ))}
+              <svg
+                className='w-6 h-6'
+                fill='none'
+                stroke='currentColor'
+                viewBox='0 0 24 24'
+              >
+                <path
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  strokeWidth={2}
+                  d='M9 5l7 7-7 7'
+                />
+              </svg>
+            </m.button>
+            {/* Progress Indicator */}
+            <div className='absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2'>
+              {items.map((_, i) => (
+                <button
+                  key={items[i]?.id ?? items[i]?.url ?? `dot-${i}`}
+                  onClick={() => setIndex(i)}
+                  className={`h-2 rounded-full transition-all ${
+                    i === index ? 'w-8 bg-white' : 'w-2 bg-white/50'
+                  }`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </LazyMotion>
   );
 }

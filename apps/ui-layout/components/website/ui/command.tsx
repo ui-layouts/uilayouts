@@ -8,6 +8,8 @@ import { Command as CommandPrimitive } from 'cmdk';
 import { cn } from '@/lib/utils';
 import { Dialog, DialogContent } from '@/components/website/ui/dialog';
 import { Search } from 'lucide-react';
+import { LazyMotion, domAnimation } from 'motion/react';
+import * as m from 'motion/react-m';
 
 const Command = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive>,

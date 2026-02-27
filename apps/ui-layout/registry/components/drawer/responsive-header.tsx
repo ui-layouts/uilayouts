@@ -4,6 +4,8 @@ import { MenuIcon, X } from 'lucide-react';
 import Link from 'next/link';
 import { useMediaQuery } from '@/hooks/use-media-query';
 import { DrawerContent, HeaderDrawer } from '@/components/ui/responsive-header';
+import { LazyMotion, domAnimation } from 'motion/react';
+import * as m from 'motion/react-m';
 const items = [
   {
     id: 1,

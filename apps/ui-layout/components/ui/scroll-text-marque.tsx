@@ -1,15 +1,18 @@
 'use client';
 import { useRef, useEffect } from 'react';
+
+import * as m from 'motion/react-m';
+import { wrap } from '@motionone/utils';
 import {
-  motion,
+  LazyMotion,
+  domAnimation,
+  useAnimationFrame,
+  useMotionValue,
   useScroll,
   useSpring,
   useTransform,
   useVelocity,
-  useAnimationFrame,
-  useMotionValue,
 } from 'motion/react';
-import { wrap } from '@motionone/utils';
 import { cn } from '@/lib/utils';
 
 interface ParallaxProps {
@@ -72,7 +75,7 @@ export default function ScrollBaseAnimation({
 
   return (
     <div className='overflow-hidden whitespace-nowrap flex flex-nowrap'>
-      <motion.div
+      <m.div
         className='flex whitespace-nowrap gap-10 flex-nowrap'
         style={{ x }}
       >
@@ -88,7 +91,7 @@ export default function ScrollBaseAnimation({
         <span className={cn(`block sm:text-[8vw] text-[11vw]`, clasname)}>
           {children}
         </span>
-      </motion.div>
+      </m.div>
     </div>
   );
 }

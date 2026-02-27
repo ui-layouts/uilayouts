@@ -2,7 +2,9 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { Heart } from 'lucide-react';
-import { motion } from 'motion/react';
+
+import { LazyMotion, domAnimation } from 'motion/react';
+import * as m from 'motion/react-m';
 function Card2() {
   const [isActive, setIsActive] = useState(false);
 
@@ -14,7 +16,7 @@ function Card2() {
     <div className='w-[350px] mx-auto '>
       <div className='dark:bg-white bg-neutral-50 border dark:border-none  rounded-2xl'>
         <div className='w-full h-56 relative'>
-          <motion.button
+          <m.button
             className='absolute top-2 right-3 z-20 text-2xl text-white'
             onClick={handleClick}
             animate={{ scale: isActive ? 1.2 : 1 }}
@@ -29,7 +31,7 @@ function Card2() {
                 <Heart />
               </>
             )}
-          </motion.button>
+          </m.button>
           <Image
             src={
               'https://images.unsplash.com/photo-1605733160314-4fc7dac4bb16?q=80&w=2090&auto=format&fit=crop'

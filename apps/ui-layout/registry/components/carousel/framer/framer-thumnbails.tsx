@@ -1,13 +1,12 @@
 'use client';
 import React, { useEffect, useRef, useState } from 'react';
 import {
-  AnimatePresence,
-  motion,
-  useMotionTemplate,
-  useMotionValue,
-  useSpring,
+  LazyMotion,
   animate,
+  domAnimation,
+  useMotionValue,
 } from 'motion/react';
+import * as m from 'motion/react-m';
 
 export const items = [
   {
@@ -128,107 +127,112 @@ function FramerCarouselThumbnails() {
   }, [index, x, isDragging]);
 
   return (
-    <div className='w-[80%] mx-auto lg:p-10 p-2'>
-      <div className='flex flex-col gap-3'>
-        {/* Main Carousel */}
-        <div className='relative overflow-hidden rounded-lg' ref={containerRef}>
-          <motion.div
-            className='flex'
-            drag='x'
-            dragElastic={0.2}
-            dragMomentum={false}
-            onDragStart={() => setIsDragging(true)}
-            onDragEnd={(e, info) => {
-              setIsDragging(false);
-              const containerWidth = containerRef.current?.offsetWidth || 1;
-              const offset = info.offset.x;
-              const velocity = info.velocity.x;
-
-              let newIndex = index;
-
-              // If fast swipe, use velocity
-              if (Math.abs(velocity) > 500) {
-                newIndex = velocity > 0 ? index - 1 : index + 1;
-              }
-              // Otherwise use offset threshold (30% of container width)
-              else if (Math.abs(offset) > containerWidth * 0.3) {
-                newIndex = offset > 0 ? index - 1 : index + 1;
-              }
-
-              // Clamp index
-              newIndex = Math.max(0, Math.min(items.length - 1, newIndex));
-              setIndex(newIndex);
-            }}
-            style={{ x }}
+    <LazyMotion features={domAnimation}>
+      <div className='w-[80%] mx-auto lg:p-10 p-2'>
+        <div className='flex flex-col gap-3'>
+          {/* Main Carousel */}
+          <div
+            className='relative overflow-hidden rounded-lg'
+            ref={containerRef}
           >
-            {items.map((item) => (
-              <div key={item.id} className='shrink-0 w-full h-[400px]'>
-                <img
-                  src={item.url}
-                  alt={item.title}
-                  className='w-full h-full object-cover rounded-lg select-none pointer-events-none'
-                  draggable={false}
-                />
-              </div>
-            ))}
-          </motion.div>
+            <m.div
+              className='flex'
+              drag='x'
+              dragElastic={0.2}
+              dragMomentum={false}
+              onDragStart={() => setIsDragging(true)}
+              onDragEnd={(e, info) => {
+                setIsDragging(false);
+                const containerWidth = containerRef.current?.offsetWidth || 1;
+                const offset = info.offset.x;
+                const velocity = info.velocity.x;
 
-          {/* Navigation Buttons */}
-          <motion.button
-            disabled={index === 0}
-            onClick={() => setIndex((i) => Math.max(0, i - 1))}
-            className={`absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-transform z-10
+                let newIndex = index;
+
+                // If fast swipe, use velocity
+                if (Math.abs(velocity) > 500) {
+                  newIndex = velocity > 0 ? index - 1 : index + 1;
+                }
+                // Otherwise use offset threshold (30% of container width)
+                else if (Math.abs(offset) > containerWidth * 0.3) {
+                  newIndex = offset > 0 ? index - 1 : index + 1;
+                }
+
+                // Clamp index
+                newIndex = Math.max(0, Math.min(items.length - 1, newIndex));
+                setIndex(newIndex);
+              }}
+              style={{ x }}
+            >
+              {items.map((item) => (
+                <div key={item.id} className='shrink-0 w-full h-[400px]'>
+                  <img
+                    src={item.url}
+                    alt={item.title}
+                    className='w-full h-full object-cover rounded-lg select-none pointer-events-none'
+                    draggable={false}
+                  />
+                </div>
+              ))}
+            </m.div>
+
+            {/* Navigation Buttons */}
+            <m.button
+              disabled={index === 0}
+              onClick={() => setIndex((i) => Math.max(0, i - 1))}
+              className={`absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-transform z-10
               ${
                 index === 0
                   ? 'opacity-40 cursor-not-allowed'
                   : 'bg-white hover:scale-110 hover:opacity-100 opacity-70'
               }`}
-          >
-            <svg
-              className='w-6 h-6'
-              fill='none'
-              stroke='currentColor'
-              viewBox='0 0 24 24'
             >
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth={2}
-                d='M15 19l-7-7 7-7'
-              />
-            </svg>
-          </motion.button>
+              <svg
+                className='w-6 h-6'
+                fill='none'
+                stroke='currentColor'
+                viewBox='0 0 24 24'
+              >
+                <path
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  strokeWidth={2}
+                  d='M15 19l-7-7 7-7'
+                />
+              </svg>
+            </m.button>
 
-          {/* Next Button */}
-          <motion.button
-            disabled={index === items.length - 1}
-            onClick={() => setIndex((i) => Math.min(items.length - 1, i + 1))}
-            className={`absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-transform z-10
+            {/* Next Button */}
+            <m.button
+              disabled={index === items.length - 1}
+              onClick={() => setIndex((i) => Math.min(items.length - 1, i + 1))}
+              className={`absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-transform z-10
               ${
                 index === items.length - 1
                   ? 'opacity-40 cursor-not-allowed'
                   : 'bg-white hover:scale-110 hover:opacity-100 opacity-70'
               }`}
-          >
-            <svg
-              className='w-6 h-6'
-              fill='none'
-              stroke='currentColor'
-              viewBox='0 0 24 24'
             >
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth={2}
-                d='M9 5l7 7-7 7'
-              />
-            </svg>
-          </motion.button>
-        </div>
+              <svg
+                className='w-6 h-6'
+                fill='none'
+                stroke='currentColor'
+                viewBox='0 0 24 24'
+              >
+                <path
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  strokeWidth={2}
+                  d='M9 5l7 7-7 7'
+                />
+              </svg>
+            </m.button>
+          </div>
 
-        <Thumbnails index={index} setIndex={setIndex} />
+          <Thumbnails index={index} setIndex={setIndex} />
+        </div>
       </div>
-    </div>
+    </LazyMotion>
   );
 }
 
@@ -269,7 +273,7 @@ function Thumbnails({
     >
       <div className='flex gap-1 h-20 pb-2' style={{ width: 'fit-content' }}>
         {items.map((item, i) => (
-          <motion.button
+          <m.button
             key={item.id}
             onClick={() => setIndex(i)}
             initial={false}
@@ -294,7 +298,7 @@ function Thumbnails({
               alt={item.title}
               className='w-full h-full object-cover pointer-events-none select-none'
             />
-          </motion.button>
+          </m.button>
         ))}
       </div>
     </div>

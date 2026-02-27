@@ -20,6 +20,8 @@ import {
 } from 'react-dropzone';
 import { toast } from 'sonner';
 import { Trash2 as RemoveIcon } from 'lucide-react';
+import { LazyMotion, domAnimation } from 'motion/react';
+import * as m from 'motion/react-m';
 
 type DirectionOptions = 'rtl' | 'ltr' | undefined;
 

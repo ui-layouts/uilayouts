@@ -8,7 +8,8 @@ import React, {
   ReactNode,
 } from 'react';
 import { createPortal } from 'react-dom';
-import { AnimatePresence, motion } from 'motion/react';
+import { AnimatePresence, LazyMotion, domAnimation } from 'motion/react';
+import * as m from 'motion/react-m';
 import { X } from 'lucide-react';
 import { Drawer as VaulDrawer } from 'vaul';
 import { cn } from '@/lib/utils';
@@ -76,14 +77,14 @@ export function ResponsiveModal({
       ? createPortal(
           <AnimatePresence>
             {open && (
-              <motion.div
+              <m.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 className='fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-xs cursor-zoom-out'
                 onClick={() => setOpen(false)}
               >
-                <motion.div
+                <m.div
                   initial={{ scale: 0.9, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   exit={{ scale: 0.9, opacity: 0 }}
@@ -105,8 +106,8 @@ export function ResponsiveModal({
                     <X />
                   </button>
                   {content}
-                </motion.div>
-              </motion.div>
+                </m.div>
+              </m.div>
             )}
           </AnimatePresence>,
           document.body

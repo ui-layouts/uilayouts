@@ -5,6 +5,8 @@ import * as NavigationMenuPrimitive from '@radix-ui/react-navigation-menu';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import { useRecentPagesStore } from '@/hooks/useZustStore';
+import { LazyMotion, domAnimation } from 'motion/react';
+import * as m from 'motion/react-m';
 
 const components: { title: string; href: string; description: string }[] = [
   {

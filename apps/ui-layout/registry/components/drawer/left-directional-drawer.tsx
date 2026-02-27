@@ -1,10 +1,12 @@
 'use client';
 import { Drawer } from 'vaul';
-import { motion } from 'motion/react';
+
+import * as m from 'motion/react-m';
 import { useState } from 'react';
 import { Edit, X } from 'lucide-react';
 import { useMediaQuery } from '@/hooks/use-media-query';
 import Image from 'next/image';
+import { LazyMotion, domAnimation } from 'motion/react';
 import {
   DirectionalDrawer,
   DrawerContent,
@@ -70,13 +72,13 @@ export default function LeftDirectionalDrawer() {
             className='h-full w-full object-cover rounded-lg '
             alt='profile_image'
           />
-          <motion.button
+          <m.button
             whileTap={{ scale: 0.8 }}
             onClick={() => setSidebarOpen(true)}
             className='absolute left-2 bottom-2 p-4 dark:bg-black bg-white rounded-lg shadow-black'
           >
             <Edit />
-          </motion.button>
+          </m.button>
         </figure>
       </div>
     </>

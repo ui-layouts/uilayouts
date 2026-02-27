@@ -1,4 +1,5 @@
-import { type HTMLMotionProps, motion, useInView } from 'motion/react';
+import { type HTMLMotionProps, useInView } from 'motion/react';
+import * as m from 'motion/react-m';
 import type React from 'react';
 import type { Variants } from 'motion/react';
 
@@ -47,7 +48,7 @@ export const TimelineAnimation = <
     once,
   });
 
-  const MotionComponent = motion[as || 'div'] as React.ElementType;
+  const MotionComponent = (m as any)[as || 'div'] as React.ElementType;
 
   return (
     <MotionComponent

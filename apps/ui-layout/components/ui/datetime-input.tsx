@@ -14,6 +14,8 @@ import { Button, buttonVariants } from '@/components/website/ui/button';
 import { cn } from '@/lib/utils';
 import { Calendar as CalendarIcon, LucideTextCursorInput } from 'lucide-react';
 import { ScrollArea } from '@/components/website/ui/scroll-area';
+import { LazyMotion, domAnimation } from 'motion/react';
+import * as m from 'motion/react-m';
 
 /* -------------------------------------------------------------------------- */
 /*                               Inspired By:                                 */

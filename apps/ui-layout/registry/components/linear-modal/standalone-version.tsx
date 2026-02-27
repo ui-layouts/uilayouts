@@ -1,5 +1,12 @@
 'use client';
-import { motion, AnimatePresence, MotionConfig, Transition } from 'motion/react';
+import {
+  AnimatePresence,
+  LazyMotion,
+  MotionConfig,
+  Transition,
+  domAnimation,
+} from 'motion/react';
+import * as m from 'motion/react-m';
 import { Plus, X } from 'lucide-react';
 import React, { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
@@ -17,7 +24,7 @@ interface CardItem {
 const transition: Transition = {
   type: 'spring',
   bounce: 0.05,
-  duration: 0.3
+  duration: 0.3,
 };
 
 const LinearCardDialog: React.FC = () => {
@@ -100,20 +107,20 @@ const LinearCardDialog: React.FC = () => {
   const currentItem = items[index];
 
   return (
-    <div className="relative h-full p-4">
+    <div className='relative h-full p-4'>
       <MotionConfig transition={transition}>
-        <motion.div
+        <m.div
           ref={carousel}
-          drag="x"
+          drag='x'
           dragElastic={0.2}
           dragConstraints={{ right: 0, left: -carouselWidth }}
           dragTransition={{ bounceDamping: 30 }}
-          className="flex w-full gap-4 py-10"
+          className='flex w-full gap-4 py-10'
         >
           {items.map((item, i) => (
-            <motion.div
+            <m.div
               key={item.id}
-              className="shrink-0 flex relative flex-col overflow-hidden border dark:bg-black bg-neutral-100 hover:bg-neutral-200 dark:hover:bg-neutral-950 cursor-pointer transition-colors"
+              className='shrink-0 flex relative flex-col overflow-hidden border dark:bg-black bg-neutral-100 hover:bg-neutral-200 dark:hover:bg-neutral-950 cursor-pointer transition-colors'
               layoutId={`dialog-${item.id}`}
               style={{ width: '250px', borderRadius: '12px' }}
               tabIndex={i}
@@ -124,113 +131,115 @@ const LinearCardDialog: React.FC = () => {
                   handleCardClick(i);
                 }
               }}
-              role="button"
+              role='button'
               aria-label={`Open ${item.title} details`}
             >
-              <motion.div layoutId={`dialog-img-${item.id}`}>
+              <m.div layoutId={`dialog-img-${item.id}`}>
                 <img
                   src={item.url}
                   alt={item.title}
-                  className="w-full h-48 object-cover"
-                  loading="lazy"
+                  className='w-full h-48 object-cover'
+                  loading='lazy'
                 />
-              </motion.div>
-              <div className="flex grow flex-row items-end justify-between p-4">
-                <div className="flex-1">
-                  <motion.h3
+              </m.div>
+              <div className='flex grow flex-row items-end justify-between p-4'>
+                <div className='flex-1'>
+                  <m.h3
                     layoutId={`dialog-title-${item.id}`}
-                    className="dark:text-white text-black font-semibold text-sm truncate"
+                    className='dark:text-white text-black font-semibold text-sm truncate'
                   >
                     {item.title}
-                  </motion.h3>
+                  </m.h3>
                 </div>
                 <button
-                  className="absolute bottom-2 right-2 p-2 dark:bg-neutral-800 bg-neutral-300 hover:bg-neutral-400 dark:hover:bg-neutral-700 rounded-xl transition-colors"
+                  className='absolute bottom-2 right-2 p-2 dark:bg-neutral-800 bg-neutral-300 hover:bg-neutral-400 dark:hover:bg-neutral-700 rounded-xl transition-colors'
                   aria-label={`Open ${item.title}`}
                   tabIndex={-1}
                 >
-                  <Plus className="w-4 h-4" />
+                  <Plus className='w-4 h-4' />
                 </button>
               </div>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
 
-        {isOpen && currentItem && createPortal(
-          <AnimatePresence initial={false} mode="sync">
-            <motion.div
-              key={`backdrop-${currentItem.id}`}
-              className="fixed inset-0 h-full w-full dark:bg-black/50 bg-black/25 backdrop-blur-xs z-40"
-              variants={{ open: { opacity: 1 }, closed: { opacity: 0 } }}
-              initial="closed"
-              animate="open"
-              exit="closed"
-              onClick={handleBackdropClick}
-            />
-            <motion.div
-              key="dialog"
-              className="pointer-events-none fixed inset-0 flex items-center justify-center z-50 p-4"
-            >
-              <motion.div
-                className="pointer-events-auto relative flex h-auto w-full max-w-[500px] flex-col overflow-hidden dark:bg-neutral-900 bg-white border shadow-2xl max-h-[90vh] overflow-y-auto"
-                layoutId={`dialog-${currentItem.id}`}
-                tabIndex={-1}
-                style={{ borderRadius: '24px' }}
-                role="dialog"
-                aria-labelledby={`dialog-title-${currentItem.id}`}
-                aria-describedby={`dialog-description-${currentItem.id}`}
+        {isOpen &&
+          currentItem &&
+          createPortal(
+            <AnimatePresence initial={false} mode='sync'>
+              <m.div
+                key={`backdrop-${currentItem.id}`}
+                className='fixed inset-0 h-full w-full dark:bg-black/50 bg-black/25 backdrop-blur-xs z-40'
+                variants={{ open: { opacity: 1 }, closed: { opacity: 0 } }}
+                initial='closed'
+                animate='open'
+                exit='closed'
+                onClick={handleBackdropClick}
+              />
+              <m.div
+                key='dialog'
+                className='pointer-events-none fixed inset-0 flex items-center justify-center z-50 p-4'
               >
-                <motion.div layoutId={`dialog-img-${currentItem.id}`}>
-                  <img
-                    src={currentItem.url}
-                    alt={currentItem.title}
-                    className="h-64 w-full object-cover"
-                  />
-                </motion.div>
-                <div className="p-6">
-                  <motion.h2
-                    layoutId={`dialog-title-${currentItem.id}`}
-                    className="text-2xl font-bold text-zinc-950 dark:text-zinc-50 mb-4"
-                    id={`dialog-title-${currentItem.id}`}
-                  >
-                    {currentItem.title}
-                  </motion.h2>
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 20 }}
-                    transition={{ delay: 0.1 }}
-                    className="text-zinc-700 dark:text-zinc-300 leading-relaxed"
-                    id={`dialog-description-${currentItem.id}`}
-                  >
-                    {currentItem.description}
-                  </motion.div>
-                  {currentItem.tags.length > 0 && (
-                    <div className="flex flex-wrap gap-2 mt-4">
-                      {currentItem.tags.map((tag, tagIndex) => (
-                        <span
-                          key={`${tag}-${tagIndex}`}
-                          className="px-2 py-1 text-xs bg-neutral-200 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 rounded-full"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  )}
-                </div>
-                <button
-                  onClick={handleCloseDialog}
-                  className="absolute right-4 top-4 p-2 bg-black dark:bg-white rounded-lg text-primary-foreground border cursor-pointer transition-colors"
-                  type="button"
-                  aria-label={`Close ${currentItem.title} dialog`}
+                <m.div
+                  className='pointer-events-auto relative flex h-auto w-full max-w-[500px] flex-col overflow-hidden dark:bg-neutral-900 bg-white border shadow-2xl max-h-[90vh] overflow-y-auto'
+                  layoutId={`dialog-${currentItem.id}`}
+                  tabIndex={-1}
+                  style={{ borderRadius: '24px' }}
+                  role='dialog'
+                  aria-labelledby={`dialog-title-${currentItem.id}`}
+                  aria-describedby={`dialog-description-${currentItem.id}`}
                 >
-                  <X size={20} />
-                </button>
-              </motion.div>
-            </motion.div>
-          </AnimatePresence>,
-          document.body
-        )}
+                  <m.div layoutId={`dialog-img-${currentItem.id}`}>
+                    <img
+                      src={currentItem.url}
+                      alt={currentItem.title}
+                      className='h-64 w-full object-cover'
+                    />
+                  </m.div>
+                  <div className='p-6'>
+                    <m.h2
+                      layoutId={`dialog-title-${currentItem.id}`}
+                      className='text-2xl font-bold text-zinc-950 dark:text-zinc-50 mb-4'
+                      id={`dialog-title-${currentItem.id}`}
+                    >
+                      {currentItem.title}
+                    </m.h2>
+                    <m.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 20 }}
+                      transition={{ delay: 0.1 }}
+                      className='text-zinc-700 dark:text-zinc-300 leading-relaxed'
+                      id={`dialog-description-${currentItem.id}`}
+                    >
+                      {currentItem.description}
+                    </m.div>
+                    {currentItem.tags.length > 0 && (
+                      <div className='flex flex-wrap gap-2 mt-4'>
+                        {currentItem.tags.map((tag, tagIndex) => (
+                          <span
+                            key={`${tag}-${tagIndex}`}
+                            className='px-2 py-1 text-xs bg-neutral-200 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 rounded-full'
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                  <button
+                    onClick={handleCloseDialog}
+                    className='absolute right-4 top-4 p-2 bg-black dark:bg-white rounded-lg text-primary-foreground border cursor-pointer transition-colors'
+                    type='button'
+                    aria-label={`Close ${currentItem.title} dialog`}
+                  >
+                    <X size={20} />
+                  </button>
+                </m.div>
+              </m.div>
+            </AnimatePresence>,
+            document.body
+          )}
       </MotionConfig>
     </div>
   );

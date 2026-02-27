@@ -1,5 +1,7 @@
 'use client';
-import { motion, AnimatePresence } from 'motion/react';
+import { AnimatePresence } from 'motion/react';
+import { LazyMotion, domAnimation } from 'motion/react';
+import * as m from 'motion/react-m';
 type ColorKey =
   | 'color1'
   | 'color2'
@@ -188,35 +190,37 @@ const GradientSvg: React.FC<GradientSvgProps> = ({
         fill='url(#paint0_radial_905_231)'
       />
       <defs>
-        <motion.radialGradient
-          id='paint0_radial_905_231'
-          cx='0'
-          cy='0'
-          r='1'
-          gradientUnits='userSpaceOnUse'
-          // @ts-ignore
-          animate={isHovered ? variants.hovered : variants.notHovered}
-        >
-          {stopsAnimationArray.map((stopConfigs, index) => (
-            <AnimatePresence key={index}>
-              <motion.stop
-                initial={{
-                  offset: stopConfigs[0].offset,
-                  stopColor: stopConfigs[0].stopColor,
-                }}
-                animate={{
-                  offset: stopConfigs.map((config) => config.offset),
-                  stopColor: stopConfigs.map((config) => config.stopColor),
-                }}
-                transition={{
-                  duration: 0,
-                  ease: 'linear',
-                  repeat: Infinity,
-                }}
-              />
-            </AnimatePresence>
-          ))}
-        </motion.radialGradient>
+        <LazyMotion features={domAnimation}>
+          <m.radialGradient
+            id='paint0_radial_905_231'
+            cx='0'
+            cy='0'
+            r='1'
+            gradientUnits='userSpaceOnUse'
+            // @ts-ignore
+            animate={isHovered ? variants.hovered : variants.notHovered}
+          >
+            {stopsAnimationArray.map((stopConfigs, index) => (
+              <AnimatePresence key={index}>
+                <m.stop
+                  initial={{
+                    offset: stopConfigs[0].offset,
+                    stopColor: stopConfigs[0].stopColor,
+                  }}
+                  animate={{
+                    offset: stopConfigs.map((config) => config.offset),
+                    stopColor: stopConfigs.map((config) => config.stopColor),
+                  }}
+                  transition={{
+                    duration: 0,
+                    ease: 'linear',
+                    repeat: Infinity,
+                  }}
+                />
+              </AnimatePresence>
+            ))}
+          </m.radialGradient>
+        </LazyMotion>
       </defs>
     </svg>
   );

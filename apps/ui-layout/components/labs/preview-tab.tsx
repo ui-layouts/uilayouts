@@ -1,6 +1,7 @@
 'use client';
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { AnimatePresence, LazyMotion, domAnimation } from 'motion/react';
+import * as m from 'motion/react-m';
 import Image from 'next/image';
 import { TabsBtn, TabsContent, TabsProvider } from '@/components/ui/tab';
 const effectArr = [
@@ -25,24 +26,26 @@ function Tab() {
         {effectArr?.map((effect, index) => {
           return (
             <>
-              <motion.button
-                onClick={() => setCheckEffect(effect?.name)}
-                className={`py-1 px-3 rounded-md capitalize relative `}
-              >
-                <span className='z-10 relative'>{effect?.name}</span>
-                {checkEffect === effect.name && (
-                  <motion.div
-                    transition={{
-                      layout: {
-                        duration: 0.2,
-                        ease: 'easeInOut',
-                      },
-                    }}
-                    layoutId={'magnetic'}
-                    className='absolute w-full h-full left-0 top-0 bg-[conic-gradient(from_90deg_at_50%_50%,#8494ff_0%,#3749be_50%,#7d8efc_100%)] rounded-md  z-1 tab-shadow'
-                  />
-                )}
-              </motion.button>
+              <LazyMotion features={domAnimation}>
+                <m.button
+                  onClick={() => setCheckEffect(effect?.name)}
+                  className={`py-1 px-3 rounded-md capitalize relative `}
+                >
+                  <span className='z-10 relative'>{effect?.name}</span>
+                  {checkEffect === effect.name && (
+                    <m.div
+                      transition={{
+                        layout: {
+                          duration: 0.2,
+                          ease: 'easeInOut',
+                        },
+                      }}
+                      layoutId={'magnetic'}
+                      className='absolute w-full h-full left-0 top-0 bg-[conic-gradient(from_90deg_at_50%_50%,#8494ff_0%,#3749be_50%,#7d8efc_100%)] rounded-md  z-1 tab-shadow'
+                    />
+                  )}
+                </m.button>
+              </LazyMotion>
             </>
           );
         })}

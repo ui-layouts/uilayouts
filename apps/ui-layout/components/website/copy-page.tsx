@@ -16,7 +16,8 @@ import {
   ChevronDown,
   CopyIcon,
 } from 'lucide-react';
-import { AnimatePresence, motion } from 'motion/react';
+import { AnimatePresence, LazyMotion, domAnimation } from 'motion/react';
+import * as m from 'motion/react-m';
 
 export default function CopyPage() {
   const pathname = usePathname() || '';
@@ -81,54 +82,56 @@ export default function CopyPage() {
     <div className='bg-secondary group/buttons relative flex rounded-lg p-1 gap-1'>
       <Button variant='uilayouts' size='sm' onClick={handleCopyPage}>
         <AnimatePresence mode='popLayout' initial={false}>
-          <motion.div
-            key={copied ? 'check' : 'copy'}
-            initial={{ opacity: 0, scale: 0.25, filter: 'blur(4px)' }}
-            animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
-            exit={{ opacity: 0, scale: 0.25, filter: 'blur(4px)' }}
-            transition={{
-              type: 'spring',
-              duration: 0.3,
-              bounce: 0,
-            }}
-            className='flex items-center gap-1'
-          >
-            {copied ? (
-              <>
-                Copied <CheckCheckIcon className='w-4 h-4' />
-              </>
-            ) : (
-              <>
-                Copy{' '}
-                {isLoading ? (
-                  <>
-                    <svg
-                      className='ml-2  size-4 animate-spin text-primary'
-                      xmlns='http://www.w3.org/2000/svg'
-                      fill='none'
-                      viewBox='0 0 24 24'
-                    >
-                      <circle
-                        className='opacity-25'
-                        cx='12'
-                        cy='12'
-                        r='10'
-                        stroke='currentColor'
-                        strokeWidth='4'
-                      ></circle>
-                      <path
-                        className='opacity-75'
-                        fill='currentColor'
-                        d='M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z'
-                      ></path>
-                    </svg>
-                  </>
-                ) : (
-                  <>Page</>
-                )}{' '}
-              </>
-            )}
-          </motion.div>
+          <LazyMotion features={domAnimation}>
+            <m.div
+              key={copied ? 'check' : 'copy'}
+              initial={{ opacity: 0, scale: 0.25, filter: 'blur(4px)' }}
+              animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+              exit={{ opacity: 0, scale: 0.25, filter: 'blur(4px)' }}
+              transition={{
+                type: 'spring',
+                duration: 0.3,
+                bounce: 0,
+              }}
+              className='flex items-center gap-1'
+            >
+              {copied ? (
+                <>
+                  Copied <CheckCheckIcon className='w-4 h-4' />
+                </>
+              ) : (
+                <>
+                  Copy{' '}
+                  {isLoading ? (
+                    <>
+                      <svg
+                        className='ml-2  size-4 animate-spin text-primary'
+                        xmlns='http://www.w3.org/2000/svg'
+                        fill='none'
+                        viewBox='0 0 24 24'
+                      >
+                        <circle
+                          className='opacity-25'
+                          cx='12'
+                          cy='12'
+                          r='10'
+                          stroke='currentColor'
+                          strokeWidth='4'
+                        ></circle>
+                        <path
+                          className='opacity-75'
+                          fill='currentColor'
+                          d='M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z'
+                        ></path>
+                      </svg>
+                    </>
+                  ) : (
+                    <>Page</>
+                  )}{' '}
+                </>
+              )}
+            </m.div>
+          </LazyMotion>
         </AnimatePresence>
       </Button>
       <DropdownMenu>
@@ -142,11 +145,7 @@ export default function CopyPage() {
           align='start'
         >
           <DropdownMenuItem onClick={handleViewAsMarkdown}>
-            <svg
-              strokeLinejoin='round'
-              className='w-5 h-5'
-              viewBox='0 0 22 16'
-            >
+            <svg strokeLinejoin='round' className='w-5 h-5' viewBox='0 0 22 16'>
               <path
                 fillRule='evenodd'
                 clip-rule='evenodd'

@@ -2,15 +2,12 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import {
-  AnimatePresence,
-  LayoutGroup,
-  motion,
-  useMotionValue,
-} from 'motion/react';
+import { AnimatePresence, LazyMotion, domAnimation } from 'motion/react';
+import * as m from 'motion/react-m';
 import Image from 'next/image';
 import { X } from 'lucide-react';
 import { items } from '@/components/website/constant';
+import { LazyMotion, domAnimation } from 'motion/react';
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 
 type ImageModalProps = {
@@ -72,14 +69,14 @@ export const SliderModal = ({ item, uniqueId, itemArr }: ImageModalProps) => {
 
   return (
     <>
-      <motion.div
+      <m.div
         onClick={() => {
           setIsOpen(true);
           setNewItem(item);
         }}
         className='overflow-hidden mb-3'
       >
-        <motion.div layoutId={uniqueId}>
+        <m.div layoutId={uniqueId}>
           <Image
             width={400}
             height={400}
@@ -87,12 +84,12 @@ export const SliderModal = ({ item, uniqueId, itemArr }: ImageModalProps) => {
             className='bg-white text-black rounded-md w-full cursor-zoom-in'
             alt='img'
           />
-        </motion.div>
-      </motion.div>
+        </m.div>
+      </m.div>
 
       <AnimatePresence>
         {isOpen && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -108,7 +105,7 @@ export const SliderModal = ({ item, uniqueId, itemArr }: ImageModalProps) => {
             >
               <X />
             </button>
-            <motion.div
+            <m.div
               layoutId={uniqueId}
               className='rounded-md w-fit h-[80%] flex gap-2 items-center mx-auto cursor-auto '
               onClick={(e) => e.stopPropagation()}
@@ -121,11 +118,11 @@ export const SliderModal = ({ item, uniqueId, itemArr }: ImageModalProps) => {
                         <React.Fragment key={item.id ?? item.url}>
                           <AnimatePresence mode='popLayout'>
                             {tab.id === newItem.id && (
-                              <motion.figure
+                              <m.figure
                                 key={tab?.id}
                                 className='dark:bg-neutral-900/40 bg-neutral-100/40 border  rounded-md p-4'
                               >
-                                <motion.div
+                                <m.div
                                   initial={{ opacity: 0 }}
                                   animate={{
                                     opacity: 1,
@@ -151,8 +148,8 @@ export const SliderModal = ({ item, uniqueId, itemArr }: ImageModalProps) => {
                                     alt='preview_img'
                                     className=' object-contain h-[70vh]  mx-auto rounded-md'
                                   />
-                                </motion.div>
-                              </motion.figure>
+                                </m.div>
+                              </m.figure>
                             )}
                           </AnimatePresence>
                         </React.Fragment>
@@ -161,11 +158,11 @@ export const SliderModal = ({ item, uniqueId, itemArr }: ImageModalProps) => {
                   )}
                 </AnimatePresence>
               )}
-              <motion.div
+              <m.div
                 className='h-[300px] overflow-hidden dark:bg-neutral-900/40 bg-white/40 border rounded-md'
                 ref={carousel}
               >
-                <motion.div
+                <m.div
                   whileDrag={{ scale: 0.95 }}
                   dragElastic={0.2}
                   dragTransition={{ bounceDamping: 30 }}
@@ -180,7 +177,7 @@ export const SliderModal = ({ item, uniqueId, itemArr }: ImageModalProps) => {
                       index: React.Key | null | undefined
                     ) => {
                       return (
-                        <motion.div
+                        <m.div
                           key={item.id ?? item.url}
                           className={`relative p-2   cursor-grab active:cursor-grabbing`}
                           onClick={() => setNewItem(itemData)}
@@ -193,7 +190,7 @@ export const SliderModal = ({ item, uniqueId, itemArr }: ImageModalProps) => {
                             className='sm:w-28 w-52 h-16 object-cover cursor-pointer relative z-2 rounded-md pointer-events-none'
                           />
                           {itemData?.id === newItem?.id && (
-                            <motion.div
+                            <m.div
                               layoutId='slider'
                               transition={{
                                 layout: {
@@ -202,16 +199,16 @@ export const SliderModal = ({ item, uniqueId, itemArr }: ImageModalProps) => {
                                 },
                               }}
                               className='absolute top-0 left-0 h-full w-full dark:bg-neutral-100 bg-neutral-800 rounded-md'
-                            ></motion.div>
+                            ></m.div>
                           )}
-                        </motion.div>
+                        </m.div>
                       );
                     }
                   )}
-                </motion.div>
-              </motion.div>
-            </motion.div>
-          </motion.div>
+                </m.div>
+              </m.div>
+            </m.div>
+          </m.div>
         )}
       </AnimatePresence>
     </>

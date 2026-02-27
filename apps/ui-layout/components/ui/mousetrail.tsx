@@ -2,6 +2,8 @@
 'use client';
 import { cn } from '@/lib/utils';
 import { createRef, ReactNode, useRef } from 'react';
+import { LazyMotion, domAnimation } from 'motion/react';
+import * as m from 'motion/react-m';
 interface ImageMouseTrailProps {
   items: string[];
   children?: ReactNode;

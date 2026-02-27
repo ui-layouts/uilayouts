@@ -10,7 +10,9 @@ import {
 } from 'lucide-react';
 import * as Select from '@radix-ui/react-select';
 import { cn } from '@/lib/utils';
-import { motion } from 'motion/react';
+
+import * as m from 'motion/react-m';
+import { LazyMotion, domAnimation } from 'motion/react';
 import { CardArr } from '@/components/website/constant';
 
 function Card2() {
@@ -30,14 +32,14 @@ function Card2() {
     <div className='w-[350px] mx-auto '>
       <div className='dark:bg-white bg-neutral-100 rounded-md'>
         <div className='w-full h-52 relative'>
-          <motion.button
+          <m.button
             className='absolute top-2 right-2 z-20 text-2xl text-white '
             onClick={handleClick}
             animate={{ scale: isActive ? 1.2 : 1 }}
             transition={{ type: 'spring', stiffness: 1000, damping: 10 }}
           >
             {isActive ? <Heart className=' fill-white' /> : <Heart />}
-          </motion.button>
+          </m.button>
           {/* <button className="absolute top-2 right-2 z-20">
             <Heart />
           </button> */}

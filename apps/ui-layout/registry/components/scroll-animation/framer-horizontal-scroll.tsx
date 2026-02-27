@@ -1,11 +1,11 @@
 'use client';
 import {
-  motion,
   MotionProps,
   useMotionValueEvent,
   useScroll,
   useTransform,
 } from 'motion/react';
+import * as m from 'motion/react-m';
 
 // * based on: https://gist.github.com/coleturner/34396fb826c12fbd88d6591173d178c2
 import { useEffect, useRef, useState } from 'react';
@@ -126,13 +126,10 @@ export default function FramerHorizontalScroll() {
   const { scrollYProgress, scrollY } = useScroll();
   const x = useTransform(scrollYProgress, position, [0, carouselEndPosition]);
 
-  console.log(carouselEndPosition);
-  useMotionValueEvent(scrollY, 'change', (latest) => {
-    console.log('Page scroll: ', latest);
-  });
-  useEffect(() => {
-    window.addEventListener('scroll', () => console.log(carouselEndPosition));
-  }, []);
+  // console.log(carouselEndPosition);
+  // useMotionValueEvent(scrollY, 'change', (latest) => {
+  //   console.log('Page scroll: ', latest);
+  // });
 
   useEffect(() => {
     if (!carouselRef || !carouselRef.current) return;
@@ -164,22 +161,22 @@ export default function FramerHorizontalScroll() {
       <section ref={mainRef}>
         <div className='w-full mx-auto' style={{ height: '300vh' }}>
           <div className='sticky top-0 h-screen w-full flex flex-col items-start justify-center overflow-hidden'>
-            <motion.div ref={carouselRef} className='flex gap-10' style={{ x }}>
+            <m.div ref={carouselRef} className='flex gap-10' style={{ x }}>
               {items.map((item, index) => (
-                <motion.div
+                <m.div
                   {...slideAnimation}
                   key={item.id}
                   className='group relative h-[300px] w-[300px] overflow-hidden bg-neutral-200'
                 >
-                  <motion.img
+                  <m.img
                     key={item.id}
                     className='w-full shrink-0 h-full object-cover'
                     src={item?.url}
                     alt={'img'}
                   />
-                </motion.div>
+                </m.div>
               ))}
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>

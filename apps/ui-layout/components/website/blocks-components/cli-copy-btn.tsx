@@ -15,7 +15,9 @@ import { cn } from '@/lib/utils';
 import { Button } from '@repo/shadcn';
 import { SVGProps } from 'react';
 import { Bun, NPM, Pnpm, Yarn } from '../icons';
-import { motion } from 'motion/react';
+
+import { LazyMotion, domAnimation } from 'motion/react';
+import * as m from 'motion/react-m';
 
 type PM = 'npm' | 'pnpm' | 'bun' | 'yarn';
 
@@ -91,7 +93,7 @@ export default function CliCopyBtn({ id }: { id: string }) {
         className='h-10 flex items-center gap-2 relative rounded-none bg-neutral-100 dark:bg-neutral-700 px-1.5'
       >
         <div className='relative w-full'>
-          <motion.span
+          <m.span
             initial={{ opacity: 0.95, filter: 'blur(0px)' }}
             animate={{
               opacity: copied ? 0 : 0.95,
@@ -101,8 +103,8 @@ export default function CliCopyBtn({ id }: { id: string }) {
             className='whitespace-nowrap dark:text-white text-black font-mono text-xs'
           >
             {command}
-          </motion.span>
-          <motion.span
+          </m.span>
+          <m.span
             initial={{ opacity: 0, filter: 'blur(4px)' }}
             animate={{
               opacity: copied ? 0.95 : 0,
@@ -112,7 +114,7 @@ export default function CliCopyBtn({ id }: { id: string }) {
             className='absolute w-full text-left text-black dark:text-white left-0 top-0 whitespace-nowrap'
           >
             Copied!
-          </motion.span>
+          </m.span>
         </div>
         {copied ? (
           <CheckCheck className='h-4 w-4 text-black dark:text-white' />

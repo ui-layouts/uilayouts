@@ -7,9 +7,11 @@ import {
   SliderContainer,
   SliderDotButton,
 } from '@/components/ui/carousel';
-import { motion } from 'motion/react';
+
+import * as m from 'motion/react-m';
 import { CheckIcon, Heart } from 'lucide-react';
 import { EmblaOptionsType } from 'embla-carousel';
+import { LazyMotion, domAnimation } from 'motion/react';
 import { CardArr } from '@/components/website/constant';
 
 function ProductCard3() {
@@ -24,14 +26,14 @@ function ProductCard3() {
     <div className='w-[350px] mx-auto '>
       <div className='dark:bg-white bg-neutral-100 rounded-md p-2'>
         <div className='w-full h-72  relative'>
-          <motion.button
+          <m.button
             className='absolute top-2 right-2 z-20 text-2xl text-white'
             onClick={handleClick}
             animate={{ scale: isActive ? 1.2 : 1 }}
             transition={{ type: 'spring', stiffness: 1000, damping: 10 }}
           >
             {isActive ? <Heart className=' fill-white' /> : <Heart />}
-          </motion.button>
+          </m.button>
           <Carousel options={OPTIONS} className='h-full relative'>
             <SliderContainer className='gap-2 h-full'>
               {CardArr.map((data, index) => (

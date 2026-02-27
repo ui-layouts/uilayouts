@@ -10,7 +10,8 @@ import React, {
   useState,
   forwardRef,
 } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { AnimatePresence, domAnimation, LazyMotion } from 'motion/react';
+import * as m from 'motion/react-m';
 import type {
   EmblaCarouselType,
   EmblaEventType,
@@ -478,29 +479,31 @@ export const SliderSnapDisplay = forwardRef<
   }, [selectedSnap]);
 
   return (
-    <div
-      ref={ref}
-      className={cn(
-        'mix-blend-difference overflow-hidden flex gap-1 items-center',
-        className
-      )}
-      {...props}
-    >
-      <AnimatePresence mode='wait'>
-        <motion.div
-          key={selectedSnap}
-          custom={direction}
-          // @ts-ignore
-          initial={(d: number) => ({ y: d * 20, opacity: 0 })}
-          animate={{ y: 0, opacity: 1 }}
-          // @ts-ignore
-          exit={(d: number) => ({ y: d * -20, opacity: 0 })}
-        >
-          {selectedSnap + 1}
-        </motion.div>
-      </AnimatePresence>
-      <span>/ {snapCount}</span>
-    </div>
+    <LazyMotion features={domAnimation}>
+      <div
+        ref={ref}
+        className={cn(
+          'mix-blend-difference overflow-hidden flex gap-1 items-center',
+          className
+        )}
+        {...props}
+      >
+        <AnimatePresence mode='wait'>
+          <m.div
+            key={selectedSnap}
+            custom={direction}
+            // @ts-ignore
+            initial={(d: number) => ({ y: d * 20, opacity: 0 })}
+            animate={{ y: 0, opacity: 1 }}
+            // @ts-ignore
+            exit={(d: number) => ({ y: d * -20, opacity: 0 })}
+          >
+            {selectedSnap + 1}
+          </m.div>
+        </AnimatePresence>
+        <span>/ {snapCount}</span>
+      </div>
+    </LazyMotion>
   );
 });
 
@@ -541,7 +544,7 @@ export const SliderDotButton = forwardRef<HTMLDivElement, SliderDotButtonProps>(
             />
             {index === selectedIndex && (
               <AnimatePresence mode='wait'>
-                <motion.div
+                <m.div
                   transition={{
                     layout: {
                       duration: 0.4,

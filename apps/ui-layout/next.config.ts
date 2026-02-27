@@ -4,6 +4,8 @@ import createMDX from '@next/mdx';
 import rehypeSlug from 'rehype-slug';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
+import { LazyMotion, domAnimation } from 'motion/react';
+import * as m from 'motion/react-m';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);

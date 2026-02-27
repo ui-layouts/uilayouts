@@ -1,9 +1,11 @@
 'use client';
 import React, { FormEvent, useRef, useState } from 'react';
-import { motion, useInView } from 'motion/react';
 
-// import useNewsLetter, { ClientData } from '@/lab/hooks/useNewsLetter'
+import * as m from 'motion/react-m';
+
+// import { LazyMotion, domAnimation } from 'motion/react';
 import Link from 'next/link';
+import { useInView } from 'motion/react';
 
 const pathArr = [
   'M55.7447 0H15.3191L0 45.5836H18.2979L4.25532 81.7065H16.5957L5.95745 126L34.4681 82.9966L45.9574 126H120V0H104.681L104.255 110.519H58.2979L45.9574 64.5051H28.0851L42.9787 39.1331L61.7021 106.648H99.5745V0H80V94.6075H76.1702L55.7447 0Z',
@@ -206,7 +208,7 @@ const Footer = () => {
             </div>
           </div>
           <div className='border-y-2 md:py-4 border-neutral-200'>
-            <motion.svg
+            <m.svg
               width='776'
               ref={ref}
               height='137'
@@ -220,7 +222,7 @@ const Footer = () => {
               {pathArr.map((path, index) => {
                 return (
                   <>
-                    <motion.path
+                    <m.path
                       custom={index}
                       // @ts-ignore
                       variants={variants}
@@ -230,7 +232,7 @@ const Footer = () => {
                   </>
                 );
               })}
-            </motion.svg>
+            </m.svg>
           </div>
           <div className='flex md:flex-row flex-col-reverse gap-3 justify-between py-2'>
             <span className='font-medium'>

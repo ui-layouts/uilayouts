@@ -1,13 +1,15 @@
 'use client';
 import React, { FormEvent, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { motion, useInView } from 'motion/react';
+
+import * as m from 'motion/react-m';
 import useNewsLetter, { ClientData } from '@/hooks/useNewsLetter';
 import { toast } from 'sonner';
 import { SearchDialog } from '../searchbar';
 import ThemeSwitch from '../theme-switch';
 import HomeGitHubButton from './github-repo-button';
 import { cn } from '@/lib/utils';
+import { LazyMotion, domAnimation } from 'motion/react';
 import { GapPattern } from '@/components/ui/gap-pattern';
 
 const pathArr = [
@@ -246,7 +248,7 @@ function HomeFooter({
         </span>
       </div>
       <div className=' md:py-4 '>
-        <motion.svg
+        <m.svg
           width='1814'
           height='440'
           viewBox='0 0 1814 440'
@@ -257,7 +259,7 @@ function HomeFooter({
           {pathArr.map((path, index) => {
             return <path key={path} d={path} />;
           })}
-        </motion.svg>
+        </m.svg>
       </div>
       <div
         className='

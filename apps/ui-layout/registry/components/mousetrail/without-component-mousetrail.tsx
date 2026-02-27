@@ -2,6 +2,8 @@
 'use client';
 import { items } from '@/components/website/constant';
 import React, { useRef, createRef } from 'react';
+import { LazyMotion, domAnimation } from 'motion/react';
+import * as m from 'motion/react-m';
 
 export default function ImageMouseTrail3() {
   const containerRef = useRef(null);

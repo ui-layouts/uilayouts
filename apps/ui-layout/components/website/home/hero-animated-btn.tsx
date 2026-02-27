@@ -1,6 +1,7 @@
 import { ArrowBigRight } from 'lucide-react'
 import React, { useRef } from 'react'
-import {motion} from "motion/react"
+
+import * as m from 'motion/react-m'
 const GlowButton: React.FC = () => {
   const buttonRef = useRef<HTMLButtonElement>(null)
 

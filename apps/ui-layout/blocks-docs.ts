@@ -88,6 +88,8 @@ import {
   TestimonialSectionImg,
   FeatureSectionImg,
 } from '@repo/blocks/assets/index';
+import { LazyMotion, domAnimation } from 'motion/react';
+import * as m from 'motion/react-m';
 
 export const blocksDesign = [
   {

@@ -1,6 +1,12 @@
 'use client';
 import React, { useEffect, useRef, useState } from 'react';
-import { motion, useMotionValue, animate } from 'motion/react';
+import {
+  LazyMotion,
+  animate,
+  domAnimation,
+  useMotionValue,
+} from 'motion/react';
+import * as m from 'motion/react-m';
 
 export const items = [
   {
@@ -160,82 +166,89 @@ export default function FramerMultiSlideCarousel({
         Responsive Multi-Slide Carousel (Showing {slidesToShow})
       </h2>
       <div className='flex flex-col gap-3'>
-        <div className='relative overflow-hidden rounded-lg' ref={containerRef}>
-          <motion.div className='flex gap-4' style={{ x }}>
-            {items.map((item) => (
-              <div
-                key={item.id}
-                className='shrink-0 h-[300px] rounded-lg overflow-hidden relative'
-                style={{
-                  width: `calc((100% - ${
-                    (slidesToShow - 1) * 16
-                  }px) / ${slidesToShow})`,
-                }}
-              >
-                <img
-                  src={item.url}
-                  alt={item.title}
-                  className='w-full h-full object-cover select-none pointer-events-none'
-                  draggable={false}
-                />
-                <div className='absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/60 to-transparent p-3'>
-                  <p className='text-white text-sm font-medium'>{item.title}</p>
+        <LazyMotion features={domAnimation}>
+          <div
+            className='relative overflow-hidden rounded-lg'
+            ref={containerRef}
+          >
+            <m.div className='flex gap-4' style={{ x }}>
+              {items.map((item) => (
+                <div
+                  key={item.id}
+                  className='shrink-0 h-[300px] rounded-lg overflow-hidden relative'
+                  style={{
+                    width: `calc((100% - ${
+                      (slidesToShow - 1) * 16
+                    }px) / ${slidesToShow})`,
+                  }}
+                >
+                  <img
+                    src={item.url}
+                    alt={item.title}
+                    className='w-full h-full object-cover select-none pointer-events-none'
+                    draggable={false}
+                  />
+                  <div className='absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/60 to-transparent p-3'>
+                    <p className='text-white text-sm font-medium'>
+                      {item.title}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </motion.div>
+              ))}
+            </m.div>
 
-          {/* Navigation Buttons */}
-          <motion.button
-            disabled={index === 0}
-            onClick={() => setIndex((i) => Math.max(0, i - 1))}
-            className={`absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-transform z-10
+            {/* Navigation Buttons */}
+            <m.button
+              disabled={index === 0}
+              onClick={() => setIndex((i) => Math.max(0, i - 1))}
+              className={`absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-transform z-10
               ${
                 index === 0
                   ? 'opacity-40 cursor-not-allowed bg-neutral-300'
                   : 'bg-white hover:scale-110 hover:opacity-100 opacity-70'
               }`}
-          >
-            <svg
-              className='w-6 h-6'
-              fill='none'
-              stroke='currentColor'
-              viewBox='0 0 24 24'
             >
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth={2}
-                d='M15 19l-7-7 7-7'
-              />
-            </svg>
-          </motion.button>
+              <svg
+                className='w-6 h-6'
+                fill='none'
+                stroke='currentColor'
+                viewBox='0 0 24 24'
+              >
+                <path
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  strokeWidth={2}
+                  d='M15 19l-7-7 7-7'
+                />
+              </svg>
+            </m.button>
 
-          <motion.button
-            disabled={index === maxIndex}
-            onClick={() => setIndex((i) => Math.min(maxIndex, i + 1))}
-            className={`absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-transform z-10
+            <m.button
+              disabled={index === maxIndex}
+              onClick={() => setIndex((i) => Math.min(maxIndex, i + 1))}
+              className={`absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-transform z-10
               ${
                 index === maxIndex
                   ? 'opacity-40 cursor-not-allowed bg-neutral-300'
                   : 'bg-white hover:scale-110 hover:opacity-100 opacity-70'
               }`}
-          >
-            <svg
-              className='w-6 h-6'
-              fill='none'
-              stroke='currentColor'
-              viewBox='0 0 24 24'
             >
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth={2}
-                d='M9 5l7 7-7 7'
-              />
-            </svg>
-          </motion.button>
-        </div>
+              <svg
+                className='w-6 h-6'
+                fill='none'
+                stroke='currentColor'
+                viewBox='0 0 24 24'
+              >
+                <path
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  strokeWidth={2}
+                  d='M9 5l7 7-7 7'
+                />
+              </svg>
+            </m.button>
+          </div>
+        </LazyMotion>
       </div>
     </div>
   );

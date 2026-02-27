@@ -1,7 +1,13 @@
 // inspired by tom is loading
 'use client';
 import React, { useEffect, useRef, useState } from 'react';
-import { AnimatePresence, motion, useInView } from 'motion/react';
+import {
+  AnimatePresence,
+  LazyMotion,
+  domAnimation,
+  useInView,
+} from 'motion/react';
+import * as m from 'motion/react-m';
 import Image from 'next/image';
 import { Download, X } from 'lucide-react';
 import { items } from '@/components/website/constant';
@@ -46,14 +52,14 @@ function ImageItem({ item, index, setSelected }: ImageItemProps) {
   const isInView = useInView(ref, { once: true });
 
   return (
-    <motion.figure
+    <m.figure
       initial='hidden'
       animate={isInView && 'visible'}
       ref={ref}
       className="inline-block group w-full rounded-md  relative dark:bg-black bg-white  before:absolute before:top-0 before:content-[''] before:h-full before:w-full hover:before:bg-linear-to-t dark:before:from-neutral-900  before:from-neutral-200/90 before:from-5% before:to-transparent before:to-90% cursor-pointer"
       onClick={() => setSelected(item)}
     >
-      <motion.img
+      <m.img
         layoutId={`card-${item.id}`}
         whileHover={{ scale: 1.025 }}
         src={item.url}
@@ -62,7 +68,7 @@ function ImageItem({ item, index, setSelected }: ImageItemProps) {
       <div className='flex flex-wrap mt-2 absolute bottom-0 left-0 p-2 group-hover:opacity-100 opacity-0 font-semibold '>
         <h1>{item.title}</h1>
       </div>
-    </motion.figure>
+    </m.figure>
   );
 }
 
@@ -118,14 +124,14 @@ function Modal({ selected, setSelected }: ModalProps) {
   return (
     <AnimatePresence>
       {selected && (
-        <motion.div
+        <m.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={() => setSelected(null)}
           className='fixed inset-0 bg-black/50 backdrop-blur-xs z-50 cursor-pointer overflow-y-scroll'
         >
-          <motion.div
+          <m.div
             onClick={(e) => e.stopPropagation()}
             layoutId={`card-${selected.id}`}
             className='w-full max-w-[1000px] relative overflow-x-hidden mx-auto my-8 cursor-default dark:bg-[#202020] bg-[#ebebeb] '
@@ -136,7 +142,7 @@ function Modal({ selected, setSelected }: ModalProps) {
             >
               <X />
             </button>
-            <motion.div className=' p-2 h-[70vh]  rounded-md'>
+            <m.div className=' p-2 h-[70vh]  rounded-md'>
               <Image
                 width={400}
                 height={400}
@@ -144,21 +150,18 @@ function Modal({ selected, setSelected }: ModalProps) {
                 src={selected.url}
                 className='w-full h-full object-contain rounded-md dark:bg-black bg-white'
               />
-            </motion.div>
-            <motion.div
+            </m.div>
+            <m.div
               variants={itemVariants}
               initial='initial'
               animate='animate'
               exit='exit'
               className='bg-white dark:bg-black dark:text-white text-black p-4  rounded-md  px-8'
             >
-              <motion.h3
-                variants={itemVariants}
-                className='text-2xl font-bold mb-2'
-              >
+              <m.h3 variants={itemVariants} className='text-2xl font-bold mb-2'>
                 {selected.title}
-              </motion.h3>
-              <motion.div variants={itemVariants} className='flex gap-2'>
+              </m.h3>
+              <m.div variants={itemVariants} className='flex gap-2'>
                 {selected.tags.map((tag) => {
                   return (
                     <div
@@ -169,21 +172,21 @@ function Modal({ selected, setSelected }: ModalProps) {
                     </div>
                   );
                 })}
-              </motion.div>
-              <motion.p variants={itemVariants} className='my-4'>
+              </m.div>
+              <m.p variants={itemVariants} className='my-4'>
                 {selected.description}
-              </motion.p>
-              <motion.a
+              </m.p>
+              <m.a
                 variants={itemVariants}
                 className='flex  w-fit gap-2 cursor-pointer px-4 py-2 dark:hover:bg-black bg-black hover:bg-white hover:text-black text-white border-black dark:hover:text-white transition-colors border-2 dark:border-white dark:bg-white dark:text-black rounded-full font-semibold'
                 href='#'
               >
                 Download
                 <Download />
-              </motion.a>
-            </motion.div>
-          </motion.div>
-        </motion.div>
+              </m.a>
+            </m.div>
+          </m.div>
+        </m.div>
       )}
     </AnimatePresence>
   );

@@ -4,13 +4,21 @@ import React, { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { useMediaQuery } from '@/hooks/use-media-query';
 import BuyMeCoffee from '@/registry/components/buy-me-coffee';
-import { motion, useScroll, useSpring, useTransform } from 'motion/react';
+
+import * as m from 'motion/react-m';
 import { ScrollArea } from './ui/scroll-area';
 import Image from 'next/image';
 import { SquareArrowOutUpRight } from 'lucide-react';
 import { Bug } from 'lucide-react';
 import { Lightbulb } from 'lucide-react';
 import { Pencil } from 'lucide-react';
+import {
+  LazyMotion,
+  domAnimation,
+  useScroll,
+  useSpring,
+  useTransform,
+} from 'motion/react';
 import CarbonAd from './carbon-ads';
 
 interface TocItem {

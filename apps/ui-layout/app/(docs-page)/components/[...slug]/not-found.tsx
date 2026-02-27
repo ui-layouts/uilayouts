@@ -6,6 +6,8 @@ import { DocsNavigationCategories } from '@/configs/docs';
 import { ArrowBigLeft } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { LazyMotion, domAnimation } from 'motion/react';
+import * as m from 'motion/react-m';
 
 export default function NotFound() {
   const pathname = usePathname();

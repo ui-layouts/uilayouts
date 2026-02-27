@@ -1,6 +1,7 @@
 'use client';
 
-import { motion, useSpring } from 'motion/react';
+import * as m from 'motion/react-m';
+import { LazyMotion, domAnimation, useSpring } from 'motion/react';
 import React, { useState, MouseEvent, useRef } from 'react';
 
 interface ImageItem {
@@ -95,7 +96,7 @@ function HomeImageReveal() {
         </div>
       ))}
 
-      <motion.div
+      <m.div
         ref={imageRef}
         className={`w-[300px] h-[220px] rounded-lg object-cover  absolute top-0 left-0 transition-opacity duration-200 ease-in-out pointer-events-none ${img.divClass}`}
         style={{

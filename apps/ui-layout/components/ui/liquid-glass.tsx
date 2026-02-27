@@ -1,7 +1,9 @@
 // @ts-nocheck
 'use client';
 import React, { useState } from 'react';
-import { motion } from 'motion/react';
+
+import * as m from 'motion/react-m';
+import { LazyMotion, domAnimation } from 'motion/react';
 import { cn } from '@/lib/utils';
 
 interface LiquidGlassCardProps {
@@ -95,7 +97,7 @@ export const LiquidGlassCard = ({
       }
     : {};
 
-  const MotionComponent = draggable || expandable ? motion.div : 'div';
+  const MotionComponent = draggable || expandable ? m.div : 'div';
 
   const motionProps =
     draggable || expandable

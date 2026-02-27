@@ -2,7 +2,9 @@
 import React, { ReactNode, useState } from 'react';
 import Image from 'next/image';
 import { Heart, ShoppingCart } from 'lucide-react';
-import { motion } from 'motion/react';
+
+import { LazyMotion, domAnimation } from 'motion/react';
+import * as m from 'motion/react-m';
 const sizes = ['7', '7.5', '8', '8.5'];
 function Card() {
   const [isActive, setIsActive] = useState(false);
@@ -21,7 +23,7 @@ function Card() {
     <div className='w-[350px] mx-auto '>
       <div className='dark:bg-white bg-neutral-100 rounded-md p-2'>
         <div className='w-full h-52 relative'>
-          <motion.button
+          <m.button
             className='absolute top-2 right-2 z-20 text-2xl text-white'
             onClick={handleClick}
             animate={{ scale: isActive ? 1.2 : 1 }}
@@ -36,7 +38,7 @@ function Card() {
                 <Heart />
               </>
             )}
-          </motion.button>
+          </m.button>
           <Image
             src={
               'https://images.unsplash.com/photo-1605733160314-4fc7dac4bb16?q=80&w=2090&auto=format&fit=crop'
@@ -59,7 +61,7 @@ function Card() {
             <p className='text-sm'>Select Size:</p>
             <div className='flex gap-2 text-sm'>
               {sizes.map((size) => (
-                <motion.span
+                <m.span
                   key={size}
                   className={`border cursor-pointer hover:bg-neutral-800 hover:text-white w-8 grid place-content-center h-8 rounded-md ${
                     selectedSize === size ? 'bg-neutral-800 text-white' : ''
@@ -69,7 +71,7 @@ function Card() {
                   whileTap={{ scale: 0.9 }}
                 >
                   {size}
-                </motion.span>
+                </m.span>
               ))}
             </div>
           </div>

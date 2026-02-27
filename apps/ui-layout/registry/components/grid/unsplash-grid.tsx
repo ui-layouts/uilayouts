@@ -1,7 +1,9 @@
 'use client';
 // inspired by tom is loading
 import React, { useRef, useState } from 'react';
-import { motion, useInView } from 'motion/react';
+
+import * as m from 'motion/react-m';
+import { LazyMotion, domAnimation, useInView } from 'motion/react';
 import { items } from '@/components/website/constant';
 
 function UnsplashGrid() {
@@ -43,7 +45,7 @@ function ImageItem({ item, index, setSelected }: ImageItemProps) {
   const isInView = useInView(ref, { once: true });
 
   return (
-    <motion.figure
+    <m.figure
       whileTap={{ scale: 0.9 }}
       initial='hidden'
       animate={isInView && 'visible'}
@@ -51,7 +53,7 @@ function ImageItem({ item, index, setSelected }: ImageItemProps) {
       className="inline-block group w-full rounded-md  relative dark:bg-black bg-white overflow-hidden before:absolute before:top-0 before:content-[''] before:h-full before:w-full hover:before:bg-linear-to-t dark:before:from-neutral-900  before:from-neutral-200/90 before:from-5% before:to-transparent before:to-90% cursor-pointer"
       onClick={() => setSelected(item)}
     >
-      <motion.img
+      <m.img
         layoutId={`card-${item.id}`}
         whileHover={{ scale: 1.025 }}
         src={item.url}
@@ -60,7 +62,7 @@ function ImageItem({ item, index, setSelected }: ImageItemProps) {
       <div className='flex flex-wrap mt-2 absolute bottom-0 left-0 p-2 group-hover:opacity-100 opacity-0 font-semibold '>
         <h1>{item.title}</h1>
       </div>
-    </motion.figure>
+    </m.figure>
   );
 }
 

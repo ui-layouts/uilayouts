@@ -1,10 +1,13 @@
 'use client';
 
 import { cn } from '@/lib/utils';
+
+import * as m from 'motion/react-m';
 import {
-  motion,
   HTMLMotionProps,
+  LazyMotion,
   SVGMotionProps,
+  domAnimation,
 } from 'motion/react';
 import React from 'react';
 type Direction = 'up' | 'down' | 'left' | 'right';
@@ -53,7 +56,7 @@ function ScrollElement({
   className,
   variants,
   viewport = defaultViewport,
-  delay = 0, 
+  delay = 0,
   direction = 'down',
   ...rest
 }: ScrollElementProps) {
@@ -64,13 +67,13 @@ function ScrollElement({
       ...baseVariants.visible,
       transition: {
         ...baseVariants.visible.transition,
-        delay, 
+        delay,
       },
     },
   };
 
   return (
-    <motion.div
+    <m.div
       whileInView='visible'
       initial='hidden'
       variants={modifiedVariants}
@@ -79,7 +82,7 @@ function ScrollElement({
       {...rest}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }
 export default ScrollElement;

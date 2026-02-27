@@ -1,7 +1,9 @@
 'use client';
 import NumberFlow from '@number-flow/react';
-import { motion } from 'motion/react';
+
+import * as m from 'motion/react-m';
 import { ArrowDown, ArrowUp } from 'lucide-react';
+import { LazyMotion, domAnimation } from 'motion/react';
 import React, { useState } from 'react';
 
 const UpvoteDownvote: React.FC = () => {
@@ -33,7 +35,7 @@ const UpvoteDownvote: React.FC = () => {
       </div>
 
       <div className='flex items-center gap-4'>
-        <motion.button
+        <m.button
           whileTap={{ scale: 0.9 }}
           onClick={() => handleVote('up')}
           className={`p-2 rounded-full text-white ${
@@ -41,9 +43,9 @@ const UpvoteDownvote: React.FC = () => {
           } transition-colors`}
         >
           <ArrowUp size={24} />
-        </motion.button>
+        </m.button>
 
-        <motion.button
+        <m.button
           whileTap={{ scale: 0.9 }}
           onClick={() => handleVote('down')}
           className={`p-2 rounded-full text-white ${
@@ -51,7 +53,7 @@ const UpvoteDownvote: React.FC = () => {
           } transition-colors`}
         >
           <ArrowDown size={24} />
-        </motion.button>
+        </m.button>
       </div>
     </div>
   );

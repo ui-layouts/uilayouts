@@ -9,6 +9,8 @@ import {
   DocsNavigationCategory,
 } from '../types/docs';
 import React from 'react';
+import { LazyMotion, domAnimation } from 'motion/react';
+import * as m from 'motion/react-m';
 
 export const DocsNavigationCategories: DocsNavigationCategory[] = [
   {

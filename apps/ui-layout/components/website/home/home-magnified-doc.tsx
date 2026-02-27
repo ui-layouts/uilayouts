@@ -8,17 +8,12 @@ import {
   TooltipTrigger,
 } from '@/components/ui/magnified-doc';
 
-import {
-  type MotionValue,
-  motion,
-  useMotionValue,
-  useSpring,
-  useTransform,
-  AnimatePresence,
-} from 'motion/react';
+import { AnimatePresence, LazyMotion, domAnimation } from 'motion/react';
+import * as m from 'motion/react-m';
 import Image from 'next/image';
 import React, { useState } from 'react';
 import { useRef } from 'react';
+import { LazyMotion, domAnimation } from 'motion/react';
 import { apps } from '../constant';
 
 const Component = React.forwardRef((props, ref) => (
@@ -48,8 +43,8 @@ function HomeMagnifiedDocOneFile() {
         return (
           <AnimatePresence mode={'popLayout'} key={app?.id}>
             {index === i && (
-              <motion.div className='w-[80%] mx-auto h-full'>
-                <motion.figure
+              <m.div className='w-[80%] mx-auto h-full'>
+                <m.figure
                   initial={{
                     opacity: 0,
                     y: isForward ? 30 : -30,
@@ -76,8 +71,8 @@ function HomeMagnifiedDocOneFile() {
                     height={1000}
                     className='w-full h-full object-contain  rounded-lg'
                   />
-                </motion.figure>
-              </motion.div>
+                </m.figure>
+              </m.div>
             )}
           </AnimatePresence>
         );
@@ -86,7 +81,7 @@ function HomeMagnifiedDocOneFile() {
       <div className='absolute bottom-0 left-0 w-full z-10'>
         <div className='w-fit mx-auto'>
           <TooltipProvider delayDuration={0}>
-            <motion.div
+            <m.div
               onMouseMove={(e) => mouseX.set(e.pageX)}
               onMouseLeave={() => mouseX.set(Infinity)}
               className='mx-auto flex h-[57px] w-fit items-end gap-2 rounded-t-lg px-2 pb-2  bg-primary-foreground backdrop-blur-2xl border-t border-l border-r  '
@@ -107,7 +102,7 @@ function HomeMagnifiedDocOneFile() {
                   </Tooltip>
                 );
               })}
-            </motion.div>
+            </m.div>
           </TooltipProvider>
         </div>
       </div>

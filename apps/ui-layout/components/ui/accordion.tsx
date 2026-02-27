@@ -2,7 +2,8 @@
 
 import { cn } from '@/lib/utils';
 import { ChevronDown } from 'lucide-react';
-import { AnimatePresence, motion } from 'motion/react';
+import { LazyMotion, domAnimation, AnimatePresence } from 'motion/react';
+import * as m from 'motion/react-m';
 import React, { ReactNode, useCallback } from 'react';
 
 /**
@@ -200,7 +201,7 @@ export function AccordionHeader({
   }, [onChangeIndex, value]);
 
   return (
-    <motion.button
+    <m.button
       type='button'
       data-active={isActive || undefined}
       aria-expanded={isActive}
@@ -220,7 +221,7 @@ export function AccordionHeader({
           aria-hidden='true'
         />
       )}
-    </motion.button>
+    </m.button>
   );
 }
 /**
@@ -252,42 +253,44 @@ export function AccordionPanel({
   const { isActive, value } = useAccordion();
 
   return (
-    <AnimatePresence initial={true}>
-      {isActive && (
-        <motion.div
-          data-active={isActive || undefined}
-          role='region'
-          id={`accordion-panel-${value}`}
-          aria-labelledby={`accordion-header-${value}`}
-          initial={{ height: 0, overflow: 'hidden' }}
-          animate={{ height: 'auto', overflow: 'hidden' }}
-          exit={{ height: 0 }}
-          transition={{ type: 'spring', duration: 0.3, bounce: 0 }}
-          className={cn(
-            'bg-neutral-100 px-2 data-active:bg-neutral-100 text-black',
-            className
-          )}
-        >
-          <motion.div
-            initial={{ clipPath: 'polygon(0 0, 100% 0, 100% 0, 0 0)' }}
-            animate={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)' }}
-            exit={{
-              clipPath: 'polygon(0 0, 100% 0, 100% 0, 0 0)',
-            }}
-            transition={{
-              type: 'spring',
-              duration: 0.4,
-              bounce: 0,
-            }}
+    <LazyMotion features={domAnimation}>
+      <AnimatePresence initial={true}>
+        {isActive && (
+          <m.div
+            data-active={isActive || undefined}
+            role='region'
+            id={`accordion-panel-${value}`}
+            aria-labelledby={`accordion-header-${value}`}
+            initial={{ height: 0, overflow: 'hidden' }}
+            animate={{ height: 'auto', overflow: 'hidden' }}
+            exit={{ height: 0 }}
+            transition={{ type: 'spring', duration: 0.3, bounce: 0 }}
             className={cn(
-              'px-3 bg-transparent pb-4 space-y-2',
-              articleClassName
+              'bg-neutral-100 px-2 data-active:bg-neutral-100 text-black',
+              className
             )}
           >
-            {children}
-          </motion.div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+            <m.div
+              initial={{ clipPath: 'polygon(0 0, 100% 0, 100% 0, 0 0)' }}
+              animate={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)' }}
+              exit={{
+                clipPath: 'polygon(0 0, 100% 0, 100% 0, 0 0)',
+              }}
+              transition={{
+                type: 'spring',
+                duration: 0.4,
+                bounce: 0,
+              }}
+              className={cn(
+                'px-3 bg-transparent pb-4 space-y-2',
+                articleClassName
+              )}
+            >
+              {children}
+            </m.div>
+          </m.div>
+        )}
+      </AnimatePresence>
+    </LazyMotion>
   );
 }

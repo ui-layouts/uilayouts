@@ -1,7 +1,14 @@
 'use client';
 
 import { ChevronRight, File, Folder, FolderOpen } from 'lucide-react';
-import { AnimatePresence, motion } from 'motion/react';
+import {
+  AnimatePresence,
+  motion,
+  LazyMotion,
+  domAnimation,
+} from 'motion/react';
+import * as m from 'motion/react-m';
+
 import {
   type ComponentProps,
   createContext,
@@ -154,14 +161,16 @@ export const TreeProvider = ({
         animateExpand,
       }}
     >
-      <motion.div
-        animate={{ opacity: 1, y: 0 }}
-        className={cn('w-full', className)}
-        initial={{ opacity: 0, y: 10 }}
-        transition={{ duration: 0.3, ease: 'easeOut' }}
-      >
-        {children}
-      </motion.div>
+      <LazyMotion features={domAnimation}>
+        <m.div
+          animate={{ opacity: 1, y: 0 }}
+          className={cn('w-full', className)}
+          initial={{ opacity: 0, y: 10 }}
+          transition={{ duration: 0.3, ease: 'easeOut' }}
+        >
+          {children}
+        </m.div>
+      </LazyMotion>
     </TreeContext.Provider>
   );
 };
@@ -226,7 +235,7 @@ export const TreeNode = ({
   );
 };
 
-export type TreeNodeTriggerProps = ComponentProps<typeof motion.div>;
+export type TreeNodeTriggerProps = ComponentProps<typeof m.div>;
 
 export const TreeNodeTrigger = ({
   children,
@@ -239,30 +248,32 @@ export const TreeNodeTrigger = ({
   const isSelected = selectedIds.includes(nodeId);
   const { isFolder } = useTreeNode();
   return (
-    <motion.div
-      className={cn(
-        'group relative mx-1 flex cursor-pointer items-center rounded-md px-3 py-2 transition-all duration-200',
-        'dark:hover:bg-neutral-800/60 hover:bg-neutral-200 ',
-        isSelected && 'bg-neutral-200 dark:bg-neutral-800/60',
-        className
-      )}
-      onClick={(e) => {
-        toggleExpanded(nodeId);
+    <LazyMotion features={domAnimation}>
+      <m.div
+        className={cn(
+          'group relative mx-1 flex cursor-pointer items-center rounded-md px-3 py-2 transition-all duration-200',
+          'dark:hover:bg-neutral-800/60 hover:bg-neutral-200 ',
+          isSelected && 'bg-neutral-200 dark:bg-neutral-800/60',
+          className
+        )}
+        onClick={(e) => {
+          toggleExpanded(nodeId);
 
-        // 🔥 Prevent folder from clearing file selection
-        if (!isFolder) {
-          handleSelection(nodeId, e.ctrlKey || e.metaKey);
-        }
+          // 🔥 Prevent folder from clearing file selection
+          if (!isFolder) {
+            handleSelection(nodeId, e.ctrlKey || e.metaKey);
+          }
 
-        onClick?.(e);
-      }}
-      style={{ paddingLeft: level * (indent ?? 0) + 8 }}
-      whileTap={{ scale: 0.98, transition: { duration: 0.1 } }}
-      {...props}
-    >
-      <TreeLines />
-      {children as ReactNode}
-    </motion.div>
+          onClick?.(e);
+        }}
+        style={{ paddingLeft: level * (indent ?? 0) + 8 }}
+        whileTap={{ scale: 0.98, transition: { duration: 0.1 } }}
+        {...props}
+      >
+        <TreeLines />
+        {children as ReactNode}
+      </m.div>
+    </LazyMotion>
   );
 };
 
@@ -321,7 +332,7 @@ export const TreeLines = () => {
   );
 };
 
-export type TreeNodeContentProps = ComponentProps<typeof motion.div> & {
+export type TreeNodeContentProps = ComponentProps<typeof m.div> & {
   hasChildren?: boolean;
 };
 
@@ -338,36 +349,38 @@ export const TreeNodeContent = ({
   return (
     <AnimatePresence>
       {hasChildren && isExpanded && (
-        <motion.div
-          animate={{ height: 'auto', opacity: 1 }}
-          className='overflow-hidden'
-          exit={{ height: 0, opacity: 0 }}
-          initial={{ height: 0, opacity: 0 }}
-          transition={{
-            duration: animateExpand ? 0.3 : 0,
-            ease: 'easeInOut',
-          }}
-        >
-          <motion.div
-            animate={{ y: 0 }}
-            className={className}
-            exit={{ y: -10 }}
-            initial={{ y: -10 }}
+        <LazyMotion features={domAnimation}>
+          <m.div
+            animate={{ height: 'auto', opacity: 1 }}
+            className='overflow-hidden'
+            exit={{ height: 0, opacity: 0 }}
+            initial={{ height: 0, opacity: 0 }}
             transition={{
-              duration: animateExpand ? 0.2 : 0,
-              delay: animateExpand ? 0.1 : 0,
+              duration: animateExpand ? 0.3 : 0,
+              ease: 'easeInOut',
             }}
-            {...props}
           >
-            {children}
-          </motion.div>
-        </motion.div>
+            <m.div
+              animate={{ y: 0 }}
+              className={className}
+              exit={{ y: -10 }}
+              initial={{ y: -10 }}
+              transition={{
+                duration: animateExpand ? 0.2 : 0,
+                delay: animateExpand ? 0.1 : 0,
+              }}
+              {...props}
+            >
+              {children}
+            </m.div>
+          </m.div>
+        </LazyMotion>
       )}
     </AnimatePresence>
   );
 };
 
-export type TreeExpanderProps = ComponentProps<typeof motion.div> & {
+export type TreeExpanderProps = ComponentProps<typeof m.div> & {
   hasChildren?: boolean;
 };
 
@@ -386,26 +399,28 @@ export const TreeExpander = ({
   }
 
   return (
-    <motion.div
-      animate={{ rotate: isExpanded ? 90 : 0 }}
-      className={cn(
-        'mr-1 flex h-4 w-4 cursor-pointer items-center justify-center',
-        className
-      )}
-      onClick={(e) => {
-        e.stopPropagation();
-        toggleExpanded(nodeId);
-        onClick?.(e);
-      }}
-      transition={{ duration: 0.2, ease: 'easeInOut' }}
-      {...props}
-    >
-      <ChevronRight className='h-3 w-3 text-muted-foreground' />
-    </motion.div>
+    <LazyMotion features={domAnimation}>
+      <m.div
+        animate={{ rotate: isExpanded ? 90 : 0 }}
+        className={cn(
+          'mr-1 flex h-4 w-4 cursor-pointer items-center justify-center',
+          className
+        )}
+        onClick={(e) => {
+          e.stopPropagation();
+          toggleExpanded(nodeId);
+          onClick?.(e);
+        }}
+        transition={{ duration: 0.2, ease: 'easeInOut' }}
+        {...props}
+      >
+        <ChevronRight className='h-3 w-3 text-muted-foreground' />
+      </m.div>
+    </LazyMotion>
   );
 };
 
-export type TreeIconProps = ComponentProps<typeof motion.div> & {
+export type TreeIconProps = ComponentProps<typeof m.div> & {
   icon?: ReactNode;
   hasChildren?: boolean;
 };
@@ -436,17 +451,19 @@ export const TreeIcon = ({
     );
 
   return (
-    <motion.div
-      className={cn(
-        'mr-2 flex h-4 w-4 items-center justify-center text-muted-foreground',
-        className
-      )}
-      transition={{ duration: 0.15 }}
-      whileHover={{ scale: 1.1 }}
-      {...props}
-    >
-      {icon || getDefaultIcon()}
-    </motion.div>
+    <LazyMotion features={domAnimation}>
+      <m.div
+        className={cn(
+          'mr-2 flex h-4 w-4 items-center justify-center text-muted-foreground',
+          className
+        )}
+        transition={{ duration: 0.15 }}
+        whileHover={{ scale: 1.1 }}
+        {...props}
+      >
+        {icon || getDefaultIcon()}
+      </m.div>
+    </LazyMotion>
   );
 };
 

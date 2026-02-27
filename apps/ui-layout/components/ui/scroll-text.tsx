@@ -3,7 +3,9 @@
 'use client';
 
 import React, { type JSX } from 'react';
-import { motion, HTMLMotionProps } from 'motion/react';
+
+import * as m from 'motion/react-m';
+import { LazyMotion, domAnimation } from 'motion/react';
 import { cn } from '@/lib/utils';
 
 type Direction = 'up' | 'down' | 'left' | 'right';
@@ -93,13 +95,13 @@ const TextAnimation = ({
       )}
     >
       {lineAnime ? (
-        <motion.span className={`inline-block`} variants={modifiedVariants}>
+        <m.span className={`inline-block`} variants={modifiedVariants}>
           {text}
-        </motion.span>
+        </m.span>
       ) : (
         <>
           {text.split(' ').map((word: string, index: number) => (
-            <motion.span
+            <m.span
               key={`${word}-${index}`}
               className={`inline-block`}
               variants={letterAnime === false ? modifiedVariants : {}}
@@ -107,20 +109,20 @@ const TextAnimation = ({
               {letterAnime ? (
                 <>
                   {word.split('').map((letter: string, letterIndex: number) => (
-                    <motion.span
+                    <m.span
                       key={letterIndex}
                       className={`inline-block`}
                       variants={modifiedVariants}
                     >
                       {letter}
-                    </motion.span>
+                    </m.span>
                   ))}
                   &nbsp;
                 </>
               ) : (
                 <>{word}&nbsp;</>
               )}
-            </motion.span>
+            </m.span>
           ))}
         </>
       )}

@@ -1,6 +1,7 @@
 'use client';
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { AnimatePresence, LazyMotion, domAnimation } from 'motion/react';
+import * as m from 'motion/react-m';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -197,7 +198,7 @@ const MotionDrawer: React.FC<SideMenuProps> = ({
   return (
     <>
       {showToggleButton && (
-        <motion.button
+        <m.button
           className={cn(
             `fixed z-99 text-primary cursor-pointer ${openButtonPositionClasses}`,
             btnClassName
@@ -211,7 +212,7 @@ const MotionDrawer: React.FC<SideMenuProps> = ({
         >
           <Menu />
           {/* Open */}
-        </motion.button>
+        </m.button>
       )}
 
       <AnimatePresence>
@@ -220,7 +221,7 @@ const MotionDrawer: React.FC<SideMenuProps> = ({
             className={`fixed w-full h-full top-0 left-0 z-9999 ${className}`}
           >
             {/* Overlay */}
-            <motion.div
+            <m.div
               className={`absolute w-full h-full top-0 left-0 ${overlayClassName}`}
               style={{ backgroundColor: overlayColor }}
               onClick={() => setIsOpen(false)}
@@ -231,7 +232,7 @@ const MotionDrawer: React.FC<SideMenuProps> = ({
             />
 
             {/* Drawer */}
-            <motion.div
+            <m.div
               className={`absolute h-full shadow-[8px_1px_21px_0px_rgba(17,17,26,0.1)] ${drawerPositionClasses} ${contentClassName}`}
               style={{
                 backgroundColor,
@@ -252,7 +253,7 @@ const MotionDrawer: React.FC<SideMenuProps> = ({
             >
               {/* Close Button */}
               {showToggleButton && (
-                <motion.button
+                <m.button
                   className={cn(
                     'absolute top-2 right-8 p-2 text-black cursor-pointer',
                     clsBtnClassName
@@ -263,12 +264,12 @@ const MotionDrawer: React.FC<SideMenuProps> = ({
                   transition={{ duration: 0.2 }}
                 >
                   <X size={20} /> {/* Close */}
-                </motion.button>
+                </m.button>
               )}
 
               {/* Content */}
               <div className='h-full overflow-y-auto'>{children}</div>
-            </motion.div>
+            </m.div>
           </div>
         )}
       </AnimatePresence>

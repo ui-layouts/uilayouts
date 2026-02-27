@@ -1,5 +1,6 @@
 'use client';
-import { motion } from 'motion/react';
+
+import * as m from 'motion/react-m';
 import { useState } from 'react';
 import { useMediaQuery } from '@/hooks/use-media-query';
 import {
@@ -7,6 +8,7 @@ import {
   ResponsiveModal,
   ResponsiveModalTrigger,
 } from '@/components/ui/responsive-modal';
+import { LazyMotion, domAnimation } from 'motion/react';
 import { toast } from 'sonner';
 
 export default function MyDrawer() {
@@ -19,24 +21,24 @@ export default function MyDrawer() {
   return (
     <>
       {/* <div className='flex justify-between'>
-        <motion.button
+        <m.button
           onClick={() => setDrawerOpen(true)}
           whileTap={{ scale: 0.9 }}
           className='inline-flex h-12 w-fit mx-auto animate-background-shine items-center justify-center rounded-md  border-2 dark:border-[#656fe2] border-[#c0c6fc] dark:bg-[linear-gradient(110deg,#1e2a78,45%,#3749be,55%,#1e2a78)] bg-[linear-gradient(110deg,#3d5af1,45%,#5471ff,55%,#3d5af1)] bg-size-[200%_100%] dark:hover:border-white px-6 font-medium text-white dark:text-white transition-colors focus:outline-hidden focus:ring-2 dark:focus:ring-neutral-400 focus:ring-offset-2 focus:ring-offset-neutral-50'
         >
           Open Dialog
-        </motion.button>
+        </m.button>
       </div> */}
       {/* <ResponsiveModal open={drawerOpen} setOpen={setDrawerOpen}> */}
       <div className='flex justify-center items-center'>
         <ResponsiveModal>
           <ResponsiveModalTrigger asChild>
-            <motion.button
+            <m.button
               whileTap={{ scale: 0.9 }}
               className='inline-flex h-12 w-fit mx-auto animate-background-shine items-center justify-center rounded-md  border-2 dark:border-[#656fe2] border-[#c0c6fc] dark:bg-[linear-gradient(110deg,#1e2a78,45%,#3749be,55%,#1e2a78)] bg-[linear-gradient(110deg,#3d5af1,45%,#5471ff,55%,#3d5af1)] bg-size-[200%_100%] dark:hover:border-white px-6 font-medium text-white dark:text-white transition-colors focus:outline-hidden focus:ring-2 dark:focus:ring-neutral-400 focus:ring-offset-2 focus:ring-offset-neutral-50'
             >
               Open Dialog
-            </motion.button>
+            </m.button>
           </ResponsiveModalTrigger>
           <ResponsiveModalContent>
             <figure className='flex flex-col space-y-1.5 text-center  h-fit dark:bg-neutral-800 md:p-4 p-6'>

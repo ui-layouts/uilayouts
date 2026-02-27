@@ -1,7 +1,8 @@
 'use client';
 import { useState, useRef, useEffect } from 'react';
 import Image, { StaticImageData } from 'next/image';
-import { AnimatePresence, motion } from 'motion/react';
+import { LazyMotion, domAnimation, AnimatePresence } from 'motion/react';
+import * as m from 'motion/react-m';
 import {
   SliderBtnGroup,
   ProgressSlider,

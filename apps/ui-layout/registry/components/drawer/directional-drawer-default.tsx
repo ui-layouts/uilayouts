@@ -1,7 +1,9 @@
 'use client';
-import { motion } from 'motion/react';
+
+import * as m from 'motion/react-m';
 import { Edit } from 'lucide-react';
 import Image from 'next/image';
+import { LazyMotion, domAnimation } from 'motion/react';
 import {
   DirectionalDrawer,
   DrawerContent,
@@ -22,12 +24,12 @@ export default function DirectionalDrawerDefault() {
           />
           <DirectionalDrawer direction={'right'} outsideClose={true}>
             <DrawerTrigger>
-              <motion.button
+              <m.button
                 whileTap={{ scale: 0.8 }}
                 className='absolute right-2 bottom-2 p-4 dark:bg-black bg-white rounded-lg shadow-black'
               >
                 <Edit />
-              </motion.button>
+              </m.button>
             </DrawerTrigger>
             <DrawerContent>
               <figure className='flex flex-col w-full h-full rounded-xl overflow-hidden'>

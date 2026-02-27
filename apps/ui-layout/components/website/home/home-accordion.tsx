@@ -1,6 +1,12 @@
 'use client';
 import React, { useState } from 'react';
-import { AnimatePresence, motion, useAnimate } from 'motion/react';
+import {
+  AnimatePresence,
+  LazyMotion,
+  domAnimation,
+  useAnimate,
+} from 'motion/react';
+import * as m from 'motion/react-m';
 import { Plus } from 'lucide-react';
 
 const tabs = [
@@ -52,7 +58,7 @@ function HomeAccordion() {
         </h1>
         <div className='h-fit border   rounded-lg p-2 dark:bg-[#03050c] bg-[#F2F2F2]'>
           {tabs.map((tab, index) => (
-            <motion.div
+            <m.div
               key={index}
               className={`overflow-hidden ${
                 index !== tabs.length - 1 ? 'border-b' : ''
@@ -72,7 +78,7 @@ function HomeAccordion() {
               </button>
               <AnimatePresence mode='sync'>
                 {activeIndex === index && (
-                  <motion.div
+                  <m.div
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: 'auto', opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
@@ -87,10 +93,10 @@ function HomeAccordion() {
                     >
                       {tab.description}
                     </p>
-                  </motion.div>
+                  </m.div>
                 )}
               </AnimatePresence>
-            </motion.div>
+            </m.div>
           ))}
         </div>
       </div>

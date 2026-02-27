@@ -1,6 +1,13 @@
 'use client';
 import React, { useEffect, useRef, useState } from 'react';
-import { motion, useMotionValue, animate } from 'motion/react';
+
+import {
+  LazyMotion,
+  animate,
+  domAnimation,
+  useMotionValue,
+} from 'motion/react';
+import * as m from 'motion/react-m';
 
 export const items = [
   {
@@ -108,7 +115,7 @@ export default function FramerAutoplayCarousel({ duration = 3000 }) {
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          <motion.div className='flex' style={{ x }}>
+          <m.div className='flex' style={{ x }}>
             {items.map((item) => (
               <div key={item.id} className='shrink-0 w-full h-[400px]'>
                 <img
@@ -119,10 +126,10 @@ export default function FramerAutoplayCarousel({ duration = 3000 }) {
                 />
               </div>
             ))}
-          </motion.div>
+          </m.div>
 
           {/* Navigation Buttons */}
-          <motion.button
+          <m.button
             disabled={index === 0}
             onClick={() => setIndex((i) => Math.max(0, i - 1))}
             className={`absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-transform z-10
@@ -145,9 +152,9 @@ export default function FramerAutoplayCarousel({ duration = 3000 }) {
                 d='M15 19l-7-7 7-7'
               />
             </svg>
-          </motion.button>
+          </m.button>
 
-          <motion.button
+          <m.button
             disabled={index === items.length - 1}
             onClick={() => setIndex((i) => Math.min(items.length - 1, i + 1))}
             className={`absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-transform z-10
@@ -170,7 +177,7 @@ export default function FramerAutoplayCarousel({ duration = 3000 }) {
                 d='M9 5l7 7-7 7'
               />
             </svg>
-          </motion.button>
+          </m.button>
 
           {/* Progress Indicator */}
           <div className='absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2'>

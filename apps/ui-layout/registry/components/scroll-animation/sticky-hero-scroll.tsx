@@ -1,7 +1,9 @@
 // @ts-nocheck
 'use client';
 
-import { useScroll, useTransform, motion } from 'motion/react';
+
+import * as m from 'motion/react-m';
+import { LazyMotion, domAnimation } from 'motion/react';
 import { useEffect, useRef } from 'react';
 
 export default function StickyHeroScroll() {
@@ -31,7 +33,7 @@ const Section1 = ({ scrollYProgress }) => {
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
   const rotate = useTransform(scrollYProgress, [0, 1], [0, -5]);
   return (
-    <motion.section
+    <m.section
       style={{ scale, rotate }}
       className='sticky  font-semibold top-0 h-screen bg-linear-to-t to-[#dadada] from-[#ebebeb] flex flex-col items-center justify-center text-black'
     >
@@ -40,7 +42,7 @@ const Section1 = ({ scrollYProgress }) => {
       <h1 className='2xl:text-7xl text-6xl px-8 font-semibold text-center tracking-tight leading-[120%]'>
         An Hero section Animation <br /> Scroll Please 👇
       </h1>
-    </motion.section>
+    </m.section>
   );
 };
 
@@ -49,7 +51,7 @@ const Section2 = ({ scrollYProgress }) => {
   const rotate = useTransform(scrollYProgress, [0, 1], [5, 0]);
 
   return (
-    <motion.section
+    <m.section
       style={{ scale, rotate }}
       className='relative h-screen bg-linear-to-t to-[#1a1919] from-[#06060e] text-white '
     >
@@ -81,6 +83,6 @@ const Section2 = ({ scrollYProgress }) => {
           />
         </div>
       </article>
-    </motion.section>
+    </m.section>
   );
 };

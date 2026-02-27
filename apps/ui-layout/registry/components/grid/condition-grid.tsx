@@ -1,7 +1,9 @@
 'use client';
 import React from 'react';
-import { motion } from 'motion/react';
+
+import * as m from 'motion/react-m';
 import Image from 'next/image';
+import { LazyMotion, domAnimation } from 'motion/react';
 import { MoveUpRight } from 'lucide-react';
 interface ProjectsTypes {
   id: string;
@@ -53,7 +55,7 @@ export default function ConditionGrid() {
           }
           return (
             <>
-              <motion.article
+              <m.article
                 key={project.id ?? project.title}
                 initial={{ y: 50, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
@@ -78,7 +80,7 @@ export default function ConditionGrid() {
                     <MoveUpRight />
                   </div>
                 </div>
-              </motion.article>
+              </m.article>
             </>
           );
         })}

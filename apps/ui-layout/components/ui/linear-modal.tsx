@@ -10,14 +10,15 @@ import React, {
   useState,
 } from 'react';
 import {
-  motion,
   AnimatePresence,
   MotionConfig,
   Transition,
   Variant,
 } from 'motion/react';
+import * as m from 'motion/react-m';
 import { createPortal } from 'react-dom';
 import { cn } from '@/lib/utils';
+import { LazyMotion, domAnimation } from 'motion/react';
 import { XIcon } from 'lucide-react';
 
 interface DialogContextType {
@@ -57,7 +58,9 @@ function DialogProvider({ children, transition }: DialogProviderProps) {
       //@ts-ignore
       value={contextValue}
     >
-      <MotionConfig transition={transition}>{children}</MotionConfig>
+      <MotionConfig transition={transition}>
+        <LazyMotion features={domAnimation}>{children}</LazyMotion>
+      </MotionConfig>
     </DialogContext.Provider>
   );
 }
@@ -105,7 +108,7 @@ function DialogTrigger({
   );
 
   return (
-    <motion.div
+    <m.div
       ref={triggerRef}
       layoutId={`dialog-${uniqueId}`}
       className={cn('relative cursor-pointer', className)}
@@ -118,7 +121,7 @@ function DialogTrigger({
       aria-controls={`dialog-content-${uniqueId}`}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -194,7 +197,7 @@ function DialogContent({ children, className, style }: DialogContent) {
 
   return (
     <>
-      <motion.div
+      <m.div
         ref={containerRef}
         layoutId={`dialog-${uniqueId}`}
         className={cn('overflow-hidden', className)}
@@ -217,7 +220,7 @@ function DialogContent({ children, className, style }: DialogContent) {
         }}
       >
         {children}
-      </motion.div>
+      </m.div>
     </>
   );
 }
@@ -271,7 +274,7 @@ function DialogContainer({
     <AnimatePresence initial={false} mode='wait'>
       {isOpen && (
         <>
-          <motion.div
+          <m.div
             key={`backdrop-${uniqueId}`}
             data-lenis-prevent
             className={cn(
@@ -286,13 +289,13 @@ function DialogContainer({
               ease: [0.4, 0.0, 0.4, 1],
             }}
             onClick={() => setIsOpen(false)}
-          ></motion.div>
-          <motion.div
+          ></m.div>
+          <m.div
             className={cn(`fixed inset-0 z-50 w-fit mx-auto`, className)}
             style={{ willChange: 'transform' }} // GPU acceleration for transforms
           >
             {children}
-          </motion.div>
+          </m.div>
         </>
       )}
     </AnimatePresence>,
@@ -309,14 +312,14 @@ function DialogTitle({ children, className, style }: DialogTitleProps) {
   const { uniqueId } = useDialog();
 
   return (
-    <motion.h1
+    <m.h1
       layoutId={`dialog-title-container-${uniqueId}`}
       className={className}
       style={style}
       layout
     >
       {children}
-    </motion.h1>
+    </m.h1>
   );
 }
 
@@ -330,13 +333,13 @@ function DialogSubtitle({ children, className, style }: DialogSubtitleProps) {
   const { uniqueId } = useDialog();
 
   return (
-    <motion.div
+    <m.div
       layoutId={`dialog-subtitle-container-${uniqueId}`}
       className={className}
       style={style}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -360,7 +363,7 @@ function DialogDescription({
   const { uniqueId } = useDialog();
 
   return (
-    <motion.div
+    <m.div
       key={`dialog-description-${uniqueId}`}
       layoutId={
         disableLayoutAnimation
@@ -375,7 +378,7 @@ function DialogDescription({
       id={`dialog-description-${uniqueId}`}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -390,7 +393,7 @@ function DialogImage({ src, alt, className, style }: DialogImageProps) {
   const { uniqueId } = useDialog();
 
   return (
-    <motion.img
+    <m.img
       src={src}
       alt={alt}
       className={cn(className)}
@@ -418,7 +421,7 @@ function DialogClose({ children, className, variants }: DialogCloseProps) {
   }, [setIsOpen]);
 
   return (
-    <motion.button
+    <m.button
       onClick={handleClose}
       type='button'
       aria-label='Close dialog'
@@ -430,7 +433,7 @@ function DialogClose({ children, className, variants }: DialogCloseProps) {
       variants={variants}
     >
       {children || <XIcon size={24} />}
-    </motion.button>
+    </m.button>
   );
 }
 

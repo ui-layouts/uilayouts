@@ -7,6 +7,8 @@ import {
   AccordionPanel,
   AccordionWrapper,
 } from '@/components/ui/accordion';
+import { LazyMotion, domAnimation } from 'motion/react';
+import * as m from 'motion/react-m';
 
 function SingleLayout() {
   return (

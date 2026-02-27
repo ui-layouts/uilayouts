@@ -2,13 +2,15 @@
 'use client';
 import React, { useEffect } from 'react';
 import { useState } from 'react';
-import { motion, AnimateSharedLayout, AnimatePresence } from 'motion/react';
+import { AnimatePresence, LazyMotion, domAnimation } from 'motion/react';
+import * as m from 'motion/react-m';
+import { LazyMotion, domAnimation } from 'motion/react';
 import Image from 'next/image';
 
 export const itemsArr = [
   {
     id: 1,
-    url: "https://images.unsplash.com/photo-1709949908058-a08659bfa922?q=80&w=1200&auto=format",
+    url: 'https://images.unsplash.com/photo-1709949908058-a08659bfa922?q=80&w=1200&auto=format',
     title: 'Misty Mountain Majesty',
     description:
       'A breathtaking view of misty mountains shrouded in clouds, creating an ethereal landscape.',
@@ -40,7 +42,7 @@ export const itemsArr = [
   },
   {
     id: 5,
-    url:'https://images.unsplash.com/photo-1709949908058-a08659bfa922?q=80&w=1200&auto=format',
+    url: 'https://images.unsplash.com/photo-1709949908058-a08659bfa922?q=80&w=1200&auto=format',
     title: 'Misty Mountain Peaks',
     description:
       "Majestic mountain peaks emerging from a sea of clouds, showcasing nature's grandeur.",
@@ -94,45 +96,51 @@ export const itemsArr = [
       'A serene mountain lake surrounded by pine forests, reflecting the calm beauty of the wilderness.',
     tags: ['Lake', 'Mountains', 'Forest', 'Reflection', 'Serenity'],
   },
-  
 ];
 
-function Gallery({ items, setIndex, setOpen, index }:{
+function Gallery({
+  items,
+  setIndex,
+  setOpen,
+  index,
+}: {
   items: typeof itemsArr;
   setIndex: (index: number) => void;
   setOpen: (open: boolean) => void;
   index: number;
 }) {
   return (
-    <div className='rounded-md w-fit mx-auto md:gap-2 gap-1 flex pb-20 pt-10 '>
-      {items.slice(0, 11).map((item, i) => {
-        return (
-          <>
-            <motion.img
-              whileTap={{ scale: 0.95 }}
-              className={`rounded-2xl ${
-                index === i
-                  ? 'w-[250px] '
-                  : 'xl:w-[50px] md:w-[30px] sm:w-[20px] w-[14px]'
-              } h-[200px] shrink-0  object-cover transition-[width] ease-in-out duration-300`}
-              key={item}
-              onMouseEnter={() => {
-                setIndex(i);
-              }}
-              onMouseLeave={() => {
-                setIndex(i);
-              }}
-              onClick={() => {
-                setIndex(i);
-                setOpen(true);
-              }}
-              src={item?.url}
-              layoutId={item.id}
-            />
-          </>
-        );
-      })}
-    </div>
+    <LazyMotion features={domAnimation}>
+      <div className='rounded-md w-fit mx-auto md:gap-2 gap-1 flex pb-20 pt-10 '>
+        {items.slice(0, 11).map((item, i) => {
+          return (
+            <>
+              <m.img
+                whileTap={{ scale: 0.95 }}
+                className={`rounded-2xl ${
+                  index === i
+                    ? 'w-[250px] '
+                    : 'xl:w-[50px] md:w-[30px] sm:w-[20px] w-[14px]'
+                } h-[200px] shrink-0  object-cover transition-[width] ease-in-out duration-300`}
+                key={item}
+                onMouseEnter={() => {
+                  setIndex(i);
+                }}
+                onMouseLeave={() => {
+                  setIndex(i);
+                }}
+                onClick={() => {
+                  setIndex(i);
+                  setOpen(true);
+                }}
+                src={item?.url}
+                layoutId={item.id}
+              />
+            </>
+          );
+        })}
+      </div>
+    </LazyMotion>
   );
 }
 
@@ -167,7 +175,7 @@ export default function AccordionModal() {
       />
       <AnimatePresence>
         {open !== false && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -178,7 +186,7 @@ export default function AccordionModal() {
             }}
           >
             <div onClick={(e) => e.stopPropagation()}>
-              <motion.div
+              <m.div
                 layoutId={itemsArr[index].id}
                 className='w-[400px] h-[400px] rounded-2xl relative cursor-default overflow-hidden'
               >
@@ -190,7 +198,7 @@ export default function AccordionModal() {
                   className='rounded-2xl h-full w-full object-cover'
                 />
                 <article className='dark:bg-black/40 bg-white/40 backdrop-blur-md absolute -bottom-1 left-0 w-full rounded-md p-2'>
-                  <motion.h1
+                  <m.h1
                     initial={{ scaleY: 0.2 }}
                     animate={{ scaleY: 1 }}
                     exit={{ scaleY: 0.2 }}
@@ -198,8 +206,8 @@ export default function AccordionModal() {
                     className='text-xl font-semibold'
                   >
                     {itemsArr[index].title}
-                  </motion.h1>
-                  <motion.p
+                  </m.h1>
+                  <m.p
                     initial={{ y: -10, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ scaleY: -10, opacity: 0 }}
@@ -207,11 +215,11 @@ export default function AccordionModal() {
                     className='text-sm leading-[100%] py-2'
                   >
                     {itemsArr[index].description}
-                  </motion.p>
+                  </m.p>
                 </article>
-              </motion.div>
+              </m.div>
             </div>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </div>

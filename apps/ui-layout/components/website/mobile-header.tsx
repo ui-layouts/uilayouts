@@ -14,6 +14,8 @@ import { basePath } from './sidebar';
 import { DocsNavigationCategories } from '@/configs/docs';
 import { cn } from '@/lib/utils';
 import { DOCS_CATEGORY_GROUP } from '@/const/docs';
+import { LazyMotion, domAnimation } from 'motion/react';
+import * as m from 'motion/react-m';
 
 function MobileHeader({ classname }: { classname?: string }) {
   const pathname = usePathname();

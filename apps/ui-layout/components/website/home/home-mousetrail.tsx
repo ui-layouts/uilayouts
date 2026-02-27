@@ -3,6 +3,8 @@
 import preview from '@/assets/preview/Preview';
 import Image from 'next/image';
 import React, { useRef, createRef, useState } from 'react';
+import { LazyMotion, domAnimation } from 'motion/react';
+import * as m from 'motion/react-m';
 export const items = [
   {
     id: 1,

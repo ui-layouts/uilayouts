@@ -8,6 +8,8 @@ import {
   AccordionWrapper,
 } from '@/components/ui/accordion';
 import { Plus } from 'lucide-react';
+import { LazyMotion, domAnimation } from 'motion/react';
+import * as m from 'motion/react-m';
 
 function SingleLayout() {
   return (

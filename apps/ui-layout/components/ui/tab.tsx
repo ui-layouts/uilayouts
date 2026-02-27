@@ -10,7 +10,13 @@ import React, {
   useCallback,
 } from 'react';
 import { cn } from '@/lib/utils';
-import { AnimatePresence, motion } from 'motion/react';
+import {
+  AnimatePresence,
+  motion,
+  LazyMotion,
+  domAnimation,
+} from 'motion/react';
+import * as m from 'motion/react-m';
 
 // Improved TypeScript interfaces with more specific types
 interface TabContextType {
@@ -118,62 +124,64 @@ export const TabsBtn: React.FC<TabsBtnProps> = React.memo(
     }, [setPrevIndex, tabsOrder, activeTab, setActiveTab, value]);
 
     return (
-      <motion.div
-        className={cn(
-          `cursor-pointer 2xl:p-2 p-2 2xl:px-4 px-2 rounded-md relative`,
-          className
-        )}
-        onFocus={() => hover && handleClick()}
-        onMouseEnter={() => hover && handleClick()}
-        onClick={handleClick}
-      >
-        {children}
-
-        <AnimatePresence mode='wait'>
-          {activeTab === value && (
-            <>
-              <motion.div
-                transition={{
-                  layout: {
-                    duration: 0.2,
-                    ease: 'easeInOut',
-                    delay: 0.2,
-                  },
-                }}
-                layoutId={defaultValue}
-                className='absolute w-full h-full left-0 top-0 dark:bg-primary-base bg-white rounded-md z-1'
-              />
-
-              {wobbly && (
-                <>
-                  <motion.div
-                    transition={{
-                      layout: {
-                        duration: 0.4,
-                        ease: 'easeInOut',
-                        delay: 0.04,
-                      },
-                    }}
-                    layoutId={defaultValue}
-                    className='absolute w-full h-full left-0 top-0 dark:bg-primary-base bg-white rounded-md z-1 tab-shadow'
-                  />
-                  <motion.div
-                    transition={{
-                      layout: {
-                        duration: 0.4,
-                        ease: 'easeOut',
-                        delay: 0.2,
-                      },
-                    }}
-                    layoutId={`${defaultValue}b`}
-                    className='absolute w-full h-full left-0 top-0 dark:bg-primary-base bg-white rounded-md z-1 tab-shadow'
-                  />
-                </>
-              )}
-            </>
+      <LazyMotion features={domAnimation}>
+        <m.div
+          className={cn(
+            `cursor-pointer 2xl:p-2 p-2 2xl:px-4 px-2 rounded-md relative`,
+            className
           )}
-        </AnimatePresence>
-      </motion.div>
+          onFocus={() => hover && handleClick()}
+          onMouseEnter={() => hover && handleClick()}
+          onClick={handleClick}
+        >
+          {children}
+
+          <AnimatePresence mode='wait'>
+            {activeTab === value && (
+              <>
+                <m.div
+                  transition={{
+                    layout: {
+                      duration: 0.2,
+                      ease: 'easeInOut',
+                      delay: 0.2,
+                    },
+                  }}
+                  layoutId={defaultValue}
+                  className='absolute w-full h-full left-0 top-0 dark:bg-primary-base bg-white rounded-md z-1'
+                />
+
+                {wobbly && (
+                  <>
+                    <m.div
+                      transition={{
+                        layout: {
+                          duration: 0.4,
+                          ease: 'easeInOut',
+                          delay: 0.04,
+                        },
+                      }}
+                      layoutId={defaultValue}
+                      className='absolute w-full h-full left-0 top-0 dark:bg-primary-base bg-white rounded-md z-1 tab-shadow'
+                    />
+                    <m.div
+                      transition={{
+                        layout: {
+                          duration: 0.4,
+                          ease: 'easeOut',
+                          delay: 0.2,
+                        },
+                      }}
+                      layoutId={`${defaultValue}b`}
+                      className='absolute w-full h-full left-0 top-0 dark:bg-primary-base bg-white rounded-md z-1 tab-shadow'
+                    />
+                  </>
+                )}
+              </>
+            )}
+          </AnimatePresence>
+        </m.div>
+      </LazyMotion>
     );
   }
 );
@@ -192,19 +200,21 @@ export const TabsContent: React.FC<TabsContentProps> = React.memo(
     return (
       <AnimatePresence mode='popLayout'>
         {activeTab === value && (
-          <motion.div
-            initial={{ opacity: 0, y: yValue ? (isForward ? 10 : -10) : 0 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: yValue ? (isForward ? -50 : 50) : 0 }}
-            transition={{
-              duration: 0.3,
-              ease: 'easeInOut',
-              delay: 0.5,
-            }}
-            className={cn('p-2 px-4 rounded-md relative', className)}
-          >
-            {children}
-          </motion.div>
+          <LazyMotion features={domAnimation}>
+            <m.div
+              initial={{ opacity: 0, y: yValue ? (isForward ? 10 : -10) : 0 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: yValue ? (isForward ? -50 : 50) : 0 }}
+              transition={{
+                duration: 0.3,
+                ease: 'easeInOut',
+                delay: 0.5,
+              }}
+              className={cn('p-2 px-4 rounded-md relative', className)}
+            >
+              {children}
+            </m.div>
+          </LazyMotion>
         )}
       </AnimatePresence>
     );

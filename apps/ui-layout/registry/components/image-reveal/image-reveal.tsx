@@ -1,6 +1,7 @@
 'use client';
 
-import { motion, useSpring } from 'motion/react';
+import * as m from 'motion/react-m';
+import { LazyMotion, domAnimation, useSpring } from 'motion/react';
 import React, { useState, MouseEvent, useRef } from 'react';
 
 interface ImageItem {
@@ -92,7 +93,7 @@ function ImageReveal2() {
         </div>
       ))}
 
-      <motion.img
+      <m.img
         ref={imageRef}
         src={img.src}
         alt={img.alt}

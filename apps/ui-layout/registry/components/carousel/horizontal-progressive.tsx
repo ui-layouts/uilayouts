@@ -7,6 +7,8 @@ import {
   SliderContent,
   SliderWrapper,
 } from '@/components/ui/progressive-carousel';
+import { LazyMotion, domAnimation } from 'motion/react';
+import * as m from 'motion/react-m';
 
 const items = [
   {

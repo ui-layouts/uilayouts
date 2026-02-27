@@ -22,6 +22,8 @@ import {
   ResponsiveModal,
   ResponsiveModalContent,
 } from '../ui/responsive-modal';
+import { LazyMotion, domAnimation } from 'motion/react';
+import * as m from 'motion/react-m';
 
 function highlightMatch(text: string, query: string) {
   if (!query) return text;

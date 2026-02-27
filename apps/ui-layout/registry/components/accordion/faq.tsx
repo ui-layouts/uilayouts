@@ -1,6 +1,7 @@
 'use client';
 import React, { useState } from 'react';
-import { AnimatePresence, motion } from 'motion/react';
+import { AnimatePresence, LazyMotion, domAnimation } from 'motion/react';
+import * as m from 'motion/react-m';
 import { Plus } from 'lucide-react';
 const tabs = [
   {
@@ -50,45 +51,47 @@ function SingleLayout() {
         </h1>
         <div className='h-fit border  rounded-lg p-2 dark:bg-[#111111] bg-[#F2F2F2]'>
           {tabs.map((tab, index) => (
-            <motion.div
-              key={tab.title}
-              className={`overflow-hidden ${
-                index !== tabs.length - 1 ? 'border-b' : ''
-              }`}
-              onClick={() => handleClick(index)}
-            >
-              <button
-                className={`p-3 px-2 w-full cursor-pointer sm:text-base text-xs items-center transition-all font-semibold dark:text-white text-black   flex gap-2 
-               `}
+            <LazyMotion features={domAnimation}>
+              <m.div
+                key={tab.title}
+                className={`overflow-hidden ${
+                  index !== tabs.length - 1 ? 'border-b' : ''
+                }`}
+                onClick={() => handleClick(index)}
               >
-                <Plus
-                  className={`${
-                    activeIndex === index ? 'rotate-45' : 'rotate-0 '
-                  } transition-transform ease-in-out w-5 h-5  dark:text-neutral-200 text-neutral-600`}
-                />
-                {tab.title}
-              </button>
-              <AnimatePresence mode='sync'>
-                {activeIndex === index && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{
-                      duration: 0.3,
-                      ease: 'easeInOut',
-                      delay: 0.14,
-                    }}
-                  >
-                    <p
-                      className={`dark:text-white text-black p-3 xl:text-base sm:text-sm text-xs pt-0 w-[90%]`}
+                <button
+                  className={`p-3 px-2 w-full cursor-pointer sm:text-base text-xs items-center transition-all font-semibold dark:text-white text-black   flex gap-2 
+               `}
+                >
+                  <Plus
+                    className={`${
+                      activeIndex === index ? 'rotate-45' : 'rotate-0 '
+                    } transition-transform ease-in-out w-5 h-5  dark:text-neutral-200 text-neutral-600`}
+                  />
+                  {tab.title}
+                </button>
+                <AnimatePresence mode='sync'>
+                  {activeIndex === index && (
+                    <m.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{
+                        duration: 0.3,
+                        ease: 'easeInOut',
+                        delay: 0.14,
+                      }}
                     >
-                      {tab.description}
-                    </p>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
+                      <p
+                        className={`dark:text-white text-black p-3 xl:text-base sm:text-sm text-xs pt-0 w-[90%]`}
+                      >
+                        {tab.description}
+                      </p>
+                    </m.div>
+                  )}
+                </AnimatePresence>
+              </m.div>
+            </LazyMotion>
           ))}
         </div>
       </div>

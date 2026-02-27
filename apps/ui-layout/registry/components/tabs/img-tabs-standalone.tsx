@@ -1,6 +1,7 @@
 'use client';
 import React, { useState } from 'react';
-import { AnimatePresence, motion } from 'motion/react';
+import { AnimatePresence, LazyMotion, domAnimation } from 'motion/react';
+import * as m from 'motion/react-m';
 import { useMediaQuery } from '@/hooks/use-media-query';
 const tabs = [
   {
@@ -41,7 +42,7 @@ function ImageTabsStandalone() {
       <div className=' md:grid grid-cols-12 p-2 items-center justify-center w-full h-full'>
         <div className='rounded-xs   col-span-5'>
           {tabs.map((tab, index) => (
-            <motion.div
+            <m.div
               key={tab.id}
               className={`rounded-lg overflow-hidden mb-2  ${
                 activeIndex === index
@@ -63,7 +64,7 @@ function ImageTabsStandalone() {
               </h3>
               <AnimatePresence mode='sync'>
                 {activeIndex === index && (
-                  <motion.div
+                  <m.div
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: 'auto', opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
@@ -81,10 +82,10 @@ function ImageTabsStandalone() {
                       alt={tab.title}
                       className='mb-2 max-w-full h-full md:hidden block  rounded-md object-cover'
                     />
-                  </motion.div>
+                  </m.div>
                 )}
               </AnimatePresence>
-            </motion.div>
+            </m.div>
           ))}
         </div>
         <>
@@ -94,8 +95,8 @@ function ImageTabsStandalone() {
                 <>
                   <AnimatePresence mode='popLayout'>
                     {activeIndex === index && (
-                      <motion.div className='p-4 h-[400px] overflow-hidden col-span-7'>
-                        <motion.img
+                      <m.div className='p-4 h-[400px] overflow-hidden col-span-7'>
+                        <m.img
                           src={tab.imageUrl}
                           alt={tab.title}
                           className='mb-2 max-w-full h-full  rounded-md object-cover'
@@ -109,7 +110,7 @@ function ImageTabsStandalone() {
                           }}
                           height={800}
                         />
-                      </motion.div>
+                      </m.div>
                     )}
                   </AnimatePresence>
                 </>

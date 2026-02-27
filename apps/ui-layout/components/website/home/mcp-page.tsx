@@ -11,6 +11,8 @@ import { Colors, Liquid } from '@/components/ui/liquid-gradient';
 import { Container } from '@/components/ui/container';
 import { cn } from '@/lib/utils';
 import { GapPattern } from '@/components/ui/gap-pattern';
+import { LazyMotion, domAnimation } from 'motion/react';
+import * as m from 'motion/react-m';
 
 const COLORS: Colors = {
   color1: '#FFFFFF',

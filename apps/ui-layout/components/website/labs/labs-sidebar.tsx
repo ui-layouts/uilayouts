@@ -1,7 +1,8 @@
 'use client';
 import React, { useState } from 'react';
 import { cn } from '@/lib/utils';
-import { AnimatePresence, motion } from 'motion/react';
+import { AnimatePresence, LazyMotion, domAnimation } from 'motion/react';
+import * as m from 'motion/react-m';
 import {
   Command,
   CommandEmpty,
@@ -69,7 +70,7 @@ function LabSidebar() {
     <>
       <AnimatePresence mode='wait'>
         {!isSidebarOpen && (
-          <motion.aside
+          <m.aside
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, x: -20 }}
@@ -145,7 +146,7 @@ function LabSidebar() {
                             {component.componentName}{' '}
                             <AnimatePresence mode='wait'>
                               {value === component.componentName && (
-                                <motion.div
+                                <m.div
                                   initial={{ opacity: 0, scale: 0 }}
                                   animate={{ opacity: 1, scale: 1 }}
                                   exit={{ opacity: 0, scale: 0 }}
@@ -157,7 +158,7 @@ function LabSidebar() {
                                   }}
                                 >
                                   <CheckCheck className={cn('mr-2 h-4 w-4')} />
-                                </motion.div>
+                                </m.div>
                               )}
                             </AnimatePresence>
                           </CommandItem>
@@ -176,7 +177,7 @@ function LabSidebar() {
                   <AnimatePresence>
                     {recentComponents.length !== 0 ? (
                       recentComponents.map((component, index) => (
-                        <motion.div
+                        <m.div
                           layout
                           key={`${component.type}-${component.componentName}`}
                           onClick={() => handleSelectComponent(component)}
@@ -200,28 +201,28 @@ function LabSidebar() {
                           {component.componentName}
                           {/* <AnimatePresence> */}
                           {value === component.componentName && (
-                            <motion.div>
+                            <m.div>
                               <CheckCheck className='w-4 h-4' />
-                            </motion.div>
+                            </m.div>
                           )}
                           {/* </AnimatePresence> */}
-                        </motion.div>
+                        </m.div>
                       ))
                     ) : (
-                      <motion.h1
+                      <m.h1
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
                         className='bg-destructive text-destructive-foreground p-1 text-sm my-2 rounded-md flex gap-1 items-center'
                       >
                         <BadgeInfo className='w-5 h-5' /> You don&apos;t have
                         any memories
-                      </motion.h1>
+                      </m.h1>
                     )}
                   </AnimatePresence>
                 </div>
               </div>
             </div>
-          </motion.aside>
+          </m.aside>
         )}
       </AnimatePresence>
     </>

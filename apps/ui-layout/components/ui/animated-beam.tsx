@@ -1,7 +1,7 @@
 'use client';
-
 import { cn } from '@/lib/utils';
-import { motion } from 'motion/react';
+import { domAnimation, LazyMotion } from 'motion/react';
+import * as m from 'motion/react-m';
 import { forwardRef, RefObject, useEffect, useId, useState } from 'react';
 
 export const Icons = {
@@ -465,79 +465,81 @@ const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
   ]);
 
   return (
-    <svg
-      fill='none'
-      width={svgDimensions.width}
-      height={svgDimensions.height}
-      xmlns='http://www.w3.org/2000/svg'
-      className={cn(
-        'pointer-events-none absolute left-0 top-0 transform-gpu stroke-2',
-        className
-      )}
-      viewBox={`0 0 ${svgDimensions.width} ${svgDimensions.height}`}
-    >
-      <path
-        d={pathD}
-        stroke={pathColor}
-        strokeWidth={pathWidth}
-        strokeOpacity={pathOpacity}
-        strokeLinecap='round'
-        strokeDasharray={strokeDasharray}
-      />
-      <motion.path
-        d={pathD}
-        stroke={`url(#${id})`}
-        strokeLinecap='round'
-        strokeDasharray={strokeDasharray}
-        initial={{
-          strokeWidth: pathWidth,
-          strokeOpacity: 0,
-        }}
-        animate={{
-          strokeWidth: pathWidth * 1.5, // or any scale factor you prefer
-          strokeOpacity: 1,
-        }}
-        transition={{
-          duration: 2, // adjust as needed
-          delay: delay, // use the same delay as the gradient animation
-        }}
-      />
-      <defs>
-        <motion.linearGradient
-          className='transform-gpu'
-          id={id}
-          gradientUnits={'userSpaceOnUse'}
+    <LazyMotion features={domAnimation}>
+      <svg
+        fill='none'
+        width={svgDimensions.width}
+        height={svgDimensions.height}
+        xmlns='http://www.w3.org/2000/svg'
+        className={cn(
+          'pointer-events-none absolute left-0 top-0 transform-gpu stroke-2',
+          className
+        )}
+        viewBox={`0 0 ${svgDimensions.width} ${svgDimensions.height}`}
+      >
+        <path
+          d={pathD}
+          stroke={pathColor}
+          strokeWidth={pathWidth}
+          strokeOpacity={pathOpacity}
+          strokeLinecap='round'
+          strokeDasharray={strokeDasharray}
+        />
+        <m.path
+          d={pathD}
+          stroke={`url(#${id})`}
+          strokeLinecap='round'
+          strokeDasharray={strokeDasharray}
           initial={{
-            x1: '0%',
-            x2: '0%',
-            y1: '0%',
-            y2: '0%',
+            strokeWidth: pathWidth,
+            strokeOpacity: 0,
           }}
           animate={{
-            x1: gradientCoordinates.x1,
-            x2: gradientCoordinates.x2,
-            y1: gradientCoordinates.y1,
-            y2: gradientCoordinates.y2,
+            strokeWidth: pathWidth * 1.5, // or any scale factor you prefer
+            strokeOpacity: 1,
           }}
           transition={{
-            delay,
-            duration,
-            ease: [0.16, 1, 0.3, 1], // https://easings.net/#easeOutExpo
-            repeat: Infinity,
-            repeatDelay: 0,
+            duration: 2, // adjust as needed
+            delay: delay, // use the same delay as the gradient animation
           }}
-        >
-          <stop stopColor={gradientStartColor} stopOpacity='0'></stop>
-          <stop stopColor={gradientStartColor}></stop>
-          <stop offset='32.5%' stopColor={gradientStopColor}></stop>
-          <stop
-            offset='100%'
-            stopColor={gradientStopColor}
-            stopOpacity='0'
-          ></stop>
-        </motion.linearGradient>
-      </defs>
-    </svg>
+        />
+        <defs>
+          <m.linearGradient
+            className='transform-gpu'
+            id={id}
+            gradientUnits={'userSpaceOnUse'}
+            initial={{
+              x1: '0%',
+              x2: '0%',
+              y1: '0%',
+              y2: '0%',
+            }}
+            animate={{
+              x1: gradientCoordinates.x1,
+              x2: gradientCoordinates.x2,
+              y1: gradientCoordinates.y1,
+              y2: gradientCoordinates.y2,
+            }}
+            transition={{
+              delay,
+              duration,
+              ease: [0.16, 1, 0.3, 1], // https://easings.net/#easeOutExpo
+              repeat: Infinity,
+              repeatDelay: 0,
+            }}
+          >
+            <stop stopColor={gradientStartColor} stopOpacity='0'></stop>
+            <stop stopColor={gradientStartColor}></stop>
+            <stop offset='32.5%' stopColor={gradientStopColor}></stop>
+            <stop
+              offset='100%'
+              stopColor={gradientStopColor}
+              stopOpacity='0'
+            ></stop>
+          </m.linearGradient>
+        </defs>
+      </svg>
+    </LazyMotion>
   );
 };
 // Add this line after your component definition

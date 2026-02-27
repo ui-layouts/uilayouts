@@ -2,28 +2,24 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import {
-  motion,
-  AnimateSharedLayout,
-  AnimatePresence,
-  LayoutGroup,
-  MotionConfig,
-} from 'motion/react';
+import { AnimatePresence, LazyMotion, domAnimation } from 'motion/react';
+import * as m from 'motion/react-m';
 import Image from 'next/image';
 import preview from '@/assets/preview/Preview';
 import { Plus, X } from 'lucide-react';
 import { createPortal } from 'react-dom';
+import { LazyMotion, domAnimation } from 'motion/react';
 import { transition } from '@/lib/utils';
 
 function Gallery({ items, setIndex, setOpen, index }) {
   return (
-    <motion.div
+    <m.div
       transition={{ duration: 0.2, ease: 'easeInOut' }}
       className='w-full h-full '
     >
       {items.map((item, i) => {
         return (
-          <motion.article
+          <m.article
             layoutId={`dialog-${item?.id}`}
             whileTap={{ scale: 0.95 }}
             key={item}
@@ -36,24 +32,24 @@ function Gallery({ items, setIndex, setOpen, index }) {
               index === i ? 'z-50 ' : ''
             }`}
           >
-            <motion.img
+            <m.img
               layoutId={`dialog-img-${item.id}`}
               className={`rounded-xl h-full w-full object-contain`}
               src={item?.url?.src}
             />
-            <motion.div layout='position' layoutId={`dialog-title-${item.id}`}>
-              <motion.h1 className='absolute bottom-3 left-4 2xl:text-2xl text-xl font-semibold'>
+            <m.div layout='position' layoutId={`dialog-title-${item.id}`}>
+              <m.h1 className='absolute bottom-3 left-4 2xl:text-2xl text-xl font-semibold'>
                 {item?.title}
-              </motion.h1>
-            </motion.div>
+              </m.h1>
+            </m.div>
 
             <button className='absolute bottom-2 right-2 p-2 text-white dark:bg-black bg-neutral-400 hover:bg-neutral-500 rounded-xl dark:hover:bg-neutral-800'>
               <Plus className='2xl:w-8 w-6 2xl:h-8 h-6' />
             </button>
-          </motion.article>
+          </m.article>
         );
       })}
-    </motion.div>
+    </m.div>
   );
 }
 export default function HomeAccordionModal() {
@@ -102,7 +98,7 @@ export default function HomeAccordionModal() {
 
         <AnimatePresence initial={false} mode='sync'>
           {open && (
-            <motion.div
+            <m.div
               variants={{ open: { opacity: 1 }, closed: { opacity: 0 } }}
               initial='closed'
               animate='open'
@@ -116,7 +112,7 @@ export default function HomeAccordionModal() {
               }}
             >
               <>
-                <motion.div
+                <m.div
                   key='dialog'
                   layoutId={`dialog-${currentItem.id}`}
                   onClick={(e) => e.stopPropagation()}
@@ -130,7 +126,7 @@ export default function HomeAccordionModal() {
                   >
                     <X className='w-6 h-6' />
                   </button>
-                  <motion.img
+                  <m.img
                     layoutId={`dialog-img-${currentItem.id}`}
                     src={currentItem.url.src}
                     width={400}
@@ -138,15 +134,15 @@ export default function HomeAccordionModal() {
                     alt='single-image'
                     className='rounded-md h-fit  w-full object-cover'
                   />
-                  <motion.div
+                  <m.div
                     layout='position'
                     layoutId={`dialog-title-${currentItem.id}`}
                   >
-                    <motion.h1 className='text-4xl font-semibold'>
+                    <m.h1 className='text-4xl font-semibold'>
                       {currentItem.title}
-                    </motion.h1>
-                  </motion.div>
-                  <motion.p
+                    </m.h1>
+                  </m.div>
+                  <m.p
                     key={currentItem.id}
                     initial={{
                       scale: 1,
@@ -159,10 +155,10 @@ export default function HomeAccordionModal() {
                     className='sm:text-sm text-xs  py-2'
                   >
                     {currentItem.description}
-                  </motion.p>
-                </motion.div>
+                  </m.p>
+                </m.div>
               </>
-            </motion.div>
+            </m.div>
           )}
         </AnimatePresence>
       </MotionConfig>
