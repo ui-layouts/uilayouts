@@ -53,7 +53,7 @@ function HomeAccordion() {
         <div className='h-fit border   rounded-lg p-2 dark:bg-[#03050c] bg-[#F2F2F2]'>
           {tabs.map((tab, index) => (
             <motion.div
-              key={item.title}
+              key={index}
               className={`overflow-hidden ${
                 index !== tabs.length - 1 ? 'border-b' : ''
               }`}
