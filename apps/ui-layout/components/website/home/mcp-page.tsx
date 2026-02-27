@@ -8,6 +8,9 @@ import Image from 'next/image';
 import { Banner } from '@/components/website/ui/banner';
 import { Github, Star } from 'lucide-react';
 import { Colors, Liquid } from '@/components/ui/liquid-gradient';
+import { Container } from '@/components/ui/container';
+import { cn } from '@/lib/utils';
+import { GapPattern } from '@/components/ui/gap-pattern';
 
 const COLORS: Colors = {
   color1: '#FFFFFF',
@@ -32,16 +35,51 @@ function McpPage() {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <>
+    <Container className='min-h-screen'>
+      <div className='relative bg-black'>
+        <div
+          className={cn(
+            'border-b dark:border-neutral-700 w-full dark:bg-neutral-900 bg-white h-12',
+            'absolute top-0 left-0 ',
+            'dark:bg-[repeating-linear-gradient(135deg,#2f2f2f_0px_1px,transparent_1px_10px)] bg-[repeating-linear-gradient(135deg,#f0f0f0_0px_1px,transparent_1px_10px)]'
+          )}
+        />
+        <Banner
+          variant='rainbow'
+          className='h-11 md:text-base sm:text-sm text-xs bg-transparent dark:bg-transparent'
+        >
+          <p className='group-hover:underline underline-offset-4 flex flex-wrap gap-1 items-center'>
+            <picture>
+              <source
+                srcSet='https://fonts.gstatic.com/s/e/notoemoji/latest/1f680/512.webp'
+                type='image/webp'
+              />
+              <img
+                src='https://fonts.gstatic.com/s/e/notoemoji/latest/1f680/512.gif'
+                alt='🚀'
+                className='w-6 h-6'
+                width='32'
+                height='32'
+              />
+            </picture>
+            Ship faster with{' '}
+            <span className='font-semibold'>UI-Layouts Pro</span>
+            <span className='md:inline-block hidden'>
+              – 100+ production-ready blocks waiting for you
+            </span>
+          </p>
+          <ArrowUpRight
+            className='size-5 ml-1 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200 ease-out shrink-0'
+            strokeWidth={2}
+          />
+        </Banner>
+      </div>
       <HomeHeader />
       <main className='relative pb-8'>
-        <section className='2xl:py-16 xl:py-20 sm:pb-24 pb-16 pt-6 relative'>
-          <div className='w-full absolute h-[113.625vh] z-0 overflow-hidden left-0 -top-32'>
-            <div className='hero-gradient1 ' data-border='true'></div>
-            <div className='hero-gradient2' data-border='true'></div>
-          </div>
-          <div className='2xl:container 2xl:px-0 px-4 mx-auto relative z-10'>
-            <article className='grid gap-6 2xl:pt-14 pt-10 xl:pb-0 pb-6 sm:px-0 px-4'>
+        <GapPattern className='2xl:h-20 lg:h-16 h-16' />
+        <section className='relative'>
+          <div className='2xl:p-10 p-5 relative z-10'>
+            <article className='grid gap-6 xl:pb-0 pb-6 sm:px-0 px-4'>
               <a
                 href={'https://github.com/ui-layouts/mcp'}
                 className='inline-flex w-fit mx-auto items-center gap-1 rounded-full  bg-[#334cec] border-4 shadow-[#6175f8] py-0.5 px-2 text-xs'
@@ -69,7 +107,7 @@ function McpPage() {
                 Real UI Components
                 <br />
                 <span className='bg-linear-to-t from-blue-400 to-blue-600 bg-clip-text text-transparent'>
-                  for AI Code Editors
+                  for Vibe Coder
                 </span>
               </h1>
 
@@ -239,42 +277,43 @@ function McpPage() {
                   </div>
                 </div>
               </div>
-              {/* Feature grid */}
-              <div className='grid grid-cols-2 sm:grid-cols-4 gap-3 mt-10 max-w-4xl mx-auto'>
-                {[
-                  {
-                    title: 'Search Components',
-                    desc: 'Find UI by name, tag, or intent',
-                  },
-                  {
-                    title: 'Read Docs',
-                    desc: 'AI understands usage before coding',
-                  },
-                  {
-                    title: 'Fetch Metadata',
-                    desc: 'Context-aware component reasoning',
-                  },
-                  {
-                    title: 'Get Source Code',
-                    desc: 'Real React / TypeScript, not guesses',
-                  },
-                ].map((item, i) => (
-                  <div
-                    key={item.title}
-                    className='rounded-xl border shadow-2xl dark:border-neutral-800 bg-white/70 dark:bg-neutral-900/60 backdrop-blur p-4 text-center'
-                  >
-                    <div className='font-semibold'>{item.title}</div>
-                    <div className='text-xs dark:text-neutral-300 text-neutral-500 mt-2'>
-                      {item.desc}
-                    </div>
-                  </div>
-                ))}
-              </div>
             </article>
+          </div>
+          <GapPattern />
+          {/* Feature grid */}
+          <div className='grid grid-cols-2 sm:grid-cols-4 gap-3 mt-10 max-w-4xl mx-auto'>
+            {[
+              {
+                title: 'Search Components',
+                desc: 'Find UI by name, tag, or intent',
+              },
+              {
+                title: 'Read Docs',
+                desc: 'AI understands usage before coding',
+              },
+              {
+                title: 'Fetch Metadata',
+                desc: 'Context-aware component reasoning',
+              },
+              {
+                title: 'Get Source Code',
+                desc: 'Real React / TypeScript, not guesses',
+              },
+            ].map((item, i) => (
+              <div
+                key={item.title}
+                className='rounded-xl border font-dmSans dark:border-neutral-800 bg-white/70 dark:bg-neutral-900/60 backdrop-blur p-4 text-center'
+              >
+                <div className='font-semibold'>{item.title}</div>
+                <div className='text-sm dark:text-neutral-300 text-neutral-500 mt-1'>
+                  {item.desc}
+                </div>
+              </div>
+            ))}
           </div>
         </section>
       </main>
-    </>
+    </Container>
   );
 }
 

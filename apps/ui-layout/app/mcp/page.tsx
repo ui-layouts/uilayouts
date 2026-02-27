@@ -3,13 +3,8 @@ import McpPage from '@/components/website/home/mcp-page';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: {
-    default: 'UI-Layouts MCP',
-    template: '%s · UI-Layouts',
-  },
-  metadataBase: new URL('https://ui-layouts.com/mcp'),
-  description:
-    'UI-Layouts MCP exposes real UI components, documentation, and source code to AI editors like Cursor and Claude, reducing hallucinations and improving AI-assisted frontend workflows.',
+  title: 'UI-Layouts MCP',
+  description: 'Real UI Components for Vibe Coder',
   keywords: [
     'UI-Layouts MCP',
     'Model Context Protocol',
