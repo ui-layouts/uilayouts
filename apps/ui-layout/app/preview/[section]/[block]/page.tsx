@@ -19,6 +19,10 @@ export async function generateMetadata({
     title: `${blockData.name} | ${sectionData?.name} | UI Layouts`,
     description: blockData.des,
     keywords: blockData.tags || [],
+    robots: {
+      index: false,
+      follow: false,
+    },
   };
 }
 

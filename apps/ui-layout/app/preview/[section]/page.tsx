@@ -1,3 +1,12 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
+
 export default async function PreviewSectionPage(props: {
   params: Promise<{ section?: string }>;
 }) {

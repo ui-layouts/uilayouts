@@ -44,6 +44,9 @@ export async function generateMetadata(props: {
     creator: '@naymur_dev',
     publisher: 'UI Layouts',
     category: 'technology',
+    alternates: {
+      canonical: absoluteUrl(doc.slug),
+    },
     openGraph: {
       title: `${title} | UI Layouts`,
       description: description,
@@ -63,6 +66,7 @@ export async function generateMetadata(props: {
 
     twitter: {
       card: 'summary_large_image',
+      site: '@naymur_dev',
       title: `${title} | UI Layouts`,
       description: description,
       images: [

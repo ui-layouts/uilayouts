@@ -15,6 +15,8 @@ export default function robots(): MetadataRoute.Robots {
           '/favicon.ico',
           '/robots.txt',
           '/llms.txt',
+          '/llms-full.txt',
+          '/ai.txt',
           '/sitemap.xml',
         ],
         disallow: [
@@ -39,7 +41,7 @@ export default function robots(): MetadataRoute.Robots {
       },
       {
         userAgent: 'Googlebot',
-        allow: ['/', '/components', '/blocks', '/api/og', '/og'],
+        allow: ['/', '/components', '/blocks', '/api/og', '/og', '/llms.txt', '/llms-full.txt', '/ai.txt'],
         disallow: ['/admin', '/api/admin', '/search', '/preview'],
         crawlDelay: 0.5,
       },
@@ -93,7 +95,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/admin', '/api'],
       },
     ],
-    sitemap: 'https://ui-layouts.com/sitemap.xml',
-    host: 'https://ui-layouts.com',
+    sitemap: 'https://www.ui-layouts.com/sitemap.xml',
+    host: 'https://www.ui-layouts.com',
   };
 }

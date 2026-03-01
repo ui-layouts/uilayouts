@@ -4,6 +4,10 @@ import { siteConfig } from '@/lib/utils';
 import React from 'react';
 
 export const metadata = {
+  metadataBase: new URL(siteConfig.url),
+  alternates: {
+    canonical: '/work-with-us',
+  },
   title: 'Work With Us | UI Layouts',
   description:
     'We’re open-source, but now we’re taking on custom projects. Partner with UI Layouts Pro to build bespoke websites, premium UI designs, and tailored digital solutions — crafted with Tailwind CSS and React.',
@@ -31,7 +35,7 @@ export const metadata = {
       {
         url:
           siteConfig.workWithUsOgImage ||
-          'https://ui-layouts.com/work-with-us-og.jpg',
+          'https://www.ui-layouts.com/work-with-us-og.jpg',
         width: 1200,
         height: 630,
         alt: 'Work With Us | UI Layouts',
@@ -40,6 +44,7 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
+    site: '@naymur_dev',
     title: 'Work With Us | UI Layouts Pro',
     description:
       'Partner with UI Layouts Pro for custom UI design, bespoke web solutions, and React + Tailwind expertise.',

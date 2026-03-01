@@ -3,6 +3,10 @@ import McpPage from '@/components/website/home/mcp-page';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.ui-layouts.com'),
+  alternates: {
+    canonical: '/mcp',
+  },
   title: 'UI-Layouts MCP',
   description: 'Real UI Components for Vibe Coder',
   keywords: [
@@ -39,14 +43,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://ui-layouts.com/mcp',
+    url: 'https://www.ui-layouts.com/mcp',
     title: 'UI-Layouts MCP',
     description:
       'Give AI editors real UI context. UI-Layouts MCP lets tools like Cursor and Claude read components, docs, and source code instead of hallucinating UI.',
     siteName: 'UI-Layouts',
     images: [
       {
-        url: 'https://ui-layouts.com/mcp.png',
+        url: 'https://www.ui-layouts.com/mcp.png',
         width: 1200,
         height: 630,
         alt: 'UI-Layouts MCP',
@@ -55,10 +59,11 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
+    site: '@naymur_dev',
     title: 'UI-Layouts MCP',
     description:
       'A Model Context Protocol for frontend developers. Let AI editors read real UI components and documentation.',
-    images: ['https://ui-layouts.com/mcp.png'],
+    images: ['https://www.ui-layouts.com/mcp.png'],
     creator: '@naymur_dev',
   },
   icons: {
@@ -66,7 +71,7 @@ export const metadata: Metadata = {
     shortcut: '/favicon-16x16.png',
     apple: '/apple-touch-icon.png',
   },
-  manifest: 'https://ui-layouts.com/site.webmanifest',
+  manifest: 'https://www.ui-layouts.com/site.webmanifest',
 };
 
 function page() {

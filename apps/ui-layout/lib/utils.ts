@@ -6,7 +6,8 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function absoluteUrl(path: string) {
-  return `${process.env.NEXT_PUBLIC_CLIENT_URL}${path}`;
+  const base = process.env.NEXT_PUBLIC_CLIENT_URL || siteConfig.url;
+  return `${base}${path}`;
 }
 
 function debounce(
@@ -53,8 +54,8 @@ export function throttle(fn: (...args: any[]) => any, wait: number) {
 export const siteConfig = {
   name: 'Ui-Layouts | Your Frontend Universe',
   blocksName: 'Blocks | Ship faster with ready blocks',
-  url: 'https://ui-layouts.com',
-  blocksUrl: 'https://ui-layouts.com/blocks',
+  url: 'https://www.ui-layouts.com',
+  blocksUrl: 'https://www.ui-layouts.com/blocks',
   ogImage: 'https://www.ui-layouts.com/og.jpg',
   BlocksOgImage: 'https://www.ui-layouts.com/blocks-og.jpg',
   workWithUsOgImage: 'https://www.ui-layouts.com/work-with-usog.jpg',

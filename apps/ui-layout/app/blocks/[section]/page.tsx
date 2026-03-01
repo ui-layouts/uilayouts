@@ -52,11 +52,11 @@ export async function generateMetadata({
   const description = sectionData.des;
   const keywords = sectionData.tags || [];
 
-  const canonical = `https://ui-layouts.com${sectionData.url || `/blocks/${sectionData.id}`}`;
+  const canonical = `https://www.ui-layouts.com${sectionData.url || `/blocks/${sectionData.id}`}`;
   const ogImage = `/og?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`;
 
   return {
-    metadataBase: new URL('https://ui-layouts.com'),
+    metadataBase: new URL('https://www.ui-layouts.com'),
     title,
     description,
     keywords,
@@ -84,6 +84,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: 'summary_large_image',
+      site: '@naymur_dev',
       title,
       description,
       images: [ogImage],
@@ -118,11 +119,11 @@ export default async function SectionPage(props: {
       />
       <BreadcrumbStructuredData
         items={[
-          { name: 'Home', url: 'https://ui-layouts.com' },
-          { name: 'Blocks', url: 'https://ui-layouts.com/blocks' },
+          { name: 'Home', url: 'https://www.ui-layouts.com' },
+          { name: 'Blocks', url: 'https://www.ui-layouts.com/blocks' },
           {
             name: sectionData.name,
-            url: `https://ui-layouts.com/blocks/${sectionData.id}`,
+            url: `https://www.ui-layouts.com/blocks/${sectionData.id}`,
           },
         ]}
       />

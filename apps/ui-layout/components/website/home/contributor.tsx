@@ -41,9 +41,9 @@ export default function Contributors() {
     <section className='relative py-20 xl:pb-52 sm:pb-32 px-4'>
       <div className='absolute top-0 left-0 w-full h-full dark:bg-[radial-gradient(125%_125%_at_50%_10%,#050505_40%,#243aff_100%)] bg-[radial-gradient(125%_125%_at_50%_10%,#ffffff_40%,#243aff_100%)]'></div>
       <article className='space-y-4 relative z-10'>
-        <h1 className='md:text-5xl sm:text-4xl text-3xl font-medium text-center'>
+        <h2 className='md:text-5xl sm:text-4xl text-3xl font-medium text-center'>
           Open Source Heroes
-        </h1>
+        </h2>
         <p className='text-center max-w-lg mx-auto text-muted-foreground'>
           UI-Layouts thrives thanks to our incredible contributors. Every idea,
           PR, and improvement helps shape a library that developers love.

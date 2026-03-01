@@ -1,5 +1,8 @@
 # ui-layouts
 
+> Canonical: https://www.ui-layouts.com
+> Extended index: https://www.ui-layouts.com/llms-full.txt
+
 > ui-layouts is a collection of beautifully-designed, accessible components and a code distribution platform. It is built with TypeScript, Tailwind CSS, and modern React patterns. It supports multiple frameworks including Next.js, Vite, Remix, Astro, and more. Open Source. Open Code. AI-Ready. It also comes with a command-line tool to install and manage components and a registry system to publish and distribute code.
 
 ## Overview
