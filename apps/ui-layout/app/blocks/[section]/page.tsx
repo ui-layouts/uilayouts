@@ -148,7 +148,7 @@ export default async function SectionPage(props: {
             </h1>
             <p className='text-xs sm:text-sm'>{sectionData.des}</p>
           </div>
-          <div className='absolute -top-14 right-0 sm:opacity-100 opacity-30 flex items-center xl:gap-2 gap-0'>
+          <div className='absolute -top-14 right-0 md:flex hidden items-center xl:gap-2 gap-0'>
             <div className='w-fit mx-auto xl:scale-90 scale-80 xl:translate-x-10 translate-x-20'>
               <CarbonAd />
             </div>
