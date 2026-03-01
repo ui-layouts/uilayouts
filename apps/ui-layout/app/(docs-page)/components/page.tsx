@@ -585,7 +585,7 @@ const appsDesign = [
 export const metadata = {
   metadataBase: new URL('https://ui-layouts.com'),
 
-  title: 'Components | Ui-Layouts',
+  title: 'Components | UI-Layouts',
   description:
     'A collection of 60+ beautifully designed, accessible, and customizable UI components built with React, Next.js, and TailwindCSS. Copy and paste into your apps to build modern interfaces faster. 100% open source.',
   keywords: [

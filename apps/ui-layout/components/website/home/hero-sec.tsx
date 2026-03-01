@@ -1,5 +1,11 @@
 'use client';
-import { ArrowRight, Blocks, Component, LayoutPanelTop } from 'lucide-react';
+import {
+  ArrowRight,
+  Blocks,
+  Component,
+  LayoutPanelTop,
+  Verified,
+} from 'lucide-react';
 import React from 'react';
 import NewItemsLoading from './new-items-loading';
 import Image from 'next/image';
@@ -9,6 +15,7 @@ import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import Contributors from './contributor';
 import { GapPattern } from '@/components/ui/gap-pattern';
+import { Marquee } from '@/components/ui/marquee';
 
 const allProjects = [
   {
@@ -142,6 +149,245 @@ export const profiles: Profile[] = [
     translateX: '-translate-x-16',
   },
 ];
+const allReviews = [
+  {
+    name: 'Victor',
+    username: '@victor_bigfield',
+    body: 'love this minimalist style',
+    img: 'https://pbs.twimg.com/profile_images/1975096625908330496/ZbxREwTa_400x400.jpg',
+    url: 'https://x.com/victor_bigfield/status/2023364369115922822',
+    bluetick: true,
+  },
+  {
+    name: 'OrcDev',
+    username: '@orcdev',
+    body: "let's go! new blood ⚔️",
+    img: 'https://pbs.twimg.com/profile_images/1756766826736893952/6Gvg6jha_400x400.jpg',
+    url: 'https://x.com/orcdev/status/2023364747773583716',
+    bluetick: true,
+  },
+  {
+    name: 'Vijoy Bansal',
+    username: '@iamvijaybansal',
+    body: 'Looking good',
+    img: 'https://pbs.twimg.com/profile_images/1912549376255541248/9hcavuow_400x400.jpg',
+    url: 'https://x.com/iamvijaybansal/status/2023711286748737926',
+  },
+  {
+    name: 'Terry Carson',
+    username: '@mrterrycarson',
+    body: 'Great looking and very nice one to have. Thanks for the work. 👍',
+    img: 'https://pbs.twimg.com/profile_images/833004663142117377/SjMv4aVQ_400x400.jpg',
+    bluetick: true,
+    url: 'https://x.com/mrterrycarson/status/2023463108598186400',
+  },
+  {
+    name: 'Pankaj Kumar',
+    username: '@pankajkumar_dev',
+    body: 'Great work dude',
+    img: 'https://pbs.twimg.com/profile_images/1890456101507985409/OfN0Ljnv_400x400.jpg',
+    bluetick: true,
+    url: 'https://x.com/pankajkumar_dev/status/2023387010896114130',
+  },
+  {
+    name: 'Kartik',
+    username: '@code_kartik',
+    body: 'this is really good man. great work',
+    img: 'https://pbs.twimg.com/profile_images/2002424842470203392/4ZusYS4Y_400x400.jpg',
+    url: 'https://x.com/code_kartik/status/2023366982574444938',
+    bluetick: true,
+  },
+  {
+    name: 'Victor',
+    username: '@victor_bigfield',
+    body: 'Great job',
+    img: 'https://pbs.twimg.com/profile_images/1975096625908330496/ZbxREwTa_400x400.jpg',
+    url: 'https://x.com/victor_bigfield/status/2023622658665664512',
+    bluetick: true,
+  },
+
+  {
+    name: 'Daniele Packard',
+    username: '@daniele_packard',
+    body: 'Looks very slick - congrats!',
+    img: 'https://pbs.twimg.com/profile_images/1405592040482557953/z7CVJ6S__400x400.jpg',
+    url: 'https://x.com/daniele_packard/status/2023371798943801679',
+    bluetick: true,
+  },
+
+  {
+    name: 'Karan',
+    username: '@karankendre',
+    body: "Let's gooo",
+    img: 'https://pbs.twimg.com/profile_images/2013089198891487232/bDaheG7c_400x400.jpg',
+    url: 'https://x.com/karankendre/status/2023358830109933698',
+    bluetick: true,
+  },
+  {
+    name: 'Sayan',
+    username: '@thesayannayak',
+    body: 'This is really good !!',
+    img: 'https://pbs.twimg.com/profile_images/2005944394793553920/_bh9Oy_F_400x400.jpg',
+    url: 'https://x.com/thesayannayak/status/2023353700400730257',
+    bluetick: true,
+  },
+  {
+    name: 'Dikshit',
+    username: '@mahanot_dikshit',
+    body: 'Damn! Every component looks so fking clean 🔥🔥.',
+    img: 'https://pbs.twimg.com/profile_images/2026927974885502978/1gsg2Vif_400x400.jpg',
+    url: 'https://x.com/mahanot_dikshit/status/2023353268966195503',
+    bluetick: true,
+  },
+  {
+    name: 'Abdullah Mukadam',
+    username: '@abd_mukadam',
+    body: 'Great work bro 💯',
+    img: 'https://pbs.twimg.com/profile_images/1954474570976559105/FI8Owtet_400x400.jpg',
+    url: 'https://x.com/abd_mukadam/status/2023426054443213290',
+  },
+  {
+    name: 'Vanshika',
+    username: '@vanyaSile',
+    body: 'Woah! Good work 👏',
+    img: 'https://pbs.twimg.com/profile_images/1995909741743321088/RIbQIVVx_400x400.jpg',
+    url: 'https://x.com/vanyaSile/status/2023371872776421637',
+    bluetick: true,
+  },
+  {
+    name: 'Byron Dittman',
+    username: '@freestacktpl',
+    body: 'This is a great resource, thanks for sharing! The 3D effects look especially cool. Definitely saving this for my next project.',
+    img: 'https://pbs.twimg.com/profile_images/2009873016377757696/OU5pg0vH_400x400.jpg',
+    url: 'https://x.com/freestacktpl/status/2009520122659062175',
+    bluetick: true,
+  },
+  {
+    name: 'ctran.eth',
+    username: '@ctranbtw',
+    body: 'Really sharp rollout, UI-Layouts nails that balance between speed and polish..',
+    img: 'https://pbs.twimg.com/profile_images/1540521701636820992/4lxSJG0X_400x400.jpg',
+    url: 'https://x.com/ctranbtw/status/2016686705210716473',
+    bluetick: true,
+  },
+  {
+    name: 'Saïd Aitmbarek',
+    username: '@SaidAitmbarek',
+    body: 'dope platform for inspiration',
+    img: 'https://pbs.twimg.com/profile_images/1891564978177454080/YzRSDzkw_400x400.jpg',
+    url: 'https://x.com/SaidAitmbarek/status/2016982912978108603',
+    bluetick: true,
+  },
+  {
+    name: 'RicoUI',
+    username: '@ricouii',
+    body: 'Thanks to my friend’s recommendation for the treasure trove ui-layouts, the aesthetics and design are exceptionally excellent',
+    img: 'https://pbs.twimg.com/profile_images/1890332571105693696/PUB5_Lvj_400x400.jpg',
+    url: 'https://x.com/ricouii/status/1956992888023417163',
+    bluetick: true,
+  },
+  {
+    name: 'HarjjotSinghh',
+    username: '@HarjjotSinghh',
+    body: 'this is unreasonably cool actually.',
+    reddit: true,
+    url: 'https://www.reddit.com/r/tailwindcss/comments/1r8tvp3/introducing_uilayouts_blocks/',
+    bluetick: true,
+  },
+  {
+    name: 'Ashishgogula',
+    username: '@Ashishgogula',
+    body: 'Impressive!',
+    reddit: true,
+    url: 'https://www.reddit.com/r/shadcn/comments/1r73or3/introducing_uilayouts_blocks/',
+    bluetick: true,
+  },
+  {
+    name: 'techlove99',
+    username: '@techlove99',
+    body: 'This is good. You deserve a big hug for making it open source',
+    reddit: true,
+    url: 'https://www.reddit.com/r/react/comments/1rce23g/i_made_75_creative_blocks_for_developers/',
+  },
+];
+
+// ReviewCard Component
+const ReviewCard = ({
+  name,
+  username,
+  body,
+  img,
+  url,
+  bluetick,
+  reddit,
+}: {
+  name: string;
+  username: string;
+  body: string;
+  img?: string;
+  url: string;
+  bluetick?: boolean;
+  reddit?: boolean;
+}) => {
+  const platformIcon = reddit ? (
+    <Image src='/reddit.svg' alt='reddit' width={20} height={20} />
+  ) : (
+    <svg fill='none' viewBox='0 0 1200 1227' className='w-5 h-5'>
+      <path
+        fill='currentColor'
+        d='M714.163 519.284 1160.89 0h-105.86L667.137 450.887 357.328 0H0l468.492 681.821L0 1226.37h105.866l409.625-476.152 327.181 476.152H1200L714.137 519.284h.026ZM569.165 687.828l-47.468-67.894-377.686-540.24h162.604l304.797 435.991 47.468 67.894 396.2 566.721H892.476L569.165 687.854v-.026Z'
+      />
+    </svg>
+  );
+
+  const avatarContent = img ? (
+    <Image
+      src={img}
+      alt={name}
+      width={40}
+      height={40}
+      className='w-10 h-10 rounded-full object-cover'
+    />
+  ) : (
+    <div className='w-10 h-10 bg-linear-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-sm'>
+      {name.charAt(0).toUpperCase()}
+    </div>
+  );
+
+  return (
+    <a
+      href={url}
+      target='_blank'
+      rel='noopener noreferrer'
+      className='shrink-0 w-80 dark:bg-neutral-900 bg-neutral-50 border p-4 relative transition-all duration-300 hover:scale-105 mx-2'
+    >
+      <div className='flex items-center mb-3'>
+        {avatarContent}
+        <div className='ml-3 flex-1'>
+          <div className='flex items-center gap-1'>
+            <span className='font-semibold text-sm'>{name}</span>
+            {bluetick && !reddit && (
+              <Verified className='w-3 h-3 text-blue-500 fill-current' />
+            )}
+          </div>
+          <div className='text-xs text-muted-foreground'>{username}</div>
+        </div>
+        <div className='ml-auto'>{platformIcon}</div>
+      </div>
+      <p className='text-sm leading-relaxed text-gray-600 dark:text-gray-300 line-clamp-3'>
+        {body}
+      </p>
+    </a>
+  );
+};
+
+// const trustedCompanies = [
+//   {
+//     name: 'Paypal',
+//     url: 'https://www.paypal.com/',
+//     img: 'https://upload.wikimedia.org/wikipedia/commons/0/0e/PayPal_2024_%28Icon%29.svg',
+//   },
+// ];
 
 function HeroSec({ blocksData }: { blocksData: any[] }) {
   return (
@@ -157,7 +403,7 @@ function HeroSec({ blocksData }: { blocksData: any[] }) {
               </span>
               <br />
               <span className=''>& Blocks for</span>
-              <span className='dark:bg-neutral-800 ml-2 bg-neutral-50 mt-3 relative rounded-md w-fit leading-[100%] inline-block px-1.5 py-0.5 border before:absolute before:top-0 before:left-0 before:w-full before:h-full before:content-[""] before:opacity-[0.09] before:z-10 before:pointer-events-none before:bg-[url("/noise.gif")]'>
+              <span className='dark:bg-neutral-800 ml-2 bg-neutral-50 mt-3 relative  w-fit leading-[100%] inline-block px-1.5 py-0.5 border before:absolute before:top-0 before:left-0 before:w-full before:h-full before:content-[""] before:opacity-[0.09] before:z-10 before:pointer-events-none before:bg-[url("/noise.gif")]'>
                 <span className='bg-linear-to-t from-blue-400 to-blue-600 bg-clip-text text-transparent font-semibold pr-1'>
                   Developer
                 </span>
@@ -171,13 +417,13 @@ function HeroSec({ blocksData }: { blocksData: any[] }) {
             <div className='flex gap-2 justify-center items-center'>
               <a
                 href='https://pro.ui-layouts.com/blocks'
-                className='flex items-center gap-2 w-fit sm:text-xl text-sm rounded-md shadow-lg shadow-orange-600 text-white bg-linear-to-b from-orange-500  to-orange-600 sm:px-4 px-2 py-3'
+                className='flex items-center gap-2 w-fit sm:text-xl text-sm shadow-lg shadow-orange-600 text-white bg-linear-to-b from-orange-500  to-orange-600 sm:px-4 px-2 py-3'
               >
                 <Blocks className='sm:w-6 sm:h-6 h-5 w-5' /> Premium Blocks
               </a>
               <a
                 href='/components'
-                className='flex items-center gap-2 w-fit sm:text-xl text-sm rounded-md dark:shadow-none shadow-lg shadow-neutral-300 text-primary dark:border dark:bg-neutral-900 sm:px-4 px-2 py-3'
+                className='flex items-center gap-2 w-fit sm:text-xl text-sm dark:shadow-none shadow-lg shadow-neutral-300 text-primary dark:border dark:bg-neutral-900 sm:px-4 px-2 py-3'
               >
                 <Component className='sm:w-6 sm:h-6 h-5 w-5' /> Browse Component
               </a>
@@ -189,14 +435,14 @@ function HeroSec({ blocksData }: { blocksData: any[] }) {
                     key={profile.href}
                     href={profile.href}
                     target='_block'
-                    className={`dark:bg-neutral-800 bg-neutral-50 p-1 shrink-0 rounded-full relative z-1 hover:z-2 ${profile.translateX}`}
+                    className={`dark:bg-neutral-800 bg-neutral-50 p-1 shrink-0 relative z-1 hover:z-2 ${profile.translateX}`}
                   >
                     <Image
                       src={profile.src}
                       alt={profile.alt}
                       width={300}
                       height={300}
-                      className='2xl:w-12 2xl:h-12 xl:w-10 w-8 h-8 xl:h-10 rounded-full'
+                      className='2xl:w-12 2xl:h-12 xl:w-10 w-8 h-8 xl:h-10'
                     />
                   </a>
                 ))}
@@ -282,7 +528,19 @@ function HeroSec({ blocksData }: { blocksData: any[] }) {
           </article>
 
           <GapPattern />
-          <div className='flex flex-wrap justify-center items-center md:p-5 p-2 lg:gap-10 gap-5'>
+          {/* Twitter Feedback Section */}
+          <div className='relative py-10'>
+            <div className='relative flex h-full w-full flex-col items-center justify-center overflow-hidden'>
+              <Marquee pauseOnHover className='[--duration:60s]'>
+                {allReviews.map((review) => (
+                  <ReviewCard key={review.username} {...review} />
+                ))}
+              </Marquee>
+              <div className='pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-linear-to-r from-white dark:from-neutral-950'></div>
+              <div className='pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-linear-to-l from-white dark:from-neutral-950'></div>
+            </div>
+          </div>
+          {/* <div className='flex flex-wrap justify-center items-center md:p-5 p-2 lg:gap-10 gap-5'>
             <a
               href='https://peerlist.io/naymurr/project/blocks--uilayouts'
               target='_blank'
@@ -306,7 +564,7 @@ function HeroSec({ blocksData }: { blocksData: any[] }) {
                 src='https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1080712&amp;theme=light&amp;t=1771315535340'
               />
             </a>
-          </div>
+          </div> */}
           <GapPattern />
           <div className='grid grid-cols-3 relative'>
             {allProjects.map((project, index) => (
@@ -333,15 +591,11 @@ function HeroSec({ blocksData }: { blocksData: any[] }) {
                           <feTurbulence
                             type='fractalNoise'
                             baseFrequency='0.6'
-                                numOctaves='4'
-                              />
-                            </filter>
-                          </defs>
-                          <rect
-                            width='100%'
-                            height='100%'
-                            filter='url(#noise6)'
+                            numOctaves='4'
                           />
+                        </filter>
+                      </defs>
+                      <rect width='100%' height='100%' filter='url(#noise6)' />
                     </svg>
                     <div className='mb-4 flex 2xl:h-72 lg:h-60 md:h-48 h-6 xl:px-8 relative z-10 items-center justify-center'>
                       {project.componentSrc?.()}

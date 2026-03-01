@@ -28,6 +28,7 @@ import { Container } from '@/components/ui/container';
 import HomeFooter from '@/components/website/home/home-footer';
 import { StructuredData } from '@/components/seo/structured-data';
 import { BreadcrumbStructuredData } from '@/components/seo/breadcrumb-structured-data';
+import CarbonAd from '@/components/website/carbon-ads';
 
 export const dynamic = 'force-static';
 export const dynamicParams = false;
@@ -126,13 +127,13 @@ export default async function SectionPage(props: {
         ]}
       />
       <TableOfContents />
-      <Container className='pb-10 pt-32 -mt-20'>
+      <Container className='pb-10 pt-28 -mt-20'>
         <article
-          className='2xl:max-w-7xl xl:max-w-5xl lg:max-w-4xl relative overflow-hidden
-       mx-auto border dark:border-neutral-800 bg-linear-to-r from-neutral-100 to-neutral-50 dark:from-neutral-800 dark:to-neutral-900 p-6 2xl:w-[90%]'
+          className='2xl:max-w-7xl w-full relative overflow-hidden
+       mx-auto border dark:border-neutral-800 bg-linear-to-r from-neutral-100 to-neutral-50 dark:from-neutral-800 dark:to-neutral-900 p-6 2xl:w-[90%] flex items-center'
         >
           <div className='absolute bottom-0 left-0 right-0 top-0 dark:bg-[radial-gradient(#ededed33_1px,#171717_1px)] bg-[radial-gradient(#0000001a_1px,#f8fafc_1px)] bg-size-[16px_16px] mask-[radial-gradient(ellipse_85%_55%_at_100%_0%,#000_70%,transparent_110%)]'></div>
-          <div className='space-y-2 relative z-4'>
+          <div className='space-y-2 relative z-4 w-fit'>
             <div className='flex items-center text-primary/70'>
               <Link href='/blocks' className='hover:underline flex gap-1'>
                 blocks
@@ -147,13 +148,20 @@ export default async function SectionPage(props: {
             </h1>
             <p className='text-xs sm:text-sm'>{sectionData.des}</p>
           </div>
-          <a
-            href='https://pro.ui-layouts.com/pricing'
-            target='_blank'
-            className='absolute -top-12 right-0 sm:opacity-100 opacity-30'
-          >
-            <Image src='/50off.png' className='w-72 h-full' alt='' width={288} height={96} />
-          </a>
+          <div className='absolute -top-14 right-0 sm:opacity-100 opacity-30 flex items-center xl:gap-2 gap-0'>
+            <div className='w-fit mx-auto xl:scale-90 scale-80 xl:translate-x-10 translate-x-20'>
+              <CarbonAd />
+            </div>
+            <a href='https://pro.ui-layouts.com/pricing' target='_blank'>
+              <Image
+                src='/get-pro.png'
+                className='w-72 h-full'
+                alt=''
+                width={288}
+                height={96}
+              />
+            </a>
+          </div>
         </article>
       </Container>
       {/* BLOCKS */}
