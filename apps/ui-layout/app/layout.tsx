@@ -33,9 +33,6 @@ export const manrope = Manrope({
 export const metadata: Metadata = {
   title: siteConfig.name,
   metadataBase: new URL(siteConfig.url),
-  alternates: {
-    canonical: '/',
-  },
   description: siteConfig.description,
   keywords: [
     'Next.js',
