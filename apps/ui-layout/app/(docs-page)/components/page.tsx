@@ -583,9 +583,12 @@ const appsDesign = [
 ];
 
 export const metadata = {
-  metadataBase: new URL('https://ui-layouts.com'),
+  metadataBase: new URL('https://www.ui-layouts.com'),
 
   title: 'Components | UI-Layouts',
+  alternates: {
+    canonical: '/components',
+  },
   description:
     'A collection of 60+ beautifully designed, accessible, and customizable UI components built with React, Next.js, and TailwindCSS. Copy and paste into your apps to build modern interfaces faster. 100% open source.',
   keywords: [
@@ -617,10 +620,10 @@ export const metadata = {
     title: 'Components | Ui-Layouts',
     description:
       '60+ open-source React, Next.js, and TailwindCSS components. Accessible, customizable, and beautifully designed — ready to copy and paste into your apps.',
-    url: 'https://ui-layouts.com/components',
+    url: 'https://www.ui-layouts.com/components',
     images: [
       {
-        url: 'https://ui-layouts.com/component-og.jpg',
+        url: 'https://www.ui-layouts.com/component-og.jpg',
         width: 1200,
         height: 630,
         alt: 'UI Layouts Components',
@@ -632,11 +635,12 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
+    site: '@naymur_dev',
     title: 'UI Layouts Components | Ui-Layouts',
     description:
       '60+ open-source React, Next.js, and TailwindCSS components. Accessible, customizable, and beautifully designed — ready to copy and paste into your apps.',
     creator: '@naymur_dev',
-    images: ['https://ui-layouts.com/component-og.jpg'],
+    images: ['https://www.ui-layouts.com/component-og.jpg'],
   },
 };
 

@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next';
 import { getAllComponentsArray } from '@/configs/docs';
 import { getBlocksDesignMeta } from '@/blocks-docs';
 
-const baseUrl = process.env.NEXT_PUBLIC_CLIENT_URL ?? 'https://ui-layouts.com';
+const baseUrl = process.env.NEXT_PUBLIC_CLIENT_URL ?? 'https://www.ui-layouts.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();

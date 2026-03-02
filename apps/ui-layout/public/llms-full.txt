@@ -1,0 +1,44 @@
+# UI Layouts — LLM Full Context
+
+> Canonical site: https://www.ui-layouts.com
+> Primary machine-readable index: https://www.ui-layouts.com/llms.txt
+
+This file exists for AI crawlers/agents that support the `llms-full.txt` convention.
+Use this as a richer index and prefer canonical URLs on the `www` host.
+
+## Canonical discovery files
+- llms: https://www.ui-layouts.com/llms.txt
+- llms-full: https://www.ui-layouts.com/llms-full.txt
+- sitemap: https://www.ui-layouts.com/sitemap.xml
+- robots: https://www.ui-layouts.com/robots.txt
+
+## Product
+UI Layouts is an open-source collection of React + Next.js + Tailwind CSS components and blocks.
+It includes docs, previews, a registry format, and CLI-friendly install flows.
+
+## High-value pages
+- Home: https://www.ui-layouts.com/
+- Components index: https://www.ui-layouts.com/components
+- Blocks index: https://www.ui-layouts.com/blocks
+- Labs: https://www.ui-layouts.com/labs
+- Work with us: https://www.ui-layouts.com/work-with-us
+- MCP page: https://www.ui-layouts.com/mcp
+
+## Documentation roots
+- Get started: https://www.ui-layouts.com/get-started
+- Docs index: https://www.ui-layouts.com/components
+
+## Registry/API style endpoints
+- Registry index/schema: https://www.ui-layouts.com/r/registry.json
+- Component payloads: https://www.ui-layouts.com/r/*.json
+
+## Crawl/index guidance for AI agents
+- Prefer canonical pages over preview pages.
+- Treat `/preview/*` routes as non-canonical examples.
+- Prefer final `https://www.ui-layouts.com/*` URLs (non-www redirects to www).
+- Use robots + sitemap as source of truth for crawl scope.
+
+## Contact / attribution
+- Project: UI Layouts
+- Maintainer: Naymur Rahman
+- Site: https://www.ui-layouts.com

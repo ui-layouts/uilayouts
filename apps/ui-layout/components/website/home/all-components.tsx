@@ -127,7 +127,7 @@ function AllComponents() {
   return (
     <>
       <section className='relative xl:p-10 pb-5 p-5 mb-5'>
-        <h1
+        <h2
           className='xl:text-5xl md:text-4xl lg:pb-0 pb-5 sm:text-3xl text-2xl font-medium text-center flex gap-2 items-start justify-center
         '
         >
@@ -138,7 +138,7 @@ function AllComponents() {
           />
           Supercharge Your Projects with <br className='md:block hidden' />{' '}
           Ready-to-Use Components.
-        </h1>
+        </h2>
         <div className='relative grid grid-cols-14 gap-4 xl:px-0 px-3 mx-auto'>
           {homeComponents?.slice(0, 13).map((component, index) => {
             return (

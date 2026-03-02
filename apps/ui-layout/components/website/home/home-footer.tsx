@@ -135,12 +135,12 @@ function HomeFooter({
               <div className='flex items-center text-primary/70'>
                 <span className='hover:underline flex gap-1'>Pro Blocks</span>
               </div>
-              <h1 className='not-prose flex items-center gap-2 text-2xl lg:text-3xl font-medium'>
+              <h2 className='not-prose flex items-center gap-2 text-2xl lg:text-3xl font-medium'>
                 {/* <div className='h-6 w-6 2xl:h-8 2xl:w-8 bg-primary text-primary-foreground grid place-content-center'>
               <Blocks />
             </div> */}
                 Premium Blocks for Serious Products
-              </h1>
+              </h2>
               <p className='text-xs sm:text-sm 2xl:max-w-2xl max-w-xl'>
                 Designed for startups, agencies, and indie makers who care about
                 speed and design quality. Save hours with ready-to-use premium

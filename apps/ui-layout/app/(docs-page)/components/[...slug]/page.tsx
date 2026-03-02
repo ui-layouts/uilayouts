@@ -34,6 +34,7 @@ export async function generateMetadata(props: {
   const title = md?.title ?? '';
 
   const description = md.description ?? '';
+  const canonicalPath = `/${doc.slug.replace(/^\/+/, '')}`;
 
   return {
     metadataBase: md.metadataBase,
@@ -44,10 +45,13 @@ export async function generateMetadata(props: {
     creator: '@naymur_dev',
     publisher: 'UI Layouts',
     category: 'technology',
+    alternates: {
+      canonical: absoluteUrl(canonicalPath),
+    },
     openGraph: {
       title: `${title} | UI Layouts`,
       description: description,
-      url: absoluteUrl(doc.slug),
+      url: absoluteUrl(canonicalPath),
       images: [
         {
           url: `/og?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`,
@@ -63,6 +67,7 @@ export async function generateMetadata(props: {
 
     twitter: {
       card: 'summary_large_image',
+      site: '@naymur_dev',
       title: `${title} | UI Layouts`,
       description: description,
       images: [

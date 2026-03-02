@@ -143,7 +143,7 @@ function AllBlocks({ blocksData }: { blocksData: any[] }) {
     <>
       <section className='xl:py-10 py-5 pb-5 relative mb-5'>
         <article className='space-y-4 pb-10 relative z-2'>
-          <h1 className='xl:text-5xl md:text-4xl sm:text-3xl text-4xl font-medium text-center flex items-start sm:gap-2 justify-center'>
+          <h2 className='xl:text-5xl md:text-4xl sm:text-3xl text-4xl font-medium text-center flex items-start sm:gap-2 justify-center'>
             <img
               src='https://fonts.gstatic.com/s/e/notoemoji/latest/1f680/512.gif'
               alt='🚀'
@@ -152,7 +152,7 @@ function AllBlocks({ blocksData }: { blocksData: any[] }) {
               height='32'
             />
             100+ Free Ready-to-Use Blocks.
-          </h1>
+          </h2>
           <p className='lg:max-w-2xl max-w-xl mx-auto lg:px-0 px-5 text-center'>
             Ready-to-use blocks are pre-built components that you can use to
             build your website or application. They are designed to be easy to
@@ -209,12 +209,12 @@ function AllBlocks({ blocksData }: { blocksData: any[] }) {
                     )}
                   </>
                   <div className='sm:py-2 py-1 mt-2'>
-                    <h1 className='2xl:text-3xl xl:text-2xl md:text-xl text-lg font-medium leading-[140%] capitalize'>
+                    <h3 className='2xl:text-3xl xl:text-2xl md:text-xl text-lg font-medium leading-[140%] capitalize'>
                       {component.name}
-                    </h1>
-                    <h1 className='2xl:text-xl xl:text-xl md:text-lg text-sm font-medium leading-[140%] capitalize opacity-70'>
+                    </h3>
+                    <p className='2xl:text-xl xl:text-xl md:text-lg text-sm font-medium leading-[140%] capitalize opacity-70'>
                       {component?.blocks?.length} Blocks
-                    </h1>
+                    </p>
                   </div>
                 </Link>
               </>

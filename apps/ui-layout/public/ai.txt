@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Canonical machine-readable discovery files
+llms: https://www.ui-layouts.com/llms.txt
+llms-full: https://www.ui-layouts.com/llms-full.txt
+sitemap: https://www.ui-layouts.com/sitemap.xml
