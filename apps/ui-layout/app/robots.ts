@@ -33,7 +33,7 @@ export default function robots(): MetadataRoute.Robots {
           '/src',
           '/public/temp',
           '/*.json$',
-          '/search?q=*',
+          '/search',
           '/preview',
           '/draft',
         ],
