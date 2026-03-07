@@ -1011,7 +1011,7 @@ export type ComponentMeta = {
   tags: string[];
 };
 
-export const AllComponents: IAllComponents[] = [
+const allComponentsConfig: IAllComponents[] = [
   {
     category: DOCS_CATEGORY_KEY['liquid-glass'],
     title: humanize(COMPONENT_KEYS.LIQUID_GLASS_SIDEBAR_MENU),
@@ -4506,6 +4506,11 @@ export const AllComponents: IAllComponents[] = [
     tags: ['tabs', 'image', 'ui', 'gallery', 'design'],
   },
 ];
+
+export const AllComponents: IAllComponents[] = allComponentsConfig.map((component) => ({
+  ...component,
+  href: `/components/${component.category}`,
+}));
 
 export const ComponentMetaByCategory = AllComponents.reduce((map, m) => {
   const list = map.get(m.category) ?? [];
