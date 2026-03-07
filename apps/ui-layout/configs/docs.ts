@@ -4507,10 +4507,7 @@ const allComponentsConfig: IAllComponents[] = [
   },
 ];
 
-export const AllComponents: IAllComponents[] = allComponentsConfig.map((component) => ({
-  ...component,
-  href: `/components/${component.category}`,
-}));
+export const AllComponents: IAllComponents[] = allComponentsConfig;
 
 export const ComponentMetaByCategory = AllComponents.reduce((map, m) => {
   const list = map.get(m.category) ?? [];
