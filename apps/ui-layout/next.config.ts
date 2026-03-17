@@ -95,5 +95,5 @@ const nextConfig = {
   },
   // Add other Next.js config options here
 };
-
+// @ts-ignore
 export default withMDX(nextConfig);

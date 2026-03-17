@@ -44,7 +44,7 @@ export const basePath = [
     tags: ['mcp', 'mcp', 'mcp', 'mcp'],
   },
   {
-    href: '/llms',
+    href: '/llms.txt',
     name: 'LLMs',
     icon: <Target />,
     tags: ['llms', 'llms', 'llms', 'llms'],
