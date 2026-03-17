@@ -1018,7 +1018,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'liquid-glass/sidebar-menu',
     description:
       'LIQUID GLASS SIDEBAR MENU component with liquid-like animations',
-    href: '/components/liquid-glass/sidebar-menu',
+    href: '/components/liquid-glass',
     componentName: COMPONENT_KEYS.LIQUID_GLASS_SIDEBAR_MENU,
     filesrc: require('../registry/components/liquid-glass/sidebar-menu.tsx?raw'),
     iframeSrc: 'live-components/liquid-glass-sidebar-menu',
@@ -1040,7 +1040,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'liquid-glass/mobile-icons',
     description:
       'LIQUID GLASS MOBILE ICONS component with liquid-like animations',
-    href: '/components/liquid-glass/mobile-icons',
+    href: '/components/liquid-glass',
     componentName: COMPONENT_KEYS.LIQUID_GLASS_MOBILE_ICONS,
     filesrc: require('../registry/components/liquid-glass/mobile-icons-liquid.tsx?raw'),
     iframeSrc: 'live-components/liquid-glass-mobile-icons',
@@ -1061,7 +1061,7 @@ export const AllComponents: IAllComponents[] = [
     title: humanize(COMPONENT_KEYS.LIQUID_GLASS_WEATHER),
     slug: 'liquid-glass/weather',
     description: 'LIQUID GLASS WEATHER component with liquid-like animations',
-    href: '/components/liquid-glass/weather',
+    href: '/components/liquid-glass',
     componentName: COMPONENT_KEYS.LIQUID_GLASS_WEATHER,
     filesrc: require('../registry/components/liquid-glass/weather-liquid.tsx?raw'),
     iframeSrc: 'live-components/liquid-glass-weather',
@@ -1083,7 +1083,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'liquid-glass/notification',
     description:
       'LIQUID GLASS NOTIFICATION component with liquid-like animations',
-    href: '/components/liquid-glass/notification',
+    href: '/components/liquid-glass',
     componentName: COMPONENT_KEYS.LIQUID_GLASS_NOTIFICATION,
     filesrc: require('../registry/components/liquid-glass/notification.tsx?raw'),
     iframeSrc: 'live-components/liquid-glass-notification',
@@ -4506,7 +4506,6 @@ export const AllComponents: IAllComponents[] = [
     tags: ['tabs', 'image', 'ui', 'gallery', 'design'],
   },
 ];
-
 
 export const ComponentMetaByCategory = AllComponents.reduce((map, m) => {
   const list = map.get(m.category) ?? [];
