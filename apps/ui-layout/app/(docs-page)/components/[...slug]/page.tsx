@@ -34,7 +34,7 @@ export async function generateMetadata(props: {
   const title = md?.title ?? '';
 
   const description = md.description ?? '';
-  const canonicalPath = `/${doc.slug.replace(/^\/+/, '')}`;
+  const canonicalPath = `/components/${doc.slug.replace(/^\/+/, '')}`;
 
   return {
     metadataBase: md.metadataBase,
@@ -99,6 +99,8 @@ export default async function DocPage(props: {
         componentData={{
           name: doc.content.metadata.title,
           description: doc.content.metadata.description,
+          path: `/components/${doc.slug.replace(/^\/+/, '')}`,
+          itemType: 'component',
         }}
       />
       <div className='lg:px-0 lg:pt-0 pt-6 px-3 mt-0 flex w-full lg:gap-10 '>
