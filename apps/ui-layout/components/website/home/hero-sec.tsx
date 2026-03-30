@@ -566,6 +566,43 @@ function HeroSec({ blocksData }: { blocksData: any[] }) {
             </a>
           </div> */}
           <GapPattern />
+          <div className='p-5 flex justify-center items-center gap-5'>
+            <a
+              href='https://sellwithboost.com'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              <img
+                src='https://sellwithboost.com/badge/listing.svg'
+                alt='Listed on Sell With boost'
+                style={{ height: '40px', width: 'auto' }}
+              />
+            </a>
+            <a
+              href='https://peerlist.io/naymurr/project/ui-layouts--open-source'
+              target='_blank'
+              rel='noreferrer'
+            >
+              <img
+                src='https://peerlist.io/api/v1/projects/embed/PRJHDNDE9QQON6MRQ17GA6MDDLDKAL?showUpvote=true&theme=light'
+                alt='Ui Layouts — Open Source'
+                style={{ width: 'auto', height: '72px' }}
+              />
+            </a>
+            <a
+              href='https://www.producthunt.com/products/ui-layouts/launches/ui-layouts?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-ui-layouts'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              <img
+                alt="Ui-Layouts - Not another component library, It's your frontend universe  | Product Hunt"
+                width='250'
+                height='54'
+                src='https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1069263&amp;theme=light&amp;t=1774859806932'
+              />
+            </a>
+          </div>
+          <GapPattern />
           <div className='grid grid-cols-3 relative'>
             {allProjects.map((project, index) => (
               <div key={project.id}>
