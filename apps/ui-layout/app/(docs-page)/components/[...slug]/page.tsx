@@ -35,7 +35,7 @@ export async function generateMetadata(props: {
   const title = md?.title ?? '';
 
   const description = md.description ?? '';
-  const canonicalPath = `/${doc.slug.replace(/^\/+/, '')}`;
+  const canonicalPath = `/components/${doc.slug.replace(/^\/+/, '')}`;
 
   return {
     metadataBase: md.metadataBase,
@@ -100,6 +100,8 @@ export default async function DocPage(props: {
         componentData={{
           name: doc.content.metadata.title,
           description: doc.content.metadata.description,
+          path: `/components/${doc.slug.replace(/^\/+/, '')}`,
+          itemType: 'component',
         }}
       />
       <BreadcrumbStructuredData

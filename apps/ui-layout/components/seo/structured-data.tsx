@@ -6,10 +6,21 @@ interface StructuredDataProps {
     name: string;
     description: string;
     image?: string;
+    path?: string;
+    itemType?: 'component' | 'block';
   };
 }
 
 export function StructuredData({ type, componentData }: StructuredDataProps) {
+  const canonicalPath = componentData?.path?.startsWith('/')
+    ? componentData.path
+    : componentData?.path
+      ? `/${componentData.path}`
+      : undefined;
+  const canonicalUrl = canonicalPath
+    ? `${siteConfig.url}${canonicalPath}`
+    : `${siteConfig.url}/components/${componentData?.name?.toLowerCase()}`;
+
   const getStructuredData = () => {
     switch (type) {
       case 'homepage':
@@ -159,9 +170,13 @@ export function StructuredData({ type, componentData }: StructuredDataProps) {
           '@type': 'SoftwareApplication',
           name: componentData?.name,
           description: componentData?.description,
-          url: `${siteConfig.url}/components/${componentData?.name?.toLowerCase()}`,
+          url: canonicalUrl,
           applicationCategory: 'DeveloperApplication',
+          applicationSubCategory:
+            componentData?.itemType === 'block' ? 'UI Block' : 'UI Component',
           operatingSystem: 'Web',
+          mainEntityOfPage: canonicalUrl,
+          isAccessibleForFree: true,
           offers: {
             '@type': 'Offer',
             price: '0',
@@ -192,19 +207,8 @@ export function StructuredData({ type, componentData }: StructuredDataProps) {
           softwareVersion: '1.0.0',
           dateModified: new Date().toISOString(),
           datePublished: '2024-01-01',
-          downloadUrl: `${siteConfig.url}/components/${componentData?.name?.toLowerCase()}`,
-          installUrl: `${siteConfig.url}/components/${componentData?.name?.toLowerCase()}`,
-          aggregateRating: {
-            '@type': 'AggregateRating',
-            ratingValue: '4.8',
-            reviewCount: '100',
-            bestRating: '5',
-            worstRating: '1',
-            itemReviewed: {
-              '@type': 'SoftwareApplication',
-              name: componentData?.name,
-            },
-          },
+          downloadUrl: canonicalUrl,
+          installUrl: canonicalUrl,
           featureList: [
             'TypeScript Support',
             'Responsive Design',
