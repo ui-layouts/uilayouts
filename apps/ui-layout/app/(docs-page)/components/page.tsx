@@ -2,8 +2,9 @@ import Link from 'next/link';
 import * as AspectRatio from '@radix-ui/react-aspect-ratio';
 import Image from 'next/image';
 import preview from '@/assets/preview/Preview';
-import { cn } from '@/lib/utils';
-import Footer from '@/components/website/footer';
+import { absoluteUrl, cn } from '@/lib/utils';
+import { BreadcrumbStructuredData } from '@/components/seo/breadcrumb-structured-data';
+import { FaqStructuredData } from '@/components/seo/faq-structured-data';
 
 const appsDesign = [
   {
@@ -645,17 +646,44 @@ export const metadata = {
 };
 
 export default function Home() {
-  return (
-    <div className='lg:pt-8 pt-16 pl-10 pb-5'>
-      <h1 className={'sm:text-3xl text-2xl font-semibold tracking-tight pb-1'}>
-        Ui-Layouts Components
-      </h1>
+  const componentFaqs = [
+    {
+      question: 'How do I use UI Layouts components?',
+      answer:
+        'Open any component page, copy the code snippet, and paste it into your React or Next.js project.',
+    },
+    {
+      question: 'Are these components mobile responsive?',
+      answer:
+        'Yes. Components are designed for responsive usage and can be customized with Tailwind utility classes.',
+    },
+    {
+      question: 'Can I use UI Layouts components in commercial apps?',
+      answer:
+        'Yes. UI Layouts components are open source and can be used in commercial projects.',
+    },
+  ];
 
-      <p className='md:text-lg text-sm text-muted-foreground lg:w-[80%]'>
-        Beautifully designed components that you can copy and paste into your
-        apps. Accessible. Customizable. Open Source.
-      </p>
-      <>
+  return (
+    <>
+      <BreadcrumbStructuredData
+        items={[
+          { name: 'Home', url: absoluteUrl('/') },
+          { name: 'Components', url: absoluteUrl('/components') },
+        ]}
+      />
+      <FaqStructuredData items={componentFaqs} />
+      <div className='lg:pt-8 pt-16 pl-10 pb-5'>
+        <h1
+          className={'sm:text-3xl text-2xl font-semibold tracking-tight pb-1'}
+        >
+          Ui-Layouts Components
+        </h1>
+
+        <p className='md:text-lg text-sm text-muted-foreground lg:w-[80%]'>
+          Beautifully designed components that you can copy and paste into your
+          apps. Accessible. Customizable. Open Source.
+        </p>
         <div className='grid md:grid-cols-3 grid-cols-2 gap-6 py-4'>
           {appsDesign.map((component, index) => {
             return (
@@ -669,7 +697,7 @@ export default function Home() {
                     <AspectRatio.Root ratio={16 / 9}>
                       <Image
                         src={component.imgSrc}
-                        alt='hero-sec'
+                        alt={`${component.name} component preview`}
                         width={400}
                         height={400}
                         className={cn(
@@ -697,7 +725,7 @@ export default function Home() {
             );
           })}
         </div>
-      </>
-    </div>
+      </div>
+    </>
   );
 }

@@ -7,6 +7,25 @@ import { ArrowUpRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { getMinimalBlocksBySection } from '@/blocks-docs';
 import { StructuredData } from '@/components/seo/structured-data';
+import { FaqStructuredData } from '@/components/seo/faq-structured-data';
+
+const homeFaqs = [
+  {
+    question: 'What is UI Layouts?',
+    answer:
+      'UI Layouts is an open-source library of copy-and-paste React, Next.js, and Tailwind CSS components and website blocks.',
+  },
+  {
+    question: 'Are the UI components free to use?',
+    answer:
+      'Yes. UI Layouts provides free, open-source components you can use in personal or commercial projects.',
+  },
+  {
+    question: 'Does UI Layouts support TypeScript?',
+    answer:
+      'Yes. Components are built to work with modern TypeScript and Next.js projects.',
+  },
+];
 
 export default function Home() {
   const blocksData = getMinimalBlocksBySection();
@@ -14,6 +33,7 @@ export default function Home() {
   return (
     <>
       <StructuredData type='homepage' />
+      <FaqStructuredData items={homeFaqs} />
       <Container>
         <div className='relative bg-black'>
           <div
