@@ -1,6 +1,6 @@
 import { getMinimalBlocksBySection } from '@/blocks-docs';
 import BlocksHomeClient from '@/components/website/blocks-components/blocks-page';
-import { siteConfig } from '@/lib/utils';
+import { absoluteUrl, siteConfig } from '@/lib/utils';
 import { Metadata } from 'next';
 import { BreadcrumbStructuredData } from '@/components/seo/breadcrumb-structured-data';
 import { FaqStructuredData } from '@/components/seo/faq-structured-data';
@@ -257,8 +257,8 @@ export default function BlocksHome() {
     <>
       <BreadcrumbStructuredData
         items={[
-          { name: 'Home', url: 'https://www.ui-layouts.com' },
-          { name: 'Blocks', url: 'https://www.ui-layouts.com/blocks' },
+          { name: 'Home', url: absoluteUrl('/') },
+          { name: 'Blocks', url: absoluteUrl('/blocks') },
         ]}
       />
       <FaqStructuredData items={blocksFaqs} />

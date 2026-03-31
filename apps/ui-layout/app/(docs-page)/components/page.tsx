@@ -2,7 +2,7 @@ import Link from 'next/link';
 import * as AspectRatio from '@radix-ui/react-aspect-ratio';
 import Image from 'next/image';
 import preview from '@/assets/preview/Preview';
-import { cn } from '@/lib/utils';
+import { absoluteUrl, cn } from '@/lib/utils';
 import { BreadcrumbStructuredData } from '@/components/seo/breadcrumb-structured-data';
 import { FaqStructuredData } from '@/components/seo/faq-structured-data';
 
@@ -668,8 +668,8 @@ export default function Home() {
     <>
       <BreadcrumbStructuredData
         items={[
-          { name: 'Home', url: 'https://www.ui-layouts.com' },
-          { name: 'Components', url: 'https://www.ui-layouts.com/components' },
+          { name: 'Home', url: absoluteUrl('/') },
+          { name: 'Components', url: absoluteUrl('/components') },
         ]}
       />
       <FaqStructuredData items={componentFaqs} />

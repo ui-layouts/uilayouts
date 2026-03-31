@@ -104,11 +104,11 @@ export default async function DocPage(props: {
       />
       <BreadcrumbStructuredData
         items={[
-          { name: 'Home', url: 'https://www.ui-layouts.com' },
-          { name: 'Components', url: 'https://www.ui-layouts.com/components' },
+          { name: 'Home', url: absoluteUrl('/') },
+          { name: 'Components', url: absoluteUrl('/components') },
           {
             name: doc.content.metadata.title,
-            url: absoluteUrl(`/${doc.slug.replace(/^\/+/, '')}`),
+            url: absoluteUrl(`/components/${doc.slug.replace(/^\/+/, '')}`),
           },
         ]}
       />

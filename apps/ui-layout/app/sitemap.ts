@@ -4,6 +4,7 @@ import { getBlocksDesignMeta } from '@/blocks-docs';
 
 const baseUrl =
   process.env.NEXT_PUBLIC_CLIENT_URL ?? 'https://www.ui-layouts.com';
+const normalizedBaseUrl = baseUrl.replace(/\/+$/, '');
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -20,19 +21,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     ...staticPages.map((path, index) => ({
-      url: `${baseUrl}${path === '/' ? '' : path}`,
+      url: `${normalizedBaseUrl}${path === '/' ? '' : path}`,
       lastModified: now,
       changeFrequency: index === 0 ? ('weekly' as const) : ('monthly' as const),
       priority: index === 0 ? 1 : 0.8,
     })),
     ...allComponents.map((component) => ({
-      url: `${baseUrl}${component.href}`,
+      url: `${normalizedBaseUrl}${component.href}`,
       lastModified: now,
       changeFrequency: 'monthly' as const,
       priority: 0.7,
     })),
     ...allBlocks.map((component) => ({
-      url: `${baseUrl}${component.url}`,
+      url: `${normalizedBaseUrl}${component.url}`,
       lastModified: now,
       changeFrequency: 'monthly' as const,
       priority: 0.7,
