@@ -2,6 +2,8 @@ import { getMinimalBlocksBySection } from '@/blocks-docs';
 import BlocksHomeClient from '@/components/website/blocks-components/blocks-page';
 import { siteConfig } from '@/lib/utils';
 import { Metadata } from 'next';
+import { BreadcrumbStructuredData } from '@/components/seo/breadcrumb-structured-data';
+import { FaqStructuredData } from '@/components/seo/faq-structured-data';
 
 export const metadata: Metadata = {
   title: 'Blocks | UI-Layouts',
@@ -238,8 +240,28 @@ export const metadata: Metadata = {
 };
 export default function BlocksHome() {
   const blocksData = getMinimalBlocksBySection();
+  const blocksFaqs = [
+    {
+      question: 'What are UI Layouts blocks?',
+      answer:
+        'UI Layouts blocks are production-ready page sections like hero, pricing, testimonial, and footer layouts for React and Next.js apps.',
+    },
+    {
+      question: 'Can I customize blocks for my brand?',
+      answer:
+        'Yes. Every block can be edited to match your brand colors, copy, spacing, and layout requirements.',
+    },
+  ];
+
   return (
     <>
+      <BreadcrumbStructuredData
+        items={[
+          { name: 'Home', url: 'https://www.ui-layouts.com' },
+          { name: 'Blocks', url: 'https://www.ui-layouts.com/blocks' },
+        ]}
+      />
+      <FaqStructuredData items={blocksFaqs} />
       <BlocksHomeClient blocksData={blocksData} />
     </>
   );

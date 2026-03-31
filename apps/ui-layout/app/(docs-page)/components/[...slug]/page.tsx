@@ -9,6 +9,7 @@ import Footer from '@/components/website/footer';
 import CopyPage from '@/components/website/copy-page';
 import { GapPattern } from '@/components/ui/gap-pattern';
 import { StructuredData } from '@/components/seo/structured-data';
+import { BreadcrumbStructuredData } from '@/components/seo/breadcrumb-structured-data';
 
 export const dynamic = 'force-static';
 export const dynamicParams = false;
@@ -100,6 +101,16 @@ export default async function DocPage(props: {
           name: doc.content.metadata.title,
           description: doc.content.metadata.description,
         }}
+      />
+      <BreadcrumbStructuredData
+        items={[
+          { name: 'Home', url: 'https://www.ui-layouts.com' },
+          { name: 'Components', url: 'https://www.ui-layouts.com/components' },
+          {
+            name: doc.content.metadata.title,
+            url: absoluteUrl(`/${doc.slug.replace(/^\/+/, '')}`),
+          },
+        ]}
       />
       <div className='lg:px-0 lg:pt-0 pt-6 px-3 mt-0 flex w-full lg:gap-10 '>
         <div className='w-full relative xl:pl-0 lg:pl-4 pl-0'>
