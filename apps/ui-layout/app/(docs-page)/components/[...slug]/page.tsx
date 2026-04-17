@@ -9,6 +9,7 @@ import Footer from '@/components/website/footer';
 import CopyPage from '@/components/website/copy-page';
 import { GapPattern } from '@/components/ui/gap-pattern';
 import { StructuredData } from '@/components/seo/structured-data';
+import { BreadcrumbStructuredData } from '@/components/seo/breadcrumb-structured-data';
 
 export const dynamic = 'force-static';
 export const dynamicParams = false;
@@ -34,7 +35,7 @@ export async function generateMetadata(props: {
   const title = md?.title ?? '';
 
   const description = md.description ?? '';
-  const canonicalPath = `/${doc.slug.replace(/^\/+/, '')}`;
+  const canonicalPath = `/components/${doc.slug.replace(/^\/+/, '')}`;
 
   return {
     metadataBase: md.metadataBase,
@@ -99,7 +100,19 @@ export default async function DocPage(props: {
         componentData={{
           name: doc.content.metadata.title,
           description: doc.content.metadata.description,
+          path: `/components/${doc.slug.replace(/^\/+/, '')}`,
+          itemType: 'component',
         }}
+      />
+      <BreadcrumbStructuredData
+        items={[
+          { name: 'Home', url: absoluteUrl('/') },
+          { name: 'Components', url: absoluteUrl('/components') },
+          {
+            name: doc.content.metadata.title,
+            url: absoluteUrl(`/components/${doc.slug.replace(/^\/+/, '')}`),
+          },
+        ]}
       />
       <div className='lg:px-0 lg:pt-0 pt-6 px-3 mt-0 flex w-full lg:gap-10 '>
         <div className='w-full relative xl:pl-0 lg:pl-4 pl-0'>

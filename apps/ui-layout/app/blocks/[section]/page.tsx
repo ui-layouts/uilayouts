@@ -117,6 +117,8 @@ export default async function SectionPage(props: {
         componentData={{
           name: sectionData.name,
           description: sectionData.des,
+          path: `/blocks/${sectionData.id}`,
+          itemType: 'block',
         }}
       />
       <BreadcrumbStructuredData
