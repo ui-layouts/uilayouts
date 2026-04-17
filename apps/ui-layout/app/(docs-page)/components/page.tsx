@@ -2,8 +2,9 @@ import Link from 'next/link';
 import * as AspectRatio from '@radix-ui/react-aspect-ratio';
 import Image from 'next/image';
 import preview from '@/assets/preview/Preview';
-import { cn } from '@/lib/utils';
-import Footer from '@/components/website/footer';
+import { absoluteUrl, cn } from '@/lib/utils';
+import { BreadcrumbStructuredData } from '@/components/seo/breadcrumb-structured-data';
+import { FaqStructuredData } from '@/components/seo/faq-structured-data';
 
 const appsDesign = [
   {
