@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import ScrollElement from '@/components/ui/scroll-animation';
+import { ScrollAnimation } from '@/components/ui/scroll-animation';
 
 function ScrollElementDemo() {
   return (
@@ -12,7 +12,7 @@ function ScrollElementDemo() {
       </div>
       <div className='py-2'>
         <div className=' columns-3'>
-          <ScrollElement
+          <ScrollAnimation
             viewport={{ once: true, amount: 0.5, margin: '0px 0px 0px 0px' }}
           >
             <img
@@ -20,8 +20,8 @@ function ScrollElementDemo() {
               alt=''
               className='w-full mb-2'
             />
-          </ScrollElement>
-          <ScrollElement
+          </ScrollAnimation>
+          <ScrollAnimation
             viewport={{ once: true, amount: 0.5, margin: '0px 0px 0px 0px' }}
           >
             <img
@@ -29,8 +29,8 @@ function ScrollElementDemo() {
               alt=''
               className='w-full mb-2'
             />
-          </ScrollElement>
-          <ScrollElement
+          </ScrollAnimation>
+          <ScrollAnimation
             viewport={{ once: true, amount: 0.5, margin: '0px 0px 0px 0px' }}
           >
             <img
@@ -38,9 +38,9 @@ function ScrollElementDemo() {
               alt=''
               className='w-full mb-2'
             />
-          </ScrollElement>
+          </ScrollAnimation>
 
-          <ScrollElement
+          <ScrollAnimation
             viewport={{ once: true, amount: 0.5, margin: '0px 0px 0px 0px' }}
             // @ts-ignore
           >
@@ -49,8 +49,8 @@ function ScrollElementDemo() {
               alt=''
               className='w-full mb-2'
             />
-          </ScrollElement>
-          <ScrollElement
+          </ScrollAnimation>
+          <ScrollAnimation
             viewport={{ once: true, amount: 0.5, margin: '0px 0px 0px 0px' }}
           >
             <img
@@ -58,8 +58,8 @@ function ScrollElementDemo() {
               alt=''
               className='w-full mb-2'
             />
-          </ScrollElement>
-          <ScrollElement
+          </ScrollAnimation>
+          <ScrollAnimation
             viewport={{ once: true, amount: 0.5, margin: '0px 0px 0px 0px' }}
           >
             <img
@@ -67,8 +67,8 @@ function ScrollElementDemo() {
               alt=''
               className='w-full mb-2'
             />
-          </ScrollElement>
-          <ScrollElement
+          </ScrollAnimation>
+          <ScrollAnimation
             viewport={{ once: true, amount: 0.5, margin: '0px 0px 0px 0px' }}
           >
             <img
@@ -76,8 +76,8 @@ function ScrollElementDemo() {
               alt=''
               className='w-full mb-2'
             />
-          </ScrollElement>
-          <ScrollElement
+          </ScrollAnimation>
+          <ScrollAnimation
             viewport={{ once: true, amount: 0.5, margin: '0px 0px 0px 0px' }}
           >
             <img
@@ -85,8 +85,8 @@ function ScrollElementDemo() {
               alt=''
               className='w-full mb-2'
             />
-          </ScrollElement>
-          <ScrollElement
+          </ScrollAnimation>
+          <ScrollAnimation
             viewport={{ once: true, amount: 0.5, margin: '0px 0px 0px 0px' }}
           >
             <img
@@ -94,8 +94,8 @@ function ScrollElementDemo() {
               alt=''
               className='w-full mb-2'
             />
-          </ScrollElement>
-          <ScrollElement
+          </ScrollAnimation>
+          <ScrollAnimation
             viewport={{ once: true, amount: 0.5, margin: '0px 0px 0px 0px' }}
           >
             <img
@@ -103,7 +103,7 @@ function ScrollElementDemo() {
               alt=''
               className='w-full mb-2'
             />
-          </ScrollElement>
+          </ScrollAnimation>
         </div>
       </div>
     </section>

@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "./registry/components/text-animation/text-marque/animationtwo.tsx",
-      "content": "'use client';\r\nimport React from 'react';\r\nimport ScrollBaseAnimation from '@/components/ui/scroll-text-marque';\r\n\r\nfunction index() {\r\n  return (\r\n    <>\r\n      <div className='h-[500px] grid place-content-center'>\r\n        <ScrollBaseAnimation\r\n          // delay={500}\r\n          baseVelocity={3}\r\n          scrollDependent={true}\r\n          clasname='font-bold tracking-[-0.07em] leading-[90%]'\r\n        >\r\n          Best Component library For Developer\r\n        </ScrollBaseAnimation>\r\n      </div>\r\n    </>\r\n  );\r\n}\r\n\r\nexport default index;\r\n",
+      "content": "'use client';\r\nimport React from 'react';\r\nimport ScrollBaseAnimation from '@/components/ui/scroll-text-marque';\r\n\r\nfunction Animationtwo() {\r\n  return (\r\n    <>\r\n      <div className='h-[500px] grid place-content-center'>\r\n        <ScrollBaseAnimation\r\n          // delay={500}\r\n          baseVelocity={3}\r\n          scrollDependent={true}\r\n          clasname='font-bold tracking-[-0.07em] leading-[90%]'\r\n        >\r\n          Best Component library For Developer\r\n        </ScrollBaseAnimation>\r\n      </div>\r\n    </>\r\n  );\r\n}\r\n\r\nexport default Animationtwo;\r\n",
       "type": "registry:component"
     },
     {

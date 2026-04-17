@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "./registry/components/text-animation/text-marque/animationone.tsx",
-      "content": "'use client';\r\nimport React from 'react';\r\nimport ScrollBaseAnimation from '@/components/ui/scroll-text-marque';\r\n\r\nfunction index() {\r\n  return (\r\n    <>\r\n      <div className='h-[500px] grid place-content-center'>\r\n        <ScrollBaseAnimation\r\n          delay={500}\r\n          baseVelocity={-3}\r\n          clasname='font-bold tracking-[-0.07em] leading-[90%]'\r\n        >\r\n          Star the repo if you like it\r\n        </ScrollBaseAnimation>\r\n        <ScrollBaseAnimation\r\n          delay={500}\r\n          baseVelocity={3}\r\n          clasname='font-bold tracking-[-0.07em] leading-[90%]'\r\n        >\r\n          Share it if you like it\r\n        </ScrollBaseAnimation>\r\n      </div>\r\n    </>\r\n  );\r\n}\r\n\r\nexport default index;\r\n",
+      "content": "'use client';\r\nimport React from 'react';\r\nimport ScrollBaseAnimation from '@/components/ui/scroll-text-marque';\r\n\r\nfunction Animationone() {\r\n  return (\r\n    <>\r\n      <div className='h-[500px] grid place-content-center'>\r\n        <ScrollBaseAnimation\r\n          delay={500}\r\n          baseVelocity={-3}\r\n          clasname='font-bold tracking-[-0.07em] leading-[90%]'\r\n        >\r\n          Star the repo if you like it\r\n        </ScrollBaseAnimation>\r\n        <ScrollBaseAnimation\r\n          delay={500}\r\n          baseVelocity={3}\r\n          clasname='font-bold tracking-[-0.07em] leading-[90%]'\r\n        >\r\n          Share it if you like it\r\n        </ScrollBaseAnimation>\r\n      </div>\r\n    </>\r\n  );\r\n}\r\n\r\nexport default Animationone;\r\n",
       "type": "registry:component"
     },
     {

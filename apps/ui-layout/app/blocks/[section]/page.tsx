@@ -108,6 +108,8 @@ export default async function SectionPage(props: {
     }))
   );
 
+  console.log(blocksWithCode);
+
   return (
     <section className='dark:prose-invert max-w-full'>
       <StructuredData
@@ -174,6 +176,9 @@ export default async function SectionPage(props: {
               `https://www.ui-layouts.com/r/${block?.id}.json`
             );
             const finalUrl = `https://v0.dev/chat/api/open?url=${url}`;
+            console.log('html', block?.transformedCodeFiles[0].html);
+            console.log('raw', block?.transformedCodeFiles[0].raw);
+
             return (
               <div key={block.id} id={block.id} className='relative'>
                 <div

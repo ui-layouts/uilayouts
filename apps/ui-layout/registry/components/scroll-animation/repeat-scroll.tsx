@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import ScrollElement from '@/components/ui/scroll-animation';
+import { ScrollAnimation } from '@/components/ui/scroll-animation';
 
 function RepeatScroll() {
   return (
@@ -12,7 +12,7 @@ function RepeatScroll() {
       </div>
       <div className='py-2'>
         <div className=' columns-3'>
-          <ScrollElement
+          <ScrollAnimation
             direction='left'
             viewport={{ amount: 0.5, margin: '0px 0px 0px 0px' }}
           >
@@ -21,8 +21,8 @@ function RepeatScroll() {
               alt=''
               className='w-full mb-2'
             />
-          </ScrollElement>
-          <ScrollElement
+          </ScrollAnimation>
+          <ScrollAnimation
             direction='left'
             viewport={{ amount: 0.5, margin: '0px 0px 0px 0px' }}
           >
@@ -31,8 +31,8 @@ function RepeatScroll() {
               alt=''
               className='w-full mb-2'
             />
-          </ScrollElement>
-          <ScrollElement
+          </ScrollAnimation>
+          <ScrollAnimation
             direction='left'
             viewport={{ amount: 0.5, margin: '0px 0px 0px 0px' }}
           >
@@ -41,31 +41,18 @@ function RepeatScroll() {
               alt=''
               className='w-full mb-2'
             />
-          </ScrollElement>
+          </ScrollAnimation>
 
-          <ScrollElement viewport={{ amount: 0.5, margin: '0px 0px 0px 0px' }}>
+          <ScrollAnimation
+            viewport={{ amount: 0.5, margin: '0px 0px 0px 0px' }}
+          >
             <img
               src='https://images.unsplash.com/photo-1724884564497-f5024b7e2f93?q=80&w=1974&auto=format&fit=crop'
               alt=''
               className='w-full mb-2'
             />
-          </ScrollElement>
-          <ScrollElement viewport={{ amount: 0.5, margin: '0px 0px 0px 0px' }}>
-            <img
-              src='https://images.unsplash.com/photo-1460999158988-6f0380f81f4d?q=80&w=2070&auto=format&fit=crop'
-              alt=''
-              className='w-full mb-2'
-            />
-          </ScrollElement>
-          <ScrollElement viewport={{ amount: 0.5, margin: '0px 0px 0px 0px' }}>
-            <img
-              src='https://images.unsplash.com/photo-1478028928718-7bfdb1b32095?q=80&w=2070&auto=format&fit=crop'
-              alt=''
-              className='w-full mb-2'
-            />
-          </ScrollElement>
-          <ScrollElement
-            direction='right'
+          </ScrollAnimation>
+          <ScrollAnimation
             viewport={{ amount: 0.5, margin: '0px 0px 0px 0px' }}
           >
             <img
@@ -73,9 +60,8 @@ function RepeatScroll() {
               alt=''
               className='w-full mb-2'
             />
-          </ScrollElement>
-          <ScrollElement
-            direction='right'
+          </ScrollAnimation>
+          <ScrollAnimation
             viewport={{ amount: 0.5, margin: '0px 0px 0px 0px' }}
           >
             <img
@@ -83,8 +69,8 @@ function RepeatScroll() {
               alt=''
               className='w-full mb-2'
             />
-          </ScrollElement>
-          <ScrollElement
+          </ScrollAnimation>
+          <ScrollAnimation
             direction='right'
             viewport={{ amount: 0.5, margin: '0px 0px 0px 0px' }}
           >
@@ -93,8 +79,8 @@ function RepeatScroll() {
               alt=''
               className='w-full mb-2'
             />
-          </ScrollElement>
-          <ScrollElement
+          </ScrollAnimation>
+          <ScrollAnimation
             direction='right'
             viewport={{ amount: 0.5, margin: '0px 0px 0px 0px' }}
           >
@@ -103,7 +89,27 @@ function RepeatScroll() {
               alt=''
               className='w-full mb-2'
             />
-          </ScrollElement>
+          </ScrollAnimation>
+          <ScrollAnimation
+            direction='right'
+            viewport={{ amount: 0.5, margin: '0px 0px 0px 0px' }}
+          >
+            <img
+              src='https://images.unsplash.com/photo-1460999158988-6f0380f81f4d?q=80&w=2070&auto=format&fit=crop'
+              alt=''
+              className='w-full mb-2'
+            />
+          </ScrollAnimation>
+          <ScrollAnimation
+            direction='right'
+            viewport={{ amount: 0.5, margin: '0px 0px 0px 0px' }}
+          >
+            <img
+              src='https://images.unsplash.com/photo-1478028928718-7bfdb1b32095?q=80&w=2070&auto=format&fit=crop'
+              alt=''
+              className='w-full mb-2'
+            />
+          </ScrollAnimation>
         </div>
       </div>
     </section>

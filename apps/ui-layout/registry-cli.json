@@ -399,6 +399,19 @@
       ]
     },
     {
+      "name": "liquid-glass",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/liquid-glass.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "liquid-gradient",
       "type": "registry:component",
       "devDependencies": [],
@@ -996,7 +1009,7 @@
         }
       ]
     },
-        {
+    {
       "name": "hero-digital-success",
       "type": "registry:block",
       "devDependencies": [],

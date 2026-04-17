@@ -12,7 +12,7 @@
     },
     {
       "path": "./registry/components/color-picker/index.tsx",
-      "content": "\"use client\"\r\nimport React, { useState } from 'react'\r\nimport { ColorPicker } from '@/components/ui/color-picker'\r\n\r\nfunction index() {\r\n    const [color,setColor] = useState(\"#002fff\")\r\n    const [color2,setColor2] = useState(\"#ff3c00\")\r\n  return (\r\n    <div className='flex flex-col gap-2 items-center justify-center '>\r\n      <ColorPicker color={color} onChange={(color) => setColor(color)} label=\"Pick A Color\"/>\r\n      <ColorPicker color={color2} onChange={(color) => setColor2(color)} label=\"Pick A Color With EyeDropper\" isEyeDroppper/>\r\n    </div>\r\n  )\r\n}\r\n\r\nexport default index\r\n",
+      "content": "\"use client\"\r\nimport React, { useState } from 'react'\r\nimport { ColorPicker } from '@/components/ui/color-picker'\r\n\r\nfunction ColorPickerDemo() {\r\n    const [color,setColor] = useState(\"#002fff\")\r\n    const [color2,setColor2] = useState(\"#ff3c00\")\r\n  return (\r\n    <div className='flex flex-col gap-2 items-center justify-center '>\r\n      <ColorPicker color={color} onChange={(color) => setColor(color)} label=\"Pick A Color\"/>\r\n      <ColorPicker color={color2} onChange={(color) => setColor2(color)} label=\"Pick A Color With EyeDropper\" isEyeDroppper/>\r\n    </div>\r\n  )\r\n}\r\n\r\nexport default ColorPickerDemo",
       "type": "registry:component"
     }
   ],

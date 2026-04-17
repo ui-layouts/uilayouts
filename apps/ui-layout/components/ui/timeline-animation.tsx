@@ -12,9 +12,29 @@ type TimelineContentProps<T extends keyof HTMLElementTagNameMap> = {
   once?: boolean;
 } & HTMLMotionProps<T>;
 
-export const TimelineAnimation = <
-  T extends keyof HTMLElementTagNameMap = 'div',
->({
+type HTMLMotionTag =
+  | 'div'
+  | 'span'
+  | 'section'
+  | 'article'
+  | 'header'
+  | 'footer'
+  | 'main'
+  | 'nav'
+  | 'h1'
+  | 'h2'
+  | 'h3'
+  | 'h4'
+  | 'h5'
+  | 'h6'
+  | 'p'
+  | 'ul'
+  | 'ol'
+  | 'li'
+  | 'a'
+  | 'button';
+
+export const TimelineAnimation = <T extends HTMLMotionTag = 'div'>({
   children,
   animationNum,
   timelineRef,
@@ -47,8 +67,7 @@ export const TimelineAnimation = <
     once,
   });
 
-  const MotionComponent = motion[as || 'div'] as React.ElementType;
-
+  const MotionComponent = motion[as || 'div'] as typeof motion.div;
   return (
     <MotionComponent
       initial='hidden'
@@ -56,7 +75,7 @@ export const TimelineAnimation = <
       custom={animationNum}
       variants={sequenceVariants}
       className={className}
-      {...props}
+      {...(props as HTMLMotionProps<'div'>)}
     >
       {children}
     </MotionComponent>

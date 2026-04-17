@@ -3,7 +3,6 @@ import * as AspectRatio from '@radix-ui/react-aspect-ratio';
 import Image from 'next/image';
 import preview from '@/assets/preview/Preview';
 import { cn } from '@/lib/utils';
-import Footer from '@/components/website/footer';
 
 const appsDesign = [
   {
@@ -662,7 +661,7 @@ export default function Home() {
               <Link
                 key={component?.id}
                 href={component?.url}
-                className='border p-2    transition-all rounded-lg dark:bg-black/40 bg-primary-foreground backdrop-blur-xs'
+                className='border p-2 transition-all rounded-lg dark:bg-black/40 bg-primary-foreground backdrop-blur-xs'
               >
                 <>
                   {component.imgSrc && (
