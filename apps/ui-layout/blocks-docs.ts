@@ -760,9 +760,9 @@ export const blocksDesign = [
         componentSrc: TeamClipPath,
         filePath: [
           {
-            fileSrc: require('../../packages/blocks/src/faq-section/faq-founder.tsx?raw'),
-            pathSrc: '../../packages/blocks/src/faq-section/faq-founder.tsx',
-            fileName: 'faq-founder.tsx',
+            fileSrc: require('../../packages/blocks/src/team-section/team-clippath.tsx?raw'),
+            pathSrc: '../../packages/blocks/src/team-section/team-clippath.tsx',
+            fileName: 'team-clippath.tsx',
           },
           {
             fileSrc: require('./components/ui/timeline-animation.tsx?raw'),

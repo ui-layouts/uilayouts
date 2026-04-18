@@ -293,7 +293,6 @@ export default async function SectionPage(props: {
             );
           })}
         </div>
-        {/* <Footer /> */}
         <HomeFooter
           className='bg-linear-to-t dark:from-neutral-800 from-neutral-200 to-transparent'
           isHideCollaboration={true}

@@ -4158,7 +4158,7 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "../../packages/blocks/src/faq-section/faq-founder.tsx",
+          "path": "../../packages/blocks/src/team-section/team-clippath.tsx",
           "type": "registry:block"
         },
         {
