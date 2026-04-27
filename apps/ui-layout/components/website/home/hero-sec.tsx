@@ -381,14 +381,6 @@ const ReviewCard = ({
   );
 };
 
-// const trustedCompanies = [
-//   {
-//     name: 'Paypal',
-//     url: 'https://www.paypal.com/',
-//     img: 'https://upload.wikimedia.org/wikipedia/commons/0/0e/PayPal_2024_%28Icon%29.svg',
-//   },
-// ];
-
 function HeroSec({ blocksData }: { blocksData: any[] }) {
   return (
     <>

@@ -3,12 +3,16 @@ import React, { useEffect, useState } from 'react';
 
 const newComponent = [
   {
-    href: '/blocks',
-    title: 'BLOCKS',
+    href: '/components/shimmer-loader',
+    title: 'SHIMMER LOADER',
   },
   {
-    href: '/mcp',
-    title: 'MCP',
+    href: '/components/type-writer',
+    title: 'TYPE WRITER',
+  },
+  {
+    href: '/components/terminal-ui',
+    title: 'TERMINAL UI',
   },
 ];
 

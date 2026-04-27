@@ -1,0 +1,96 @@
+export const metadata = {
+  title: "Shimmer Loader",
+  description: "An animated shimmer loader component with customizable labels, icons, and progress indicators. Features smooth shimmer effects, token counters, and percentage displays for modern loading states and progress animations.",
+  keywords: [
+    "Shimmer loader component",
+    "Animated loading component",
+    "Progress indicator",
+    "Shimmer effect",
+    "Loading animation",
+    "Terminal loader",
+    "Progress bar",
+    "Animated loader",
+    "Loading states",
+    "Shimmer UI",
+    "Progress animation",
+    "Loading indicator",
+    "Token counter",
+    "Percentage display",
+    "Smooth animations",
+    "Customizable loader",
+    "React loader component",
+    "Modern loading UI",
+    "Interactive loader",
+    "Loading feedback",
+    "Animation effects",
+    "UI loading states",
+    "Progress tracking",
+    "Visual feedback"
+  ],
+};
+
+<ComponentCodePreview name='shimmer-loader' isFitheight hasReTrigger />
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList className='border-b w-full bg-white justify-start dark:bg-neutral-800 h-11'>
+  <TabsTrigger value='cli'>CLI</TabsTrigger>
+  <TabsTrigger value='manual'>Manual</TabsTrigger>
+</TabsList>
+
+  <TabsContent value="cli">
+   <CodeWithTabs>
+      ```bash
+      npx uilayouts@latest add shimmer-loader
+      ```
+
+      ```bash
+      npx shadcn@latest add 'https://www.ui-layouts.com/r/shimmer-loader.json'
+      ```
+
+   </CodeWithTabs>
+  </TabsContent>
+  
+  <TabsContent value="manual" manualType>
+
+```bash
+npm install motion
+```
+
+<CodeSnippets name="shimmer-loader" />
+
+</TabsContent>
+</Tabs>
+
+This shimmer loader installation process integrates seamlessly with React applications, providing smooth loading animations and progress indicators for modern web interfaces.
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| labels | string[] | - | Array of label texts to cycle through during loading |
+| icons | string[] | - | Array of icon characters to display alongside labels |
+| duration | number | - | Total animation duration in milliseconds |
+| tokenTarget | number | - | Target token count for display (optional) |
+| showPercent | boolean | true | Whether to show percentage progress |
+| fontSize | number | 14 | Font size in pixels for the loader text |
+| paddingY | number | 4 | Vertical padding inside each character cell |
+| cellPadding | number | 2 | Number of blank cells on each side of labels |
+| textClassName | string | 'text-purple-200/90' | Tailwind class for text color |
+| onComplete | function | - | Callback function when animation completes |
+
+These comprehensive props enable complete customization of your shimmer loader components, making them perfect for loading states, progress indicators, and interactive user feedback systems.
+
+## Example
+
+### Basic Shimmer Loader
+
+<ComponentCodePreview name='shimmer-loader' isFitheight hasReTrigger />
+
+This basic shimmer loader demonstrates smooth text animations with customizable labels and icons, perfect for loading screens and progress indicators in modern web applications.
+
+### Advanced Usage
+
+The shimmer loader component supports various configurations including token counters, percentage displays, and custom styling options, making it ideal for dashboard applications, form submissions, and data processing workflows.

@@ -161,7 +161,10 @@ export function AccordionItem({
   return (
     <div
       data-active={isActive || undefined}
-      className={cn('rounded-lg overflow-hidden mb-2 group', className)}
+      className={cn(
+        'rounded-lg overflow-hidden mb-2 group border border-neutral-200 dark:border-neutral-800',
+        className
+      )}
     >
       {children}
     </div>
@@ -205,7 +208,7 @@ export function AccordionHeader({
       data-active={isActive || undefined}
       aria-expanded={isActive}
       className={cn(
-        'p-4 cursor-pointer w-full transition-all font-semibold text-neutral-500 data-active:bg-neutral-100 hover:bg-neutral-100 hover:text-black flex justify-between gap-2 items-center text-left',
+        'p-4 cursor-pointer w-full transition-all font-semibold text-neutral-500 dark:data-active:text-neutral-200 data-active:text-neutral-800 dark:data-active:bg-neutral-800 data-active:bg-neutral-200 hover:bg-neutral-100 hover:text-black flex justify-between gap-2 items-center text-left',
         className
       )}
       onClick={handleClick}
@@ -214,7 +217,7 @@ export function AccordionHeader({
       {!customIcon && (
         <ChevronDown
           className={cn(
-            'transition-transform shrink-0',
+            'transition-transform shrink-0 text-neutral-500 dark:text-neutral-400',
             isActive ? 'rotate-180' : 'rotate-0'
           )}
           aria-hidden='true'
@@ -264,7 +267,7 @@ export function AccordionPanel({
           exit={{ height: 0 }}
           transition={{ type: 'spring', duration: 0.3, bounce: 0 }}
           className={cn(
-            'bg-neutral-100 px-2 data-active:bg-neutral-100 text-black',
+            'bg-neutral-100 dark:bg-neutral-900 px-2 data-active:bg-neutral-200 dark:data-active:bg-neutral-800 text-black dark:text-white',
             className
           )}
         >

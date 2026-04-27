@@ -80,6 +80,9 @@ export const DOCS_CATEGORY_KEY = {
   'masonary-grid': 'masonary-grid',
   marquee: 'marquee',
   'infinity-brand': 'infinity-brand',
+  'shimmer-loader': 'shimmer-loader',
+  'type-writer': 'type-writer',
+  'terminal-ui': 'terminal-ui',
 } as const;
 
 export const COMPONENT_KEYS = {
@@ -322,4 +325,9 @@ export const COMPONENT_KEYS = {
   IMAGE_TAB1: 'image-tab1',
   IMAGE_TAB2: 'image-tab2',
   IMAGE_TAB_STANDALONE: 'image-tab-standalone',
+
+  // Animation & Motion category
+  SHIMMER_LOADER: 'shimmer-loader',
+  TYPE_WRITER: 'type-writer',
+  TERMINAL_UI: 'terminal-ui',
 } as const;

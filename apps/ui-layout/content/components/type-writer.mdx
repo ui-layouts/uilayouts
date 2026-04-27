@@ -1,0 +1,88 @@
+export const metadata = {
+  title: "Type Writer",
+  description: "An interactive typewriter effect component that animates text character by character with customizable typing speed. Features smooth character reveal, blinking cursor, and completion callbacks for engaging text animations and dynamic content display.",
+  keywords: [
+    "Type writer component",
+    "Typing animation",
+    "Text animation",
+    "Typewriter effect",
+    "Animated text",
+    "Typing effect",
+    "Text reveal",
+    "Character animation",
+    "Typing cursor",
+    "Text typing",
+    "Dynamic text",
+    "Animated typography",
+    "Text effects",
+    "Character reveal",
+    "Typing speed",
+    "Interactive text",
+    "React typewriter",
+    "Text animation component",
+    "Typing simulator",
+    "Content reveal",
+    "Text display",
+    "Animation effects",
+    "UI typography"
+  ],
+};
+
+<ComponentCodePreview name='type-writer' isFitheight hasReTrigger />
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList className='border-b w-full bg-white justify-start dark:bg-neutral-800 h-11'>
+  <TabsTrigger value='cli'>CLI</TabsTrigger>
+  <TabsTrigger value='manual'>Manual</TabsTrigger>
+</TabsList>
+
+  <TabsContent value="cli">
+   <CodeWithTabs>
+      ```bash
+      npx uilayouts@latest add type-writer
+      ```
+
+      ```bash
+      npx shadcn@latest add 'https://www.ui-layouts.com/r/type-writer.json'
+      ```
+
+   </CodeWithTabs>
+  </TabsContent>
+  
+  <TabsContent value="manual" manualType>
+
+```bash
+npm install motion
+```
+
+<CodeSnippets name="type-writer" />
+
+</TabsContent>
+</Tabs>
+
+This type writer installation process provides smooth text animation capabilities for React applications, perfect for creating engaging content reveals and dynamic typography effects.
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| text | string | - | The text string to type out character by character |
+| charDelay | number | 55 | Delay between each character in milliseconds |
+| onComplete | function | - | Callback function when typing animation completes |
+
+These simple yet powerful props give you complete control over your typewriter animations, making them ideal for hero sections, loading messages, and interactive text displays.
+
+## Example
+
+### Basic Type Writer
+
+<ComponentCodePreview name='type-writer' isFitheight hasReTrigger />
+
+This basic type writer demonstrates smooth character-by-character text animation with a blinking cursor effect, perfect for engaging user interfaces and dynamic content presentation.
+
+### Advanced Usage
+
+The type writer component can be used for various applications including hero text animations, chat interfaces, code demonstrations, and loading messages. The customizable typing speed allows you to create the perfect pacing for your content reveal.

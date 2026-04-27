@@ -13,8 +13,11 @@ function SingleLayout() {
   return (
     <>
       <Accordion defaultValue={['item-1', 'item-2']}>
-        <AccordionItem value='item-1' className='w-full'>
-          <AccordionHeader customIcon>
+        <AccordionItem value='item-1' className='w-full dark:bg-black bg-white'>
+          <AccordionHeader
+            customIcon
+            className='dark:text-neutral-300 dark:hover:text-black'
+          >
             What is a UI component?{' '}
             <Plus className='group-data-active:rotate-45 transition-transform' />
           </AccordionHeader>
@@ -25,8 +28,11 @@ function SingleLayout() {
             checkboxes.
           </AccordionPanel>
         </AccordionItem>
-        <AccordionItem value='item-2' className='w-full'>
-          <AccordionHeader customIcon>
+        <AccordionItem value='item-2' className='w-full dark:bg-black bg-white'>
+          <AccordionHeader
+            customIcon
+            className='dark:text-neutral-300 dark:hover:text-black'
+          >
             Why are UI components important?{' '}
             <Plus className='group-data-active:rotate-45 transition-transform' />
           </AccordionHeader>
@@ -37,8 +43,11 @@ function SingleLayout() {
             updates or modifications without affecting the entire system.
           </AccordionPanel>
         </AccordionItem>
-        <AccordionItem value='item-3' className='w-full'>
-          <AccordionHeader customIcon>
+        <AccordionItem value='item-3' className='w-full dark:bg-black bg-white'>
+          <AccordionHeader
+            customIcon
+            className='dark:text-neutral-300 dark:hover:text-black'
+          >
             Key characteristics of UI components?{' '}
             <Plus className='group-data-active:rotate-45 transition-transform' />
           </AccordionHeader>

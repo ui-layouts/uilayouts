@@ -11,7 +11,7 @@ const stats = [
 
 export const StatsSection = () => {
   return (
-    <section className="py-32 px-6 bg-neutral-950 text-white min-h-screen">
+    <section className="py-32 px-6 bg-neutral-950 text-white min-h-screen relative">
       <div className="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(125%_125%_at_50%_10%,rgba(255,255,255,0)_40%,rgba(102,51,238,1)_100%)] pointer-events-none"></div>
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-24 items-center ">

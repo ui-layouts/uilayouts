@@ -978,6 +978,63 @@ export const DocsNavigationCategories: DocsNavigationCategory[] = [
     group: DOCS_CATEGORY_GROUP.AnimationMotion,
     tags: ['infinity', 'brand', 'marquee'],
   },
+  {
+    href: '/components/shimmer-loader',
+    name: 'Shimmer Loader',
+    key: DOCS_CATEGORY_KEY['shimmer-loader'],
+    group: DOCS_CATEGORY_GROUP.AnimationMotion,
+    new: true,
+    tags: [
+      'shimmer loader',
+      'loading animation',
+      'progress bar',
+      'animated loader',
+      'shimmer effect',
+      'terminal loader',
+      'loading indicator',
+      'progress animation',
+      'shimmer UI',
+      'loading states',
+    ],
+  },
+  {
+    href: '/components/type-writer',
+    name: 'Type Writer',
+    key: DOCS_CATEGORY_KEY['type-writer'],
+    group: DOCS_CATEGORY_GROUP.AnimationMotion,
+    new: true,
+    tags: [
+      'type writer',
+      'typing animation',
+      'text animation',
+      'typewriter effect',
+      'animated text',
+      'typing effect',
+      'text reveal',
+      'character animation',
+      'typing cursor',
+      'text typing',
+    ],
+  },
+  {
+    href: '/components/terminal-ui',
+    name: 'Terminal UI',
+    key: DOCS_CATEGORY_KEY['terminal-ui'],
+    group: DOCS_CATEGORY_GROUP.AnimationMotion,
+    new: true,
+    tags: [
+      'terminal ui',
+      'terminal animation',
+      'console interface',
+      'terminal sequence',
+      'developer tools',
+      'command line',
+      'terminal effects',
+      'intro sequence',
+      'loading terminal',
+      'console animation',
+    ],
+  },
 ];
 
 const humanize = (key: string) =>
@@ -1690,8 +1747,10 @@ export const AllComponents: IAllComponents[] = [
     slug: 'tags-input',
     description: 'TAGS INPUT - tags input component',
     filesrc: require('../registry/components/form/tags-input/index.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/form/tags-input')
+    componentSrc: React.lazy(() =>
+      import('@/registry/components/terminal-ui').then((module) => ({
+        default: module.NewIntroSequence,
+      }))
     ),
     iframeSrc: 'live-components/tags-input',
     tags: [
@@ -4504,6 +4563,74 @@ export const AllComponents: IAllComponents[] = [
     ),
     iframeSrc: 'live-components/image-tab-standalone',
     tags: ['tabs', 'image', 'ui', 'gallery', 'design'],
+  },
+
+  {
+    category: DOCS_CATEGORY_KEY['shimmer-loader'],
+    componentName: COMPONENT_KEYS.SHIMMER_LOADER,
+    href: '/components/shimmer-loader',
+    title: humanize(COMPONENT_KEYS.SHIMMER_LOADER),
+    slug: 'shimmer-loader',
+    description:
+      'SHIMMER LOADER component with animated loading effects and progress indicators',
+    filesrc: require('../registry/components/shimmer-loader.tsx?raw'),
+    componentSrc: React.lazy(
+      () => import('@/registry/components/shimmer-loader')
+    ),
+    iframeSrc: 'live-components/shimmer-loader',
+    tags: [
+      'shimmer loader',
+      'loading animation',
+      'progress bar',
+      'animated loader',
+      'shimmer effect',
+    ],
+  },
+
+  {
+    category: DOCS_CATEGORY_KEY['type-writer'],
+    componentName: COMPONENT_KEYS.TYPE_WRITER,
+    href: '/components/type-writer',
+    title: humanize(COMPONENT_KEYS.TYPE_WRITER),
+    slug: 'type-writer',
+    description:
+      'TYPE WRITER component with typing animation and text reveal effects',
+    filesrc: require('../registry/components/type-writter.tsx?raw'),
+    componentSrc: React.lazy(
+      () => import('@/registry/components/type-writter')
+    ),
+    iframeSrc: 'live-components/type-writer',
+    tags: [
+      'type writer',
+      'typing animation',
+      'text animation',
+      'typewriter effect',
+      'animated text',
+    ],
+  },
+
+  {
+    category: DOCS_CATEGORY_KEY['terminal-ui'],
+    componentName: COMPONENT_KEYS.TERMINAL_UI,
+    href: '/components/terminal-ui',
+    title: humanize(COMPONENT_KEYS.TERMINAL_UI),
+    slug: 'terminal-ui',
+    description:
+      'TERMINAL UI component with console-style intro sequence and loading animations',
+    filesrc: require('../registry/components/terminal-ui.tsx?raw'),
+    componentSrc: React.lazy(() =>
+      import('@/registry/components/terminal-ui').then((module) => ({
+        default: module.NewIntroSequence,
+      }))
+    ),
+    iframeSrc: 'live-components/terminal-ui',
+    tags: [
+      'terminal ui',
+      'terminal animation',
+      'console interface',
+      'terminal sequence',
+      'developer tools',
+    ],
   },
 ];
 

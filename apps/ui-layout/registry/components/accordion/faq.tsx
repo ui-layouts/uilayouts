@@ -48,7 +48,7 @@ function SingleLayout() {
         <h1 className='uppercase text-center text-4xl font-bold pt-2 pb-4'>
           FAQ
         </h1>
-        <div className='h-fit border  rounded-lg p-2 dark:bg-[#111111] bg-[#F2F2F2]'>
+        <div className='h-fit border rounded-lg p-2 dark:bg-[#111111] bg-[#F2F2F2]'>
           {tabs.map((tab, index) => (
             <motion.div
               key={tab.title}

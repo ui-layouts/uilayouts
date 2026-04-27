@@ -12,8 +12,10 @@ function SingleLayout() {
   return (
     <>
       <Accordion defaultValue={'item-2'} multiple>
-        <AccordionItem value='item-1' className='w-full'>
-          <AccordionHeader>What is a UI component?</AccordionHeader>
+        <AccordionItem value='item-1' className='w-full dark:bg-black bg-white'>
+          <AccordionHeader className='dark:text-neutral-300 dark:hover:text-black'>
+            What is a UI component?
+          </AccordionHeader>
           <AccordionPanel>
             A UI (User Interface) component is a modular, reusable element that
             serves a specific function within a graphical user interface.
@@ -21,8 +23,10 @@ function SingleLayout() {
             checkboxes.
           </AccordionPanel>
         </AccordionItem>
-        <AccordionItem value='item-2' className='w-full'>
-          <AccordionHeader>Why are UI components important?</AccordionHeader>
+        <AccordionItem value='item-2' className='w-full dark:bg-black bg-white'>
+          <AccordionHeader className='dark:text-neutral-300 dark:hover:text-black'>
+            Why are UI components important?
+          </AccordionHeader>
           <AccordionPanel>
             UI components promote consistency, efficiency, and scalability in
             software development. They allow developers to reuse code, maintain
@@ -30,8 +34,8 @@ function SingleLayout() {
             updates or modifications without affecting the entire system.
           </AccordionPanel>
         </AccordionItem>
-        <AccordionItem value='item-3' className='w-full'>
-          <AccordionHeader>
+        <AccordionItem value='item-3' className='w-full dark:bg-black bg-white'>
+          <AccordionHeader className='dark:text-neutral-300 dark:hover:text-black'>
             Key characteristics of UI components?
           </AccordionHeader>
           <AccordionPanel>

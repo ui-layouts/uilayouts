@@ -1,0 +1,85 @@
+export const metadata = {
+  title: "Terminal UI",
+  description: "A sophisticated terminal-style intro sequence component that combines shimmer loaders and typewriter effects to create authentic console experiences. Features multiple animation phases, customizable sequences, and developer-themed loading animations.",
+  keywords: [
+    "Terminal UI component",
+    "Terminal animation",
+    "Console interface",
+    "Terminal sequence",
+    "Developer tools",
+    "Command line",
+    "Terminal effects",
+    "Intro sequence",
+    "Loading terminal",
+    "Console animation",
+    "Developer UI",
+    "Terminal simulator",
+    "Command prompt",
+    "Terminal loading",
+    "Console effects",
+    "Developer experience",
+    "Terminal animations",
+    "Programming interface",
+    "Code terminal",
+    "Dev tools UI",
+    "Terminal components",
+    "Console UI",
+    "Developer terminal"
+  ],
+};
+
+<ComponentCodePreview name='terminal-ui' isFitheight hasReTrigger />
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList className='border-b w-full bg-white justify-start dark:bg-neutral-800 h-11'>
+  <TabsTrigger value='cli'>CLI</TabsTrigger>
+  <TabsTrigger value='manual'>Manual</TabsTrigger>
+</TabsList>
+
+  <TabsContent value="cli">
+   <CodeWithTabs>
+      ```bash
+      npx uilayouts@latest add terminal-ui
+      ```
+
+      ```bash
+      npx shadcn@latest add 'https://www.ui-layouts.com/r/terminal-ui.json'
+      ```
+
+   </CodeWithTabs>
+  </TabsContent>
+  
+  <TabsContent value="manual" manualType>
+
+```bash
+npm install motion
+```
+
+<CodeSnippets name="terminal-ui" />
+
+</TabsContent>
+</Tabs>
+
+This terminal UI installation process creates authentic console experiences for React applications, perfect for developer tools, coding platforms, and technical interfaces.
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| onComplete | function | - | Callback function when the entire terminal sequence completes |
+| className | string | - | Additional CSS classes for styling the terminal container |
+| style | React.CSSProperties | - | Inline styles for customizing the terminal appearance |
+
+These props provide flexible customization options for your terminal UI components, making them perfect for creating authentic developer experiences and technical interfaces.
+
+## Sequence Structure
+
+The terminal UI component uses a phase-based sequence system:
+
+- **divider**: Creates visual separation lines
+- **bar**: Displays shimmer loader progress bars with labels and icons
+- **lines**: Shows typewriter-animated text lines
+- **message**: Displays static text messages

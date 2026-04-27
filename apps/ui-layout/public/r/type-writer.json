@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "type-writer",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "./components/ui/typing-writter.tsx",
+      "content": "'use client';\nimport { Play } from 'lucide-react';\nimport { useEffect, useRef, useState } from 'react';\n\ninterface TypeWritterProps {\n  text: string;\n  charDelay?: number;\n  onComplete: () => void;\n}\n\nexport function TypeWritter({\n  text,\n  charDelay = 55,\n  onComplete,\n}: TypeWritterProps) {\n  const [displayed, setDisplayed] = useState('');\n  const doneRef = useRef(false);\n\n  useEffect(() => {\n    let i = 0;\n    let cancelled = false;\n\n    function typeNext() {\n      if (cancelled) return;\n      if (i >= text.length) {\n        if (!doneRef.current) {\n          doneRef.current = true;\n          onComplete();\n        }\n        return;\n      }\n      setDisplayed(text.slice(0, i + 1));\n      i++;\n      setTimeout(typeNext, charDelay);\n    }\n\n    typeNext();\n    return () => {\n      cancelled = true;\n    };\n  }, []);\n\n  return (\n    <div className='flex items-center gap-2'>\n      <span className='text-sm text-purple-500'>\n        <Play className='w-3 h-3 fill-purple-500' />\n      </span>\n      <span className='text-sm font-bold tracking-[0.2px] text-purple-200'>\n        {displayed}\n        <span className='ml-0.5 inline-block h-[1em] w-0.5 align-text-bottom bg-purple-200/70 animate-[blink_1s_step-end_infinite]' />\n      </span>\n    </div>\n  );\n}",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}
