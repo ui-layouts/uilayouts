@@ -528,7 +528,9 @@ function HeroSec({ blocksData }: { blocksData: any[] }) {
             <div className='flex gap-2 justify-center items-center'>
               <a
                 href='https://pro.ui-layouts.com/blocks'
-                className='flex items-center gap-2 w-fit sm:text-xl text-sm shadow-lg text-white bg-linear-to-b from-blue-500  to-blue-600 sm:px-4 px-2 py-3'
+                className='flex items-center gap-2 w-fit sm:text-xl text-sm 
+                shadow-[inset_3px_4px_5px_0px_rgba(183,183,183,0.5),inset_-2px_-2px_5px_0px_rgba(255,255,255,0.5)]
+                text-white bg-linear-to-b from-blue-500  to-blue-600 sm:px-4 px-2 py-3'
               >
                 <Blocks className='sm:w-6 sm:h-6 h-5 w-5' /> Premium Blocks
               </a>
@@ -650,68 +652,6 @@ function HeroSec({ blocksData }: { blocksData: any[] }) {
               <div className='pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-linear-to-r from-white dark:from-neutral-950'></div>
               <div className='pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-linear-to-l from-white dark:from-neutral-950'></div>
             </div>
-          </div>
-          {/* <div className='flex flex-wrap justify-center items-center md:p-5 p-2 lg:gap-10 gap-5'>
-            <a
-              href='https://peerlist.io/naymurr/project/blocks--uilayouts'
-              target='_blank'
-              rel='noreferrer'
-            >
-              <img
-                src='https://peerlist.io/api/v1/projects/embed/PRJHQ7M7MEJJNABQ8FD9EO8BJOD9Q8?showUpvote=false&theme=light'
-                alt='Blocks | UI-Layouts'
-                style={{ width: 'auto', height: '72px' }}
-              />
-            </a>
-            <a
-              href='https://www.producthunt.com/products/ui-layouts?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-ui-layouts-blocks'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              <img
-                alt='UI-Layouts Blocks - 100+ Crafted Creative blocks for React and Next.js projects | Product Hunt'
-                width='250'
-                height='54'
-                src='https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1080712&amp;theme=light&amp;t=1771315535340'
-              />
-            </a>
-          </div> */}
-          <GapPattern />
-          <div className='p-5 flex justify-center items-center gap-5'>
-            <a
-              href='https://sellwithboost.com'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              <img
-                src='https://sellwithboost.com/badge/listing.svg'
-                alt='Listed on Sell With boost'
-                style={{ height: '40px', width: 'auto' }}
-              />
-            </a>
-            <a
-              href='https://peerlist.io/naymurr/project/ui-layouts--open-source'
-              target='_blank'
-              rel='noreferrer'
-            >
-              <img
-                src='https://peerlist.io/api/v1/projects/embed/PRJHDNDE9QQON6MRQ17GA6MDDLDKAL?showUpvote=true&theme=light'
-                alt='Ui Layouts — Open Source'
-                style={{ width: 'auto', height: '72px' }}
-              />
-            </a>
-            <a
-              href='https://www.producthunt.com/products/ui-layouts/launches/ui-layouts?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-ui-layouts'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              <img
-                alt="Ui-Layouts - Not another component library, It's your frontend universe  | Product Hunt"
-                width='250'
-                height='54'
-                src='https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1069263&amp;theme=light&amp;t=1774859806932'
-              />
-            </a>
           </div>
           <GapPattern />
           <div className='grid grid-cols-3 relative'>
