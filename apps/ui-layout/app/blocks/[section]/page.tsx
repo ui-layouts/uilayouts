@@ -16,7 +16,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { blocksDesign, getBlocksDesignMeta } from '@/blocks-docs';
-import { TreeCodeViewer } from '@/components/website/code-components/tree-view-code';
+import { TreeCodeViewer } from '@/components/ui/tree-view-code';
 import { transformCodeFiles } from '@/lib/transform-code-files';
 import { ClientPreCode } from '@/components/website/code-components/client-pre-code';
 
@@ -108,7 +108,7 @@ export default async function SectionPage(props: {
     }))
   );
 
-  console.log(blocksWithCode);
+  console.log('blocksWithCode', blocksWithCode);
 
   return (
     <section className='dark:prose-invert max-w-full'>

@@ -4,7 +4,7 @@ import CodeSnippets from '@/components/website/code-components/code-snippets';
 import ComponentCodePreview from '@/components/website/code-components/component-code-preview';
 import BoxComponentPreview from '@/components/website/code-components/box-preview';
 import IframeComponentPrieview from '@/components/website/code-components/iframe-component-preview';
-import CodeWithTabs from '@/components/website/code-components/code-tabs';
+import CodeTabsMdx from '@/components/website/code-components/code-tabs-mdx';
 import {
   Tabs,
   TabsContent,
@@ -38,7 +38,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     }: React.ComponentProps<typeof TabsContent>) => (
       <TabsContent className={cn('', className)} {...props} />
     ),
-    CodeWithTabs: ({ ...props }) => <CodeWithTabs {...props} />,
+    CodeTabsMdx: ({ ...props }) => <CodeTabsMdx {...props} />,
     BoxComponentPreview: ({ ...props }) => <BoxComponentPreview {...props} />,
     PreCode: ({ ...props }) => <PreCode {...props} />,
     ComponentCodePreview: ({ ...props }) => <ComponentCodePreview {...props} />,

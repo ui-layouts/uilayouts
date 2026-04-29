@@ -7,7 +7,7 @@ import {
 import { highlightCode } from '@/lib/shiki-highlighter';
 import { CopyButton } from './copy-button';
 
-export default async function CodeWithTabs({ children }: any) {
+export default async function CodeTabsMdx({ children }: any) {
   // console.log('children', children);
 
   const blocks = Array.isArray(children) ? children : [children];

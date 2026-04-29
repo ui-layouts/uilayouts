@@ -10,8 +10,8 @@ import {
   TreeExpander,
   TreeIcon,
   TreeLabel,
-} from '@/components/website/ui/tree';
-import { ClientPreCode } from './client-pre-code';
+} from '@/components/ui/tree';
+import { ClientPreCode } from '../website/code-components/client-pre-code';
 import {
   buildSimpleTree,
   getFileIcon,

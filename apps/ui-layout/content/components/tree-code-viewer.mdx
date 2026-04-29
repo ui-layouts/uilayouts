@@ -1,0 +1,236 @@
+export const metadata = {
+  title: "Tree Code Viewer",
+  description: "Interactive file tree viewer with multi-file code display and syntax highlighting for React applications. Perfect for documentation, code examples, and development tools with expandable folders and file icons.",
+  keywords: [
+    "Tree code viewer component",
+    "File tree component",
+    "Code explorer",
+    "Multi-file display",
+    "File structure viewer",
+    "Code navigation",
+    "File browser",
+    "Code organization",
+    "Project structure",
+    "Interactive file tree",
+    "Expandable folders",
+    "File icons",
+    "Code file viewer",
+    "React file tree",
+    "Syntax highlighting tree",
+    "Code documentation",
+    "File tree navigation",
+    "Project explorer",
+    "Code structure display",
+    "Multi-file code viewer",
+    "File hierarchy",
+    "Code file browser",
+    "React tree component",
+    "File tree UI",
+    "Code organization tool",
+    "Project file viewer",
+    "Interactive code explorer",
+    "File tree component React",
+    "Code file manager",
+    "Syntax highlighting files",
+    "File tree visualization"
+  ],
+};
+
+<ComponentCodePreview name="tree-code-viewer" isFitheight />
+
+### With Line Numbers Disabled
+
+```tsx
+<TreeCodeViewer 
+  files={files} 
+  showLineNumbers={false}
+/>
+```
+
+### With Default Expanded Folders
+
+```tsx
+<TreeCodeViewer 
+  files={files}
+  defaultExpanded={['folder1', 'folder2']}
+/>
+```
+
+## Icon Support
+
+The component automatically displays icons based on file extensions:
+
+| Extension | Icon | Color |
+|-----------|-------|-------|
+| `.tsx`, `.ts` | TypeScript | Blue |
+| `.jsx`, `.js` | JavaScript | Yellow |
+| `.css` | CSS | Purple |
+| `.json` | JSON | Green |
+| `.md` | Markdown | Orange |
+| `.html` | HTML | Red |
+| `.vue` | Vue | Green |
+| `.py` | Python | Blue |
+| `.java` | Java | Orange |
+
+## Advanced Features
+
+### Search
+
+```tsx
+import { useState } from 'react';
+
+function SearchableTreeViewer({ files }) {
+  const [searchTerm, setSearchTerm] = useState('');
+  
+  const filteredFiles = files.filter(file =>
+    file.fileName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    file.virtualPath.some(path => 
+      path.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+  );
+  
+  return (
+    <div>
+      <input
+        type="text"
+        placeholder="Search files..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        className="w-full p-2 border rounded mb-4"
+      />
+      <TreeCodeViewer files={filteredFiles} />
+    </div>
+  );
+}
+```
+
+### Custom Icons
+
+```tsx
+import { File, Folder } from 'lucide-react';
+
+const customIcons = {
+  'custom-file': <File className="text-purple-500" />,
+  'custom-folder': <Folder className="text-orange-500" />
+};
+
+<TreeCodeViewer 
+  files={files}
+  icons={customIcons}
+/>
+```
+
+### Navigation
+
+```tsx
+function TreeWithBreadcrumbs({ files }) {
+  const [currentPath, setCurrentPath] = useState([]);
+  
+  const handleFileSelect = (file) => {
+    setCurrentPath(file.virtualPath);
+  };
+  
+  return (
+    <div>
+      <nav className="flex items-center space-x-2 text-sm mb-4">
+        {currentPath.map((path, index) => (
+          <React.Fragment key={index}>
+            <span className="text-gray-500">{path}</span>
+            {index < currentPath.length - 1 && (
+              <span className="text-gray-400">/</span>
+            )}
+          </React.Fragment>
+        ))}
+      </nav>
+      <TreeCodeViewer 
+        files={files}
+        onFileSelect={handleFileSelect}
+      />
+    </div>
+  );
+}
+```
+
+
+### Lazy Loading
+
+```tsx
+import { useState, useEffect } from 'react';
+
+function LazyTreeViewer({ initialFiles }) {
+  const [files, setFiles] = useState(initialFiles.slice(0, 50));
+  const [loading, setLoading] = useState(false);
+  
+  const loadMore = async () => {
+    setLoading(true);
+    // Simulate API call
+    await new Promise(resolve => setTimeout(resolve, 500));
+    setFiles(prev => [...prev, ...initialFiles.slice(prev.length, prev.length + 50)]);
+    setLoading(false);
+  };
+  
+  return (
+    <div>
+      <TreeCodeViewer files={files} />
+      {files.length < initialFiles.length && (
+        <button 
+          onClick={loadMore}
+          disabled={loading}
+          className="mt-4 px-4 py-2 bg-blue-500 text-white rounded"
+        >
+          {loading ? 'Loading...' : 'Load More'}
+        </button>
+      )}
+    </div>
+  );
+}
+```
+
+## Accessibility
+
+- **Keyboard navigation** with arrow keys and Enter
+- **Screen reader support** with proper ARIA labels
+- **High contrast mode** compatibility
+- **Focus management** for tree navigation
+- **Skip links** for keyboard users
+
+## Customization
+
+### Custom Styling
+
+```css
+/* Custom tree viewer styles */
+.tree-viewer {
+  --tree-bg: #1a1a1a;
+  --tree-border: #333;
+  --tree-text: #fff;
+  --tree-hover: #2a2a2a;
+}
+
+.tree-viewer.light {
+  --tree-bg: #fff;
+  --tree-border: #e5e5e5;
+  --tree-text: #000;
+  --tree-hover: #f5f5f5;
+}
+```
+
+### Custom File
+
+```tsx
+const customFileHandlers = {
+  'image': (file) => (
+    <img src={file.url} alt={file.fileName} className="max-w-full" />
+  ),
+  'video': (file) => (
+    <video controls className="max-w-full">
+      <source src={file.url} />
+    </video>
+  )
+};
+
+<TreeCodeViewer 
+  files={files}
+  fileHandlers={customFileHandlers}
+/>
+```

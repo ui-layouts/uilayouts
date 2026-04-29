@@ -1,0 +1,77 @@
+export const metadata = {
+  title: 'Shiki Code',
+  description:
+    'A lightweight React component that provides syntax highlighting using Shiki with built-in copy functionality. Perfect for displaying code snippets in documentation, blogs, and developer tools with dark/light theme support.',
+  keywords: [
+    'Shiki code component',
+    'Syntax highlighting',
+    'Code display component',
+    'Copy button',
+    'Shiki highlighter',
+    'Code viewer',
+    'Syntax highlighter',
+    'Code block',
+    'React code component',
+    'Shiki syntax highlighting',
+    'React code viewer',
+    'Syntax highlighting React',
+    'Code block component',
+    'Developer documentation',
+    'Code snippet component',
+    'Lightweight syntax highlighter',
+    'Shiki React component',
+    'Code highlighting',
+  ],
+};
+
+
+<ComponentCodePreview name='shiki-code' isFitheight />
+
+## Installation
+
+```bash
+npm install shiki
+```
+
+## Usage
+
+```tsx
+import { ShikiCode } from '@/components/ui/shiki-code';
+
+export default function MyComponent() {
+  const code = `function hello() {
+  console.log('Hello, World!');
+}`;
+
+  return (
+    <ShikiCode 
+      code={code} 
+      lang="javascript" 
+      className="my-4"
+    />
+  );
+}
+```
+
+## API Reference
+
+### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `code` | `string` | **Required** | The code string to highlight |
+| `lang` | `string` | `'tsx'` | Programming language for syntax highlighting |
+| `className` | `string` | `undefined` | Additional CSS classes for styling |
+
+### Supported Languages
+
+The component supports all languages that Shiki supports, including:
+
+- `javascript`, `typescript`, `tsx`, `jsx`
+- `python`, `java`, `c`, `cpp`, `csharp`
+- `html`, `css`, `scss`, `sass`
+- `json`, `yaml`, `toml`, `xml`
+- `markdown`, `mdx`
+- `bash`, `shell`, `powershell`
+- And many more...
+

@@ -27,8 +27,6 @@ function getHighlighterInstance() {
   return highlighterPromise;
 }
 export async function highlightCode(code: string, lang = 'ts') {
-  // console.log('checking code', code);
-
   const highlighter = await getHighlighterInstance();
   const safeLang = normalizeLang(lang);
 

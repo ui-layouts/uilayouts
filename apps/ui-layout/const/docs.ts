@@ -9,6 +9,7 @@ export const DOCS_CATEGORY_GROUP = {
   AnimationMotion: 'Animation & Motion',
   VisualEffects: 'Visual Effects',
   Visual3D: '3D & Visuals',
+  Code: 'Code',
   Utilities: 'Utilities',
 } as const;
 
@@ -83,6 +84,10 @@ export const DOCS_CATEGORY_KEY = {
   'shimmer-loader': 'shimmer-loader',
   'type-writer': 'type-writer',
   'terminal-ui': 'terminal-ui',
+  'shiki-code': 'shiki-code',
+  'tree-code-viewer': 'tree-code-viewer',
+  'code-tabs-mdx': 'code-tabs-mdx',
+  'code-tabs': 'code-tabs',
 } as const;
 
 export const COMPONENT_KEYS = {
@@ -330,4 +335,10 @@ export const COMPONENT_KEYS = {
   SHIMMER_LOADER: 'shimmer-loader',
   TYPE_WRITER: 'type-writer',
   TERMINAL_UI: 'terminal-ui',
+
+  // Code Display category
+  SHIKI_CODE: 'shiki-code',
+  TREE_CODE_VIEWER: 'tree-code-viewer',
+  CODE_TABS_MDX: 'code-tabs-mdx',
+  CODE_TABS: 'code-tabs',
 } as const;
