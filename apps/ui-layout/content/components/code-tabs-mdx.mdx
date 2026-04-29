@@ -43,7 +43,7 @@ export const metadata = {
   <TabsTrigger value='preview'>Preview</TabsTrigger>
   <TabsTrigger value='code'>Code</TabsTrigger>
 </TabsList>
-  <TabsContent value="preview">
+  <TabsContent value="preview"  className="p-4 dark:bg-black bg-white border">
    <CodeTabsMdx>
       ```bash
       npx uilayouts@latest add blur-vignette
@@ -259,3 +259,13 @@ function escapeHtml(str: unknown) {
 </Tabs>
 </TabsContent>
 </Tabs>
+
+## Installation
+
+```bash
+npm install shiki
+```
+
+## Usage
+
+This components specificly design for mdx files to highlight code blocks with shiki. so you just have copy the code from ☝ and start using it in your mdx files.

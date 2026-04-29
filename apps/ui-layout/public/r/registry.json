@@ -2280,6 +2280,7 @@
         }
       ]
     },
+
     {
       "name": "pass-strengthindicator",
       "type": "registry:component",
@@ -3635,6 +3636,65 @@
         },
         {
           "path": "./components/ui/carousel.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "shiki-code",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["shiki"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/shiki-code.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/code-components/copy-button.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "tree-code-viewer",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["shiki"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/tree-view-code.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/code-components/client-pre-code.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/code-components/copy-button.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "code-tabs-mdx",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["shiki"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/website/code-components/code-tabs-mdx.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./lib/shiki-highlighter.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/code-components/copy-button.tsx",
           "type": "registry:component"
         }
       ]

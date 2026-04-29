@@ -29,9 +29,37 @@ export const metadata = {
 
 ## Installation
 
-```bash
-npm install shiki
-```
+<Tabs defaultValue="cli">
+
+<TabsList className='w-full bg-white justify-start dark:bg-neutral-800 h-11'>
+  <TabsTrigger value='cli'>CLI</TabsTrigger>
+  <TabsTrigger value='manual'>Manual</TabsTrigger>
+</TabsList>
+
+  <TabsContent value="cli">
+   <CodeTabsMdx>
+      ```bash
+      npx uilayouts@latest add shiki-code
+      ```
+
+      ```bash
+      npx shadcn@latest add 'https://www.ui-layouts.com/r/shiki-code.json'
+      ```
+
+   </CodeTabsMdx>
+  </TabsContent>
+  
+  <TabsContent value="manual" manualType>
+  
+   ```bash
+      npm install shiki
+   ```
+
+ <CodeSnippets name="shiki-code" />
+
+  </TabsContent>
+</Tabs>
+
 
 ## Usage
 
