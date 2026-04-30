@@ -12,8 +12,11 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
-    "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "lint": "biome check .",
+    "format": "biome format --write .",
+    "lint:fix": "biome check --write .",
+    "lint:workspaces": "turbo run lint",
+    "format:check": "biome format ."
   },
   "dependencies": {
     "@vercel/analytics": "^1.6.1",
@@ -27,6 +30,7 @@
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "prettier": "^3.1.1",
-    "turbo": "^2.5.8"
+    "turbo": "^2.5.8",
+    "@biomejs/biome": "^1.9.4"
   }
 }
