@@ -1,8 +1,9 @@
 'use client';
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { AnimatePresence, motion } from 'motion/react';
 import Image from 'next/image';
+import React, { useState } from 'react';
 import { TabsBtn, TabsContent, TabsProvider } from '@/components/ui/tab';
+
 const effectArr = [
   {
     id: 1,
@@ -57,24 +58,16 @@ function PreviewTab() {
           <div className='flex justify-center mt-2'>
             <div className='flex items-center w-fit dark:bg-[#1d2025] bg-neutral-200 p-1 dark:text-white text-black rounded-md border'>
               <TabsBtn value='design'>
-                <span className='relative z-2 uppercase sm:text-base text-xs'>
-                  design
-                </span>
+                <span className='relative z-2 uppercase sm:text-base text-xs'>design</span>
               </TabsBtn>
               <TabsBtn value='collaborate'>
-                <span className='relative z-2 uppercase sm:text-base text-xs'>
-                  collaborate
-                </span>
+                <span className='relative z-2 uppercase sm:text-base text-xs'>collaborate</span>
               </TabsBtn>
               <TabsBtn value='share'>
-                <span className='relative z-2 uppercase sm:text-base text-xs'>
-                  share
-                </span>
+                <span className='relative z-2 uppercase sm:text-base text-xs'>share</span>
               </TabsBtn>
               <TabsBtn value='publish'>
-                <span className='relative z-2 uppercase sm:text-base text-xs'>
-                  publish
-                </span>
+                <span className='relative z-2 uppercase sm:text-base text-xs'>publish</span>
               </TabsBtn>
             </div>
           </div>

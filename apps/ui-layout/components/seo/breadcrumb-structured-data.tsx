@@ -21,7 +21,7 @@ export function BreadcrumbStructuredData({ items }: BreadcrumbStructuredDataProp
 
   return (
     <script
-      type="application/ld+json"
+      type='application/ld+json'
       dangerouslySetInnerHTML={{
         __html: JSON.stringify(breadcrumbData, null, 2),
       }}

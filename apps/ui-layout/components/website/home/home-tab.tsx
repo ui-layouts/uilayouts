@@ -1,8 +1,10 @@
 // thanks to maximeheckel
-import React, { useState } from 'react';
-import { TabsProvider, TabsBtn, TabsContent } from '@/components/ui/tab';
-import preview from '@/assets/preview/Preview';
+
 import Image from 'next/image';
+import React, { useState } from 'react';
+import preview from '@/assets/preview/Preview';
+import { TabsBtn, TabsContent, TabsProvider } from '@/components/ui/tab';
+
 function HomeTab() {
   return (
     <>

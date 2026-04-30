@@ -1,7 +1,7 @@
+import React from 'react';
 import HomeFooter from '@/components/website/home/home-footer';
 import HomeHeader from '@/components/website/home/home-header';
 import { siteConfig } from '@/lib/utils';
-import React from 'react';
 
 export const metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -33,9 +33,7 @@ export const metadata = {
     siteName: 'UI Layouts',
     images: [
       {
-        url:
-          siteConfig.workWithUsOgImage ||
-          'https://www.ui-layouts.com/work-with-us-og.jpg',
+        url: siteConfig.workWithUsOgImage || 'https://www.ui-layouts.com/work-with-us-og.jpg',
         width: 1200,
         height: 630,
         alt: 'Work With Us | UI Layouts',
@@ -48,10 +46,7 @@ export const metadata = {
     title: 'Work With Us | UI Layouts Pro',
     description:
       'Partner with UI Layouts Pro for custom UI design, bespoke web solutions, and React + Tailwind expertise.',
-    images: [
-      siteConfig.workWithUsOgImage ||
-        'https://pro.ui-layouts.com/work-with-us-og.jpg',
-    ],
+    images: [siteConfig.workWithUsOgImage || 'https://pro.ui-layouts.com/work-with-us-og.jpg'],
     creator: '@naymur_dev',
   },
 };
@@ -99,10 +94,9 @@ const WorkWithUs = () => {
             <span>to Bring It to Life.</span>
           </h1>
           <p className='md:w-[86%] sm:w-[75%] w-[90%] lg:text-base text-xs mx-auto'>
-            Ui-Layouts isn’t just about components library, we help businesses
-            craft stunning, high-performing web experiences. Whether you need a
-            custom UI, a full-scale project, or tailored solutions, our team is
-            ready to make it happen.
+            Ui-Layouts isn’t just about components library, we help businesses craft stunning,
+            high-performing web experiences. Whether you need a custom UI, a full-scale project, or
+            tailored solutions, our team is ready to make it happen.
           </p>
         </article>
         <div className=' max-w-4xl mx-auto my-10'>
@@ -149,6 +143,7 @@ const WorkWithUs = () => {
                   href='https://cal.com/ui-layouts'
                   target='_blank'
                   className='flex items-center bg-blue-600 hover:bg-blue-700 text-white h-14 rounded-full px-6 gap-2'
+                  rel='noopener'
                 >
                   Book a free call
                   <span className='relative flex size-3'>
@@ -160,8 +155,7 @@ const WorkWithUs = () => {
             </div>
           </div>
           <span className='text-primary/90 sm:w-[94%] w-[85%] mx-auto flex gap-1 sm:text-sm text-xs items-center font-medium border px-4 bg-zinc-100 dark:bg-zinc-900 py-1.5 rounded-b-xl'>
-            We believe in people, not forms. Book a call and let’s talk
-            directly.
+            We believe in people, not forms. Book a call and let’s talk directly.
             <picture className='shrink-0'>
               <source
                 srcSet='https://fonts.gstatic.com/s/e/notoemoji/latest/1f60e/512.webp'

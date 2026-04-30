@@ -1,9 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "mesh-shadergradient",
-  "dependencies": [
-    "@shadergradient/react"
-  ],
+  "dependencies": ["@shadergradient/react"],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [

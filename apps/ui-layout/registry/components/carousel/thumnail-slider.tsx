@@ -1,11 +1,6 @@
 'use client';
 import type { EmblaOptionsType } from 'embla-carousel';
-import {
-  Carousel,
-  Slider,
-  SliderContainer,
-  ThumbsSlider,
-} from '@/components/ui/carousel';
+import { Carousel, Slider, SliderContainer, ThumbsSlider } from '@/components/ui/carousel';
 
 function ThumnailSlider() {
   const OPTIONS: EmblaOptionsType = { loop: false };
@@ -113,10 +108,7 @@ function ThumnailSlider() {
               />
             </Slider>
           </SliderContainer>
-          <ThumbsSlider
-            className='pb-1 px-1'
-            thumbsClassName='basis-[15%] h-24'
-          />
+          <ThumbsSlider className='pb-1 px-1' thumbsClassName='basis-[15%] h-24' />
         </Carousel>
       </div>
     </>

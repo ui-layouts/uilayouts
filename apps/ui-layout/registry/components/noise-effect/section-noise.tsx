@@ -1,15 +1,13 @@
 'use client';
-import React, { useState, useCallback } from 'react';
+import type React from 'react';
+import { useCallback, useState } from 'react';
 
 const SectionNoise = () => {
   const [opacity, setOpacity] = useState(0.05);
 
-  const handleOpacityChange = useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => {
-      setOpacity(parseFloat(event.target.value));
-    },
-    []
-  );
+  const handleOpacityChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+    setOpacity(parseFloat(event.target.value));
+  }, []);
   return (
     <>
       <section className='relative border rounded-lg w-full'>

@@ -3,12 +3,12 @@ import ComponentSection from '@/components/website/labs/component-section';
 
 async function page() {
   return (
-    <>
+    <main>
       <div className='absolute top-0 z-[-2] h-screen w-full dark:bg-[#000000] bg-neutral-100 dark:bg-[radial-gradient(#ffffff33_1px,#0c0c0c_1px)] bg-[radial-gradient(#c0c8df_1px,transparent_1px)] bg-size-[20px_20px]'></div>
-      <main>
+      <section>
         <ComponentSection />
-      </main>
-    </>
+      </section>
+    </main>
   );
 }
 

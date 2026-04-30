@@ -1,8 +1,9 @@
 'use client';
-import React, { ReactNode, useState } from 'react';
-import Image from 'next/image';
 import { Heart, ShoppingCart } from 'lucide-react';
 import { motion } from 'motion/react';
+import Image from 'next/image';
+import React, { ReactNode, useState } from 'react';
+
 const sizes = ['7', '7.5', '8', '8.5'];
 function Card() {
   const [isActive, setIsActive] = useState(false);
@@ -48,12 +49,10 @@ function Card() {
           />
         </div>
         <article className='text-black pt-2 '>
-          <h1 className='font-semibold text-2xl text-black'>
-            Air Jordan 1 Mid SE
-          </h1>
+          <h1 className='font-semibold text-2xl text-black'>Air Jordan 1 Mid SE</h1>
           <p className='text-xs'>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore
-            porro quos quae autem vel praesentium.
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore porro quos quae autem
+            vel praesentium.
           </p>
           <div className='py-1'>
             <p className='text-sm'>Select Size:</p>

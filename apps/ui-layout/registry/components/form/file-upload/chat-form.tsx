@@ -1,15 +1,15 @@
 'use client';
 
-import {
-  FileUploader,
-  FileInput,
-  FileUploaderContent,
-  FileUploaderItem,
-} from '@/components/ui/file-upload';
 import { Paperclip, Upload } from 'lucide-react';
 import Image from 'next/image';
 import { useState } from 'react';
-import { DropzoneOptions } from 'react-dropzone';
+import type { DropzoneOptions } from 'react-dropzone';
+import {
+  FileInput,
+  FileUploader,
+  FileUploaderContent,
+  FileUploaderItem,
+} from '@/components/ui/file-upload';
 
 const FileUploadDropzone = () => {
   const [files, setFiles] = useState<File[] | null>([]);
@@ -66,9 +66,7 @@ const FileUploadDropzone = () => {
                       key={`${file.name}-${file.lastModified}-${file.size}`}
                       index={i}
                       className='size-12 w-fit p-0 rounded-md overflow-hidden border'
-                      aria-roledescription={`file ${i + 1} containing ${
-                        file.name
-                      }`}
+                      aria-roledescription={`file ${i + 1} containing ${file.name}`}
                     >
                       <Image
                         src={URL.createObjectURL(file)}

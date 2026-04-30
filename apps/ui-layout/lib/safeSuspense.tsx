@@ -1,5 +1,5 @@
 'use client';
-import React, { Suspense, SuspenseProps } from 'react';
+import React, { Suspense, type SuspenseProps } from 'react';
 
 import { useMounted } from '../hooks/useMouted';
 

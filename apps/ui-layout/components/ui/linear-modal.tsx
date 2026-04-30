@@ -1,24 +1,10 @@
 'use client';
 
-import React, {
-  useCallback,
-  useContext,
-  useEffect,
-  useId,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
-import {
-  motion,
-  AnimatePresence,
-  MotionConfig,
-  Transition,
-  Variant,
-} from 'motion/react';
+import { XIcon } from 'lucide-react';
+import { AnimatePresence, MotionConfig, motion, type Transition, type Variant } from 'motion/react';
+import React, { useCallback, useContext, useEffect, useId, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { cn } from '@/lib/utils';
-import { XIcon } from 'lucide-react';
 
 interface DialogContextType {
   isOpen: boolean;
@@ -54,7 +40,7 @@ function DialogProvider({ children, transition }: DialogProviderProps) {
 
   return (
     <DialogContext.Provider
-      //@ts-ignore
+      //@ts-expect-error
       value={contextValue}
     >
       <MotionConfig transition={transition}>{children}</MotionConfig>
@@ -82,12 +68,7 @@ type DialogTriggerProps = {
   triggerRef?: React.RefObject<HTMLDivElement>;
 };
 
-function DialogTrigger({
-  children,
-  className,
-  style,
-  triggerRef,
-}: DialogTriggerProps) {
+function DialogTrigger({ children, className, style, triggerRef }: DialogTriggerProps) {
   const { setIsOpen, isOpen, uniqueId } = useDialog();
 
   const handleClick = useCallback(() => {
@@ -131,10 +112,8 @@ type DialogContent = {
 function DialogContent({ children, className, style }: DialogContent) {
   const { setIsOpen, isOpen, uniqueId, triggerRef } = useDialog();
   const containerRef = useRef<HTMLDivElement>(null);
-  const [firstFocusableElement, setFirstFocusableElement] =
-    useState<HTMLElement | null>(null);
-  const [lastFocusableElement, setLastFocusableElement] =
-    useState<HTMLElement | null>(null);
+  const [firstFocusableElement, setFirstFocusableElement] = useState<HTMLElement | null>(null);
+  const [lastFocusableElement, setLastFocusableElement] = useState<HTMLElement | null>(null);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -174,9 +153,7 @@ function DialogContent({ children, className, style }: DialogContent) {
       );
       if (focusableElements && focusableElements.length > 0) {
         setFirstFocusableElement(focusableElements[0] as HTMLElement);
-        setLastFocusableElement(
-          focusableElements[focusableElements.length - 1] as HTMLElement
-        );
+        setLastFocusableElement(focusableElements[focusableElements.length - 1] as HTMLElement);
         // Delay focus slightly to allow animation to start
         requestAnimationFrame(() => {
           (focusableElements[0] as HTMLElement).focus();
@@ -228,11 +205,7 @@ type DialogContainerProps = {
   style?: React.CSSProperties;
 };
 
-function DialogContainer({
-  children,
-  className,
-  overlayClassName,
-}: DialogContainerProps) {
+function DialogContainer({ children, className, overlayClassName }: DialogContainerProps) {
   const { isOpen, setIsOpen, uniqueId } = useDialog();
   const [mounted, setMounted] = useState(false);
 
@@ -362,11 +335,7 @@ function DialogDescription({
   return (
     <motion.div
       key={`dialog-description-${uniqueId}`}
-      layoutId={
-        disableLayoutAnimation
-          ? undefined
-          : `dialog-description-content-${uniqueId}`
-      }
+      layoutId={disableLayoutAnimation ? undefined : `dialog-description-content-${uniqueId}`}
       variants={variants}
       className={className}
       initial='initial'
@@ -436,12 +405,12 @@ function DialogClose({ children, className, variants }: DialogCloseProps) {
 
 export {
   Dialog,
-  DialogTrigger,
+  DialogClose,
   DialogContainer,
   DialogContent,
-  DialogClose,
-  DialogTitle,
-  DialogSubtitle,
   DialogDescription,
   DialogImage,
+  DialogSubtitle,
+  DialogTitle,
+  DialogTrigger,
 };

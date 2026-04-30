@@ -59,9 +59,7 @@
       "name": "btn-creative-right",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "lucide-react"
-      ],
+      "dependencies": ["lucide-react"],
       "registryDependencies": [],
       "files": [
         {
@@ -74,9 +72,7 @@
       "name": "btn-creative-top",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "lucide-react"
-      ],
+      "dependencies": ["lucide-react"],
       "registryDependencies": [],
       "files": [
         {
@@ -219,9 +215,7 @@
       "name": "btn-hover-outline",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "lucide-react"
-      ],
+      "dependencies": ["lucide-react"],
       "registryDependencies": [],
       "files": [
         {
@@ -234,9 +228,7 @@
       "name": "btn-arrow-right",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "lucide-react"
-      ],
+      "dependencies": ["lucide-react"],
       "registryDependencies": [],
       "files": [
         {
@@ -374,10 +366,7 @@
       "name": "scroll-text",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion",
-        "@motionone/utils"
-      ],
+      "dependencies": ["motion", "@motionone/utils"],
       "registryDependencies": [],
       "files": [
         {
@@ -390,10 +379,7 @@
       "name": "text-scroll-animation",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion",
-        "@motionone/utils"
-      ],
+      "dependencies": ["motion", "@motionone/utils"],
       "registryDependencies": [],
       "files": [
         {
@@ -410,10 +396,7 @@
       "name": "scroll-text-marquee",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion",
-        "@motionone/utils"
-      ],
+      "dependencies": ["motion", "@motionone/utils"],
       "registryDependencies": [],
       "files": [
         {
@@ -426,10 +409,7 @@
       "name": "scroll-text-marquee-unidirectional",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion",
-        "@motionone/utils"
-      ],
+      "dependencies": ["motion", "@motionone/utils"],
       "registryDependencies": [],
       "files": [
         {
@@ -446,10 +426,7 @@
       "name": "scroll-text-marquee-bidirectional",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion",
-        "@motionone/utils"
-      ],
+      "dependencies": ["motion", "@motionone/utils"],
       "registryDependencies": [],
       "files": [
         {
@@ -466,10 +443,7 @@
       "name": "randomized-text-effect",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion",
-        "@motionone/utils"
-      ],
+      "dependencies": ["motion", "@motionone/utils"],
       "registryDependencies": [],
       "files": [
         {
@@ -482,10 +456,7 @@
       "name": "randomized-text-unveil",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion",
-        "@motionone/utils"
-      ],
+      "dependencies": ["motion", "@motionone/utils"],
       "registryDependencies": [],
       "files": [
         {
@@ -502,9 +473,7 @@
       "name": "globe",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "cobe"
-      ],
+      "dependencies": ["cobe"],
       "registryDependencies": [],
       "files": [
         {
@@ -517,9 +486,7 @@
       "name": "card-globe",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "cobe"
-      ],
+      "dependencies": ["cobe"],
       "registryDependencies": [],
       "files": [
         {
@@ -536,9 +503,7 @@
       "name": "card-globe-white",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "cobe"
-      ],
+      "dependencies": ["cobe"],
       "registryDependencies": [],
       "files": [
         {
@@ -555,12 +520,7 @@
       "name": "img-ripple-effect",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "three",
-        "@types/three",
-        "@react-three/fiber",
-        "@react-three/drei"
-      ],
+      "dependencies": ["three", "@types/three", "@react-three/fiber", "@react-three/drei"],
       "registryDependencies": [],
       "files": [
         {
@@ -593,12 +553,7 @@
       "name": "r3f-blob",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "three",
-        "@types/three",
-        "@react-three/fiber",
-        "@react-three/drei"
-      ],
+      "dependencies": ["three", "@types/three", "@react-three/fiber", "@react-three/drei"],
       "registryDependencies": [],
       "files": [
         {
@@ -611,9 +566,7 @@
       "name": "mesh-shadergradient",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "@shadergradient/react"
-      ],
+      "dependencies": ["@shadergradient/react"],
       "registryDependencies": [],
       "files": [
         {
@@ -626,12 +579,7 @@
       "name": "mesh-gradient-background3",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "three",
-        "@types/three",
-        "@react-three/fiber",
-        "@react-three/drei"
-      ],
+      "dependencies": ["three", "@types/three", "@react-three/fiber", "@react-three/drei"],
       "registryDependencies": [],
       "files": [
         {
@@ -644,12 +592,7 @@
       "name": "mesh-gradient-background2",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "three",
-        "@types/three",
-        "@react-three/fiber",
-        "@react-three/drei"
-      ],
+      "dependencies": ["three", "@types/three", "@react-three/fiber", "@react-three/drei"],
       "registryDependencies": [],
       "files": [
         {
@@ -662,12 +605,7 @@
       "name": "mesh-gradient-background",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "three",
-        "@types/three",
-        "@react-three/fiber",
-        "@react-three/drei"
-      ],
+      "dependencies": ["three", "@types/three", "@react-three/fiber", "@react-three/drei"],
       "registryDependencies": [],
       "files": [
         {
@@ -680,9 +618,7 @@
       "name": "animated-logo-footer",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -695,9 +631,7 @@
       "name": "hover-footer",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -710,10 +644,7 @@
       "name": "responsive-header",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion",
-        "lucide-react"
-      ],
+      "dependencies": ["motion", "lucide-react"],
       "registryDependencies": [],
       "files": [
         {
@@ -726,9 +657,7 @@
       "name": "responsive-header-default",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -745,9 +674,7 @@
       "name": "boxgrid",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -760,9 +687,7 @@
       "name": "conditionGrid",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -775,9 +700,7 @@
       "name": "normalGrid",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -790,9 +713,7 @@
       "name": "buyme-acoffee",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -805,9 +726,7 @@
       "name": "stripecard",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -820,9 +739,7 @@
       "name": "creative-hover-card",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -835,9 +752,7 @@
       "name": "stripecard2",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -850,9 +765,7 @@
       "name": "hovercard1",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -865,9 +778,7 @@
       "name": "hovercard2",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -880,9 +791,7 @@
       "name": "hovercard3",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -895,9 +804,7 @@
       "name": "hovercard4",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -910,9 +817,7 @@
       "name": "productcard1",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -925,9 +830,7 @@
       "name": "productcard2",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -940,9 +843,7 @@
       "name": "productcard3",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -955,9 +856,7 @@
       "name": "productcard4",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -970,9 +869,7 @@
       "name": "productcard5",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -985,9 +882,7 @@
       "name": "productcard6",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -1000,9 +895,7 @@
       "name": "creative-clippath",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -1015,9 +908,7 @@
       "name": "corporate-clippath",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -1030,9 +921,7 @@
       "name": "symbolic-clippath",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -1045,9 +934,7 @@
       "name": "creative-mask-clippath",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -1060,9 +947,7 @@
       "name": "watersplash-clippath",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -1075,9 +960,7 @@
       "name": "creative-imagemasking",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -1090,9 +973,7 @@
       "name": "animal-imagemasking",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -1105,9 +986,7 @@
       "name": "watersplash-imagemasking",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -1120,9 +999,7 @@
       "name": "center-imagemasking",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -1135,9 +1012,7 @@
       "name": "fixedbg-imagemasking",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -1150,9 +1025,7 @@
       "name": "creative-videomasking",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -1165,9 +1038,7 @@
       "name": "splashwater-videomasking",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -1180,9 +1051,7 @@
       "name": "textoverlay-videomasking",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -1195,9 +1064,7 @@
       "name": "hexagon-videomasking",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -1210,9 +1077,7 @@
       "name": "hexagon2-videomasking",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -1225,9 +1090,7 @@
       "name": "progressive-carousel",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -1240,9 +1103,7 @@
       "name": "horizontal-progressive-carousel",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -1259,9 +1120,7 @@
       "name": "vertical-progressive-carousel",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -1351,10 +1210,7 @@
       "name": "magnified-doc",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion",
-        "@radix-ui/react-tooltip"
-      ],
+      "dependencies": ["motion", "@radix-ui/react-tooltip"],
       "registryDependencies": [],
       "files": [
         {
@@ -1367,10 +1223,7 @@
       "name": "magnified-tab",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion",
-        "@radix-ui/react-tooltip"
-      ],
+      "dependencies": ["motion", "@radix-ui/react-tooltip"],
       "registryDependencies": [],
       "files": [
         {
@@ -1387,9 +1240,7 @@
       "name": "tabs",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -1402,9 +1253,7 @@
       "name": "animated-tabs",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -1421,9 +1270,7 @@
       "name": "creative-tab",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -1440,9 +1287,7 @@
       "name": "register-tab",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -1459,9 +1304,7 @@
       "name": "swapy",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "swapy"
-      ],
+      "dependencies": ["swapy"],
       "registryDependencies": [],
       "files": [
         {
@@ -1474,9 +1317,7 @@
       "name": "default-swapy",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "swapy"
-      ],
+      "dependencies": ["swapy"],
       "registryDependencies": [],
       "files": [
         {
@@ -1493,9 +1334,7 @@
       "name": "opacity-swapy",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "swapy"
-      ],
+      "dependencies": ["swapy"],
       "registryDependencies": [],
       "files": [
         {
@@ -1512,9 +1351,7 @@
       "name": "swapy-handle",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "swapy"
-      ],
+      "dependencies": ["swapy"],
       "registryDependencies": [],
       "files": [
         {
@@ -1531,9 +1368,7 @@
       "name": "swapy-without-components",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "swapy"
-      ],
+      "dependencies": ["swapy"],
       "registryDependencies": [],
       "files": [
         {
@@ -1550,9 +1385,7 @@
       "name": "drag-items",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -1565,9 +1398,7 @@
       "name": "timeline-animation",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -1580,9 +1411,7 @@
       "name": "timeline-animation-default",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -1599,9 +1428,7 @@
       "name": "scroll-animation",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -1614,9 +1441,7 @@
       "name": "scroll-animation-default",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -1633,9 +1458,7 @@
       "name": "scroll-animation-repeat",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -1652,9 +1475,7 @@
       "name": "scroll-animation-text",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -2082,9 +1903,7 @@
       "name": "liquid-glass",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -2097,9 +1916,7 @@
       "name": "liquid-glass-weather",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -2116,9 +1933,7 @@
       "name": "liquid-glass-mobile-icons",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -2135,9 +1950,7 @@
       "name": "liquid-glass-notification",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -2154,9 +1967,7 @@
       "name": "liquid-glass-sidebar-menu",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -2254,9 +2065,7 @@
       "name": "liquid-gradient",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -2269,9 +2078,7 @@
       "name": "liquid-gradient-components",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -2288,9 +2095,7 @@
       "name": "liquid-button",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -2388,10 +2193,7 @@
       "name": "slider",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "@number-flow/react",
-        "@radix-ui/react-slider"
-      ],
+      "dependencies": ["@number-flow/react", "@radix-ui/react-slider"],
       "registryDependencies": [],
       "files": [
         {
@@ -2443,9 +2245,7 @@
       "name": "showhide-pass",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "lucide-react"
-      ],
+      "dependencies": ["lucide-react"],
       "registryDependencies": [],
       "files": [
         {
@@ -2458,9 +2258,7 @@
       "name": "pass-strengthindicator",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "lucide-react"
-      ],
+      "dependencies": ["lucide-react"],
       "registryDependencies": [],
       "files": [
         {
@@ -2473,9 +2271,7 @@
       "name": "pass-strength-dotted-indicator",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "lucide-react"
-      ],
+      "dependencies": ["lucide-react"],
       "registryDependencies": [],
       "files": [
         {
@@ -2488,9 +2284,7 @@
       "name": "pass-strength-hover-indicator",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "lucide-react"
-      ],
+      "dependencies": ["lucide-react"],
       "registryDependencies": [],
       "files": [
         {
@@ -2503,9 +2297,7 @@
       "name": "pass-strength-inline-indicator",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "lucide-react"
-      ],
+      "dependencies": ["lucide-react"],
       "registryDependencies": [],
       "files": [
         {
@@ -2518,9 +2310,7 @@
       "name": "confirm-pass-check",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "lucide-react"
-      ],
+      "dependencies": ["lucide-react"],
       "registryDependencies": [],
       "files": [
         {
@@ -2580,11 +2370,7 @@
       "name": "phone-input-default",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "lucide-react",
-        "react-phone-number-input",
-        "zod"
-      ],
+      "dependencies": ["lucide-react", "react-phone-number-input", "zod"],
       "registryDependencies": [],
       "files": [
         {
@@ -2617,11 +2403,7 @@
       "name": "phone-input",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "lucide-react",
-        "react-phone-number-input",
-        "zod"
-      ],
+      "dependencies": ["lucide-react", "react-phone-number-input", "zod"],
       "registryDependencies": [],
       "files": [
         {
@@ -2650,10 +2432,7 @@
       "name": "datetime-input",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "chrono-node@latest",
-        "react-day-picker@^8.9.1"
-      ],
+      "dependencies": ["chrono-node@latest", "react-day-picker@^8.9.1"],
       "registryDependencies": [],
       "files": [
         {
@@ -2682,10 +2461,7 @@
       "name": "datetime-input-default",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "chrono-node@latest",
-        "react-day-picker@^8.9.1"
-      ],
+      "dependencies": ["chrono-node@latest", "react-day-picker@^8.9.1"],
       "registryDependencies": [],
       "files": [
         {
@@ -2718,10 +2494,7 @@
       "name": "time-picker",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "chrono-node@latest",
-        "react-day-picker@^8.9.1"
-      ],
+      "dependencies": ["chrono-node@latest", "react-day-picker@^8.9.1"],
       "registryDependencies": [],
       "files": [
         {
@@ -2754,10 +2527,7 @@
       "name": "date-picker",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "chrono-node@latest",
-        "react-day-picker@^8.9.1"
-      ],
+      "dependencies": ["chrono-node@latest", "react-day-picker@^8.9.1"],
       "registryDependencies": [],
       "files": [
         {
@@ -2790,9 +2560,7 @@
       "name": "multi-selector",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "lucide-react"
-      ],
+      "dependencies": ["lucide-react"],
       "registryDependencies": [],
       "files": [
         {
@@ -2817,9 +2585,7 @@
       "name": "multi-selector-default",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "lucide-react"
-      ],
+      "dependencies": ["lucide-react"],
       "registryDependencies": [],
       "files": [
         {
@@ -2848,11 +2614,7 @@
       "name": "file-upload",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "react-dropzone",
-        "sonner",
-        "lucide-react"
-      ],
+      "dependencies": ["react-dropzone", "sonner", "lucide-react"],
       "registryDependencies": [],
       "files": [
         {
@@ -2865,9 +2627,7 @@
       "name": "file-upload-default",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "lucide-react"
-      ],
+      "dependencies": ["lucide-react"],
       "registryDependencies": [],
       "files": [
         {
@@ -2884,9 +2644,7 @@
       "name": "chat-form-dropzone",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "lucide-react"
-      ],
+      "dependencies": ["lucide-react"],
       "registryDependencies": [],
       "files": [
         {
@@ -2903,9 +2661,7 @@
       "name": "imgpreview-dropzone",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "lucide-react"
-      ],
+      "dependencies": ["lucide-react"],
       "registryDependencies": [],
       "files": [
         {
@@ -2922,10 +2678,7 @@
       "name": "linear-modal",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion",
-        "lucide-react"
-      ],
+      "dependencies": ["motion", "lucide-react"],
       "registryDependencies": [],
       "files": [
         {
@@ -2938,10 +2691,7 @@
       "name": "linear-modal-default",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion",
-        "lucide-react"
-      ],
+      "dependencies": ["motion", "lucide-react"],
       "registryDependencies": [],
       "files": [
         {
@@ -2958,10 +2708,7 @@
       "name": "linear-modal-center-content",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion",
-        "lucide-react"
-      ],
+      "dependencies": ["motion", "lucide-react"],
       "registryDependencies": [],
       "files": [
         {
@@ -2978,10 +2725,7 @@
       "name": "linear-modal-standalone",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion",
-        "lucide-react"
-      ],
+      "dependencies": ["motion", "lucide-react"],
       "registryDependencies": [],
       "files": [
         {
@@ -2998,10 +2742,7 @@
       "name": "gallery-modal-accordion",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion",
-        "lucide-react"
-      ],
+      "dependencies": ["motion", "lucide-react"],
       "registryDependencies": [],
       "files": [
         {
@@ -3014,10 +2755,7 @@
       "name": "gallery-modal-unsplash",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion",
-        "lucide-react"
-      ],
+      "dependencies": ["motion", "lucide-react"],
       "registryDependencies": [],
       "files": [
         {
@@ -3030,10 +2768,7 @@
       "name": "gallery-modal-slider",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion",
-        "lucide-react"
-      ],
+      "dependencies": ["motion", "lucide-react"],
       "registryDependencies": [],
       "files": [
         {
@@ -3046,10 +2781,7 @@
       "name": "dialog",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion",
-        "lucide-react"
-      ],
+      "dependencies": ["motion", "lucide-react"],
       "registryDependencies": [],
       "files": [
         {
@@ -3062,10 +2794,7 @@
       "name": "dialog-default",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion",
-        "lucide-react"
-      ],
+      "dependencies": ["motion", "lucide-react"],
       "registryDependencies": [],
       "files": [
         {
@@ -3082,10 +2811,7 @@
       "name": "media-modal",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion",
-        "lucide-react"
-      ],
+      "dependencies": ["motion", "lucide-react"],
       "registryDependencies": [],
       "files": [
         {
@@ -3098,10 +2824,7 @@
       "name": "media-modal-default",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion",
-        "lucide-react"
-      ],
+      "dependencies": ["motion", "lucide-react"],
       "registryDependencies": [],
       "files": [
         {
@@ -3118,10 +2841,7 @@
       "name": "imagemodals",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion",
-        "lucide-react"
-      ],
+      "dependencies": ["motion", "lucide-react"],
       "registryDependencies": [],
       "files": [
         {
@@ -3138,10 +2858,7 @@
       "name": "responsive-modal",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion",
-        "lucide-react"
-      ],
+      "dependencies": ["motion", "lucide-react"],
       "registryDependencies": [],
       "files": [
         {
@@ -3154,10 +2871,7 @@
       "name": "responsive-modal-default",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion",
-        "lucide-react"
-      ],
+      "dependencies": ["motion", "lucide-react"],
       "registryDependencies": [],
       "files": [
         {
@@ -3174,10 +2888,7 @@
       "name": "directional-drawer",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion",
-        "lucide-react"
-      ],
+      "dependencies": ["motion", "lucide-react"],
       "registryDependencies": [],
       "files": [
         {
@@ -3190,10 +2901,7 @@
       "name": "directional-drawer_default",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion",
-        "lucide-react"
-      ],
+      "dependencies": ["motion", "lucide-react"],
       "registryDependencies": [],
       "files": [
         {
@@ -3210,10 +2918,7 @@
       "name": "left-directional-drawer",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion",
-        "lucide-react"
-      ],
+      "dependencies": ["motion", "lucide-react"],
       "registryDependencies": [],
       "files": [
         {
@@ -3230,10 +2935,7 @@
       "name": "top-directional-drawer",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion",
-        "lucide-react"
-      ],
+      "dependencies": ["motion", "lucide-react"],
       "registryDependencies": [],
       "files": [
         {
@@ -3250,10 +2952,7 @@
       "name": "bottom-directional-drawer",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion",
-        "lucide-react"
-      ],
+      "dependencies": ["motion", "lucide-react"],
       "registryDependencies": [],
       "files": [
         {
@@ -3270,10 +2969,7 @@
       "name": "motion-drawer",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion",
-        "lucide-react"
-      ],
+      "dependencies": ["motion", "lucide-react"],
       "registryDependencies": [],
       "files": [
         {
@@ -3286,10 +2982,7 @@
       "name": "motion-drawer-default",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion",
-        "lucide-react"
-      ],
+      "dependencies": ["motion", "lucide-react"],
       "registryDependencies": [],
       "files": [
         {
@@ -3306,10 +2999,7 @@
       "name": "right-motion-drawer",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion",
-        "lucide-react"
-      ],
+      "dependencies": ["motion", "lucide-react"],
       "registryDependencies": [],
       "files": [
         {
@@ -3808,9 +3498,7 @@
       "name": "framer-normal-carousel",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -3827,9 +3515,7 @@
       "name": "framer-draggable-carousel",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -3846,9 +3532,7 @@
       "name": "framer-autoplay-carousel",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -3865,9 +3549,7 @@
       "name": "framer-multi-carousel",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -3884,9 +3566,7 @@
       "name": "framer-thumnbails",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -3903,9 +3583,7 @@
       "name": "framer-moveable-thumbnails",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -3922,9 +3600,7 @@
       "name": "framer-drag-sliding-carousel",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -3941,9 +3617,7 @@
       "name": "code-block",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "shiki"
-      ],
+      "dependencies": ["shiki"],
       "registryDependencies": [],
       "files": [
         {
@@ -3960,9 +3634,7 @@
       "name": "tree-code-viewer",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "shiki"
-      ],
+      "dependencies": ["shiki"],
       "registryDependencies": [],
       "files": [
         {
@@ -3983,9 +3655,7 @@
       "name": "code-tabs-mdx",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [
-        "shiki"
-      ],
+      "dependencies": ["shiki"],
       "registryDependencies": [],
       "files": [
         {
@@ -4006,9 +3676,7 @@
       "name": "hero-digital-success",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4033,9 +3701,7 @@
       "name": "hero-ai-value-proposition",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4052,9 +3718,7 @@
       "name": "hero-share-app",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4079,9 +3743,7 @@
       "name": "hero-social-app",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4106,9 +3768,7 @@
       "name": "hero-ai-ecommerce",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4133,9 +3793,7 @@
       "name": "hero-ai-infrastructure",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4160,9 +3818,7 @@
       "name": "hero-financial",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4187,9 +3843,7 @@
       "name": "feature-flow",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4210,9 +3864,7 @@
       "name": "feature-hero",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4229,9 +3881,7 @@
       "name": "feature-bento",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4248,9 +3898,7 @@
       "name": "feature-nature",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4267,9 +3915,7 @@
       "name": "feature-velocity",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4286,9 +3932,7 @@
       "name": "feature-highlights",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4305,9 +3949,7 @@
       "name": "feature-platform",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4324,9 +3966,7 @@
       "name": "feature-service",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4343,9 +3983,7 @@
       "name": "about-ecommerse",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4362,9 +4000,7 @@
       "name": "about-creative",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4381,9 +4017,7 @@
       "name": "about-me",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4400,9 +4034,7 @@
       "name": "about-sass",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4419,9 +4051,7 @@
       "name": "about-agency",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4438,9 +4068,7 @@
       "name": "about-architecture",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4457,9 +4085,7 @@
       "name": "about-mission",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4476,9 +4102,7 @@
       "name": "about-bento",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4495,9 +4119,7 @@
       "name": "about-business",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4514,9 +4136,7 @@
       "name": "about-whyus",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4533,9 +4153,7 @@
       "name": "about-vision",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4552,9 +4170,7 @@
       "name": "about-experience",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4571,9 +4187,7 @@
       "name": "team-clippath",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4590,9 +4204,7 @@
       "name": "team-classic",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4609,9 +4221,7 @@
       "name": "team-expert",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4628,9 +4238,7 @@
       "name": "team-magic",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4647,9 +4255,7 @@
       "name": "team-modern",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4666,9 +4272,7 @@
       "name": "team-social",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4685,9 +4289,7 @@
       "name": "team-synth",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4704,9 +4306,7 @@
       "name": "team-troops",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4723,9 +4323,7 @@
       "name": "team-vr",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4742,9 +4340,7 @@
       "name": "advanced-stats",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4761,9 +4357,7 @@
       "name": "stats-banner",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4780,9 +4374,7 @@
       "name": "stats-bento",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4799,9 +4391,7 @@
       "name": "stats-section",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4818,9 +4408,7 @@
       "name": "stats-details",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4837,9 +4425,7 @@
       "name": "stats-bold",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4856,9 +4442,7 @@
       "name": "stats-minimal",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4875,9 +4459,7 @@
       "name": "stack-testimonial",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4894,9 +4476,7 @@
       "name": "spotlight-testimonial",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4913,9 +4493,7 @@
       "name": "messenger-testimonial",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4932,9 +4510,7 @@
       "name": "chat-interface-testimonial",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4951,9 +4527,7 @@
       "name": "testimonial-basic",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4970,9 +4544,7 @@
       "name": "testimonial-carousel",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -4989,9 +4561,7 @@
       "name": "marque-testimonial",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -5008,9 +4578,7 @@
       "name": "impact-experience",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -5027,9 +4595,7 @@
       "name": "portfolio-experience",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -5046,9 +4612,7 @@
       "name": "creative-experience",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -5065,9 +4629,7 @@
       "name": "work-experience",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -5084,9 +4646,7 @@
       "name": "customer-experience",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -5103,9 +4663,7 @@
       "name": "growth-plans",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -5122,9 +4680,7 @@
       "name": "pricing-overview",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -5141,9 +4697,7 @@
       "name": "pricing-grow-business",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -5160,9 +4714,7 @@
       "name": "product-packs",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -5179,9 +4731,7 @@
       "name": "startup-plans",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -5198,9 +4748,7 @@
       "name": "subscription-details",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -5217,9 +4765,7 @@
       "name": "faq-founder",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -5236,9 +4782,7 @@
       "name": "faq-tabbed-explorer",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -5255,9 +4799,7 @@
       "name": "faq-glass-card",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -5274,9 +4816,7 @@
       "name": "faq-interactive-preview",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -5293,9 +4833,7 @@
       "name": "faq-journey",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -5312,9 +4850,7 @@
       "name": "faq-minimilastic",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -5331,9 +4867,7 @@
       "name": "footer-hero",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -5350,9 +4884,7 @@
       "name": "footer-bento",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -5369,9 +4901,7 @@
       "name": "footer-bold",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -5388,9 +4918,7 @@
       "name": "footer-detailed",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -5407,9 +4935,7 @@
       "name": "footer-minimal",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -5426,9 +4952,7 @@
       "name": "footer-privilege",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -5445,9 +4969,7 @@
       "name": "footer-simple",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {

@@ -1,7 +1,8 @@
 'use client';
-import React, { useState } from 'react';
-import { AnimatePresence, motion } from 'motion/react';
 import { Plus } from 'lucide-react';
+import { AnimatePresence, motion } from 'motion/react';
+import React, { useState } from 'react';
+
 const tabs = [
   {
     title: 'How do UI components improve UX?',
@@ -14,8 +15,7 @@ const tabs = [
     title: 'Common UI component design challenges?',
     description:
       'Some common challenges include maintaining consistency across different devices and screen sizes, ensuring compatibility with various browsers and assistive technologies, and balancing flexibility with ease of use.',
-    imageUrl:
-      'https://images.unsplash.com/photo-1548192746-dd526f154ed9?q=80&w=1200&auto=format',
+    imageUrl: 'https://images.unsplash.com/photo-1548192746-dd526f154ed9?q=80&w=1200&auto=format',
   },
   {
     title: 'Ensuring UI component responsiveness?',
@@ -45,16 +45,12 @@ function SingleLayout() {
   return (
     <>
       <div className='container mx-auto pb-10 pt-2'>
-        <h1 className='uppercase text-center text-4xl font-bold pt-2 pb-4'>
-          FAQ
-        </h1>
+        <h1 className='uppercase text-center text-4xl font-bold pt-2 pb-4'>FAQ</h1>
         <div className='h-fit border rounded-lg p-2 dark:bg-[#111111] bg-[#F2F2F2]'>
           {tabs.map((tab, index) => (
             <motion.div
               key={tab.title}
-              className={`overflow-hidden ${
-                index !== tabs.length - 1 ? 'border-b' : ''
-              }`}
+              className={`overflow-hidden ${index !== tabs.length - 1 ? 'border-b' : ''}`}
               onClick={() => handleClick(index)}
             >
               <button

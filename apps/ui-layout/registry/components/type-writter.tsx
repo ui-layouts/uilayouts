@@ -12,12 +12,7 @@ function TypeWritterDemo() {
 
   return (
     <div>
-      <TypeWritter
-        key={key}
-        text='New Role Detected'
-        charDelay={55}
-        onComplete={handleComplete}
-      />
+      <TypeWritter key={key} text='New Role Detected' charDelay={55} onComplete={handleComplete} />
     </div>
   );
 }

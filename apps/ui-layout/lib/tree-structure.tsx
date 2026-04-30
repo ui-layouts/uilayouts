@@ -1,4 +1,4 @@
-import { Folder, FileJson, FileText, Braces } from 'lucide-react';
+import { Braces, FileJson, FileText, Folder } from 'lucide-react';
 
 export type TreeNodeData =
   | {
@@ -74,11 +74,7 @@ const TypescriptIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-export function getFileIcon(
-  type: 'folder' | 'file',
-  ext?: string,
-  name?: string
-) {
+export function getFileIcon(type: 'folder' | 'file', ext?: string, name?: string) {
   if (type === 'folder') {
     return <Folder className='h-4 w-4 text-blue-500' />;
   }

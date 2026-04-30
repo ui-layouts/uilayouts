@@ -25,13 +25,7 @@ type SwapyLayoutProps = {
   children: React.ReactNode;
 };
 
-export const SwapyLayout = ({
-  id,
-  onSwap,
-  config = {},
-  className,
-  children,
-}: SwapyLayoutProps) => {
+export const SwapyLayout = ({ id, onSwap, config = {}, className, children }: SwapyLayoutProps) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const swapyRef = useRef<ReturnType<typeof createSwapy> | null>(null);
 
@@ -135,8 +129,7 @@ export const SwapyItem = ({
   children: React.ReactNode;
   dragItemOpacity?: number;
 }) => {
-  const opacityClass =
-    dragOpacityClassMap[dragItemOpacity] ?? 'data-swapy-dragging:opacity-50';
+  const opacityClass = dragOpacityClassMap[dragItemOpacity] ?? 'data-swapy-dragging:opacity-50';
   return (
     <div className={cn(opacityClass, className)} data-swapy-item={id}>
       {children}

@@ -1,6 +1,6 @@
-import { DocsNavigationCategories } from '@/configs/docs';
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+import { DocsNavigationCategories } from '@/configs/docs';
 
 export interface IRecentPage {
   id: string;
@@ -38,17 +38,13 @@ export const useRecentPagesStore = create<RecentPagesStore>()(
             newRecentPages[existingPageIndex].visitCount++;
           } else {
             // New page, add to the list
-            newRecentPages = [
-              { id, name, visitCount: 1 },
-              ...state.recentPages,
-            ];
+            newRecentPages = [{ id, name, visitCount: 1 }, ...state.recentPages];
           }
 
           // Sort by visit count (descending) and then by most recent
           newRecentPages.sort(
             (a, b) =>
-              b.visitCount - a.visitCount ||
-              newRecentPages.indexOf(a) - newRecentPages.indexOf(b)
+              b.visitCount - a.visitCount || newRecentPages.indexOf(a) - newRecentPages.indexOf(b)
           );
 
           // Keep only the top 5
@@ -57,11 +53,9 @@ export const useRecentPagesStore = create<RecentPagesStore>()(
       },
       getRecentPages: () =>
         get().recentPages.filter((page: IRecentPage) =>
-          DocsNavigationCategories.some(
-            (component) => component.name === page.name
-          )
+          DocsNavigationCategories.some((component) => component.name === page.name)
         ),
-      // @ts-ignore
+      // @ts-expect-error
       removeAllRecentPages: () => set({ recentPages: [] }),
     }),
     {
@@ -91,9 +85,7 @@ export const useSelectedComponentStore = create<SelectedComponentState>()(
       addSelectedComponent: (component) => {
         set((state) => {
           const existingComponentIndex = state.recentComponents.findIndex(
-            (c) =>
-              c.componentName === component.componentName &&
-              c.type === component.type
+            (c) => c.componentName === component.componentName && c.type === component.type
           );
           let newRecentComponents: ISelectedComponent[];
 
@@ -101,9 +93,7 @@ export const useSelectedComponentStore = create<SelectedComponentState>()(
             // Component already exists, move it to the front
             newRecentComponents = [
               component,
-              ...state.recentComponents.filter(
-                (_, index) => index !== existingComponentIndex
-              ),
+              ...state.recentComponents.filter((_, index) => index !== existingComponentIndex),
             ];
           } else {
             // New component, add to the front of the list

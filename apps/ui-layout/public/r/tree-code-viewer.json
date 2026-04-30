@@ -1,9 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "tree-code-viewer",
-  "dependencies": [
-    "shiki"
-  ],
+  "dependencies": ["shiki"],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [

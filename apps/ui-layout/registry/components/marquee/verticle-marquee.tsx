@@ -1,5 +1,5 @@
-import { cn } from '@/lib/utils';
 import { Marquee } from '@/components/ui/marquee';
+import { cn } from '@/lib/utils';
 
 const reviews = [
   {
@@ -52,9 +52,7 @@ const ReviewCard = ({
         <div className={cn('rounded-full w-8 h-8', img)}></div>
 
         <div className='flex flex-col'>
-          <figcaption className='text-sm font-medium dark:text-white'>
-            {name}
-          </figcaption>
+          <figcaption className='text-sm font-medium dark:text-white'>{name}</figcaption>
           <p className='text-xs font-medium dark:text-white/40'>{username}</p>
         </div>
       </div>
@@ -82,18 +80,10 @@ const MarqueeDemoVertical = () => {
       >
         <defs>
           <filter id='noise6'>
-            <feTurbulence
-              type='fractalNoise'
-              baseFrequency='0.6'
-              numOctaves='4'
-            />
+            <feTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='4' />
           </filter>
         </defs>
-        <rect
-          width="100%"
-          height="100%"
-          filter="url(#noise6)"
-        />
+        <rect width='100%' height='100%' filter='url(#noise6)' />
       </svg>
       <div className='pointer-events-none absolute inset-x-0 top-0 h-1/3 bg-linear-to-b from-white dark:from-neutral-900'></div>
       <div className='pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-linear-to-t from-white dark:from-neutral-900'></div>

@@ -1,12 +1,6 @@
-import React, { useState } from 'react';
+import { ArrowBigDown, ArrowRight, ChevronRight, ChevronsRight, Heart } from 'lucide-react';
 import Image from 'next/image';
-import {
-  ArrowBigDown,
-  ArrowRight,
-  ChevronRight,
-  ChevronsRight,
-  Heart,
-} from 'lucide-react';
+import React, { useState } from 'react';
 
 function HoverCard4() {
   return (

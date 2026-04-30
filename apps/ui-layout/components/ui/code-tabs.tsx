@@ -1,15 +1,10 @@
 // components/website/code-components/code-tabs.tsx
 'use client';
 
-import { useEffect, useState, type ReactNode } from 'react';
-import {
-  Tabs,
-  TabsList,
-  TabsTrigger,
-  TabsContent,
-} from '@/components/website/ui/tabs';
-import { CopyButton } from '../website/code-components/copy-button';
+import { type ReactNode, useEffect, useState } from 'react';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/website/ui/tabs';
 import { cn } from '@/lib/utils';
+import { CopyButton } from '../website/code-components/copy-button';
 
 export type CodeTabInput = {
   id: string;
@@ -130,15 +125,8 @@ export function CodeTabs({
             </TabsList>
 
             {tabs.map((tab) => (
-              <TabsContent
-                key={tab.id}
-                value={tab.id}
-                className='mt-1 border-none'
-              >
-                <CopyButton
-                  code={tab.code}
-                  classname='top-1.5 border bg-white absolute right-3'
-                />
+              <TabsContent key={tab.id} value={tab.id} className='mt-1 border-none'>
+                <CopyButton code={tab.code} classname='top-1.5 border bg-white absolute right-3' />
                 <div
                   className='cliblocks rounded-xl p-1 px-2 border-none'
                   dangerouslySetInnerHTML={{ __html: tab.code }}
@@ -169,10 +157,7 @@ export function CodeTabs({
 
           {tabs.map((t) => (
             <TabsContent key={t.id} value={t.id} className='mt-1 border-none'>
-              <CopyButton
-                code={t.code}
-                classname='top-1.5 border bg-white absolute right-3'
-              />
+              <CopyButton code={t.code} classname='top-1.5 border bg-white absolute right-3' />
               {highlighted[t.id] ? (
                 <div
                   className='cliblocks rounded-xl p-1 px-2 border-none'

@@ -53,20 +53,8 @@ export const Bun = (props: SVGProps<SVGSVGElement>) => (
       <path d='M38.09 50.19a7.42 7.42 0 0 1-4.45-2 9.52 9.52 0 0 1-3.11-5.05 1.2 1.2 0 0 1 .26-1 1.41 1.41 0 0 1 1.13-.51h12.34a1.44 1.44 0 0 1 1.13.51 1.19 1.19 0 0 1 .25 1 9.52 9.52 0 0 1-3.11 5.05 7.42 7.42 0 0 1-4.44 2Zm-6.17-7.4c-.16 0-.2.07-.21.09a8.29 8.29 0 0 0 2.73 4.37A6.23 6.23 0 0 0 38.09 49a6.28 6.28 0 0 0 3.65-1.73 8.3 8.3 0 0 0 2.72-4.37.21.21 0 0 0-.2-.09Z' />
     </g>
     <g>
-      <ellipse
-        cx='53.22'
-        cy='40.18'
-        rx='5.85'
-        ry='3.44'
-        style={{ fill: '#febbd0' }}
-      />
-      <ellipse
-        cx='22.95'
-        cy='40.18'
-        rx='5.85'
-        ry='3.44'
-        style={{ fill: '#febbd0' }}
-      />
+      <ellipse cx='53.22' cy='40.18' rx='5.85' ry='3.44' style={{ fill: '#febbd0' }} />
+      <ellipse cx='22.95' cy='40.18' rx='5.85' ry='3.44' style={{ fill: '#febbd0' }} />
       <path
         d='M25.7 38.8a5.51 5.51 0 1 0-5.5-5.51 5.51 5.51 0 0 0 5.5 5.51Zm24.77 0A5.51 5.51 0 1 0 45 33.29a5.5 5.5 0 0 0 5.47 5.51Z'
         style={{ fillRule: 'evenodd' }}
@@ -82,10 +70,7 @@ export const Bun = (props: SVGProps<SVGSVGElement>) => (
 export const NPM = (props: SVGProps<SVGSVGElement>) => (
   <svg {...props} viewBox='0 0 2500 2500'>
     <path fill='#c00' d='M0 0h2500v2500H0z' />
-    <path
-      fill='#fff'
-      d='M1241.5 268.5h-973v1962.9h972.9V763.5h495v1467.9h495V268.5z'
-    />
+    <path fill='#fff' d='M1241.5 268.5h-973v1962.9h972.9V763.5h495v1467.9h495V268.5z' />
   </svg>
 );
 
@@ -96,38 +81,14 @@ export const Pnpm = (props: SVGProps<SVGSVGElement>) => (
     viewBox='76.58987244897958 44 164.00775510204068 164'
   >
     <defs>
-      <path
-        d='M237.6 95L187.6 95L187.6 45L237.6 45L237.6 95Z'
-        id='pnpm__arNRoK435'
-      />
-      <path
-        d='M182.59 95L132.59 95L132.59 45L182.59 45L182.59 95Z'
-        id='pnpm__a3H2WU7Px'
-      />
-      <path
-        d='M127.59 95L77.59 95L77.59 45L127.59 45L127.59 95Z'
-        id='pnpm__b1DInM56vl'
-      />
-      <path
-        d='M237.6 150L187.6 150L187.6 100L237.6 100L237.6 150Z'
-        id='pnpm__a7LFlgQIwu'
-      />
-      <path
-        d='M182.59 150L132.59 150L132.59 100L182.59 100L182.59 150Z'
-        id='pnpm__amwLiZcuo'
-      />
-      <path
-        d='M182.59 205L132.59 205L132.59 155L182.59 155L182.59 205Z'
-        id='pnpm__f3Peu5RWan'
-      />
-      <path
-        d='M237.6 205L187.6 205L187.6 155L237.6 155L237.6 205Z'
-        id='pnpm__a6DXBfqPa'
-      />
-      <path
-        d='M127.59 205L77.59 205L77.59 155L127.59 155L127.59 205Z'
-        id='pnpm__c1GWSTH1z7'
-      />
+      <path d='M237.6 95L187.6 95L187.6 45L237.6 45L237.6 95Z' id='pnpm__arNRoK435' />
+      <path d='M182.59 95L132.59 95L132.59 45L182.59 45L182.59 95Z' id='pnpm__a3H2WU7Px' />
+      <path d='M127.59 95L77.59 95L77.59 45L127.59 45L127.59 95Z' id='pnpm__b1DInM56vl' />
+      <path d='M237.6 150L187.6 150L187.6 100L237.6 100L237.6 150Z' id='pnpm__a7LFlgQIwu' />
+      <path d='M182.59 150L132.59 150L132.59 100L182.59 100L182.59 150Z' id='pnpm__amwLiZcuo' />
+      <path d='M182.59 205L132.59 205L132.59 155L182.59 155L182.59 205Z' id='pnpm__f3Peu5RWan' />
+      <path d='M237.6 205L187.6 205L187.6 155L237.6 155L237.6 205Z' id='pnpm__a6DXBfqPa' />
+      <path d='M127.59 205L77.59 205L77.59 155L127.59 155L127.59 205Z' id='pnpm__c1GWSTH1z7' />
     </defs>
     <g>
       <g>

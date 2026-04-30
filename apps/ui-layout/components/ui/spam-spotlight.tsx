@@ -1,6 +1,8 @@
 'use client';
 
-import React, { useRef, useState, useEffect, useCallback } from 'react';
+import type React from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+
 interface MousePosition {
   x: number;
   y: number;
@@ -31,10 +33,7 @@ type SpotlightProps = {
   className?: string;
 };
 
-export default function Spotlight({
-  children,
-  className = '',
-}: SpotlightProps) {
+export default function Spotlight({ children, className = '' }: SpotlightProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mousePosition = useMousePosition();
   const mouse = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
@@ -43,9 +42,7 @@ export default function Spotlight({
 
   useEffect(() => {
     if (containerRef.current) {
-      setBoxes(
-        Array.from(containerRef.current.children).map((el) => el as HTMLElement)
-      );
+      setBoxes(Array.from(containerRef.current.children).map((el) => el as HTMLElement));
     }
   }, []);
 
@@ -76,10 +73,8 @@ export default function Spotlight({
         mouse.current.x = x;
         mouse.current.y = y;
         boxes.forEach((box) => {
-          const boxX =
-            -(box.getBoundingClientRect().left - rect.left) + mouse.current.x;
-          const boxY =
-            -(box.getBoundingClientRect().top - rect.top) + mouse.current.y;
+          const boxX = -(box.getBoundingClientRect().left - rect.left) + mouse.current.x;
+          const boxY = -(box.getBoundingClientRect().top - rect.top) + mouse.current.y;
           box.style.setProperty('--mouse-x', `${boxX}px`);
           box.style.setProperty('--mouse-y', `${boxY}px`);
         });
@@ -103,10 +98,7 @@ type SpotlightCardProps = {
   className?: string;
 };
 
-export function SpotlightCard({
-  children,
-  className = '',
-}: SpotlightCardProps) {
+export function SpotlightCard({ children, className = '' }: SpotlightCardProps) {
   return (
     <div
       className={`relative h-full bg-slate-800 rounded-3xl p-px before:absolute before:w-80 before:h-80 before:-left-40 before:-top-40 before:bg-slate-400 before:rounded-full before:opacity-0 before:pointer-events-none before:transition-opacity before:duration-500 before:translate-x-(--mouse-x) before:translate-y-(--mouse-y) group-hover:before:opacity-100 before:z-10 before:blur-[100px] after:absolute after:w-96 after:h-96 after:-left-48 after:-top-48 after:bg-indigo-500 after:rounded-full after:opacity-0 after:pointer-events-none after:transition-opacity after:duration-500 after:translate-x-(--mouse-x) after:translate-y-(--mouse-y) hover:after:opacity-10 after:z-30 after:blur-[100px] overflow-hidden ${className}`}

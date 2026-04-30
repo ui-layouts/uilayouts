@@ -1,7 +1,7 @@
 'use client';
-import React from 'react';
-import { Next13ProgressBar } from 'next13-progressbar';
 import { useTheme } from 'next-themes';
+import { Next13ProgressBar } from 'next13-progressbar';
+import type React from 'react';
 
 const Progressbar = ({ children }: { children: React.ReactNode }) => {
   const { theme, setTheme } = useTheme();

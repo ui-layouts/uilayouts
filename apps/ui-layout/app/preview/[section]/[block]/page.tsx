@@ -1,7 +1,7 @@
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Metadata } from 'next';
-import { blocksDesign } from '@/blocks-docs'; // Update path
 import { Suspense } from 'react';
+import { blocksDesign } from '@/blocks-docs'; // Update path
 import PreviewHeightReporter from '../../../../components/website/blocks-components/preview-height-reporter';
 
 export async function generateMetadata({
@@ -43,7 +43,6 @@ export default async function BlocksPage(props: {
   if (!blockData) return notFound();
 
   return (
-    <>
       <PreviewHeightReporter>
         <Suspense
           fallback={
@@ -53,6 +52,5 @@ export default async function BlocksPage(props: {
           <blockData.componentSrc />
         </Suspense>
       </PreviewHeightReporter>
-    </>
   );
 }

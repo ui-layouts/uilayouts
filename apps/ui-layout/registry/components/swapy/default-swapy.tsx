@@ -1,21 +1,14 @@
 'use client';
-import { useEffect, useMemo, useRef, useState } from 'react';
-import { SlotItemMapArray, utils } from 'swapy';
-import {
-  DragHandle,
-  SwapyItem,
-  SwapyLayout,
-  SwapySlot,
-} from '@/components/ui/swapy';
 import { Heart, PlusCircle } from 'lucide-react';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { type SlotItemMapArray, utils } from 'swapy';
+import { DragHandle, SwapyItem, SwapyLayout, SwapySlot } from '@/components/ui/swapy';
 
 export function ProjectViewsCard() {
   return (
     <div className='bg-emerald-600 rounded-xl h-full p-6 flex flex-col justify-center items-center text-center shadow-md'>
       <div className='flex gap-2'>
-        <h2 className='text-yellow-200 2xl:text-5xl text-3xl font-bold mb-2'>
-          4.875
-        </h2>
+        <h2 className='text-yellow-200 2xl:text-5xl text-3xl font-bold mb-2'>4.875</h2>
         <div className='text-yellow-200 flex items-center gap-1 mb-1'>
           <span className='text-xl'>
             <Heart className='fill-yellow-200' size={24} />
@@ -31,9 +24,7 @@ export function NewUsersCard() {
   return (
     <div className='bg-neutral-600 rounded-xl h-full p-6 flex flex-col justify-center shadow-md'>
       <p className='text-yellow-200 mb-1 font-medium'>New Users</p>
-      <h2 className='text-yellow-200 2xl:text-6xl text-4xl font-bold leading-none'>
-        57K
-      </h2>
+      <h2 className='text-yellow-200 2xl:text-6xl text-4xl font-bold leading-none'>57K</h2>
       <p className='text-green-400 font-medium mt-2'>+10%</p>
     </div>
   );
@@ -79,9 +70,7 @@ export function LogoCard() {
           <circle cx='50' cy='67' r='25' fill='rgb(1, 61, 226)' />
         </svg>
       </div>
-      <h2 className='2xl:text-3xl text-xl font-bold text-neutral-900'>
-        UI-Layouts
-      </h2>
+      <h2 className='2xl:text-3xl text-xl font-bold text-neutral-900'>UI-Layouts</h2>
     </div>
   );
 }

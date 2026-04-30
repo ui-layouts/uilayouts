@@ -1,7 +1,7 @@
 // thanks to maximeheckel
-import React, { useState } from 'react';
 
 import Image from 'next/image';
+import React, { useState } from 'react';
 import { TabsBtn, TabsContent, TabsProvider } from '@/components/ui/tab';
 
 function Tab() {

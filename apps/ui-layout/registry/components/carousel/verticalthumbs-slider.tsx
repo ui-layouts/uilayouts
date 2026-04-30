@@ -1,6 +1,6 @@
 'use client';
+import type { EmblaOptionsType } from 'embla-carousel';
 import React, { ReactNode } from 'react';
-import { EmblaOptionsType } from 'embla-carousel';
 import {
   Carousel,
   Slider,

@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 // --- Configuration ---
 // Target Date: December 31, 2026
@@ -7,9 +7,7 @@ const targetDate = new Date('2026-12-31T23:59:59').getTime();
 
 // --- Main Component ---
 const FlipCountdownTailwind = () => {
-  const [timeRemaining, setTimeRemaining] = useState(
-    targetDate - new Date().getTime()
-  );
+  const [timeRemaining, setTimeRemaining] = useState(targetDate - new Date().getTime());
 
   // useEffect for the time interval
   useEffect(() => {
@@ -52,12 +50,7 @@ const FlipCountdownTailwind = () => {
     <>
       <div className='flex justify-center items-center space-x-2 mt-4 font-librecaslon'>
         {/* Days segment (Red highlight) */}
-        <TimeSegment
-          value={time.days}
-          label='DAYS'
-          isHighlighted={true}
-          isFlipping={true}
-        />
+        <TimeSegment value={time.days} label='DAYS' isHighlighted={true} isFlipping={true} />
         <Separator />
         {/* Hours segment */}
         <TimeSegment value={time.hours} label='HRS' isFlipping={true} />

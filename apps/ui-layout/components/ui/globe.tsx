@@ -1,7 +1,9 @@
 'use client';
-import React, { useEffect, useRef, useState } from 'react';
 import createGlobe from 'cobe';
+import type React from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
+
 interface EarthProps {
   className?: string;
   theta?: number;
@@ -30,8 +32,7 @@ const Earth: React.FC<EarthProps> = ({
 
   useEffect(() => {
     let width = 0;
-    const onResize = () =>
-      canvasRef.current && (width = canvasRef.current.offsetWidth);
+    const onResize = () => canvasRef.current && (width = canvasRef.current.offsetWidth);
     window.addEventListener('resize', onResize);
     onResize();
     let phi = 0;

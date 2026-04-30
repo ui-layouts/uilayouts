@@ -1,9 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "hero-ai-infrastructure",
-  "dependencies": [
-    "motion"
-  ],
+  "dependencies": ["motion"],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [

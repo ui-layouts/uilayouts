@@ -1,7 +1,7 @@
 // @ts-nocheck
 'use client';
 
-import { useScroll, useTransform, motion } from 'motion/react';
+import { motion, useScroll, useTransform } from 'motion/react';
 import { useEffect, useRef } from 'react';
 
 export default function StickyHeroScroll() {

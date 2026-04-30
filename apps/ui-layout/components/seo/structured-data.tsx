@@ -137,8 +137,7 @@ export function StructuredData({ type, componentData }: StructuredDataProps) {
             {
               '@type': 'ItemList',
               name: 'UI Components and Blocks',
-              description:
-                'Collection of modern UI components and blocks for React and Next.js',
+              description: 'Collection of modern UI components and blocks for React and Next.js',
               numberOfItems: 160,
               itemListElement: [
                 {
@@ -172,8 +171,7 @@ export function StructuredData({ type, componentData }: StructuredDataProps) {
           description: componentData?.description,
           url: canonicalUrl,
           applicationCategory: 'DeveloperApplication',
-          applicationSubCategory:
-            componentData?.itemType === 'block' ? 'UI Block' : 'UI Component',
+          applicationSubCategory: componentData?.itemType === 'block' ? 'UI Block' : 'UI Component',
           operatingSystem: 'Web',
           mainEntityOfPage: canonicalUrl,
           isAccessibleForFree: true,
@@ -251,11 +249,7 @@ export function StructuredData({ type, componentData }: StructuredDataProps) {
             height: 512,
           },
           description: siteConfig.description,
-          sameAs: [
-            siteConfig.links.twitter,
-            siteConfig.links.linkedin,
-            siteConfig.links.github,
-          ],
+          sameAs: [siteConfig.links.twitter, siteConfig.links.linkedin, siteConfig.links.github],
           contactPoint: {
             '@type': 'ContactPoint',
             contactType: 'customer service',

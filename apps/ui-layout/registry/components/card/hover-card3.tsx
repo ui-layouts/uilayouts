@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import Image from 'next/image';
 import { ChevronsRight, Heart } from 'lucide-react';
+import Image from 'next/image';
+import React, { useState } from 'react';
 
 function HoverCard3() {
   return (
@@ -21,9 +21,8 @@ function HoverCard3() {
           <div className='translate-y-10 group-hover:translate-y-0 transition-all duration-300 space-y-2'>
             <h1 className='md:text-2xl font-semibold'>Who We are</h1>
             <p className='sm:text-base text-sm'>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad
-              consectetur ducimus vel nemo deserunt possimus inventore ipsum
-              nostrum. Sapiente, facilis?
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad consectetur ducimus vel
+              nemo deserunt possimus inventore ipsum nostrum. Sapiente, facilis?
             </p>
             <button className='p-2 bg-black flex rounded-md text-white'>
               Learn More <ChevronsRight />

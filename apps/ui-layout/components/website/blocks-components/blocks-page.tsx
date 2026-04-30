@@ -1,11 +1,11 @@
 'use client';
 
-import Link from 'next/link';
 import Image from 'next/image';
-import { cn } from '@/lib/utils';
-import HomeFooter from '../home/home-footer';
+import Link from 'next/link';
 import { Container } from '@/components/ui/container';
 import { GapPattern } from '@/components/ui/gap-pattern';
+import { cn } from '@/lib/utils';
+import HomeFooter from '../home/home-footer';
 
 export default function BlocksHomeClient({ blocksData }: { blocksData: any }) {
   return (
@@ -32,9 +32,9 @@ export default function BlocksHomeClient({ blocksData }: { blocksData: any }) {
               </span>
             </h1>
             <p className='xl:text-xl md:text-base text-sm lg:max-w-3xl max-w-xl mx-auto font-manrope'>
-              Beautifully designed sections you can copy and paste straight into
-              your apps. Creatively crafted with Tailwind CSS and shadcn/ui,
-              these blocks are built for real-world React and Next.js projects
+              Beautifully designed sections you can copy and paste straight into your apps.
+              Creatively crafted with Tailwind CSS and shadcn/ui, these blocks are built for
+              real-world React and Next.js projects
             </p>
 
             <div className='flex gap-2 items-center w-fit mx-auto'>
@@ -42,6 +42,7 @@ export default function BlocksHomeClient({ blocksData }: { blocksData: any }) {
                 href='https://ui.shadcn.com/'
                 target='_blank'
                 className='bg-neutral-100 dark:bg-neutral-800 p-2 border dark:border-neutral-700 h-14 w-14 grid place-items-center'
+                rel='noopener'
               >
                 <svg
                   width='569'
@@ -72,6 +73,7 @@ export default function BlocksHomeClient({ blocksData }: { blocksData: any }) {
                 className='bg-neutral-100 dark:bg-neutral-800 p-2 border dark:border-neutral-700 h-14 w-14 grid place-items-center'
                 href='https://tailwindcss.com/'
                 target='_blank'
+                rel='noopener'
               >
                 <svg
                   width='224'
@@ -93,6 +95,7 @@ export default function BlocksHomeClient({ blocksData }: { blocksData: any }) {
                 href='https://motion.dev/'
                 target='_blank'
                 className='bg-neutral-100 dark:bg-neutral-800 p-2 border dark:border-neutral-700 h-14 w-14 grid place-items-center'
+                rel='noopener'
               >
                 <svg
                   width='330'
@@ -116,6 +119,7 @@ export default function BlocksHomeClient({ blocksData }: { blocksData: any }) {
                 href='https://ui.shadcn.com/'
                 target='_blank'
                 className='bg-neutral-100 dark:bg-neutral-800 p-2 border dark:border-neutral-700 h-14 w-14 grid place-items-center'
+                rel='noopener'
               >
                 <svg
                   width='200'
@@ -175,11 +179,7 @@ export default function BlocksHomeClient({ blocksData }: { blocksData: any }) {
                                 />
                               </filter>
                             </defs>
-                            <rect
-                              width='100%'
-                              height='100%'
-                              filter='url(#noise6)'
-                            />
+                            <rect width='100%' height='100%' filter='url(#noise6)' />
                           </svg>
                           <Image
                             src={component.imgSrc}

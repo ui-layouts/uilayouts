@@ -2,28 +2,24 @@
 'use client';
 
 import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from '@/components/ui/magnified-doc';
-
-import {
+  AnimatePresence,
   type MotionValue,
   motion,
   useMotionValue,
   useSpring,
   useTransform,
-  AnimatePresence,
 } from 'motion/react';
 import Image from 'next/image';
-import React, { useState } from 'react';
-import { useRef } from 'react';
+import React, { useRef, useState } from 'react';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/magnified-doc';
 import { apps } from '../constant';
 
-const Component = React.forwardRef((props, ref) => (
-  <Image {...props} ref={ref} alt='App' />
-));
+const Component = React.forwardRef((props, ref) => <Image {...props} ref={ref} alt='App' />);
 
 Component.displayName = 'ForwardedComponent';
 
@@ -39,8 +35,7 @@ function HomeMagnifiedDocOneFile() {
     setIndex(i);
   };
 
-  const isForward =
-    index > prevIndex || (index === 0 && prevIndex === apps.length - 1);
+  const isForward = index > prevIndex || (index === 0 && prevIndex === apps.length - 1);
 
   return (
     <div className='relative rounded-md sm:h-full h-[280px]'>
@@ -98,10 +93,7 @@ function HomeMagnifiedDocOneFile() {
                       <span className='sr-only'>{app.name}</span>
                       <AppIcon mouseX={mouseX} src={app.icon} />
                     </TooltipTrigger>
-                    <TooltipContent
-                      className='py-1 px-3 rounded-xs'
-                      sideOffset={8}
-                    >
+                    <TooltipContent className='py-1 px-3 rounded-xs' sideOffset={8}>
                       <p className='text-xs'>{app.name}</p>
                     </TooltipContent>
                   </Tooltip>

@@ -1,20 +1,16 @@
 'use client';
 
+import { RefreshCcw } from 'lucide-react';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
+  type ImperativePanelGroupHandle,
   Panel,
   PanelGroup,
   PanelResizeHandle,
-  type ImperativePanelGroupHandle,
 } from 'react-resizable-panels';
-import { useOptimizedIframe } from '@/hooks/useOptimizedIframe';
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from '@/components/website/ui/tooltip';
-import { RefreshCcw } from 'lucide-react';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/website/ui/tooltip';
 import { useMediaQuery } from '@/hooks/use-media-query';
+import { useOptimizedIframe } from '@/hooks/useOptimizedIframe';
 
 type Props = {
   src: string;
@@ -67,10 +63,7 @@ export default function DynamicPreviewIframe({
       if (e.data?.type !== 'IFRAME_HEIGHT') return;
       if (e.data.id !== expectedId) return;
 
-      const next = Math.min(
-        Math.ceil(Number(e.data.height) || fallbackHeight),
-        maxHeight
-      );
+      const next = Math.min(Math.ceil(Number(e.data.height) || fallbackHeight), maxHeight);
 
       setHeight((prev) => (Math.abs(prev - next) < 2 ? prev : next));
       setHasMeasured(true);
@@ -111,12 +104,7 @@ export default function DynamicPreviewIframe({
             className='h-full'
           >
             {/* MAIN PREVIEW — FULL WIDTH */}
-            <Panel
-              id='preview'
-              defaultSize={DEFAULTSIZE}
-              minSize={30}
-              className='relative'
-            >
+            <Panel id='preview' defaultSize={DEFAULTSIZE} minSize={30} className='relative'>
               <iframe
                 key={refreshKey}
                 ref={iframeRef}
@@ -124,7 +112,8 @@ export default function DynamicPreviewIframe({
                 frameBorder={0}
                 sandbox='allow-scripts allow-same-origin'
                 className='h-full w-full'
-               title='Component preview iframe' />
+                title='Component preview iframe'
+              />
             </Panel>
 
             {/* RESIZE HANDLE */}

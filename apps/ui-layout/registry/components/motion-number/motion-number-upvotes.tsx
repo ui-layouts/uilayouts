@@ -1,8 +1,9 @@
 'use client';
 import NumberFlow from '@number-flow/react';
-import { motion } from 'motion/react';
 import { ArrowDown, ArrowUp } from 'lucide-react';
-import React, { useState } from 'react';
+import { motion } from 'motion/react';
+import type React from 'react';
+import { useState } from 'react';
 
 const UpvoteDownvote: React.FC = () => {
   const [votes, setVotes] = useState(14); // Initial votes

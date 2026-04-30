@@ -1,16 +1,16 @@
 'use client';
 
+import { AnimatePresence, motion } from 'motion/react';
 import React, {
-  ReactNode,
   createContext,
-  useContext,
-  useState,
   isValidElement,
-  useMemo,
+  type ReactNode,
   useCallback,
+  useContext,
+  useMemo,
+  useState,
 } from 'react';
 import { cn } from '@/lib/utils';
-import { AnimatePresence, motion } from 'motion/react';
 
 // Improved TypeScript interfaces with more specific types
 interface TabContextType {
@@ -81,102 +81,80 @@ export const TabsProvider: React.FC<TabsProviderProps> = React.memo(
         prevIndex,
         tabsOrder,
       }),
-      [
-        activeTab,
-        setActiveTab,
-        wobbly,
-        hover,
-        defaultValue,
-        prevIndex,
-        tabsOrder,
-      ]
+      [activeTab, setActiveTab, wobbly, hover, defaultValue, prevIndex, tabsOrder]
     );
 
-    return (
-      <TabContext.Provider value={contextValue}>{children}</TabContext.Provider>
-    );
+    return <TabContext.Provider value={contextValue}>{children}</TabContext.Provider>;
   }
 );
 
 // Memoized TabsBtn component
-export const TabsBtn: React.FC<TabsBtnProps> = React.memo(
-  ({ children, className, value }) => {
-    const {
-      activeTab,
-      setPrevIndex,
-      setActiveTab,
-      defaultValue,
-      hover,
-      wobbly,
-      tabsOrder,
-    } = useTabs();
+export const TabsBtn: React.FC<TabsBtnProps> = React.memo(({ children, className, value }) => {
+  const { activeTab, setPrevIndex, setActiveTab, defaultValue, hover, wobbly, tabsOrder } =
+    useTabs();
 
-    // Use useCallback to memoize the click handler
-    const handleClick = useCallback(() => {
-      setPrevIndex(tabsOrder.indexOf(activeTab));
-      setActiveTab(value);
-    }, [setPrevIndex, tabsOrder, activeTab, setActiveTab, value]);
+  // Use useCallback to memoize the click handler
+  const handleClick = useCallback(() => {
+    setPrevIndex(tabsOrder.indexOf(activeTab));
+    setActiveTab(value);
+  }, [setPrevIndex, tabsOrder, activeTab, setActiveTab, value]);
 
-    return (
-      <motion.div
-        className={cn(
-          `cursor-pointer 2xl:p-2 p-2 2xl:px-4 px-2 rounded-md relative`,
-          className
+  return (
+    <motion.div
+      className={cn(`cursor-pointer 2xl:p-2 p-2 2xl:px-4 px-2 rounded-md relative`, className)}
+      onFocus={() => hover && handleClick()}
+      onMouseEnter={() => hover && handleClick()}
+      onClick={handleClick}
+    >
+      {children}
+
+      <AnimatePresence mode='wait'>
+        {activeTab === value && (
+          <>
+            <motion.div
+              transition={{
+                layout: {
+                  duration: 0.2,
+                  ease: 'easeInOut',
+                  delay: 0.2,
+                },
+              }}
+              layoutId={defaultValue}
+              className='absolute w-full h-full left-0 top-0 dark:bg-primary-base bg-white rounded-md z-1'
+            />
+
+            {wobbly && (
+              <>
+                <motion.div
+                  transition={{
+                    layout: {
+                      duration: 0.4,
+                      ease: 'easeInOut',
+                      delay: 0.04,
+                    },
+                  }}
+                  layoutId={defaultValue}
+                  className='absolute w-full h-full left-0 top-0 dark:bg-primary-base bg-white rounded-md z-1 tab-shadow'
+                />
+                <motion.div
+                  transition={{
+                    layout: {
+                      duration: 0.4,
+                      ease: 'easeOut',
+                      delay: 0.2,
+                    },
+                  }}
+                  layoutId={`${defaultValue}b`}
+                  className='absolute w-full h-full left-0 top-0 dark:bg-primary-base bg-white rounded-md z-1 tab-shadow'
+                />
+              </>
+            )}
+          </>
         )}
-        onFocus={() => hover && handleClick()}
-        onMouseEnter={() => hover && handleClick()}
-        onClick={handleClick}
-      >
-        {children}
-
-        <AnimatePresence mode='wait'>
-          {activeTab === value && (
-            <>
-              <motion.div
-                transition={{
-                  layout: {
-                    duration: 0.2,
-                    ease: 'easeInOut',
-                    delay: 0.2,
-                  },
-                }}
-                layoutId={defaultValue}
-                className='absolute w-full h-full left-0 top-0 dark:bg-primary-base bg-white rounded-md z-1'
-              />
-
-              {wobbly && (
-                <>
-                  <motion.div
-                    transition={{
-                      layout: {
-                        duration: 0.4,
-                        ease: 'easeInOut',
-                        delay: 0.04,
-                      },
-                    }}
-                    layoutId={defaultValue}
-                    className='absolute w-full h-full left-0 top-0 dark:bg-primary-base bg-white rounded-md z-1 tab-shadow'
-                  />
-                  <motion.div
-                    transition={{
-                      layout: {
-                        duration: 0.4,
-                        ease: 'easeOut',
-                        delay: 0.2,
-                      },
-                    }}
-                    layoutId={`${defaultValue}b`}
-                    className='absolute w-full h-full left-0 top-0 dark:bg-primary-base bg-white rounded-md z-1 tab-shadow'
-                  />
-                </>
-              )}
-            </>
-          )}
-        </AnimatePresence>
-      </motion.div>
-    );
-  }
-);
+      </AnimatePresence>
+    </motion.div>
+  );
+});
 
 // Memoized TabsContent component
 export const TabsContent: React.FC<TabsContentProps> = React.memo(

@@ -1,22 +1,19 @@
 'use client';
 
-import React, {
+import type { EmblaCarouselType, EmblaEventType, EmblaOptionsType } from 'embla-carousel';
+import useEmblaCarousel from 'embla-carousel-react';
+import { AnimatePresence, motion } from 'motion/react';
+import type React from 'react';
+import {
   createContext,
+  forwardRef,
   useCallback,
   useContext,
   useEffect,
   useId,
   useRef,
   useState,
-  forwardRef,
 } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import type {
-  EmblaCarouselType,
-  EmblaEventType,
-  EmblaOptionsType,
-} from 'embla-carousel';
-import useEmblaCarousel from 'embla-carousel-react';
 import { cn } from '@/lib/utils';
 
 // ============= TYPES =============
@@ -52,9 +49,7 @@ interface CarouselContextType {
 }
 
 // ============= CONTEXT =============
-const CarouselContext = createContext<CarouselContextType | undefined>(
-  undefined
-);
+const CarouselContext = createContext<CarouselContextType | undefined>(undefined);
 
 export const useCarousel = () => {
   const context = useContext(CarouselContext);
@@ -71,18 +66,7 @@ const numberWithinRange = (number: number, min: number, max: number): number =>
 
 // ============= MAIN CAROUSEL COMPONENT =============
 export const Carousel = forwardRef<HTMLDivElement, CarouselProps>(
-  (
-    {
-      children,
-      options = {},
-      plugins = [],
-      className,
-      isScale = false,
-      dir,
-      ...props
-    },
-    ref
-  ) => {
+  ({ children, options = {}, plugins = [], className, isScale = false, dir, ...props }, ref) => {
     const carouselId = useId();
     const [slidesArr, setSlidesArr] = useState<string[]>([]);
 
@@ -193,9 +177,7 @@ export const Carousel = forwardRef<HTMLDivElement, CarouselProps>(
         if (!isScale) return;
         tweenNodes.current = emblaApi
           .slideNodes()
-          .map((slideNode) =>
-            slideNode.querySelector('.slider_content')
-          ) as HTMLElement[];
+          .map((slideNode) => slideNode.querySelector('.slider_content')) as HTMLElement[];
       },
       [isScale]
     );
@@ -203,8 +185,7 @@ export const Carousel = forwardRef<HTMLDivElement, CarouselProps>(
     const setTweenFactor = useCallback(
       (emblaApi: EmblaCarouselType) => {
         if (!isScale) return;
-        tweenFactor.current =
-          TWEEN_FACTOR_BASE * emblaApi.scrollSnapList().length;
+        tweenFactor.current = TWEEN_FACTOR_BASE * emblaApi.scrollSnapList().length;
       },
       [isScale]
     );
@@ -275,15 +256,7 @@ export const Carousel = forwardRef<HTMLDivElement, CarouselProps>(
           .on('reInit', tweenScale)
           .on('scroll', tweenScale);
       }
-    }, [
-      emblaApi,
-      onSelect,
-      onScroll,
-      isScale,
-      setTweenNodes,
-      setTweenFactor,
-      tweenScale,
-    ]);
+    }, [emblaApi, onSelect, onScroll, isScale, setTweenNodes, setTweenFactor, tweenScale]);
 
     return (
       <CarouselContext.Provider
@@ -330,28 +303,23 @@ export const Carousel = forwardRef<HTMLDivElement, CarouselProps>(
 Carousel.displayName = 'Carousel';
 
 // ============= SLIDER CONTAINER =============
-export const SliderContainer = forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, children, ...props }, ref) => {
-  const { emblaRef, orientation } = useCarousel();
+export const SliderContainer = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, children, ...props }, ref) => {
+    const { emblaRef, orientation } = useCarousel();
 
-  return (
-    <div ref={emblaRef} className='overflow-hidden' {...props}>
-      <div
-        ref={ref}
-        className={cn(
-          'flex',
-          orientation === 'vertical' ? 'flex-col' : 'flex-row',
-          className
-        )}
-        style={{ touchAction: 'pan-y pinch-zoom' }}
-      >
-        {children}
+    return (
+      <div ref={emblaRef} className='overflow-hidden' {...props}>
+        <div
+          ref={ref}
+          className={cn('flex', orientation === 'vertical' ? 'flex-col' : 'flex-row', className)}
+          style={{ touchAction: 'pan-y pinch-zoom' }}
+        >
+          {children}
+        </div>
       </div>
-    </div>
-  );
-});
+    );
+  }
+);
 
 SliderContainer.displayName = 'SliderContainer';
 
@@ -439,70 +407,65 @@ export const SliderNextButton = forwardRef<
 SliderNextButton.displayName = 'SliderNextButton';
 
 // ============= PROGRESS BAR =============
-export const SliderProgress = forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => {
-  const { scrollProgress } = useCarousel();
+export const SliderProgress = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => {
+    const { scrollProgress } = useCarousel();
 
-  return (
-    <div
-      ref={ref}
-      className={cn(
-        'bg-neutral-500 relative rounded-md h-2 w-96 max-w-full overflow-hidden',
-        className
-      )}
-      {...props}
-    >
+    return (
       <div
-        className='dark:bg-white bg-black absolute w-full top-0 -left-full bottom-0 transition-transform'
-        style={{ transform: `translate3d(${scrollProgress}%,0px,0px)` }}
-      />
-    </div>
-  );
-});
+        ref={ref}
+        className={cn(
+          'bg-neutral-500 relative rounded-md h-2 w-96 max-w-full overflow-hidden',
+          className
+        )}
+        {...props}
+      >
+        <div
+          className='dark:bg-white bg-black absolute w-full top-0 -left-full bottom-0 transition-transform'
+          style={{ transform: `translate3d(${scrollProgress}%,0px,0px)` }}
+        />
+      </div>
+    );
+  }
+);
 
 SliderProgress.displayName = 'SliderProgress';
 
 // ============= SNAP DISPLAY =============
-export const SliderSnapDisplay = forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => {
-  const { selectedSnap, snapCount } = useCarousel();
-  const prevSnapRef = useRef(selectedSnap);
-  const direction = selectedSnap > prevSnapRef.current ? 1 : -1;
+export const SliderSnapDisplay = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => {
+    const { selectedSnap, snapCount } = useCarousel();
+    const prevSnapRef = useRef(selectedSnap);
+    const direction = selectedSnap > prevSnapRef.current ? 1 : -1;
 
-  useEffect(() => {
-    prevSnapRef.current = selectedSnap;
-  }, [selectedSnap]);
+    useEffect(() => {
+      prevSnapRef.current = selectedSnap;
+    }, [selectedSnap]);
 
-  return (
-    <div
-      ref={ref}
-      className={cn(
-        'mix-blend-difference overflow-hidden flex gap-1 items-center',
-        className
-      )}
-      {...props}
-    >
-      <AnimatePresence mode='wait'>
-        <motion.div
-          key={selectedSnap}
-          custom={direction}
-          // @ts-ignore
-          initial={(d: number) => ({ y: d * 20, opacity: 0 })}
-          animate={{ y: 0, opacity: 1 }}
-          // @ts-ignore
-          exit={(d: number) => ({ y: d * -20, opacity: 0 })}
-        >
-          {selectedSnap + 1}
-        </motion.div>
-      </AnimatePresence>
-      <span>/ {snapCount}</span>
-    </div>
-  );
-});
+    return (
+      <div
+        ref={ref}
+        className={cn('mix-blend-difference overflow-hidden flex gap-1 items-center', className)}
+        {...props}
+      >
+        <AnimatePresence mode='wait'>
+          <motion.div
+            key={selectedSnap}
+            custom={direction}
+            // @ts-expect-error
+            initial={(d: number) => ({ y: d * 20, opacity: 0 })}
+            animate={{ y: 0, opacity: 1 }}
+            // @ts-expect-error
+            exit={(d: number) => ({ y: d * -20, opacity: 0 })}
+          >
+            {selectedSnap + 1}
+          </motion.div>
+        </AnimatePresence>
+        <span>/ {snapCount}</span>
+      </div>
+    );
+  }
+);
 
 SliderSnapDisplay.displayName = 'SliderSnapDisplay';
 
@@ -513,13 +476,7 @@ interface SliderDotButtonProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export const SliderDotButton = forwardRef<HTMLDivElement, SliderDotButtonProps>(
   ({ className, activeClass, ...props }, ref) => {
-    const {
-      selectedIndex,
-      scrollSnaps,
-      orientation,
-      onDotButtonClick,
-      carouselId,
-    } = useCarousel();
+    const { selectedIndex, scrollSnaps, orientation, onDotButtonClick, carouselId } = useCarousel();
 
     return (
       <div ref={ref} className={cn('flex gap-2', className)} {...props}>
@@ -572,30 +529,29 @@ interface CarouselIndicatorProps extends React.ButtonHTMLAttributes<HTMLButtonEl
   index: number;
 }
 
-export const CarouselIndicator = forwardRef<
-  HTMLButtonElement,
-  CarouselIndicatorProps
->(({ className, index, ...props }, ref) => {
-  const { selectedIndex, onDotButtonClick } = useCarousel();
-  const isActive = selectedIndex === index;
+export const CarouselIndicator = forwardRef<HTMLButtonElement, CarouselIndicatorProps>(
+  ({ className, index, ...props }, ref) => {
+    const { selectedIndex, onDotButtonClick } = useCarousel();
+    const isActive = selectedIndex === index;
 
-  return (
-    <button
-      ref={ref}
-      type='button'
-      onClick={() => onDotButtonClick(index)}
-      className={cn(
-        'h-1.5 w-6 rounded-full transition-colors',
-        isActive ? 'bg-primary' : 'bg-primary/50',
-        className
-      )}
-      aria-label={`Go to slide ${index + 1}`}
-      {...props}
-    >
-      <span className='sr-only'>Slide {index + 1}</span>
-    </button>
-  );
-});
+    return (
+      <button
+        ref={ref}
+        type='button'
+        onClick={() => onDotButtonClick(index)}
+        className={cn(
+          'h-1.5 w-6 rounded-full transition-colors',
+          isActive ? 'bg-primary' : 'bg-primary/50',
+          className
+        )}
+        aria-label={`Go to slide ${index + 1}`}
+        {...props}
+      >
+        <span className='sr-only'>Slide {index + 1}</span>
+      </button>
+    );
+  }
+);
 
 CarouselIndicator.displayName = 'CarouselIndicator';
 
@@ -607,22 +563,12 @@ export const ThumbsSlider = forwardRef<
     thumbsSliderClassName?: string;
   }
 >(({ className, thumbsClassName, thumbsSliderClassName, ...props }, ref) => {
-  const {
-    slidesArr,
-    selectedIndex,
-    onThumbClick,
-    orientation,
-    emblaThumbsRef,
-  } = useCarousel();
+  const { slidesArr, selectedIndex, onThumbClick, orientation, emblaThumbsRef } = useCarousel();
 
   if (slidesArr.length === 0) return null;
 
   return (
-    <div
-      ref={emblaThumbsRef}
-      className={cn('overflow-hidden', className)}
-      {...props}
-    >
+    <div ref={emblaThumbsRef} className={cn('overflow-hidden', className)} {...props}>
       <div
         ref={ref}
         className={cn(
@@ -638,9 +584,7 @@ export const ThumbsSlider = forwardRef<
             className={cn(
               'shrink-0 cursor-pointer transition-opacity',
               'border-2 rounded-md',
-              orientation === 'vertical'
-                ? 'basis-[15%] h-20'
-                : 'basis-[15%] h-24',
+              orientation === 'vertical' ? 'basis-[15%] h-20' : 'basis-[15%] h-24',
               selectedIndex === index
                 ? 'opacity-100 border-primary'
                 : 'opacity-30 border-transparent',

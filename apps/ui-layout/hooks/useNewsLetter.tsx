@@ -12,9 +12,7 @@ function useNewsLetter(): [
   (data: ClientData) => Promise<void>,
   DiscordIntegrationResponse | undefined,
 ] {
-  const [clientData, setClientData] = useState<
-    DiscordIntegrationResponse | undefined
-  >(undefined);
+  const [clientData, setClientData] = useState<DiscordIntegrationResponse | undefined>(undefined);
 
   const Send = async (data: ClientData) => {
     const body = {
@@ -30,16 +28,13 @@ function useNewsLetter(): [
     };
 
     try {
-      const response = await fetch(
-        process.env.NEXT_PUBLIC_DISCORD_INTERGRATION_HOOK || '',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(body),
-        }
-      );
+      const response = await fetch(process.env.NEXT_PUBLIC_DISCORD_INTERGRATION_HOOK || '', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(body),
+      });
 
       const responseData: DiscordIntegrationResponse = {
         status: response.status,

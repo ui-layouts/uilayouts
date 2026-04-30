@@ -1,7 +1,8 @@
 // @ts-nocheck
 'use client';
+import { createRef, type ReactNode, useRef } from 'react';
 import { cn } from '@/lib/utils';
-import { createRef, ReactNode, useRef } from 'react';
+
 interface ImageMouseTrailProps {
   items: string[];
   children?: ReactNode;
@@ -63,9 +64,7 @@ export default function ImageMouseTrail({
 
       const lead = refs.current[globalIndex % refs.current.length].current;
 
-      const tail =
-        refs.current[(globalIndex - maxNumberOfImages) % refs.current.length]
-          ?.current;
+      const tail = refs.current[(globalIndex - maxNumberOfImages) % refs.current.length]?.current;
 
       if (lead) activate(lead, e.clientX, e.clientY);
       if (tail) deactivate(tail);

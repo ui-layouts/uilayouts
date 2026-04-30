@@ -1,21 +1,13 @@
-import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import React from 'react';
-import {
-  BlurVignette,
-  BlurVignetteArticle,
-} from '@/components/ui/blur-vignette';
+import { BlurVignette, BlurVignetteArticle } from '@/components/ui/blur-vignette';
+import { cn } from '@/lib/utils';
 
 function Blurvignetteimg() {
   return (
     <>
       <div className='w-fit mx-auto sm:flex gap-2 justify-center md:p-8 sm:p-4'>
-        <BlurVignette
-          radius='24px'
-          inset='10px'
-          transitionLength='80px'
-          blur='15px'
-        >
+        <BlurVignette radius='24px' inset='10px' transitionLength='80px' blur='15px'>
           <Image
             src='https://img.freepik.com/free-photo/african-kid-enjoying-life_23-2151447718.jpg'
             alt='grid'
@@ -25,12 +17,7 @@ function Blurvignetteimg() {
           />
           <BlurVignetteArticle />
         </BlurVignette>
-        <BlurVignette
-          radius='24px'
-          inset='10px'
-          transitionLength='80px'
-          blur='15px'
-        >
+        <BlurVignette radius='24px' inset='10px' transitionLength='80px' blur='15px'>
           <Image
             src='https://img.freepik.com/free-photo/portrait-middle-aged-man-taking-photos-with-device-world-photography-day_23-2151672359.jpg'
             alt='grid'

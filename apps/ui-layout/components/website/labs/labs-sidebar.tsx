@@ -1,7 +1,8 @@
 'use client';
-import React, { useState } from 'react';
-import { cn } from '@/lib/utils';
+import { BadgeInfo, Check, CheckCheck, ChevronsUpDown, Search } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
+import Link from 'next/link';
+import React, { useState } from 'react';
 import {
   Command,
   CommandEmpty,
@@ -10,51 +11,31 @@ import {
   CommandItem,
   CommandList,
 } from '@/components/website/ui/command';
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@/components/website/ui/popover';
-import {
-  BadgeInfo,
-  Check,
-  CheckCheck,
-  ChevronsUpDown,
-  Search,
-} from 'lucide-react';
-import { ScrollArea } from '../ui/scroll-area';
-import {
-  useSelectedComponentStore,
-  useStateChange,
-} from '@/hooks/useZustStore';
-import Link from 'next/link';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/website/ui/popover';
 import { AllComponents } from '@/configs/docs';
+import { useSelectedComponentStore, useStateChange } from '@/hooks/useZustStore';
+import { cn } from '@/lib/utils';
+import { ScrollArea } from '../ui/scroll-area';
 
 function LabSidebar() {
   const [open, setOpen] = React.useState(false);
   const { isSidebarOpen } = useStateChange();
   const [searchTerm, setSearchTerm] = useState('');
-  const recentComponents = useSelectedComponentStore(
-    (state) => state.recentComponents
-  );
+  const recentComponents = useSelectedComponentStore((state) => state.recentComponents);
   const currentComopnents = recentComponents[0];
 
   const [value, setValue] = React.useState(
     (currentComopnents && currentComopnents.componentName) || ''
   );
-  const { addSelectedComponent, getRecentComponents } =
-    useSelectedComponentStore();
+  const { addSelectedComponent, getRecentComponents } = useSelectedComponentStore();
   // console.log(COMPONENT_DETAILS)
 
   const filteredComponents = AllComponents.filter((component) => {
     const searchLower = searchTerm.toLowerCase();
-    const nameMatches = component.componentName
-      .toLowerCase()
-      .includes(searchLower);
+    const nameMatches = component.componentName.toLowerCase().includes(searchLower);
 
     const tagMatches =
-      component.tags?.some((tag) => tag.toLowerCase().includes(searchLower)) ??
-      false; // Ensure `false` if `tags` is undefined
+      component.tags?.some((tag) => tag.toLowerCase().includes(searchLower)) ?? false; // Ensure `false` if `tags` is undefined
 
     return nameMatches || tagMatches;
   });
@@ -84,9 +65,7 @@ function LabSidebar() {
             <Link href='/' className='flex gap-2 items-center w-fit px-2 pb-3'>
               <div className='relative lg:flex hidden gap-2 '>
                 <div className='2xl:w-7 2xl:h-7 w-6 h-6 mx-auto dark:bg-white bg-black rounded-xs before:absolute relative before:w-full before:h-full dark:before:bg-white/50 before:bg-black/50 before:rounded-xs 2xl:before:-top-1.5 before:-top-1 2xl:before:-left-1.5 before:-left-1'></div>
-                <h1 className='2xl:text-2xl text-2xl font-semibold'>
-                  UI-LAYOUT
-                </h1>
+                <h1 className='2xl:text-2xl text-2xl font-semibold'>UI-LAYOUT</h1>
                 <span className='dark:bg-neutral-100 bg-neutral-300 dark:text-black text-black font-medium  px-2 rounded-[0.15em] text-xs absolute -top-2 -right-12'>
                   beta
                 </span>
@@ -103,9 +82,8 @@ function LabSidebar() {
                     className='w-full border border-input dark:bg-neutral-800 bg-neutral-50 hover:bg-accent   text-primary  inline-flex items-center justify-between gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0  capitalize h-10 px-4 py-2'
                   >
                     {value
-                      ? AllComponents.find(
-                          (component) => component.componentName === value
-                        )?.componentName
+                      ? AllComponents.find((component) => component.componentName === value)
+                          ?.componentName
                       : 'Select component...'}
                     <ChevronsUpDown className='ml-2 h-4 w-4 shrink-0 opacity-50' />
                   </button>
@@ -116,10 +94,7 @@ function LabSidebar() {
                       <Search className='mr-2 h-4 w-4 shrink-0 opacity-50' />
                       <input
                         onChange={(e) => {
-                          console.log(
-                            'CommandInput value changed:',
-                            e.target.value
-                          );
+                          console.log('CommandInput value changed:', e.target.value);
                           setSearchTerm(e.target.value);
                         }}
                         placeholder='Search a role...'
@@ -134,9 +109,7 @@ function LabSidebar() {
                           <CommandItem
                             key={`${component.category}-${index}`}
                             value={component.componentName}
-                            onSelect={(currentValue) =>
-                              handleSelectComponent(component)
-                            }
+                            onSelect={(currentValue) => handleSelectComponent(component)}
                             className={cn(
                               'capitalize flex gap-2  items-center',
                               value === component.componentName ? '' : ''
@@ -213,8 +186,7 @@ function LabSidebar() {
                         animate={{ opacity: 1, y: 0 }}
                         className='bg-destructive text-destructive-foreground p-1 text-sm my-2 rounded-md flex gap-1 items-center'
                       >
-                        <BadgeInfo className='w-5 h-5' /> You don&apos;t have
-                        any memories
+                        <BadgeInfo className='w-5 h-5' /> You don&apos;t have any memories
                       </motion.h1>
                     )}
                   </AnimatePresence>

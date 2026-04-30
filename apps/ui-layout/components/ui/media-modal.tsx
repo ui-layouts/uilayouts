@@ -1,8 +1,8 @@
 'use client';
-import React, { useEffect, useId, useState } from 'react';
-import { AnimatePresence, motion, MotionConfig } from 'motion/react';
-import { useMediaQuery } from '@/hooks/use-media-query';
 import { XIcon } from 'lucide-react';
+import { AnimatePresence, MotionConfig, motion } from 'motion/react';
+import React, { useEffect, useId, useState } from 'react';
+import { useMediaQuery } from '@/hooks/use-media-query';
 import { cn } from '@/lib/utils';
 
 export const transition = {
@@ -55,10 +55,7 @@ export function MediaModal({ imgSrc, videoSrc, className }: IMediaModal) {
             }}
           >
             {imgSrc && (
-              <motion.div
-                layoutId={`dialog-img-${uniqueId}`}
-                className='w-full h-full'
-              >
+              <motion.div layoutId={`dialog-img-${uniqueId}`} className='w-full h-full'>
                 <img
                   src={imgSrc}
                   alt='A desk lamp designed by Edouard Wilfrid Buquet in 1925. It features a double-arm design and is made from nickel-plated brass, aluminium and varnished wood.'
@@ -67,16 +64,8 @@ export function MediaModal({ imgSrc, videoSrc, className }: IMediaModal) {
               </motion.div>
             )}
             {videoSrc && (
-              <motion.div
-                layoutId={`dialog-video-${uniqueId}`}
-                className='w-full h-full'
-              >
-                <video
-                  autoPlay
-                  muted
-                  loop
-                  className='h-full w-full object-cover  rounded-xs'
-                >
+              <motion.div layoutId={`dialog-video-${uniqueId}`} className='w-full h-full'>
+                <video autoPlay muted loop className='h-full w-full object-cover  rounded-xs'>
                   <source src={videoSrc!} type='video/mp4' />
                 </video>
               </motion.div>
@@ -119,18 +108,11 @@ export function MediaModal({ imgSrc, videoSrc, className }: IMediaModal) {
                       className='w-full h-full'
                       onClick={() => setIsMediaModalOpen(false)}
                     >
-                      <img
-                        src={imgSrc}
-                        alt=''
-                        className='h-full w-full object-cover'
-                      />
+                      <img src={imgSrc} alt='' className='h-full w-full object-cover' />
                     </motion.div>
                   )}
                   {videoSrc && (
-                    <motion.div
-                      layoutId={`dialog-video-${uniqueId}`}
-                      className='w-full h-full'
-                    >
+                    <motion.div layoutId={`dialog-video-${uniqueId}`} className='w-full h-full'>
                       <video
                         autoPlay
                         muted

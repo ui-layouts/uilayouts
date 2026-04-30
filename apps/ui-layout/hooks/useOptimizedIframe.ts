@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, RefObject } from 'react';
+import { type RefObject, useEffect, useRef, useState } from 'react';
 // Check if a URL is already cached by the service worker
 export async function isUrlCached(url: string): Promise<boolean> {
   if (typeof window === 'undefined' || !('caches' in window)) {
@@ -121,16 +121,12 @@ export const useOptimizedIframe = ({
     linkElement.href = previewUrl;
     linkElement.as = 'document';
 
-    if (
-      !document.head.querySelector(`link[rel="preload"][href="${previewUrl}"]`)
-    ) {
+    if (!document.head.querySelector(`link[rel="preload"][href="${previewUrl}"]`)) {
       document.head.appendChild(linkElement);
     }
 
     return () => {
-      const existingLink = document.head.querySelector(
-        `link[rel="preload"][href="${previewUrl}"]`
-      );
+      const existingLink = document.head.querySelector(`link[rel="preload"][href="${previewUrl}"]`);
       if (existingLink) {
         document.head.removeChild(existingLink);
       }

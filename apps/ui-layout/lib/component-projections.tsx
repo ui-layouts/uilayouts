@@ -21,14 +21,12 @@ export type ComponentCodeEntry = {
 
 const getRaw = (v: any) => v?.default ?? v ?? '';
 
-export function getComponentPreview(
-  name: string
-): ComponentPreviewEntry | null {
+export function getComponentPreview(name: string): ComponentPreviewEntry | null {
   //   console.log('componentPreviewName', name);
 
-  const c = AllComponents.find(
-    (c) => c?.componentName === name || c?.slug === name
-  ) as (typeof AllComponents)[number] | undefined;
+  const c = AllComponents.find((c) => c?.componentName === name || c?.slug === name) as
+    | (typeof AllComponents)[number]
+    | undefined;
 
   if (!c?.componentSrc) return null;
 
@@ -39,9 +37,9 @@ export function getComponentPreview(
 }
 
 export function getComponentCode(name: string): ComponentCodeEntry | null {
-  const c = AllComponents.find(
-    (c) => c?.componentName === name || c?.slug === name
-  ) as (typeof AllComponents)[number] | undefined;
+  const c = AllComponents.find((c) => c?.componentName === name || c?.slug === name) as
+    | (typeof AllComponents)[number]
+    | undefined;
   if (!c) return null;
 
   // single file
@@ -80,9 +78,7 @@ export function getComponentCodeAsString(name: string): string | null {
   if (data.filesrc) return data.filesrc;
 
   if (data.filesArray?.length) {
-    return data.filesArray
-      .map((f) => `// ===== ${f.name} =====\n\n${f.filesrc}\n`)
-      .join('\n');
+    return data.filesArray.map((f) => `// ===== ${f.name} =====\n\n${f.filesrc}\n`).join('\n');
   }
 
   return '';

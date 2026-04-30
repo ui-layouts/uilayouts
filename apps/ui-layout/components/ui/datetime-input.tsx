@@ -1,19 +1,15 @@
 // @ts-nocheck
 'use client';
 
-import React from 'react';
 import { parseDate } from 'chrono-node';
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@/components/website/ui/popover';
-import { ActiveModifiers } from 'react-day-picker';
-import { Calendar, CalendarProps } from '@/components/website/ui/calendar';
-import { Button, buttonVariants } from '@/components/website/ui/button';
-import { cn } from '@/lib/utils';
 import { Calendar as CalendarIcon, LucideTextCursorInput } from 'lucide-react';
+import React from 'react';
+import type { ActiveModifiers } from 'react-day-picker';
+import { Button, buttonVariants } from '@/components/website/ui/button';
+import { Calendar, type CalendarProps } from '@/components/website/ui/calendar';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/website/ui/popover';
 import { ScrollArea } from '@/components/website/ui/scroll-area';
+import { cn } from '@/lib/utils';
 
 /* -------------------------------------------------------------------------- */
 /*                               Inspired By:                                 */
@@ -99,8 +95,7 @@ const inputBase =
 
 // @source: https://www.perplexity.ai/search/in-javascript-how-RfI7fMtITxKr5c.V9Lv5KA#1
 // use this pattern to validate the transformed date string for the natural language input
-const naturalInputValidationPattern =
-  '^[A-Z][a-z]{2}sd{1,2},sd{4},sd{1,2}:d{2}s[AP]M$';
+const naturalInputValidationPattern = '^[A-Z][a-z]{2}sd{1,2},sd{4},sd{1,2}:d{2}s[AP]M$';
 
 const DEFAULT_SIZE = 96;
 
@@ -120,15 +115,12 @@ interface SmartDatetimeInputContextProps extends SmartDatetimeInputProps {
   onTimeChange: (time: string) => void;
 }
 
-const SmartDatetimeInputContext =
-  React.createContext<SmartDatetimeInputContextProps | null>(null);
+const SmartDatetimeInputContext = React.createContext<SmartDatetimeInputContextProps | null>(null);
 
 const useSmartDateInput = () => {
   const context = React.useContext(SmartDatetimeInputContext);
   if (!context) {
-    throw new Error(
-      'useSmartDateInput must be used within SmartDateInputProvider'
-    );
+    throw new Error('useSmartDateInput must be used within SmartDateInputProvider');
   }
   return context;
 };
@@ -182,11 +174,7 @@ export const SmartDatetimeInput = React.forwardRef<
             )}
           >
             <DateTimeLocalInput />
-            <NaturalLanguageInput
-              placeholder={placeholder}
-              disabled={disabled}
-              ref={ref}
-            />
+            <NaturalLanguageInput placeholder={placeholder} disabled={disabled} ref={ref} />
           </div>
         </div>
       </SmartDatetimeInputContext.Provider>
@@ -207,13 +195,10 @@ const TimePicker = () => {
     (time: string, hour: number, partStamp: number) => {
       onTimeChange(time);
 
-      let newVal = value ? new Date(value) : new Date();
+      const newVal = value ? new Date(value) : new Date();
 
       // If no value exists, use current date but only set the time
-      newVal.setHours(
-        hour,
-        partStamp === 0 ? parseInt('00') : timestamp * partStamp
-      );
+      newVal.setHours(hour, partStamp === 0 ? parseInt('00') : timestamp * partStamp);
 
       onValueChange(newVal);
     },
@@ -227,8 +212,7 @@ const TimePicker = () => {
       if (!document) return;
 
       const moveNext = () => {
-        const nextIndex =
-          activeIndex + 1 > DEFAULT_SIZE - 1 ? 0 : activeIndex + 1;
+        const nextIndex = activeIndex + 1 > DEFAULT_SIZE - 1 ? 0 : activeIndex + 1;
 
         const currentElm = document.getElementById(`time-${nextIndex}`);
 
@@ -238,8 +222,7 @@ const TimePicker = () => {
       };
 
       const movePrev = () => {
-        const prevIndex =
-          activeIndex - 1 < 0 ? DEFAULT_SIZE - 1 : activeIndex - 1;
+        const prevIndex = activeIndex - 1 < 0 ? DEFAULT_SIZE - 1 : activeIndex - 1;
 
         const currentElm = document.getElementById(`time-${prevIndex}`);
 
@@ -270,9 +253,7 @@ const TimePicker = () => {
               ? 12
               : PM_AM_hour + 12;
 
-        const part = Math.floor(
-          parseInt(timeValue.split(' ')[0].split(':')[1]) / 15
-        );
+        const part = Math.floor(parseInt(timeValue.split(' ')[0].split(':')[1]) / 15);
 
         formateSelectedTime(timeValue, hour, part);
       };
@@ -306,11 +287,7 @@ const TimePicker = () => {
 
   const handleClick = React.useCallback(
     (hour: number, part: number, PM_AM: string, currentIndex: number) => {
-      formateSelectedTime(
-        `${hour}:${part === 0 ? '00' : timestamp * part} ${PM_AM}`,
-        hour,
-        part
-      );
+      formateSelectedTime(`${hour}:${part === 0 ? '00' : timestamp * part} ${PM_AM}`, hour, part);
       setActiveIndex(currentIndex);
     },
     [formateSelectedTime]
@@ -331,8 +308,7 @@ const TimePicker = () => {
       const minutes = parseInt(timeVal.split(':')[1]);
       const PM_AM = Time.split(' ')[1];
 
-      const formatIndex =
-        PM_AM === 'AM' ? hours : hours === 12 ? hours : hours + 12;
+      const formatIndex = PM_AM === 'AM' ? hours : hours === 12 ? hours : hours + 12;
       const formattedHours = formatIndex;
 
       console.log(formatIndex);
@@ -344,8 +320,7 @@ const TimePicker = () => {
           (minutes <= 53 ? diff < Math.ceil(timestamp / 2) : diff < timestamp);
 
         if (selected) {
-          const trueIndex =
-            activeIndex === -1 ? formattedHours * 4 + j : activeIndex;
+          const trueIndex = activeIndex === -1 ? formattedHours * 4 + j : activeIndex;
 
           setActiveIndex(trueIndex);
 
@@ -378,11 +353,7 @@ const TimePicker = () => {
           height,
         }}
       >
-        <ul
-          className={cn(
-            'flex items-center flex-col gap-1 h-full max-h-56 w-28 px-1 py-0.5'
-          )}
-        >
+        <ul className={cn('flex items-center flex-col gap-1 h-full max-h-56 w-28 px-1 py-0.5')}>
           {Array.from({ length: 24 }).map((_, i) => {
             const PM_AM = i >= 12 ? 'PM' : 'AM';
             const formatIndex = i > 12 ? i % 12 : i === 0 || i === 12 ? 12 : i;
@@ -393,12 +364,9 @@ const TimePicker = () => {
 
               // ? refactor : add the select of the default time on the current device (H:MM)
               const isSelected =
-                (currentTime.hours === i ||
-                  currentTime.hours === formatIndex) &&
+                (currentTime.hours === i || currentTime.hours === formatIndex) &&
                 Time.split(' ')[1] === PM_AM &&
-                (currentTime.minutes <= 53
-                  ? diff < Math.ceil(timestamp / 2)
-                  : diff < timestamp);
+                (currentTime.minutes <= 53 ? diff < Math.ceil(timestamp / 2) : diff < timestamp);
 
               const isSuggested = !value && isSelected;
 
@@ -414,11 +382,7 @@ const TimePicker = () => {
                   aria-label='currentTime'
                   className={cn(
                     buttonVariants({
-                      variant: isSuggested
-                        ? 'secondary'
-                        : isSelected
-                          ? 'default'
-                          : 'outline-solid',
+                      variant: isSuggested ? 'secondary' : isSelected ? 'default' : 'outline-solid',
                     }),
                     'h-8 px-3 w-full text-sm focus-visible:outline-0 outline-0 focus-visible:border-0 cursor-default ring-0'
                   )}
@@ -435,10 +399,7 @@ const TimePicker = () => {
     </div>
   );
 };
-const getDefaultPlaceholder = (
-  showCalendar: boolean,
-  showTimePicker: boolean
-) => {
+const getDefaultPlaceholder = (showCalendar: boolean, showTimePicker: boolean) => {
   if (!showCalendar && showTimePicker) {
     return 'e.g. "5pm" or "in 2 hours"';
   }
@@ -454,17 +415,10 @@ const NaturalLanguageInput = React.forwardRef<
     disabled?: boolean;
   }
 >(({ placeholder, ...props }, ref) => {
-  const {
-    value,
-    onValueChange,
-    Time,
-    onTimeChange,
-    showCalendar,
-    showTimePicker,
-  } = useSmartDateInput();
+  const { value, onValueChange, Time, onTimeChange, showCalendar, showTimePicker } =
+    useSmartDateInput();
 
-  const _placeholder =
-    placeholder ?? getDefaultPlaceholder(showCalendar, showTimePicker);
+  const _placeholder = placeholder ?? getDefaultPlaceholder(showCalendar, showTimePicker);
 
   const [inputValue, setInputValue] = React.useState<string>('');
 
@@ -493,11 +447,7 @@ const NaturalLanguageInput = React.forwardRef<
       if (parsedDateTime) {
         // If only showing time picker, preserve the current date
         if (!showCalendar && showTimePicker && value) {
-          parsedDateTime.setFullYear(
-            value.getFullYear(),
-            value.getMonth(),
-            value.getDate()
-          );
+          parsedDateTime.setFullYear(value.getFullYear(), value.getMonth(), value.getDate());
         }
         // If only showing calendar, preserve the current time
         if (showCalendar && !showTimePicker && value) {
@@ -506,9 +456,7 @@ const NaturalLanguageInput = React.forwardRef<
         // console.log(parsedDateTime);
 
         onValueChange(parsedDateTime);
-        setInputValue(
-          formatDateTime(parsedDateTime, showCalendar, showTimePicker)
-        );
+        setInputValue(formatDateTime(parsedDateTime, showCalendar, showTimePicker));
 
         if (showTimePicker) {
           const PM_AM = parsedDateTime.getHours() >= 12 ? 'PM' : 'AM';
@@ -519,12 +467,7 @@ const NaturalLanguageInput = React.forwardRef<
               : PM_AM_hour === 0 || PM_AM_hour === 12
                 ? 12
                 : PM_AM_hour;
-          onTimeChange(
-            `${hour}:${String(parsedDateTime.getMinutes()).padStart(
-              2,
-              '0'
-            )} ${PM_AM}`
-          );
+          onTimeChange(`${hour}:${String(parsedDateTime.getMinutes()).padStart(2, '0')} ${PM_AM}`);
         }
       }
     },
@@ -562,20 +505,11 @@ NaturalLanguageInput.displayName = 'NaturalLanguageInput';
 
 type DateTimeLocalInputProps = {} & CalendarProps;
 
-const DateTimeLocalInput = ({
-  className,
-  ...props
-}: DateTimeLocalInputProps) => {
-  const { value, onValueChange, Time, showCalendar, showTimePicker } =
-    useSmartDateInput();
+const DateTimeLocalInput = ({ className, ...props }: DateTimeLocalInputProps) => {
+  const { value, onValueChange, Time, showCalendar, showTimePicker } = useSmartDateInput();
 
   const formateSelectedDate = React.useCallback(
-    (
-      date: Date | undefined,
-      selectedDate: Date,
-      m: ActiveModifiers,
-      e: React.MouseEvent
-    ) => {
+    (date: Date | undefined, selectedDate: Date, m: ActiveModifiers, e: React.MouseEvent) => {
       const parsedDateTime = new Date(selectedDate);
 
       if (!showTimePicker) {
@@ -611,10 +545,7 @@ const DateTimeLocalInput = ({
           <span className='sr-only'>calendar</span>
         </Button>
       </PopoverTrigger>
-      <PopoverContent
-        className='w-auto p-0 dark:bg-neutral-800 bg-neutral-50'
-        sideOffset={8}
-      >
+      <PopoverContent className='w-auto p-0 dark:bg-neutral-800 bg-neutral-50' sideOffset={8}>
         <div className='flex gap-1'>
           {showCalendar && (
             <Calendar

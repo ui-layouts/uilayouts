@@ -1,15 +1,15 @@
 'use client';
-import { Drawer } from 'vaul';
-import { motion } from 'motion/react';
-import { useState } from 'react';
 import { Edit, X } from 'lucide-react';
-import { useMediaQuery } from '@/hooks/use-media-query';
+import { motion } from 'motion/react';
 import Image from 'next/image';
+import { useState } from 'react';
+import { Drawer } from 'vaul';
 import {
   DirectionalDrawer,
   DrawerContent,
   DrawerTrigger,
 } from '@/components/ui/directional-drawer';
+import { useMediaQuery } from '@/hooks/use-media-query';
 export default function LeftDirectionalDrawer() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   return (
@@ -40,9 +40,7 @@ export default function LeftDirectionalDrawer() {
 
               {/* File Input */}
               <div>
-                <label className='text-sm font-medium mb-1 block'>
-                  Profile Picture
-                </label>
+                <label className='text-sm font-medium mb-1 block'>Profile Picture</label>
                 <input
                   type='file'
                   id='formFile'

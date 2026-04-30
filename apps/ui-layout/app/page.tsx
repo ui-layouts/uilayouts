@@ -1,13 +1,13 @@
+import { ArrowUpRight } from 'lucide-react';
+import { getMinimalBlocksBySection } from '@/blocks-docs';
+import { FaqStructuredData } from '@/components/seo/faq-structured-data';
+import { StructuredData } from '@/components/seo/structured-data';
+import { Container } from '@/components/ui/container';
 import HeroSec from '@/components/website/home/hero-sec';
 import HomeFooter from '@/components/website/home/home-footer';
 import HomeHeader from '@/components/website/home/home-header';
 import { Banner } from '@/components/website/ui/banner';
-import { Container } from '@/components/ui/container';
-import { ArrowUpRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { getMinimalBlocksBySection } from '@/blocks-docs';
-import { StructuredData } from '@/components/seo/structured-data';
-import { FaqStructuredData } from '@/components/seo/faq-structured-data';
 
 const homeFaqs = [
   {
@@ -22,8 +22,7 @@ const homeFaqs = [
   },
   {
     question: 'Does UI Layouts support TypeScript?',
-    answer:
-      'Yes. Components are built to work with modern TypeScript and Next.js projects.',
+    answer: 'Yes. Components are built to work with modern TypeScript and Next.js projects.',
   },
 ];
 
@@ -43,10 +42,7 @@ export default function Home() {
               'dark:bg-[repeating-linear-gradient(135deg,#2f2f2f_0px_1px,transparent_1px_10px)] bg-[repeating-linear-gradient(135deg,#f0f0f0_0px_1px,transparent_1px_10px)]'
             )}
           />
-          <Banner
-            variant='rainbow'
-            className='h-11 md:text-base sm:text-sm text-xs'
-          >
+          <Banner variant='rainbow' className='h-11 md:text-base sm:text-sm text-xs'>
             <p className='group-hover:underline underline-offset-4 flex flex-wrap gap-1 items-center'>
               <picture>
                 <source
@@ -61,8 +57,7 @@ export default function Home() {
                   height='32'
                 />
               </picture>
-              Ship faster with{' '}
-              <span className='font-semibold'>UI-Layouts Pro</span>
+              Ship faster with <span className='font-semibold'>UI-Layouts Pro</span>
               <span className='md:inline-block hidden'>
                 – 100+ production-ready blocks waiting for you
               </span>

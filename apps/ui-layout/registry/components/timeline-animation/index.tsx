@@ -1,10 +1,10 @@
 'use client';
-import Link from 'next/link';
-import Image from 'next/image';
-import { cn } from '@/lib/utils';
 import { Component } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
 import { useRef } from 'react';
 import { TimelineAnimation } from '@/components/ui/timeline-animation';
+import { cn } from '@/lib/utils';
 
 export const sectionData = [
   {
@@ -223,8 +223,8 @@ function Others1() {
               </div>
               <div className='text-right max-w-lg z-20 space-y-2'>
                 <p className='text-sm text-primary font-medium'>
-                  Get access to all premium blocks, lifetime updates, <br /> and
-                  faster workflow — all in a single upgrade.
+                  Get access to all premium blocks, lifetime updates, <br /> and faster workflow —
+                  all in a single upgrade.
                 </p>
                 <a
                   href='https://pro.ui-layouts.com/'

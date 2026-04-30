@@ -1,14 +1,14 @@
 'use client';
-import React from 'react';
+import { Blocks, Component } from 'lucide-react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import React from 'react';
 import { SearchDialog } from '@/components/website/searchbar';
-import HomeGitHubButton from './github-repo-button';
+import { cn } from '@/lib/utils';
 import MobileHeader from '../mobile-header';
 import ThemeSwitch from '../theme-switch';
 import { PlasticButton } from '../ui/plastic-button';
-import { cn } from '@/lib/utils';
-import { usePathname } from 'next/navigation';
-import { Blocks, Component } from 'lucide-react';
+import HomeGitHubButton from './github-repo-button';
 
 function HomeHeader({
   className,
@@ -80,14 +80,9 @@ function HomeHeader({
               pathName === '/blocks' && 'dark:bg-neutral-900 bg-neutral-200'
             )}
           >
-            <span className='absolute italic -top-1 -right-4 text-xs text-blue-500'>
-              (New)
-            </span>
+            <span className='absolute italic -top-1 -right-4 text-xs text-blue-500'>(New)</span>
             <Blocks
-              className={cn(
-                'w-6 h-6 stroke-primary',
-                pathName === '/blocks' && 'stroke-primary'
-              )}
+              className={cn('w-6 h-6 stroke-primary', pathName === '/blocks' && 'stroke-primary')}
             />
             Blocks
           </a>
@@ -134,6 +129,7 @@ function HomeHeader({
             href='https://discord.gg/4bySmj75'
             target='_blank'
             className='dark:bg-black/20 bg-white/20 border dark:border-black/20 border-white/20 w-12 rounded-md h-11 shrink-0 grid place-content-center'
+            rel='noopener'
           >
             <svg
               viewBox='0 0 256 199'

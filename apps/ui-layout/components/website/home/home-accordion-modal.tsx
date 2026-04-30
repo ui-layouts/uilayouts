@@ -1,26 +1,23 @@
 // @ts-nocheck
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import { Plus, X } from 'lucide-react';
 import {
-  motion,
-  AnimateSharedLayout,
   AnimatePresence,
+  AnimateSharedLayout,
   LayoutGroup,
   MotionConfig,
+  motion,
 } from 'motion/react';
 import Image from 'next/image';
-import preview from '@/assets/preview/Preview';
-import { Plus, X } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
+import preview from '@/assets/preview/Preview';
 import { transition } from '@/lib/utils';
 
 function Gallery({ items, setIndex, setOpen, index }) {
   return (
-    <motion.div
-      transition={{ duration: 0.2, ease: 'easeInOut' }}
-      className='w-full h-full '
-    >
+    <motion.div transition={{ duration: 0.2, ease: 'easeInOut' }} className='w-full h-full '>
       {items.map((item, i) => {
         return (
           <motion.article
@@ -92,12 +89,7 @@ export default function HomeAccordionModal() {
     <div className='relative  h-full flex items-center overflow-auto'>
       <MotionConfig transition={transition}>
         <div className=' overflow-hidden w-full h-full'>
-          <Gallery
-            items={items}
-            index={index}
-            setIndex={setIndex}
-            setOpen={setOpen}
-          />
+          <Gallery items={items} index={index} setIndex={setIndex} setOpen={setOpen} />
         </div>
 
         <AnimatePresence initial={false} mode='sync'>
@@ -138,13 +130,8 @@ export default function HomeAccordionModal() {
                     alt='single-image'
                     className='rounded-md h-fit  w-full object-cover'
                   />
-                  <motion.div
-                    layout='position'
-                    layoutId={`dialog-title-${currentItem.id}`}
-                  >
-                    <motion.h1 className='text-4xl font-semibold'>
-                      {currentItem.title}
-                    </motion.h1>
+                  <motion.div layout='position' layoutId={`dialog-title-${currentItem.id}`}>
+                    <motion.h1 className='text-4xl font-semibold'>{currentItem.title}</motion.h1>
                   </motion.div>
                   <motion.p
                     key={currentItem.id}

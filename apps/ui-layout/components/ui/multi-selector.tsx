@@ -1,14 +1,7 @@
 'use client';
+import { CheckIcon, ChevronDown, XCircle, XIcon } from 'lucide-react';
 import * as React from 'react';
-import { CheckIcon, XCircle, ChevronDown, XIcon } from 'lucide-react';
-
-import { cn } from '@/lib/utils';
 import { Button } from '@/components/website/ui/button';
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@/components/website/ui/popover';
 import {
   Command,
   CommandEmpty,
@@ -18,12 +11,13 @@ import {
   CommandList,
   CommandSeparator,
 } from '@/components/website/ui/command';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/website/ui/popover';
+import { cn } from '@/lib/utils';
 
 /**
  * Props for MultiSelect component
  */
-interface MultiSelectProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface MultiSelectProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /**
    * An array of option objects to be displayed in the multi-select component.
    * Each option object has a label, value, and an optional icon.
@@ -87,10 +81,7 @@ interface MultiSelectProps
   showall?: boolean;
 }
 
-export const MultiSelect = React.forwardRef<
-  HTMLButtonElement,
-  MultiSelectProps
->(
+export const MultiSelect = React.forwardRef<HTMLButtonElement, MultiSelectProps>(
   (
     {
       options,
@@ -108,13 +99,10 @@ export const MultiSelect = React.forwardRef<
     },
     ref
   ) => {
-    const [selectedValues, setSelectedValues] =
-      React.useState<string[]>(defaultValue);
+    const [selectedValues, setSelectedValues] = React.useState<string[]>(defaultValue);
     const [isPopoverOpen, setIsPopoverOpen] = React.useState(false);
 
-    const handleInputKeyDown = (
-      event: React.KeyboardEvent<HTMLInputElement>
-    ) => {
+    const handleInputKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
       if (event.key === 'Enter') {
         setIsPopoverOpen(true);
       } else if (event.key === 'Backspace' && !event.currentTarget.value) {
@@ -159,11 +147,7 @@ export const MultiSelect = React.forwardRef<
     };
 
     return (
-      <Popover
-        open={isPopoverOpen}
-        onOpenChange={setIsPopoverOpen}
-        modal={modalPopover}
-      >
+      <Popover open={isPopoverOpen} onOpenChange={setIsPopoverOpen} modal={modalPopover}>
         <PopoverTrigger asChild>
           <Button
             ref={ref}
@@ -177,10 +161,7 @@ export const MultiSelect = React.forwardRef<
             {selectedValues.length > 0 ? (
               <div className='flex justify-between items-center w-full'>
                 <div className='flex flex-wrap items-center  gap-1 p-1'>
-                  {(showall
-                    ? selectedValues
-                    : selectedValues.slice(0, maxCount)
-                  ).map((value) => {
+                  {(showall ? selectedValues : selectedValues.slice(0, maxCount)).map((value) => {
                     const option = options.find((o) => o.value === value);
                     const IconComponent = option?.icon;
                     return (
@@ -190,9 +171,7 @@ export const MultiSelect = React.forwardRef<
                           'inline-flex items-center rounded-lg px-2 py-1 text-xs font-semibold dark:bg-neutral-950 bg-neutral-200 text-primary'
                         )}
                       >
-                        {IconComponent && (
-                          <IconComponent className='h-4 w-4 mr-2' />
-                        )}
+                        {IconComponent && <IconComponent className='h-4 w-4 mr-2' />}
                         {option?.label}
                         <XCircle
                           className='ml-2 h-4 w-4 cursor-pointer'
@@ -239,9 +218,7 @@ export const MultiSelect = React.forwardRef<
               </div>
             ) : (
               <div className='flex items-center justify-between w-full mx-auto'>
-                <span className='text-sm text-muted-foreground mx-3'>
-                  {placeholder}
-                </span>
+                <span className='text-sm text-muted-foreground mx-3'>{placeholder}</span>
                 <ChevronDown className='h-4 cursor-pointer text-muted-foreground mx-2' />
               </div>
             )}
@@ -253,18 +230,11 @@ export const MultiSelect = React.forwardRef<
           onEscapeKeyDown={() => setIsPopoverOpen(false)}
         >
           <Command>
-            <CommandInput
-              placeholder='Search...'
-              onKeyDown={handleInputKeyDown}
-            />
+            <CommandInput placeholder='Search...' onKeyDown={handleInputKeyDown} />
             <CommandList>
               <CommandEmpty>No results found.</CommandEmpty>
               <CommandGroup>
-                <CommandItem
-                  key='all'
-                  onSelect={toggleAll}
-                  className='cursor-pointer'
-                >
+                <CommandItem key='all' onSelect={toggleAll} className='cursor-pointer'>
                   <div
                     className={cn(
                       'mr-2 flex h-4 w-4 items-center justify-center rounded-xs border border-primary',
@@ -302,10 +272,7 @@ export const MultiSelect = React.forwardRef<
                       </div>
                       {option.icon && (
                         <option.icon
-                          className={cn(
-                            'mr-2 h-4 w-4',
-                            isDisabled ? 'text-muted-foreground' : ''
-                          )}
+                          className={cn('mr-2 h-4 w-4', isDisabled ? 'text-muted-foreground' : '')}
                         />
                       )}
                       <span>{option.label}</span>

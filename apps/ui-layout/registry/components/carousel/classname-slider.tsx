@@ -1,13 +1,8 @@
 'use client';
-import React, { ReactNode } from 'react';
-import { EmblaOptionsType } from 'embla-carousel';
-import {
-  Carousel,
-  Slider,
-  SliderContainer,
-  SliderDotButton,
-} from '@/components/ui/carousel';
+import type { EmblaOptionsType } from 'embla-carousel';
 import ClassNames from 'embla-carousel-class-names';
+import React, { ReactNode } from 'react';
+import { Carousel, Slider, SliderContainer, SliderDotButton } from '@/components/ui/carousel';
 
 function ClassName() {
   const OPTIONS: EmblaOptionsType = { loop: true };

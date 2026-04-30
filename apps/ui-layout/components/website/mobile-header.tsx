@@ -1,29 +1,20 @@
-import {
-  AppWindowMac,
-  LayoutPanelTop,
-  MousePointerClick,
-  Rocket,
-  X,
-} from 'lucide-react';
-import React, { useState } from 'react';
-import { ScrollArea } from './ui/scroll-area';
-import { usePathname, useRouter } from 'next/navigation';
+import { AppWindowMac, LayoutPanelTop, MousePointerClick, Rocket, X } from 'lucide-react';
 import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
+import React, { useState } from 'react';
+import { DocsNavigationCategories } from '@/configs/docs';
+import { DOCS_CATEGORY_GROUP } from '@/const/docs';
+import { cn } from '@/lib/utils';
 import { DirectionalDrawer, DrawerContent } from '../ui/directional-drawer';
 import { basePath } from './sidebar';
-import { DocsNavigationCategories } from '@/configs/docs';
-import { cn } from '@/lib/utils';
-import { DOCS_CATEGORY_GROUP } from '@/const/docs';
+import { ScrollArea } from './ui/scroll-area';
 
 function MobileHeader({ classname }: { classname?: string }) {
   const pathname = usePathname();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   return (
     <>
-      <button
-        className={cn(classname, 'text-3xl')}
-        onClick={() => setSidebarOpen(true)}
-      >
+      <button className={cn(classname, 'text-3xl')} onClick={() => setSidebarOpen(true)}>
         {/* <HiOutlineMenuAlt2 /> */}
         <svg
           width='642'
@@ -33,21 +24,9 @@ function MobileHeader({ classname }: { classname?: string }) {
           xmlns='http://www.w3.org/2000/svg'
           className=' stroke-primary w-9 h-9'
         >
-          <path
-            d='M52.333 359H252.333'
-            strokeWidth='66.6667'
-            strokeLinecap='round'
-          />
-          <path
-            d='M52.333 212H452.333'
-            strokeWidth='66.6667'
-            strokeLinecap='round'
-          />
-          <path
-            d='M52.333 65H585.666'
-            strokeWidth='66.6667'
-            strokeLinecap='round'
-          />
+          <path d='M52.333 359H252.333' strokeWidth='66.6667' strokeLinecap='round' />
+          <path d='M52.333 212H452.333' strokeWidth='66.6667' strokeLinecap='round' />
+          <path d='M52.333 65H585.666' strokeWidth='66.6667' strokeLinecap='round' />
         </svg>
       </button>
       <DirectionalDrawer
@@ -83,10 +62,7 @@ function MobileHeader({ classname }: { classname?: string }) {
               </svg>
             </Link>
 
-            <button
-              className='md:hidden flex'
-              onClick={() => setSidebarOpen(false)}
-            >
+            <button className='md:hidden flex' onClick={() => setSidebarOpen(false)}>
               <X />
             </button>
           </figure>
@@ -146,6 +122,7 @@ function MobileHeader({ classname }: { classname?: string }) {
                         href={item.url}
                         target='_blank'
                         className='flex gap-2 group font-medium items-center py-1  transition-all'
+                        rel='noopener'
                       >
                         {React.cloneElement(item?.icon, {
                           className: `${'dark:bg-zinc-800 dark:text-white group-hover:bg-black group-hover:text-white  dark:group-hover:bg-white dark:group-hover:text-black'} h-7 w-7 border transition-all  rounded-xs p-1.5`,
@@ -161,6 +138,7 @@ function MobileHeader({ classname }: { classname?: string }) {
               href='https://discord.gg/4bySmj75'
               target='_blank'
               className='pb-2 flex gap-2 items-center'
+              rel='noopener'
             >
               <span className='w-6 h-6 p-1 bg-black/20 border dark:border-white/10 border-black/10 dark:bg-white/20 fill-primary rounded-md '>
                 <svg
@@ -210,9 +188,7 @@ function MobileHeader({ classname }: { classname?: string }) {
                             {link.name}
                             {/* Optional badge for new/updated */}
                             {link.new && (
-                              <span className='ml-2 text-xs text-green-500 font-medium'>
-                                New
-                              </span>
+                              <span className='ml-2 text-xs text-green-500 font-medium'>New</span>
                             )}
                             {link.updated && (
                               <span className='ml-2 text-xs text-blue-500 font-medium'>

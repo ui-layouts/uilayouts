@@ -1,17 +1,12 @@
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from '@/components/website/ui/tabs';
-import ComponentPreview from './component-preview';
-// import { extractCodeFromFilePath } from '@/lib/code';
-import React from 'react';
 import { Code, Eye } from 'lucide-react';
-import { PreCode } from './pre-code';
+// import { extractCodeFromFilePath } from '@/lib/code';
+import type React from 'react';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/website/ui/tabs';
 import { AllComponents } from '@/configs/docs';
 import { buildFinalFiles, normalizeCodeChildren } from '@/lib/code';
 import shadcnRegistry from '../../../registry.json';
+import ComponentPreview from './component-preview';
+import { PreCode } from './pre-code';
 
 type TComponentCodePreview = {
   component: React.ReactElement<any>;
@@ -43,9 +38,7 @@ const getCliCommand = (jsonName?: string) => {
   if (!jsonName) return null;
 
   const normalizedName = stripJsonExtension(jsonName);
-  const inShadcnRegistry = shadcnRegistry.items.some(
-    (item) => item.name === normalizedName
-  );
+  const inShadcnRegistry = shadcnRegistry.items.some((item) => item.name === normalizedName);
 
   if (!inShadcnRegistry) {
     return null;
@@ -53,7 +46,6 @@ const getCliCommand = (jsonName?: string) => {
 
   return `npx shadcn@latest add https://ui-layouts.com/r/${normalizedName}`;
 };
-
 
 export default async function ComponentCodePreview({
   hasReTrigger,
@@ -68,17 +60,13 @@ export default async function ComponentCodePreview({
   const codeBlocks = normalizeCodeChildren(children);
 
   const matchedComponent =
-    AllComponents.find(
-      (c: any) => c?.slug === name || c?.componentName === name
-    ) ?? null;
+    AllComponents.find((c: any) => c?.slug === name || c?.componentName === name) ?? null;
 
   if (!matchedComponent) {
     return <div>Component not found</div>;
   }
 
-  const normalizedFilesArray = Array.isArray(
-    (matchedComponent as any).filesArray
-  )
+  const normalizedFilesArray = Array.isArray((matchedComponent as any).filesArray)
     ? (matchedComponent as any).filesArray.map((f: any) => ({
         ...f,
         filesrc: getRaw(f.filesrc),
@@ -104,10 +92,7 @@ export default async function ComponentCodePreview({
   const shadcnCliCommand = getCliCommand(jsonName);
   return (
     <div className='not-prose relative z-0 flex items-center justify-between pb-3'>
-      <Tabs
-        defaultValue={`${name}preview`}
-        className='relative mt-1 w-full rounded-lg'
-      >
+      <Tabs defaultValue={`${name}preview`} className='relative mt-1 w-full rounded-lg'>
         <TabsList className='absolute left-0 pl-1 top-0 z-10 flex h-12 w-full justify-start rounded-b-none rounded-lg dark:bg-neutral-800'>
           <TabsTrigger
             value={`${name}preview`}
@@ -143,9 +128,7 @@ export default async function ComponentCodePreview({
         </TabsContent>
 
         <TabsContent className='mt-14' value={`${name}code`}>
-          {!currComponent.filesArray?.length && (
-            <PreCode codeblock={codeContent} classname='p-0' />
-          )}
+          {!currComponent.filesArray?.length && <PreCode codeblock={codeContent} classname='p-0' />}
 
           {!!currComponent.filesArray?.length && (
             <TabsContent className='mt-14' value={`${name}code`}>

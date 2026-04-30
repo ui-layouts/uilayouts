@@ -1,6 +1,6 @@
 'use client';
-import { motion } from 'motion/react';
 import { Edit } from 'lucide-react';
+import { motion } from 'motion/react';
 import Image from 'next/image';
 import {
   DirectionalDrawer,
@@ -34,9 +34,7 @@ export default function DirectionalDrawerDefault() {
                 {/* Header / Body */}
                 <div className='p-6 flex flex-col gap-4 grow'>
                   <div>
-                    <h1 className='font-semibold text-xl'>
-                      Update Profile Image
-                    </h1>
+                    <h1 className='font-semibold text-xl'>Update Profile Image</h1>
                     <p className='text-sm text-muted-foreground mt-1'>
                       Upload a new profile image or remove the current one.
                     </p>
@@ -51,9 +49,7 @@ export default function DirectionalDrawerDefault() {
 
                   {/* File Input */}
                   <div>
-                    <label className='text-sm font-medium mb-1 block'>
-                      Profile Picture
-                    </label>
+                    <label className='text-sm font-medium mb-1 block'>Profile Picture</label>
                     <input
                       type='file'
                       id='formFile'

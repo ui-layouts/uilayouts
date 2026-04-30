@@ -1,14 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
-
-export default function Error({
-  error,
-  reset,
-}: {
-  error: Error;
-  reset: () => void;
-}) {
+export default function Error({ error, reset }: { error: Error; reset: () => void }) {
   return (
     <div className='container mx-auto py-8'>
       <h2 className='mb-4 text-2xl font-bold'>Something went wrong!</h2>

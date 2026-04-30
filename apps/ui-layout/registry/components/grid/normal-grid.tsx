@@ -1,8 +1,9 @@
 'use client';
-import React from 'react';
+import { MoveUpRight } from 'lucide-react';
 import { motion } from 'motion/react';
 import Image from 'next/image';
-import { MoveUpRight } from 'lucide-react';
+import React from 'react';
+
 interface ProjectsTypes {
   id: string;
   img: string;

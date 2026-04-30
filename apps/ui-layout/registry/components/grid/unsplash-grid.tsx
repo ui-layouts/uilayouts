@@ -1,7 +1,7 @@
 'use client';
+import { motion, useInView } from 'motion/react';
 // inspired by tom is loading
 import React, { useRef, useState } from 'react';
-import { motion, useInView } from 'motion/react';
 import { items } from '@/components/website/constant';
 
 function UnsplashGrid() {
@@ -13,12 +13,7 @@ function UnsplashGrid() {
         <div className='columns-2 md:columns-3 2xl:columns-4 gap-4'>
           <>
             {items.map((item, index) => (
-              <ImageItem
-                key={item.id}
-                item={item}
-                index={index}
-                setSelected={setSelected}
-              />
+              <ImageItem key={item.id} item={item} index={index} setSelected={setSelected} />
             ))}
           </>
         </div>

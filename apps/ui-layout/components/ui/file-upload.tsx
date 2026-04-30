@@ -1,11 +1,11 @@
 'use client';
 
-import { cn } from '@/lib/utils';
+import { Trash2 as RemoveIcon } from 'lucide-react';
 import {
-  Dispatch,
-  SetStateAction,
   createContext,
+  type Dispatch,
   forwardRef,
+  type SetStateAction,
   useCallback,
   useContext,
   useEffect,
@@ -13,13 +13,13 @@ import {
   useState,
 } from 'react';
 import {
+  type DropzoneOptions,
+  type DropzoneState,
+  type FileRejection,
   useDropzone,
-  DropzoneState,
-  FileRejection,
-  DropzoneOptions,
 } from 'react-dropzone';
 import { toast } from 'sonner';
-import { Trash2 as RemoveIcon } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 type DirectionOptions = 'rtl' | 'ltr' | undefined;
 
@@ -181,9 +181,7 @@ export const FileUploader = forwardRef<
         if (rejectedFiles.length > 0) {
           for (let i = 0; i < rejectedFiles.length; i++) {
             if (rejectedFiles[i].errors[0]?.code === 'file-too-large') {
-              toast.error(
-                `File is too large. Max size is ${maxSize / 1024 / 1024}MB`
-              );
+              toast.error(`File is too large. Max size is ${maxSize / 1024 / 1024}MB`);
               break;
             }
             if (rejectedFiles[i].errors[0]?.message) {
@@ -206,9 +204,7 @@ export const FileUploader = forwardRef<
       setIsLOF(false);
     }, [value, maxFiles]);
 
-    const opts = dropzoneOptions
-      ? dropzoneOptions
-      : { accept, maxFiles, maxSize, multiple };
+    const opts = dropzoneOptions ? dropzoneOptions : { accept, maxFiles, maxSize, multiple };
 
     const dropzoneState = useDropzone({
       ...opts,
@@ -234,13 +230,9 @@ export const FileUploader = forwardRef<
           ref={ref}
           tabIndex={0}
           onKeyDownCapture={handleKeyDown}
-          className={cn(
-            'grid w-full focus:outline-hidden overflow-hidden ',
-            className,
-            {
-              'gap-2': value && value.length > 0,
-            }
-          )}
+          className={cn('grid w-full focus:outline-hidden overflow-hidden ', className, {
+            'gap-2': value && value.length > 0,
+          })}
           dir={dir}
           {...props}
         >
@@ -253,33 +245,28 @@ export const FileUploader = forwardRef<
 
 FileUploader.displayName = 'FileUploader';
 
-export const FileUploaderContent = forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ children, className, ...props }, ref) => {
-  const { orientation } = useFileUpload();
-  const containerRef = useRef<HTMLDivElement>(null);
+export const FileUploaderContent = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ children, className, ...props }, ref) => {
+    const { orientation } = useFileUpload();
+    const containerRef = useRef<HTMLDivElement>(null);
 
-  return (
-    <div
-      className={cn('w-full px-1')}
-      ref={containerRef}
-      aria-description='content file holder'
-    >
-      <div
-        {...props}
-        ref={ref}
-        className={cn(
-          ' rounded-xl gap-1',
-          orientation === 'horizontal' ? 'grid grid-cols-2' : 'flex flex-col',
-          className
-        )}
-      >
-        {children}
+    return (
+      <div className={cn('w-full px-1')} ref={containerRef} aria-description='content file holder'>
+        <div
+          {...props}
+          ref={ref}
+          className={cn(
+            ' rounded-xl gap-1',
+            orientation === 'horizontal' ? 'grid grid-cols-2' : 'flex flex-col',
+            className
+          )}
+        >
+          {children}
+        </div>
       </div>
-    </div>
-  );
-});
+    );
+  }
+);
 
 FileUploaderContent.displayName = 'FileUploaderContent';
 
@@ -344,8 +331,7 @@ export const FileInput = forwardRef<HTMLDivElement, FileInputProps>(
             dropzoneState.isDragAccept && 'border-green-500 bg-green-50',
             dropzoneState.isDragReject && 'border-red-500 bg-red-50',
             isFileTooBig && 'border-red-500 bg-red-200',
-            !dropzoneState.isDragActive &&
-              'border-neutral-300 hover:border-neutral-400',
+            !dropzoneState.isDragActive && 'border-neutral-300 hover:border-neutral-400',
             className
           )}
           {...rootProps}

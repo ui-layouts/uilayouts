@@ -1,4 +1,4 @@
-import { ClassValue, clsx } from 'clsx';
+import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
 export function cn(...inputs: ClassValue[]) {
@@ -10,20 +10,14 @@ export function absoluteUrl(path: string) {
   return `${base}${path}`;
 }
 
-function debounce(
-  func: (...args: any[]) => any,
-  wait: number,
-  immediate: boolean = false
-) {
+function debounce(func: (...args: any[]) => any, wait: number, immediate: boolean = false) {
   let timeout: number | undefined;
 
   return function executedFunction(this: any, ...args: any[]) {
-    const context: any = this;
-
     const later = () => {
       timeout = undefined;
       if (!immediate) {
-        func.apply(context, args);
+        func.apply(this, args);
       }
     };
 
@@ -34,7 +28,7 @@ function debounce(
     timeout = window.setTimeout(later, wait);
 
     if (callNow) {
-      func.apply(context, args);
+      func.apply(this, args);
     }
   };
 }
@@ -69,7 +63,6 @@ export const siteConfig = {
     github: 'https://github.com/naymurdev',
   },
 };
-
 
 export const transition = {
   type: 'spring',

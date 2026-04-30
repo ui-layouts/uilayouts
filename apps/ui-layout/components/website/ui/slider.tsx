@@ -1,6 +1,7 @@
-import { cn } from '@/lib/utils';
 import NumberFlow from '@number-flow/react';
 import * as RadixSlider from '@radix-ui/react-slider';
+import { cn } from '@/lib/utils';
+
 interface SliderProps extends RadixSlider.SliderProps {
   tooltip?: boolean; //
   numclass?: string; //
@@ -17,10 +18,7 @@ export default function Slider({
       <RadixSlider.Root
         {...props}
         value={value}
-        className={cn(
-          className,
-          'relative flex h-5 w-full touch-none select-none items-center'
-        )}
+        className={cn(className, 'relative flex h-5 w-full touch-none select-none items-center')}
       >
         <RadixSlider.Track className='relative h-[3px] grow rounded-full bg-zinc-100 dark:bg-zinc-800'>
           <RadixSlider.Range className='absolute h-full rounded-full bg-black dark:bg-white' />

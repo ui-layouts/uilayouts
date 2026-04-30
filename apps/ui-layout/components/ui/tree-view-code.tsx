@@ -2,21 +2,17 @@
 
 import { useState } from 'react';
 import {
-  TreeProvider,
-  TreeView,
-  TreeNode,
-  TreeNodeTrigger,
-  TreeNodeContent,
   TreeExpander,
   TreeIcon,
   TreeLabel,
+  TreeNode,
+  TreeNodeContent,
+  TreeNodeTrigger,
+  TreeProvider,
+  TreeView,
 } from '@/components/ui/tree';
+import { buildSimpleTree, getFileIcon, type TreeNodeData } from '@/lib/tree-structure';
 import { ClientPreCode } from '../website/code-components/client-pre-code';
-import {
-  buildSimpleTree,
-  getFileIcon,
-  TreeNodeData,
-} from '@/lib/tree-structure';
 
 export function TreeCodeViewer({
   files,
@@ -65,13 +61,7 @@ export function TreeCodeViewer({
   );
 }
 
-function RenderTree({
-  nodes,
-  level = 0,
-}: {
-  nodes: TreeNodeData[];
-  level?: number;
-}) {
+function RenderTree({ nodes, level = 0 }: { nodes: TreeNodeData[]; level?: number }) {
   return (
     <>
       {nodes.map((node, index) => {
@@ -80,13 +70,7 @@ function RenderTree({
         // 📁 FOLDER
         if (node.type === 'folder') {
           return (
-            <TreeNode
-              key={node.name}
-              nodeId={node.name}
-              level={level}
-              isLast={isLast}
-              isFolder
-            >
+            <TreeNode key={node.name} nodeId={node.name} level={level} isLast={isLast} isFolder>
               <TreeNodeTrigger>
                 <TreeExpander hasChildren />
                 <TreeIcon icon={getFileIcon('folder')} />
@@ -102,12 +86,7 @@ function RenderTree({
 
         // 📄 FILE
         return (
-          <TreeNode
-            key={node.id}
-            nodeId={node.id}
-            level={level}
-            isLast={isLast}
-          >
+          <TreeNode key={node.id} nodeId={node.id} level={level} isLast={isLast}>
             <TreeNodeTrigger>
               <TreeExpander />
               <TreeIcon icon={getFileIcon('file', node.ext, node.name)} />

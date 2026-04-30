@@ -2,28 +2,26 @@
 'use client';
 
 import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from '@/components/ui/magnified-doc';
-import {
+  AnimatePresence,
   type MotionValue,
   motion,
   useMotionValue,
   useSpring,
   useTransform,
-  AnimatePresence,
 } from 'motion/react';
 import Image from 'next/image';
-import React, { useState } from 'react';
-import { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Icons } from '@/assets/icons/Icons';
 import preview from '@/assets/preview/Preview';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/magnified-doc';
 import { apps } from '@/components/website/constant';
-const Component = React.forwardRef((props, ref) => (
-  <Image {...props} ref={ref} alt='App' />
-));
+
+const Component = React.forwardRef((props, ref) => <Image {...props} ref={ref} alt='App' />);
 
 const MotionComponent = motion(Component);
 
@@ -37,8 +35,7 @@ function MagnifiedDocOneFile() {
     setIndex(i);
   };
 
-  const isForward =
-    index > prevIndex || (index === 0 && prevIndex === apps.length - 1);
+  const isForward = index > prevIndex || (index === 0 && prevIndex === apps.length - 1);
 
   return (
     <>
@@ -99,10 +96,7 @@ function MagnifiedDocOneFile() {
                           <span className='sr-only'>{app.name}</span>
                           <AppIcon mouseX={mouseX} src={app.icon} />
                         </TooltipTrigger>
-                        <TooltipContent
-                          className='py-1 px-3 rounded-xs'
-                          sideOffset={8}
-                        >
+                        <TooltipContent className='py-1 px-3 rounded-xs' sideOffset={8}>
                           <p className='text-xs'>{app.name}</p>
                         </TooltipContent>
                       </Tooltip>

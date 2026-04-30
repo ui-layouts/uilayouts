@@ -1,9 +1,9 @@
 'use client';
 
-import { cn } from '@/lib/utils';
 import { ChevronDown } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
-import React, { ReactNode, useCallback } from 'react';
+import React, { type ReactNode, useCallback } from 'react';
+import { cn } from '@/lib/utils';
 
 /**
  * Interface for AccordionContext values
@@ -42,9 +42,7 @@ export function AccordionContainer({
   children: ReactNode;
   className?: string;
 }) {
-  return (
-    <div className={cn('grid grid-cols-2 gap-1', className)}>{children}</div>
-  );
+  return <div className={cn('grid grid-cols-2 gap-1', className)}>{children}</div>;
 }
 
 /**
@@ -75,22 +73,12 @@ interface AccordionProps {
 /**
  * Accordion component
  */
-export function Accordion({
-  children,
-  multiple,
-  defaultValue,
-}: AccordionProps) {
+export function Accordion({ children, multiple, defaultValue }: AccordionProps) {
   /**
    * State for active index
    */
-  const [activeIndex, setActiveIndex] = React.useState<
-    string | string[] | null
-  >(
-    multiple
-      ? Array.isArray(defaultValue)
-        ? defaultValue
-        : []
-      : defaultValue || null
+  const [activeIndex, setActiveIndex] = React.useState<string | string[] | null>(
+    multiple ? (Array.isArray(defaultValue) ? defaultValue : []) : defaultValue || null
   );
 
   /**
@@ -151,11 +139,7 @@ interface AccordionItemProps {
 /**
  * Accordion item component
  */
-export function AccordionItem({
-  children,
-  value,
-  className,
-}: AccordionItemProps) {
+export function AccordionItem({ children, value, className }: AccordionItemProps) {
   const { isActive } = useAccordion();
 
   return (
@@ -189,11 +173,7 @@ interface AccordionHeaderProps {
 /**
  * Accordion header component
  */
-export function AccordionHeader({
-  children,
-  customIcon,
-  className,
-}: AccordionHeaderProps) {
+export function AccordionHeader({ children, customIcon, className }: AccordionHeaderProps) {
   const { isActive, value, onChangeIndex } = useAccordion();
 
   const handleClick = useCallback(() => {
@@ -247,11 +227,7 @@ interface AccordionPanelProps {
 /**
  * Accordion panel component
  */
-export function AccordionPanel({
-  children,
-  className,
-  articleClassName,
-}: AccordionPanelProps) {
+export function AccordionPanel({ children, className, articleClassName }: AccordionPanelProps) {
   const { isActive, value } = useAccordion();
 
   return (
@@ -282,10 +258,7 @@ export function AccordionPanel({
               duration: 0.4,
               bounce: 0,
             }}
-            className={cn(
-              'px-3 bg-transparent pb-4 space-y-2',
-              articleClassName
-            )}
+            className={cn('px-3 bg-transparent pb-4 space-y-2', articleClassName)}
           >
             {children}
           </motion.div>

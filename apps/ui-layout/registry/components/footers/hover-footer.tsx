@@ -15,9 +15,9 @@ function HoverFooter() {
           <article className='py-2  2xl:w-80 w-64  space-y-1'>
             <h1 className='newFont text-3xl font-bold'>UI-LAYOUT</h1>
             <p className='text-sm  leading-[120%] '>
-              Copy and paste designs that you love to have on your website.
-              Don't forget to share them with your friends. I'll bring more and
-              more components that really make sense for your design.
+              Copy and paste designs that you love to have on your website. Don't forget to share
+              them with your friends. I'll bring more and more components that really make sense for
+              your design.
             </p>
           </article>
         </div>
@@ -27,6 +27,7 @@ function HoverFooter() {
             href='https://www.linkedin.com/in/naymur-rahman/'
             target='_blank'
             className='bg-neutral-50 sm:w-auto w-full   grid place-content-center 2xl:h-40 h-32 2xl:p-10 p-5 rounded-lg'
+            rel='noopener'
           >
             <svg
               xmlns='http://www.w3.org/2000/svg'
@@ -46,6 +47,7 @@ function HoverFooter() {
             href='https://x.com/naymur_dev'
             target='_blank'
             className='bg-neutral-50 sm:w-auto w-full  grid place-content-center  2xl:h-40 h-32 2xl:p-10 p-5 rounded-lg'
+            rel='noopener'
           >
             <svg
               xmlns='http://www.w3.org/2000/svg'
@@ -64,10 +66,7 @@ function HoverFooter() {
         </div>
       </div>
       <div className='lg:flex hidden'>
-        <AnimatedText
-          text='UI-LAYOUT'
-          className='2xl:text-[11rem] text-[12vw]'
-        />
+        <AnimatedText text='UI-LAYOUT' className='2xl:text-[11rem] text-[12vw]' />
       </div>
     </footer>
   );

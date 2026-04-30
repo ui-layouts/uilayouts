@@ -1,6 +1,6 @@
 'use client';
+import { animate, motion, useMotionValue } from 'motion/react';
 import React, { useEffect, useRef, useState } from 'react';
-import { motion, useMotionValue, animate } from 'motion/react';
 
 export const items = [
   {
@@ -98,9 +98,7 @@ export default function FramerAutoplayCarousel({ duration = 3000 }) {
 
   return (
     <div className='w-full lg:p-10 sm:p-4 p-2'>
-      <h2 className='text-2xl mb-4 sr-only'>
-        Autoplay Carousel (Hover to Pause)
-      </h2>
+      <h2 className='text-2xl mb-4 sr-only'>Autoplay Carousel (Hover to Pause)</h2>
       <div className='flex flex-col gap-3'>
         <div
           className='relative overflow-hidden rounded-lg'
@@ -132,12 +130,7 @@ export default function FramerAutoplayCarousel({ duration = 3000 }) {
                   : 'bg-white hover:scale-110 hover:opacity-100 opacity-70'
               }`}
           >
-            <svg
-              className='w-6 h-6'
-              fill='none'
-              stroke='currentColor'
-              viewBox='0 0 24 24'
-            >
+            <svg className='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
               <path
                 strokeLinecap='round'
                 strokeLinejoin='round'
@@ -157,18 +150,8 @@ export default function FramerAutoplayCarousel({ duration = 3000 }) {
                   : 'bg-white hover:scale-110 hover:opacity-100 opacity-70'
               }`}
           >
-            <svg
-              className='w-6 h-6'
-              fill='none'
-              stroke='currentColor'
-              viewBox='0 0 24 24'
-            >
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth={2}
-                d='M9 5l7 7-7 7'
-              />
+            <svg className='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+              <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9 5l7 7-7 7' />
             </svg>
           </motion.button>
 

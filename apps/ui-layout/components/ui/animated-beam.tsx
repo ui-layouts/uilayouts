@@ -1,8 +1,8 @@
 'use client';
 
-import { cn } from '@/lib/utils';
 import { motion } from 'motion/react';
-import { forwardRef, RefObject, useEffect, useId, useState } from 'react';
+import { forwardRef, type RefObject, useEffect, useId, useState } from 'react';
+import { cn } from '@/lib/utils';
 
 export const Icons = {
   user: () => (
@@ -58,10 +58,7 @@ export const Icons = {
           height='1'
           patternContentUnits='objectBoundingBox'
         >
-          <use
-            transform='matrix(.00402 0 0 .00459 -.213 0)'
-            xlinkHref='#image0_1548_137'
-          ></use>
+          <use transform='matrix(.00402 0 0 .00459 -.213 0)' xlinkHref='#image0_1548_137'></use>
         </pattern>
         <image
           id='image0_1548_137'
@@ -416,19 +413,13 @@ const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
         const svgHeight = containerRect.height;
         setSvgDimensions({ width: svgWidth, height: svgHeight });
 
-        const startX =
-          rectA.left - containerRect.left + rectA.width / 2 + startXOffset;
-        const startY =
-          rectA.top - containerRect.top + rectA.height / 2 + startYOffset;
-        const endX =
-          rectB.left - containerRect.left + rectB.width / 2 + endXOffset;
-        const endY =
-          rectB.top - containerRect.top + rectB.height / 2 + endYOffset;
+        const startX = rectA.left - containerRect.left + rectA.width / 2 + startXOffset;
+        const startY = rectA.top - containerRect.top + rectA.height / 2 + startYOffset;
+        const endX = rectB.left - containerRect.left + rectB.width / 2 + endXOffset;
+        const endY = rectB.top - containerRect.top + rectB.height / 2 + endYOffset;
 
         const controlY = startY - curvature;
-        const d = `M ${startX},${startY} Q ${
-          (startX + endX) / 2
-        },${controlY} ${endX},${endY}`;
+        const d = `M ${startX},${startY} Q ${(startX + endX) / 2},${controlY} ${endX},${endY}`;
         setPathD(d);
       }
     };
@@ -436,7 +427,7 @@ const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
     // Initialize ResizeObserver
     const resizeObserver = new ResizeObserver((entries) => {
       // For all entries, recalculate the path
-      for (let entry of entries) {
+      for (const entry of entries) {
         updatePath();
       }
     });
@@ -453,16 +444,7 @@ const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
     return () => {
       resizeObserver.disconnect();
     };
-  }, [
-    containerRef,
-    fromRef,
-    toRef,
-    curvature,
-    startXOffset,
-    startYOffset,
-    endXOffset,
-    endYOffset,
-  ]);
+  }, [containerRef, fromRef, toRef, curvature, startXOffset, startYOffset, endXOffset, endYOffset]);
 
   return (
     <svg
@@ -470,10 +452,7 @@ const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
       width={svgDimensions.width}
       height={svgDimensions.height}
       xmlns='http://www.w3.org/2000/svg'
-      className={cn(
-        'pointer-events-none absolute left-0 top-0 transform-gpu stroke-2',
-        className
-      )}
+      className={cn('pointer-events-none absolute left-0 top-0 transform-gpu stroke-2', className)}
       viewBox={`0 0 ${svgDimensions.width} ${svgDimensions.height}`}
     >
       <path
@@ -530,11 +509,7 @@ const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
           <stop stopColor={gradientStartColor} stopOpacity='0'></stop>
           <stop stopColor={gradientStartColor}></stop>
           <stop offset='32.5%' stopColor={gradientStopColor}></stop>
-          <stop
-            offset='100%'
-            stopColor={gradientStopColor}
-            stopOpacity='0'
-          ></stop>
+          <stop offset='100%' stopColor={gradientStopColor} stopOpacity='0'></stop>
         </motion.linearGradient>
       </defs>
     </svg>
@@ -545,22 +520,22 @@ AnimatedBeam.displayName = 'AnimatedBeam';
 
 // Then export the component
 export { AnimatedBeam };
-const Circle = forwardRef<
-  HTMLDivElement,
-  { className?: string; children?: React.ReactNode }
->(({ className, children }, ref) => {
-  return (
-    <div
-      ref={ref}
-      className={cn(
-        'z-10 flex h-12 w-12 items-center justify-center rounded-full border-2 bg-white p-3 shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)]',
-        className
-      )}
-    >
-      {children}
-    </div>
-  );
-});
+
+const Circle = forwardRef<HTMLDivElement, { className?: string; children?: React.ReactNode }>(
+  ({ className, children }, ref) => {
+    return (
+      <div
+        ref={ref}
+        className={cn(
+          'z-10 flex h-12 w-12 items-center justify-center rounded-full border-2 bg-white p-3 shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)]',
+          className
+        )}
+      >
+        {children}
+      </div>
+    );
+  }
+);
 Circle.displayName = 'Circle';
 
 // Then export the Circle component

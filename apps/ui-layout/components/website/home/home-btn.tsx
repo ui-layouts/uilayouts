@@ -1,5 +1,6 @@
-import React from 'react';
 import { ArrowBigRight, ArrowRight } from 'lucide-react';
+import React from 'react';
+
 function HomeBtn() {
   return (
     <>

@@ -1,8 +1,9 @@
 'use client';
 
-import { useMediaQuery } from '@/hooks/use-media-query';
 import { ArrowUpRight, MoveUpRight } from 'lucide-react';
-import React, { useState, useRef, useCallback, useEffect } from 'react';
+import type React from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { useMediaQuery } from '@/hooks/use-media-query';
 
 interface ImageData {
   id: number;
@@ -125,9 +126,7 @@ const ImageReveal2: React.FC = () => {
           </h2>
           <button
             className={`sm:block hidden p-2 rounded-full transition-all duration-300 ease-out ${
-              activeImage?.id === image?.id
-                ? 'mix-blend-difference z-20 bg-white text-black'
-                : ''
+              activeImage?.id === image?.id ? 'mix-blend-difference z-20 bg-white text-black' : ''
             }`}
           >
             <ArrowUpRight className='w-8 h-8' />

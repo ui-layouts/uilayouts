@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, LayoutGroup, motion } from 'motion/react';
 import Image from 'next/image';
+import React, { useEffect, useRef, useState } from 'react';
 // import { items } from '@/components/website/constant';
 
 export const items = [

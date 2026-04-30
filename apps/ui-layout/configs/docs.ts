@@ -1,14 +1,6 @@
-import {
-  COMPONENT_KEYS,
-  DOCS_CATEGORY_GROUP,
-  DOCS_CATEGORY_KEY,
-} from '../const/docs';
-import {
-  DocsCategoryKey,
-  DocsFileRef,
-  DocsNavigationCategory,
-} from '../types/docs';
 import React from 'react';
+import { COMPONENT_KEYS, DOCS_CATEGORY_GROUP, DOCS_CATEGORY_KEY } from '../const/docs';
+import type { DocsCategoryKey, DocsFileRef, DocsNavigationCategory } from '../types/docs';
 
 export const DocsNavigationCategories: DocsNavigationCategory[] = [
   {
@@ -39,13 +31,7 @@ export const DocsNavigationCategories: DocsNavigationCategory[] = [
     group: DOCS_CATEGORY_GROUP.AnimationMotion,
     new: true,
     updated: false,
-    tags: [
-      'Swapy drag',
-      'swapy draggable',
-      'swapy items',
-      'swapy sortable',
-      'swapy list',
-    ],
+    tags: ['Swapy drag', 'swapy draggable', 'swapy items', 'swapy sortable', 'swapy list'],
   },
   {
     href: '/components/dialog',
@@ -89,15 +75,7 @@ export const DocsNavigationCategories: DocsNavigationCategory[] = [
     name: 'Footers',
     key: DOCS_CATEGORY_KEY['footers'],
     group: DOCS_CATEGORY_GROUP.Layout,
-    tags: [
-      'footer',
-      'animation',
-      'logo',
-      'branding',
-      'animated',
-      'hover',
-      'interactive',
-    ],
+    tags: ['footer', 'animation', 'logo', 'branding', 'animated', 'hover', 'interactive'],
   },
 
   {
@@ -105,13 +83,7 @@ export const DocsNavigationCategories: DocsNavigationCategory[] = [
     name: 'Buy Me A Coffee',
     key: DOCS_CATEGORY_KEY['buy-me-coffee'],
     group: DOCS_CATEGORY_GROUP.DataDisplay,
-    tags: [
-      'Sponser',
-      'Buy me a coffee',
-      'co-fi',
-      'Buy-me-a-coffee',
-      'supports',
-    ],
+    tags: ['Sponser', 'Buy me a coffee', 'co-fi', 'Buy-me-a-coffee', 'supports'],
   },
 
   {
@@ -150,13 +122,7 @@ export const DocsNavigationCategories: DocsNavigationCategory[] = [
     key: DOCS_CATEGORY_KEY['mesh-gradients'],
     group: DOCS_CATEGORY_GROUP.Visual3D,
     new: true,
-    tags: [
-      'mesh-gradient',
-      'Mesh Gradients',
-      'Gradients',
-      'r3f gradients',
-      'threejs gradients',
-    ],
+    tags: ['mesh-gradient', 'Mesh Gradients', 'Gradients', 'r3f gradients', 'threejs gradients'],
   },
   {
     href: '/components/blur-vignette',
@@ -323,14 +289,7 @@ export const DocsNavigationCategories: DocsNavigationCategory[] = [
     name: 'Phone Input',
     key: DOCS_CATEGORY_KEY['phone-input'],
     group: DOCS_CATEGORY_GROUP.Forms,
-    tags: [
-      'phone-input',
-      'Phone Input',
-      'Input',
-      'form component',
-      'input',
-      'user interface',
-    ],
+    tags: ['phone-input', 'Phone Input', 'Input', 'form component', 'input', 'user interface'],
   },
   {
     href: '/components/datetime-picker',
@@ -457,16 +416,7 @@ export const DocsNavigationCategories: DocsNavigationCategory[] = [
     name: 'Product-Cards',
     key: DOCS_CATEGORY_KEY['product-cards'],
     group: DOCS_CATEGORY_GROUP.DataDisplay,
-    tags: [
-      'product',
-      'card',
-      'ui',
-      'design',
-      'ecommerce',
-      'style',
-      'ui card',
-      'component',
-    ],
+    tags: ['product', 'card', 'ui', 'design', 'ecommerce', 'style', 'ui card', 'component'],
   },
   {
     href: '/components/gradient-border',
@@ -491,16 +441,7 @@ export const DocsNavigationCategories: DocsNavigationCategory[] = [
     name: 'Spotlight cards',
     key: DOCS_CATEGORY_KEY['spotlight-cards'],
     group: DOCS_CATEGORY_GROUP.VisualEffects,
-    tags: [
-      'spotlight',
-      'card',
-      'ui',
-      'design',
-      'highlight',
-      'feature',
-      'ui card',
-      'component',
-    ],
+    tags: ['spotlight', 'card', 'ui', 'design', 'highlight', 'feature', 'ui card', 'component'],
   },
   {
     href: '/components/timeline-animation',
@@ -525,15 +466,7 @@ export const DocsNavigationCategories: DocsNavigationCategory[] = [
     new: false,
     updated: true,
     group: DOCS_CATEGORY_GROUP.AnimationMotion,
-    tags: [
-      'scroll',
-      'animation',
-      'element',
-      'repeat',
-      'text',
-      'motion',
-      'interactive',
-    ],
+    tags: ['scroll', 'animation', 'element', 'repeat', 'text', 'motion', 'interactive'],
   },
   {
     href: '/components/scroll-text',
@@ -620,16 +553,7 @@ export const DocsNavigationCategories: DocsNavigationCategory[] = [
     name: 'Blocks',
     key: DOCS_CATEGORY_KEY['blocks'],
     group: DOCS_CATEGORY_GROUP.VisualEffects,
-    tags: [
-      'blocks',
-      'background',
-      'bg-blocks',
-      'layout',
-      'design',
-      'grid',
-      'tiles',
-      'bg-effect',
-    ],
+    tags: ['blocks', 'background', 'bg-blocks', 'layout', 'design', 'grid', 'tiles', 'bg-effect'],
   },
   {
     href: '/components/animated-beam',
@@ -669,14 +593,7 @@ export const DocsNavigationCategories: DocsNavigationCategory[] = [
     key: DOCS_CATEGORY_KEY['linear-modal'],
     group: DOCS_CATEGORY_GROUP.Overlays,
     updated: true,
-    tags: [
-      'card',
-      'linear-layout',
-      'linear-modal',
-      'linear-card',
-      'UI-component',
-      'modal-card',
-    ],
+    tags: ['card', 'linear-layout', 'linear-modal', 'linear-card', 'UI-component', 'modal-card'],
   },
   {
     href: '/components/gallery-modal',
@@ -755,13 +672,7 @@ export const DocsNavigationCategories: DocsNavigationCategory[] = [
     name: 'Horizontal Scroll',
     key: DOCS_CATEGORY_KEY['horizontal-scroll'],
     group: DOCS_CATEGORY_GROUP.AnimationMotion,
-    tags: [
-      'White 3D Globe',
-      'White 3D Globe Card',
-      'horizontal',
-      'scroll',
-      'framer',
-    ],
+    tags: ['White 3D Globe', 'White 3D Globe Card', 'horizontal', 'scroll', 'framer'],
   },
   {
     href: '/components/stacking-card',
@@ -804,16 +715,7 @@ export const DocsNavigationCategories: DocsNavigationCategory[] = [
     name: 'Tabs',
     key: DOCS_CATEGORY_KEY['tabs'],
     group: DOCS_CATEGORY_GROUP.Navigation,
-    tags: [
-      'tabs',
-      'ui',
-      'navigation',
-      'component',
-      'design',
-      'creative',
-      'form',
-      'registration',
-    ],
+    tags: ['tabs', 'ui', 'navigation', 'component', 'design', 'creative', 'form', 'registration'],
   },
   {
     href: '/components/image-tabs',
@@ -834,12 +736,7 @@ export const DocsNavigationCategories: DocsNavigationCategory[] = [
     name: 'Sparkles',
     key: DOCS_CATEGORY_KEY['sparkles'],
     group: DOCS_CATEGORY_GROUP.AnimationMotion,
-    tags: [
-      'sparkles',
-      '3d globe sparkles',
-      'animation sparkles',
-      'sparkles particle',
-    ],
+    tags: ['sparkles', '3d globe sparkles', 'animation sparkles', 'sparkles particle'],
   },
   {
     href: '/components/sparkles-title',
@@ -886,13 +783,7 @@ export const DocsNavigationCategories: DocsNavigationCategory[] = [
     key: DOCS_CATEGORY_KEY['framer-carousel'],
     group: DOCS_CATEGORY_GROUP.MediaGalleries,
     updated: true,
-    tags: [
-      'carousel',
-      'motion/react',
-      'animated-carousel',
-      'carousel-2',
-      'carousel-1',
-    ],
+    tags: ['carousel', 'motion/react', 'animated-carousel', 'carousel-2', 'carousel-1'],
   },
   {
     href: '/components/accordion',
@@ -900,44 +791,21 @@ export const DocsNavigationCategories: DocsNavigationCategory[] = [
     key: DOCS_CATEGORY_KEY['accordion'],
     group: DOCS_CATEGORY_GROUP.Disclosure,
     updated: true,
-    tags: [
-      'accordion',
-      'faqs accordion',
-      'layout',
-      'expandable',
-      'collapsible',
-      'single',
-      'multi',
-    ],
+    tags: ['accordion', 'faqs accordion', 'layout', 'expandable', 'collapsible', 'single', 'multi'],
   },
   {
     href: '/components/faqs',
     name: 'FAQs',
     key: DOCS_CATEGORY_KEY['faqs'],
     group: DOCS_CATEGORY_GROUP.Disclosure,
-    tags: [
-      'accordion',
-      'faq',
-      'questions',
-      'answers',
-      'expandable',
-      'collapsible',
-    ],
+    tags: ['accordion', 'faq', 'questions', 'answers', 'expandable', 'collapsible'],
   },
   {
     href: '/components/image-accordions',
     name: 'Image Accordion',
     key: DOCS_CATEGORY_KEY['image-accordions'],
     group: DOCS_CATEGORY_GROUP.Disclosure,
-    tags: [
-      'accordion',
-      'image',
-      'hover',
-      'interactive',
-      'expandable',
-      'tailwind',
-      'responsive',
-    ],
+    tags: ['accordion', 'image', 'hover', 'interactive', 'expandable', 'tailwind', 'responsive'],
   },
   {
     href: '/components/grid',
@@ -1035,7 +903,7 @@ export const DocsNavigationCategories: DocsNavigationCategory[] = [
       'console animation',
     ],
   },
-    {
+  {
     href: '/components/code-block',
     name: 'Code Block',
     key: DOCS_CATEGORY_KEY['code-block'],
@@ -1145,15 +1013,12 @@ export const AllComponents: IAllComponents[] = [
     category: DOCS_CATEGORY_KEY['liquid-glass'],
     title: humanize(COMPONENT_KEYS.LIQUID_GLASS_SIDEBAR_MENU),
     slug: 'liquid-glass/sidebar-menu',
-    description:
-      'LIQUID GLASS SIDEBAR MENU component with liquid-like animations',
+    description: 'LIQUID GLASS SIDEBAR MENU component with liquid-like animations',
     href: '/components/liquid-glass',
     componentName: COMPONENT_KEYS.LIQUID_GLASS_SIDEBAR_MENU,
     filesrc: require('../registry/components/liquid-glass/sidebar-menu.tsx?raw'),
     iframeSrc: 'live-components/liquid-glass-sidebar-menu',
-    componentSrc: React.lazy(
-      () => import('@/registry/components/liquid-glass/sidebar-menu')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/liquid-glass/sidebar-menu')),
     tags: [
       'liquid-glass',
       'liquid glass',
@@ -1167,8 +1032,7 @@ export const AllComponents: IAllComponents[] = [
     category: 'liquid-glass',
     title: humanize(COMPONENT_KEYS.LIQUID_GLASS_MOBILE_ICONS),
     slug: 'liquid-glass/mobile-icons',
-    description:
-      'LIQUID GLASS MOBILE ICONS component with liquid-like animations',
+    description: 'LIQUID GLASS MOBILE ICONS component with liquid-like animations',
     href: '/components/liquid-glass',
     componentName: COMPONENT_KEYS.LIQUID_GLASS_MOBILE_ICONS,
     filesrc: require('../registry/components/liquid-glass/mobile-icons-liquid.tsx?raw'),
@@ -1194,9 +1058,7 @@ export const AllComponents: IAllComponents[] = [
     componentName: COMPONENT_KEYS.LIQUID_GLASS_WEATHER,
     filesrc: require('../registry/components/liquid-glass/weather-liquid.tsx?raw'),
     iframeSrc: 'live-components/liquid-glass-weather',
-    componentSrc: React.lazy(
-      () => import('@/registry/components/liquid-glass/weather-liquid')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/liquid-glass/weather-liquid')),
     tags: [
       'liquid-glass',
       'liquid glass',
@@ -1210,15 +1072,12 @@ export const AllComponents: IAllComponents[] = [
     category: 'liquid-glass',
     title: humanize(COMPONENT_KEYS.LIQUID_GLASS_NOTIFICATION),
     slug: 'liquid-glass/notification',
-    description:
-      'LIQUID GLASS NOTIFICATION component with liquid-like animations',
+    description: 'LIQUID GLASS NOTIFICATION component with liquid-like animations',
     href: '/components/liquid-glass',
     componentName: COMPONENT_KEYS.LIQUID_GLASS_NOTIFICATION,
     filesrc: require('../registry/components/liquid-glass/notification.tsx?raw'),
     iframeSrc: 'live-components/liquid-glass-notification',
-    componentSrc: React.lazy(
-      () => import('@/registry/components/liquid-glass/notification')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/liquid-glass/notification')),
     tags: [
       'liquid-glass',
       'liquid glass',
@@ -1237,9 +1096,7 @@ export const AllComponents: IAllComponents[] = [
     description: 'DEFAULT COLOR PICKER component',
     filesrc: require('../registry/components/color-picker/index.tsx?raw'),
     iframeSrc: 'live-components/default-color-picker',
-    componentSrc: React.lazy(
-      () => import('@/registry/components/color-picker/index')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/color-picker/index')),
     tags: [
       'color-picker',
       'color picker',
@@ -1259,9 +1116,7 @@ export const AllComponents: IAllComponents[] = [
     description: 'RAWS COLOR PICKER component',
     filesrc: require('../registry/components/color-picker/raws-color-picker.tsx?raw'),
     iframeSrc: 'live-components/raws-color-picker',
-    componentSrc: React.lazy(
-      () => import('@/registry/components/color-picker/raws-color-picker')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/color-picker/raws-color-picker')),
     tags: [
       'color-picker',
       'color picker',
@@ -1280,16 +1135,8 @@ export const AllComponents: IAllComponents[] = [
     description: 'DEFAULT SWAPY component',
     filesrc: require('../registry/components/swapy/default-swapy.tsx?raw'),
     iframeSrc: 'live-components/default-swapy',
-    componentSrc: React.lazy(
-      () => import('@/registry/components/swapy/default-swapy')
-    ),
-    tags: [
-      'Swapy drag',
-      'swapy draggable',
-      'swapy items',
-      'swapy sortable',
-      'swapy list',
-    ],
+    componentSrc: React.lazy(() => import('@/registry/components/swapy/default-swapy')),
+    tags: ['Swapy drag', 'swapy draggable', 'swapy items', 'swapy sortable', 'swapy list'],
   },
 
   {
@@ -1301,16 +1148,8 @@ export const AllComponents: IAllComponents[] = [
     description: 'OPACITY SWAPY component',
     filesrc: require('../registry/components/swapy/swapy-opacity.tsx?raw'),
     iframeSrc: 'live-components/swapy-opacity',
-    componentSrc: React.lazy(
-      () => import('@/registry/components/swapy/swapy-opacity')
-    ),
-    tags: [
-      'Swapy drag',
-      'swapy draggable',
-      'swapy items',
-      'swapy sortable',
-      'swapy list',
-    ],
+    componentSrc: React.lazy(() => import('@/registry/components/swapy/swapy-opacity')),
+    tags: ['Swapy drag', 'swapy draggable', 'swapy items', 'swapy sortable', 'swapy list'],
   },
 
   {
@@ -1322,9 +1161,7 @@ export const AllComponents: IAllComponents[] = [
     description: 'SWAPY WITHOUT COMPONENTS component',
     filesrc: require('../registry/components/swapy/swapy-without-components.tsx?raw'),
     iframeSrc: 'live-components/swapy-without-components',
-    componentSrc: React.lazy(
-      () => import('@/registry/components/swapy/swapy-without-components')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/swapy/swapy-without-components')),
     tags: [
       'Swapy without components',
       'swapy draggable',
@@ -1343,16 +1180,8 @@ export const AllComponents: IAllComponents[] = [
     description: 'SWAPY HANDLE component',
     filesrc: require('../registry/components/swapy/swapy-handle.tsx?raw'),
     iframeSrc: 'live-components/swapy-handle',
-    componentSrc: React.lazy(
-      () => import('@/registry/components/swapy/swapy-handle')
-    ),
-    tags: [
-      'Swapy drag',
-      'swapy draggable',
-      'swapy items',
-      'swapy sortable',
-      'swapy list',
-    ],
+    componentSrc: React.lazy(() => import('@/registry/components/swapy/swapy-handle')),
+    tags: ['Swapy drag', 'swapy draggable', 'swapy items', 'swapy sortable', 'swapy list'],
   },
 
   {
@@ -1371,15 +1200,10 @@ export const AllComponents: IAllComponents[] = [
     title: humanize(COMPONENT_KEYS.MESH_SHADERGRADIENT),
     href: '/components/mesh-gradients',
     slug: 'mesh-gradients',
-    description:
-      'MESH SHADERGRADIENT component using Three.js with stunning gradient effects',
+    description: 'MESH SHADERGRADIENT component using Three.js with stunning gradient effects',
     componentName: COMPONENT_KEYS.MESH_SHADERGRADIENT,
     iframelink: COMPONENT_KEYS.MESH_SHADERGRADIENT,
-    tags: [
-      'mesh-gradient',
-      'threejs mesh graddient',
-      'React3 Fiber mesh Gradient',
-    ],
+    tags: ['mesh-gradient', 'threejs mesh graddient', 'React3 Fiber mesh Gradient'],
   },
 
   {
@@ -1391,11 +1215,7 @@ export const AllComponents: IAllComponents[] = [
     description:
       'MESH GRADIENT BACKGROUND3 component using Three.js with stunning gradient effects',
     iframelink: COMPONENT_KEYS.MESH_GRADIENT_BACKGROUND3,
-    tags: [
-      'mesh-gradient',
-      'threejs mesh graddient',
-      'React3 Fiber mesh Gradient',
-    ],
+    tags: ['mesh-gradient', 'threejs mesh graddient', 'React3 Fiber mesh Gradient'],
   },
 
   {
@@ -1407,11 +1227,7 @@ export const AllComponents: IAllComponents[] = [
     description:
       'MESH GRADIENT BACKGROUND2 component using Three.js with stunning gradient effects',
     iframelink: COMPONENT_KEYS.MESH_GRADIENT_BACKGROUND2,
-    tags: [
-      'mesh-gradient',
-      'threejs mess graddient',
-      'React3 Fiber Mess Gradient',
-    ],
+    tags: ['mesh-gradient', 'threejs mess graddient', 'React3 Fiber Mess Gradient'],
   },
 
   {
@@ -1420,14 +1236,9 @@ export const AllComponents: IAllComponents[] = [
     title: humanize(COMPONENT_KEYS.MESH_GRADIENT_BACKGROUND),
     href: '/components/mesh-gradients',
     slug: 'mesh-gradients',
-    description:
-      'MESH GRADIENT BACKGROUND component using Three.js with stunning gradient effects',
+    description: 'MESH GRADIENT BACKGROUND component using Three.js with stunning gradient effects',
     iframelink: COMPONENT_KEYS.MESH_GRADIENT_BACKGROUND,
-    tags: [
-      'mesh-gradient',
-      'threejs mess graddient',
-      'React3 Fiber Mess Gradient',
-    ],
+    tags: ['mesh-gradient', 'threejs mess graddient', 'React3 Fiber Mess Gradient'],
   },
 
   {
@@ -1438,11 +1249,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'image-ripple-effect',
     description: 'IMG RIPPLE EFFECT component using Three.js',
     iframelink: 'img-ripple-effect',
-    tags: [
-      'img-ripple-effect',
-      'threejs ripple effect',
-      'React three Fiber Ripple Effect',
-    ],
+    tags: ['img-ripple-effect', 'threejs ripple effect', 'React three Fiber Ripple Effect'],
   },
 
   {
@@ -1464,9 +1271,7 @@ export const AllComponents: IAllComponents[] = [
   {
     category: DOCS_CATEGORY_KEY['globe'],
     componentName: COMPONENT_KEYS.CARD_GLOBE_DEFAULT,
-    componentSrc: React.lazy(
-      () => import('@/registry/components/globe/card-globe-default')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/globe/card-globe-default')),
     title: humanize(COMPONENT_KEYS.CARD_GLOBE_DEFAULT),
     href: '/components/globe',
     slug: 'globe',
@@ -1479,9 +1284,7 @@ export const AllComponents: IAllComponents[] = [
   {
     category: DOCS_CATEGORY_KEY['globe'],
     componentName: COMPONENT_KEYS.CARD_GLOBE_WHITE,
-    componentSrc: React.lazy(
-      () => import('@/registry/components/globe/card-globe-white')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/globe/card-globe-white')),
     title: humanize(COMPONENT_KEYS.CARD_GLOBE_WHITE),
     href: '/components/globe',
     slug: 'globe',
@@ -1663,9 +1466,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'phone-input-default',
     description: 'PHONE INPUT DEFAULT component',
     filesrc: require('../registry/components/form/phone-number/index.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/form/phone-number')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/form/phone-number')),
     iframeSrc: 'live-components/phone-input',
     tags: ['phone-input', 'Phone Input', 'Input'],
   },
@@ -1678,17 +1479,9 @@ export const AllComponents: IAllComponents[] = [
     slug: 'buy-me-acoffee',
     description: 'BUYME ACOFFEE component',
     filesrc: require('../registry/components/buy-me-coffee.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/buy-me-coffee')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/buy-me-coffee')),
     iframeSrc: 'live-components/buy-me-acoffee',
-    tags: [
-      'Sponser',
-      'Buy me a coffee',
-      'co-fi',
-      'Buy-me-a-coffee',
-      'supports',
-    ],
+    tags: ['Sponser', 'Buy me a coffee', 'co-fi', 'Buy-me-a-coffee', 'supports'],
   },
 
   {
@@ -1699,9 +1492,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'chat-form-dropzone',
     description: 'CHAT FORM DROPZONE - file upload component',
     filesrc: require('../registry/components/form/file-upload/chat-form.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/form/file-upload/chat-form')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/form/file-upload/chat-form')),
     iframeSrc: 'live-components/chat-form-dropzone',
     tags: [
       'DropZone input',
@@ -1722,9 +1513,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'imgpreview-dropzone',
     description: 'IMGPREVIEW DROPZONE - file upload component',
     filesrc: require('../registry/components/form/file-upload/img-preview.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/form/file-upload/img-preview')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/form/file-upload/img-preview')),
     iframeSrc: 'live-components/imgpreview-dropzone',
     tags: [
       'DropZone input',
@@ -1743,9 +1532,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'file-upload-default',
     description: 'FILE UPLOAD DEFAULT - file upload component',
     filesrc: require('../registry/components/form/file-upload/index.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/form/file-upload')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/form/file-upload')),
     iframeSrc: 'live-components/file-upload',
     tags: ['DropZone input', 'File Upload Input ', 'file-upload'],
   },
@@ -1757,15 +1544,9 @@ export const AllComponents: IAllComponents[] = [
     title: humanize(COMPONENT_KEYS.MULTI_SELECTOR_DEFAULT),
     slug: 'multi-selector-default',
     description: 'MULTI SELECTOR DEFAULT - multi-selector component',
-    componentSrc: React.lazy(
-      () => import('@/registry/components/form/multiple-selector')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/form/multiple-selector')),
     iframeSrc: 'live-components/multi-selector',
-    tags: [
-      'Multi Selector Input',
-      'Selector Input Tag',
-      'Multiple Selector Input',
-    ],
+    tags: ['Multi Selector Input', 'Selector Input Tag', 'Multiple Selector Input'],
     filesArray: [
       {
         name: 'index.tsx',
@@ -1797,9 +1578,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'tagsedit-false',
     description: 'TAGSEDIT FALSE - tags input component',
     filesrc: require('../registry/components/form/tags-input/tagsedit-false.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/form/tags-input/tagsedit-false')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/form/tags-input/tagsedit-false')),
     iframeSrc: 'live-components/tagsedit-false',
     tags: [
       'Tags Input',
@@ -1825,13 +1604,7 @@ export const AllComponents: IAllComponents[] = [
       }))
     ),
     iframeSrc: 'live-components/tags-input',
-    tags: [
-      'Tags Input',
-      'Youtube Tags',
-      'Github Like Tags',
-      'github tags',
-      'input tags',
-    ],
+    tags: ['Tags Input', 'Youtube Tags', 'Github Like Tags', 'github tags', 'input tags'],
   },
 
   {
@@ -1871,17 +1644,9 @@ export const AllComponents: IAllComponents[] = [
     slug: 'datetime-picker-default',
     description: 'DATETIME PICKER DEFAULT - date/time picker component',
     filesrc: require('../registry/components/form/datetime-picker/index.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/form/datetime-picker')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/form/datetime-picker')),
     iframeSrc: 'live-components/datetime-picker',
-    tags: [
-      'date picker',
-      'time picker',
-      'date time picker',
-      'date-time picker',
-      'DateTime Picker',
-    ],
+    tags: ['date picker', 'time picker', 'date time picker', 'date-time picker', 'DateTime Picker'],
   },
 
   {
@@ -1890,8 +1655,7 @@ export const AllComponents: IAllComponents[] = [
     href: '/components/range-slider',
     title: humanize(COMPONENT_KEYS.MOTION_NUMBER_SLIDER),
     slug: 'motion-number-slider',
-    description:
-      'MOTION NUMBER SLIDER - range slider component with smooth motion effects',
+    description: 'MOTION NUMBER SLIDER - range slider component with smooth motion effects',
     filesrc: require('../registry/components/motion-number/motion-number-slider.tsx?raw'),
     tags: [
       'input slider',
@@ -1914,9 +1678,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'dual-range-slider',
     description: 'DUAL RANGE SLIDER - range slider component',
     filesrc: require('../registry/components/form/slider/dual-range-slider.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/form/slider/dual-range-slider')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/form/slider/dual-range-slider')),
     iframeSrc: 'live-components/dual-range-slider',
     tags: [
       'input slider',
@@ -1935,9 +1697,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'static-range-slider',
     description: 'STATIC RANGE SLIDER - range slider component',
     filesrc: require('../registry/components/form/slider/static-range-slider.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/form/slider/static-range-slider')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/form/slider/static-range-slider')),
     iframeSrc: 'live-components/static-range-slider',
     tags: [
       'input slider',
@@ -1980,9 +1740,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'showhide-pass',
     description: 'SHOWHIDE PASS - password component',
     filesrc: require('../registry/components/form/password/showhide-pass.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/form/password/showhide-pass')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/form/password/showhide-pass')),
     iframeSrc: 'live-components/showhide-pass',
     tags: [
       'password',
@@ -2004,8 +1762,7 @@ export const AllComponents: IAllComponents[] = [
     description: 'PASS STRENGTHINDICATOR - password component',
     filesrc: require('../registry/components/form/password/pass-strength-indicator.tsx?raw'),
     componentSrc: React.lazy(
-      () =>
-        import('@/registry/components/form/password/pass-strength-indicator')
+      () => import('@/registry/components/form/password/pass-strength-indicator')
     ),
     iframeSrc: 'live-components/pass-strengthindicator',
     iframe: true,
@@ -2028,8 +1785,7 @@ export const AllComponents: IAllComponents[] = [
     description: 'PASS STRENGTH DOTTED INDICATOR - password component',
     filesrc: require('../registry/components/form/password/pass-strength-dotted-indicator.tsx?raw'),
     componentSrc: React.lazy(
-      () =>
-        import('@/registry/components/form/password/pass-strength-dotted-indicator')
+      () => import('@/registry/components/form/password/pass-strength-dotted-indicator')
     ),
     iframeSrc: 'live-components/pass-strength-dotted-indicator',
     iframe: true,
@@ -2050,11 +1806,9 @@ export const AllComponents: IAllComponents[] = [
     href: '/components/password',
     title: humanize(COMPONENT_KEYS.PASS_STRENGTH_HOVER_INDICATOR),
     slug: 'pass-strength-hover-indicator',
-    description:
-      'PASS STRENGTH HOVER INDICATOR - password component with smooth hover effects',
+    description: 'PASS STRENGTH HOVER INDICATOR - password component with smooth hover effects',
     componentSrc: React.lazy(
-      () =>
-        import('@/registry/components/form/password/pass-strength-hover-indicator')
+      () => import('@/registry/components/form/password/pass-strength-hover-indicator')
     ),
     iframeSrc: 'live-components/pass-strength-hover-indicator',
     iframe: true,
@@ -2090,8 +1844,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'pass-strength-inline-indicator',
     description: 'PASS STRENGTH INLINE INDICATOR - password component',
     componentSrc: React.lazy(
-      () =>
-        import('@/registry/components/form/password/pass-strength-inline-indicator')
+      () => import('@/registry/components/form/password/pass-strength-inline-indicator')
     ),
     iframeSrc: 'live-components/pass-strength-inline-indicator',
     iframe: true,
@@ -2158,9 +1911,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'drag-items',
     description: 'DRAG ITEMS component',
     filesrc: require('../registry/components/drag/drag-items.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/drag/drag-items')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/drag/drag-items')),
     iframeSrc: 'live-components/drag-items',
     tags: ['drag', 'draggable', 'items', 'sortable', 'list'],
   },
@@ -2173,9 +1924,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'button-background-shine',
     description: 'BUTTON BACKGROUND SHINE - button component',
     filesrc: require('../registry/components/button/btn-bg-shine.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/button/btn-bg-shine')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/button/btn-bg-shine')),
     iframeSrc: 'live-components/button-background-shine',
     center: true,
     tags: ['button', 'hover', 'active', 'button hover', 'button active'],
@@ -2189,9 +1938,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'button-background-spotlight',
     description: 'BUTTON BACKGROUND SPOTLIGHT - button component',
     filesrc: require('../registry/components/button/btn-animated-gradient.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/button/btn-animated-gradient')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/button/btn-animated-gradient')),
     iframeSrc: 'live-components/button-background-spotlight',
     center: true,
     tags: ['button', 'hover', 'active', 'button hover', 'button active'],
@@ -2203,12 +1950,9 @@ export const AllComponents: IAllComponents[] = [
     href: '/components/buttons',
     title: humanize(COMPONENT_KEYS.BUTTON_HOVER_ACTIVE),
     slug: 'button-hover-active',
-    description:
-      'BUTTON HOVER ACTIVE - button component with smooth hover effects',
+    description: 'BUTTON HOVER ACTIVE - button component with smooth hover effects',
     filesrc: require('../registry/components/button/btn-active.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/button/btn-active')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/button/btn-active')),
     iframeSrc: 'live-components/button-hover-active',
     center: true,
     tags: ['button', 'hover', 'active', 'button hover', 'button active'],
@@ -2222,9 +1966,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'button-hover-2',
     description: 'BUTTON HOVER 2 - button component with smooth hover effects',
     filesrc: require('../registry/components/button/btn-hover-right.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/button/btn-hover-right')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/button/btn-hover-right')),
     iframeSrc: 'live-components/button-hover-2',
     center: true,
     tags: ['button', 'hover', 'active', 'button hover', 'button active'],
@@ -2238,9 +1980,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'button-hover-3',
     description: 'BUTTON HOVER 3 - button component with smooth hover effects',
     filesrc: require('../registry/components/button/btn-click-down.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/button/btn-click-down')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/button/btn-click-down')),
     iframeSrc: 'live-components/button-hover-3',
     center: true,
     tags: ['button', 'hover', 'active', 'button hover', 'button active'],
@@ -2254,9 +1994,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'button-hover-4',
     description: 'BUTTON HOVER 4 - button component with smooth hover effects',
     filesrc: require('../registry/components/button/btn-hover-down.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/button/btn-hover-down')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/button/btn-hover-down')),
     iframeSrc: 'live-components/button-hover-4',
     center: true,
     tags: ['button', 'hover', 'active', 'button hover', 'button active'],
@@ -2270,9 +2008,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'button-hover-5',
     description: 'BUTTON HOVER 5 - button component with smooth hover effects',
     filesrc: require('../registry/components/button/btn-hover-multiple.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/button/btn-hover-multiple')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/button/btn-hover-multiple')),
     iframeSrc: 'live-components/button-hover-5',
     center: true,
     tags: ['button', 'hover', 'active', 'button hover', 'button active'],
@@ -2286,9 +2022,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'button-hover-6',
     description: 'BUTTON HOVER 6 - button component with smooth hover effects',
     filesrc: require('../registry/components/button/btn-hover-underline.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/button/btn-hover-underline')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/button/btn-hover-underline')),
     iframeSrc: 'live-components/button-hover-6',
     center: true,
     tags: ['button', 'hover', 'active', 'button hover', 'button active'],
@@ -2302,9 +2036,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'button-hover-7',
     description: 'BUTTON HOVER 7 - button component with smooth hover effects',
     filesrc: require('../registry/components/button/btn-hover-top-flip.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/button/btn-hover-top-flip')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/button/btn-hover-top-flip')),
     iframeSrc: 'live-components/button-hover-7',
     center: true,
     tags: ['button', 'hover', 'active', 'button hover', 'button active'],
@@ -2318,9 +2050,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'button-hover-8',
     description: 'BUTTON HOVER 8 - button component with smooth hover effects',
     filesrc: require('../registry/components/button/btn-hover-left-flip.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/button/btn-hover-left-flip')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/button/btn-hover-left-flip')),
     center: true,
     iframeSrc: 'live-components/button-hover-8',
     tags: ['button', 'hover', 'active', 'button hover', 'button active'],
@@ -2334,9 +2064,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'button-hover-9',
     description: 'BUTTON HOVER 9 - button component with smooth hover effects',
     filesrc: require('../registry/components/button/btn-hover-top-slowflip.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/button/btn-hover-top-slowflip')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/button/btn-hover-top-slowflip')),
     center: true,
     iframeSrc: 'live-components/button-hover-9',
     tags: ['button', 'hover', 'active', 'button hover', 'button active'],
@@ -2350,9 +2078,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'button-hover-10',
     description: 'BUTTON HOVER 10 - button component with smooth hover effects',
     filesrc: require('../registry/components/button/btn-text-change.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/button/btn-text-change')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/button/btn-text-change')),
     center: true,
     iframeSrc: 'live-components/button-hover-10',
     tags: ['button', 'hover', 'active', 'button hover', 'button active'],
@@ -2366,9 +2092,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'button-hover-11',
     description: 'BUTTON HOVER 11 - button component with smooth hover effects',
     filesrc: require('../registry/components/button/btn-cross-arrow.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/button/btn-cross-arrow')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/button/btn-cross-arrow')),
     center: true,
     iframeSrc: 'live-components/button-hover-11',
     tags: ['button', 'hover', 'active', 'button hover', 'button active'],
@@ -2382,9 +2106,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'button-hover-12',
     description: 'BUTTON HOVER 12 - button component with smooth hover effects',
     filesrc: require('../registry/components/button/btn-black-shadow.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/button/btn-black-shadow')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/button/btn-black-shadow')),
     center: true,
     iframeSrc: 'live-components/btn-hover12',
     tags: ['button', 'hover', 'active', 'button hover', 'button active'],
@@ -2398,9 +2120,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'button-hover-13',
     description: 'BUTTON HOVER 13 - button component with smooth hover effects',
     filesrc: require('../registry/components/button/btn-hover-outline.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/button/btn-hover-outline')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/button/btn-hover-outline')),
     center: true,
     iframeSrc: 'live-components/button-hover-13',
     tags: ['button', 'hover', 'active', 'button hover', 'button active'],
@@ -2413,9 +2133,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'button-hover-14',
     description: 'BUTTON HOVER 14 - button component with smooth hover effects',
     filesrc: require('../registry/components/button/btn-hover14.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/button/btn-hover14')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/button/btn-hover14')),
     center: true,
     iframeSrc: 'live-components/button-hover-14',
     tags: ['button', 'hover', 'active', 'button hover', 'button active'],
@@ -2427,12 +2145,9 @@ export const AllComponents: IAllComponents[] = [
     href: '/components/buttons',
     title: humanize(COMPONENT_KEYS.BUTTON_ROTATING_GRADIENT),
     slug: 'button-rotating-gradient',
-    description:
-      'BUTTON ROTATING GRADIENT - button component with stunning gradient effects',
+    description: 'BUTTON ROTATING GRADIENT - button component with stunning gradient effects',
     filesrc: require('../registry/components/button/btn-rotating-gradient.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/button/btn-rotating-gradient')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/button/btn-rotating-gradient')),
     center: true,
     iframeSrc: 'live-components/btn-rotating-bgGradient',
     tags: ['button', 'hover', 'active', 'button hover', 'button active'],
@@ -2446,9 +2161,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'creative-button-1',
     description: 'CREATIVE BUTTON 1 - button component with creative design',
     filesrc: require('../registry/components/button/btn-creative-right.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/button/btn-creative-right')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/button/btn-creative-right')),
     center: true,
     iframeSrc: 'live-components/creative-button-1',
     tags: ['button', 'hover', 'active', 'button hover', 'button active'],
@@ -2462,9 +2175,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'creative-button-2',
     description: 'CREATIVE BUTTON 2 - button component with creative design',
     filesrc: require('../registry/components/button/btn-creative-top.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/button/btn-creative-top')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/button/btn-creative-top')),
     center: true,
     iframeSrc: 'live-components/creative-button-2',
     tags: ['button', 'hover', 'active', 'button hover', 'button active'],
@@ -2478,9 +2189,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'animated-logo-footer',
     description: 'ANIMATED LOGO FOOTER component with beautiful animations',
     filesrc: require('../registry/components/footers/animated-logo-footer.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/footers/animated-logo-footer')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/footers/animated-logo-footer')),
     iframeSrc: 'live-components/animated-logo-footer',
     tags: ['footer', 'animation', 'logo', 'branding', 'animated'],
   },
@@ -2492,9 +2201,7 @@ export const AllComponents: IAllComponents[] = [
     href: '/components/footers',
     slug: 'hover-footer',
     description: 'HOVER FOOTER component with smooth hover effects',
-    componentSrc: React.lazy(
-      () => import('@/registry/components/footers/hover-footer')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/footers/hover-footer')),
     iframeSrc: 'live-components/hover-footer',
     tags: ['footer', 'hover', 'interactive', 'branding'],
     filesArray: [
@@ -2518,9 +2225,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'noise',
     description: 'NOISE EFFECT component',
     filesrc: require('../registry/components/noise-effect/section-noise.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/noise-effect/section-noise')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/noise-effect/section-noise')),
     iframeSrc: 'live-components/noise-effect',
     tags: ['noise', 'effect', 'visual', 'distortion', 'shader'],
   },
@@ -2533,9 +2238,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'grid-layout-accordion',
     description: 'GRID LAYOUT ACCORDION - accordion component',
     filesrc: require('../registry/components/accordion/gridlayout.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/accordion/gridlayout')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/accordion/gridlayout')),
     iframeSrc: 'live-components/grid-layout-accordion',
     tags: ['accordion', 'grid', 'layout', 'expandable', 'collapsible'],
   },
@@ -2548,9 +2251,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'single-layout-accordion',
     description: 'SINGLE LAYOUT ACCORDION - accordion component',
     filesrc: require('../registry/components/accordion/singlelayout.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/accordion/singlelayout')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/accordion/singlelayout')),
     iframeSrc: 'live-components/single-layout-accordion',
     tags: ['accordion', 'layout', 'single', 'expandable', 'collapsible'],
   },
@@ -2563,9 +2264,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'multi-layout-accordion',
     description: 'MULTI LAYOUT ACCORDION - accordion component',
     filesrc: require('../registry/components/accordion/multilayout.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/accordion/multilayout')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/accordion/multilayout')),
     iframeSrc: 'live-components/multi-layout-accordion',
     tags: ['accordion', 'layout', 'multi', 'expandable', 'collapsible'],
   },
@@ -2578,18 +2277,9 @@ export const AllComponents: IAllComponents[] = [
     slug: 'faq-accordion',
     description: 'FAQ ACCORDION component',
     filesrc: require('../registry/components/accordion/faq.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/accordion/faq')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/accordion/faq')),
     iframeSrc: 'live-components/faq-accordion',
-    tags: [
-      'accordion',
-      'faq',
-      'questions',
-      'answers',
-      'expandable',
-      'collapsible',
-    ],
+    tags: ['accordion', 'faq', 'questions', 'answers', 'expandable', 'collapsible'],
   },
 
   {
@@ -2600,9 +2290,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'image-hover-accordion',
     description: 'IMAGE HOVER ACCORDION component with smooth hover effects',
     filesrc: require('../registry/components/accordion/image-hover.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/accordion/image-hover')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/accordion/image-hover')),
     iframeSrc: 'live-components/image-hover-accordion',
     tags: ['accordion', 'image', 'hover', 'interactive', 'expandable'],
   },
@@ -2630,9 +2318,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'default-slider',
     description: 'DEFAULT SLIDER - carousel component',
     filesrc: require('../registry/components/carousel/default-slider.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/carousel/default-slider')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/carousel/default-slider')),
     iframeSrc: 'live-components/default-slider',
     tags: ['carousel', 'default', 'slider', 'basic-slider', 'embla-carousel'],
   },
@@ -2645,9 +2331,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'align-slider',
     description: 'ALIGN SLIDER - carousel component',
     filesrc: require('../registry/components/carousel/align-slider.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/carousel/align-slider')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/carousel/align-slider')),
     iframeSrc: 'live-components/align-slider',
     tags: ['carousel', 'align', 'centered', 'alignment-slider'],
   },
@@ -2660,9 +2344,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'classname-slider',
     description: 'CLASSNAME SLIDER - carousel component',
     filesrc: require('../registry/components/carousel/classname-slider.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/carousel/classname-slider')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/carousel/classname-slider')),
     iframeSrc: 'live-components/classname-slider',
     tags: ['carousel', 'classname', 'custom-slider', 'themed-slider'],
   },
@@ -2675,9 +2357,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'number-slider',
     description: 'NUMBER SLIDER - carousel component',
     filesrc: require('../registry/components/carousel/number-slider.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/carousel/number-slider')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/carousel/number-slider')),
     iframeSrc: 'live-components/number-slider',
     tags: ['carousel', 'number', 'numeric-slider', 'counter-slider'],
   },
@@ -2690,9 +2370,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'scale-slider',
     description: 'SCALE SLIDER - carousel component',
     filesrc: require('../registry/components/carousel/scale-slider.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/carousel/scale-slider')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/carousel/scale-slider')),
     iframeSrc: 'live-components/scale-slider',
     tags: ['carousel', 'scale', 'zoom-slider', 'scalable-carousel'],
   },
@@ -2705,9 +2383,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'thumbnail-slider',
     description: 'THUMBNAIL SLIDER - carousel component',
     filesrc: require('../registry/components/carousel/thumnail-slider.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/carousel/thumnail-slider')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/carousel/thumnail-slider')),
     iframeSrc: 'live-components/thumbnail-slider',
     tags: ['carousel', 'thumbnail', 'preview-slider', 'image-carousel'],
   },
@@ -2720,9 +2396,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'vertical-slider',
     description: 'VERTICAL SLIDER - carousel component',
     filesrc: require('../registry/components/carousel/vertical-slider.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/carousel/vertical-slider')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/carousel/vertical-slider')),
     iframeSrc: 'live-components/vertical-slider',
     tags: ['carousel', 'vertical', 'preview-slider', 'image-carousel'],
   },
@@ -2735,9 +2409,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'vertical-thumbnail-slider',
     description: 'VERTICAL THUMBNAIL SLIDER - carousel component',
     filesrc: require('../registry/components/carousel/verticalthumbs-slider.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/carousel/verticalthumbs-slider')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/carousel/verticalthumbs-slider')),
     iframeSrc: 'live-components/verticalthumbs-slider',
     tags: ['carousel', 'vertical', 'preview-slider', 'image-carousel'],
   },
@@ -2751,8 +2423,7 @@ export const AllComponents: IAllComponents[] = [
     description: 'VERTICAL THUMBNAIL AUTOSTART SLIDER - carousel component',
     filesrc: require('../registry/components/carousel/verticalthumbs-autostart-slider.tsx?raw'),
     componentSrc: React.lazy(
-      () =>
-        import('@/registry/components/carousel/verticalthumbs-autostart-slider')
+      () => import('@/registry/components/carousel/verticalthumbs-autostart-slider')
     ),
     iframeSrc: 'live-components/verticalthumbs-autostart-slider',
     tags: ['carousel', 'vertical', 'preview-slider', 'image-carousel'],
@@ -2766,9 +2437,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'autoscroll-slider',
     description: 'AUTOSCROLL SLIDER - carousel component',
     filesrc: require('../registry/components/carousel/autoscroll-slider.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/carousel/autoscroll-slider')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/carousel/autoscroll-slider')),
     iframeSrc: 'live-components/autoscroll-slider',
     tags: ['carousel', 'autoscroller', 'auto-slider', 'autoplay-carousel'],
   },
@@ -2781,9 +2450,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'autostart-slider',
     description: 'AUTOSTART SLIDER - carousel component',
     filesrc: require('../registry/components/carousel/autostart-slider.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/carousel/autostart-slider')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/carousel/autostart-slider')),
     iframeSrc: 'live-components/autostart-slider',
     tags: ['carousel', 'autostart', 'auto-slider', 'autoplay-carousel'],
   },
@@ -2796,9 +2463,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'horizontal-progressive-carousel',
     description: 'HORIZONTAL PROGRESSIVE CAROUSEL component',
     filesrc: require('../registry/components/carousel/horizontal-progressive.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/carousel/horizontal-progressive')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/carousel/horizontal-progressive')),
     iframeSrc: 'live-components/horizontal-progressive-carousel',
     tags: ['carousel', 'horizontal', 'progressive-carousel', 'scroll-carousel'],
   },
@@ -2811,9 +2476,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'vertical-progressive-carousel',
     description: 'VERTICAL PROGRESSIVE CAROUSEL component',
     filesrc: require('../registry/components/carousel/verticle-progressive.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/carousel/verticle-progressive')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/carousel/verticle-progressive')),
     iframeSrc: 'live-components/vertical-progressive-carousel',
     tags: ['carousel', 'vertical', 'progressive-carousel', 'vertical-scroll'],
   },
@@ -2827,8 +2490,7 @@ export const AllComponents: IAllComponents[] = [
     description: 'FRAMER DRAG SLIDING CAROUSEL component',
     filesrc: require('../registry/components/carousel/framer/framer-drag-sliding-carousel.tsx?raw'),
     componentSrc: React.lazy(
-      () =>
-        import('@/registry/components/carousel/framer/framer-drag-sliding-carousel')
+      () => import('@/registry/components/carousel/framer/framer-drag-sliding-carousel')
     ),
     iframeSrc: 'live-components/framer-drag-sliding-carousel',
     tags: ['carousel', 'motion/react', 'animated-carousel', 'carousel-2'],
@@ -2842,9 +2504,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'framer-carousel-1',
     description: 'FRAMER CAROUSEL 1 component',
     filesrc: require('../registry/components/carousel/framer-carousel1.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/carousel/framer-carousel1')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/carousel/framer-carousel1')),
     iframeSrc: 'live-components/framer-carousel-1',
     tags: ['carousel', 'motion/react', 'animated-carousel', 'carousel-1'],
   },
@@ -2858,8 +2518,7 @@ export const AllComponents: IAllComponents[] = [
     description: 'FRAMER NORMAL CAROUSEL component',
     filesrc: require('../registry/components/carousel/framer/framer-normal-carousel.tsx?raw'),
     componentSrc: React.lazy(
-      () =>
-        import('@/registry/components/carousel/framer/framer-normal-carousel')
+      () => import('@/registry/components/carousel/framer/framer-normal-carousel')
     ),
     iframeSrc: 'live-components/framer-normal-carousel',
     tags: ['carousel', 'motion/react', 'animated-carousel', 'carousel-1'],
@@ -2873,9 +2532,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'framer-autoplay-carousel',
     description: 'FRAMER AUTOPLAY CAROUSEL component',
     filesrc: require('../registry/components/carousel/framer/framer-autoplay.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/carousel/framer/framer-autoplay')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/carousel/framer/framer-autoplay')),
     iframeSrc: 'live-components/framer-autoplay-carousel',
     tags: ['carousel', 'motion/react', 'animated-carousel', 'carousel-1'],
   },
@@ -2889,8 +2546,7 @@ export const AllComponents: IAllComponents[] = [
     description: 'FRAMER DRAGGABLE CAROUSEL component',
     filesrc: require('../registry/components/carousel/framer/framer-draggable-carousel.tsx?raw'),
     componentSrc: React.lazy(
-      () =>
-        import('@/registry/components/carousel/framer/framer-draggable-carousel')
+      () => import('@/registry/components/carousel/framer/framer-draggable-carousel')
     ),
     iframeSrc: 'live-components/framer-draggable-carousel',
     tags: ['carousel', 'motion/react', 'animated-carousel', 'carousel-1'],
@@ -2905,8 +2561,7 @@ export const AllComponents: IAllComponents[] = [
     description: 'FRAMER MULTI CAROUSEL component',
     filesrc: require('../registry/components/carousel/framer/framer-multi-carousel.tsx?raw'),
     componentSrc: React.lazy(
-      () =>
-        import('@/registry/components/carousel/framer/framer-multi-carousel')
+      () => import('@/registry/components/carousel/framer/framer-multi-carousel')
     ),
     iframeSrc: 'live-components/framer-multi-carousel',
     tags: ['carousel', 'motion/react', 'animated-carousel', 'carousel-1'],
@@ -2936,8 +2591,7 @@ export const AllComponents: IAllComponents[] = [
     description: 'FRAMER MOVEABLE THUMBNAILS component',
     filesrc: require('../registry/components/carousel/framer/framer-moveable-thumnbails.tsx?raw'),
     componentSrc: React.lazy(
-      () =>
-        import('@/registry/components/carousel/framer/framer-moveable-thumnbails')
+      () => import('@/registry/components/carousel/framer/framer-moveable-thumnbails')
     ),
     iframeSrc: 'live-components/framer-moveable-thumnbails',
     tags: ['carousel', 'motion/react', 'animated-carousel', 'carousel-1'],
@@ -2951,9 +2605,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'image-reveal',
     description: 'IMAGE REVEAL - image reveal component',
     filesrc: require('../registry/components/image-reveal/image-reveal.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/image-reveal/image-reveal')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/image-reveal/image-reveal')),
     iframeSrc: 'live-components/image-reveal',
     tags: [
       'image',
@@ -2976,9 +2628,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'image-reveal2',
     description: 'IMAGE REVEAL2 - image reveal component',
     filesrc: require('../registry/components/image-reveal/index.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/image-reveal/index')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/image-reveal/index')),
     iframeSrc: 'live-components/image-reveal2',
     tags: [
       'image',
@@ -2999,12 +2649,9 @@ export const AllComponents: IAllComponents[] = [
     href: '/components/liquid-gradient',
     title: humanize(COMPONENT_KEYS.LIQUID_GRADIENT),
     slug: 'liquid-gradient',
-    description:
-      'LIQUID GRADIENT - liquid gradient component with stunning gradient effects',
+    description: 'LIQUID GRADIENT - liquid gradient component with stunning gradient effects',
     filesrc: require('../registry/components/liquid-gradient/index.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/liquid-gradient/index')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/liquid-gradient/index')),
     iframeSrc: 'live-components/liquid-gradient',
     tags: ['liquid-gradient', 'liquid-gradient', 'uilayouts liquid-gradient'],
   },
@@ -3015,12 +2662,9 @@ export const AllComponents: IAllComponents[] = [
     href: '/components/liquid-button',
     title: humanize(COMPONENT_KEYS.LIQUID_BUTTON),
     slug: 'liquid-button',
-    description:
-      'LIQUID BUTTON - liquid button component with liquid-like animations',
+    description: 'LIQUID BUTTON - liquid button component with liquid-like animations',
     filesrc: require('../registry/components/liquid-gradient/github-repo-btn.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/liquid-gradient/github-repo-btn')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/liquid-gradient/github-repo-btn')),
     iframeSrc: 'live-components/liquid-button',
     tags: [
       'github',
@@ -3045,9 +2689,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'blur-vignette-video',
     description: 'BLUR VIGNETTE VIDEO - blur vignette component',
     filesrc: require('../registry/components/blurvignette/blurvignettevideo.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/blurvignette/blurvignettevideo')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/blurvignette/blurvignettevideo')),
     iframeSrc: 'live-components/blur-vignette-video',
     tags: [
       'blur-sm',
@@ -3070,9 +2712,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'blur-vignette-img',
     description: 'BLUR VIGNETTE IMG - blur vignette component',
     filesrc: require('../registry/components/blurvignette/blurvignetteimg.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/blurvignette/blurvignetteimg')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/blurvignette/blurvignetteimg')),
     iframeSrc: 'live-components/blur-vignette-img',
     tags: [
       'blur-sm',
@@ -3095,9 +2735,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'blur-vignette-card',
     description: 'BLUR VIGNETTE CARD - blur vignette component',
     filesrc: require('../registry/components/blurvignette/blurvignettecard.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/blurvignette/blurvignettecard')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/blurvignette/blurvignettecard')),
     iframeSrc: 'live-components/blur-vignette-card',
     tags: [
       'blur-sm',
@@ -3117,23 +2755,11 @@ export const AllComponents: IAllComponents[] = [
     href: '/components/animated-beam',
     title: humanize(COMPONENT_KEYS.ANIMATED_BEAM_DEFAULT),
     slug: 'animated-beam-default',
-    description:
-      'ANIMATED BEAM DEFAULT - animated beam component with beautiful animations',
+    description: 'ANIMATED BEAM DEFAULT - animated beam component with beautiful animations',
     filesrc: require('../registry/components/animated-beam/default.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/animated-beam/default')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/animated-beam/default')),
     iframeSrc: 'live-components/animated-beam-default',
-    tags: [
-      'animated',
-      'beam',
-      'default',
-      'animation',
-      'effect',
-      'motion',
-      'visual',
-      'light-beam',
-    ],
+    tags: ['animated', 'beam', 'default', 'animation', 'effect', 'motion', 'visual', 'light-beam'],
   },
 
   {
@@ -3142,12 +2768,9 @@ export const AllComponents: IAllComponents[] = [
     href: '/components/animated-beam',
     title: humanize(COMPONENT_KEYS.ANIMATED_BEAM_BIDIRECTIONAL),
     slug: 'animated-beam-bidirectional',
-    description:
-      'ANIMATED BEAM BIDIRECTIONAL - animated beam component with beautiful animations',
+    description: 'ANIMATED BEAM BIDIRECTIONAL - animated beam component with beautiful animations',
     filesrc: require('../registry/components/animated-beam/bidirectional.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/animated-beam/bidirectional')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/animated-beam/bidirectional')),
     iframeSrc: 'live-components/animated-beam-bidirectional',
     tags: [
       'animated',
@@ -3167,22 +2790,11 @@ export const AllComponents: IAllComponents[] = [
     href: '/components/animated-beam',
     title: humanize(COMPONENT_KEYS.ANIMATED_BEAM_UNIDIRECTIONAL),
     slug: 'animated-beam-unidirectional',
-    description:
-      'ANIMATED BEAM UNIDIRECTIONAL - animated beam component with beautiful animations',
+    description: 'ANIMATED BEAM UNIDIRECTIONAL - animated beam component with beautiful animations',
     filesrc: require('../registry/components/animated-beam/unidirectional.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/animated-beam/unidirectional')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/animated-beam/unidirectional')),
     iframeSrc: 'live-components/animated-beam-unidirectional',
-    tags: [
-      'animated',
-      'beam',
-      'unidirectional',
-      'motion',
-      'effect',
-      'animation',
-      'light-beam',
-    ],
+    tags: ['animated', 'beam', 'unidirectional', 'motion', 'effect', 'animation', 'light-beam'],
   },
 
   {
@@ -3191,22 +2803,11 @@ export const AllComponents: IAllComponents[] = [
     href: '/components/animated-beam',
     title: humanize(COMPONENT_KEYS.ANIMATED_BEAM_MULTIPLE_INPUT),
     slug: 'animated-beam-multiple-input',
-    description:
-      'ANIMATED BEAM MULTIPLE INPUT - animated beam component with beautiful animations',
+    description: 'ANIMATED BEAM MULTIPLE INPUT - animated beam component with beautiful animations',
     filesrc: require('../registry/components/animated-beam/multiple-input.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/animated-beam/multiple-input')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/animated-beam/multiple-input')),
     iframeSrc: 'live-components/animated-beam-multiple-input',
-    tags: [
-      'animated',
-      'beam',
-      'multiple-input',
-      'animation',
-      'effect',
-      'visual',
-      'data-input',
-    ],
+    tags: ['animated', 'beam', 'multiple-input', 'animation', 'effect', 'visual', 'data-input'],
   },
 
   {
@@ -3218,9 +2819,7 @@ export const AllComponents: IAllComponents[] = [
     description:
       'ANIMATED BEAM MULTIPLE OUTPUT - animated beam component with beautiful animations',
     filesrc: require('../registry/components/animated-beam/multiple-output.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/animated-beam/multiple-output')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/animated-beam/multiple-output')),
     iframeSrc: 'live-components/animated-beam-multiple-output',
     tags: [
       'animated',
@@ -3242,20 +2841,9 @@ export const AllComponents: IAllComponents[] = [
     slug: 'bg-blocks-one',
     description: 'BG BLOCKS ONE component',
     filesrc: require('../registry/components/bg-blocks/blocksone.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/bg-blocks/blocksone')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/bg-blocks/blocksone')),
     iframeSrc: 'live-components/bg-blocks-one',
-    tags: [
-      'blocks',
-      'background',
-      'bg-blocks',
-      'layout',
-      'design',
-      'grid',
-      'tiles',
-      'bg-effect',
-    ],
+    tags: ['blocks', 'background', 'bg-blocks', 'layout', 'design', 'grid', 'tiles', 'bg-effect'],
   },
 
   {
@@ -3264,8 +2852,7 @@ export const AllComponents: IAllComponents[] = [
     href: '/components/motion-number',
     title: humanize(COMPONENT_KEYS.MOTION_NUMBER_INPUT),
     slug: 'motion-number-input',
-    description:
-      'MOTION NUMBER INPUT - motion number component with smooth motion effects',
+    description: 'MOTION NUMBER INPUT - motion number component with smooth motion effects',
     filesrc: require('../registry/components/motion-number/motion-number-input.tsx?raw'),
     tags: [
       'animation',
@@ -3342,8 +2929,7 @@ export const AllComponents: IAllComponents[] = [
     href: '/components/motion-number',
     title: humanize(COMPONENT_KEYS.MOTION_NUMBER_UPVOTES),
     slug: 'motion-number-upvotes',
-    description:
-      'MOTION NUMBER UPVOTES - motion number component with smooth motion effects',
+    description: 'MOTION NUMBER UPVOTES - motion number component with smooth motion effects',
     filesrc: require('../registry/components/motion-number/motion-number-upvotes.tsx?raw'),
     tags: [
       'animation',
@@ -3371,9 +2957,7 @@ export const AllComponents: IAllComponents[] = [
     description: 'IMAGE MOUSETRAIL DEFAULT - mouse trail component',
     filesrc: require('../registry/components/mousetrail/default-mousetrail.tsx?raw'),
     tags: ['mouse-trail', 'animation', 'image-effect', 'motion-trail'],
-    componentSrc: React.lazy(
-      () => import('@/registry/components/mousetrail/default-mousetrail')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/mousetrail/default-mousetrail')),
     iframeSrc: 'live-components/image-mousetrail-default',
   },
 
@@ -3386,9 +2970,7 @@ export const AllComponents: IAllComponents[] = [
     description: 'IMAGE MOUSETRAIL SMALL - mouse trail component',
     filesrc: require('../registry/components/mousetrail/small-images.tsx?raw'),
     tags: ['mouse-trail', 'small-images', 'interactive'],
-    componentSrc: React.lazy(
-      () => import('@/registry/components/mousetrail/small-images')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/mousetrail/small-images')),
     iframeSrc: 'live-components/image-mousetrail-small',
   },
 
@@ -3401,9 +2983,7 @@ export const AllComponents: IAllComponents[] = [
     description: 'IMAGE MOUSETRAIL DISAPPEAR - mouse trail component',
     filesrc: require('../registry/components/mousetrail/disappear-images.tsx?raw'),
     tags: ['disappearing-effect', 'interactive-animation', 'mouse-motion'],
-    componentSrc: React.lazy(
-      () => import('@/registry/components/mousetrail/disappear-images')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/mousetrail/disappear-images')),
     iframeSrc: 'live-components/image-mousetrail-disappear',
   },
 
@@ -3415,13 +2995,9 @@ export const AllComponents: IAllComponents[] = [
     slug: 'image-mousetrail-without-component',
     description: 'IMAGE MOUSETRAIL WITHOUT COMPONENT - mouse trail component',
     filesrc: require('../registry/components/mousetrail/without-component-mousetrail.tsx?raw'),
-    tags: [
-      'Without Component Mousetrail',
-      'Image Mouse Trail Without Componnents',
-    ],
+    tags: ['Without Component Mousetrail', 'Image Mouse Trail Without Componnents'],
     componentSrc: React.lazy(
-      () =>
-        import('@/registry/components/mousetrail/without-component-mousetrail')
+      () => import('@/registry/components/mousetrail/without-component-mousetrail')
     ),
     iframeSrc: 'live-components/image-mousetrail-without-component',
   },
@@ -3451,9 +3027,7 @@ export const AllComponents: IAllComponents[] = [
     description: 'LEFT DIRECTIONAL DRAWER - directional drawer component',
     filesrc: require('../registry/components/drawer/left-directional-drawer.tsx?raw'),
     tags: ['Left Sidebar', 'navigation', 'Left Drawer', 'Responsive Drawer'],
-    componentSrc: React.lazy(
-      () => import('@/registry/components/drawer/left-directional-drawer')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/drawer/left-directional-drawer')),
     iframeSrc: 'live-components/left-directional-drawer',
     iframe: true,
   },
@@ -3467,9 +3041,7 @@ export const AllComponents: IAllComponents[] = [
     description: 'TOP DIRECTIONAL DRAWER - directional drawer component',
     filesrc: require('../registry/components/drawer/top-directional-drawer.tsx?raw'),
     tags: ['Left Sidebar', 'navigation', 'Left Drawer', 'Responsive Drawer'],
-    componentSrc: React.lazy(
-      () => import('@/registry/components/drawer/top-directional-drawer')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/drawer/top-directional-drawer')),
     iframeSrc: 'live-components/top-directional-drawer',
     iframe: true,
   },
@@ -3496,13 +3068,10 @@ export const AllComponents: IAllComponents[] = [
     href: '/components/motion-drawer',
     title: humanize(COMPONENT_KEYS.MOTION_DRAWER_DEFAULT),
     slug: 'motion-drawer-default',
-    description:
-      'MOTION DRAWER DEFAULT - motion drawer component with smooth motion effects',
+    description: 'MOTION DRAWER DEFAULT - motion drawer component with smooth motion effects',
     filesrc: require('../registry/components/drawer/motion-drawer.tsx?raw'),
     tags: ['Left Sidebar', 'navigation', 'Left Drawer', 'Responsive Drawer'],
-    componentSrc: React.lazy(
-      () => import('@/registry/components/drawer/motion-drawer')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/drawer/motion-drawer')),
     iframeSrc: 'live-components/motion-drawer-default',
     iframe: true,
   },
@@ -3516,9 +3085,7 @@ export const AllComponents: IAllComponents[] = [
     description: 'RIGHT MOTION DRAWER component with smooth motion effects',
     filesrc: require('../registry/components/drawer/right-motion-drawer.tsx?raw'),
     tags: ['Left Sidebar', 'navigation', 'Left Drawer', 'Responsive Drawer'],
-    componentSrc: React.lazy(
-      () => import('@/registry/components/drawer/right-motion-drawer')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/drawer/right-motion-drawer')),
     iframeSrc: 'live-components/right-motion-drawer',
     iframe: true,
   },
@@ -3529,13 +3096,10 @@ export const AllComponents: IAllComponents[] = [
     href: '/components/responsive-header',
     title: humanize(COMPONENT_KEYS.RESPONSIVE_HEADER_DEFAULT),
     slug: 'responsive-header-default',
-    description:
-      'RESPONSIVE HEADER DEFAULT - responsive header component fully responsive design',
+    description: 'RESPONSIVE HEADER DEFAULT - responsive header component fully responsive design',
     filesrc: require('../registry/components/drawer/responsive-header.tsx?raw'),
     tags: ['header', 'responsive', 'navigation-bar', 'menu'],
-    componentSrc: React.lazy(
-      () => import('@/registry/components/drawer/responsive-header')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/drawer/responsive-header')),
     iframeSrc: 'live-components/responsive-header-default',
     iframe: true,
   },
@@ -3546,13 +3110,10 @@ export const AllComponents: IAllComponents[] = [
     href: '/components/responsive-modal',
     title: humanize(COMPONENT_KEYS.RESPONSIVE_MODAL_DEFAULT),
     slug: 'responsive-modal-default',
-    description:
-      'RESPONSIVE MODAL DEFAULT - responsive modal component fully responsive design',
+    description: 'RESPONSIVE MODAL DEFAULT - responsive modal component fully responsive design',
     filesrc: require('../registry/components/modal/responsive-modal.tsx?raw'),
     tags: ['modal', 'responsive', 'drawer', 'menu'],
-    componentSrc: React.lazy(
-      () => import('@/registry/components/modal/responsive-modal')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/modal/responsive-modal')),
     iframe: true,
     iframeSrc: 'live-components/responsive-modal-default',
   },
@@ -3566,9 +3127,7 @@ export const AllComponents: IAllComponents[] = [
     description: 'DIALOG DEFAULT - dialog component',
     filesrc: require('../registry/components/modal/dialog-default.tsx?raw'),
     tags: ['dialog', 'popup', 'modal', 'UI-component'],
-    componentSrc: React.lazy(
-      () => import('@/registry/components/modal/dialog-default')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/modal/dialog-default')),
     iframeSrc: 'live-components/dialog-default',
     iframe: true,
   },
@@ -3582,9 +3141,7 @@ export const AllComponents: IAllComponents[] = [
     description: 'MEDIA MODAL DEFAULT - media modal component',
     filesrc: require('../registry/components/modal/media-modal-default.tsx?raw'),
     tags: ['media', 'modal', 'popup', 'UI'],
-    componentSrc: React.lazy(
-      () => import('@/registry/components/modal/media-modal-default')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/modal/media-modal-default')),
     iframeSrc: 'live-components/media-modal-default',
     iframe: false,
   },
@@ -3598,9 +3155,7 @@ export const AllComponents: IAllComponents[] = [
     description: 'IMAGEMODALS - media modal component',
     filesrc: require('../registry/components/modal/image-modals.tsx?raw'),
     tags: ['image modal', 'modal', 'popup', 'UI'],
-    componentSrc: React.lazy(
-      () => import('@/registry/components/modal/image-modals')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/modal/image-modals')),
     iframeSrc: 'live-components/imagemodals',
     iframe: true,
   },
@@ -3614,9 +3169,7 @@ export const AllComponents: IAllComponents[] = [
     description: 'LINEAR MODAL DEFAULT - linear modal component',
     filesrc: require('../registry/components/linear-modal/index.tsx?raw'),
     tags: ['card', 'linear-layout', 'UI-component', 'modal-card'],
-    componentSrc: React.lazy(
-      () => import('@/registry/components/linear-modal')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/linear-modal')),
     iframeSrc: 'live-components/linear-modal-default',
     iframe: false,
   },
@@ -3629,16 +3182,8 @@ export const AllComponents: IAllComponents[] = [
     slug: 'linear-modal-standalone',
     description: 'LINEAR MODAL STANDALONE - linear modal component',
     filesrc: require('../registry/components/linear-modal/standalone-version.tsx?raw'),
-    tags: [
-      'linear-modal',
-      'without components',
-      'linear-layout',
-      'UI-component',
-      'modal-card',
-    ],
-    componentSrc: React.lazy(
-      () => import('@/registry/components/linear-modal/standalone-version')
-    ),
+    tags: ['linear-modal', 'without components', 'linear-layout', 'UI-component', 'modal-card'],
+    componentSrc: React.lazy(() => import('@/registry/components/linear-modal/standalone-version')),
     iframeSrc: 'live-components/linear-modal-standalone',
     iframe: true,
   },
@@ -3651,16 +3196,8 @@ export const AllComponents: IAllComponents[] = [
     slug: 'linear-modal-center-content',
     description: 'LINEAR MODAL CENTER CONTENT - linear modal component',
     filesrc: require('../registry/components/linear-modal/center-content.tsx?raw'),
-    tags: [
-      'linear-modal',
-      'without components',
-      'linear-layout',
-      'UI-component',
-      'modal-card',
-    ],
-    componentSrc: React.lazy(
-      () => import('@/registry/components/linear-modal/center-content')
-    ),
+    tags: ['linear-modal', 'without components', 'linear-layout', 'UI-component', 'modal-card'],
+    componentSrc: React.lazy(() => import('@/registry/components/linear-modal/center-content')),
     iframeSrc: 'live-components/linear-modal-center-content',
     iframe: true,
   },
@@ -3721,9 +3258,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'scroll-animation-default',
     description: 'SCROLL ANIMATION DEFAULT - scroll animation component',
     filesrc: require('../registry/components/scroll-animation/scroll-element.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/scroll-animation/scroll-element')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/scroll-animation/scroll-element')),
     iframeSrc: 'live-components/scroll-animation-default',
     tags: ['scroll', 'animation', 'element'],
   },
@@ -3736,9 +3271,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'scroll-animation-repeat',
     description: 'SCROLL ANIMATION REPEAT - scroll animation component',
     filesrc: require('../registry/components/scroll-animation/repeat-scroll.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/scroll-animation/repeat-scroll')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/scroll-animation/repeat-scroll')),
     iframeSrc: 'live-components/scroll-animation-repeat',
     tags: ['scroll', 'repeat', 'animation'],
   },
@@ -3751,9 +3284,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'scroll-animation-text',
     description: 'SCROLL ANIMATION TEXT - scroll animation component',
     filesrc: require('../registry/components/scroll-animation/text-scroll.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/scroll-animation/text-scroll')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/scroll-animation/text-scroll')),
     iframeSrc: 'live-components/scroll-animation-text',
     tags: ['text', 'scroll', 'animation'],
   },
@@ -3766,9 +3297,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'timeline-animation-default',
     description: 'TIMELINE ANIMATION DEFAULT - timeline animation component',
     filesrc: require('../registry/components/timeline-animation/index.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/timeline-animation')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/timeline-animation')),
     iframeSrc: 'live-components/timeline-animation-default',
     tags: ['timeline', 'animation', 'scroll'],
   },
@@ -3794,12 +3323,10 @@ export const AllComponents: IAllComponents[] = [
     href: '/components/scroll-text-marquee-unidirectional',
     title: humanize(COMPONENT_KEYS.SCROLL_TEXT_MARQUEE_UNIDIRECTIONAL),
     slug: 'scroll-text-marquee-unidirectional',
-    description:
-      'SCROLL TEXT MARQUEE UNIDIRECTIONAL component made with motion',
+    description: 'SCROLL TEXT MARQUEE UNIDIRECTIONAL component made with motion',
     filesrc: require('../registry/components/text-animation/text-marque/animationone.tsx?raw'),
     componentSrc: React.lazy(
-      () =>
-        import('@/registry/components/text-animation/text-marque/animationone')
+      () => import('@/registry/components/text-animation/text-marque/animationone')
     ),
     iframeSrc: 'live-components/scroll-text-marquee',
     tags: ['marquee', 'text', 'animation'],
@@ -3814,8 +3341,7 @@ export const AllComponents: IAllComponents[] = [
     description: 'SCROLL TEXT MARQUEE BIDIRECTIONAL component made with motion',
     filesrc: require('../registry/components/text-animation/text-marque/animationtwo.tsx?raw'),
     componentSrc: React.lazy(
-      () =>
-        import('@/registry/components/text-animation/text-marque/animationtwo')
+      () => import('@/registry/components/text-animation/text-marque/animationtwo')
     ),
     iframeSrc: 'live-components/scroll-text-marquee2',
     tags: ['marquee', 'text', 'animation'],
@@ -3829,9 +3355,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'randomized-text-unveil',
     description: 'RANDOMIZED TEXT UNVEIL - randomized text effect component',
     filesrc: require('../registry/components/text-animation/text-randomized/index.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/text-animation/text-randomized')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/text-animation/text-randomized')),
     iframeSrc: 'live-components/randomized-text-unveil',
     tags: ['random', 'text', 'effect'],
   },
@@ -3845,8 +3369,7 @@ export const AllComponents: IAllComponents[] = [
     description: 'FRAMERHORIZONTALSCROLL - horizontal scroll component',
     filesrc: require('../registry/components/scroll-animation/framer-horizontal-scroll.tsx?raw'),
     componentSrc: React.lazy(
-      () =>
-        import('@/registry/components/scroll-animation/framer-horizontal-scroll')
+      () => import('@/registry/components/scroll-animation/framer-horizontal-scroll')
     ),
     iframeSrc: 'live-components/framerhorizontalscroll',
     tags: ['horizontal', 'scroll', 'framer'],
@@ -3860,9 +3383,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'infintyband',
     description: 'INFINTYBAND - infinity brand component',
     filesrc: require('../registry/components/marquee/infinity-band-scroll.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/marquee/infinity-band-scroll')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/marquee/infinity-band-scroll')),
     iframeSrc: 'live-components/infintyband',
     tags: ['infinity', 'brand', 'marquee'],
   },
@@ -3875,9 +3396,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'normalgrid',
     description: 'NORMALGRID - grid component',
     filesrc: require('../registry/components/grid/normal-grid.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/grid/normal-grid')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/grid/normal-grid')),
     iframeSrc: 'live-components/normalGrid',
     tags: ['grid', 'Normal Grid', 'normal grid', 'normalgrid'],
   },
@@ -3890,9 +3409,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'boxgrid',
     description: 'BOXGRID - grid component',
     filesrc: require('../registry/components/grid/box-grid.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/grid/box-grid')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/grid/box-grid')),
     iframeSrc: 'live-components/boxgrid',
     tags: ['grid', 'box grid', 'Box Grid'],
   },
@@ -3905,9 +3422,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'conditiongrid',
     description: 'CONDITIONGRID - grid component',
     filesrc: require('../registry/components/grid/condition-grid.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/grid/condition-grid')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/grid/condition-grid')),
     iframeSrc: 'live-components/conditionGrid',
     tags: ['grid', 'condition grid', 'Contidion Grid'],
   },
@@ -3920,9 +3435,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'unsplashgrid',
     description: 'UNSPLASHGRID - grid component',
     filesrc: require('../registry/components/grid/unsplash-grid.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/grid/unsplash-grid')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/grid/unsplash-grid')),
     iframeSrc: 'live-components/unsplashGrid',
     tags: ['grid', 'unsplash grid', 'Unsplash Grid'],
   },
@@ -3935,9 +3448,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'default-marquee',
     description: 'DEFAULT MARQUEE - marquee component',
     filesrc: require('../registry/components/marquee/default-marquee.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/marquee/default-marquee')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/marquee/default-marquee')),
     iframeSrc: 'live-components/default-marquee',
     tags: ['default', 'marquee', 'animation'],
   },
@@ -3950,9 +3461,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'verticle-marquee',
     description: 'VERTICLE MARQUEE - marquee component',
     filesrc: require('../registry/components/marquee/verticle-marquee.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/marquee/verticle-marquee')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/marquee/verticle-marquee')),
     iframeSrc: 'live-components/verticl-emarquee',
     tags: ['vertical', 'marquee', 'animation'],
   },
@@ -3965,9 +3474,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'logos-marquee',
     description: 'LOGOS MARQUEE - marquee component',
     filesrc: require('../registry/components/marquee/logos-marquee.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/marquee/logos-marquee')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/marquee/logos-marquee')),
     iframeSrc: 'live-components/logos-marquee',
     tags: ['logos', 'marquee', 'animation'],
   },
@@ -3980,9 +3487,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'marquee-3d',
     description: 'MARQUEE 3D - marquee component',
     filesrc: require('../registry/components/marquee/3d-marquee.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/marquee/3d-marquee')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/marquee/3d-marquee')),
     iframeSrc: 'live-components/3d-marquee',
     tags: ['3d', 'marquee', 'animation'],
   },
@@ -3995,9 +3500,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'creative-clippath',
     description: 'CREATIVE CLIPPATH - clip-path component with creative design',
     filesrc: require('../registry/components/clip-path/clip-path-creative.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/clip-path/clip-path-creative')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/clip-path/clip-path-creative')),
     iframeSrc: 'live-components/creative-clippath',
     tags: ['clip-path', 'creative', 'masking'],
   },
@@ -4010,9 +3513,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'corporate-clippath',
     description: 'CORPORATE CLIPPATH - clip-path component',
     filesrc: require('../registry/components/clip-path/clip-path-corporate.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/clip-path/clip-path-corporate')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/clip-path/clip-path-corporate')),
     iframeSrc: 'live-components/corporate-clippath',
     tags: ['clip-path', 'corporate', 'masking'],
   },
@@ -4025,9 +3526,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'symbolic-clippath',
     description: 'SYMBOLIC CLIPPATH - clip-path component',
     filesrc: require('../registry/components/clip-path/clip-path-symbolic.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/clip-path/clip-path-symbolic')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/clip-path/clip-path-symbolic')),
     iframeSrc: 'live-components/symbolic-clippath',
     tags: ['clip-path', 'symbolic', 'masking'],
   },
@@ -4038,8 +3537,7 @@ export const AllComponents: IAllComponents[] = [
     href: '/components/clip-path',
     title: humanize(COMPONENT_KEYS.CREATIVE_MASK_CLIPPATH),
     slug: 'creative-mask-clippath',
-    description:
-      'CREATIVE MASK CLIPPATH - clip-path component with creative design',
+    description: 'CREATIVE MASK CLIPPATH - clip-path component with creative design',
     filesrc: require('../registry/components/clip-path/clip-path-creative-mask.tsx?raw'),
     componentSrc: React.lazy(
       () => import('@/registry/components/clip-path/clip-path-creative-mask')
@@ -4069,8 +3567,7 @@ export const AllComponents: IAllComponents[] = [
     href: '/components/image-masking',
     title: humanize(COMPONENT_KEYS.CREATIVE_IMAGEMASKING),
     slug: 'creative-imagemasking',
-    description:
-      'CREATIVE IMAGEMASKING - image masking component with creative design',
+    description: 'CREATIVE IMAGEMASKING - image masking component with creative design',
     filesrc: require('../registry/components/clip-path/creative-image-masking.tsx?raw'),
     componentSrc: React.lazy(
       () => import('@/registry/components/clip-path/creative-image-masking')
@@ -4087,16 +3584,9 @@ export const AllComponents: IAllComponents[] = [
     slug: 'animal-imagemasking',
     description: 'ANIMAL IMAGEMASKING - image masking component',
     filesrc: require('../registry/components/clip-path/animal-image-masking.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/clip-path/animal-image-masking')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/clip-path/animal-image-masking')),
     iframeSrc: 'live-components/animal-imagemasking',
-    tags: [
-      'animal-image-masking',
-      'Animal Image Masking ',
-      'creative',
-      'masking',
-    ],
+    tags: ['animal-image-masking', 'Animal Image Masking ', 'creative', 'masking'],
   },
 
   {
@@ -4107,16 +3597,9 @@ export const AllComponents: IAllComponents[] = [
     slug: 'center-imagemasking',
     description: 'CENTER IMAGEMASKING - image masking component',
     filesrc: require('../registry/components/clip-path/center-image-masking.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/clip-path/center-image-masking')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/clip-path/center-image-masking')),
     iframeSrc: 'live-components/center-imagemasking',
-    tags: [
-      'center-image-masking',
-      'background Image Masking ',
-      'creative',
-      'masking',
-    ],
+    tags: ['center-image-masking', 'background Image Masking ', 'creative', 'masking'],
   },
 
   {
@@ -4131,12 +3614,7 @@ export const AllComponents: IAllComponents[] = [
       () => import('@/registry/components/clip-path/fixed-bg-image-masking')
     ),
     iframeSrc: 'live-components/fixedbg-imagemasking',
-    tags: [
-      'fixedbg-image-masking',
-      'Fixed BG Image Masking ',
-      'creative',
-      'masking',
-    ],
+    tags: ['fixedbg-image-masking', 'Fixed BG Image Masking ', 'creative', 'masking'],
   },
 
   {
@@ -4166,8 +3644,7 @@ export const AllComponents: IAllComponents[] = [
     href: '/components/video-masking',
     title: humanize(COMPONENT_KEYS.CREATIVE_VIDEOMASKING),
     slug: 'creative-videomasking',
-    description:
-      'CREATIVE VIDEOMASKING - video masking component with creative design',
+    description: 'CREATIVE VIDEOMASKING - video masking component with creative design',
     filesrc: require('../registry/components/clip-path/creative-video-masking.tsx?raw'),
     componentSrc: React.lazy(
       () => import('@/registry/components/clip-path/creative-video-masking')
@@ -4199,9 +3676,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'hexagon-videomasking',
     description: 'HEXAGON VIDEOMASKING - video masking component',
     filesrc: require('../registry/components/clip-path/hexagon-video-masking.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/clip-path/hexagon-video-masking')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/clip-path/hexagon-video-masking')),
     iframeSrc: 'live-components/hexagon-videomasking',
     tags: ['hexagon video masking', ' hexagon masking', 'creative'],
   },
@@ -4244,20 +3719,9 @@ export const AllComponents: IAllComponents[] = [
     slug: 'gradient-border',
     description: 'GRADIENT BORDER component with stunning gradient effects',
     filesrc: require('../registry/components/card/gradient-border.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/card/gradient-border')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/card/gradient-border')),
     iframeSrc: 'live-components/gradient-border',
-    tags: [
-      'gradient',
-      'border',
-      'card',
-      'background',
-      'style',
-      'design',
-      'ui',
-      'effect',
-    ],
+    tags: ['gradient', 'border', 'card', 'background', 'style', 'design', 'ui', 'effect'],
   },
 
   {
@@ -4268,19 +3732,9 @@ export const AllComponents: IAllComponents[] = [
     slug: 'stripecard',
     description: 'STRIPECARD - hover card component',
     filesrc: require('../registry/components/card/stripe-card.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/card/stripe-card')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/card/stripe-card')),
     iframeSrc: 'live-components/stripecard',
-    tags: [
-      'hover',
-      'stripe',
-      'card',
-      'animation',
-      'interaction',
-      'design',
-      'ui',
-    ],
+    tags: ['hover', 'stripe', 'card', 'animation', 'interaction', 'design', 'ui'],
   },
 
   {
@@ -4291,19 +3745,9 @@ export const AllComponents: IAllComponents[] = [
     slug: 'stripecard2',
     description: 'STRIPECARD2 - hover card component',
     filesrc: require('../registry/components/card/stripe-card2.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/card/stripe-card2')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/card/stripe-card2')),
     iframeSrc: 'live-components/stripecard2',
-    tags: [
-      'hover',
-      'stripe',
-      'card',
-      'animation',
-      'interaction',
-      'design',
-      'ui',
-    ],
+    tags: ['hover', 'stripe', 'card', 'animation', 'interaction', 'design', 'ui'],
   },
 
   {
@@ -4314,9 +3758,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'hovercard4',
     description: 'HOVERCARD4 - hover card component with smooth hover effects',
     filesrc: require('../registry/components/card/hover-card4.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/card/hover-card4')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/card/hover-card4')),
     iframeSrc: 'live-components/hovercard4',
     tags: ['hover', 'card', 'animation', 'interaction', 'design', 'ui'],
   },
@@ -4329,9 +3771,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'hovercard3',
     description: 'HOVERCARD3 - hover card component with smooth hover effects',
     filesrc: require('../registry/components/card/hover-card3.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/card/hover-card3')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/card/hover-card3')),
     iframeSrc: 'live-components/hovercard3',
     tags: ['hover', 'card', 'animation', 'interaction', 'design', 'ui'],
   },
@@ -4344,9 +3784,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'hovercard2',
     description: 'HOVERCARD2 - hover card component with smooth hover effects',
     filesrc: require('../registry/components/card/hover-card2.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/card/hover-card2')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/card/hover-card2')),
     iframeSrc: 'live-components/hovercard2',
     tags: ['hover', 'card', 'animation', 'interaction', 'design', 'ui'],
   },
@@ -4359,9 +3797,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'hovercard1',
     description: 'HOVERCARD1 - hover card component with smooth hover effects',
     filesrc: require('../registry/components/card/hover-card1.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/card/hover-card1')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/card/hover-card1')),
     iframeSrc: 'live-components/hovercard1',
     tags: ['hover', 'card', 'animation', 'interaction', 'design', 'ui'],
   },
@@ -4372,12 +3808,9 @@ export const AllComponents: IAllComponents[] = [
     href: '/components/hover-cards',
     title: humanize(COMPONENT_KEYS.CREATIVE_HOVER_CARD),
     slug: 'creative-hover-card',
-    description:
-      'CREATIVE HOVER CARD - hover card component with smooth hover effects',
+    description: 'CREATIVE HOVER CARD - hover card component with smooth hover effects',
     filesrc: require('../registry/components/card/creative-hover-card.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/card/creative-hover-card')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/card/creative-hover-card')),
     iframeSrc: 'live-components/creative-hover-card',
     tags: ['card', 'ui', 'design', 'interaction', 'hover', 'style'],
   },
@@ -4390,9 +3823,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'productcard1',
     description: 'PRODUCTCARD1 - product card component',
     filesrc: require('../registry/components/card/product-card1.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/card/product-card1')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/card/product-card1')),
     iframeSrc: 'live-components/productcard1',
     tags: ['product', 'card', 'ui', 'design', 'ecommerce', 'style'],
   },
@@ -4405,9 +3836,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'productcard2',
     description: 'PRODUCTCARD2 - product card component',
     filesrc: require('../registry/components/card/product-card2.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/card/product-card2')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/card/product-card2')),
     iframeSrc: 'live-components/productcard2',
     tags: ['product', 'card', 'ui', 'design', 'ecommerce', 'style'],
   },
@@ -4420,9 +3849,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'productcard3',
     description: 'PRODUCTCARD3 - product card component',
     filesrc: require('../registry/components/card/product-card3.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/card/product-card3')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/card/product-card3')),
     iframeSrc: 'live-components/productcard3',
     tags: ['product', 'card', 'ui', 'design', 'ecommerce', 'style'],
   },
@@ -4435,9 +3862,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'productcard4',
     description: 'PRODUCTCARD4 - product card component',
     filesrc: require('../registry/components/card/product-card4.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/card/product-card4')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/card/product-card4')),
     iframeSrc: 'live-components/productcard4',
     tags: ['product', 'card', 'ui', 'design', 'ecommerce', 'style'],
   },
@@ -4450,9 +3875,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'productcard5',
     description: 'PRODUCTCARD5 - product card component',
     filesrc: require('../registry/components/card/product-card5.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/card/product-card5')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/card/product-card5')),
     iframeSrc: 'live-components/productcard5',
     tags: ['product', 'card', 'ui', 'design', 'ecommerce', 'style'],
   },
@@ -4465,9 +3888,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'productcard6',
     description: 'PRODUCTCARD6 - product card component',
     filesrc: require('../registry/components/card/product-card6.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/card/product-card6')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/card/product-card6')),
     iframeSrc: 'live-components/productcard6',
     tags: ['product', 'card', 'ui', 'design', 'ecommerce', 'style'],
   },
@@ -4480,9 +3901,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'spotlight-card1',
     description: 'SPOTLIGHT CARD1 - spotlight card component',
     filesrc: require('../registry/components/spotlight-cards/spotlight-card1.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/spotlight-cards/spotlight-card1')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/spotlight-cards/spotlight-card1')),
     iframeSrc: 'live-components/spotlight-card1',
     tags: ['spotlight', 'card', 'ui', 'design', 'highlight', 'feature'],
   },
@@ -4495,9 +3914,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'spotlight-card2',
     description: 'SPOTLIGHT CARD2 - spotlight card component',
     filesrc: require('../registry/components/spotlight-cards/spotlight-card2.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/spotlight-cards/spotlight-card2')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/spotlight-cards/spotlight-card2')),
     iframeSrc: 'live-components/spotlight-card2',
     tags: ['spotlight', 'card', 'ui', 'design', 'highlight', 'feature'],
   },
@@ -4510,9 +3927,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'spotlight-card3',
     description: 'SPOTLIGHT CARD3 - spotlight card component',
     filesrc: require('../registry/components/spotlight-cards/spotlight-card3.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/spotlight-cards/spotlight-card3')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/spotlight-cards/spotlight-card3')),
     iframeSrc: 'live-components/spotlight-card3',
     tags: ['spotlight', 'card', 'ui', 'design', 'highlight', 'feature'],
   },
@@ -4525,9 +3940,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'spotlight-card4',
     description: 'SPOTLIGHT CARD4 - spotlight card component',
     filesrc: require('../registry/components/spotlight-cards/spotlight-card4.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/spotlight-cards/spotlight-card4')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/spotlight-cards/spotlight-card4')),
     iframeSrc: 'live-components/spotlight-card4',
     tags: ['spotlight', 'card', 'ui', 'design', 'highlight', 'feature'],
   },
@@ -4540,9 +3953,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'maintabs',
     description: 'MAINTABS - tabs component',
     filesrc: require('../registry/components/tabs/preview-tab.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/tabs/preview-tab')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/tabs/preview-tab')),
     iframeSrc: 'live-components/maintabs',
     tags: ['tabs', 'ui', 'navigation', 'component', 'design'],
   },
@@ -4555,9 +3966,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'creative-tab',
     description: 'CREATIVE TAB - tabs component with creative design',
     filesrc: require('../registry/components/tabs/home-tab.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/tabs/home-tab')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/tabs/home-tab')),
     iframeSrc: 'live-components/creative-tab',
     tags: ['tabs', 'ui', 'navigation', 'component', 'design', 'creative'],
   },
@@ -4570,9 +3979,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'register-tab',
     description: 'REGISTER TAB - tabs component',
     filesrc: require('../registry/components/tabs/register-tab.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/tabs/register-tab')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/tabs/register-tab')),
     iframeSrc: 'live-components/register-tab',
     tags: ['tabs', 'ui', 'navigation', 'form', 'registration', 'design'],
   },
@@ -4585,9 +3992,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'magnified-tab',
     description: 'MAGNIFIED TAB component',
     filesrc: require('../registry/components/tabs/magnified-tabs.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/tabs/magnified-tabs')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/tabs/magnified-tabs')),
     iframeSrc: 'live-components/magnified-tab',
     tags: ['tabs', 'ui', 'magnified', 'document', 'design'],
   },
@@ -4600,9 +4005,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'image-tab1',
     description: 'IMAGE TAB1 component',
     filesrc: require('../registry/components/tabs/img-tabs1.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/tabs/img-tabs1')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/tabs/img-tabs1')),
     iframeSrc: 'live-components/image-tab1',
     tags: ['tabs', 'image', 'ui', 'gallery', 'design'],
   },
@@ -4615,9 +4018,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'image-tab2',
     description: 'IMAGE TAB2 component',
     filesrc: require('../registry/components/tabs/img-tabs2.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/tabs/img-tabs2')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/tabs/img-tabs2')),
     iframeSrc: 'live-components/image-tab2',
     tags: ['tabs', 'image', 'ui', 'gallery', 'design'],
   },
@@ -4630,9 +4031,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'image-tab-standalone',
     description: 'IMAGE TAB STANDALONE component',
     filesrc: require('../registry/components/tabs/img-tabs-standalone.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/tabs/img-tabs-standalone')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/tabs/img-tabs-standalone')),
     iframeSrc: 'live-components/image-tab-standalone',
     tags: ['tabs', 'image', 'ui', 'gallery', 'design'],
   },
@@ -4643,12 +4042,9 @@ export const AllComponents: IAllComponents[] = [
     href: '/components/shimmer-loader',
     title: humanize(COMPONENT_KEYS.SHIMMER_LOADER),
     slug: 'shimmer-loader',
-    description:
-      'SHIMMER LOADER component with animated loading effects and progress indicators',
+    description: 'SHIMMER LOADER component with animated loading effects and progress indicators',
     filesrc: require('../registry/components/shimmer-loader.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/shimmer-loader')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/shimmer-loader')),
     iframeSrc: 'live-components/shimmer-loader',
     tags: [
       'shimmer loader',
@@ -4665,12 +4061,9 @@ export const AllComponents: IAllComponents[] = [
     href: '/components/type-writer',
     title: humanize(COMPONENT_KEYS.TYPE_WRITER),
     slug: 'type-writer',
-    description:
-      'TYPE WRITER component with typing animation and text reveal effects',
+    description: 'TYPE WRITER component with typing animation and text reveal effects',
     filesrc: require('../registry/components/type-writter.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/type-writter')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/type-writter')),
     iframeSrc: 'live-components/type-writer',
     tags: [
       'type writer',
@@ -4687,8 +4080,7 @@ export const AllComponents: IAllComponents[] = [
     href: '/components/terminal-ui',
     title: humanize(COMPONENT_KEYS.TERMINAL_UI),
     slug: 'terminal-ui',
-    description:
-      'TERMINAL UI component with console-style intro sequence and loading animations',
+    description: 'TERMINAL UI component with console-style intro sequence and loading animations',
     filesrc: require('../registry/components/terminal-ui.tsx?raw'),
     componentSrc: React.lazy(() =>
       import('@/registry/components/terminal-ui').then((module) => ({
@@ -4716,12 +4108,9 @@ export const AllComponents: IAllComponents[] = [
     href: '/components/code-block',
     title: humanize(COMPONENT_KEYS.CODE_BLOCK),
     slug: 'code-block',
-    description:
-      'CODE BLOCK component powered by Shiki for beautiful syntax highlighting',
+    description: 'CODE BLOCK component powered by Shiki for beautiful syntax highlighting',
     filesrc: require('../registry/components/code/code-block.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/code/code-block')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/code/code-block')),
     iframeSrc: 'live-components/code-block',
     tags: [
       'code block',
@@ -4742,12 +4131,9 @@ export const AllComponents: IAllComponents[] = [
     href: '/components/tree-code-viewer',
     title: humanize(COMPONENT_KEYS.TREE_CODE_VIEWER),
     slug: 'tree-code-viewer',
-    description:
-      'TREE CODE VIEWER component with file tree structure and multi-file code display',
+    description: 'TREE CODE VIEWER component with file tree structure and multi-file code display',
     filesrc: require('../registry/components/code/tree-code-viewer.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/code/tree-code-viewer')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/code/tree-code-viewer')),
     iframeSrc: 'live-components/tree-code-viewer',
     tags: [
       'tree code viewer',
@@ -4767,12 +4153,9 @@ export const AllComponents: IAllComponents[] = [
     href: '/components/code-tabs',
     title: humanize(COMPONENT_KEYS.CODE_TABS),
     slug: 'code-tabs',
-    description:
-      'CODE TABS component with multi-language code display and copy functionality',
+    description: 'CODE TABS component with multi-language code display and copy functionality',
     filesrc: require('../registry/components/code/code-tabs.tsx?raw'),
-    componentSrc: React.lazy(
-      () => import('@/registry/components/code/code-tabs')
-    ),
+    componentSrc: React.lazy(() => import('@/registry/components/code/code-tabs')),
     iframeSrc: 'live-components/code-tabs',
     tags: [
       'code tabs',

@@ -1,16 +1,16 @@
-import { LiquidGlassCard } from '@/components/ui/liquid-glass';
 import {
-  RotateCcw,
   Bell,
-  Moon,
-  ChevronsUpDown,
-  Sun,
-  VolumeX,
-  Flashlight,
-  Timer,
   Camera,
+  ChevronsUpDown,
   CircleDot,
+  Flashlight,
+  Moon,
+  RotateCcw,
+  Sun,
+  Timer,
+  VolumeX,
 } from 'lucide-react';
+import { LiquidGlassCard } from '@/components/ui/liquid-glass';
 
 const MobileIcons = () => {
   return (

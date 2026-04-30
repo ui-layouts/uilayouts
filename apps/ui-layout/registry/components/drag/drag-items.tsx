@@ -1,14 +1,15 @@
 'use client';
-import React, { useEffect, useState } from 'react';
 import {
-  useMotionValue,
+  animate,
+  type DragControls,
+  type MotionValue,
+  motion,
   Reorder,
   useDragControls,
-  motion,
-  MotionValue,
-  animate,
-  DragControls,
+  useMotionValue,
 } from 'motion/react';
+import type React from 'react';
+import { useEffect, useState } from 'react';
 
 export default function DragItems() {
   const [items, setItems] = useState([
@@ -94,7 +95,7 @@ const Item = ({ children, item }: { children: React.ReactNode; item: any }) => {
   );
 };
 
-interface ReorderIconProps {  
+interface ReorderIconProps {
   dragControls: DragControls;
   isActive: boolean;
   onPress: () => void;
@@ -103,8 +104,8 @@ interface ReorderIconProps {
 export function ReorderIcon({ dragControls, isActive, onPress }: ReorderIconProps) {
   return (
     <motion.button
-      type="button"
-      aria-label="Reorder"
+      type='button'
+      aria-label='Reorder'
       animate={{ scale: isActive ? 0.85 : 1 }}
       transition={{ type: 'spring', stiffness: 500, damping: 30 }}
       onPointerDown={(e) => {
@@ -112,7 +113,7 @@ export function ReorderIcon({ dragControls, isActive, onPress }: ReorderIconProp
         onPress();
         dragControls.start(e);
       }}
-      className="cursor-grab active:cursor-grabbing"
+      className='cursor-grab active:cursor-grabbing'
       style={{ touchAction: 'none' }}
     >
       <svg

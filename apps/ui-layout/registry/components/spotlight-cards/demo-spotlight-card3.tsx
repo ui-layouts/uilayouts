@@ -1,10 +1,11 @@
 // @ts-nocheck
 'use client';
+
 // https://buildui.com/recipes/spotlight
 
-import { cn } from '@/lib/utils';
 import Image from 'next/image';
-import React, { MouseEvent, useRef, useState } from 'react';
+import React, { type MouseEvent, useRef, useState } from 'react';
+import { cn } from '@/lib/utils';
 
 export default function DemoSpotlightCard3() {
   const boxWrapper = useRef(null);
@@ -25,7 +26,7 @@ export default function DemoSpotlightCard3() {
 
   const [overlayColor, setOverlayColor] = useState({ x: 0, y: 0 });
   const handleMouemove = ({ currentTarget, clientX, clientY }): MouseEvent => {
-    let { left, top } = currentTarget.getBoundingClientRect();
+    const { left, top } = currentTarget.getBoundingClientRect();
 
     const x = clientX - left;
     const y = clientY - top;
@@ -70,9 +71,7 @@ export default function DemoSpotlightCard3() {
         <div className="relative text-center z-10 sm:px-8 px-4 py-6 rounded-lg w-fit  bg-[url('https://res.cloudinary.com/dzl9yxixg/image/upload/sub-grid_hnhyvi.png')] bg-cover   bg-black h-full mx-auto">
           <>
             <Image
-              src={
-                'https://res.cloudinary.com/dzl9yxixg/image/upload/statistic_ac1ivs.png'
-              }
+              src={'https://res.cloudinary.com/dzl9yxixg/image/upload/statistic_ac1ivs.png'}
               alt='grid'
               width={600}
               className='w-fit mx-auto '
@@ -82,8 +81,7 @@ export default function DemoSpotlightCard3() {
               Subscriber Growth
             </h1>
             <p className='pt-2  text-neutral-300 capitalize'>
-              Experience a significant boost in your subscriber <br /> count,
-              achieving 3x growth.
+              Experience a significant boost in your subscriber <br /> count, achieving 3x growth.
             </p>
           </>
         </div>

@@ -1,15 +1,10 @@
 'use client';
-import React, { ReactNode, useState } from 'react';
-import Image from 'next/image';
-import {
-  Carousel,
-  Slider,
-  SliderContainer,
-  SliderDotButton,
-} from '@/components/ui/carousel';
-import { motion } from 'motion/react';
+import type { EmblaOptionsType } from 'embla-carousel';
 import { CheckIcon, Heart } from 'lucide-react';
-import { EmblaOptionsType } from 'embla-carousel';
+import { motion } from 'motion/react';
+import Image from 'next/image';
+import React, { ReactNode, useState } from 'react';
+import { Carousel, Slider, SliderContainer, SliderDotButton } from '@/components/ui/carousel';
 import { CardArr } from '@/components/website/constant';
 
 function ProductCard3() {
@@ -53,14 +48,12 @@ function ProductCard3() {
         </div>
         <article className='text-black pt-2 p-2'>
           <div className='flex justify-between'>
-            <h1 className='font-semibold text-xl text-blue-500'>
-              Nike Air Max
-            </h1>
+            <h1 className='font-semibold text-xl text-blue-500'>Nike Air Max</h1>
             <span className='font-medium text-xl text-blue-500'>$39</span>
           </div>
           <p className='text-xs pb-2'>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore
-            porro quos quae autem vel praesentium.
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore porro quos quae autem
+            vel praesentium.
           </p>
 
           <button className='w-full text-white flex justify-center items-center gap-2 bg-linear-to-r dark:from-[#070e41] dark:to-[#263381] from-[#3e5068] to-[#0c1970] py-3 rounded-md'>

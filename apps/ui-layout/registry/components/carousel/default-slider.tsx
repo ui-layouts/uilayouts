@@ -1,7 +1,7 @@
 'use client';
+import type { EmblaOptionsType } from 'embla-carousel';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import React from 'react';
-import { EmblaOptionsType } from 'embla-carousel';
-
 import {
   Carousel,
   Slider,
@@ -10,8 +10,6 @@ import {
   SliderNextButton,
   SliderPrevButton,
 } from '@/components/ui/carousel';
-
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 function DefaultSlider() {
   const OPTIONS: EmblaOptionsType = { loop: false };

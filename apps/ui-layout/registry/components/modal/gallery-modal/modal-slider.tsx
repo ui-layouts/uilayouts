@@ -1,17 +1,12 @@
 // @ts-nocheck
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
-import {
-  AnimatePresence,
-  LayoutGroup,
-  motion,
-  useMotionValue,
-} from 'motion/react';
-import Image from 'next/image';
 import { X } from 'lucide-react';
+import { AnimatePresence, LayoutGroup, motion, useMotionValue } from 'motion/react';
+import type { StaticImport } from 'next/dist/shared/lib/get-img-props';
+import Image from 'next/image';
+import React, { useEffect, useRef, useState } from 'react';
 import { items } from '@/components/website/constant';
-import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 
 type ImageModalProps = {
   item: any;
@@ -115,50 +110,48 @@ export const SliderModal = ({ item, uniqueId, itemArr }: ImageModalProps) => {
             >
               {newItem && (
                 <AnimatePresence>
-                  {itemArr.map(
-                    (tab: any, index: React.Key | null | undefined) => (
-                      <>
-                        <React.Fragment key={item.id ?? item.url}>
-                          <AnimatePresence mode='popLayout'>
-                            {tab.id === newItem.id && (
-                              <motion.figure
-                                key={tab?.id}
-                                className='dark:bg-neutral-900/40 bg-neutral-100/40 border  rounded-md p-4'
+                  {itemArr.map((tab: any, index: React.Key | null | undefined) => (
+                    <>
+                      <React.Fragment key={item.id ?? item.url}>
+                        <AnimatePresence mode='popLayout'>
+                          {tab.id === newItem.id && (
+                            <motion.figure
+                              key={tab?.id}
+                              className='dark:bg-neutral-900/40 bg-neutral-100/40 border  rounded-md p-4'
+                            >
+                              <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{
+                                  opacity: 1,
+                                  transition: {
+                                    ease: 'easeInOut',
+                                    duration: 0.3,
+                                    delay: 0.2,
+                                  },
+                                }}
+                                exit={{
+                                  opacity: 0,
+                                  transition: {
+                                    ease: 'easeInOut',
+                                    duration: 0.2,
+                                  },
+                                }}
+                                transition={{ duration: 0.2, delay: 0.2 }}
                               >
-                                <motion.div
-                                  initial={{ opacity: 0 }}
-                                  animate={{
-                                    opacity: 1,
-                                    transition: {
-                                      ease: 'easeInOut',
-                                      duration: 0.3,
-                                      delay: 0.2,
-                                    },
-                                  }}
-                                  exit={{
-                                    opacity: 0,
-                                    transition: {
-                                      ease: 'easeInOut',
-                                      duration: 0.2,
-                                    },
-                                  }}
-                                  transition={{ duration: 0.2, delay: 0.2 }}
-                                >
-                                  <Image
-                                    src={newItem.url}
-                                    width={1000}
-                                    height={1000}
-                                    alt='preview_img'
-                                    className=' object-contain h-[70vh]  mx-auto rounded-md'
-                                  />
-                                </motion.div>
-                              </motion.figure>
-                            )}
-                          </AnimatePresence>
-                        </React.Fragment>
-                      </>
-                    )
-                  )}
+                                <Image
+                                  src={newItem.url}
+                                  width={1000}
+                                  height={1000}
+                                  alt='preview_img'
+                                  className=' object-contain h-[70vh]  mx-auto rounded-md'
+                                />
+                              </motion.div>
+                            </motion.figure>
+                          )}
+                        </AnimatePresence>
+                      </React.Fragment>
+                    </>
+                  ))}
                 </AnimatePresence>
               )}
               <motion.div

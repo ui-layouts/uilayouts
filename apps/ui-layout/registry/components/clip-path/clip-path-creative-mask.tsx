@@ -136,12 +136,7 @@ function ClipPathCreativeMask() {
 
       <section className=' dark:bg-black mt-4 bg-white border rounded-lg p-5'>
         <figure className='relative group'>
-          <svg
-            className='w-full'
-            width={'100%'}
-            height={'100%'}
-            viewBox='0 0 100 40'
-          >
+          <svg className='w-full' width={'100%'} height={'100%'} viewBox='0 0 100 40'>
             <defs>
               <clipPath id='clip-inverted' clipPathUnits={'objectBoundingBox'}>
                 <path

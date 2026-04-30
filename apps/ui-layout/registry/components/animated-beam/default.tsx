@@ -1,10 +1,8 @@
 'use client';
 
-import { cn } from '@/lib/utils';
 import React, { forwardRef, useRef } from 'react';
-
-import { AnimatedBeam, Circle } from '@/components/ui/animated-beam';
-import { Icons } from '@/components/ui/animated-beam';
+import { AnimatedBeam, Circle, Icons } from '@/components/ui/animated-beam';
+import { cn } from '@/lib/utils';
 export default function AnimatedBeamDefault() {
   const containerRef = useRef<HTMLDivElement>(null);
   const div1Ref = useRef<HTMLDivElement>(null);

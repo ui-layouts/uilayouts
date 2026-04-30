@@ -1,33 +1,28 @@
 'use client';
 
-import { cn } from '@/lib/utils';
-import { Copy, CheckCheck } from 'lucide-react';
+import { CheckCheck, Copy } from 'lucide-react';
 import { useState } from 'react';
 import {
   DropdownMenu,
-  DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuTrigger,
 } from '@/components/website/ui/dropdown';
+import { cn } from '@/lib/utils';
 
 type CopyNpmCommandButtonProps = {
   code: string;
   classname?: string;
 };
 
-export function CopyNpmCommandButton({
-  code,
-  classname,
-}: CopyNpmCommandButtonProps) {
+export function CopyNpmCommandButton({ code, classname }: CopyNpmCommandButtonProps) {
   const [hasCopied, setHasCopied] = useState(false);
 
   const copyCommand = (commandname: string) => {
     // console.log(commandname);
 
     const updatedCode =
-      commandname === 'npm'
-        ? code
-        : code.replace('npm install', `${commandname} add`);
+      commandname === 'npm' ? code : code.replace('npm install', `${commandname} add`);
     // console.log(updatedCode);
 
     navigator.clipboard.writeText(updatedCode);
@@ -65,22 +60,11 @@ export function CopyNpmCommandButton({
         </div>
       </DropdownMenuTrigger>
 
-      <DropdownMenuContent
-        className='dark:bg-neutral-800 bg-neutral-50'
-        align='end'
-      >
-        <DropdownMenuItem onClick={() => copyCommand('npm')}>
-          npm
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => copyCommand('yarn')}>
-          yarn
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => copyCommand('pnpm')}>
-          pnpm
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => copyCommand('bun')}>
-          bun
-        </DropdownMenuItem>
+      <DropdownMenuContent className='dark:bg-neutral-800 bg-neutral-50' align='end'>
+        <DropdownMenuItem onClick={() => copyCommand('npm')}>npm</DropdownMenuItem>
+        <DropdownMenuItem onClick={() => copyCommand('yarn')}>yarn</DropdownMenuItem>
+        <DropdownMenuItem onClick={() => copyCommand('pnpm')}>pnpm</DropdownMenuItem>
+        <DropdownMenuItem onClick={() => copyCommand('bun')}>bun</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );

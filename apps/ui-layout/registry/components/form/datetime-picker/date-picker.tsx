@@ -1,7 +1,7 @@
 'use client';
 
-import { SmartDatetimeInput } from '@/components/ui/datetime-input';
 import React, { useState } from 'react';
+import { SmartDatetimeInput } from '@/components/ui/datetime-input';
 
 export default function Component() {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined);

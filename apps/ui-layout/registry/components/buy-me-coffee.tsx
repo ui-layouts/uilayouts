@@ -1,6 +1,6 @@
 'use client';
-import { cn } from '@/lib/utils';
 import React from 'react';
+import { cn } from '@/lib/utils';
 
 function BuyMeCoffee({
   classname,
@@ -20,6 +20,7 @@ function BuyMeCoffee({
           'border relative group w-96 mx-auto cursor-pointer h-96 grid place-content-center lg:p-10 sm:p-4 p-2 py-14 my-14 dark:bg-neutral-50 bg-neutral-900  rounded-md  overflow-hidden',
           classname
         )}
+        rel='noopener'
       >
         <svg
           width='424'

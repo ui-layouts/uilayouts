@@ -1,6 +1,6 @@
 'use client';
+import { animate, motion, useMotionValue } from 'motion/react';
 import React, { useEffect, useRef, useState } from 'react';
-import { motion, useMotionValue, animate } from 'motion/react';
 
 export const items = [
   {
@@ -118,7 +118,7 @@ export default function FramerMultiSlideCarousel({
 
       for (const bp of sortedBreakpoints) {
         if (width >= bp) {
-          // @ts-ignore
+          // @ts-expect-error
           setSlidesToShow(breakpoints[bp].slidesToShow);
           break;
         }
@@ -167,9 +167,7 @@ export default function FramerMultiSlideCarousel({
                 key={item.id}
                 className='shrink-0 h-[300px] rounded-lg overflow-hidden relative'
                 style={{
-                  width: `calc((100% - ${
-                    (slidesToShow - 1) * 16
-                  }px) / ${slidesToShow})`,
+                  width: `calc((100% - ${(slidesToShow - 1) * 16}px) / ${slidesToShow})`,
                 }}
               >
                 <img
@@ -196,12 +194,7 @@ export default function FramerMultiSlideCarousel({
                   : 'bg-white hover:scale-110 hover:opacity-100 opacity-70'
               }`}
           >
-            <svg
-              className='w-6 h-6'
-              fill='none'
-              stroke='currentColor'
-              viewBox='0 0 24 24'
-            >
+            <svg className='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
               <path
                 strokeLinecap='round'
                 strokeLinejoin='round'
@@ -221,18 +214,8 @@ export default function FramerMultiSlideCarousel({
                   : 'bg-white hover:scale-110 hover:opacity-100 opacity-70'
               }`}
           >
-            <svg
-              className='w-6 h-6'
-              fill='none'
-              stroke='currentColor'
-              viewBox='0 0 24 24'
-            >
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth={2}
-                d='M9 5l7 7-7 7'
-              />
+            <svg className='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+              <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9 5l7 7-7 7' />
             </svg>
           </motion.button>
         </div>

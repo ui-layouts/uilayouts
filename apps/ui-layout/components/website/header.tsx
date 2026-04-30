@@ -1,14 +1,14 @@
 'use client';
+import Link from 'next/link';
 import { useTheme } from 'next-themes';
 import React from 'react';
-import Link from 'next/link';
-
-import { SearchDialog } from './searchbar';
-import MobileHeader from './mobile-header';
-import ThemeSwitch from './theme-switch';
-import HomeGitHubButton from './home/github-repo-button';
 import { Container } from '../ui/container';
 import { GapPattern } from '../ui/gap-pattern';
+import HomeGitHubButton from './home/github-repo-button';
+import MobileHeader from './mobile-header';
+import { SearchDialog } from './searchbar';
+import ThemeSwitch from './theme-switch';
+
 // import MobileHeader from './moibile-header'
 
 function Header() {
@@ -43,6 +43,7 @@ function Header() {
               href={'https://tools.ui-layouts.com/'}
               target='_blank'
               className={`flex gap-2 group font-medium items-center py-1  transition-all text-slate-600 hover:text-slate-900  dark:text-slate-200 dark:hover:text-white`}
+              rel='noopener'
             >
               Tools
             </a>
@@ -50,6 +51,7 @@ function Header() {
               href={'https://cursify.ui-layouts.com'}
               target='_blank'
               className={`flex gap-2 group font-medium items-center py-1  transition-all text-slate-600 hover:text-slate-900  dark:text-slate-300 dark:hover:text-white`}
+              rel='noopener'
             >
               Cursify
             </a>
@@ -74,6 +76,7 @@ function Header() {
               href={'https://pro.ui-layouts.com/blocks'}
               target='_blank'
               className={`flex gap-2 group font-medium items-center py-1 transition-all text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white`}
+              rel='noopener'
             >
               Blocks
               <span className='text-xs font-normal inline-block -translate-y-2 -translate-x-2 italic text-blue-600'>
@@ -90,6 +93,7 @@ function Header() {
               target='_blank'
               href='https://x.com/naymur_dev'
               className='border shrink-0 bg-primary  text-primary-foreground text-2xl w-12 grid place-content-center rounded-md'
+              rel='noopener'
             >
               <svg
                 width='120'

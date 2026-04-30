@@ -1,14 +1,6 @@
-import { createHighlighter, Highlighter } from 'shiki';
-const SAFE_LANGS = new Set([
-  'ts',
-  'tsx',
-  'js',
-  'jsx',
-  'json',
-  'css',
-  'html',
-  'bash',
-]);
+import { createHighlighter, type Highlighter } from 'shiki';
+
+const SAFE_LANGS = new Set(['ts', 'tsx', 'js', 'jsx', 'json', 'css', 'html', 'bash']);
 
 function normalizeLang(lang?: string) {
   if (!lang) return 'txt';

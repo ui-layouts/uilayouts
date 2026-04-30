@@ -1,10 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "slider",
-  "dependencies": [
-    "@number-flow/react",
-    "@radix-ui/react-slider"
-  ],
+  "dependencies": ["@number-flow/react", "@radix-ui/react-slider"],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [

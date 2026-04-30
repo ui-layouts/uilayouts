@@ -1,8 +1,8 @@
-import { Element } from 'hast';
+import type { Element } from 'hast';
 import { toString } from 'hast-util-to-string';
-import { visit } from 'unist-util-visit';
-import { Root } from 'mdast';
+import type { Root } from 'mdast';
 import { unified } from 'unified';
+import { visit } from 'unist-util-visit';
 
 export interface TableOfContents {
   items: Array<{
@@ -15,9 +15,7 @@ export interface TableOfContents {
   }>;
 }
 
-export async function getTableOfContents(
-  mdxContent: string
-): Promise<TableOfContents> {
+export async function getTableOfContents(mdxContent: string): Promise<TableOfContents> {
   const tableOfContents: TableOfContents = { items: [] };
   const headings: Array<Element> = [];
 

@@ -1,7 +1,7 @@
 'use client';
-import { SpotLightItem, Spotlight } from '@/components/ui/spotlight';
 import Image from 'next/image';
 import React from 'react';
+import { SpotLightItem, Spotlight } from '@/components/ui/spotlight';
 
 export default function SpotlightCard3() {
   return (
@@ -24,8 +24,7 @@ export default function SpotlightCard3() {
               Subscriber Growth
             </h1>
             <p className='pt-2  text-neutral-300 capitalize'>
-              Experience a significant boost in your subscriber <br /> count,
-              achieving 3x growth.
+              Experience a significant boost in your subscriber <br /> count, achieving 3x growth.
             </p>
           </div>
         </SpotLightItem>

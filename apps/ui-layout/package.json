@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "tsc && next dev",
-    "build": "next build",
+    "dev": "npm run format:all && tsc && next dev",
+    "build": "npm run format:all && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format:all": "npx @biomejs/biome check --write .",
+    "format:quick": "npx @biomejs/biome format --write ."
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",

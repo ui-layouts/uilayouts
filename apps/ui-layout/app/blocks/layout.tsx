@@ -1,15 +1,11 @@
-import React from 'react';
-import HomeHeader from '@/components/website/home/home-header';
-import { cn } from '@/lib/utils';
-import { Banner } from '@/components/website/ui/banner';
 import { ArrowUpRight } from 'lucide-react';
+import type React from 'react';
 import { Container } from '@/components/ui/container';
+import HomeHeader from '@/components/website/home/home-header';
+import { Banner } from '@/components/website/ui/banner';
+import { cn } from '@/lib/utils';
 
-export default async function BlocksLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default async function BlocksLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Container>
@@ -39,8 +35,7 @@ export default async function BlocksLayout({
                   height='32'
                 />
               </picture>
-              Ship faster with{' '}
-              <span className='font-semibold'>UI-Layouts Pro</span>
+              Ship faster with <span className='font-semibold'>UI-Layouts Pro</span>
               <span className='md:inline-block hidden'>
                 – 100+ production-ready blocks waiting for you
               </span>

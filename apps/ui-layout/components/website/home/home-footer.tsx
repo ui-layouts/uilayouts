@@ -1,14 +1,14 @@
 'use client';
-import React, { FormEvent, useEffect, useRef, useState } from 'react';
-import Link from 'next/link';
 import { motion, useInView } from 'motion/react';
-import useNewsLetter, { ClientData } from '@/hooks/useNewsLetter';
+import Link from 'next/link';
+import React, { type FormEvent, useEffect, useRef, useState } from 'react';
 import { toast } from 'sonner';
+import { GapPattern } from '@/components/ui/gap-pattern';
+import useNewsLetter, { type ClientData } from '@/hooks/useNewsLetter';
+import { cn } from '@/lib/utils';
 import { SearchDialog } from '../searchbar';
 import ThemeSwitch from '../theme-switch';
 import HomeGitHubButton from './github-repo-button';
-import { cn } from '@/lib/utils';
-import { GapPattern } from '@/components/ui/gap-pattern';
 
 const pathArr = [
   'M1700.03 150.053V93.2598H1813.22V150.053H1756.62V206.847H1643.44V150.053H1700.03ZM1813.22 263.64L1756.62 249.442V206.847H1813.22V263.64ZM1756.62 249.442L1813.22 263.64H1756.62V320.434H1643.44V249.442H1756.62Z',
@@ -91,6 +91,7 @@ function HomeFooter({
                       href='https://cal.com/ui-layouts'
                       target='_blank'
                       className='flex items-center bg-blue-600 hover:bg-blue-700 text-white sm:h-14 h-12 rounded-full sm:px-6 px-4 gap-2'
+                      rel='noopener'
                     >
                       Book a free call
                       <span className='relative flex size-3'>
@@ -103,8 +104,7 @@ function HomeFooter({
               </div>
 
               <span className='text-primary/90 sm:w-[94%] w-[85%] mx-auto flex gap-1 sm:text-sm text-xs items-center font-medium border px-4 bg-neutral-100 dark:bg-neutral-800 py-1.5 rounded-b-xl'>
-                We believe in people, not forms. Book a call and let’s talk
-                directly.
+                We believe in people, not forms. Book a call and let’s talk directly.
                 <picture className='shrink-0'>
                   <source
                     srcSet='https://fonts.gstatic.com/s/e/notoemoji/latest/1f60e/512.webp'
@@ -131,6 +131,7 @@ function HomeFooter({
               href='http://pro.ui-layouts.com/blocks'
               target='_blank'
               className='space-y-2 relative z-4'
+              rel='noopener'
             >
               <div className='flex items-center text-primary/70'>
                 <span className='hover:underline flex gap-1'>Pro Blocks</span>
@@ -142,9 +143,8 @@ function HomeFooter({
                 Premium Blocks for Serious Products
               </h2>
               <p className='text-xs sm:text-sm 2xl:max-w-2xl max-w-xl'>
-                Designed for startups, agencies, and indie makers who care about
-                speed and design quality. Save hours with ready-to-use premium
-                components.
+                Designed for startups, agencies, and indie makers who care about speed and design
+                quality. Save hours with ready-to-use premium components.
               </p>
             </a>
             <div className='absolute -top-12 right-0 sm:opacity-100 opacity-30'>
@@ -157,10 +157,7 @@ function HomeFooter({
       <div className='p-10 mx-auto max-w-2xl space-y-2 text-center relative z-2'>
         <p className='sm:text-4xl text-2xl'>Sign up for our newsletter</p>
         <div className='relative bg-neutral-100 dark:bg-neutral-800 flex justify-between items-center border-2 overflow-hidden dark:border-neutral-900 border-neutral-300 rounded-lg'>
-          <form
-            onSubmit={(e) => handleNewsLetterData(e)}
-            className='relative z-2 flex w-full'
-          >
+          <form onSubmit={(e) => handleNewsLetterData(e)} className='relative z-2 flex w-full'>
             <input
               type='email'
               name='newsletter_email'
@@ -241,9 +238,7 @@ function HomeFooter({
             Magnified Doc
           </a>
         </div>
-        <span className='font-normal'>
-          &copy; 2025 UI-Layouts. All Rights Reserved.
-        </span>
+        <span className='font-normal'>&copy; 2025 UI-Layouts. All Rights Reserved.</span>
       </div>
       <div className=' md:py-4 '>
         <motion.svg

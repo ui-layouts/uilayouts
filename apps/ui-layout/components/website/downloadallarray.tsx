@@ -1,26 +1,20 @@
-import {
-  AllComponents,
-  DocsNavigationCategories,
-} from '@/configs/docs';
-import React from 'react';
+import type React from 'react';
+import { AllComponents, DocsNavigationCategories } from '@/configs/docs';
 import { Button } from './ui/button';
 
 const MainComponentsDownloader: React.FC = () => {
   const processData = () => {
     const updatedMainComponents = DocsNavigationCategories.map((mainComponent) => {
       const matchingAllComponents = AllComponents.filter(
-        (allComponent) =>
-          allComponent.category === mainComponent.key
+        (allComponent) => allComponent.category === mainComponent.key
       );
 
       if (matchingAllComponents.length > 0) {
-        const allTags = new Set(
-          matchingAllComponents.flatMap((comp) => comp.tags || [])
-        );
+        const allTags = new Set(matchingAllComponents.flatMap((comp) => comp.tags || []));
 
         // Add some relevant general tags based on the component category
 
-        //@ts-ignore
+        //@ts-expect-error
         switch (mainComponent.component) {
           case 'Form':
             allTags.add('form component');
@@ -57,11 +51,7 @@ const MainComponentsDownloader: React.FC = () => {
     const fileContent = `
 import { MainComponent } from './types';
 
-export const MainComponents: MainComponent[] = ${JSON.stringify(
-      updatedData,
-      null,
-      2
-    )};
+export const MainComponents: MainComponent[] = ${JSON.stringify(updatedData, null, 2)};
     `.trim();
 
     const blob = new Blob([fileContent], { type: 'text/typescript' });

@@ -1,8 +1,4 @@
 'use client';
-import React, { useEffect, useRef, useState } from 'react';
-import { ScrollArea } from '@/components/website/ui/scroll-area';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import {
   Atom,
   Blocks,
@@ -14,8 +10,12 @@ import {
   Target,
   X,
 } from 'lucide-react';
-import { IRecentPage, useRecentPagesStore } from '@/hooks/useZustStore';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useTheme } from 'next-themes';
+import React, { useEffect, useRef, useState } from 'react';
+import { ScrollArea } from '@/components/website/ui/scroll-area';
+import { IRecentPage, useRecentPagesStore } from '@/hooks/useZustStore';
 import { groupedDocsNavigationCategories } from '@/lib/grouped-docs';
 
 export const basePath = [
@@ -135,17 +135,15 @@ function DocsSidebar() {
                 </div>
               )} */}
             <div className='pb-16'>
-              {Object.entries(groupedDocsNavigationCategories).map(
-                ([group, items], index) => (
-                  <ItemsWithName
-                    group={group}
-                    items={items}
-                    key={index}
-                    pathname={pathname}
-                    addVisitedPage={addVisitedPage}
-                  />
-                )
-              )}
+              {Object.entries(groupedDocsNavigationCategories).map(([group, items], index) => (
+                <ItemsWithName
+                  group={group}
+                  items={items}
+                  key={index}
+                  pathname={pathname}
+                  addVisitedPage={addVisitedPage}
+                />
+              ))}
             </div>
           </ScrollArea>
         </div>
@@ -169,14 +167,11 @@ export const ItemsWithName = ({
 
   const groupRef = useRef<HTMLDivElement>(null);
   const showExpandButton = items.length > 2;
-  const itemsToShow =
-    expandedItems || !showExpandButton ? items : items.slice(0, 2);
+  const itemsToShow = expandedItems || !showExpandButton ? items : items.slice(0, 2);
   const itemRefs = useRef<(HTMLLIElement | null)[]>([]);
 
   useEffect(() => {
-    const activeItemIndex = items.findIndex(
-      (item: { href: string }) => item.href === pathname
-    );
+    const activeItemIndex = items.findIndex((item: { href: string }) => item.href === pathname);
 
     if (activeItemIndex !== -1 && itemRefs.current[activeItemIndex]) {
       itemRefs.current[activeItemIndex]?.scrollIntoView({
@@ -235,22 +230,13 @@ export const ItemsWithName = ({
                 : 'dark:text-slate-400 2xl:font-normal font-medium dark:border-neutral-800 hover:border-black/60 dark:hover:border-white/50 text-slate-500 hover:text-slate-900'
             }`}
           >
-            <Link
-              href={link.href}
-              onClick={() => addVisitedPage(link.href, link.name)}
-            >
+            <Link href={link.href} onClick={() => addVisitedPage(link.href, link.name)}>
               {link.name}
             </Link>
             {link?.updated && (
-              <span className='2xl:text-xs italic text-[0.74em]  text-blue-500'>
-                (Updated)
-              </span>
+              <span className='2xl:text-xs italic text-[0.74em]  text-blue-500'>(Updated)</span>
             )}
-            {link?.new && (
-              <span className='2xl:text-xs text-[0.74em] text-green-500'>
-                (New)
-              </span>
-            )}
+            {link?.new && <span className='2xl:text-xs text-[0.74em] text-green-500'>(New)</span>}
           </li>
         ))}
       </ul>

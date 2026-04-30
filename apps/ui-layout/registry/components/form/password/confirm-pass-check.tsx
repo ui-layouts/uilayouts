@@ -1,12 +1,8 @@
 'use client';
-import React, { useState, useMemo } from 'react';
 import { Check, Eye, EyeOff, Info, X } from 'lucide-react';
+import React, { useMemo, useState } from 'react';
 // shaadcn hover card
-import {
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from '@/components/website/ui/hover-card';
+import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/website/ui/hover-card';
 
 // Constants
 const PASSWORD_REQUIREMENTS = [
@@ -14,7 +10,7 @@ const PASSWORD_REQUIREMENTS = [
   { regex: /[0-9]/, text: 'At least 1 number' },
   { regex: /[a-z]/, text: 'At least 1 lowercase letter' },
   { regex: /[A-Z]/, text: 'At least 1 uppercase letter' },
-  { regex: /[!-\/:-@[-`{-~]/, text: 'At least 1 special characters' },
+  { regex: /[!-/:-@[-`{-~]/, text: 'At least 1 special characters' },
 ] as const;
 
 type StrengthScore = 0 | 1 | 2 | 3 | 4 | 5;
@@ -102,9 +98,7 @@ const PasswordInput = () => {
                     >
                       {req.text}
                       <span className='sr-only'>
-                        {req.met
-                          ? ' - Requirement met'
-                          : ' - Requirement not met'}
+                        {req.met ? ' - Requirement met' : ' - Requirement not met'}
                       </span>
                     </span>
                   </li>
@@ -137,10 +131,7 @@ const PasswordInput = () => {
         </div>
 
         <div>
-          <label
-            htmlFor='confirm-password'
-            className='block text-sm font-medium'
-          >
+          <label htmlFor='confirm-password' className='block text-sm font-medium'>
             Confirm Password
           </label>
           <input
@@ -149,15 +140,9 @@ const PasswordInput = () => {
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             placeholder='Confirm Password'
-            aria-invalid={
-              confirmPassword !== '' ? isMatch === false : undefined
-            }
+            aria-invalid={confirmPassword !== '' ? isMatch === false : undefined}
             className={`cursor-pointer w-full p-2 border-2 rounded-md dark:bg-neutral-950 bg-neutral-50 outline-hidden transition-all ${
-              confirmPassword === ''
-                ? ''
-                : isMatch
-                  ? 'border-green-400'
-                  : 'border-red-500'
+              confirmPassword === '' ? '' : isMatch ? 'border-green-400' : 'border-red-500'
             }`}
           />
           {confirmPassword !== '' && isMatch === false && (

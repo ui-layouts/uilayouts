@@ -1,6 +1,6 @@
-import React from 'react';
-import Image from 'next/image';
 import { ChevronsRight } from 'lucide-react';
+import Image from 'next/image';
+import React from 'react';
 
 function StripeCard() {
   return (
@@ -20,8 +20,7 @@ function StripeCard() {
         <div className='absolute top-0 left-0 w-full h-full  transition-all duration-300 bg-linear-to-b from-[#02cc6e25] via-[#02cc6e5b]  to-[#02cc6e]'></div>
         <article className='p-4 space-y-2 absolute -bottom-10 group-hover:bottom-0 transition-all duration-300 '>
           <h1 className='text-2xl font-semibold capitalize w-[90%]'>
-            Learn why going to the mountains can change your thoughts and
-            lifestyle forever
+            Learn why going to the mountains can change your thoughts and lifestyle forever
           </h1>
           <a
             href='#'

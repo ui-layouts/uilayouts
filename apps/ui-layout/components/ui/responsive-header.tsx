@@ -1,13 +1,7 @@
 'use client';
 
 import { MenuIcon } from 'lucide-react';
-import React, {
-  createContext,
-  useContext,
-  useState,
-  useEffect,
-  ReactNode,
-} from 'react';
+import React, { createContext, type ReactNode, useContext, useEffect, useState } from 'react';
 import { Drawer as VaulHeader } from 'vaul';
 
 interface DrawerContextProps {
@@ -40,8 +34,7 @@ export function HeaderDrawer({
 }: DrawerSidebarProps) {
   const [internalOpen, setInternalOpen] = useState(false);
   const open = controlledOpen !== undefined ? controlledOpen : internalOpen;
-  const setOpen =
-    controlledSetOpen !== undefined ? controlledSetOpen : setInternalOpen;
+  const setOpen = controlledSetOpen !== undefined ? controlledSetOpen : setInternalOpen;
 
   const [isDesktop, setIsDesktop] = useState(false);
 
@@ -69,9 +62,7 @@ export function HeaderDrawer({
           onOpenChange={setOpen}
           dismissible={isDesktop ? false : true}
         >
-          {drawerBtn && (
-            <VaulHeader.Trigger asChild>{drawerBtn()}</VaulHeader.Trigger>
-          )}
+          {drawerBtn && <VaulHeader.Trigger asChild>{drawerBtn()}</VaulHeader.Trigger>}
           <VaulHeader.Portal>
             <VaulHeader.Overlay
               className='fixed inset-0 dark:bg-black/40 bg-white/50 backdrop-blur-xs z-50  '

@@ -1,5 +1,5 @@
-import { useMediaQuery } from '@/hooks/use-media-query';
 import React from 'react';
+import { useMediaQuery } from '@/hooks/use-media-query';
 
 function HomeClipPath() {
   const isBigScreen = useMediaQuery('(min-width: 1536px)');

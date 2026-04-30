@@ -1,8 +1,9 @@
 'use client';
-import React, { useState } from 'react';
-import Image from 'next/image';
 import { Heart } from 'lucide-react';
 import { motion } from 'motion/react';
+import Image from 'next/image';
+import React, { useState } from 'react';
+
 function Card2() {
   const [isActive, setIsActive] = useState(false);
 
@@ -42,14 +43,10 @@ function Card2() {
         </div>
         <article className='text-black space-y-2 p-2 pb-3'>
           <div className='flex justify-between'>
-            <h1 className='font-semibold text-xl text-primary-dark'>
-              Nike Air Max
-            </h1>
+            <h1 className='font-semibold text-xl text-primary-dark'>Nike Air Max</h1>
             <span className='font-medium text-xl text-primary-dark'>$394</span>
           </div>
-          <p className='text-xs  text-black'>
-            Lorem ipsum, dolor sit amet consectetur adipisicing
-          </p>
+          <p className='text-xs  text-black'>Lorem ipsum, dolor sit amet consectetur adipisicing</p>
 
           <button className='w-full hover:text-white flex justify-center items-center gap-2 border-black border-2 text-black hover:bg-linear-to-r dark:from-[#070e41] dark:to-[#263381] from-[#3e5068] to-[#0c1970] py-2  rounded-md'>
             Add to cart

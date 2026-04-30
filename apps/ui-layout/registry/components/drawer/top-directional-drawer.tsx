@@ -1,15 +1,15 @@
 'use client';
-import { Drawer } from 'vaul';
-import { motion } from 'motion/react';
-import { useState } from 'react';
 import { Edit, X } from 'lucide-react';
-import { useMediaQuery } from '@/hooks/use-media-query';
+import { motion } from 'motion/react';
 import Image from 'next/image';
+import { useState } from 'react';
+import { Drawer } from 'vaul';
 import {
   DirectionalDrawer,
   DrawerContent,
   DrawerTrigger,
 } from '@/components/ui/directional-drawer';
+import { useMediaQuery } from '@/hooks/use-media-query';
 export default function TopDirectionalDrawer() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   return (

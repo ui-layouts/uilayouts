@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import Image from 'next/image';
 import { ArrowBigDown, ArrowRight, ChevronRight, Heart } from 'lucide-react';
+import Image from 'next/image';
+import React, { useState } from 'react';
 
 function StripeCard() {
   return (
@@ -9,8 +9,7 @@ function StripeCard() {
         <figure className='w-full h-80 group-hover:h-72 transition-all duration-300 dark:bg-[#0a121a] bg-[#f0f5fa] p-2 rounded-md relative overflow-hidden'>
           <div
             style={{
-              background:
-                'linear-gradient(123.9deg, #0B65ED 1.52%, rgba(0, 0, 0, 0) 68.91%)',
+              background: 'linear-gradient(123.9deg, #0B65ED 1.52%, rgba(0, 0, 0, 0) 68.91%)',
             }}
             className='absolute top-0 left-0 w-full h-full  group-hover:opacity-100 opacity-0  transition-all duration-300'
           ></div>
@@ -24,9 +23,7 @@ function StripeCard() {
         </figure>
         <article className='  p-4 space-y-2'>
           <div className='h-8 w-20 bg-[#4393fc] rounded-md'></div>
-          <h1 className='text-xl font-semibold capitalize'>
-            Incorporate your company
-          </h1>
+          <h1 className='text-xl font-semibold capitalize'>Incorporate your company</h1>
           <p className='text-base leading-[120%]'>
             Form a legal entity, issue stock, and start accepting payments.
           </p>

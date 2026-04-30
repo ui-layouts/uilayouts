@@ -1,9 +1,8 @@
 'use client';
-import React, { useState } from 'react';
-import Image from 'next/image';
 import { Bookmark, ShoppingCart } from 'lucide-react';
-
 import { motion } from 'motion/react';
+import Image from 'next/image';
+import React, { useState } from 'react';
 import { CardArr } from '@/components/website/constant';
 
 function Card() {
@@ -72,9 +71,7 @@ function Card() {
                   key={data.color}
                   onClick={() => handleColorButtonClick(data.img, data.color)}
                   className={` relative w-6 h-6 border  rounded-full grid place-content-center transition-all ${
-                    selectedColor === data.color
-                      ? ' border-black'
-                      : 'border-neutral-200'
+                    selectedColor === data.color ? ' border-black' : 'border-neutral-200'
                   }`}
                 >
                   <span

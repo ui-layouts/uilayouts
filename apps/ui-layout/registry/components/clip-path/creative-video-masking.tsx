@@ -18,12 +18,7 @@ function CreativeVideoMasking() {
           WebkitMaskSize: 'contain',
         }}
       >
-        <video
-          autoPlay
-          muted
-          loop
-          className='w-full max-h-96 object-cover aspect-square'
-        >
+        <video autoPlay muted loop className='w-full max-h-96 object-cover aspect-square'>
           <source
             src='https://videos.pexels.com/video-files/7710243/7710243-uhd_2560_1440_30fps.mp4'
             type='video/mp4'

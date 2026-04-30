@@ -1,8 +1,6 @@
 'use client';
 
-import * as React from 'react';
-import { useRouter } from 'next/navigation';
-import { useTheme } from 'next-themes';
+import { Command } from 'cmdk';
 import {
   ChevronRight,
   Component,
@@ -12,16 +10,15 @@ import {
   SearchIcon,
   SunIcon,
 } from 'lucide-react';
-import { Command } from 'cmdk';
-import { Dialog, DialogContent } from '@/components/website/ui/dialog';
+import { useRouter } from 'next/navigation';
+import { useTheme } from 'next-themes';
+import * as React from 'react';
 import { ScrollArea } from '@/components/website/ui//scroll-area';
-import { cn } from '@/lib/utils';
-import { basePath } from './sidebar';
+import { Dialog, DialogContent } from '@/components/website/ui/dialog';
 import { DocsNavigationCategories } from '@/configs/docs';
-import {
-  ResponsiveModal,
-  ResponsiveModalContent,
-} from '../ui/responsive-modal';
+import { cn } from '@/lib/utils';
+import { ResponsiveModal, ResponsiveModalContent } from '../ui/responsive-modal';
+import { basePath } from './sidebar';
 
 function highlightMatch(text: string, query: string) {
   if (!query) return text;
@@ -79,9 +76,7 @@ export function SearchDialog({
       const filtered = items
         .filter((item) => {
           const nameMatch = item.name.toLowerCase().includes(searchTerm);
-          const tagsMatch = item.tags?.some((tag) =>
-            tag.toLowerCase().includes(searchTerm)
-          );
+          const tagsMatch = item.tags?.some((tag) => tag.toLowerCase().includes(searchTerm));
           return nameMatch || tagsMatch;
         })
         .sort((a, b) => {
@@ -170,17 +165,14 @@ export function SearchDialog({
             />
             <Command.List className='border-none'>
               <ScrollArea className='h-[350px]'>
-                <Command.Empty className=' p-4'>
-                  No results found.
-                </Command.Empty>
+                <Command.Empty className=' p-4'>No results found.</Command.Empty>
                 <Command.Group className='py-2'>
-                  <span className='block p-2 text-xs font-semibold'>
-                    Follow for more updates
-                  </span>
+                  <span className='block p-2 text-xs font-semibold'>Follow for more updates</span>
                   <a
                     href='https://x.com/naymur_dev'
                     target='_blank'
                     className='flex w-full items-center gap-2 rounded-md dark:bg-neutral-800 bg-neutral-200 p-3'
+                    rel='noopener'
                   >
                     <svg
                       width='120'
@@ -195,10 +187,7 @@ export function SearchDialog({
                     @naymur_dev
                   </a>
                 </Command.Group>
-                <Command.Group
-                  heading='Getting Started'
-                  className='py-2 text-sm'
-                >
+                <Command.Group heading='Getting Started' className='py-2 text-sm'>
                   {basePath.map((item, index) => (
                     <Command.Item
                       key={item.href}
@@ -220,9 +209,7 @@ export function SearchDialog({
                       <Command.Item
                         key={item.href}
                         value={`${item.name} ${item?.tags?.join(' ') || ''}`}
-                        onSelect={() =>
-                          runCommand(() => router.push(item.href))
-                        }
+                        onSelect={() => runCommand(() => router.push(item.href))}
                         className='relative flex select-none rounded-lg items-center gap-2 text-sm cursor-pointer aria-selected:bg-neutral-200 aria-selected:text-neutral-900 dark:aria-selected:bg-neutral-800 dark:aria-selected:text-neutral-100 border border-transparent aria-selected:border-neutral-300 dark:aria-selected:border-neutral-600'
                       >
                         <svg

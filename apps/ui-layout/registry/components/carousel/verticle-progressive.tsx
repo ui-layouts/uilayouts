@@ -1,17 +1,17 @@
 'use client';
-import { useState, useRef, useEffect } from 'react';
-import Image, { StaticImageData } from 'next/image';
+import { Home } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
+import Image, { StaticImageData } from 'next/image';
+import { useEffect, useRef, useState } from 'react';
 import {
-  SliderBtnGroup,
   ProgressSlider,
   SliderBtn,
+  SliderBtnGroup,
   SliderContent,
   SliderWrapper,
 } from '@/components/ui/progressive-carousel';
-import { Home } from 'lucide-react';
-import { useMediaQuery } from '@/hooks/use-media-query';
 import { imgPreview } from '@/components/website/constant';
+import { useMediaQuery } from '@/hooks/use-media-query';
 
 const items = [
   {
@@ -69,11 +69,7 @@ export default function VerticleProgressive() {
         </SliderBtnGroup>
         <SliderContent className='w-full'>
           {items.map((item) => (
-            <SliderWrapper
-              className='h-full'
-              key={item.sliderName}
-              value={item?.sliderName}
-            >
+            <SliderWrapper className='h-full' key={item.sliderName} value={item?.sliderName}>
               <Image
                 className=' h-[500px] object-cover'
                 src={item.img}

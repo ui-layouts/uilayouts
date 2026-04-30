@@ -9,6 +9,7 @@ import {
   TabList,
   TabsProvider,
 } from '@/components/ui/image-tabs';
+
 const tabs = [
   {
     title: 'How do UI components improve UX?',
@@ -23,8 +24,7 @@ const tabs = [
     id: 'important',
     description:
       'Some common challenges include maintaining consistency across different devices and screen sizes, ensuring compatibility with various browsers and assistive technologies, and balancing flexibility with ease of use.',
-    imageUrl:
-      'https://images.unsplash.com/photo-1548192746-dd526f154ed9?q=80&w=1200&auto=format',
+    imageUrl: 'https://images.unsplash.com/photo-1548192746-dd526f154ed9?q=80&w=1200&auto=format',
   },
   {
     title: 'Is UI and UX Same?',
@@ -49,14 +49,8 @@ function ImageTabs1() {
                 <TabHeader value={tab.id}>{tab.title}</TabHeader>
                 <TabDes value={tab.id}>
                   {' '}
-                  <p className={`dark:bg-white bg-[#F2F2F2] text-black p-3`}>
-                    {tab.description}
-                  </p>
-                  <img
-                    src={tab.imageUrl}
-                    alt={tab.title}
-                    className='md:hidden block rounded-md'
-                  />
+                  <p className={`dark:bg-white bg-[#F2F2F2] text-black p-3`}>{tab.description}</p>
+                  <img src={tab.imageUrl} alt={tab.title} className='md:hidden block rounded-md' />
                 </TabDes>
               </TabItem>
             ))}

@@ -1,18 +1,18 @@
 'use client';
 
+import { Plus } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
   Dialog,
-  DialogTrigger,
-  DialogContent,
-  DialogTitle,
-  DialogImage,
   DialogClose,
-  DialogDescription,
   DialogContainer,
+  DialogContent,
+  DialogDescription,
+  DialogImage,
+  DialogTitle,
+  DialogTrigger,
 } from '@/components/ui/linear-modal';
-import { Plus } from 'lucide-react';
 
 const contributorProfile = [
   {
@@ -45,8 +45,8 @@ export default function Contributors() {
           Open Source Heroes
         </h2>
         <p className='text-center max-w-lg mx-auto text-muted-foreground'>
-          UI-Layouts thrives thanks to our incredible contributors. Every idea,
-          PR, and improvement helps shape a library that developers love.
+          UI-Layouts thrives thanks to our incredible contributors. Every idea, PR, and improvement
+          helps shape a library that developers love.
         </p>
       </article>
       {/* Contributors Grid */}
@@ -71,9 +71,7 @@ export default function Contributors() {
                 className='h-full w-full object-cover'
               />
               <div className='flex grow flex-row items-end justify-between p-3 pt-4 text-primary absolute bottom-0 left-0 w-full bg-linear-to-t from-black/50 to-transparent'>
-                <DialogTitle className='text-xl text-white'>
-                  {contributor.alt}
-                </DialogTitle>
+                <DialogTitle className='text-xl text-white'>{contributor.alt}</DialogTitle>
                 <button className='absolute bottom-2 right-2 p-2 bg-neutral-200 dark:bg-neutral-900 rounded-lg'>
                   <Plus className='w-6 h-6' />
                 </button>
@@ -82,10 +80,7 @@ export default function Contributors() {
 
             {/* Dialog Content */}
             <DialogContainer className='grid place-items-center h-full'>
-              <DialogContent
-                style={{ borderRadius: '24px' }}
-                className='h-fit mx-auto'
-              >
+              <DialogContent style={{ borderRadius: '24px' }} className='h-fit mx-auto'>
                 <div className='flex flex-col relative dark:bg-neutral-900 bg-neutral-100 lg:w-md w-[80%] lg:h-[50vh] h-[80vh] mx-auto overflow-y-auto'>
                   {/* Top Image */}
                   <div className='flex-1 overflow-hidden'>

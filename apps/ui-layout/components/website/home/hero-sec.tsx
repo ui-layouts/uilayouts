@@ -1,21 +1,15 @@
 'use client';
-import {
-  ArrowRight,
-  Blocks,
-  Component,
-  LayoutPanelTop,
-  Verified,
-} from 'lucide-react';
-import React from 'react';
-import NewItemsLoading from './new-items-loading';
+import { ArrowRight, Blocks, Component, LayoutPanelTop, Verified } from 'lucide-react';
 import Image from 'next/image';
-import AllComponents from './all-components';
-import AllBlocks from './all-blocks';
 import Link from 'next/link';
-import { cn } from '@/lib/utils';
-import Contributors from './contributor';
+import React from 'react';
 import { GapPattern } from '@/components/ui/gap-pattern';
 import { Marquee } from '@/components/ui/marquee';
+import { cn } from '@/lib/utils';
+import AllBlocks from './all-blocks';
+import AllComponents from './all-components';
+import Contributors from './contributor';
+import NewItemsLoading from './new-items-loading';
 
 const allProjects = [
   {
@@ -204,9 +198,7 @@ const ReviewCard = ({
         <div className='ml-3 flex-1'>
           <div className='flex items-center gap-1'>
             <span className='font-semibold text-sm'>{name}</span>
-            {bluetick && !reddit && (
-              <Verified className='w-3 h-3 text-blue-500 fill-current' />
-            )}
+            {bluetick && !reddit && <Verified className='w-3 h-3 text-blue-500 fill-current' />}
           </div>
           <div className='text-xs text-muted-foreground'>{username}</div>
         </div>
@@ -521,9 +513,9 @@ function HeroSec({ blocksData }: { blocksData: any[] }) {
               </span>{' '}
             </h1>
             <p className='mx-auto 2xl:w-[600px] lg:w-[450px] 2xl:text-lg  sm:w-[80%] text-center sm:text-base text-sm'>
-              UI Layouts isn’t just a library. It’s your complete front-end
-              universe with components, effects, design tools, and ready-to-use
-              blocks, everything you need to build modern interfaces, faster.
+              UI Layouts isn’t just a library. It’s your complete front-end universe with
+              components, effects, design tools, and ready-to-use blocks, everything you need to
+              build modern interfaces, faster.
             </p>
             <div className='flex gap-2 justify-center items-center'>
               <a
@@ -633,9 +625,7 @@ function HeroSec({ blocksData }: { blocksData: any[] }) {
                     ></path>
                   </svg>
                 </div>
-                <div className='sm:text-sm text-xs font-medium'>
-                  Trusted by 1000+ users
-                </div>
+                <div className='sm:text-sm text-xs font-medium'>Trusted by 1000+ users</div>
               </div>
             </div>
           </article>
@@ -644,7 +634,7 @@ function HeroSec({ blocksData }: { blocksData: any[] }) {
           {/* Twitter Feedback Section */}
           <div className='relative py-10'>
             <div className='relative flex h-full w-full flex-col items-center justify-center overflow-hidden'>
-              <Marquee pauseOnHover className='[--duration:60s]'>
+              <Marquee pauseOnHover className='[--duration:80s]'>
                 {allReviews.map((review) => (
                   <ReviewCard key={review.username} {...review} />
                 ))}
@@ -676,11 +666,7 @@ function HeroSec({ blocksData }: { blocksData: any[] }) {
                     >
                       <defs>
                         <filter id='noise6'>
-                          <feTurbulence
-                            type='fractalNoise'
-                            baseFrequency='0.6'
-                            numOctaves='4'
-                          />
+                          <feTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='4' />
                         </filter>
                       </defs>
                       <rect width='100%' height='100%' filter='url(#noise6)' />

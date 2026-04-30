@@ -1,21 +1,13 @@
-import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import React from 'react';
-import {
-  BlurVignette,
-  BlurVignetteArticle,
-} from '@/components/ui/blur-vignette';
+import { BlurVignette, BlurVignetteArticle } from '@/components/ui/blur-vignette';
+import { cn } from '@/lib/utils';
 
 function Blurvignettecard() {
   return (
     <>
       <div className='w-fit mx-auto sm:flex gap-2 justify-center md:p-8 sm:p-4'>
-        <BlurVignette
-          radius='15px'
-          inset='100px'
-          transitionLength='200px'
-          blur='15px'
-        >
+        <BlurVignette radius='15px' inset='100px' transitionLength='200px' blur='15px'>
           <Image
             src='https://img.freepik.com/free-photo/cartoon-superhero-illustration_23-2151732547.jpg'
             alt='grid'
@@ -27,18 +19,13 @@ function Blurvignettecard() {
             <article className=' py-5 px-3'>
               <h1 className='2xl:text-3xl text-2xl'>UiLayout</h1>
               <p className='2xl:text-sm text-xs'>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Debitis, quaerat ab? Rerum facilis dignissimos voluptatum!
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis, quaerat ab? Rerum
+                facilis dignissimos voluptatum!
               </p>
             </article>
           </BlurVignetteArticle>
         </BlurVignette>
-        <BlurVignette
-          radius='15px'
-          inset='100px'
-          transitionLength='200px'
-          blur='15px'
-        >
+        <BlurVignette radius='15px' inset='100px' transitionLength='200px' blur='15px'>
           <Image
             src='https://img.freepik.com/free-photo/halloween-scene-illustration-anime-style_23-2151794328.jpg'
             alt='grid'
@@ -50,8 +37,8 @@ function Blurvignettecard() {
             <article className=' py-5 px-3'>
               <h1 className='2xl:text-3xl text-2xl'>UiLayout</h1>
               <p className='2xl:text-sm text-xs'>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Debitis, quaerat ab? Rerum facilis dignissimos voluptatum!
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis, quaerat ab? Rerum
+                facilis dignissimos voluptatum!
               </p>
             </article>
           </BlurVignetteArticle>

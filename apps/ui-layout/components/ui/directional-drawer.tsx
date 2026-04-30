@@ -1,12 +1,6 @@
 'use client';
-import React, {
-  createContext,
-  useContext,
-  useState,
-  useEffect,
-  ReactNode,
-} from 'react';
 import { X } from 'lucide-react';
+import React, { createContext, type ReactNode, useContext, useEffect, useState } from 'react';
 import { Drawer as VaulSidebar } from 'vaul';
 import { cn } from '@/lib/utils';
 
@@ -20,9 +14,7 @@ const DrawerContext = createContext<DrawerContextProps | undefined>(undefined);
 export const useDirectionalDrawer = () => {
   const context = useContext(DrawerContext);
   if (!context) {
-    throw new Error(
-      'useDirectionalDrawer must be used within a DirectionalDrawer'
-    );
+    throw new Error('useDirectionalDrawer must be used within a DirectionalDrawer');
   }
   return context;
 };

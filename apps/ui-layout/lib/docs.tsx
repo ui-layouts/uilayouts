@@ -1,6 +1,6 @@
 import fs from 'fs';
-import path from 'path';
 import matter from 'gray-matter';
+import path from 'path';
 import { getTableOfContents, TableOfContents } from './toc';
 
 const docsDirectory = path.join(process.cwd(), 'content/components');
@@ -47,9 +47,7 @@ function getAllFiles(dir: string): string[] {
     if (file.isDirectory()) {
       filePaths = [...filePaths, ...getAllFiles(path.join(dir, file.name))];
     } else if (file.name.endsWith('.mdx')) {
-      filePaths.push(
-        path.join(dir, file.name).replace(docsDirectory + '/', '')
-      );
+      filePaths.push(path.join(dir, file.name).replace(docsDirectory + '/', ''));
     }
   }
 

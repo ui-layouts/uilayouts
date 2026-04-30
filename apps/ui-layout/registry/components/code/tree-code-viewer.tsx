@@ -1,10 +1,7 @@
 'use client';
 import React from 'react';
 import { TreeCodeViewer } from '@/components/ui/tree-view-code';
-import {
-  transformCodeFiles,
-  type TransformedCodeFile,
-} from '@/lib/transform-code-files';
+import { type TransformedCodeFile, transformCodeFiles } from '@/lib/transform-code-files';
 
 const sampleFileData = [
   {
@@ -186,10 +183,7 @@ export default function TreeCodeViewerDemo() {
 
   React.useEffect(() => {
     const transformFiles = async () => {
-      const transformedFiles = await transformCodeFiles(
-        sampleFileData,
-        'tree-code-viewer'
-      );
+      const transformedFiles = await transformCodeFiles(sampleFileData, 'tree-code-viewer');
       setFiles(transformedFiles);
     };
     transformFiles();

@@ -1,9 +1,4 @@
-import {
-  Tabs,
-  TabsList,
-  TabsTrigger,
-  TabsContent,
-} from '@/components/website/ui/tabs';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/website/ui/tabs';
 import { highlightCode } from '@/lib/shiki-highlighter';
 import { CopyButton } from './copy-button';
 
@@ -27,9 +22,7 @@ export default async function CodeTabsMdx({ children }: any) {
   // console.log('parsed', parsed);
 
   // Highlight everything
-  const highlighted = await Promise.all(
-    parsed.map((t) => highlightCode(t.value, t.lang))
-  );
+  const highlighted = await Promise.all(parsed.map((t) => highlightCode(t.value, t.lang)));
 
   // -------------------------
   // CASE 1 — Only one block
@@ -91,14 +84,7 @@ export default async function CodeTabsMdx({ children }: any) {
                     stroke='currentColor'
                     strokeWidth='32'
                   />
-                  <line
-                    x1='192'
-                    y1='40'
-                    x2='40'
-                    y2='192'
-                    stroke='currentColor'
-                    strokeWidth='32'
-                  />
+                  <line x1='192' y1='40' x2='40' y2='192' stroke='currentColor' strokeWidth='32' />
                 </svg>
                 shadcn
               </>
@@ -108,15 +94,8 @@ export default async function CodeTabsMdx({ children }: any) {
       </TabsList>
 
       {tabs.map((tab) => (
-        <TabsContent
-          key={tab.meta}
-          value={tab.meta}
-          className='mt-1 border-none'
-        >
-          <CopyButton
-            code={tab.code}
-            classname='top-1.5 border bg-white absolute right-3'
-          />
+        <TabsContent key={tab.meta} value={tab.meta} className='mt-1 border-none'>
+          <CopyButton code={tab.code} classname='top-1.5 border bg-white absolute right-3' />
           <div
             className='cliblocks rounded-xl p-1 px-2 border-none'
             dangerouslySetInnerHTML={{ __html: tab.html }}

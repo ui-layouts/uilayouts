@@ -10,9 +10,7 @@ export default function Dialog() {
           }
         />
         <MediaModal
-          videoSrc={
-            'https://videos.pexels.com/video-files/7710243/7710243-uhd_2560_1440_30fps.mp4'
-          }
+          videoSrc={'https://videos.pexels.com/video-files/7710243/7710243-uhd_2560_1440_30fps.mp4'}
         />
       </div>
     </div>

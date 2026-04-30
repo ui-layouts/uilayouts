@@ -2,8 +2,9 @@
 
 'use client';
 
-import React, { type JSX } from 'react';
-import { motion, HTMLMotionProps } from 'motion/react';
+import { type HTMLMotionProps, motion } from 'motion/react';
+import type React from 'react';
+import type { JSX } from 'react';
 import { cn } from '@/lib/utils';
 
 type Direction = 'up' | 'down' | 'left' | 'right';
@@ -17,9 +18,7 @@ const containerVariants = {
   },
 };
 
-const generateVariants = (
-  direction: Direction
-): { hidden: any; visible: any } => {
+const generateVariants = (direction: Direction): { hidden: any; visible: any } => {
   const axis = direction === 'left' || direction === 'right' ? 'X' : 'Y';
   const value = direction === 'right' || direction === 'down' ? 100 : -100;
 
@@ -77,9 +76,9 @@ const TextAnimation = ({
     },
   };
 
-  const MotionComponent = motion[
-    as as keyof typeof motion
-  ] as React.ComponentType<HTMLMotionProps<any>>;
+  const MotionComponent = motion[as as keyof typeof motion] as React.ComponentType<
+    HTMLMotionProps<any>
+  >;
 
   return (
     <MotionComponent
@@ -87,10 +86,7 @@ const TextAnimation = ({
       initial='hidden'
       variants={containerVariants}
       viewport={viewport}
-      className={cn(
-        `inline-block dark:text-white text-black uppercase`,
-        classname
-      )}
+      className={cn(`inline-block dark:text-white text-black uppercase`, classname)}
     >
       {lineAnime ? (
         <motion.span className={`inline-block`} variants={modifiedVariants}>

@@ -1,7 +1,7 @@
 'use client';
-import { SpotLightItem, Spotlight } from '@/components/ui/spotlight';
 import Image from 'next/image';
 import React from 'react';
+import { SpotLightItem, Spotlight } from '@/components/ui/spotlight';
 
 export default function SpotlightCard4() {
   return (
@@ -21,8 +21,8 @@ export default function SpotlightCard4() {
                 Seamless Animation For All
               </h1>
               <p className='pt-2 lg:text-base text-sm  text-neutral-300 capitalize'>
-                Effortlessly connect with today's leading technologies including
-                React, TypeScript, Next.js, Tailwind CSS, Motion, and Cypress.
+                Effortlessly connect with today's leading technologies including React, TypeScript,
+                Next.js, Tailwind CSS, Motion, and Cypress.
               </p>
             </>
           </div>

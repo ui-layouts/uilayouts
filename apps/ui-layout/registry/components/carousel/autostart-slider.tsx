@@ -1,15 +1,10 @@
 'use client';
-import React, { ReactNode } from 'react';
-import { EmblaOptionsType } from 'embla-carousel';
-import {
-  Carousel,
-  Slider,
-  SliderContainer,
-  SliderDotButton,
-} from '@/components/ui/carousel';
-import Image from 'next/image';
-import { imgPreview } from '@/components/website/constant';
+import type { EmblaOptionsType } from 'embla-carousel';
 import Autoplay from 'embla-carousel-autoplay';
+import Image from 'next/image';
+import React, { ReactNode } from 'react';
+import { Carousel, Slider, SliderContainer, SliderDotButton } from '@/components/ui/carousel';
+import { imgPreview } from '@/components/website/constant';
 
 function AutostartSlider() {
   const OPTIONS: EmblaOptionsType = { loop: true };

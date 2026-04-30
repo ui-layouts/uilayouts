@@ -1,16 +1,15 @@
 'use client';
+import { ArrowUpRight, Component, Github, LayoutPanelTop, Star } from 'lucide-react';
+import Image from 'next/image';
 import React, { useState } from 'react';
+import { Container } from '@/components/ui/container';
+import { GapPattern } from '@/components/ui/gap-pattern';
+import { type Colors, Liquid } from '@/components/ui/liquid-gradient';
 import { profiles } from '@/components/website/home/hero-sec';
 import HomeFooter from '@/components/website/home/home-footer';
 import HomeHeader from '@/components/website/home/home-header';
-import { ArrowUpRight, Component, LayoutPanelTop } from 'lucide-react';
-import Image from 'next/image';
 import { Banner } from '@/components/website/ui/banner';
-import { Github, Star } from 'lucide-react';
-import { Colors, Liquid } from '@/components/ui/liquid-gradient';
-import { Container } from '@/components/ui/container';
 import { cn } from '@/lib/utils';
-import { GapPattern } from '@/components/ui/gap-pattern';
 
 const COLORS: Colors = {
   color1: '#FFFFFF',
@@ -62,8 +61,7 @@ function McpPage() {
                 height='32'
               />
             </picture>
-            Ship faster with{' '}
-            <span className='font-semibold'>UI-Layouts Pro</span>
+            Ship faster with <span className='font-semibold'>UI-Layouts Pro</span>
             <span className='md:inline-block hidden'>
               – 100+ production-ready blocks waiting for you
             </span>
@@ -112,10 +110,9 @@ function McpPage() {
               </h1>
 
               <p className='mx-auto 2xl:w-[680px] lg:w-[520px] text-center sm:text-base text-sm text-neutral-600 dark:text-neutral-400'>
-                UI-Layouts MCP lets AI assistants like Cursor, Claude, and other
-                AI IDEs search real UI components, read documentation, extract
-                metadata, and retrieve actual React/TypeScript source code,
-                instead of guessing UI.
+                UI-Layouts MCP lets AI assistants like Cursor, Claude, and other AI IDEs search real
+                UI components, read documentation, extract metadata, and retrieve actual
+                React/TypeScript source code, instead of guessing UI.
               </p>
 
               <div className='flex gap-3 justify-center items-center pt-6'>
@@ -136,6 +133,7 @@ function McpPage() {
                   href='https://github.com/ui-layouts/mcp'
                   target='_blank'
                   className='relative inline-block md:w-40 w-12 h-[3em] group dark:bg-black bg-white dark:border-white border-black border-2 rounded-lg'
+                  rel='noopener'
                 >
                   <div className='absolute w-[112.81%] h-[128.57%] top-[8.57%] left-1/2 -translate-x-1/2 filter blur-[19px] opacity-70'>
                     <span className='absolute inset-0 rounded-lg bg-[#d9d9d9] filter blur-[6.5px]'></span>
@@ -152,11 +150,7 @@ function McpPage() {
                       <span
                         key={i}
                         className={`absolute inset-0 rounded-lg border-solid border-[3px] border-gradient-to-b from-transparent to-white mix-blend-overlay filter ${
-                          i <= 2
-                            ? 'blur-[3px]'
-                            : i === 3
-                              ? 'blur-[5px]'
-                              : 'blur-xs'
+                          i <= 2 ? 'blur-[3px]' : i === 3 ? 'blur-[5px]' : 'blur-xs'
                         }`}
                       ></span>
                     ))}
@@ -272,9 +266,7 @@ function McpPage() {
                       ></path>
                     </svg>
                   </div>
-                  <div className='sm:text-sm text-xs font-medium'>
-                    Trusted by 1000+ users
-                  </div>
+                  <div className='sm:text-sm text-xs font-medium'>Trusted by 1000+ users</div>
                 </div>
               </div>
             </article>

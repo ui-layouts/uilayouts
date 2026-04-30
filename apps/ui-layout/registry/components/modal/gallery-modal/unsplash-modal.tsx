@@ -1,9 +1,9 @@
 // inspired by tom is loading
 'use client';
-import React, { useEffect, useRef, useState } from 'react';
+import { Download, X } from 'lucide-react';
 import { AnimatePresence, motion, useInView } from 'motion/react';
 import Image from 'next/image';
-import { Download, X } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
 import { items } from '@/components/website/constant';
 
 function UnsplashGrid() {
@@ -15,12 +15,7 @@ function UnsplashGrid() {
         <div className='columns-2 md:columns-3 2xl:columns-4 gap-4'>
           <>
             {items.slice(5, 14)?.map((item, index) => (
-              <ImageItem
-                key={item.id}
-                item={item}
-                index={index}
-                setSelected={setSelected}
-              />
+              <ImageItem key={item.id} item={item} index={index} setSelected={setSelected} />
             ))}
           </>
         </div>
@@ -152,10 +147,7 @@ function Modal({ selected, setSelected }: ModalProps) {
               exit='exit'
               className='bg-white dark:bg-black dark:text-white text-black p-4  rounded-md  px-8'
             >
-              <motion.h3
-                variants={itemVariants}
-                className='text-2xl font-bold mb-2'
-              >
+              <motion.h3 variants={itemVariants} className='text-2xl font-bold mb-2'>
                 {selected.title}
               </motion.h3>
               <motion.div variants={itemVariants} className='flex gap-2'>

@@ -1,17 +1,13 @@
 'use client';
 
-import { Button } from '@/components/website/ui/button';
-import { Input } from '@/components/website/ui/input';
-import { Label } from '@/components/website/ui/label';
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@/components/website/ui/popover';
-import { cn } from '@/lib/utils';
 import { Copy, Pipette } from 'lucide-react';
 import { HexColorPicker } from 'react-colorful';
 import { toast } from 'sonner';
+import { Button } from '@/components/website/ui/button';
+import { Input } from '@/components/website/ui/input';
+import { Label } from '@/components/website/ui/label';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/website/ui/popover';
+import { cn } from '@/lib/utils';
 
 interface ColorPickerProps {
   color: string;
@@ -69,11 +65,7 @@ export function ColorPicker({
           </Button>
         </PopoverTrigger>
         <PopoverContent className='w-full p-3 bg-primary-foreground'>
-          <HexColorPicker
-            color={color}
-            onChange={onChange}
-            className='w-full!'
-          />
+          <HexColorPicker color={color} onChange={onChange} className='w-full!' />
           <div className='mt-2 flex w-full gap-2'>
             <Input
               value={color}

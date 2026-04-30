@@ -78,7 +78,7 @@ export async function transformCodeFiles(
       typeof fileSrc === 'object' && fileSrc !== null && 'default' in fileSrc
         ? fileSrc.default
         : fileSrc;
-        
+
     // console.log('fileSrc', fileSrc);
 
     const html = await highlightCode(raw, ext);
@@ -97,10 +97,7 @@ export async function transformCodeFiles(
 
   // ---- inject lib/utils.ts
   {
-    const VirtualLibhtml = await highlightCode(
-      VIRTUAL_LIB_FILE.raw,
-      VIRTUAL_LIB_FILE.ext
-    );
+    const VirtualLibhtml = await highlightCode(VIRTUAL_LIB_FILE.raw, VIRTUAL_LIB_FILE.ext);
 
     files.push({
       id: `lib/${VIRTUAL_LIB_FILE.fileName}`,
@@ -114,10 +111,7 @@ export async function transformCodeFiles(
 
   // ---- inject package.json (root)
   {
-    const VirtualPackageJsonhtml = await highlightCode(
-      VIRTUAL_PACKAGE_JSON.raw,
-      'json'
-    );
+    const VirtualPackageJsonhtml = await highlightCode(VIRTUAL_PACKAGE_JSON.raw, 'json');
 
     files.push({
       id: 'package.json',

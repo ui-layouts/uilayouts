@@ -1,9 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "card-globe-white",
-  "dependencies": [
-    "cobe"
-  ],
+  "dependencies": ["cobe"],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [

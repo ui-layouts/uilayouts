@@ -8,11 +8,7 @@ interface TypeWritterProps {
   onComplete: () => void;
 }
 
-export function TypeWritter({
-  text,
-  charDelay = 55,
-  onComplete,
-}: TypeWritterProps) {
+export function TypeWritter({ text, charDelay = 55, onComplete }: TypeWritterProps) {
   const [displayed, setDisplayed] = useState('');
   const doneRef = useRef(false);
 

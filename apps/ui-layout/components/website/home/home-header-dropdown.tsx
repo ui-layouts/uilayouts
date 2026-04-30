@@ -1,10 +1,10 @@
 'use client';
 
-import * as React from 'react';
 import * as NavigationMenuPrimitive from '@radix-ui/react-navigation-menu';
-import { cn } from '@/lib/utils';
 import Image from 'next/image';
+import * as React from 'react';
 import { useRecentPagesStore } from '@/hooks/useZustStore';
+import { cn } from '@/lib/utils';
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -16,20 +16,17 @@ const components: { title: string; href: string; description: string }[] = [
   {
     title: 'Image Ripple Effect',
     href: '/components/image-ripple-effect',
-    description:
-      'For sighted users to preview content available behind a link.',
+    description: 'For sighted users to preview content available behind a link.',
   },
   {
     title: 'Tags Input',
     href: '/components/tags-input',
-    description:
-      'For sighted users to preview content available behind a link.',
+    description: 'For sighted users to preview content available behind a link.',
   },
   {
     title: 'Mesh Gradient',
     href: '/components/bg-mesh-gradient',
-    description:
-      'For sighted users to preview content available behind a link.',
+    description: 'For sighted users to preview content available behind a link.',
   },
   {
     title: 'Timeline Animation',
@@ -40,8 +37,7 @@ const components: { title: string; href: string; description: string }[] = [
   {
     title: 'Motion Number',
     href: '/components/motion-number',
-    description:
-      'For sighted users to preview content available behind a link.',
+    description: 'For sighted users to preview content available behind a link.',
   },
   {
     title: 'Dialog',
@@ -130,11 +126,7 @@ export function NavigationMenuDemo() {
               </a>
               <ul className='grid gap-3  md:w-[400px] lg:w-[500px]  lg:grid-cols-[.75fr_1fr]'>
                 {others.map((component) => (
-                  <ListItem
-                    key={component.title}
-                    title={component.title}
-                    href={component.href}
-                  >
+                  <ListItem key={component.title} title={component.title} href={component.href}>
                     {component.title}
                   </ListItem>
                 ))}
@@ -168,10 +160,7 @@ export function NavigationMenuDemo() {
       </NavigationMenuPrimitive.List>
 
       <div
-        className={cn(
-          'absolute flex justify-center',
-          'w-[140%] left-[-20%] top-full'
-        )}
+        className={cn('absolute flex justify-center', 'w-[140%] left-[-20%] top-full')}
         style={{
           perspective: '2000px',
         }}
@@ -255,28 +244,25 @@ export function NavigationMenuDemo() {
   );
 }
 
-const ListItem = React.forwardRef<
-  React.ElementRef<'a'>,
-  React.ComponentPropsWithoutRef<'a'>
->(({ className, title, children, ...props }, ref) => {
-  return (
-    <li>
-      <NavigationMenuPrimitive.Link asChild>
-        <a
-          ref={ref}
-          className={cn(
-            'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-hidden transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
-            className
-          )}
-          {...props}
-        >
-          <div className='text-sm font-medium leading-none'>{title}</div>
-          <p className='line-clamp-2 text-sm leading-snug text-muted-foreground'>
-            {children}
-          </p>
-        </a>
-      </NavigationMenuPrimitive.Link>
-    </li>
-  );
-});
+const ListItem = React.forwardRef<React.ElementRef<'a'>, React.ComponentPropsWithoutRef<'a'>>(
+  ({ className, title, children, ...props }, ref) => {
+    return (
+      <li>
+        <NavigationMenuPrimitive.Link asChild>
+          <a
+            ref={ref}
+            className={cn(
+              'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-hidden transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+              className
+            )}
+            {...props}
+          >
+            <div className='text-sm font-medium leading-none'>{title}</div>
+            <p className='line-clamp-2 text-sm leading-snug text-muted-foreground'>{children}</p>
+          </a>
+        </NavigationMenuPrimitive.Link>
+      </li>
+    );
+  }
+);
 ListItem.displayName = 'ListItem';

@@ -1,12 +1,8 @@
 'use client';
-import React, { useState, useMemo } from 'react';
 import { Check, Eye, EyeOff, Info, X } from 'lucide-react';
+import React, { useMemo, useState } from 'react';
 // shaadcn hover card
-import {
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from '@/components/website/ui/hover-card';
+import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/website/ui/hover-card';
 
 // Constants
 const PASSWORD_REQUIREMENTS = [
@@ -14,7 +10,7 @@ const PASSWORD_REQUIREMENTS = [
   { regex: /[0-9]/, text: 'At least 1 number' },
   { regex: /[a-z]/, text: 'At least 1 lowercase letter' },
   { regex: /[A-Z]/, text: 'At least 1 uppercase letter' },
-  { regex: /[!-\/:-@[-`{-~]/, text: 'At least 1 special characters' },
+  { regex: /[!-/:-@[-`{-~]/, text: 'At least 1 special characters' },
 ] as const;
 
 type StrengthScore = 0 | 1 | 2 | 3 | 4 | 5;
@@ -96,9 +92,7 @@ const HomePasswordInput = () => {
                     >
                       {req.text}
                       <span className='sr-only'>
-                        {req.met
-                          ? ' - Requirement met'
-                          : ' - Requirement not met'}
+                        {req.met ? ' - Requirement met' : ' - Requirement not met'}
                       </span>
                     </span>
                   </li>

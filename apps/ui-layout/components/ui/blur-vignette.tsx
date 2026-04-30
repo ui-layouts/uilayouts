@@ -1,6 +1,8 @@
 'use client';
-import React, { createContext, useContext } from 'react';
+import type React from 'react';
+import { createContext, useContext } from 'react';
 import { cn } from '@/lib/utils';
+
 interface BlurVignetteContextProps {
   radius?: string;
   inset?: string;
@@ -36,9 +38,7 @@ export const BlurVignette: React.FC<BlurVignetteProps> = ({
   blur = '6px',
 }) => {
   return (
-    <BlurVignetteContext.Provider
-      value={{ radius, inset, transitionLength, blur }}
-    >
+    <BlurVignetteContext.Provider value={{ radius, inset, transitionLength, blur }}>
       <div
         className={cn('relative aspect-square overflow-hidden', classname)}
         style={{ borderRadius: radius }}
@@ -61,10 +61,7 @@ export const BlurVignetteArticle: React.FC<BlurVignetteArticleProps> = ({
 
   return (
     <div
-      className={cn(
-        'blur-vignette bottom-0 left-0 w-full h-full z-1',
-        classname
-      )}
+      className={cn('blur-vignette bottom-0 left-0 w-full h-full z-1', classname)}
       style={
         {
           '--radius': radius,

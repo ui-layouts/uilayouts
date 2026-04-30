@@ -1,11 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "file-upload",
-  "dependencies": [
-    "react-dropzone",
-    "sonner",
-    "lucide-react"
-  ],
+  "dependencies": ["react-dropzone", "sonner", "lucide-react"],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [

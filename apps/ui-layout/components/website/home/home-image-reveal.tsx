@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, useSpring } from 'motion/react';
-import React, { useState, MouseEvent, useRef } from 'react';
+import React, { type MouseEvent, useRef, useState } from 'react';
 
 interface ImageItem {
   img: string;
@@ -71,7 +71,7 @@ function HomeImageReveal() {
   };
 
   const handleImageInteraction = (item: ImageItem, opacity: number) => {
-    // @ts-ignore
+    // @ts-expect-error
     setImg({ divClass: item.divClass, alt: item.label, opacity });
   };
 

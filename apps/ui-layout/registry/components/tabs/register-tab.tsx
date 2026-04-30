@@ -1,8 +1,8 @@
 // thanks to maximeheckel
-import React, { useState } from 'react';
-import { Lock, Phone } from 'lucide-react';
 
+import { Lock, Phone } from 'lucide-react';
 import Image from 'next/image';
+import React, { useState } from 'react';
 import { TabsBtn, TabsContent, TabsProvider } from '@/components/ui/tab';
 
 function RegisterTab() {

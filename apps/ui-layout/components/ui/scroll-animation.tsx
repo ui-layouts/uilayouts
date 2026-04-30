@@ -1,8 +1,8 @@
 'use client';
 
+import { HTMLMotionProps, motion } from 'motion/react';
+import type React from 'react';
 import { cn } from '@/lib/utils';
-import { motion, HTMLMotionProps } from 'motion/react';
-import React from 'react';
 
 type Direction = 'up' | 'down' | 'left' | 'right';
 type AsTag =

@@ -1,16 +1,7 @@
 import { Suspense } from 'react';
+import { getComponentCode, getComponentPreview } from '@/lib/component-projections';
 import { CopyButton } from './copy-button';
-import {
-  getComponentPreview,
-  getComponentCode,
-} from '@/lib/component-projections';
-export default function BoxComponentPreview({
-  name,
-  isCard,
-}: {
-  name: string;
-  isCard?: string;
-}) {
+export default function BoxComponentPreview({ name, isCard }: { name: string; isCard?: string }) {
   const preview = getComponentPreview(name);
   const code = getComponentCode(name);
 

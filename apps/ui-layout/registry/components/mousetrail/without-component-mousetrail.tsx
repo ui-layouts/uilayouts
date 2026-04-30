@@ -1,7 +1,7 @@
 //@ts-nocheck
 'use client';
+import React, { createRef, useRef } from 'react';
 import { items } from '@/components/website/constant';
-import React, { useRef, createRef } from 'react';
 
 export default function ImageMouseTrail3() {
   const containerRef = useRef(null);
@@ -36,8 +36,7 @@ export default function ImageMouseTrail3() {
     if (distanceFromLast(e.clientX, e.clientY) > window.innerWidth / 20) {
       const lead = refs.current[globalIndex % refs.current.length].current;
 
-      const tail =
-        refs.current[(globalIndex - 5) % refs.current.length]?.current;
+      const tail = refs.current[(globalIndex - 5) % refs.current.length]?.current;
 
       if (lead) activate(lead, e.clientX, e.clientY);
       if (tail) deactivate(tail);

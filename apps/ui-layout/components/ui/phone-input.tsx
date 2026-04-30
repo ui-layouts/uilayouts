@@ -12,62 +12,52 @@ import {
   CommandItem,
   CommandList,
 } from '@/components/website/ui/command';
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@/components/website/ui/popover';
-
-import { cn } from '@/lib/utils';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/website/ui/popover';
 import { ScrollArea } from '@/components/website/ui/scroll-area';
+import { cn } from '@/lib/utils';
 
-type PhoneInputProps = Omit<
-  React.InputHTMLAttributes<HTMLInputElement>,
-  'onChange' | 'value'
-> &
+type PhoneInputProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value'> &
   Omit<RPNInput.Props<typeof RPNInput.default>, 'onChange'> & {
     onChange?: (value: RPNInput.Value) => void;
   };
-const PhoneInput: React.ForwardRefExoticComponent<PhoneInputProps> =
-  React.forwardRef<React.ElementRef<typeof RPNInput.default>, PhoneInputProps>(
-    ({ className, onChange, ...props }, ref) => {
-      return (
-        <RPNInput.default
-          ref={ref}
-          className={cn('flex', className)}
-          flagComponent={FlagComponent}
-          countrySelectComponent={CountrySelect}
-          inputComponent={InputComponent}
-          /**
-           * Handles the onChange event.
-           *
-           * react-phone-number-input might trigger the onChange event as undefined
-           * when a valid phone number is not entered. To prevent this,
-           * the value is coerced to an empty string.
-           *
-           * @param {E164Number | undefined} value - The entered value
-           */
-          // @ts-ignore
-          onChange={(value) => onChange?.(value || '')}
-          {...props}
-        />
-      );
-    }
+const PhoneInput: React.ForwardRefExoticComponent<PhoneInputProps> = React.forwardRef<
+  React.ElementRef<typeof RPNInput.default>,
+  PhoneInputProps
+>(({ className, onChange, ...props }, ref) => {
+  return (
+    <RPNInput.default
+      ref={ref}
+      className={cn('flex', className)}
+      flagComponent={FlagComponent}
+      countrySelectComponent={CountrySelect}
+      inputComponent={InputComponent}
+      /**
+       * Handles the onChange event.
+       *
+       * react-phone-number-input might trigger the onChange event as undefined
+       * when a valid phone number is not entered. To prevent this,
+       * the value is coerced to an empty string.
+       *
+       * @param {E164Number | undefined} value - The entered value
+       */
+      // @ts-expect-error
+      onChange={(value) => onChange?.(value || '')}
+      {...props}
+    />
   );
+});
 PhoneInput.displayName = 'PhoneInput';
 
-const InputComponent = React.forwardRef<HTMLInputElement, any>(
-  ({ className, ...props }, ref) => (
-    <input
-      className={cn(
-        'rounded-e-lg rounded-s-none px-2 bg-primary-base outline-hidden w-full ',
-        className
-      )}
-      {...props}
-      ref={ref}
-    />
-  )
-);
+const InputComponent = React.forwardRef<HTMLInputElement, any>(({ className, ...props }, ref) => (
+  <input
+    className={cn(
+      'rounded-e-lg rounded-s-none px-2 bg-primary-base outline-hidden w-full ',
+      className
+    )}
+    {...props}
+    ref={ref}
+  />
+));
 InputComponent.displayName = 'InputComponent';
 
 type CountrySelectOption = { label: string; value: RPNInput.Country };
@@ -79,12 +69,7 @@ type CountrySelectProps = {
   options: CountrySelectOption[];
 };
 
-const CountrySelect = ({
-  disabled,
-  value,
-  onChange,
-  options,
-}: CountrySelectProps) => {
+const CountrySelect = ({ disabled, value, onChange, options }: CountrySelectProps) => {
   const handleSelect = React.useCallback(
     (country: RPNInput.Country) => {
       onChange(country);
@@ -103,10 +88,7 @@ const CountrySelect = ({
         >
           <FlagComponent country={value} countryName={value} />
           <ChevronsUpDown
-            className={cn(
-              '-mr-2 h-4 w-4 opacity-50',
-              disabled ? 'hidden' : 'opacity-100'
-            )}
+            className={cn('-mr-2 h-4 w-4 opacity-50', disabled ? 'hidden' : 'opacity-100')}
           />
         </Button>
       </PopoverTrigger>
@@ -125,10 +107,7 @@ const CountrySelect = ({
                       key={option.value}
                       onSelect={() => handleSelect(option.value)}
                     >
-                      <FlagComponent
-                        country={option.value}
-                        countryName={option.label}
-                      />
+                      <FlagComponent country={option.value} countryName={option.label} />
                       <span className='flex-1 text-sm'>{option.label}</span>
                       {option.value && (
                         <span className='text-foreground/50 text-sm'>

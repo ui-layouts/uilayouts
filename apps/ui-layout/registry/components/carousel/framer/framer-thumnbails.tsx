@@ -1,13 +1,13 @@
 'use client';
-import React, { useEffect, useRef, useState } from 'react';
 import {
   AnimatePresence,
+  animate,
   motion,
   useMotionTemplate,
   useMotionValue,
   useSpring,
-  animate,
 } from 'motion/react';
+import React, { useEffect, useRef, useState } from 'react';
 
 export const items = [
   {
@@ -184,12 +184,7 @@ function FramerCarouselThumbnails() {
                   : 'bg-white hover:scale-110 hover:opacity-100 opacity-70'
               }`}
           >
-            <svg
-              className='w-6 h-6'
-              fill='none'
-              stroke='currentColor'
-              viewBox='0 0 24 24'
-            >
+            <svg className='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
               <path
                 strokeLinecap='round'
                 strokeLinejoin='round'
@@ -210,18 +205,8 @@ function FramerCarouselThumbnails() {
                   : 'bg-white hover:scale-110 hover:opacity-100 opacity-70'
               }`}
           >
-            <svg
-              className='w-6 h-6'
-              fill='none'
-              stroke='currentColor'
-              viewBox='0 0 24 24'
-            >
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth={2}
-                d='M9 5l7 7-7 7'
-              />
+            <svg className='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+              <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9 5l7 7-7 7' />
             </svg>
           </motion.button>
         </div>
@@ -232,13 +217,7 @@ function FramerCarouselThumbnails() {
   );
 }
 
-function Thumbnails({
-  index,
-  setIndex,
-}: {
-  index: number;
-  setIndex: (index: number) => void;
-}) {
+function Thumbnails({ index, setIndex }: { index: number; setIndex: (index: number) => void }) {
   const thumbnailsRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {

@@ -1,7 +1,7 @@
 'use client';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { ShimmerLoader } from '@/components/ui/shimmer-loader';
 import { TypeWritter } from '@/components/ui/typing-writter';
-import { useEffect, useRef, useState, useCallback } from 'react';
 
 type Phase =
   | { type: 'divider' }
@@ -80,11 +80,7 @@ const SEQUENCE: Phase[] = [
   },
 ];
 
-export function NewIntroSequence({
-  onComplete,
-  className,
-  style,
-}: IntroSequenceProps) {
+export function NewIntroSequence({ onComplete, className, style }: IntroSequenceProps) {
   const [items, setItems] = useState<RenderedItem[]>([]);
   const phaseRef = useRef(0);
   const lineRef = useRef(0);
@@ -101,10 +97,7 @@ export function NewIntroSequence({
     }
 
     if (phase.type === 'divider') {
-      setItems((prev) => [
-        ...prev,
-        { id: `divider-${phaseRef.current}`, phase },
-      ]);
+      setItems((prev) => [...prev, { id: `divider-${phaseRef.current}`, phase }]);
       phaseRef.current++;
       setTimeout(advance, 80);
       return;

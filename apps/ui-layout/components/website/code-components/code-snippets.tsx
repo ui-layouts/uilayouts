@@ -4,6 +4,7 @@ interface ComponentCodePreviewProps {
   tabclassname?: string;
   copyclass?: string;
 }
+
 import { getComponentCode } from '@/lib/get-component-code';
 import { PreCode } from './pre-code';
 

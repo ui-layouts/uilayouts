@@ -1,13 +1,13 @@
 'use client';
 
+import { Paperclip } from 'lucide-react';
 import { useState } from 'react';
 import {
+  FileInput,
   FileUploader,
   FileUploaderContent,
   FileUploaderItem,
-  FileInput,
 } from '@/components/ui/file-upload';
-import { Paperclip } from 'lucide-react';
 
 const FileSvgDraw = () => {
   return (

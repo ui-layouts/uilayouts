@@ -1,34 +1,24 @@
-import { notFound } from 'next/navigation';
 import { Blocks, Code, Component, Expand, Eye } from 'lucide-react';
-import Footer from '@/components/website/footer';
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from '@/components/website/ui/tabs';
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from '@/components/website/ui/tooltip';
-import { Metadata } from 'next';
-import Link from 'next/link';
+import type { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
 import { blocksDesign, getBlocksDesignMeta } from '@/blocks-docs';
-import { TreeCodeViewer } from '@/components/ui/tree-view-code';
-import { transformCodeFiles } from '@/lib/transform-code-files';
-import { ClientPreCode } from '@/components/website/code-components/client-pre-code';
-
-import DynamicPreviewIframe from '@/components/website/blocks-components/dynamic-preview-Iframe';
-import { cn } from '@/lib/utils';
-import { TableOfContents } from '@/components/website/blocks-components/table-of-contents';
-import CliCopyBtn from '@/components/website/blocks-components/cli-copy-btn';
-import { Container } from '@/components/ui/container';
-import HomeFooter from '@/components/website/home/home-footer';
-import { StructuredData } from '@/components/seo/structured-data';
 import { BreadcrumbStructuredData } from '@/components/seo/breadcrumb-structured-data';
+import { StructuredData } from '@/components/seo/structured-data';
+import { Container } from '@/components/ui/container';
+import { TreeCodeViewer } from '@/components/ui/tree-view-code';
+import CliCopyBtn from '@/components/website/blocks-components/cli-copy-btn';
+import DynamicPreviewIframe from '@/components/website/blocks-components/dynamic-preview-Iframe';
+import { TableOfContents } from '@/components/website/blocks-components/table-of-contents';
 import CarbonAd from '@/components/website/carbon-ads';
+import { ClientPreCode } from '@/components/website/code-components/client-pre-code';
+import Footer from '@/components/website/footer';
+import HomeFooter from '@/components/website/home/home-footer';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/website/ui/tabs';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/website/ui/tooltip';
+import { transformCodeFiles } from '@/lib/transform-code-files';
+import { cn } from '@/lib/utils';
 
 export const dynamic = 'force-static';
 export const dynamicParams = false;
@@ -93,9 +83,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function SectionPage(props: {
-  params: Promise<{ section?: string }>;
-}) {
+export default async function SectionPage(props: { params: Promise<{ section?: string }> }) {
   const { section } = await props.params;
   const sectionData = blocksDesign.find((s) => s.id === section);
 
@@ -157,14 +145,8 @@ export default async function SectionPage(props: {
             <div className='w-fit mx-auto xl:scale-90 scale-80 xl:translate-x-10 translate-x-20'>
               <CarbonAd />
             </div>
-            <a href='https://pro.ui-layouts.com/pricing' target='_blank'>
-              <Image
-                src='/get-pro.png'
-                className='w-72 h-full'
-                alt=''
-                width={288}
-                height={96}
-              />
+            <a href='https://pro.ui-layouts.com/pricing' target='_blank' rel='noopener'>
+              <Image src='/get-pro.png' className='w-72 h-full' alt='' width={288} height={96} />
             </a>
           </div>
         </article>
@@ -174,9 +156,7 @@ export default async function SectionPage(props: {
         <div className='space-y-5 pb-10 prose max-w-full relative'>
           {blocksWithCode.map((block, index) => {
             const isMultiple = block.transformedCodeFiles.length > 1;
-            const url = encodeURIComponent(
-              `https://www.ui-layouts.com/r/${block?.id}.json`
-            );
+            const url = encodeURIComponent(`https://www.ui-layouts.com/r/${block?.id}.json`);
             const finalUrl = `https://v0.dev/chat/api/open?url=${url}`;
             console.log('html', block?.transformedCodeFiles[0].html);
             console.log('raw', block?.transformedCodeFiles[0].raw);
@@ -228,6 +208,7 @@ export default async function SectionPage(props: {
                               href={`/preview/${section}/${block.id}`}
                               target='_blank'
                               className='h-10 md:grid hidden place-items-center p-2 text-primary dark:bg-neutral-700 bg-neutral-100 border'
+                              rel='noopener'
                             >
                               <Expand className='w-6 h-6' />
                             </a>

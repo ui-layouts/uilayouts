@@ -1,15 +1,15 @@
-import { notFound } from 'next/navigation';
-import { Metadata } from 'next';
-import { getDocBySlug, getAllDocs } from '@/lib/docs';
-import { absoluteUrl, cn } from '@/lib/utils';
 import { Component } from 'lucide-react';
-import TableOfContents from '@/components/website/tableof-compoents';
-import { ComponentPagination } from '@/components/website/code-components/pagination';
-import Footer from '@/components/website/footer';
-import CopyPage from '@/components/website/copy-page';
-import { GapPattern } from '@/components/ui/gap-pattern';
-import { StructuredData } from '@/components/seo/structured-data';
+import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 import { BreadcrumbStructuredData } from '@/components/seo/breadcrumb-structured-data';
+import { StructuredData } from '@/components/seo/structured-data';
+import { GapPattern } from '@/components/ui/gap-pattern';
+import { ComponentPagination } from '@/components/website/code-components/pagination';
+import CopyPage from '@/components/website/copy-page';
+import Footer from '@/components/website/footer';
+import TableOfContents from '@/components/website/tableof-compoents';
+import { getAllDocs, getDocBySlug } from '@/lib/docs';
+import { absoluteUrl, cn } from '@/lib/utils';
 
 export const dynamic = 'force-static';
 export const dynamicParams = false;
@@ -82,9 +82,7 @@ export async function generateMetadata(props: {
   };
 }
 
-export default async function DocPage(props: {
-  params: Promise<{ slug?: string[] }>;
-}) {
+export default async function DocPage(props: { params: Promise<{ slug?: string[] }> }) {
   const params = await props.params;
   const slug = params.slug?.join('/') || '';
   const doc = await getDocBySlug(slug);
@@ -132,9 +130,7 @@ export default async function DocPage(props: {
                   </h1>
                   <CopyPage />
                 </div>
-                <p className='sm:text-sm text-xs pt-2'>
-                  {doc.content.metadata.description}
-                </p>
+                <p className='sm:text-sm text-xs pt-2'>{doc.content.metadata.description}</p>
               </div>
             </article>
             <Content />

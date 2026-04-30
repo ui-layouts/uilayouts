@@ -1,7 +1,8 @@
 // @ts-nocheck
 'use client';
-import React, { useState } from 'react';
 import { motion } from 'motion/react';
+import type React from 'react';
+import { useState } from 'react';
 import { cn } from '@/lib/utils';
 
 interface LiquidGlassCardProps {
@@ -36,9 +37,7 @@ export const LiquidGlassCard = ({
 }: LiquidGlassCardProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const handleToggleExpansion = (e: {
-    target: { closest: (arg0: string) => any };
-  }) => {
+  const handleToggleExpansion = (e: { target: { closest: (arg0: string) => any } }) => {
     if (!expandable) return;
     // Don't toggle if clicking on interactive elements
     if (e.target.closest('a, button, input, select, textarea')) return;
@@ -101,16 +100,10 @@ export const LiquidGlassCard = ({
     draggable || expandable
       ? {
           variants: expandable ? containerVariants : undefined,
-          animate: expandable
-            ? isExpanded
-              ? 'expanded'
-              : 'collapsed'
-            : undefined,
+          animate: expandable ? (isExpanded ? 'expanded' : 'collapsed') : undefined,
           onClick: expandable ? handleToggleExpansion : undefined,
           drag: draggable,
-          dragConstraints: draggable
-            ? { left: 0, right: 0, top: 0, bottom: 0 }
-            : undefined,
+          dragConstraints: draggable ? { left: 0, right: 0, top: 0, bottom: 0 } : undefined,
           dragElastic: draggable ? 0.3 : undefined,
           dragTransition: draggable
             ? {

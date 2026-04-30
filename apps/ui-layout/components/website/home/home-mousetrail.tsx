@@ -1,8 +1,8 @@
 //@ts-nocheck
 'use client';
-import preview from '@/assets/preview/Preview';
 import Image from 'next/image';
-import React, { useRef, createRef, useState } from 'react';
+import React, { createRef, useRef, useState } from 'react';
+import preview from '@/assets/preview/Preview';
 export const items = [
   {
     id: 1,
@@ -90,8 +90,7 @@ export default function HomeMouseTrail() {
     if (distanceFromLast(e.clientX, e.clientY) > window.innerWidth / 20) {
       const lead = refs.current[globalIndex % refs.current.length].current;
 
-      const tail =
-        refs.current[(globalIndex - 5) % refs.current.length]?.current;
+      const tail = refs.current[(globalIndex - 5) % refs.current.length]?.current;
 
       if (lead) activate(lead, e.clientX, e.clientY);
       if (tail) deactivate(tail);
@@ -131,9 +130,7 @@ export default function HomeMouseTrail() {
         </figure>
       ))}
       <article className='relative z-20 dark:mix-blend-difference '>
-        <h1 className='text-3xl text-center font-semibold'>
-          ✨Experience Mouse Trails
-        </h1>
+        <h1 className='text-3xl text-center font-semibold'>✨Experience Mouse Trails</h1>
       </article>
     </section>
   );

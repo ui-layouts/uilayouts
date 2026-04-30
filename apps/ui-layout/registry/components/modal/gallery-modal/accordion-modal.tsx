@@ -1,14 +1,13 @@
 // @ts-nocheck
 'use client';
-import React, { useEffect } from 'react';
-import { useState } from 'react';
-import { motion, AnimateSharedLayout, AnimatePresence } from 'motion/react';
+import { AnimatePresence, AnimateSharedLayout, motion } from 'motion/react';
 import Image from 'next/image';
+import React, { useEffect, useState } from 'react';
 
 export const itemsArr = [
   {
     id: 1,
-    url: "https://images.unsplash.com/photo-1709949908058-a08659bfa922?q=80&w=1200&auto=format",
+    url: 'https://images.unsplash.com/photo-1709949908058-a08659bfa922?q=80&w=1200&auto=format',
     title: 'Misty Mountain Majesty',
     description:
       'A breathtaking view of misty mountains shrouded in clouds, creating an ethereal landscape.',
@@ -40,7 +39,7 @@ export const itemsArr = [
   },
   {
     id: 5,
-    url:'https://images.unsplash.com/photo-1709949908058-a08659bfa922?q=80&w=1200&auto=format',
+    url: 'https://images.unsplash.com/photo-1709949908058-a08659bfa922?q=80&w=1200&auto=format',
     title: 'Misty Mountain Peaks',
     description:
       "Majestic mountain peaks emerging from a sea of clouds, showcasing nature's grandeur.",
@@ -94,10 +93,14 @@ export const itemsArr = [
       'A serene mountain lake surrounded by pine forests, reflecting the calm beauty of the wilderness.',
     tags: ['Lake', 'Mountains', 'Forest', 'Reflection', 'Serenity'],
   },
-  
 ];
 
-function Gallery({ items, setIndex, setOpen, index }:{
+function Gallery({
+  items,
+  setIndex,
+  setOpen,
+  index,
+}: {
   items: typeof itemsArr;
   setIndex: (index: number) => void;
   setOpen: (open: boolean) => void;
@@ -111,9 +114,7 @@ function Gallery({ items, setIndex, setOpen, index }:{
             <motion.img
               whileTap={{ scale: 0.95 }}
               className={`rounded-2xl ${
-                index === i
-                  ? 'w-[250px] '
-                  : 'xl:w-[50px] md:w-[30px] sm:w-[20px] w-[14px]'
+                index === i ? 'w-[250px] ' : 'xl:w-[50px] md:w-[30px] sm:w-[20px] w-[14px]'
               } h-[200px] shrink-0  object-cover transition-[width] ease-in-out duration-300`}
               key={item}
               onMouseEnter={() => {
@@ -159,12 +160,7 @@ export default function AccordionModal() {
   }, [open]);
   return (
     <div className='relative'>
-      <Gallery
-        items={itemsArr}
-        index={index}
-        setIndex={setIndex}
-        setOpen={setOpen}
-      />
+      <Gallery items={itemsArr} index={index} setIndex={setIndex} setOpen={setOpen} />
       <AnimatePresence>
         {open !== false && (
           <motion.div

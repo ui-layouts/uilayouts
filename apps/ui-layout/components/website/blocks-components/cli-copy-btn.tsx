@@ -1,21 +1,14 @@
 // @ts-nocheck
 'use client';
 
-import * as React from 'react';
-import {
-  Check,
-  CheckCheck,
-  CheckIcon,
-  ChevronDownIcon,
-  ChevronsUpDown,
-  Copy,
-} from 'lucide-react';
 import * as SelectPrimitives from '@radix-ui/react-select';
-import { cn } from '@/lib/utils';
 import { Button } from '@repo/shadcn';
-import { SVGProps } from 'react';
-import { Bun, NPM, Pnpm, Yarn } from '../icons';
+import { Check, CheckCheck, CheckIcon, ChevronDownIcon, ChevronsUpDown, Copy } from 'lucide-react';
 import { motion } from 'motion/react';
+import * as React from 'react';
+import { SVGProps } from 'react';
+import { cn } from '@/lib/utils';
+import { Bun, NPM, Pnpm, Yarn } from '../icons';
 
 type PM = 'npm' | 'pnpm' | 'bun' | 'yarn';
 
@@ -50,10 +43,7 @@ export default function CliCopyBtn({ id }: { id: string }) {
   return (
     <div className='flex items-center gap-2'>
       {/* Package Manager Select */}
-      <SelectPrimitives.Root
-        value={value}
-        onValueChange={(newValue) => setValue(newValue as PM)}
-      >
+      <SelectPrimitives.Root value={value} onValueChange={(newValue) => setValue(newValue as PM)}>
         <SelectPrimitives.Trigger
           className={cn(
             'inline-flex h-10 w-12 pl-1 items-center justify-center gap-1 border border-input bg-neutral-100 dark:bg-neutral-700 py-2 text-sm placeholder:text-muted-foreground transition-all duration-200'
@@ -124,29 +114,27 @@ export default function CliCopyBtn({ id }: { id: string }) {
   );
 }
 
-const SelectItem = React.forwardRef(
-  ({ children, className, ...props }, forwardedRef) => {
-    return (
-      <SelectPrimitives.Item
-        className={cn(
-          'relative w-full border-b last:border-none dark:border-neutral-800 border-neutral-200 flex justify-center select-none items-center py-1.5 text-sm outline-none transition-colors duration-200 cursor-pointer',
-          // Base state
-          'text-gray-700 dark:text-gray-200',
-          // Hover state
-          'hover:bg-blue-50 hover:text-blue-900 dark:hover:bg-blue-500/30 dark:hover:text-blue-100',
-          // Focus/Keyboard navigation state (data-highlighted)
-          'data-highlighted:bg-blue-100 data-highlighted:text-blue-900 dark:data-highlighted:bg-blue-500/30 dark:data-highlighted:text-blue-100',
-          // Selected state (data-[state=checked])
-          'data-[state=checked]:bg-blue-500 data-[state=checked]:text-white dark:data-[state=checked]:bg-blue-600',
-          // Disabled state
-          'data-disabled:pointer-events-none data-disabled:opacity-50',
-          className
-        )}
-        {...props}
-        ref={forwardedRef}
-      >
-        <SelectPrimitives.ItemText>{children}</SelectPrimitives.ItemText>
-      </SelectPrimitives.Item>
-    );
-  }
-);
+const SelectItem = React.forwardRef(({ children, className, ...props }, forwardedRef) => {
+  return (
+    <SelectPrimitives.Item
+      className={cn(
+        'relative w-full border-b last:border-none dark:border-neutral-800 border-neutral-200 flex justify-center select-none items-center py-1.5 text-sm outline-none transition-colors duration-200 cursor-pointer',
+        // Base state
+        'text-gray-700 dark:text-gray-200',
+        // Hover state
+        'hover:bg-blue-50 hover:text-blue-900 dark:hover:bg-blue-500/30 dark:hover:text-blue-100',
+        // Focus/Keyboard navigation state (data-highlighted)
+        'data-highlighted:bg-blue-100 data-highlighted:text-blue-900 dark:data-highlighted:bg-blue-500/30 dark:data-highlighted:text-blue-100',
+        // Selected state (data-[state=checked])
+        'data-[state=checked]:bg-blue-500 data-[state=checked]:text-white dark:data-[state=checked]:bg-blue-600',
+        // Disabled state
+        'data-disabled:pointer-events-none data-disabled:opacity-50',
+        className
+      )}
+      {...props}
+      ref={forwardedRef}
+    >
+      <SelectPrimitives.ItemText>{children}</SelectPrimitives.ItemText>
+    </SelectPrimitives.Item>
+  );
+});

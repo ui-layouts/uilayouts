@@ -1,17 +1,14 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import { Bug, Lightbulb, Pencil, SquareArrowOutUpRight } from 'lucide-react';
+import { motion, useScroll, useSpring, useTransform } from 'motion/react';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import React, { useEffect, useState } from 'react';
 import { useMediaQuery } from '@/hooks/use-media-query';
 import BuyMeCoffee from '@/registry/components/buy-me-coffee';
-import { motion, useScroll, useSpring, useTransform } from 'motion/react';
-import { ScrollArea } from './ui/scroll-area';
-import Image from 'next/image';
-import { SquareArrowOutUpRight } from 'lucide-react';
-import { Bug } from 'lucide-react';
-import { Lightbulb } from 'lucide-react';
-import { Pencil } from 'lucide-react';
 import CarbonAd from './carbon-ads';
+import { ScrollArea } from './ui/scroll-area';
 
 interface TocItem {
   title: string;
@@ -190,6 +187,7 @@ export default function TableOfContents({ toc }: TableOfContentsProps) {
                       key={nav?.label}
                       target='_blank'
                       className='hover:text-primary text-muted-foreground flex items-center gap-1'
+                      rel='noopener'
                     >
                       {nav?.icon}
                       {nav?.label}

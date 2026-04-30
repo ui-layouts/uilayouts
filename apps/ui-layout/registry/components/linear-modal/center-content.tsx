@@ -1,14 +1,14 @@
+import { Plus } from 'lucide-react';
 import {
   Dialog,
-  DialogTrigger,
-  DialogContent,
-  DialogTitle,
-  DialogImage,
   DialogClose,
-  DialogDescription,
   DialogContainer,
+  DialogContent,
+  DialogDescription,
+  DialogImage,
+  DialogTitle,
+  DialogTrigger,
 } from '@/components/ui/linear-modal';
-import { Plus } from 'lucide-react';
 
 const items = [
   {
@@ -53,16 +53,10 @@ export default function App() {
                 }}
                 className='flex w-full h-72 border dark:bg-black bg-white flex-col overflow-hidden'
               >
-                <DialogImage
-                  src={item.url}
-                  alt=''
-                  className='h-full w-full object-cover'
-                />
+                <DialogImage src={item.url} alt='' className='h-full w-full object-cover' />
                 <div className='flex grow flex-row items-end justify-between p-3 pt-4 text-primary'>
                   <div>
-                    <DialogTitle className='text-xl '>
-                      {item.title}
-                    </DialogTitle>
+                    <DialogTitle className='text-xl '>{item.title}</DialogTitle>
                   </div>
                   <button className='absolute bottom-2 right-2 p-2 bg-neutral-200 dark:bg-neutral-900 rounded-lg'>
                     <Plus className='w-6 h-6' />
@@ -98,9 +92,7 @@ export default function App() {
                           exit: { opacity: 0, scale: 0.8, y: -50 },
                         }}
                       >
-                        <p className='mt-2 dark:text-white text-zinc-500 '>
-                          {item.description}
-                        </p>
+                        <p className='mt-2 dark:text-white text-zinc-500 '>{item.description}</p>
                       </DialogDescription>
                     </div>
                     <DialogClose className='text-primary  bg-primary-foreground p-4 rounded-lg' />

@@ -3,9 +3,9 @@
 
 // https://buildui.com/recipes/spotlight
 
-import { cn } from '@/lib/utils';
 import Image from 'next/image';
-import React, { MouseEvent, useRef, useState } from 'react';
+import React, { type MouseEvent, useRef, useState } from 'react';
+import { cn } from '@/lib/utils';
 
 export default function DemoSpotlightCard4() {
   const boxWrapper = useRef(null);
@@ -26,7 +26,7 @@ export default function DemoSpotlightCard4() {
 
   const [overlayColor, setOverlayColor] = useState({ x: 0, y: 0 });
   const handleMouemove = ({ currentTarget, clientX, clientY }): MouseEvent => {
-    let { left, top } = currentTarget.getBoundingClientRect();
+    const { left, top } = currentTarget.getBoundingClientRect();
 
     const x = clientX - left;
     const y = clientY - top;
@@ -70,9 +70,7 @@ export default function DemoSpotlightCard4() {
         <div className="relative text-center z-10 sm:px-8 px-4 py-12 pt-6 rounded-lg w-fit  bg-[url('https://res.cloudinary.com/dzl9yxixg/image/upload/timeline-grid_wixa9t.png')] bg-cover  bg-black h-full mx-auto">
           <>
             <Image
-              src={
-                'https://res.cloudinary.com/dzl9yxixg/image/upload/star_tb9ivg.png'
-              }
+              src={'https://res.cloudinary.com/dzl9yxixg/image/upload/star_tb9ivg.png'}
               alt='grid'
               width={600}
               className='w-fit mx-auto '
@@ -84,8 +82,7 @@ export default function DemoSpotlightCard4() {
             <p className='pt-2 lg:text-base text-sm  text-neutral-300 capitalize'>
               Effortlessly connect with today's leading technologies
               <br />
-              including React, TypeScript, Next.js, Tailwind CSS, Motion, and
-              Cypress.
+              including React, TypeScript, Next.js, Tailwind CSS, Motion, and Cypress.
             </p>
           </>
         </div>

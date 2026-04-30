@@ -1,6 +1,6 @@
 'use client';
-import React, { useState, useMemo } from 'react';
 import { Check, CheckCheck, Eye, EyeOff, X } from 'lucide-react';
+import React, { useMemo, useState } from 'react';
 
 // Constants
 const PASSWORD_REQUIREMENTS = [
@@ -8,7 +8,7 @@ const PASSWORD_REQUIREMENTS = [
   { regex: /[0-9]/, text: 'At least 1 number' },
   { regex: /[a-z]/, text: 'At least 1 lowercase letter' },
   { regex: /[A-Z]/, text: 'At least 1 uppercase letter' },
-  { regex: /[!-\/:-@[-`{-~]/, text: 'At least 1 special characters' },
+  { regex: /[!-/:-@[-`{-~]/, text: 'At least 1 special characters' },
 ] as const;
 
 type StrengthScore = 0 | 1 | 2 | 3 | 4 | 5;
@@ -90,53 +90,37 @@ const PasswordInput = () => {
       <div className='flex gap-2 w-full justify-between mt-2'>
         <span
           className={`${
-            calculateStrength.score >= 1
-              ? 'bg-green-200'
-              : 'dark:bg-neutral-950 bg-neutral-50'
+            calculateStrength.score >= 1 ? 'bg-green-200' : 'dark:bg-neutral-950 bg-neutral-50'
           }  p-1 rounded-full w-full`}
         ></span>
         <span
           className={`${
-            calculateStrength.score >= 2
-              ? 'bg-green-300'
-              : 'dark:bg-neutral-950 bg-neutral-50'
+            calculateStrength.score >= 2 ? 'bg-green-300' : 'dark:bg-neutral-950 bg-neutral-50'
           }  p-1 rounded-full w-full`}
         ></span>
         <span
           className={`${
-            calculateStrength.score >= 3
-              ? 'bg-green-400'
-              : 'dark:bg-neutral-950 bg-neutral-50'
+            calculateStrength.score >= 3 ? 'bg-green-400' : 'dark:bg-neutral-950 bg-neutral-50'
           }  p-1 rounded-full w-full`}
         ></span>
         <span
           className={`${
-            calculateStrength.score >= 4
-              ? 'bg-green-500'
-              : 'dark:bg-neutral-950 bg-neutral-50'
+            calculateStrength.score >= 4 ? 'bg-green-500' : 'dark:bg-neutral-950 bg-neutral-50'
           }  p-1 rounded-full w-full`}
         ></span>
         <span
           className={`${
-            calculateStrength.score >= 5
-              ? 'bg-green-600'
-              : 'dark:bg-neutral-950 bg-neutral-50'
+            calculateStrength.score >= 5 ? 'bg-green-600' : 'dark:bg-neutral-950 bg-neutral-50'
           }  p-1 rounded-full w-full`}
         ></span>
       </div>
 
-      <p
-        id='password-strength'
-        className='my-2 text-sm font-medium flex justify-between'
-      >
+      <p id='password-strength' className='my-2 text-sm font-medium flex justify-between'>
         <span>Must contain:</span>
         <span>
           {
             STRENGTH_CONFIG.texts[
-              Math.min(
-                calculateStrength.score,
-                4
-              ) as keyof typeof STRENGTH_CONFIG.texts
+              Math.min(calculateStrength.score, 4) as keyof typeof STRENGTH_CONFIG.texts
             ]
           }
         </span>
@@ -150,11 +134,7 @@ const PasswordInput = () => {
             ) : (
               <X size={16} className='text-muted-foreground/80' />
             )}
-            <span
-              className={`text-xs ${
-                req.met ? 'text-emerald-600' : 'text-muted-foreground'
-              }`}
-            >
+            <span className={`text-xs ${req.met ? 'text-emerald-600' : 'text-muted-foreground'}`}>
               {req.text}
               <span className='sr-only'>
                 {req.met ? ' - Requirement met' : ' - Requirement not met'}

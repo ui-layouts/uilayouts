@@ -1,10 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "text-scroll-animation",
-  "dependencies": [
-    "motion",
-    "@motionone/utils"
-  ],
+  "dependencies": ["motion", "@motionone/utils"],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [

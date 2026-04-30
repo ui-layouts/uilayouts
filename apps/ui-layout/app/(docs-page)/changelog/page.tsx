@@ -1,5 +1,8 @@
+import { Component } from 'lucide-react';
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
+import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = {
   title: 'Changelog | UI Layouts',
@@ -30,8 +33,7 @@ const changes: ChangeItem[] = [
         label: 'Base component CLI support merged (PR #106).',
       },
       {
-        label:
-          'Registered all registry components for shadcn build integration.',
+        label: 'Registered all registry components for shadcn build integration.',
       },
       {
         label: 'Added CLI registry support for code-focused components.',
@@ -102,84 +104,84 @@ const changes: ChangeItem[] = [
   },
 ];
 
-const includeList = [
-  'New component families or major UI patterns.',
-  'Big improvements to existing components (API changes, accessibility upgrades, performance wins).',
-  'Important docs/platform updates that affect how people use UI Layouts.',
-];
-
-const skipList = [
-  'Tiny refactors and typo fixes.',
-  'Routine dependency bumps without user-facing changes.',
-  'Very small style tweaks that do not change behavior.',
-];
-
 export default function ChangelogPage() {
   return (
-    <div className='mx-auto w-full max-w-3xl py-12'>
-      <p className='text-sm text-muted-foreground'>UI Layouts</p>
-      <h1 className='mt-2 text-3xl font-bold tracking-tight'>Changelog</h1>
-      <p className='mt-3 text-muted-foreground'>
-        We publish <strong>major updates only</strong> here, so the changelog
-        stays concise and helpful.
-      </p>
-
-      <div className='mt-8 grid gap-4 rounded-xl border p-5'>
-        <h2 className='text-lg font-semibold'>What gets listed</h2>
-        <ul className='list-disc space-y-1 pl-5 text-sm text-muted-foreground'>
-          {includeList.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
-
-        <h3 className='text-base font-semibold'>What we intentionally skip</h3>
-        <ul className='list-disc space-y-1 pl-5 text-sm text-muted-foreground'>
-          {skipList.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
-      </div>
-
-      <div className='mt-8 space-y-6'>
-        {changes.map((change) => (
-          <article key={change.title} className='rounded-xl border p-5'>
-            <p className='text-xs uppercase tracking-wide text-muted-foreground'>
-              {change.date}
+    <section className='mx-auto w-full'>
+      <article className='relative overflow-hidden p-10 py-12 border-b'>
+        <div className='absolute inset-0 -z-10 h-full w-full  dark:bg-[radial-gradient(#181a38_1px,transparent_1px)] bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] bg-size-[16px_16px]'></div>
+        <div className='absolute inset-0 -z-2 h-full w-full items-center px-5 dark:[background:radial-gradient(45%_85%_at_80%_50%,#05050542_0%,#050505_140%)] [background:radial-gradient(45%_85%_at_80%_50%,#ffffff37_0%,#ffffff_140%)]'></div>
+        <div className='absolute bottom-0 left-0 right-0 top-0 bg-[repeating-linear-gradient(135deg,#115cffd1_0px_1px,transparent_1px_19px)] mask-[radial-gradient(ellipse_60%_80%_at_100%_50%,#000_0%,transparent_110%)]'></div>
+        <div className='relative z-10 mb-3 flex items-center sm:text-sm text-xs font-medium gap-1 xl:mb-4 xl:gap-1'>
+          <a href='/'>home</a>
+          <span>/</span>
+          <span className='font-semibold dark:text-white text-black'>Changelog</span>
+        </div>
+        <div className='flex flex-wrap gap-2 justify-between items-center relative z-10 w-fit'>
+          <div className='space-y-2 dark:text-white text-black'>
+            <h1
+              className={cn(
+                'mb-0 flex font-medium items-center md:text-3xl sm:text-2xl text-xl sm:gap-3 gap-2 tracking-tight capitalize'
+              )}
+            >
+              <div className='sm:w-9 w-7 sm:h-9 h-7 bg-base-orange grid place-content-center  text-white rounded-lg'>
+                <Component />
+              </div>
+              Changelog
+            </h1>
+            <p className='md:w-140 sm:text-sm text-xs pt-2'>
+              We publish <strong>major updates only</strong> here, so the changelog stays concise and
+          helpful.
             </p>
-            <h2 className='mt-1 text-xl font-semibold'>{change.title}</h2>
-            <p className='mt-2 text-sm text-muted-foreground'>
-              {change.description}
-            </p>
-            <ul className='mt-3 list-disc space-y-1 pl-5 text-sm text-muted-foreground'>
-              {change.details.map((detail) => (
-                <li key={detail.label}>
-                  {detail.href ? (
-                    <Link
-                      href={detail.href}
-                      className='underline underline-offset-4 hover:text-foreground'
-                    >
-                      {detail.label}
-                    </Link>
-                  ) : (
-                    detail.label
-                  )}
-                </li>
-              ))}
-            </ul>
-          </article>
-        ))}
-      </div>
+          </div>
+        </div>
 
-      <p className='mt-8 text-sm text-muted-foreground'>
-        Looking for everything in detail? Check the{' '}
-        <Link
-          href='https://github.com/intentui/ui-layouts/commits/main/'
-          className='underline underline-offset-4 hover:text-foreground'
+        <a
+          href='https://pro.ui-layouts.com/pricing'
+          target='_blank'
+          className='absolute xl:-top-16 xl:-right-2 -top-10 -right-12 md:block hidden'
+          rel='noopener'
         >
-          commit history
-        </Link>{' '}
-        for full granular changes.
-      </p>
-    </div>
+          <Image
+            src='/20perc.png'
+            alt='20-off'
+            className='xl:w-96 w-72 h-full object-cover'
+            width={600}
+            height={600}
+          />
+        </a>
+      </article>
+      <div className='p-10'>
+        <div className='mt-8 space-y-6'>
+          {changes.map((change) => (
+            <article
+              key={change.title}
+              className='rounded-xl border bg-neutral-100 dark:bg-neutral-900 p-5'
+            >
+              <p className='text-lg uppercase tracking-wide text-muted-foreground'>{change.date}</p>
+              <div className='pl-5'>
+                <h2 className='mt-1 text-xl font-medium'>{change.title}</h2>
+                <p className='mt-2 text-sm text-muted-foreground'>{change.description}</p>
+                <ul className='mt-3 list-disc space-y-1 pl-5 text-sm text-muted-foreground'>
+                  {change.details.map((detail) => (
+                    <li key={detail.label}>
+                      {detail.href ? (
+                        <Link
+                          href={detail.href}
+                          className='underline underline-offset-4 hover:text-foreground'
+                        >
+                          {detail.label}
+                        </Link>
+                      ) : (
+                        detail.label
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }

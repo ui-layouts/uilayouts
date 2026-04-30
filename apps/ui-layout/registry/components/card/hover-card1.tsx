@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import Image from 'next/image';
 import { MoveUpRight } from 'lucide-react';
+import Image from 'next/image';
+import React, { useState } from 'react';
+
 function HoverCard1() {
   return (
     <>

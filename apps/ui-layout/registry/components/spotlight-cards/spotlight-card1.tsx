@@ -1,6 +1,5 @@
-import React from 'react';
-
 import Image from 'next/image';
+import React from 'react';
 import { SpotLightItem, Spotlight } from '@/components/ui/spotlight';
 
 export default function SpotlightCard1() {
@@ -37,8 +36,7 @@ export default function SpotlightCard1() {
 
       chart: '/chart1_rll0mx.webp',
       des: 'Keeping track of your goals helps you stay organized, motivated, and focused. Regularly monitoring your progress ensures you stay on course.',
-      className:
-        'xl:col-span-2 xl:row-span-2 row-start-2 row-end-3  col-start-1 col-end-6',
+      className: 'xl:col-span-2 xl:row-span-2 row-start-2 row-end-3  col-start-1 col-end-6',
     },
   ];
   return (
@@ -64,9 +62,7 @@ export default function SpotlightCard1() {
                     <h1 className='text-center xl:text-2xl lg:text-xl text-2xl font-semibold'>
                       {box?.title}
                     </h1>
-                    <p className='text-center lg:text-base text-xs'>
-                      {box?.des}
-                    </p>
+                    <p className='text-center lg:text-base text-xs'>{box?.des}</p>
                   </div>
                 </div>
               </SpotLightItem>

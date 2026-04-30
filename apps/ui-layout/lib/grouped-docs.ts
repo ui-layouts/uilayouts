@@ -1,5 +1,5 @@
 import { DocsNavigationCategories } from '@/configs/docs';
-import { DocsNavigationCategory } from '@/types/docs';
+import type { DocsNavigationCategory } from '@/types/docs';
 
 export const groupedDocsNavigationCategories = DocsNavigationCategories.reduce(
   (acc: Record<string, DocsNavigationCategory[]>, component: DocsNavigationCategory) => {
@@ -8,7 +8,7 @@ export const groupedDocsNavigationCategories = DocsNavigationCategories.reduce(
       acc[group] = [];
     }
     acc[group].push(component);
-    
+
     return acc;
   },
   {}

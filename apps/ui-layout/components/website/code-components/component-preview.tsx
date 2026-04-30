@@ -1,22 +1,9 @@
 'use client';
-import { cn } from '@/lib/utils';
-import {
-  Check,
-  Copy,
-  Expand,
-  Monitor,
-  RotateCw,
-  Smartphone,
-  Tablet,
-} from 'lucide-react';
-import React, { useState, useEffect, useRef, Suspense, useMemo } from 'react';
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from '@radix-ui/react-tooltip';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@radix-ui/react-tooltip';
+import { Check, Copy, Expand, Monitor, RotateCw, Smartphone, Tablet } from 'lucide-react';
+import React, { Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import { getComponentPreview } from '@/lib/component-projections';
+import { cn } from '@/lib/utils';
 
 type ComponentPreviewProps = {
   hasReTrigger?: boolean;
@@ -84,9 +71,7 @@ export default function ComponentPreview({
                   <Tooltip delayDuration={200}>
                     <TooltipTrigger
                       className={`rounded-md p-1 ${
-                        mode === 'desktop'
-                          ? 'bg-primary text-primary-foreground'
-                          : ''
+                        mode === 'desktop' ? 'bg-primary text-primary-foreground' : ''
                       }`}
                       onClick={() => {
                         setMode('desktop');
@@ -105,9 +90,7 @@ export default function ComponentPreview({
                   <Tooltip delayDuration={200}>
                     <TooltipTrigger
                       className={`rounded-md p-1 ${
-                        mode === 'tablet'
-                          ? 'bg-primary text-primary-foreground'
-                          : ''
+                        mode === 'tablet' ? 'bg-primary text-primary-foreground' : ''
                       }`}
                       onClick={() => {
                         setMode('tablet');
@@ -127,9 +110,7 @@ export default function ComponentPreview({
                   <Tooltip delayDuration={200}>
                     <TooltipTrigger
                       className={`rounded-md p-1 ${
-                        mode === 'mobile'
-                          ? 'bg-primary text-primary-foreground'
-                          : ''
+                        mode === 'mobile' ? 'bg-primary text-primary-foreground' : ''
                       }`}
                       onClick={() => {
                         setMode('mobile');
@@ -220,6 +201,7 @@ export default function ComponentPreview({
                   href={`${process.env.NEXT_PUBLIC_ANIMATION_URL}/${iframeComponent}`}
                   target='_blank'
                   className='relative flex cursor-pointer  items-center  gap-1 rounded-lg border dark:bg-neutral-700 text-primary bg-neutral-200 p-1 px-2.5'
+                  rel='noopener'
                 >
                   Open <Expand size={20} />
                 </a>
@@ -241,17 +223,15 @@ export default function ComponentPreview({
                   className
                 )}
               >
-                <div
-                  className='h-full not-prose mx-auto'
-                  style={{ width: width }}
-                >
+                <div className='h-full not-prose mx-auto' style={{ width: width }}>
                   <iframe
                     src={`${process.env.NEXT_PUBLIC_ANIMATION_URL}/${iframeComponent}`}
                     className='h-full w-full'
                     style={{ maxWidth: '100%' }}
                     loading='lazy'
                     key={reTriggerKey}
-                   title='Component live preview' />
+                    title='Component live preview'
+                  />
                 </div>
               </div>
             </>
@@ -259,17 +239,12 @@ export default function ComponentPreview({
             <div
               className={cn(
                 `${
-                  isFitheight
-                    ? 'h-fit py-4'
-                    : 'lg:h-[600px] sm:h-[500px] h-[400px]'
+                  isFitheight ? 'h-fit py-4' : 'lg:h-[600px] sm:h-[500px] h-[400px]'
                 }  w-full rounded-lg bg-codebg border dark:border-neutral-800 overflow-hidden p-0`,
                 className
               )}
             >
-              <div
-                className='h-full not-prose mx-auto'
-                style={{ width: width }}
-              >
+              <div className='h-full not-prose mx-auto' style={{ width: width }}>
                 <>
                   <iframe
                     src={`${process.env.NEXT_PUBLIC_CLIENT_URL}/${iframeSrc}`}
@@ -277,7 +252,8 @@ export default function ComponentPreview({
                     style={{ maxWidth: '100%' }}
                     loading='lazy'
                     key={reTriggerKey}
-                   title='Component live preview' />
+                    title='Component live preview'
+                  />
                 </>
               </div>
             </div>

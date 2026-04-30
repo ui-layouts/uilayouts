@@ -5,10 +5,7 @@ export function Link(props: { href?: string; children?: React.ReactNode }) {
   if (props.href?.startsWith('hover:')) {
     const hover = props.href.slice('hover:'.length);
     return (
-      <span
-        className='underline decoration-dotted underline-offset-4'
-        data-hover={hover}
-      >
+      <span className='underline decoration-dotted underline-offset-4' data-hover={hover}>
         {props.children}
       </span>
     );
@@ -66,24 +63,15 @@ export const imgPreview = {
   img7: 'https://images.unsplash.com/photo-1706049379414-437ec3a54e93?q=80&w=1200&auto=format',
   img8: 'https://images.unsplash.com/photo-1709949908219-fd9046282019?q=80&w=1200&auto=format',
   img9: 'https://images.unsplash.com/photo-1508873881324-c92a3fc536ba?q=80&w=1200&auto=format',
-  img10:
-    'https://images.unsplash.com/photo-1462989856370-729a9c1e2c91?q=80&w=1200&auto=format',
-  img11:
-    'https://images.unsplash.com/photo-1475727946784-2890c8fdb9c8?q=80&w=1200&auto=format',
-  img12:
-    'https://images.unsplash.com/photo-1546942113-a6c43b63104a?q=80&w=1200&auto=format',
-  img13:
-    'https://images.unsplash.com/photo-1726551195764-f98a8e8a57c3?q=80&w=1200&auto=format',
-  img14:
-    'https://images.unsplash.com/photo-1726551195795-612ca47c0b7d?q=80&w=1200&auto=format',
-  img15:
-    'https://images.unsplash.com/photo-1532423622396-10a3f979251a?q=80&w=1200&auto=format',
-  img16:
-    'https://images.unsplash.com/photo-1490750967868-88aa4486c946?q=80&w=1200&auto=format',
-  img17:
-    'https://images.unsplash.com/photo-1496861083958-175bb1bd5702?q=80&w=1200&auto=format',
-  img18:
-    'https://images.unsplash.com/photo-1469212044023-0e55b4b9745a?q=80&w=1200&auto=format',
+  img10: 'https://images.unsplash.com/photo-1462989856370-729a9c1e2c91?q=80&w=1200&auto=format',
+  img11: 'https://images.unsplash.com/photo-1475727946784-2890c8fdb9c8?q=80&w=1200&auto=format',
+  img12: 'https://images.unsplash.com/photo-1546942113-a6c43b63104a?q=80&w=1200&auto=format',
+  img13: 'https://images.unsplash.com/photo-1726551195764-f98a8e8a57c3?q=80&w=1200&auto=format',
+  img14: 'https://images.unsplash.com/photo-1726551195795-612ca47c0b7d?q=80&w=1200&auto=format',
+  img15: 'https://images.unsplash.com/photo-1532423622396-10a3f979251a?q=80&w=1200&auto=format',
+  img16: 'https://images.unsplash.com/photo-1490750967868-88aa4486c946?q=80&w=1200&auto=format',
+  img17: 'https://images.unsplash.com/photo-1496861083958-175bb1bd5702?q=80&w=1200&auto=format',
+  img18: 'https://images.unsplash.com/photo-1469212044023-0e55b4b9745a?q=80&w=1200&auto=format',
 };
 
 export const items = [
@@ -274,8 +262,7 @@ export const apps = [
     id: 'mouseTrail',
     icon: Icons.doc_rectangle,
     name: 'MouseTrail',
-    onClick: () =>
-      window.open('https://naymur.com/', '_blank', 'noopener,noreferrer'),
+    onClick: () => window.open('https://naymur.com/', '_blank', 'noopener,noreferrer'),
     imgSrc: preview.image_mousetrail,
   },
   {

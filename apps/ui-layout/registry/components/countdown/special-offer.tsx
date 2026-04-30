@@ -1,14 +1,12 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 // Target Date: December 31, 2026
 const targetDate = new Date('2026-12-31T23:59:59').getTime();
 
 const SpecialOffer = () => {
-  const [timeRemaining, setTimeRemaining] = useState(
-    targetDate - new Date().getTime()
-  );
+  const [timeRemaining, setTimeRemaining] = useState(targetDate - new Date().getTime());
 
   // useEffect for the time interval
   useEffect(() => {
@@ -42,9 +40,7 @@ const SpecialOffer = () => {
   if (timeRemaining <= 0) {
     return (
       <div className='w-full bg-linear-to-r from-gray-900 to-black p-8 text-center'>
-        <h1 className='text-4xl font-extrabold text-pink-500'>
-          🥳 Sale Ended!
-        </h1>
+        <h1 className='text-4xl font-extrabold text-pink-500'>🥳 Sale Ended!</h1>
       </div>
     );
   }
@@ -76,12 +72,7 @@ const SpecialOffer = () => {
 
           {/* Countdown Timer Section */}
           <div className='flex justify-center items-center gap-2 md:gap-4'>
-            <TimeSegment
-              value={time.days}
-              label='Days'
-              isHighlighted={true}
-              isFlipping={true}
-            />
+            <TimeSegment value={time.days} label='Days' isHighlighted={true} isFlipping={true} />
             <Separator />
             <TimeSegment value={time.hours} label='Hrs' isFlipping={true} />
             <Separator />

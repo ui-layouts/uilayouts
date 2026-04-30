@@ -1,9 +1,9 @@
 'use client';
 
-import { useEffect, useRef, useState, useCallback } from 'react';
-import { Button } from '@/components/website/ui/button';
 import { Copy, Pipette } from 'lucide-react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { toast } from 'sonner';
+import { Button } from '@/components/website/ui/button';
 
 interface ColorPickerProps {
   color: string;
@@ -11,11 +11,7 @@ interface ColorPickerProps {
   showEyedropper?: boolean;
 }
 
-export function ColorPicker({
-  color,
-  onChange,
-  showEyedropper = true,
-}: ColorPickerProps) {
+export function ColorPicker({ color, onChange, showEyedropper = true }: ColorPickerProps) {
   const [hue, setHue] = useState(0);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [internalColor, setInternalColor] = useState(color);

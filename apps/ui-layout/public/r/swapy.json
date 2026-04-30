@@ -1,9 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "swapy",
-  "dependencies": [
-    "swapy"
-  ],
+  "dependencies": ["swapy"],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [

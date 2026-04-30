@@ -74,17 +74,13 @@ export function ShimmerLoader({
   const lastFrameTimeRef = useRef(0);
 
   const [icon, setIcon] = useState(icons[0]);
-  const [iconColor, setIconColor] = useState<[number, number, number]>([
-    160, 110, 255,
-  ]);
+  const [iconColor, setIconColor] = useState<[number, number, number]>([160, 110, 255]);
   const [tokens, setTokens] = useState('0.0');
 
   const showTokens = tokenTarget !== undefined;
 
   const percentBudget = showPercent ? ' 100%'.length : 0;
-  const longestInner = Math.max(
-    ...labels.map((l) => (' ' + l + ' ').length + percentBudget)
-  );
+  const longestInner = Math.max(...labels.map((l) => (' ' + l + ' ').length + percentBudget));
   const barWidth = longestInner + cellPadding * 2;
 
   useEffect(() => {
@@ -163,10 +159,7 @@ export function ShimmerLoader({
         {icon}
       </span>
 
-      <div
-        className='inline-flex font-mono leading-none whitespace-pre'
-        style={{ fontSize }}
-      >
+      <div className='inline-flex font-mono leading-none whitespace-pre' style={{ fontSize }}>
         {Array.from({ length: barWidth }).map((_, i) => (
           <span
             key={i}
@@ -182,10 +175,7 @@ export function ShimmerLoader({
       </div>
 
       {showTokens && (
-        <span
-          className='text-purple-700/70 tabular-nums'
-          style={{ fontSize: fontSize * 0.85 }}
-        >
+        <span className='text-purple-700/70 tabular-nums' style={{ fontSize: fontSize * 0.85 }}>
           {tokens}k
         </span>
       )}

@@ -1,22 +1,23 @@
-import React from 'react';
-import HomeMouseTrail from './home-mousetrail';
-import HomeBtn from './home-btn';
-import HomeDialog from './home-image-modal';
-import HomeTab from './home-tab';
-import NewItemsLoading from './new-items-loading';
-import HomeClipPath from './home-clippath';
+import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
+import { Marquee } from '@/components/ui/marquee';
+import SidebarMenu from '@/registry/components/liquid-glass/sidebar-menu';
+import HomeBtn from './home-btn';
+import HomeClipPath from './home-clippath';
+import HomeDateTimePicker from './home-datetime-picker';
+import HomeFileUpload from './home-file-upload';
+import HomeDialog from './home-image-modal';
+import HomeImageReveal from './home-image-reveal';
+import HomeMouseTrail from './home-mousetrail';
 import HomePasswordInput from './home-password';
 import HomePhoneInput from './home-phone-input';
-import HomeDateTimePicker from './home-datetime-picker';
-import HomeYouutbTags from './home-youtube-tags';
-import HomeFileUpload from './home-file-upload';
+import HomeTab from './home-tab';
 import HomeTextMarquee from './home-text-marque';
-import Link from 'next/link';
-import SidebarMenu from '@/registry/components/liquid-glass/sidebar-menu';
-import { Marquee } from '@/components/ui/marquee';
-import HomeImageReveal from './home-image-reveal';
-import { ArrowRight } from 'lucide-react';
+import HomeYouutbTags from './home-youtube-tags';
+import NewItemsLoading from './new-items-loading';
+
 const homeComponents = [
   {
     id: 111,
@@ -86,8 +87,7 @@ const homeComponents = [
     link: '/components/datetime-picker',
 
     componentSrc: <HomeDateTimePicker />,
-    className:
-      'xl:col-span-4 lg:col-span-7 sm:col-span-9 col-span-14 lg:row-auto row-span-2 ',
+    className: 'xl:col-span-4 lg:col-span-7 sm:col-span-9 col-span-14 lg:row-auto row-span-2 ',
   },
   {
     id: 10,
@@ -136,8 +136,7 @@ function AllComponents() {
             alt='🔥'
             className='w-12 h-12 md:block hidden'
           />
-          Supercharge Your Projects with <br className='md:block hidden' />{' '}
-          Ready-to-Use Components.
+          Supercharge Your Projects with <br className='md:block hidden' /> Ready-to-Use Components.
         </h2>
         <div className='relative grid grid-cols-14 gap-4 xl:px-0 px-3 mx-auto'>
           {homeComponents?.slice(0, 13).map((component, index) => {
@@ -162,6 +161,7 @@ function AllComponents() {
           href='/components'
           target='_blank'
           className='flex sm:text-base text-sm relative z-2 sm:w-fit w-60 py-2 px-3 dark:bg-neutral-900 bg-neutral-100 justify-center group mx-auto font-medium items-center gap-2 rounded-md border dark:border-[#1d1d1d]'
+          rel='noopener'
         >
           {' '}
           <span>Browse all </span>

@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+
 const REPO_ROOT = path.resolve(process.cwd(), '../..');
 
 export const extractCodeFromFilePath = (filePath: string) => {
@@ -47,9 +48,7 @@ export function transformCodeFiles(filePath: any[]) {
     };
 
     const rawContent =
-      typeof file.fileSrc === 'object' &&
-      file.fileSrc !== null &&
-      'default' in file.fileSrc
+      typeof file.fileSrc === 'object' && file.fileSrc !== null && 'default' in file.fileSrc
         ? file.fileSrc.default
         : typeof file.fileSrc === 'string'
           ? file.fileSrc
@@ -99,13 +98,9 @@ export function buildFinalFiles({
   filesArray?: any[];
   childrenBlocks?: any[];
 }) {
-  const filesFromArray = filesArray?.length
-    ? filesArrayToFiles(filesArray)
-    : [];
+  const filesFromArray = filesArray?.length ? filesArrayToFiles(filesArray) : [];
 
-  const filesFromChildren = childrenBlocks?.length
-    ? childrenToFiles(childrenBlocks)
-    : [];
+  const filesFromChildren = childrenBlocks?.length ? childrenToFiles(childrenBlocks) : [];
 
   // children ALWAYS last
   return [...filesFromArray, ...filesFromChildren];

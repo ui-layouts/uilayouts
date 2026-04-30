@@ -19,8 +19,8 @@ function CreativeHoverCard() {
                 Subscriber Highlights
               </span>
               <p className='text-sm text-slate-500'>
-                Building truly great products is both art and science. It's part
-                intuition and part data.
+                Building truly great products is both art and science. It's part intuition and part
+                data.
               </p>
             </div>
             <div className='relative group-hover:-translate-y-2 transition-transform duration-500 ease-in-out '>
@@ -55,8 +55,8 @@ function CreativeHoverCard() {
                 Hide Your Password
               </span>
               <p className='text-sm text-slate-500'>
-                If you don't hide your password then we can see it and know it
-                and then can enter your account
+                If you don't hide your password then we can see it and know it and then can enter
+                your account
               </p>
             </div>
             <div className='relative group-hover:-translate-y-2 transition-transform duration-500 ease-in-out'>
@@ -91,8 +91,8 @@ function CreativeHoverCard() {
                 Don't Hide Chat
               </span>
               <p className='text-sm text-slate-500'>
-                Building truly great products is both art and science. It's part
-                intuition and part data.
+                Building truly great products is both art and science. It's part intuition and part
+                data.
               </p>
             </div>
             <div className='relative group-hover:-translate-y-2 transition-transform duration-500 ease-in-out'>

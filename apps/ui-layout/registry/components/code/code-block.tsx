@@ -46,18 +46,18 @@ export default function CodeBlockDemo() {
   return (
     <div className='p-6 w-full dark:bg-black bg-white rounded-xl mx-auto space-y-8'>
       <div>
-        <h3 className='text-lg font-semibold mb-3'>TypeScript Example (With Line Numbers)</h3>
-        <CodeBlock code={typescriptCode} lang='tsx' className='mb-6' showNumbers={true} />
+        <h3 className='text-lg font-semibold mb-3'>TypeScript Example</h3>
+        <CodeBlock code={typescriptCode} lang='tsx' className='mb-6' />
       </div>
 
       <div>
-        <h3 className='text-lg font-semibold mb-3'>CSS Example (Without Line Numbers)</h3>
-        <CodeBlock code={cssCode} lang='css' className='mb-6' showNumbers={false} />
+        <h3 className='text-lg font-semibold mb-3'>CSS Example</h3>
+        <CodeBlock code={cssCode} lang='css' className='mb-6' />
       </div>
 
       <div>
-        <h3 className='text-lg font-semibold mb-3'>Python Example (With Line Numbers)</h3>
-        <CodeBlock code={pythonCode} lang='python' className='mb-6' showNumbers={true} />
+        <h3 className='text-lg font-semibold mb-3'>Python Example</h3>
+        <CodeBlock code={pythonCode} lang='python' className='mb-6' />
       </div>
     </div>
   );

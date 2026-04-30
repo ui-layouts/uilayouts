@@ -1,41 +1,27 @@
 import type { MDXComponents } from 'mdx/types';
-import { cn } from './lib/utils';
-import CodeSnippets from '@/components/website/code-components/code-snippets';
-import ComponentCodePreview from '@/components/website/code-components/component-code-preview';
 import BoxComponentPreview from '@/components/website/code-components/box-preview';
-import IframeComponentPrieview from '@/components/website/code-components/iframe-component-preview';
+import CodeSnippets from '@/components/website/code-components/code-snippets';
 import CodeTabsMdx from '@/components/website/code-components/code-tabs-mdx';
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from '@/components/website/ui/tabs';
-import { Link } from './components/website/constant';
+import ComponentCodePreview from '@/components/website/code-components/component-code-preview';
+import IframeComponentPrieview from '@/components/website/code-components/iframe-component-preview';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/website/ui/tabs';
 import { InlineCodeRenderer } from './components/website/code-components/inlineCodeRenderer';
 import { InlinePreCodeRenderer } from './components/website/code-components/inlinePreCodeRenderer';
 import { PreCode } from './components/website/code-components/pre-code';
+import { Link } from './components/website/constant';
+import { cn } from './lib/utils';
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     Tabs: ({ className, ...props }: React.ComponentProps<typeof Tabs>) => (
       <Tabs className={cn('', className)} {...props} />
     ),
-    TabsList: ({
-      className,
-      ...props
-    }: React.ComponentProps<typeof TabsList>) => (
+    TabsList: ({ className, ...props }: React.ComponentProps<typeof TabsList>) => (
       <TabsList className={cn('', className)} {...props} />
     ),
-    TabsTrigger: ({
-      className,
-      ...props
-    }: React.ComponentProps<typeof TabsTrigger>) => (
+    TabsTrigger: ({ className, ...props }: React.ComponentProps<typeof TabsTrigger>) => (
       <TabsTrigger className={cn('', className)} {...props} />
     ),
-    TabsContent: ({
-      className,
-      ...props
-    }: React.ComponentProps<typeof TabsContent>) => (
+    TabsContent: ({ className, ...props }: React.ComponentProps<typeof TabsContent>) => (
       <TabsContent className={cn('', className)} {...props} />
     ),
     CodeTabsMdx: ({ ...props }) => <CodeTabsMdx {...props} />,
@@ -44,8 +30,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ComponentCodePreview: ({ ...props }) => <ComponentCodePreview {...props} />,
     // CodeBlock: CodeBlock,
     img: (props) => {
-      const { alt, ...restProps } =
-        props as React.ImgHTMLAttributes<HTMLImageElement>;
+      const { alt, ...restProps } = props as React.ImgHTMLAttributes<HTMLImageElement>;
 
       return (
         <img
@@ -58,20 +43,11 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     },
     // PreCode: ({ ...props }) => <PreCode {...props} />,
     CodeSnippets: ({ ...props }) => <CodeSnippets {...props} />,
-    IframeComponentPrieview: ({ ...props }) => (
-      <IframeComponentPrieview {...props} />
-    ),
-    p: ({
-      className,
-      ...props
-    }: React.HTMLAttributes<HTMLParagraphElement>) => (
+    IframeComponentPrieview: ({ ...props }) => <IframeComponentPrieview {...props} />,
+    p: ({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
       <p className={cn('leading-7 pt-3 pb-2 m-0', className)} {...props} />
     ),
-    div: ({
-      className,
-      children,
-      ...props
-    }: React.HTMLAttributes<HTMLDivElement>) => (
+    div: ({ className, children, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
       <div className={cn('', className)} {...props}>
         {children}
       </div>
@@ -79,10 +55,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     a: Link,
     code: InlineCodeRenderer,
     pre: ({ ...props }) => <InlinePreCodeRenderer {...props} />,
-    blockquote: ({
-      className,
-      ...props
-    }: React.HTMLAttributes<HTMLElement>) => (
+    blockquote: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
       <blockquote
         className={cn('mt-4 border-l-2 border-border pl-3  italic', className)}
         {...props}
@@ -91,18 +64,12 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     hr: ({ className, ...props }: React.HTMLAttributes<HTMLHRElement>) => (
       <hr className={cn('my-4 md:my-8', className)} {...props} />
     ),
-    table: ({
-      className,
-      ...props
-    }: React.HTMLAttributes<HTMLTableElement>) => (
+    table: ({ className, ...props }: React.HTMLAttributes<HTMLTableElement>) => (
       <div className='m-0 w-full overflow-auto not-prose mb-4'>
         <table className={cn('w-full mb-2', className)} {...props} />
       </div>
     ),
-    tr: ({
-      className,
-      ...props
-    }: React.HTMLAttributes<HTMLTableRowElement>) => (
+    tr: ({ className, ...props }: React.HTMLAttributes<HTMLTableRowElement>) => (
       <tr
         className={cn(
           'm-0  w-ful overflow-auto border-t p-0 text-sm [&>td:last-child]:w-full',
@@ -111,16 +78,10 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {...props}
       />
     ),
-    thead: ({
-      className,
-      ...props
-    }: React.HTMLAttributes<HTMLTableSectionElement>) => (
+    thead: ({ className, ...props }: React.HTMLAttributes<HTMLTableSectionElement>) => (
       <thead className={cn('dark:bg-zinc-900 w-full', className)} {...props} />
     ),
-    th: ({
-      className,
-      ...props
-    }: React.HTMLAttributes<HTMLTableCellElement>) => (
+    th: ({ className, ...props }: React.HTMLAttributes<HTMLTableCellElement>) => (
       <th
         className={cn(
           'border  px-4 py-2 text-left font-bold [[align=center]]:text-center [[align=right]]:text-right',
@@ -129,10 +90,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {...props}
       />
     ),
-    td: ({
-      className,
-      ...props
-    }: React.HTMLAttributes<HTMLTableCellElement>) => (
+    td: ({ className, ...props }: React.HTMLAttributes<HTMLTableCellElement>) => (
       <td
         className={cn(
           'border px-4 py-2 text-left [[align=center]]:text-center [[align=right]]:text-right whitespace-nowrap ',
@@ -162,10 +120,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
     h6: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
       <h6
-        className={cn(
-          'mt-4 mb-1 scroll-m-20 text-2xl font-semibold tracking-tight',
-          className
-        )}
+        className={cn('mt-4 mb-1 scroll-m-20 text-2xl font-semibold tracking-tight', className)}
         {...props}
       />
     ),

@@ -1,15 +1,10 @@
-import React from 'react';
+import type React from 'react';
+import { Container } from '@/components/ui/container';
+import { GapPattern } from '@/components/ui/gap-pattern';
 import Header from '@/components/website/header';
 import DocsSidebar from '@/components/website/sidebar';
-import { Container } from '@/components/ui/container';
-import Footer from '@/components/website/footer';
-import { GapPattern } from '@/components/ui/gap-pattern';
 
-export default async function ComponentLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default async function ComponentLayout({ children }: { children: React.ReactNode }) {
   return (
     <Container>
       <Header />

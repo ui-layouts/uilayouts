@@ -1,10 +1,10 @@
 // @ts-nocheck
 'use client';
-import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { PhoneInput } from '@/components/ui/phone-input';
+import { Controller, useForm } from 'react-hook-form';
 import { isValidPhoneNumber } from 'react-phone-number-input';
 import { z } from 'zod';
+import { PhoneInput } from '@/components/ui/phone-input';
 
 // Zod schema for phone validation
 const FormSchema = z.object({
@@ -51,16 +51,11 @@ export default function HomePhoneInput() {
               />
             )}
           />
-          {errors.phone && (
-            <p className='text-red-500 text-sm mt-1'>{errors.phone.message}</p>
-          )}
+          {errors.phone && <p className='text-red-500 text-sm mt-1'>{errors.phone.message}</p>}
         </div>
 
         {/* Submit Button */}
-        <button
-          type='submit'
-          className='p-2 bg-primary text-background rounded-md text-sm'
-        >
+        <button type='submit' className='p-2 bg-primary text-background rounded-md text-sm'>
           Submit
         </button>
       </form>

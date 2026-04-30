@@ -1,9 +1,9 @@
 'use client';
 import Image from 'next/image';
 import {
-  SliderBtnGroup,
   ProgressSlider,
   SliderBtn,
+  SliderBtnGroup,
   SliderContent,
   SliderWrapper,
 } from '@/components/ui/progressive-carousel';

@@ -1,20 +1,14 @@
 'use client';
-import React, { CSSProperties, useState } from 'react';
-import { motion } from 'motion/react';
 import NumberFlow, { useCanAnimate } from '@number-flow/react';
 import { ArrowUp } from 'lucide-react';
+import { motion } from 'motion/react';
+import React, { CSSProperties, useState } from 'react';
 import { cn } from '@/lib/utils';
 
 const MotionNumberFlow = motion.create(NumberFlow);
 const MotionArrowUp = motion.create(ArrowUp);
 
-export function PriceWithDiff({
-  value,
-  diff,
-}: {
-  value: number;
-  diff: number;
-}) {
+export function PriceWithDiff({ value, diff }: { value: number; diff: number }) {
   const canAnimate = useCanAnimate();
 
   return (

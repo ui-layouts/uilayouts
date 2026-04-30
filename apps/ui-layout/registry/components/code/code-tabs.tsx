@@ -1,5 +1,5 @@
-import { CodeTabs } from '@/components/ui/code-tabs';
 import React from 'react';
+import { CodeTabs } from '@/components/ui/code-tabs';
 
 function CodeTabsCompponent() {
   return (

@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
-import { useTheme } from 'next-themes';
 import { MoonIcon, SunIcon } from 'lucide-react';
+import { useTheme } from 'next-themes';
+import React, { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 
 export default function ThemeSwitch({ className }: { className?: string }) {
@@ -19,10 +19,7 @@ export default function ThemeSwitch({ className }: { className?: string }) {
   return (
     <button
       onClick={toggleTheme}
-      className={cn(
-        'inline-flex h-9 w-9 items-center justify-center',
-        className
-      )}
+      className={cn('inline-flex h-9 w-9 items-center justify-center', className)}
       aria-label='Toggle theme'
       type='button'
     >

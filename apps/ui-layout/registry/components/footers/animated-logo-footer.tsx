@@ -1,9 +1,8 @@
 'use client';
-import React, { FormEvent, useRef, useState } from 'react';
 import { motion, useInView } from 'motion/react';
-
 // import useNewsLetter, { ClientData } from '@/lab/hooks/useNewsLetter'
 import Link from 'next/link';
+import React, { type FormEvent, useRef, useState } from 'react';
 
 const pathArr = [
   'M55.7447 0H15.3191L0 45.5836H18.2979L4.25532 81.7065H16.5957L5.95745 126L34.4681 82.9966L45.9574 126H120V0H104.681L104.255 110.519H58.2979L45.9574 64.5051H28.0851L42.9787 39.1331L61.7021 106.648H99.5745V0H80V94.6075H76.1702L55.7447 0Z',
@@ -88,10 +87,7 @@ const Footer = () => {
         <Toast.Viewport />
       </Toast.Provider> */}
 
-      <div
-        className='relative h-full sm:pt-14 pt-8 bg-[#f7f7f7] text-black'
-        ref={container}
-      >
+      <div className='relative h-full sm:pt-14 pt-8 bg-[#f7f7f7] text-black' ref={container}>
         <div className='sm:container  px-4 mx-auto'>
           <div className='md:flex justify-between w-full'>
             <div>
@@ -99,9 +95,7 @@ const Footer = () => {
                 Let&lsquo;s do great work together
               </h1>
               <div className='pt-2 pb-6 md:w-99  '>
-                <p className='md:text-2xl text-xl  py-4'>
-                  Sign up for our newsletter*
-                </p>
+                <p className='md:text-2xl text-xl  py-4'>Sign up for our newsletter*</p>
                 <div className=' hover-button relative bg-black flex justify-between items-center border-2 overflow-hidden  border-black rounded-full  text-white hover:text-black md:text-2xl'>
                   <form
                     onSubmit={(e) => handleNewsLetterData(e)}
@@ -139,9 +133,7 @@ const Footer = () => {
             </div>
             <div className='flex gap-10'>
               <ul>
-                <li className='text-2xl pb-2 text-black font-semibold'>
-                  SITEMAP
-                </li>
+                <li className='text-2xl pb-2 text-black font-semibold'>SITEMAP</li>
                 <li className='text-xl font-medium'>
                   <Link href='/'>Home</Link>
                 </li>
@@ -163,14 +155,13 @@ const Footer = () => {
                 </li>
               </ul>
               <ul>
-                <li className='text-2xl pb-2 text-black font-semibold'>
-                  SOCIAL
-                </li>
+                <li className='text-2xl pb-2 text-black font-semibold'>SOCIAL</li>
                 <li className='text-xl font-medium'>
                   <a
                     href='https://www.linkedin.com/company/next-codez/'
                     target='_blank'
                     className='underline'
+                    rel='noopener'
                   >
                     LinkedIn
                   </a>
@@ -180,6 +171,7 @@ const Footer = () => {
                     href='https://twitter.com/NextCodez'
                     target='_blank'
                     className='underline'
+                    rel='noopener'
                   >
                     Twitter
                   </a>
@@ -189,6 +181,7 @@ const Footer = () => {
                     href='https://www.instagram.com/nextcodez/'
                     target='_blank'
                     className='underline'
+                    rel='noopener'
                   >
                     Instagram
                   </a>
@@ -198,6 +191,7 @@ const Footer = () => {
                     href='https://www.facebook.com/nextcodezz'
                     target='_blank'
                     className='underline'
+                    rel='noopener'
                   >
                     Facebook
                   </a>
@@ -222,7 +216,7 @@ const Footer = () => {
                   <>
                     <motion.path
                       custom={index}
-                      // @ts-ignore
+                      // @ts-expect-error
                       variants={variants}
                       d={path}
                       fill='#3E7AEE'
@@ -233,9 +227,7 @@ const Footer = () => {
             </motion.svg>
           </div>
           <div className='flex md:flex-row flex-col-reverse gap-3 justify-between py-2'>
-            <span className='font-medium'>
-              &copy; 2023 NextCodez. All Rights Reserved.
-            </span>
+            <span className='font-medium'>&copy; 2023 NextCodez. All Rights Reserved.</span>
             <a href='#' className='font-semibold'>
               Privacy Policy
             </a>

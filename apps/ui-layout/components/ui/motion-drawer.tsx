@@ -1,7 +1,8 @@
 'use client';
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X } from 'lucide-react';
+import { AnimatePresence, motion } from 'motion/react';
+import type React from 'react';
+import { useState } from 'react';
 import { cn } from '@/lib/utils';
 
 export type SideMenuDirection = 'left' | 'right';
@@ -130,8 +131,7 @@ const MotionDrawer: React.FC<SideMenuProps> = ({
 }) => {
   const [internalIsOpen, setInternalIsOpen] = useState<boolean>(false);
 
-  const isOpen =
-    controlledIsOpen !== undefined ? controlledIsOpen : internalIsOpen;
+  const isOpen = controlledIsOpen !== undefined ? controlledIsOpen : internalIsOpen;
   const setIsOpen = (value: boolean) => {
     if (controlledIsOpen === undefined) {
       setInternalIsOpen(value);
@@ -153,11 +153,7 @@ const MotionDrawer: React.FC<SideMenuProps> = ({
     }
   };
 
-  const buttonVariants = getOpenButtonVariants(
-    direction,
-    width,
-    buttonOpeningVariants
-  );
+  const buttonVariants = getOpenButtonVariants(direction, width, buttonOpeningVariants);
 
   const getDragConstraints = () => {
     if (direction === 'left') {
@@ -191,8 +187,7 @@ const MotionDrawer: React.FC<SideMenuProps> = ({
   };
 
   const drawerPositionClasses = direction === 'left' ? 'left-0' : 'right-0';
-  const openButtonPositionClasses =
-    direction === 'left' ? 'top-4 left-4' : 'top-4 right-4';
+  const openButtonPositionClasses = direction === 'left' ? 'top-4 left-4' : 'top-4 right-4';
 
   return (
     <>
@@ -216,9 +211,7 @@ const MotionDrawer: React.FC<SideMenuProps> = ({
 
       <AnimatePresence>
         {isOpen && (
-          <div
-            className={`fixed w-full h-full top-0 left-0 z-9999 ${className}`}
-          >
+          <div className={`fixed w-full h-full top-0 left-0 z-9999 ${className}`}>
             {/* Overlay */}
             <motion.div
               className={`absolute w-full h-full top-0 left-0 ${overlayClassName}`}
