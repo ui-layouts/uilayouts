@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "npm run format:all && tsc && next dev",
-    "build": "npm run format:all && next build",
+    "dev": "tsc && next dev",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "format:all": "npx @biomejs/biome check --write .",
