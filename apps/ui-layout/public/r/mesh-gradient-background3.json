@@ -1,7 +1,12 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "mesh-gradient-background3",
-  "dependencies": ["three", "@types/three", "@react-three/fiber", "@react-three/drei"],
+  "dependencies": [
+    "three",
+    "@types/three",
+    "@react-three/fiber",
+    "@react-three/drei"
+  ],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [

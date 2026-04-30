@@ -1,7 +1,9 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "symbolic-clippath",
-  "dependencies": ["motion"],
+  "dependencies": [
+    "motion"
+  ],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [

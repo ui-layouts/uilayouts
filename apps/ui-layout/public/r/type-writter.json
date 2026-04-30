@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "./registry/components/type-writter.tsx",
-      "content": "'use client';\nimport React, { useState } from 'react';\nimport { TypeWritter } from '@/components/ui/typing-writter';\n\nfunction TypeWritterDemo() {\n  const [key, setKey] = useState(0);\n\n  const handleComplete = () => {\n    console.log('Typing complete');\n    setKey((prev) => prev + 1);\n  };\n\n  return (\n    <div>\n      <TypeWritter key={key} text='New Role Detected' charDelay={55} onComplete={handleComplete} />\n    </div>\n  );\n}\n\nexport default TypeWritterDemo;\n",
+      "content": "'use client';\nimport { TypeWritter } from '@/components/ui/typing-writter';\nimport React, { useState } from 'react';\n\nfunction TypeWritterDemo() {\n  const [key, setKey] = useState(0);\n\n  const handleComplete = () => {\n    console.log('Typing complete');\n    setKey((prev) => prev + 1);\n  };\n\n  return (\n    <div>\n      <TypeWritter key={key} text='New Role Detected' charDelay={55} onComplete={handleComplete} />\n    </div>\n  );\n}\n\nexport default TypeWritterDemo;\n",
       "type": "registry:component"
     }
   ],

@@ -925,6 +925,23 @@
         }
       ]
     },
+     {
+      "name": "mac-genie",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/mac/genie-effect.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/magnified-doc.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
     {
       "name": "carousel",
       "type": "registry:component",
