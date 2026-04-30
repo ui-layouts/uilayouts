@@ -29,6 +29,7 @@ const changes: ChangeItem[] = [
     description:
       'Improved install/distribution flow by shipping CLI support for base components and broader registry coverage.',
     details: [
+      { label: 'Mac Geinie Effect', href: '/components/mac-genie' },
       {
         label: 'Base component CLI support merged (PR #106).',
       },

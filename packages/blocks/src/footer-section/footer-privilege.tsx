@@ -44,7 +44,7 @@ export const FooterPrivilege = () => {
       </div>
 
       <div className="max-w-7xl mx-auto mt-32 pt-8 border-t border-gray-100 dark:border-zinc-900 flex flex-col md:flex-row justify-between text-[10px] uppercase tracking-[0.3em] font-medium text-gray-400 dark:text-zinc-600">
-        <p>© 2025 LAYOUTS EQUITY</p>
+        <p>© 2026 LAYOUTS EQUITY</p>
         <p>ALL RIGHTS RESERVED</p>
         <a href="https://x.com/naymur_dev" target="_blank">
           MADE BY{' '}

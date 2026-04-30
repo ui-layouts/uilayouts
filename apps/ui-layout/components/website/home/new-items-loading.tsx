@@ -3,6 +3,10 @@ import React, { useEffect, useState } from 'react';
 
 const newComponent = [
   {
+    href: '/components/mac-genie',
+    title: 'Mac Genie',
+  },
+  {
     href: '/components/tree-code-viewer',
     title: 'Tree code Viewer',
   },

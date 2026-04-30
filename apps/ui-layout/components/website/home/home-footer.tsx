@@ -238,7 +238,7 @@ function HomeFooter({
             Magnified Doc
           </a>
         </div>
-        <span className='font-normal'>&copy; 2025 UI-Layouts. All Rights Reserved.</span>
+        <span className='font-normal'>&copy; 2026 UI-Layouts. All Rights Reserved.</span>
       </div>
       <div className=' md:py-4 '>
         <motion.svg

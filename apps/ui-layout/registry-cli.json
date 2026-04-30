@@ -929,7 +929,7 @@
       "name": "mac-genie",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [],
+       "dependencies": ["html-to-image","motion"],
       "registryDependencies": [],
       "files": [
         {
