@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "code-block-comp",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "./registry/components/code/code-block.tsx",
+      "content": "'use client';\nimport React from 'react';\nimport { CodeBlock } from '@/components/ui/code-block';\n\nconst typescriptCode = `import React from 'react';\n\nfunction MyComponent() {\n  const [count, setCount] = React.useState(0);\n  \n  return (\n    <div>\n      <h1>Hello World!</h1>\n      <p>Count: {count}</p>\n      <button onClick={() => setCount(count + 1)}>\n        Increment\n      </button>\n    </div>\n  );\n}\n\nexport default MyComponent;`;\n\nconst cssCode = `.card {\n  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);\n  border-radius: 12px;\n  padding: 24px;\n  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);\n  transition: transform 0.3s ease;\n}\n\n.card:hover {\n  transform: translateY(-5px);\n}`;\n\nconst pythonCode = `def fibonacci(n):\n    \"\"\"Calculate the nth Fibonacci number.\"\"\"\n    if n <= 1:\n        return n\n    return fibonacci(n - 1) + fibonacci(n - 2)\n\n# Example usage\nfor i in range(10):\n    print(f\"F({i}) = {fibonacci(i)}\")`;\n\nexport default function CodeBlockDemo() {\n  return (\n    <div className='p-6 w-full dark:bg-black bg-white rounded-xl mx-auto space-y-8'>\n      <div>\n        <h3 className='text-lg font-semibold mb-3'>TypeScript Example (With Line Numbers)</h3>\n        <CodeBlock code={typescriptCode} lang='tsx' className='mb-6' showNumbers={true} />\n      </div>\n\n      <div>\n        <h3 className='text-lg font-semibold mb-3'>CSS Example (Without Line Numbers)</h3>\n        <CodeBlock code={cssCode} lang='css' className='mb-6' showNumbers={false} />\n      </div>\n\n      <div>\n        <h3 className='text-lg font-semibold mb-3'>Python Example (With Line Numbers)</h3>\n        <CodeBlock code={pythonCode} lang='python' className='mb-6' showNumbers={true} />\n      </div>\n    </div>\n  );\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

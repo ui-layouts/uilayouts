@@ -3938,7 +3938,7 @@
       ]
     },
     {
-      "name": "shiki-code",
+      "name": "code-block",
       "type": "registry:component",
       "devDependencies": [],
       "dependencies": [
@@ -3947,7 +3947,7 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "./components/ui/shiki-code.tsx",
+          "path": "./components/ui/code-block.tsx",
           "type": "registry:component"
         },
         {
@@ -5513,14 +5513,14 @@
       ]
     },
     {
-      "name": "code-shiki-code",
+      "name": "code-block-comp",
       "type": "registry:component",
       "devDependencies": [],
       "dependencies": [],
       "registryDependencies": [],
       "files": [
         {
-          "path": "./registry/components/code/shiki-code.tsx",
+          "path": "./registry/components/code/code-block.tsx",
           "type": "registry:component"
         }
       ]

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "type-writter",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "./registry/components/type-writter.tsx",
+      "content": "'use client';\r\nimport React, { useState } from 'react';\r\nimport { TypeWritter } from '@/components/ui/typing-writter';\r\n\r\nfunction TypeWritterDemo() {\r\n  const [key, setKey] = useState(0);\r\n\r\n  const handleComplete = () => {\r\n    console.log('Typing complete');\r\n    setKey((prev) => prev + 1);\r\n  };\r\n\r\n  return (\r\n    <div>\r\n      <TypeWritter\r\n        key={key}\r\n        text='New Role Detected'\r\n        charDelay={55}\r\n        onComplete={handleComplete}\r\n      />\r\n    </div>\r\n  );\r\n}\r\n\r\nexport default TypeWritterDemo;\r\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}
