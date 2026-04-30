@@ -1,10 +1,10 @@
+import { DocsNavigationCategories } from '@/configs/docs';
+import { DOCS_CATEGORY_GROUP } from '@/const/docs';
+import { cn } from '@/lib/utils';
 import { AppWindowMac, LayoutPanelTop, MousePointerClick, Rocket, X } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import React, { useState } from 'react';
-import { DocsNavigationCategories } from '@/configs/docs';
-import { DOCS_CATEGORY_GROUP } from '@/const/docs';
-import { cn } from '@/lib/utils';
 import { DirectionalDrawer, DrawerContent } from '../ui/directional-drawer';
 import { basePath } from './sidebar';
 import { ScrollArea } from './ui/scroll-area';
@@ -122,7 +122,7 @@ function MobileHeader({ classname }: { classname?: string }) {
                         href={item.url}
                         target='_blank'
                         className='flex gap-2 group font-medium items-center py-1  transition-all'
-                        rel='noopener'
+                        rel='noreferrer noopener'
                       >
                         {React.cloneElement(item?.icon, {
                           className: `${'dark:bg-zinc-800 dark:text-white group-hover:bg-black group-hover:text-white  dark:group-hover:bg-white dark:group-hover:text-black'} h-7 w-7 border transition-all  rounded-xs p-1.5`,
@@ -138,7 +138,7 @@ function MobileHeader({ classname }: { classname?: string }) {
               href='https://discord.gg/4bySmj75'
               target='_blank'
               className='pb-2 flex gap-2 items-center'
-              rel='noopener'
+              rel='noreferrer noopener'
             >
               <span className='w-6 h-6 p-1 bg-black/20 border dark:border-white/10 border-black/10 dark:bg-white/20 fill-primary rounded-md '>
                 <svg

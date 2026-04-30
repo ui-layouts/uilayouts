@@ -1,4 +1,4 @@
-import { createHighlighter, type Highlighter } from 'shiki';
+import { type Highlighter, createHighlighter } from 'shiki';
 
 const SAFE_LANGS = new Set(['ts', 'tsx', 'js', 'jsx', 'json', 'css', 'html', 'bash']);
 

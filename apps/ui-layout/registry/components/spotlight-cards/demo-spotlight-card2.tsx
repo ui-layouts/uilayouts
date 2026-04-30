@@ -3,9 +3,9 @@
 
 // // https://buildui.com/recipes/spotlight
 
+import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import React, { type MouseEvent, useRef, useState } from 'react';
-import { cn } from '@/lib/utils';
 
 export default function DemoSpotlightCard2() {
   const boxWrapper = useRef(null);

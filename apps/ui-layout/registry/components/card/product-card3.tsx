@@ -1,11 +1,11 @@
 'use client';
+import { Carousel, Slider, SliderContainer, SliderDotButton } from '@/components/ui/carousel';
+import { CardArr } from '@/components/website/constant';
 import type { EmblaOptionsType } from 'embla-carousel';
 import { CheckIcon, Heart } from 'lucide-react';
 import { motion } from 'motion/react';
 import Image from 'next/image';
 import React, { ReactNode, useState } from 'react';
-import { Carousel, Slider, SliderContainer, SliderDotButton } from '@/components/ui/carousel';
-import { CardArr } from '@/components/website/constant';
 
 function ProductCard3() {
   const [isActive, setIsActive] = useState(false);

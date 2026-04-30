@@ -1,7 +1,7 @@
 'use client';
+import { useMediaQuery } from '@/hooks/use-media-query';
 import { AnimatePresence, motion } from 'motion/react';
 import React, { useState } from 'react';
-import { useMediaQuery } from '@/hooks/use-media-query';
 
 const tabs = [
   {

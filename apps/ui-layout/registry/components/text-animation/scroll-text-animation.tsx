@@ -1,6 +1,6 @@
 'use client';
-import React, { useRef } from 'react';
 import TextAnimation from '@/components/ui/scroll-text';
+import React, { useRef } from 'react';
 
 function ScrollTextAnimation() {
   return (

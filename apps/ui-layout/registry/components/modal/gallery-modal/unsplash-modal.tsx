@@ -1,10 +1,10 @@
 // inspired by tom is loading
 'use client';
+import { items } from '@/components/website/constant';
 import { Download, X } from 'lucide-react';
 import { AnimatePresence, motion, useInView } from 'motion/react';
 import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
-import { items } from '@/components/website/constant';
 
 function UnsplashGrid() {
   const [selected, setSelected] = useState(null);

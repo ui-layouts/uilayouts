@@ -1,6 +1,6 @@
+import { cn } from '@/lib/utils';
 import NumberFlow from '@number-flow/react';
 import * as RadixSlider from '@radix-ui/react-slider';
-import { cn } from '@/lib/utils';
 
 interface SliderProps extends RadixSlider.SliderProps {
   tooltip?: boolean; //

@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import {
   Accordion,
   AccordionContainer,
@@ -9,6 +8,7 @@ import {
   AccordionPanel,
   AccordionWrapper,
 } from '@/components/ui/accordion';
+import React from 'react';
 
 function SingleLayout() {
   return (

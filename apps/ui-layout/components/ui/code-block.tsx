@@ -1,9 +1,9 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { codeToHtml } from 'shiki/bundle/web';
 import { CopyButton } from '@/components/website/code-components/copy-button';
 import { cn } from '@/lib/utils';
+import { useEffect, useState } from 'react';
+import { codeToHtml } from 'shiki/bundle/web';
 
 export function CodeBlock({
   code,

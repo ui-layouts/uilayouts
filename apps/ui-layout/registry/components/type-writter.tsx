@@ -1,6 +1,6 @@
 'use client';
-import React, { useState } from 'react';
 import { TypeWritter } from '@/components/ui/typing-writter';
+import React, { useState } from 'react';
 
 function TypeWritterDemo() {
   const [key, setKey] = useState(0);

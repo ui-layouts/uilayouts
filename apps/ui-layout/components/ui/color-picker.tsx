@@ -1,13 +1,13 @@
 'use client';
 
-import { Copy, Pipette } from 'lucide-react';
-import { HexColorPicker } from 'react-colorful';
-import { toast } from 'sonner';
 import { Button } from '@/components/website/ui/button';
 import { Input } from '@/components/website/ui/input';
 import { Label } from '@/components/website/ui/label';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/website/ui/popover';
 import { cn } from '@/lib/utils';
+import { Copy, Pipette } from 'lucide-react';
+import { HexColorPicker } from 'react-colorful';
+import { toast } from 'sonner';
 
 interface ColorPickerProps {
   color: string;

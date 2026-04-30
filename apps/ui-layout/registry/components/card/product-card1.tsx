@@ -1,9 +1,9 @@
 'use client';
+import { CardArr } from '@/components/website/constant';
 import { Heart } from 'lucide-react';
 import { motion } from 'motion/react';
 import Image from 'next/image';
 import React, { useState } from 'react';
-import { CardArr } from '@/components/website/constant';
 
 function Card1() {
   const [selectedImage, setSelectedImage] = useState(CardArr[0].img);

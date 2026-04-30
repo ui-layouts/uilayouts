@@ -1,9 +1,9 @@
 'use client';
+import { Carousel, Slider, SliderContainer, SliderProgress } from '@/components/ui/carousel';
+import { imgPreview } from '@/components/website/constant';
 import type { EmblaOptionsType } from 'embla-carousel';
 import Image from 'next/image';
 import React, { ReactNode } from 'react';
-import { Carousel, Slider, SliderContainer, SliderProgress } from '@/components/ui/carousel';
-import { imgPreview } from '@/components/website/constant';
 
 function AlignSlider() {
   const OPTIONS: EmblaOptionsType = { loop: false };

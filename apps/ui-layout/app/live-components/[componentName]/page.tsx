@@ -1,6 +1,6 @@
+import { AllComponents } from '@/configs/docs';
 import { notFound } from 'next/navigation';
 import React, { Suspense } from 'react';
-import { AllComponents } from '@/configs/docs';
 
 export const dynamic = 'force-static';
 export const dynamicParams = false;

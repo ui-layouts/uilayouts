@@ -1,8 +1,4 @@
 'use client';
-import { CheckIcon, ChevronsUpDown } from 'lucide-react';
-import * as React from 'react';
-import * as RPNInput from 'react-phone-number-input';
-import flags from 'react-phone-number-input/flags';
 import { Button } from '@/components/website/ui/button';
 import {
   Command,
@@ -15,6 +11,10 @@ import {
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/website/ui/popover';
 import { ScrollArea } from '@/components/website/ui/scroll-area';
 import { cn } from '@/lib/utils';
+import { CheckIcon, ChevronsUpDown } from 'lucide-react';
+import * as React from 'react';
+import * as RPNInput from 'react-phone-number-input';
+import flags from 'react-phone-number-input/flags';
 
 type PhoneInputProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value'> &
   Omit<RPNInput.Props<typeof RPNInput.default>, 'onChange'> & {

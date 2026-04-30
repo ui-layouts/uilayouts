@@ -1,6 +1,6 @@
 'use client';
 import { Plus, X } from 'lucide-react';
-import { AnimatePresence, MotionConfig, motion, type Transition } from 'motion/react';
+import { AnimatePresence, MotionConfig, type Transition, motion } from 'motion/react';
 import type React from 'react';
 import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';

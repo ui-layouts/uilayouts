@@ -1,4 +1,3 @@
-import { Plus } from 'lucide-react';
 import preview from '@/assets/preview/Preview';
 import {
   Dialog,
@@ -10,6 +9,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/linear-modal';
+import { Plus } from 'lucide-react';
 
 const items = [
   {
@@ -54,12 +54,7 @@ export default function LinearCard() {
                 }}
                 className='flex w-full flex-col overflow-hidden border dark:bg-neutral-900 bg-neutral-50 hover:bg-neutral-100 dark:hover:bg-neutral-900'
               >
-                <DialogImage
-                  // @ts-expect-error
-                  src={item.url?.src}
-                  alt=''
-                  className='h-52 w-full object-cover'
-                />
+                <DialogImage src={item.url?.src} alt='' className='h-52 w-full object-cover' />
                 <div className='flex grow flex-row items-end justify-between p-3'>
                   <div>
                     <DialogTitle className='text-zinc-950 text-xl dark:text-zinc-50'>
@@ -82,7 +77,6 @@ export default function LinearCard() {
                   className=' relative flex h-full mx-auto flex-col overflow-y-auto border dark:bg-black bg-white hover:bg-neutral-50 dark:hover:bg-neutral-950 lg:w-[900px] w-[80%] '
                 >
                   <DialogImage
-                    // @ts-expect-error
                     src={item.url.src}
                     alt=''
                     className='h-full  object-contain w-[60%] mx-auto'

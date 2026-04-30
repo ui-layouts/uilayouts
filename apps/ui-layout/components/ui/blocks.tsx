@@ -1,6 +1,7 @@
 'use client';
-import React, { type JSX, useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
+import type React from 'react';
+import { type JSX, useEffect, useState } from 'react';
 
 function Blocks({
   activeDivs,
@@ -35,7 +36,6 @@ function Blocks({
                 key={rowIndex}
                 className={cn(
                   `h-[6vh] w-full border border-[#5dcece09] ${
-                    // @ts-expect-error
                     activeDivs[columnIndex]?.has(rowIndex) ? `${activeDivsClass}` : ''
                   }`,
                   divClass

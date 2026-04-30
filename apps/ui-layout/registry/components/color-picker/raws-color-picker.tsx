@@ -1,9 +1,9 @@
 'use client';
 
+import { Button } from '@/components/website/ui/button';
 import { Copy, Pipette } from 'lucide-react';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { toast } from 'sonner';
-import { Button } from '@/components/website/ui/button';
 
 interface ColorPickerProps {
   color: string;

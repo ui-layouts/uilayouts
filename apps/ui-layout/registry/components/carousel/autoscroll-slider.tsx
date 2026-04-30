@@ -1,7 +1,7 @@
 'use client';
+import { Carousel, Slider, SliderContainer, SliderDotButton } from '@/components/ui/carousel';
 import type { EmblaOptionsType } from 'embla-carousel';
 import AutoScroll from 'embla-carousel-auto-scroll';
-import { Carousel, Slider, SliderContainer, SliderDotButton } from '@/components/ui/carousel';
 
 function AutoScrollSlider() {
   const OPTIONS: EmblaOptionsType = { loop: true };

@@ -1,7 +1,7 @@
-import React from 'react';
 import HomeFooter from '@/components/website/home/home-footer';
 import HomeHeader from '@/components/website/home/home-header';
 import { siteConfig } from '@/lib/utils';
+import React from 'react';
 
 export const metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -143,7 +143,7 @@ const WorkWithUs = () => {
                   href='https://cal.com/ui-layouts'
                   target='_blank'
                   className='flex items-center bg-blue-600 hover:bg-blue-700 text-white h-14 rounded-full px-6 gap-2'
-                  rel='noopener'
+                  rel='noreferrer noopener'
                 >
                   Book a free call
                   <span className='relative flex size-3'>

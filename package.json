@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@vercel/analytics": "^1.6.1",
+    "html-to-image": "^1.11.13",
     "raw-loader": "^4.0.2",
     "react": "^19.1.4",
     "react-dom": "^19.1.4"

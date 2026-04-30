@@ -1,8 +1,4 @@
 'use client';
-import { Home } from 'lucide-react';
-import { AnimatePresence, motion } from 'motion/react';
-import Image, { StaticImageData } from 'next/image';
-import { useEffect, useRef, useState } from 'react';
 import {
   ProgressSlider,
   SliderBtn,
@@ -12,6 +8,10 @@ import {
 } from '@/components/ui/progressive-carousel';
 import { imgPreview } from '@/components/website/constant';
 import { useMediaQuery } from '@/hooks/use-media-query';
+import { Home } from 'lucide-react';
+import { AnimatePresence, motion } from 'motion/react';
+import Image, { StaticImageData } from 'next/image';
+import { useEffect, useRef, useState } from 'react';
 
 const items = [
   {

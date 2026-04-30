@@ -1,8 +1,8 @@
 'use client';
+import { items } from '@/components/website/constant';
 import { motion, useInView } from 'motion/react';
 // inspired by tom is loading
 import React, { useRef, useState } from 'react';
-import { items } from '@/components/website/constant';
 
 function UnsplashGrid() {
   const [selected, setSelected] = useState(null);

@@ -1,11 +1,12 @@
 'use client';
 
+import { cn } from '@/lib/utils';
 import { Trash2 as RemoveIcon } from 'lucide-react';
 import {
-  createContext,
   type Dispatch,
-  forwardRef,
   type SetStateAction,
+  createContext,
+  forwardRef,
   useCallback,
   useContext,
   useEffect,
@@ -19,7 +20,6 @@ import {
   useDropzone,
 } from 'react-dropzone';
 import { toast } from 'sonner';
-import { cn } from '@/lib/utils';
 
 type DirectionOptions = 'rtl' | 'ltr' | undefined;
 

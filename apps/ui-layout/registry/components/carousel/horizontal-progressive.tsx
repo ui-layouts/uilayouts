@@ -1,5 +1,4 @@
 'use client';
-import Image from 'next/image';
 import {
   ProgressSlider,
   SliderBtn,
@@ -7,6 +6,7 @@ import {
   SliderContent,
   SliderWrapper,
 } from '@/components/ui/progressive-carousel';
+import Image from 'next/image';
 
 const items = [
   {

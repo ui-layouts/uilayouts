@@ -1,12 +1,12 @@
 'use client';
 
+import { useMediaQuery } from '@/hooks/use-media-query';
+import BuyMeCoffee from '@/registry/components/buy-me-coffee';
 import { Bug, Lightbulb, Pencil, SquareArrowOutUpRight } from 'lucide-react';
 import { motion, useScroll, useSpring, useTransform } from 'motion/react';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
-import { useMediaQuery } from '@/hooks/use-media-query';
-import BuyMeCoffee from '@/registry/components/buy-me-coffee';
 import CarbonAd from './carbon-ads';
 import { ScrollArea } from './ui/scroll-area';
 
@@ -187,7 +187,7 @@ export default function TableOfContents({ toc }: TableOfContentsProps) {
                       key={nav?.label}
                       target='_blank'
                       className='hover:text-primary text-muted-foreground flex items-center gap-1'
-                      rel='noopener'
+                      rel='noreferrer noopener'
                     >
                       {nav?.icon}
                       {nav?.label}

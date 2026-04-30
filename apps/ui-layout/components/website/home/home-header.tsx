@@ -1,10 +1,10 @@
 'use client';
+import { SearchDialog } from '@/components/website/searchbar';
+import { cn } from '@/lib/utils';
 import { Blocks, Component } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React from 'react';
-import { SearchDialog } from '@/components/website/searchbar';
-import { cn } from '@/lib/utils';
 import MobileHeader from '../mobile-header';
 import ThemeSwitch from '../theme-switch';
 import { PlasticButton } from '../ui/plastic-button';
@@ -129,7 +129,7 @@ function HomeHeader({
             href='https://discord.gg/4bySmj75'
             target='_blank'
             className='dark:bg-black/20 bg-white/20 border dark:border-black/20 border-white/20 w-12 rounded-md h-11 shrink-0 grid place-content-center'
-            rel='noopener'
+            rel='noreferrer noopener'
           >
             <svg
               viewBox='0 0 256 199'

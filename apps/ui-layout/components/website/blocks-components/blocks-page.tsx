@@ -1,10 +1,10 @@
 'use client';
 
-import Image from 'next/image';
-import Link from 'next/link';
 import { Container } from '@/components/ui/container';
 import { GapPattern } from '@/components/ui/gap-pattern';
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
+import Link from 'next/link';
 import HomeFooter from '../home/home-footer';
 
 export default function BlocksHomeClient({ blocksData }: { blocksData: any }) {
@@ -42,7 +42,7 @@ export default function BlocksHomeClient({ blocksData }: { blocksData: any }) {
                 href='https://ui.shadcn.com/'
                 target='_blank'
                 className='bg-neutral-100 dark:bg-neutral-800 p-2 border dark:border-neutral-700 h-14 w-14 grid place-items-center'
-                rel='noopener'
+                rel='noreferrer noopener'
               >
                 <svg
                   width='569'
@@ -73,7 +73,7 @@ export default function BlocksHomeClient({ blocksData }: { blocksData: any }) {
                 className='bg-neutral-100 dark:bg-neutral-800 p-2 border dark:border-neutral-700 h-14 w-14 grid place-items-center'
                 href='https://tailwindcss.com/'
                 target='_blank'
-                rel='noopener'
+                rel='noreferrer noopener'
               >
                 <svg
                   width='224'
@@ -95,7 +95,7 @@ export default function BlocksHomeClient({ blocksData }: { blocksData: any }) {
                 href='https://motion.dev/'
                 target='_blank'
                 className='bg-neutral-100 dark:bg-neutral-800 p-2 border dark:border-neutral-700 h-14 w-14 grid place-items-center'
-                rel='noopener'
+                rel='noreferrer noopener'
               >
                 <svg
                   width='330'
@@ -119,7 +119,7 @@ export default function BlocksHomeClient({ blocksData }: { blocksData: any }) {
                 href='https://ui.shadcn.com/'
                 target='_blank'
                 className='bg-neutral-100 dark:bg-neutral-800 p-2 border dark:border-neutral-700 h-14 w-14 grid place-items-center'
-                rel='noopener'
+                rel='noreferrer noopener'
               >
                 <svg
                   width='200'

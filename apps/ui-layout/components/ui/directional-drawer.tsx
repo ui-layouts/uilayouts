@@ -1,8 +1,8 @@
 'use client';
+import { cn } from '@/lib/utils';
 import { X } from 'lucide-react';
 import React, { createContext, type ReactNode, useContext, useEffect, useState } from 'react';
 import { Drawer as VaulSidebar } from 'vaul';
-import { cn } from '@/lib/utils';
 
 interface DrawerContextProps {
   open: boolean;

@@ -1,7 +1,7 @@
 // @ts-nocheck
 'use client';
-import React, { createContext, type MouseEvent, useContext, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
+import React, { createContext, type MouseEvent, useContext, useRef, useState } from 'react';
 
 interface MousePosition {
   x: number;

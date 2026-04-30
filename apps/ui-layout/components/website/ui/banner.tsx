@@ -1,10 +1,10 @@
 'use client';
 
+import { buttonVariants } from '@/components/website/ui/button';
+import { cn } from '@/lib/utils';
 import { X } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { type HTMLAttributes, useCallback, useEffect, useState } from 'react';
-import { buttonVariants } from '@/components/website/ui/button';
-import { cn } from '@/lib/utils';
 
 interface BannerProps extends HTMLAttributes<HTMLDivElement> {
   /**

@@ -1,9 +1,9 @@
 'use client';
+import { transition } from '@/lib/utils';
 import { XIcon } from 'lucide-react';
 import { AnimatePresence, MotionConfig, motion } from 'motion/react';
 import React, { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { transition } from '@/lib/utils';
 
 export default function Dialog() {
   const [index, setIndex] = useState(5);

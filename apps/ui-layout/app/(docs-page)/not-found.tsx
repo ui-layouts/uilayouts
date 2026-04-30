@@ -1,11 +1,11 @@
 'use client';
 
-import { ArrowBigLeft } from 'lucide-react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import type { SearchItem } from '@/components/website/searchbar';
 import { basePath } from '@/components/website/sidebar';
 import { DocsNavigationCategories } from '@/configs/docs';
+import { ArrowBigLeft } from 'lucide-react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function NotFound() {
   const pathname = usePathname();

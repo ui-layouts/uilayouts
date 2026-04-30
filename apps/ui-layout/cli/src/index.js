@@ -1,9 +1,9 @@
 #!/usr/bin/env node
+import fs from 'fs';
+import path from 'path';
 import { cancel, intro, outro, select, spinner } from '@clack/prompts';
 import { execa } from 'execa';
-import fs from 'fs';
 import fetch from 'node-fetch';
-import path from 'path';
 import colors from 'picocolors';
 import babel from 'prettier/plugins/babel';
 import estree from 'prettier/plugins/estree';

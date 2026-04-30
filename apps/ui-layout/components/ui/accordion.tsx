@@ -1,9 +1,9 @@
 'use client';
 
+import { cn } from '@/lib/utils';
 import { ChevronDown } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import React, { type ReactNode, useCallback } from 'react';
-import { cn } from '@/lib/utils';
 
 /**
  * Interface for AccordionContext values

@@ -1,5 +1,9 @@
 'use client';
 
+import { ScrollArea } from '@/components/website/ui//scroll-area';
+import { Dialog, DialogContent } from '@/components/website/ui/dialog';
+import { DocsNavigationCategories } from '@/configs/docs';
+import { cn } from '@/lib/utils';
 import { Command } from 'cmdk';
 import {
   ChevronRight,
@@ -10,13 +14,9 @@ import {
   SearchIcon,
   SunIcon,
 } from 'lucide-react';
-import { useRouter } from 'next/navigation';
 import { useTheme } from 'next-themes';
+import { useRouter } from 'next/navigation';
 import * as React from 'react';
-import { ScrollArea } from '@/components/website/ui//scroll-area';
-import { Dialog, DialogContent } from '@/components/website/ui/dialog';
-import { DocsNavigationCategories } from '@/configs/docs';
-import { cn } from '@/lib/utils';
 import { ResponsiveModal, ResponsiveModalContent } from '../ui/responsive-modal';
 import { basePath } from './sidebar';
 
@@ -172,7 +172,7 @@ export function SearchDialog({
                     href='https://x.com/naymur_dev'
                     target='_blank'
                     className='flex w-full items-center gap-2 rounded-md dark:bg-neutral-800 bg-neutral-200 p-3'
-                    rel='noopener'
+                    rel='noreferrer noopener'
                   >
                     <svg
                       width='120'

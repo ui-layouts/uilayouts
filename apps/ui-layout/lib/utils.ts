@@ -10,7 +10,7 @@ export function absoluteUrl(path: string) {
   return `${base}${path}`;
 }
 
-function debounce(func: (...args: any[]) => any, wait: number, immediate: boolean = false) {
+function debounce(func: (...args: any[]) => any, wait: number, immediate = false) {
   let timeout: number | undefined;
 
   return function executedFunction(this: any, ...args: any[]) {

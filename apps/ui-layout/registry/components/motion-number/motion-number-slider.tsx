@@ -1,6 +1,6 @@
 'use client';
-import React, { useState } from 'react';
 import { DualRangeSlider } from '@/components/ui/slider';
+import React, { useState } from 'react';
 
 export default function MotionNumberSlider() {
   const [widthPercentage, setWidthPercentage] = useState(70);

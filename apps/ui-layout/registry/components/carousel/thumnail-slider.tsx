@@ -1,6 +1,6 @@
 'use client';
-import type { EmblaOptionsType } from 'embla-carousel';
 import { Carousel, Slider, SliderContainer, ThumbsSlider } from '@/components/ui/carousel';
+import type { EmblaOptionsType } from 'embla-carousel';
 
 function ThumnailSlider() {
   const OPTIONS: EmblaOptionsType = { loop: false };

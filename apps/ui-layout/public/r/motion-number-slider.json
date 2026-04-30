@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "./registry/components/motion-number/motion-number-slider.tsx",
-      "content": "'use client';\r\nimport React, { useState } from 'react';\r\nimport { DualRangeSlider } from '@/components/ui/slider';\r\n\r\nexport default function MotionNumberSlider() {\r\n  const [widthPercentage, setWidthPercentage] = useState(70);\r\n  return (\r\n    <>\r\n      <div className='w-3/5 mx-auto px-10 gap-10 py-16'>\r\n        <div>\r\n          <h1>Width</h1>\r\n          <DualRangeSlider\r\n            label\r\n            lableContenPos={'left'}\r\n            value={[widthPercentage]}\r\n            onValueChange={([widthPercentage]) =>\r\n              widthPercentage != null && setWidthPercentage(widthPercentage)\r\n            }\r\n            min={0}\r\n            max={100}\r\n            step={1}\r\n          />\r\n        </div>\r\n      </div>\r\n    </>\r\n  );\r\n}\r\n",
+      "content": "'use client';\nimport React, { useState } from 'react';\nimport { DualRangeSlider } from '@/components/ui/slider';\n\nexport default function MotionNumberSlider() {\n  const [widthPercentage, setWidthPercentage] = useState(70);\n  return (\n    <>\n      <div className='w-3/5 mx-auto px-10 gap-10 py-16'>\n        <div>\n          <h1>Width</h1>\n          <DualRangeSlider\n            label\n            lableContenPos={'left'}\n            value={[widthPercentage]}\n            onValueChange={([widthPercentage]) =>\n              widthPercentage != null && setWidthPercentage(widthPercentage)\n            }\n            min={0}\n            max={100}\n            step={1}\n          />\n        </div>\n      </div>\n    </>\n  );\n}\n",
       "type": "registry:component"
     }
   ],

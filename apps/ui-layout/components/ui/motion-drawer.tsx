@@ -1,9 +1,9 @@
 'use client';
+import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import type React from 'react';
 import { useState } from 'react';
-import { cn } from '@/lib/utils';
 
 export type SideMenuDirection = 'left' | 'right';
 export type ButtonOpeningVariants = 'push' | 'merge' | 'stay';

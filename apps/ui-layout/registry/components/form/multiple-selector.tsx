@@ -1,8 +1,8 @@
 'use client';
 
+import { MultiSelect } from '@/components/ui/multi-selector';
 import { Cat, Dog, Fish, Rabbit, Turtle } from 'lucide-react';
 import React, { useState } from 'react';
-import { MultiSelect } from '@/components/ui/multi-selector';
 
 const frameworksList = [
   { value: 'react', label: 'React', icon: Turtle, disable: true },

@@ -1,7 +1,5 @@
 'use client';
 
-import { CheckCheck, Copy } from 'lucide-react';
-import { useState } from 'react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,6 +7,8 @@ import {
   DropdownMenuTrigger,
 } from '@/components/website/ui/dropdown';
 import { cn } from '@/lib/utils';
+import { CheckCheck, Copy } from 'lucide-react';
+import { useState } from 'react';
 
 type CopyNpmCommandButtonProps = {
   code: string;

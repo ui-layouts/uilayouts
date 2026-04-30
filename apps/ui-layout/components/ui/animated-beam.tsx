@@ -1,8 +1,8 @@
 'use client';
 
-import { motion } from 'motion/react';
-import { forwardRef, type RefObject, useEffect, useId, useState } from 'react';
 import { cn } from '@/lib/utils';
+import { motion } from 'motion/react';
+import { type RefObject, forwardRef, useEffect, useId, useState } from 'react';
 
 export const Icons = {
   user: () => (
@@ -502,7 +502,7 @@ const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
             delay,
             duration,
             ease: [0.16, 1, 0.3, 1], // https://easings.net/#easeOutExpo
-            repeat: Infinity,
+            repeat: Number.POSITIVE_INFINITY,
             repeatDelay: 0,
           }}
         >

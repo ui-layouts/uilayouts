@@ -1,11 +1,11 @@
 'use client';
+import { CardArr } from '@/components/website/constant';
+import { cn } from '@/lib/utils';
 import * as Select from '@radix-ui/react-select';
 import { CheckIcon, ChevronDownIcon, ChevronUpIcon, Heart, ShoppingCart } from 'lucide-react';
 import { motion } from 'motion/react';
 import Image from 'next/image';
 import React, { ReactNode, useState } from 'react';
-import { CardArr } from '@/components/website/constant';
-import { cn } from '@/lib/utils';
 
 function Card2() {
   const [selectedImage, setSelectedImage] = useState(CardArr[1].img);

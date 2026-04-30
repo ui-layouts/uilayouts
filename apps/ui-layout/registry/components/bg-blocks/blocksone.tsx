@@ -1,6 +1,6 @@
 'use client';
-import React, { useRef } from 'react';
 import Blocks from '@/components/ui/blocks';
+import React, { useRef } from 'react';
 
 function BlockOne() {
   const containerRef = useRef<HTMLDivElement>(null);

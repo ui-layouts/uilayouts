@@ -1,6 +1,8 @@
 // @ts-nocheck
 'use client';
 
+import preview from '@/assets/preview/Preview';
+import { transition } from '@/lib/utils';
 import { Plus, X } from 'lucide-react';
 import {
   AnimatePresence,
@@ -12,8 +14,6 @@ import {
 import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import preview from '@/assets/preview/Preview';
-import { transition } from '@/lib/utils';
 
 function Gallery({ items, setIndex, setOpen, index }) {
   return (

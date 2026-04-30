@@ -1,8 +1,8 @@
 'use client';
+import { cn } from '@/lib/utils';
 import NumberFlow from '@number-flow/react';
 import { Minus, Plus } from 'lucide-react';
 import * as React from 'react';
-import { cn } from '@/lib/utils';
 
 type Props = {
   value?: number;
@@ -11,7 +11,12 @@ type Props = {
   onChange?: (value: number) => void;
 };
 
-export function Input({ value = 0, min = -Infinity, max = Infinity, onChange }: Props) {
+export function Input({
+  value = 0,
+  min = Number.NEGATIVE_INFINITY,
+  max = Number.POSITIVE_INFINITY,
+  onChange,
+}: Props) {
   const defaultValue = React.useRef(value);
   const inputRef = React.useRef<HTMLInputElement>(null);
   const [animated, setAnimated] = React.useState(true);
@@ -24,7 +29,7 @@ export function Input({ value = 0, min = -Infinity, max = Infinity, onChange }: 
       onChange?.(defaultValue.current);
       return;
     }
-    const num = parseInt(el.value);
+    const num = Number.parseInt(el.value);
     if (isNaN(num) || (min != null && num < min) || (max != null && num > max)) {
       // Revert input's value:
       el.value = String(value);

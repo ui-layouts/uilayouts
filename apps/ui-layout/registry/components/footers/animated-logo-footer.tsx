@@ -161,7 +161,7 @@ const Footer = () => {
                     href='https://www.linkedin.com/company/next-codez/'
                     target='_blank'
                     className='underline'
-                    rel='noopener'
+                    rel='noreferrer noopener'
                   >
                     LinkedIn
                   </a>
@@ -171,7 +171,7 @@ const Footer = () => {
                     href='https://twitter.com/NextCodez'
                     target='_blank'
                     className='underline'
-                    rel='noopener'
+                    rel='noreferrer noopener'
                   >
                     Twitter
                   </a>
@@ -181,7 +181,7 @@ const Footer = () => {
                     href='https://www.instagram.com/nextcodez/'
                     target='_blank'
                     className='underline'
-                    rel='noopener'
+                    rel='noreferrer noopener'
                   >
                     Instagram
                   </a>
@@ -191,7 +191,7 @@ const Footer = () => {
                     href='https://www.facebook.com/nextcodezz'
                     target='_blank'
                     className='underline'
-                    rel='noopener'
+                    rel='noreferrer noopener'
                   >
                     Facebook
                   </a>
@@ -214,13 +214,7 @@ const Footer = () => {
               {pathArr.map((path, index) => {
                 return (
                   <>
-                    <motion.path
-                      custom={index}
-                      // @ts-expect-error
-                      variants={variants}
-                      d={path}
-                      fill='#3E7AEE'
-                    />
+                    <motion.path custom={index} variants={variants} d={path} fill='#3E7AEE' />
                   </>
                 );
               })}

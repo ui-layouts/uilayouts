@@ -1,4 +1,3 @@
-import { ArrowUpRight } from 'lucide-react';
 import { getMinimalBlocksBySection } from '@/blocks-docs';
 import { FaqStructuredData } from '@/components/seo/faq-structured-data';
 import { StructuredData } from '@/components/seo/structured-data';
@@ -8,6 +7,7 @@ import HomeFooter from '@/components/website/home/home-footer';
 import HomeHeader from '@/components/website/home/home-header';
 import { Banner } from '@/components/website/ui/banner';
 import { cn } from '@/lib/utils';
+import { ArrowUpRight } from 'lucide-react';
 
 const homeFaqs = [
   {

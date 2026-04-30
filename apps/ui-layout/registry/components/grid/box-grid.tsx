@@ -1,6 +1,6 @@
+import preview from '@/assets/preview/Preview';
 import Image from 'next/image';
 import React, { useState } from 'react';
-import preview from '@/assets/preview/Preview';
 
 interface ProjectsTypes {
   id: string;

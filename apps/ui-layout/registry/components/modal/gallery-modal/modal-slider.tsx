@@ -1,12 +1,12 @@
 // @ts-nocheck
 'use client';
 
+import { items } from '@/components/website/constant';
 import { X } from 'lucide-react';
 import { AnimatePresence, LayoutGroup, motion, useMotionValue } from 'motion/react';
 import type { StaticImport } from 'next/dist/shared/lib/get-img-props';
 import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
-import { items } from '@/components/website/constant';
 
 type ImageModalProps = {
   item: any;

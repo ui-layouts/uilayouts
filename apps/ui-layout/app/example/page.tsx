@@ -1,6 +1,6 @@
+import NotificationLiquid from '@/registry/components/liquid-glass/notification';
 import * as SwitchPrimitive from '@radix-ui/react-switch';
 import React from 'react';
-import NotificationLiquid from '@/registry/components/liquid-glass/notification';
 
 function page() {
   return (

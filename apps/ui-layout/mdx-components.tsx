@@ -1,10 +1,10 @@
-import type { MDXComponents } from 'mdx/types';
 import BoxComponentPreview from '@/components/website/code-components/box-preview';
 import CodeSnippets from '@/components/website/code-components/code-snippets';
 import CodeTabsMdx from '@/components/website/code-components/code-tabs-mdx';
 import ComponentCodePreview from '@/components/website/code-components/component-code-preview';
 import IframeComponentPrieview from '@/components/website/code-components/iframe-component-preview';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/website/ui/tabs';
+import type { MDXComponents } from 'mdx/types';
 import { InlineCodeRenderer } from './components/website/code-components/inlineCodeRenderer';
 import { InlinePreCodeRenderer } from './components/website/code-components/inlinePreCodeRenderer';
 import { PreCode } from './components/website/code-components/pre-code';

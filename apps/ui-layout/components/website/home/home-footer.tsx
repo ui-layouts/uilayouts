@@ -1,11 +1,11 @@
 'use client';
+import { GapPattern } from '@/components/ui/gap-pattern';
+import useNewsLetter, { type ClientData } from '@/hooks/useNewsLetter';
+import { cn } from '@/lib/utils';
 import { motion, useInView } from 'motion/react';
 import Link from 'next/link';
 import React, { type FormEvent, useEffect, useRef, useState } from 'react';
 import { toast } from 'sonner';
-import { GapPattern } from '@/components/ui/gap-pattern';
-import useNewsLetter, { type ClientData } from '@/hooks/useNewsLetter';
-import { cn } from '@/lib/utils';
 import { SearchDialog } from '../searchbar';
 import ThemeSwitch from '../theme-switch';
 import HomeGitHubButton from './github-repo-button';
@@ -91,7 +91,7 @@ function HomeFooter({
                       href='https://cal.com/ui-layouts'
                       target='_blank'
                       className='flex items-center bg-blue-600 hover:bg-blue-700 text-white sm:h-14 h-12 rounded-full sm:px-6 px-4 gap-2'
-                      rel='noopener'
+                      rel='noreferrer noopener'
                     >
                       Book a free call
                       <span className='relative flex size-3'>
@@ -131,7 +131,7 @@ function HomeFooter({
               href='http://pro.ui-layouts.com/blocks'
               target='_blank'
               className='space-y-2 relative z-4'
-              rel='noopener'
+              rel='noreferrer noopener'
             >
               <div className='flex items-center text-primary/70'>
                 <span className='hover:underline flex gap-1'>Pro Blocks</span>

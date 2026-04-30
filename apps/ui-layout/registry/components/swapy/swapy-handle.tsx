@@ -1,7 +1,7 @@
 'use client';
+import { DragHandle, SwapyItem, SwapyLayout, SwapySlot } from '@/components/ui/swapy';
 import { useMemo, useState } from 'react';
 import { type SlotItemMapArray, utils } from 'swapy';
-import { DragHandle, SwapyItem, SwapyLayout, SwapySlot } from '@/components/ui/swapy';
 
 type Item = {
   id: string;

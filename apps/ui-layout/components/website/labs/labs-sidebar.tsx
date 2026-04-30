@@ -1,8 +1,4 @@
 'use client';
-import { BadgeInfo, Check, CheckCheck, ChevronsUpDown, Search } from 'lucide-react';
-import { AnimatePresence, motion } from 'motion/react';
-import Link from 'next/link';
-import React, { useState } from 'react';
 import {
   Command,
   CommandEmpty,
@@ -15,6 +11,10 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/website/ui
 import { AllComponents } from '@/configs/docs';
 import { useSelectedComponentStore, useStateChange } from '@/hooks/useZustStore';
 import { cn } from '@/lib/utils';
+import { BadgeInfo, Check, CheckCheck, ChevronsUpDown, Search } from 'lucide-react';
+import { AnimatePresence, motion } from 'motion/react';
+import Link from 'next/link';
+import React, { useState } from 'react';
 import { ScrollArea } from '../ui/scroll-area';
 
 function LabSidebar() {

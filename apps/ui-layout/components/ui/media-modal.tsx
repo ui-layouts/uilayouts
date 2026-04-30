@@ -1,9 +1,9 @@
 'use client';
+import { useMediaQuery } from '@/hooks/use-media-query';
+import { cn } from '@/lib/utils';
 import { XIcon } from 'lucide-react';
 import { AnimatePresence, MotionConfig, motion } from 'motion/react';
 import React, { useEffect, useId, useState } from 'react';
-import { useMediaQuery } from '@/hooks/use-media-query';
-import { cn } from '@/lib/utils';
 
 export const transition = {
   type: 'spring',

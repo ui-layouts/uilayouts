@@ -1,9 +1,9 @@
-import { Code, Eye } from 'lucide-react';
-// import { extractCodeFromFilePath } from '@/lib/code';
-import type React from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/website/ui/tabs';
 import { AllComponents } from '@/configs/docs';
 import { buildFinalFiles, normalizeCodeChildren } from '@/lib/code';
+import { Code, Eye } from 'lucide-react';
+// import { extractCodeFromFilePath } from '@/lib/code';
+import type React from 'react';
 import shadcnRegistry from '../../../registry.json';
 import ComponentPreview from './component-preview';
 import { PreCode } from './pre-code';

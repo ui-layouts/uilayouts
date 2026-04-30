@@ -1,6 +1,6 @@
-import { BarChart2, Bell, Home, Search, Settings } from 'lucide-react';
 import { LiquidGlassCard } from '@/components/ui/liquid-glass';
 import { cn } from '@/lib/utils';
+import { BarChart2, Bell, Home, Search, Settings } from 'lucide-react';
 
 const SidebarMenu = ({ className }: { className?: string }) => {
   return (

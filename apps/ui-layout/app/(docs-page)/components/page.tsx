@@ -1,10 +1,10 @@
-import * as AspectRatio from '@radix-ui/react-aspect-ratio';
-import Image from 'next/image';
-import Link from 'next/link';
 import preview from '@/assets/preview/Preview';
 import { BreadcrumbStructuredData } from '@/components/seo/breadcrumb-structured-data';
 import { FaqStructuredData } from '@/components/seo/faq-structured-data';
 import { absoluteUrl, cn } from '@/lib/utils';
+import * as AspectRatio from '@radix-ui/react-aspect-ratio';
+import Image from 'next/image';
+import Link from 'next/link';
 
 const appsDesign = [
   {

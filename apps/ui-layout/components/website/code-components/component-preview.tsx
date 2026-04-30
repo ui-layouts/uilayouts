@@ -1,9 +1,9 @@
 'use client';
+import { getComponentPreview } from '@/lib/component-projections';
+import { cn } from '@/lib/utils';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@radix-ui/react-tooltip';
 import { Check, Copy, Expand, Monitor, RotateCw, Smartphone, Tablet } from 'lucide-react';
 import React, { Suspense, useEffect, useMemo, useRef, useState } from 'react';
-import { getComponentPreview } from '@/lib/component-projections';
-import { cn } from '@/lib/utils';
 
 type ComponentPreviewProps = {
   hasReTrigger?: boolean;
@@ -201,7 +201,7 @@ export default function ComponentPreview({
                   href={`${process.env.NEXT_PUBLIC_ANIMATION_URL}/${iframeComponent}`}
                   target='_blank'
                   className='relative flex cursor-pointer  items-center  gap-1 rounded-lg border dark:bg-neutral-700 text-primary bg-neutral-200 p-1 px-2.5'
-                  rel='noopener'
+                  rel='noreferrer noopener'
                 >
                   Open <Expand size={20} />
                 </a>

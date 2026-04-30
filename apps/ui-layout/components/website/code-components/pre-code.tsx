@@ -1,8 +1,8 @@
-import prettier from 'prettier';
-import ts from 'typescript';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/website/ui/tabs';
 import { highlightCode } from '@/lib/shiki-highlighter';
 import { cn } from '@/lib/utils';
+import prettier from 'prettier';
+import ts from 'typescript';
 import { CopyButton } from './copy-button';
 import { CopyNpmCommandButton } from './copy-npm-button';
 

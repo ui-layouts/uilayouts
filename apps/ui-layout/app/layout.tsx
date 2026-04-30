@@ -1,12 +1,12 @@
 import './globals.css';
+import { ThemeProvider } from '@/components/website/theme-provider';
+import Progressbar from '@/lib/progressbar';
+import { siteConfig } from '@/lib/utils';
 import { Analytics } from '@vercel/analytics/next';
 import type { Metadata } from 'next';
 import { DM_Sans, Manrope, Poppins, Space_Grotesk } from 'next/font/google';
 import Script from 'next/script';
 import { Toaster } from 'sonner';
-import { ThemeProvider } from '@/components/website/theme-provider';
-import Progressbar from '@/lib/progressbar';
-import { siteConfig } from '@/lib/utils';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -140,40 +140,40 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-      <html lang='en' suppressHydrationWarning>
-        <Script
-          src='https://www.googletagmanager.com/gtag/js?id=G-BH0GZ3L39R'
-          strategy='afterInteractive'
-        />
-        <Script id='google-analytics' strategy='afterInteractive'>
-          {`
+    <html lang='en' suppressHydrationWarning>
+      <Script
+        src='https://www.googletagmanager.com/gtag/js?id=G-BH0GZ3L39R'
+        strategy='afterInteractive'
+      />
+      <Script id='google-analytics' strategy='afterInteractive'>
+        {`
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', 'G-BH0GZ3L39R');
         `}
-        </Script>
+      </Script>
 
-        <body
-          className={`
+      <body
+        className={`
     ${poppins.variable}
     ${spaceGrotesk.variable}
     ${dmSans.variable}
     ${manrope.variable}
     font-poppins
   `}
-        >
-          <Analytics />
-          <Progressbar>
-            <ThemeProvider attribute='class'>
-              <div className='isolate min-h-screen' vaul-drawer-wrapper=''>
-                {/* <SocialShareModal /> */}
-                {children}
-              </div>
-              <Toaster />
-            </ThemeProvider>
-          </Progressbar>
-        </body>
-      </html>
+      >
+        <Analytics />
+        <Progressbar>
+          <ThemeProvider attribute='class'>
+            <div className='isolate min-h-screen' vaul-drawer-wrapper=''>
+              {/* <SocialShareModal /> */}
+              {children}
+            </div>
+            <Toaster />
+          </ThemeProvider>
+        </Progressbar>
+      </body>
+    </html>
   );
 }

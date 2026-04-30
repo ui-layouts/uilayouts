@@ -1,6 +1,6 @@
 'use client';
-import React, { useState } from 'react';
 import { ColorPicker } from '@/components/ui/color-picker';
+import React, { useState } from 'react';
 
 function ColorPickerDemo() {
   const [color, setColor] = useState('#002fff');

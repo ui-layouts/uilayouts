@@ -1,9 +1,9 @@
 'use client';
 
+import { cn } from '@/lib/utils';
 import { MoonIcon, SunIcon } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import React, { useEffect, useState } from 'react';
-import { cn } from '@/lib/utils';
 
 export default function ThemeSwitch({ className }: { className?: string }) {
   const { resolvedTheme, setTheme } = useTheme();

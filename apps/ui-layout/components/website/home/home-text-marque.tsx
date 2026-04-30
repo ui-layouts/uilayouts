@@ -1,5 +1,5 @@
-import React from 'react';
 import ScrollBaseAnimation from '@/components/ui/scroll-text-marque';
+import React from 'react';
 
 function HomeTextMarquee() {
   return (

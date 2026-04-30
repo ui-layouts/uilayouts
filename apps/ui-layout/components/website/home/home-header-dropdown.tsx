@@ -1,10 +1,10 @@
 'use client';
 
+import { useRecentPagesStore } from '@/hooks/useZustStore';
+import { cn } from '@/lib/utils';
 import * as NavigationMenuPrimitive from '@radix-ui/react-navigation-menu';
 import Image from 'next/image';
 import * as React from 'react';
-import { useRecentPagesStore } from '@/hooks/useZustStore';
-import { cn } from '@/lib/utils';
 
 const components: { title: string; href: string; description: string }[] = [
   {

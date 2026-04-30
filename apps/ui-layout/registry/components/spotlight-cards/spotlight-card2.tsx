@@ -1,7 +1,7 @@
 'use client';
+import { SpotLightItem, Spotlight } from '@/components/ui/spotlight';
 import Image from 'next/image';
 import React from 'react';
-import { SpotLightItem, Spotlight } from '@/components/ui/spotlight';
 
 export default function SpotlightCard2() {
   return (

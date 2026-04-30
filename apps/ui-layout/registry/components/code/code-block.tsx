@@ -1,6 +1,6 @@
 'use client';
-import React from 'react';
 import { CodeBlock } from '@/components/ui/code-block';
+import React from 'react';
 
 const typescriptCode = `import React from 'react';
 

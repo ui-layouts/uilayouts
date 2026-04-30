@@ -1,9 +1,9 @@
-import { ArrowUpRight } from 'lucide-react';
-import type React from 'react';
 import { Container } from '@/components/ui/container';
 import HomeHeader from '@/components/website/home/home-header';
 import { Banner } from '@/components/website/ui/banner';
 import { cn } from '@/lib/utils';
+import { ArrowUpRight } from 'lucide-react';
+import type React from 'react';
 
 export default async function BlocksLayout({ children }: { children: React.ReactNode }) {
   return (

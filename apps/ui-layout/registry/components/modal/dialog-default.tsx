@@ -1,7 +1,7 @@
 'use client';
+import { FramerModal, ModalContent } from '@/components/ui/dialog';
 import type React from 'react';
 import { useState } from 'react';
-import { FramerModal, ModalContent } from '@/components/ui/dialog';
 
 const DialogDefault: React.FC = () => {
   const [modalOpen, setModalOpen] = useState(false);

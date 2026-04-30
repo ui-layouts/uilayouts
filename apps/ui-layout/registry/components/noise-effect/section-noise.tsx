@@ -6,7 +6,7 @@ const SectionNoise = () => {
   const [opacity, setOpacity] = useState(0.05);
 
   const handleOpacityChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
-    setOpacity(parseFloat(event.target.value));
+    setOpacity(Number.parseFloat(event.target.value));
   }, []);
   return (
     <>

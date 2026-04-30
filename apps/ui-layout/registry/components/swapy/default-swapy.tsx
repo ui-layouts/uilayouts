@@ -1,8 +1,8 @@
 'use client';
+import { DragHandle, SwapyItem, SwapyLayout, SwapySlot } from '@/components/ui/swapy';
 import { Heart, PlusCircle } from 'lucide-react';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { type SlotItemMapArray, utils } from 'swapy';
-import { DragHandle, SwapyItem, SwapyLayout, SwapySlot } from '@/components/ui/swapy';
 
 export function ProjectViewsCard() {
   return (

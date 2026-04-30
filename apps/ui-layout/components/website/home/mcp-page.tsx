@@ -1,7 +1,4 @@
 'use client';
-import { ArrowUpRight, Component, Github, LayoutPanelTop, Star } from 'lucide-react';
-import Image from 'next/image';
-import React, { useState } from 'react';
 import { Container } from '@/components/ui/container';
 import { GapPattern } from '@/components/ui/gap-pattern';
 import { type Colors, Liquid } from '@/components/ui/liquid-gradient';
@@ -10,6 +7,9 @@ import HomeFooter from '@/components/website/home/home-footer';
 import HomeHeader from '@/components/website/home/home-header';
 import { Banner } from '@/components/website/ui/banner';
 import { cn } from '@/lib/utils';
+import { ArrowUpRight, Component, Github, LayoutPanelTop, Star } from 'lucide-react';
+import Image from 'next/image';
+import React, { useState } from 'react';
 
 const COLORS: Colors = {
   color1: '#FFFFFF',
@@ -133,7 +133,7 @@ function McpPage() {
                   href='https://github.com/ui-layouts/mcp'
                   target='_blank'
                   className='relative inline-block md:w-40 w-12 h-[3em] group dark:bg-black bg-white dark:border-white border-black border-2 rounded-lg'
-                  rel='noopener'
+                  rel='noreferrer noopener'
                 >
                   <div className='absolute w-[112.81%] h-[128.57%] top-[8.57%] left-1/2 -translate-x-1/2 filter blur-[19px] opacity-70'>
                     <span className='absolute inset-0 rounded-lg bg-[#d9d9d9] filter blur-[6.5px]'></span>

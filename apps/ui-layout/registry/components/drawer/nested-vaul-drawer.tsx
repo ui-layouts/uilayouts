@@ -30,7 +30,7 @@ export default function MyDrawer() {
                     href='https://www.radix-ui.com/docs/primitives/components/dialog'
                     className='underline'
                     target='_blank'
-                    rel='noopener'
+                    rel='noreferrer noopener'
                   >
                     Radix&rsquo;s Dialog primitive
                   </a>{' '}
@@ -39,7 +39,7 @@ export default function MyDrawer() {
                     href='https://twitter.com/devongovett/status/1674470185783402496'
                     className='underline'
                     target='_blank'
-                    rel='noopener'
+                    rel='noreferrer noopener'
                   >
                     this tweet.
                   </a>
@@ -70,7 +70,7 @@ export default function MyDrawer() {
                               href='https://github.com/emilkowalski/vaul#examples'
                               className='underline'
                               target='_blank'
-                              rel='noopener'
+                              rel='noreferrer noopener'
                             >
                               here
                             </a>
@@ -102,7 +102,7 @@ export default function MyDrawer() {
                                           href='https://github.com/emilkowalski/vaul#examples'
                                           className='underline'
                                           target='_blank'
-                                          rel='noopener'
+                                          rel='noreferrer noopener'
                                         >
                                           here
                                         </a>
@@ -116,7 +116,7 @@ export default function MyDrawer() {
                                         className='text-xs text-neutral-600 flex items-center gap-0.25'
                                         href='https://github.com/emilkowalski/vaul'
                                         target='_blank'
-                                        rel='noopener'
+                                        rel='noreferrer noopener'
                                       >
                                         GitHub
                                         <svg
@@ -140,7 +140,7 @@ export default function MyDrawer() {
                                         className='text-xs text-neutral-600 flex items-center gap-0.25'
                                         href='https://twitter.com/emilkowalski_'
                                         target='_blank'
-                                        rel='noopener'
+                                        rel='noreferrer noopener'
                                       >
                                         Twitter
                                         <svg
@@ -174,7 +174,7 @@ export default function MyDrawer() {
                             className='text-xs text-neutral-600 flex items-center gap-0.25'
                             href='https://github.com/emilkowalski/vaul'
                             target='_blank'
-                            rel='noopener'
+                            rel='noreferrer noopener'
                           >
                             GitHub
                             <svg
@@ -198,7 +198,7 @@ export default function MyDrawer() {
                             className='text-xs text-neutral-600 flex items-center gap-0.25'
                             href='https://twitter.com/emilkowalski_'
                             target='_blank'
-                            rel='noopener'
+                            rel='noreferrer noopener'
                           >
                             Twitter
                             <svg
@@ -231,7 +231,7 @@ export default function MyDrawer() {
                   className='text-xs text-neutral-600 flex items-center gap-0.25'
                   href='https://github.com/emilkowalski/vaul'
                   target='_blank'
-                  rel='noopener'
+                  rel='noreferrer noopener'
                 >
                   GitHub
                   <svg
@@ -255,7 +255,7 @@ export default function MyDrawer() {
                   className='text-xs text-neutral-600 flex items-center gap-0.25'
                   href='https://twitter.com/emilkowalski_'
                   target='_blank'
-                  rel='noopener'
+                  rel='noreferrer noopener'
                 >
                   Twitter
                   <svg

@@ -1,14 +1,14 @@
 'use client';
 
-import Image from 'next/image';
-import { useState } from 'react';
-import type { DropzoneOptions } from 'react-dropzone';
 import {
   FileInput,
   FileUploader,
   FileUploaderContent,
   FileUploaderItem,
 } from '@/components/ui/file-upload';
+import Image from 'next/image';
+import { useState } from 'react';
+import type { DropzoneOptions } from 'react-dropzone';
 
 const FileSvgDraw = () => {
   return (

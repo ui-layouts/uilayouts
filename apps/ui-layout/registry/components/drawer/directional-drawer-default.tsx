@@ -1,12 +1,12 @@
 'use client';
-import { Edit } from 'lucide-react';
-import { motion } from 'motion/react';
-import Image from 'next/image';
 import {
   DirectionalDrawer,
   DrawerContent,
   DrawerTrigger,
 } from '@/components/ui/directional-drawer';
+import { Edit } from 'lucide-react';
+import { motion } from 'motion/react';
+import Image from 'next/image';
 
 export default function DirectionalDrawerDefault() {
   return (

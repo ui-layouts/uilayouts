@@ -4174,6 +4174,34 @@ export const AllComponents: IAllComponents[] = [
       'project structure',
     ],
   },
+  {
+    category: DOCS_CATEGORY_KEY['mac-genie'],
+    componentName: COMPONENT_KEYS.MAC_GENIE,
+    href: '/components/mac-genie',
+    title: humanize(COMPONENT_KEYS.MAC_GENIE),
+    slug: 'mac-genie',
+    description:
+      'MAC GENIE component with realistic genie effect animations for opening and minimizing windows',
+    filesrc: require('../registry/components/mac/genie-effect.tsx?raw'),
+    componentSrc: React.lazy(() => import('@/registry/components/mac/genie-effect')),
+    iframeSrc: 'live-components/mac-genie',
+    tags: [
+      'code tabs',
+      'multi-language code',
+      'copy button',
+      'code display',
+      'tabs component',
+      'code viewer',
+      'syntax highlighter',
+      'code block',
+      'react code component',
+      'file structure',
+      'code navigation',
+      'file browser',
+      'code organization',
+      'project structure',
+    ],
+  },
 ];
 
 export const ComponentMetaByCategory = AllComponents.reduce((map, m) => {

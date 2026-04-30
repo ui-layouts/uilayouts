@@ -1,6 +1,6 @@
+import { groupedDocsNavigationCategories } from '@/lib/grouped-docs';
 import { ChevronsLeft, ChevronsRight } from 'lucide-react';
 import Link from 'next/link';
-import { groupedDocsNavigationCategories } from '@/lib/grouped-docs';
 
 export function ComponentPagination({ doc }: any) {
   const flatDocsNavigationCategories = Object.values(groupedDocsNavigationCategories).flat();

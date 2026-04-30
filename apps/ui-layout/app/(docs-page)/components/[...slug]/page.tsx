@@ -1,6 +1,3 @@
-import { Component } from 'lucide-react';
-import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
 import { BreadcrumbStructuredData } from '@/components/seo/breadcrumb-structured-data';
 import { StructuredData } from '@/components/seo/structured-data';
 import { GapPattern } from '@/components/ui/gap-pattern';
@@ -10,6 +7,9 @@ import Footer from '@/components/website/footer';
 import TableOfContents from '@/components/website/tableof-compoents';
 import { getAllDocs, getDocBySlug } from '@/lib/docs';
 import { absoluteUrl, cn } from '@/lib/utils';
+import { Component } from 'lucide-react';
+import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 
 export const dynamic = 'force-static';
 export const dynamicParams = false;

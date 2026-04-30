@@ -1,10 +1,10 @@
 'use client';
+import { Marquee } from '@/components/ui/marquee';
+import { cn } from '@/lib/utils';
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import { Marquee } from '@/components/ui/marquee';
-import { cn } from '@/lib/utils';
 
 // const allBlocks = [
 //   {
@@ -220,7 +220,7 @@ function AllBlocks({ blocksData }: { blocksData: any[] }) {
           href='https://pro.ui-layouts.com/blocks'
           target='_blank'
           className='flex sm:text-xl relative z-2 w-fit py-2 px-3 dark:bg-neutral-900 bg-neutral-100 justify-center group mx-auto font-medium items-center gap-2  rounded-md border dark:border-[#1d1d1d]'
-          rel='noopener'
+          rel='noreferrer noopener'
         >
           <span>Browse all </span>
           <span className='flex items-center gap-2'>

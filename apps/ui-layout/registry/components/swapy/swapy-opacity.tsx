@@ -1,4 +1,5 @@
 'use client';
+import { DragHandle, SwapyItem, SwapyLayout, SwapySlot } from '@/components/ui/swapy';
 import {
   BarChart2,
   Brain,
@@ -11,7 +12,6 @@ import {
 } from 'lucide-react';
 import { type ReactNode, useEffect, useMemo, useRef, useState } from 'react';
 import { type SlotItemMapArray, Swapy, utils } from 'swapy';
-import { DragHandle, SwapyItem, SwapyLayout, SwapySlot } from '@/components/ui/swapy';
 
 type Item = {
   id: string;

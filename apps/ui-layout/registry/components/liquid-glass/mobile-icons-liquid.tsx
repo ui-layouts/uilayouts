@@ -1,3 +1,4 @@
+import { LiquidGlassCard } from '@/components/ui/liquid-glass';
 import {
   Bell,
   Camera,
@@ -10,7 +11,6 @@ import {
   Timer,
   VolumeX,
 } from 'lucide-react';
-import { LiquidGlassCard } from '@/components/ui/liquid-glass';
 
 const MobileIcons = () => {
   return (

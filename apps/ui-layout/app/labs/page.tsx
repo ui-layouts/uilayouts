@@ -1,5 +1,5 @@
-import React from 'react';
 import ComponentSection from '@/components/website/labs/component-section';
+import React from 'react';
 
 async function page() {
   return (

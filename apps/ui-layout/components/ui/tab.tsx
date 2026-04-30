@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from '@/lib/utils';
 import { AnimatePresence, motion } from 'motion/react';
 import React, {
   createContext,
@@ -10,7 +11,6 @@ import React, {
   useMemo,
   useState,
 } from 'react';
-import { cn } from '@/lib/utils';
 
 // Improved TypeScript interfaces with more specific types
 interface TabContextType {

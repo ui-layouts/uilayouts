@@ -1,6 +1,6 @@
 'use client';
-import React from 'react';
 import { ScrollAnimation } from '@/components/ui/scroll-animation';
+import React from 'react';
 
 function ScrollElementDemo() {
   return (
@@ -32,10 +32,7 @@ function ScrollElementDemo() {
             />
           </ScrollAnimation>
 
-          <ScrollAnimation
-            viewport={{ once: true, amount: 0.5, margin: '0px 0px 0px 0px' }}
-            // @ts-expect-error
-          >
+          <ScrollAnimation viewport={{ once: true, amount: 0.5, margin: '0px 0px 0px 0px' }}>
             <img
               src='https://images.unsplash.com/photo-1724884564497-f5024b7e2f93?q=80&w=600&auto=format&fit=crop'
               alt=''

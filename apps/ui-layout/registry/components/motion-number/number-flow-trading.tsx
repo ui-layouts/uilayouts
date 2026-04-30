@@ -1,9 +1,9 @@
 'use client';
+import { cn } from '@/lib/utils';
 import NumberFlow, { useCanAnimate } from '@number-flow/react';
 import { ArrowUp } from 'lucide-react';
 import { motion } from 'motion/react';
 import React, { CSSProperties, useState } from 'react';
-import { cn } from '@/lib/utils';
 
 const MotionNumberFlow = motion.create(NumberFlow);
 const MotionArrowUp = motion.create(ArrowUp);

@@ -2,10 +2,10 @@
 
 'use client';
 
+import { cn } from '@/lib/utils';
 import { type HTMLMotionProps, motion } from 'motion/react';
 import type React from 'react';
 import type { JSX } from 'react';
-import { cn } from '@/lib/utils';
 
 type Direction = 'up' | 'down' | 'left' | 'right';
 

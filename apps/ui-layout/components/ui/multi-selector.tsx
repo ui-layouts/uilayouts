@@ -1,6 +1,4 @@
 'use client';
-import { CheckIcon, ChevronDown, XCircle, XIcon } from 'lucide-react';
-import * as React from 'react';
 import { Button } from '@/components/website/ui/button';
 import {
   Command,
@@ -13,6 +11,8 @@ import {
 } from '@/components/website/ui/command';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/website/ui/popover';
 import { cn } from '@/lib/utils';
+import { CheckIcon, ChevronDown, XCircle, XIcon } from 'lucide-react';
+import * as React from 'react';
 
 /**
  * Props for MultiSelect component

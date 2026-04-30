@@ -1,8 +1,8 @@
 'use client';
-import { AnimatePresence, motion } from 'motion/react';
-import React, { createContext, type ReactNode, useContext, useState } from 'react';
 import { useMediaQuery } from '@/hooks/use-media-query';
 import { cn } from '@/lib/utils';
+import { AnimatePresence, motion } from 'motion/react';
+import React, { createContext, type ReactNode, useContext, useState } from 'react';
 
 interface Tab {
   id: string;

@@ -2,6 +2,12 @@
 'use client';
 
 import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/magnified-doc';
+import {
   AnimatePresence,
   type MotionValue,
   motion,
@@ -11,12 +17,6 @@ import {
 } from 'motion/react';
 import Image from 'next/image';
 import React, { useRef, useState } from 'react';
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from '@/components/ui/magnified-doc';
 import { apps } from '../constant';
 
 const Component = React.forwardRef((props, ref) => <Image {...props} ref={ref} alt='App' />);
@@ -26,7 +26,7 @@ Component.displayName = 'ForwardedComponent';
 const MotionComponent = motion(Component);
 
 function HomeMagnifiedDocOneFile() {
-  const mouseX = useMotionValue(Infinity);
+  const mouseX = useMotionValue(Number.POSITIVE_INFINITY);
   const [index, setIndex] = useState(0);
   const [prevIndex, setPrevIndex] = useState(0);
 
@@ -83,7 +83,7 @@ function HomeMagnifiedDocOneFile() {
           <TooltipProvider delayDuration={0}>
             <motion.div
               onMouseMove={(e) => mouseX.set(e.pageX)}
-              onMouseLeave={() => mouseX.set(Infinity)}
+              onMouseLeave={() => mouseX.set(Number.POSITIVE_INFINITY)}
               className='mx-auto flex h-[57px] w-fit items-end gap-2 rounded-t-lg px-2 pb-2  bg-primary-foreground backdrop-blur-2xl border-t border-l border-r  '
             >
               {apps.slice(0, 6).map((app, i) => {

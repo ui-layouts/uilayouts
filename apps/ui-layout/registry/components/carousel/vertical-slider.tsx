@@ -1,6 +1,4 @@
 'use client';
-import type { EmblaOptionsType } from 'embla-carousel';
-import { ChevronDown, ChevronUp } from 'lucide-react';
 import {
   Carousel,
   Slider,
@@ -9,6 +7,8 @@ import {
   SliderNextButton,
   SliderPrevButton,
 } from '@/components/ui/carousel';
+import type { EmblaOptionsType } from 'embla-carousel';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 
 function VerticalCarousel() {
   const OPTIONS: EmblaOptionsType = {

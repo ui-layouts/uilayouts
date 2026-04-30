@@ -1,8 +1,8 @@
 'use client';
 
+import { cn } from '@/lib/utils';
 import { Check, CheckCheck, Copy } from 'lucide-react';
 import { useState } from 'react';
-import { cn } from '@/lib/utils';
 
 export function CopyButton({ code, classname }: { code: string; classname?: string }) {
   const [hasCheckIcon, setHasCheckIcon] = useState(false);

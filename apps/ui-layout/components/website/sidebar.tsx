@@ -1,4 +1,7 @@
 'use client';
+import { ScrollArea } from '@/components/website/ui/scroll-area';
+import { IRecentPage, useRecentPagesStore } from '@/hooks/useZustStore';
+import { groupedDocsNavigationCategories } from '@/lib/grouped-docs';
 import {
   Atom,
   Blocks,
@@ -10,13 +13,10 @@ import {
   Target,
   X,
 } from 'lucide-react';
+import { useTheme } from 'next-themes';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useTheme } from 'next-themes';
 import React, { useEffect, useRef, useState } from 'react';
-import { ScrollArea } from '@/components/website/ui/scroll-area';
-import { IRecentPage, useRecentPagesStore } from '@/hooks/useZustStore';
-import { groupedDocsNavigationCategories } from '@/lib/grouped-docs';
 
 export const basePath = [
   {

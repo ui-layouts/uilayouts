@@ -1,9 +1,9 @@
-import { Code, Eye } from 'lucide-react';
-import type { ReactNode } from 'react';
-import { z } from 'zod';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/website/ui/tabs';
 import { AllComponents } from '@/configs/docs';
 import { normalizeCodeChildren } from '@/lib/code';
+import { Code, Eye } from 'lucide-react';
+import type { ReactNode } from 'react';
+import { z } from 'zod';
 import ComponentPreview from './component-preview';
 import { PreCode } from './pre-code';
 

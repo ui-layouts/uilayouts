@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useRef } from 'react';
-import { createSwapy, type Swapy } from 'swapy';
+import { type Swapy, createSwapy } from 'swapy';
 
 const slots = [
   { slot: 'a', content: 'A', bg: 'bg-emerald-500', hasHandle: false },

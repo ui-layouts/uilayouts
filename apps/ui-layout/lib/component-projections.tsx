@@ -1,5 +1,5 @@
-import type React from 'react';
 import { AllComponents } from '@/configs/docs';
+import type React from 'react';
 
 type FilesArrayItem = {
   name: string;

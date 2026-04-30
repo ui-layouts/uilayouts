@@ -88,10 +88,12 @@ export const DOCS_CATEGORY_KEY = {
   'tree-code-viewer': 'tree-code-viewer',
   'code-tabs-mdx': 'code-tabs-mdx',
   'code-tabs': 'code-tabs',
+  'mac-genie': 'mac-genie',
 } as const;
 
 export const COMPONENT_KEYS = {
   // Default category
+  MAC_GENIE: 'mac-genie',
   LIQUID_GLASS_SIDEBAR_MENU: 'liquid-glass-sidebar-menu',
   LIQUID_GLASS_MOBILE_ICONS: 'liquid-glass-mobile-icons',
   LIQUID_GLASS_WEATHER: 'liquid-glass-weather',
@@ -341,4 +343,7 @@ export const COMPONENT_KEYS = {
   TREE_CODE_VIEWER: 'tree-code-viewer',
   CODE_TABS_MDX: 'code-tabs-mdx',
   CODE_TABS: 'code-tabs',
+
+  // Mac category
+  MAC_GENIE_EFFECT: 'mac-genie-effect',
 } as const;

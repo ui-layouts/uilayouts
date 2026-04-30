@@ -1,8 +1,8 @@
 //@ts-nocheck
 'use client';
+import preview from '@/assets/preview/Preview';
 import Image from 'next/image';
 import React, { createRef, useRef, useState } from 'react';
-import preview from '@/assets/preview/Preview';
 export const items = [
   {
     id: 1,

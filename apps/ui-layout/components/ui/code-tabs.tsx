@@ -1,9 +1,9 @@
 // components/website/code-components/code-tabs.tsx
 'use client';
 
-import { type ReactNode, useEffect, useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/website/ui/tabs';
 import { cn } from '@/lib/utils';
+import { type ReactNode, useEffect, useState } from 'react';
 import { CopyButton } from '../website/code-components/copy-button';
 
 export type CodeTabInput = {

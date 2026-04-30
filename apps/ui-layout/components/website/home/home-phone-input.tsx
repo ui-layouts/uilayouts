@@ -1,10 +1,10 @@
 // @ts-nocheck
 'use client';
+import { PhoneInput } from '@/components/ui/phone-input';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Controller, useForm } from 'react-hook-form';
 import { isValidPhoneNumber } from 'react-phone-number-input';
 import { z } from 'zod';
-import { PhoneInput } from '@/components/ui/phone-input';
 
 // Zod schema for phone validation
 const FormSchema = z.object({

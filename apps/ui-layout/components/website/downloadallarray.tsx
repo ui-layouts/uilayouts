@@ -1,5 +1,5 @@
-import type React from 'react';
 import { AllComponents, DocsNavigationCategories } from '@/configs/docs';
+import type React from 'react';
 import { Button } from './ui/button';
 
 const MainComponentsDownloader: React.FC = () => {

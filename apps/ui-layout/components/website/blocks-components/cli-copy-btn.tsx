@@ -1,13 +1,13 @@
 // @ts-nocheck
 'use client';
 
+import { cn } from '@/lib/utils';
 import * as SelectPrimitives from '@radix-ui/react-select';
 import { Button } from '@repo/shadcn';
 import { Check, CheckCheck, CheckIcon, ChevronDownIcon, ChevronsUpDown, Copy } from 'lucide-react';
 import { motion } from 'motion/react';
 import * as React from 'react';
 import { SVGProps } from 'react';
-import { cn } from '@/lib/utils';
 import { Bun, NPM, Pnpm, Yarn } from '../icons';
 
 type PM = 'npm' | 'pnpm' | 'bun' | 'yarn';

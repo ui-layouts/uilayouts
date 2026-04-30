@@ -1,9 +1,9 @@
+import { Marquee } from '@/components/ui/marquee';
+import SidebarMenu from '@/registry/components/liquid-glass/sidebar-menu';
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import { Marquee } from '@/components/ui/marquee';
-import SidebarMenu from '@/registry/components/liquid-glass/sidebar-menu';
 import HomeBtn from './home-btn';
 import HomeClipPath from './home-clippath';
 import HomeDateTimePicker from './home-datetime-picker';
@@ -161,7 +161,7 @@ function AllComponents() {
           href='/components'
           target='_blank'
           className='flex sm:text-base text-sm relative z-2 sm:w-fit w-60 py-2 px-3 dark:bg-neutral-900 bg-neutral-100 justify-center group mx-auto font-medium items-center gap-2 rounded-md border dark:border-[#1d1d1d]'
-          rel='noopener'
+          rel='noreferrer noopener'
         >
           {' '}
           <span>Browse all </span>

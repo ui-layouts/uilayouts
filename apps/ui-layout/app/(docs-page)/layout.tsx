@@ -1,8 +1,8 @@
-import type React from 'react';
 import { Container } from '@/components/ui/container';
 import { GapPattern } from '@/components/ui/gap-pattern';
 import Header from '@/components/website/header';
 import DocsSidebar from '@/components/website/sidebar';
+import type React from 'react';
 
 export default async function ComponentLayout({ children }: { children: React.ReactNode }) {
   return (

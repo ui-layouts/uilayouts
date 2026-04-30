@@ -3,6 +3,7 @@ import type React from 'react';
 import { cn } from '@/lib/utils';
 export type IconProps = React.HTMLAttributes<SVGElement>;
 
+import doc_rectangle from '@/assets/icons/Rectangle.png';
 import doc_circle from '@/assets/icons/circle.png';
 import componentsIcons from '@/assets/icons/component.svg';
 import doc_icon2 from '@/assets/icons/doc_icon2.png';
@@ -11,7 +12,6 @@ import doc_icon4 from '@/assets/icons/doc_icon4.png';
 import doc_icon5 from '@/assets/icons/doc_icon5.png';
 import doc_star from '@/assets/icons/doc_star.png';
 import homeIcons from '@/assets/icons/home.svg';
-import doc_rectangle from '@/assets/icons/Rectangle.png';
 import doc_triangle from '@/assets/icons/triangle.png';
 
 export const techIcons = {

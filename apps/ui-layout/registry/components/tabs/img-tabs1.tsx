@@ -1,5 +1,4 @@
 'use client';
-import React, { useState } from 'react';
 import {
   TabDes,
   TabHeader,
@@ -9,6 +8,7 @@ import {
   TabList,
   TabsProvider,
 } from '@/components/ui/image-tabs';
+import React, { useState } from 'react';
 
 const tabs = [
   {

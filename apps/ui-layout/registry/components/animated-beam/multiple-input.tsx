@@ -1,8 +1,8 @@
 'use client';
 
-import React, { forwardRef, useRef } from 'react';
 import { AnimatedBeam, Circle, Icons } from '@/components/ui/animated-beam';
 import { cn } from '@/lib/utils';
+import React, { forwardRef, useRef } from 'react';
 export default function AnimatedBeamMultipleInput() {
   const containerRef = useRef<HTMLDivElement>(null);
   const div1Ref = useRef<HTMLDivElement>(null);

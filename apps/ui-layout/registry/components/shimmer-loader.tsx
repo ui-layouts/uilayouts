@@ -1,6 +1,6 @@
 'use client';
-import { useState } from 'react';
 import { ShimmerLoader } from '@/components/ui/shimmer-loader';
+import { useState } from 'react';
 
 export default function ShimmerLoaderDemo() {
   const [key, setKey] = useState(0);

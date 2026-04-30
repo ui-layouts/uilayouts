@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import {
   TreeExpander,
   TreeIcon,
@@ -11,7 +10,8 @@ import {
   TreeProvider,
   TreeView,
 } from '@/components/ui/tree';
-import { buildSimpleTree, getFileIcon, type TreeNodeData } from '@/lib/tree-structure';
+import { type TreeNodeData, buildSimpleTree, getFileIcon } from '@/lib/tree-structure';
+import { useState } from 'react';
 import { ClientPreCode } from '../website/code-components/client-pre-code';
 
 export function TreeCodeViewer({

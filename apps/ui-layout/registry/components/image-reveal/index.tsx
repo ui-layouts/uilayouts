@@ -1,9 +1,9 @@
 'use client';
 
+import { useMediaQuery } from '@/hooks/use-media-query';
 import { ArrowUpRight, MoveUpRight } from 'lucide-react';
 import type React from 'react';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { useMediaQuery } from '@/hooks/use-media-query';
 
 interface ImageData {
   id: number;

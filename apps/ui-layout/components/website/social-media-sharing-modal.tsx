@@ -11,7 +11,9 @@ const SocialShareModal = () => {
     // Check different interaction types
     const hasShared = localStorage.getItem('ui-layouts-share-modal-shared');
     const lastClosedDate = localStorage.getItem('ui-layouts-share-modal-closed-date');
-    const modalShowCount = parseInt(localStorage.getItem('ui-layouts-share-modal-count') || '0');
+    const modalShowCount = Number.parseInt(
+      localStorage.getItem('ui-layouts-share-modal-count') || '0'
+    );
     const currentDate = new Date().getTime();
 
     // If user has shared before, never show again
@@ -27,7 +29,7 @@ const SocialShareModal = () => {
       shouldShow = true;
     } else {
       // Check if 2 days have passed since last close
-      const lastClosed = parseInt(lastClosedDate);
+      const lastClosed = Number.parseInt(lastClosedDate);
       const twoDaysInMs = 1 * 24 * 60 * 60 * 1000; // 2 days
 
       if (currentDate - lastClosed >= twoDaysInMs) {

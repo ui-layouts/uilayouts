@@ -1,8 +1,8 @@
-import createMDX from '@next/mdx';
 import path, { dirname } from 'path';
+import { fileURLToPath } from 'url';
+import createMDX from '@next/mdx';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
-import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);

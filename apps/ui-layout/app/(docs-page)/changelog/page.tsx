@@ -1,8 +1,8 @@
+import { cn } from '@/lib/utils';
 import { Component } from 'lucide-react';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = {
   title: 'Changelog | UI Layouts',
@@ -129,8 +129,8 @@ export default function ChangelogPage() {
               Changelog
             </h1>
             <p className='md:w-140 sm:text-sm text-xs pt-2'>
-              We publish <strong>major updates only</strong> here, so the changelog stays concise and
-          helpful.
+              We publish <strong>major updates only</strong> here, so the changelog stays concise
+              and helpful.
             </p>
           </div>
         </div>
@@ -139,7 +139,7 @@ export default function ChangelogPage() {
           href='https://pro.ui-layouts.com/pricing'
           target='_blank'
           className='absolute xl:-top-16 xl:-right-2 -top-10 -right-12 md:block hidden'
-          rel='noopener'
+          rel='noreferrer noopener'
         >
           <Image
             src='/20perc.png'

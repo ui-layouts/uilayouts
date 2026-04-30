@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from '@/lib/utils';
 import type { EmblaCarouselType, EmblaEventType, EmblaOptionsType } from 'embla-carousel';
 import useEmblaCarousel from 'embla-carousel-react';
 import { AnimatePresence, motion } from 'motion/react';
@@ -14,7 +15,6 @@ import {
   useRef,
   useState,
 } from 'react';
-import { cn } from '@/lib/utils';
 
 // ============= TYPES =============
 interface CarouselProps extends React.HTMLAttributes<HTMLDivElement> {

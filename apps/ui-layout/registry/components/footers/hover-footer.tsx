@@ -1,6 +1,6 @@
 'use client';
-import React from 'react';
 import AnimatedText from '@/components/ui/cursor-follow-text';
+import React from 'react';
 
 function HoverFooter() {
   return (
@@ -27,7 +27,7 @@ function HoverFooter() {
             href='https://www.linkedin.com/in/naymur-rahman/'
             target='_blank'
             className='bg-neutral-50 sm:w-auto w-full   grid place-content-center 2xl:h-40 h-32 2xl:p-10 p-5 rounded-lg'
-            rel='noopener'
+            rel='noreferrer noopener'
           >
             <svg
               xmlns='http://www.w3.org/2000/svg'
@@ -47,7 +47,7 @@ function HoverFooter() {
             href='https://x.com/naymur_dev'
             target='_blank'
             className='bg-neutral-50 sm:w-auto w-full  grid place-content-center  2xl:h-40 h-32 2xl:p-10 p-5 rounded-lg'
-            rel='noopener'
+            rel='noreferrer noopener'
           >
             <svg
               xmlns='http://www.w3.org/2000/svg'

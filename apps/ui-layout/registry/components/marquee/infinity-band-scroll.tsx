@@ -10,7 +10,7 @@ function InfinityBandScroll() {
               target='_blank'
               href='https://x.com/naymur_dev'
               className='border bg-primary  text-primary-foreground text-2xl  sm:grid hidden place-content-center  p-2   rounded-md'
-              rel='noopener'
+              rel='noreferrer noopener'
             >
               <svg
                 width='120'
@@ -29,7 +29,7 @@ function InfinityBandScroll() {
               target='_blank'
               href='https://www.youtube.com/naymurweb'
               className='border bg-primary  text-primary-foreground text-2xl  sm:grid hidden place-content-center  p-2   rounded-md'
-              rel='noopener'
+              rel='noreferrer noopener'
             >
               <svg
                 width='206'
@@ -52,7 +52,7 @@ function InfinityBandScroll() {
               target='_blank'
               href='https://github.com/ui-layouts/uilayouts'
               className='border bg-primary  text-primary-foreground text-2xl  sm:grid hidden place-content-center  p-2   rounded-md'
-              rel='noopener'
+              rel='noreferrer noopener'
             >
               <svg
                 width='202'
@@ -75,7 +75,7 @@ function InfinityBandScroll() {
               target='_blank'
               href='https://x.com/naymur_dev'
               className='border bg-primary  text-primary-foreground text-2xl  sm:grid hidden place-content-center  p-2   rounded-md'
-              rel='noopener'
+              rel='noreferrer noopener'
             >
               <svg
                 width='120'
@@ -94,7 +94,7 @@ function InfinityBandScroll() {
               target='_blank'
               href='https://www.youtube.com/naymurweb'
               className='border bg-primary  text-primary-foreground text-2xl  sm:grid hidden place-content-center  p-2   rounded-md'
-              rel='noopener'
+              rel='noreferrer noopener'
             >
               <svg
                 width='206'
@@ -117,7 +117,7 @@ function InfinityBandScroll() {
               target='_blank'
               href='https://github.com/ui-layouts/uilayouts'
               className='border bg-primary  text-primary-foreground text-2xl  sm:grid hidden place-content-center  p-2   rounded-md'
-              rel='noopener'
+              rel='noreferrer noopener'
             >
               <svg
                 width='202'
@@ -140,7 +140,7 @@ function InfinityBandScroll() {
               target='_blank'
               href='https://x.com/naymur_dev'
               className='border bg-primary  text-primary-foreground text-2xl  sm:grid hidden place-content-center  p-2   rounded-md'
-              rel='noopener'
+              rel='noreferrer noopener'
             >
               <svg
                 width='120'
@@ -159,7 +159,7 @@ function InfinityBandScroll() {
               target='_blank'
               href='https://www.youtube.com/naymurweb'
               className='border bg-primary  text-primary-foreground text-2xl  sm:grid hidden place-content-center  p-2   rounded-md'
-              rel='noopener'
+              rel='noreferrer noopener'
             >
               <svg
                 width='206'
@@ -182,7 +182,7 @@ function InfinityBandScroll() {
               target='_blank'
               href='https://github.com/ui-layouts/uilayouts'
               className='border bg-primary  text-primary-foreground text-2xl  sm:grid hidden place-content-center  p-2   rounded-md'
-              rel='noopener'
+              rel='noreferrer noopener'
             >
               <svg
                 width='202'
@@ -210,7 +210,7 @@ function InfinityBandScroll() {
               target='_blank'
               href='https://x.com/naymur_dev'
               className='border bg-primary  text-primary-foreground text-2xl  sm:grid hidden place-content-center  p-2   rounded-md'
-              rel='noopener'
+              rel='noreferrer noopener'
             >
               <svg
                 width='120'
@@ -229,7 +229,7 @@ function InfinityBandScroll() {
               target='_blank'
               href='https://www.youtube.com/naymurweb'
               className='border bg-primary  text-primary-foreground text-2xl  sm:grid hidden place-content-center  p-2   rounded-md'
-              rel='noopener'
+              rel='noreferrer noopener'
             >
               <svg
                 width='206'
@@ -252,7 +252,7 @@ function InfinityBandScroll() {
               target='_blank'
               href='https://github.com/ui-layouts/uilayouts'
               className='border bg-primary  text-primary-foreground text-2xl  sm:grid hidden place-content-center  p-2   rounded-md'
-              rel='noopener'
+              rel='noreferrer noopener'
             >
               <svg
                 width='202'
@@ -275,7 +275,7 @@ function InfinityBandScroll() {
               target='_blank'
               href='https://x.com/naymur_dev'
               className='border bg-primary  text-primary-foreground text-2xl  sm:grid hidden place-content-center  p-2   rounded-md'
-              rel='noopener'
+              rel='noreferrer noopener'
             >
               <svg
                 width='120'
@@ -294,7 +294,7 @@ function InfinityBandScroll() {
               target='_blank'
               href='https://www.youtube.com/naymurweb'
               className='border bg-primary  text-primary-foreground text-2xl  sm:grid hidden place-content-center  p-2   rounded-md'
-              rel='noopener'
+              rel='noreferrer noopener'
             >
               <svg
                 width='206'
@@ -317,7 +317,7 @@ function InfinityBandScroll() {
               target='_blank'
               href='https://github.com/ui-layouts/uilayouts'
               className='border bg-primary  text-primary-foreground text-2xl  sm:grid hidden place-content-center  p-2   rounded-md'
-              rel='noopener'
+              rel='noreferrer noopener'
             >
               <svg
                 width='202'
@@ -340,7 +340,7 @@ function InfinityBandScroll() {
               target='_blank'
               href='https://x.com/naymur_dev'
               className='border bg-primary  text-primary-foreground text-2xl  sm:grid hidden place-content-center  p-2   rounded-md'
-              rel='noopener'
+              rel='noreferrer noopener'
             >
               <svg
                 width='120'
@@ -359,7 +359,7 @@ function InfinityBandScroll() {
               target='_blank'
               href='https://www.youtube.com/naymurweb'
               className='border bg-primary  text-primary-foreground text-2xl  sm:grid hidden place-content-center  p-2   rounded-md'
-              rel='noopener'
+              rel='noreferrer noopener'
             >
               <svg
                 width='206'
@@ -382,7 +382,7 @@ function InfinityBandScroll() {
               target='_blank'
               href='https://github.com/ui-layouts/uilayouts'
               className='border bg-primary  text-primary-foreground text-2xl  sm:grid hidden place-content-center  p-2   rounded-md'
-              rel='noopener'
+              rel='noreferrer noopener'
             >
               <svg
                 width='202'

@@ -1,7 +1,7 @@
 //@ts-nocheck
 'use client';
-import React, { createRef, useRef } from 'react';
 import { items } from '@/components/website/constant';
+import React, { createRef, useRef } from 'react';
 
 export default function ImageMouseTrail3() {
   const containerRef = useRef(null);

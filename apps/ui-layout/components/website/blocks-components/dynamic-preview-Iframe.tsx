@@ -1,5 +1,8 @@
 'use client';
 
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/website/ui/tooltip';
+import { useMediaQuery } from '@/hooks/use-media-query';
+import { useOptimizedIframe } from '@/hooks/useOptimizedIframe';
 import { RefreshCcw } from 'lucide-react';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
@@ -8,9 +11,6 @@ import {
   PanelGroup,
   PanelResizeHandle,
 } from 'react-resizable-panels';
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/website/ui/tooltip';
-import { useMediaQuery } from '@/hooks/use-media-query';
-import { useOptimizedIframe } from '@/hooks/useOptimizedIframe';
 
 type Props = {
   src: string;

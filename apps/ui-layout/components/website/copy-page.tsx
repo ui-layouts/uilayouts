@@ -1,9 +1,5 @@
 'use client';
 
-import { CheckCheck, CheckCheckIcon, CheckIcon, ChevronDown, CopyIcon } from 'lucide-react';
-import { AnimatePresence, motion } from 'motion/react';
-import { usePathname } from 'next/navigation';
-import { useState } from 'react';
 import { Button } from '@/components/website/ui/button';
 import {
   DropdownMenu,
@@ -11,6 +7,10 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/website/ui/dropdown';
+import { CheckCheck, CheckCheckIcon, CheckIcon, ChevronDown, CopyIcon } from 'lucide-react';
+import { AnimatePresence, motion } from 'motion/react';
+import { usePathname } from 'next/navigation';
+import { useState } from 'react';
 
 export default function CopyPage() {
   const pathname = usePathname() || '';

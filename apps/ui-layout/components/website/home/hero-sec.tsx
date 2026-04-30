@@ -1,11 +1,11 @@
 'use client';
+import { GapPattern } from '@/components/ui/gap-pattern';
+import { Marquee } from '@/components/ui/marquee';
+import { cn } from '@/lib/utils';
 import { ArrowRight, Blocks, Component, LayoutPanelTop, Verified } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import { GapPattern } from '@/components/ui/gap-pattern';
-import { Marquee } from '@/components/ui/marquee';
-import { cn } from '@/lib/utils';
 import AllBlocks from './all-blocks';
 import AllComponents from './all-components';
 import Contributors from './contributor';

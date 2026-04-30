@@ -1,4 +1,3 @@
-import { Plus } from 'lucide-react';
 import {
   Dialog,
   DialogClose,
@@ -9,6 +8,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/linear-modal';
+import { Plus } from 'lucide-react';
 
 const items = [
   {

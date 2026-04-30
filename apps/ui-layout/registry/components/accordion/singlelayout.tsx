@@ -1,6 +1,4 @@
 'use client';
-import { Plus } from 'lucide-react';
-import React from 'react';
 import {
   Accordion,
   AccordionHeader,
@@ -8,6 +6,8 @@ import {
   AccordionPanel,
   AccordionWrapper,
 } from '@/components/ui/accordion';
+import { Plus } from 'lucide-react';
+import React from 'react';
 
 function SingleLayout() {
   return (

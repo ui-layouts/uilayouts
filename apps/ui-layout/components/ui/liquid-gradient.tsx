@@ -145,11 +145,11 @@ const GradientSvg: React.FC<GradientSvgProps> = ({ className, isHovered, colors 
   const variants = {
     hovered: {
       gradientTransform: gradientTransform,
-      transition: { duration: 50, repeat: Infinity, ease: 'linear' as const },
+      transition: { duration: 50, repeat: Number.POSITIVE_INFINITY, ease: 'linear' as const },
     },
     notHovered: {
       gradientTransform: gradientTransform,
-      transition: { duration: 10, repeat: Infinity, ease: 'linear' as const },
+      transition: { duration: 10, repeat: Number.POSITIVE_INFINITY, ease: 'linear' as const },
     },
   };
 
@@ -170,7 +170,6 @@ const GradientSvg: React.FC<GradientSvgProps> = ({ className, isHovered, colors 
           cy='0'
           r='1'
           gradientUnits='userSpaceOnUse'
-          // @ts-expect-error
           animate={isHovered ? variants.hovered : variants.notHovered}
         >
           {stopsAnimationArray.map((stopConfigs, index) => (
@@ -187,7 +186,7 @@ const GradientSvg: React.FC<GradientSvgProps> = ({ className, isHovered, colors 
                 transition={{
                   duration: 0,
                   ease: 'linear',
-                  repeat: Infinity,
+                  repeat: Number.POSITIVE_INFINITY,
                 }}
               />
             </AnimatePresence>

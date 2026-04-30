@@ -1,7 +1,7 @@
 'use client';
-import React from 'react';
 import { TreeCodeViewer } from '@/components/ui/tree-view-code';
 import { type TransformedCodeFile, transformCodeFiles } from '@/lib/transform-code-files';
+import React from 'react';
 
 const sampleFileData = [
   {

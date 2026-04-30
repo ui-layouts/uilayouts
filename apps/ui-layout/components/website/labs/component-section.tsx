@@ -1,5 +1,14 @@
 'use client';
 
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/website/ui/dropdown';
+import Slider from '@/components/website/ui/slider';
+import { AllComponents, DocsNavigationCategories } from '@/configs/docs';
+import { useSelectedComponentStore, useStateChange } from '@/hooks/useZustStore';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@radix-ui/react-tooltip';
 import {
   Component,
@@ -15,15 +24,6 @@ import {
 import { useTheme } from 'next-themes';
 import type React from 'react';
 import { Suspense, useCallback, useEffect, useMemo, useState } from 'react';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/components/website/ui/dropdown';
-import Slider from '@/components/website/ui/slider';
-import { AllComponents, DocsNavigationCategories } from '@/configs/docs';
-import { useSelectedComponentStore, useStateChange } from '@/hooks/useZustStore';
 import { ScrollArea } from '../ui/scroll-area';
 import LabSidebar from './labs-sidebar';
 

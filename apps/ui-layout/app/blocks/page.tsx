@@ -1,9 +1,9 @@
-import type { Metadata } from 'next';
 import { getMinimalBlocksBySection } from '@/blocks-docs';
 import { BreadcrumbStructuredData } from '@/components/seo/breadcrumb-structured-data';
 import { FaqStructuredData } from '@/components/seo/faq-structured-data';
 import BlocksHomeClient from '@/components/website/blocks-components/blocks-page';
 import { absoluteUrl, siteConfig } from '@/lib/utils';
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Blocks | UI-Layouts',

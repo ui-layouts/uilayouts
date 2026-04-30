@@ -1,8 +1,3 @@
-import { Blocks, Code, Component, Expand, Eye } from 'lucide-react';
-import type { Metadata } from 'next';
-import Image from 'next/image';
-import Link from 'next/link';
-import { notFound } from 'next/navigation';
 import { blocksDesign, getBlocksDesignMeta } from '@/blocks-docs';
 import { BreadcrumbStructuredData } from '@/components/seo/breadcrumb-structured-data';
 import { StructuredData } from '@/components/seo/structured-data';
@@ -19,6 +14,11 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/website/u
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/website/ui/tooltip';
 import { transformCodeFiles } from '@/lib/transform-code-files';
 import { cn } from '@/lib/utils';
+import { Blocks, Code, Component, Expand, Eye } from 'lucide-react';
+import type { Metadata } from 'next';
+import Image from 'next/image';
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
 
 export const dynamic = 'force-static';
 export const dynamicParams = false;
@@ -145,7 +145,7 @@ export default async function SectionPage(props: { params: Promise<{ section?: s
             <div className='w-fit mx-auto xl:scale-90 scale-80 xl:translate-x-10 translate-x-20'>
               <CarbonAd />
             </div>
-            <a href='https://pro.ui-layouts.com/pricing' target='_blank' rel='noopener'>
+            <a href='https://pro.ui-layouts.com/pricing' target='_blank' rel='noreferrer noopener'>
               <Image src='/20perc.png' className='w-72 h-full' alt='' width={288} height={96} />
             </a>
           </div>
@@ -208,7 +208,7 @@ export default async function SectionPage(props: { params: Promise<{ section?: s
                               href={`/preview/${section}/${block.id}`}
                               target='_blank'
                               className='h-10 md:grid hidden place-items-center p-2 text-primary dark:bg-neutral-700 bg-neutral-100 border'
-                              rel='noopener'
+                              rel='noreferrer noopener'
                             >
                               <Expand className='w-6 h-6' />
                             </a>

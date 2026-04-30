@@ -1,15 +1,15 @@
 'use client';
 
-import { Paperclip, Upload } from 'lucide-react';
-import Image from 'next/image';
-import { useState } from 'react';
-import type { DropzoneOptions } from 'react-dropzone';
 import {
   FileInput,
   FileUploader,
   FileUploaderContent,
   FileUploaderItem,
 } from '@/components/ui/file-upload';
+import { Paperclip, Upload } from 'lucide-react';
+import Image from 'next/image';
+import { useState } from 'react';
+import type { DropzoneOptions } from 'react-dropzone';
 
 const FileUploadDropzone = () => {
   const [files, setFiles] = useState<File[] | null>([]);

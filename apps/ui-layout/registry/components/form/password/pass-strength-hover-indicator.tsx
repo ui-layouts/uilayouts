@@ -1,8 +1,8 @@
 'use client';
-import { Check, CheckCheck, Eye, EyeOff, Info, X } from 'lucide-react';
-import React, { useMemo, useState } from 'react';
 // shaadcn hover card
 import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/website/ui/hover-card';
+import { Check, CheckCheck, Eye, EyeOff, Info, X } from 'lucide-react';
+import React, { useMemo, useState } from 'react';
 
 // Constants
 const PASSWORD_REQUIREMENTS = [

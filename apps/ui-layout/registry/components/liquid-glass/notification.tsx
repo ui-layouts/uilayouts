@@ -1,5 +1,5 @@
-import Image from 'next/image';
 import { LiquidGlassCard } from '@/components/ui/liquid-glass';
+import Image from 'next/image';
 
 const NotificationLiquid = () => {
   return (

@@ -1,7 +1,7 @@
 'use client';
-import { useCallback, useEffect, useRef, useState } from 'react';
 import { ShimmerLoader } from '@/components/ui/shimmer-loader';
 import { TypeWritter } from '@/components/ui/typing-writter';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 type Phase =
   | { type: 'divider' }

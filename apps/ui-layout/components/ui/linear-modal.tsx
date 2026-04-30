@@ -1,10 +1,10 @@
 'use client';
 
+import { cn } from '@/lib/utils';
 import { XIcon } from 'lucide-react';
-import { AnimatePresence, MotionConfig, motion, type Transition, type Variant } from 'motion/react';
+import { AnimatePresence, MotionConfig, type Transition, type Variant, motion } from 'motion/react';
 import React, { useCallback, useContext, useEffect, useId, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { cn } from '@/lib/utils';
 
 interface DialogContextType {
   isOpen: boolean;

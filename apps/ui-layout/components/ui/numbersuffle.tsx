@@ -1,12 +1,12 @@
 // @ts-nocheck
 
+import { cn } from '@/lib/utils';
 // Dynamically import MotionNumber with SSR disabled
 // const MotionNumber = dynamic(() => import('motion-number'), { ssr: false });
 import NumberFlow, { useCanAnimate } from '@number-flow/react';
 import dynamic from 'next/dynamic';
 import type React from 'react';
 import { type ReactNode, useEffect, useState } from 'react';
-import { cn } from '@/lib/utils';
 
 interface NumberFormat extends Intl.NumberFormatOptions {}
 interface MotionNumberProps {

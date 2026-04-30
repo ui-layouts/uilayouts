@@ -1,15 +1,15 @@
 // @ts-nocheck
 'use client';
 
-import { parseDate } from 'chrono-node';
-import { Calendar as CalendarIcon, LucideTextCursorInput } from 'lucide-react';
-import React from 'react';
-import type { ActiveModifiers } from 'react-day-picker';
 import { Button, buttonVariants } from '@/components/website/ui/button';
 import { Calendar, type CalendarProps } from '@/components/website/ui/calendar';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/website/ui/popover';
 import { ScrollArea } from '@/components/website/ui/scroll-area';
 import { cn } from '@/lib/utils';
+import { parseDate } from 'chrono-node';
+import { Calendar as CalendarIcon, LucideTextCursorInput } from 'lucide-react';
+import React from 'react';
+import type { ActiveModifiers } from 'react-day-picker';
 
 /* -------------------------------------------------------------------------- */
 /*                               Inspired By:                                 */
@@ -198,7 +198,7 @@ const TimePicker = () => {
       const newVal = value ? new Date(value) : new Date();
 
       // If no value exists, use current date but only set the time
-      newVal.setHours(hour, partStamp === 0 ? parseInt('00') : timestamp * partStamp);
+      newVal.setHours(hour, partStamp === 0 ? Number.parseInt('00') : timestamp * partStamp);
 
       onValueChange(newVal);
     },
@@ -243,7 +243,7 @@ const TimePicker = () => {
         // this should work now haha that hour is what does the trick
 
         const PM_AM = timeValue.split(' ')[1];
-        const PM_AM_hour = parseInt(timeValue.split(' ')[0].split(':')[0]);
+        const PM_AM_hour = Number.parseInt(timeValue.split(' ')[0].split(':')[0]);
         const hour =
           PM_AM === 'AM'
             ? PM_AM_hour === 12
@@ -253,7 +253,7 @@ const TimePicker = () => {
               ? 12
               : PM_AM_hour + 12;
 
-        const part = Math.floor(parseInt(timeValue.split(' ')[0].split(':')[1]) / 15);
+        const part = Math.floor(Number.parseInt(timeValue.split(' ')[0].split(':')[1]) / 15);
 
         formateSelectedTime(timeValue, hour, part);
       };
@@ -296,16 +296,16 @@ const TimePicker = () => {
   const currentTime = React.useMemo(() => {
     const timeVal = Time.split(' ')[0];
     return {
-      hours: parseInt(timeVal.split(':')[0]),
-      minutes: parseInt(timeVal.split(':')[1]),
+      hours: Number.parseInt(timeVal.split(':')[0]),
+      minutes: Number.parseInt(timeVal.split(':')[1]),
     };
   }, [Time]);
 
   React.useEffect(() => {
     const getCurrentElementTime = () => {
       const timeVal = Time.split(' ')[0];
-      const hours = parseInt(timeVal.split(':')[0]);
-      const minutes = parseInt(timeVal.split(':')[1]);
+      const hours = Number.parseInt(timeVal.split(':')[0]);
+      const minutes = Number.parseInt(timeVal.split(':')[1]);
       const PM_AM = Time.split(' ')[1];
 
       const formatIndex = PM_AM === 'AM' ? hours : hours === 12 ? hours : hours + 12;

@@ -1,7 +1,7 @@
 // @ts-nocheck
 'use client';
-import { createRef, type ReactNode, useRef } from 'react';
 import { cn } from '@/lib/utils';
+import { type ReactNode, createRef, useRef } from 'react';
 
 interface ImageMouseTrailProps {
   items: string[];

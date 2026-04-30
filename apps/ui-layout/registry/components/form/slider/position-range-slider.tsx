@@ -1,6 +1,6 @@
 'use client';
-import React, { useState } from 'react';
 import { DualRangeSlider } from '@/components/ui/slider';
+import React, { useState } from 'react';
 
 export default function PositionRangeSlider() {
   const [celPer, setCelPer] = useState(70);

@@ -1,5 +1,5 @@
-import React from 'react';
 import Earth from '@/components/ui/globe';
+import React from 'react';
 
 function CardGlobeWhite() {
   return (

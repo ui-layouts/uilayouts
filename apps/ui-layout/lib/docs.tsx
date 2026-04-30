@@ -1,7 +1,7 @@
 import fs from 'fs';
-import matter from 'gray-matter';
 import path from 'path';
-import { getTableOfContents, TableOfContents } from './toc';
+import matter from 'gray-matter';
+import { TableOfContents, getTableOfContents } from './toc';
 
 const docsDirectory = path.join(process.cwd(), 'content/components');
 
