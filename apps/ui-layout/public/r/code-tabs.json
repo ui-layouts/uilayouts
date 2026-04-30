@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "code-tabs",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "./registry/components/code/code-tabs.tsx",
+      "content": "import { CodeTabs } from '@/components/ui/code-tabs';\r\nimport React from 'react';\r\n\r\nfunction CodeTabsCompponent() {\r\n  return (\r\n    <div className='w-full dark:bg-black bg-white p-4 rounded-lg'>\r\n      <CodeTabs\r\n        tabs={[\r\n          { id: 'npm', label: 'npm', code: 'npm i thing', lang: 'bash' },\r\n          { id: 'pnpm', label: 'pnpm', code: 'pnpm add thing', lang: 'bash' },\r\n          { id: 'yarn', label: 'yarn', code: 'yarn add thing', lang: 'bash' },\r\n        ]}\r\n        defaultValue='npm'\r\n      />\r\n      <CodeTabs\r\n        tabs={[\r\n          {\r\n            id: 'ui-layouts',\r\n            label: 'ui-layouts',\r\n            code: 'npx ui-layouts add code-tabs',\r\n            lang: 'bash',\r\n          },\r\n          {\r\n            id: 'shadcn',\r\n            label: 'shadcn',\r\n            code: 'npx shadcn@latest add code-tabs',\r\n            lang: 'bash',\r\n          },\r\n        ]}\r\n        isLogos={true}\r\n        defaultValue='ui-layouts'\r\n      />\r\n    </div>\r\n  );\r\n}\r\n\r\nexport default CodeTabsCompponent;\r\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

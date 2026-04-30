@@ -84,7 +84,7 @@ export const DOCS_CATEGORY_KEY = {
   'shimmer-loader': 'shimmer-loader',
   'type-writer': 'type-writer',
   'terminal-ui': 'terminal-ui',
-  'shiki-code': 'shiki-code',
+  'code-block': 'code-block',
   'tree-code-viewer': 'tree-code-viewer',
   'code-tabs-mdx': 'code-tabs-mdx',
   'code-tabs': 'code-tabs',
@@ -337,7 +337,7 @@ export const COMPONENT_KEYS = {
   TERMINAL_UI: 'terminal-ui',
 
   // Code Display category
-  SHIKI_CODE: 'shiki-code',
+  CODE_BLOCK: 'code-block',
   TREE_CODE_VIEWER: 'tree-code-viewer',
   CODE_TABS_MDX: 'code-tabs-mdx',
   CODE_TABS: 'code-tabs',

@@ -3,6 +3,14 @@ import React, { useEffect, useState } from 'react';
 
 const newComponent = [
   {
+    href: '/components/tree-code-viewer',
+    title: 'Tree code Viewer',
+  },
+  {
+    href: '/components/code-block',
+    title: 'Code Block',
+  },
+  {
     href: '/components/shimmer-loader',
     title: 'SHIMMER LOADER',
   },

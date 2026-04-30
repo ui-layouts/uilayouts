@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "btn-hover14",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "./registry/components/button/btn-hover14.tsx",
+      "content": "'use client';\r\n\r\nimport { ArrowRight } from 'lucide-react';\r\n\r\nconst ButtonHover14 = () => {\r\n  return (\r\n    <>\r\n      <button className='group cursor-pointer slide-anime px-5 py-3 rounded-full w-[180px] shadow bg-primary-base text-primary flex justify-between items-center font-semibold '>\r\n        Schedule Call{' '}\r\n        <div className='group-hover:translate-x-2 transition-all'>\r\n          <ArrowRight />\r\n        </div>\r\n      </button>\r\n    </>\r\n  );\r\n};\r\n\r\nexport default ButtonHover14;\r\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

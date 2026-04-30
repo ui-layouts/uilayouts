@@ -11,6 +11,7 @@ import { Code, Eye } from 'lucide-react';
 import { PreCode } from './pre-code';
 import { AllComponents } from '@/configs/docs';
 import { buildFinalFiles, normalizeCodeChildren } from '@/lib/code';
+import shadcnRegistry from '../../../registry.json';
 
 type TComponentCodePreview = {
   component: React.ReactElement<any>;
@@ -35,6 +36,24 @@ export type TCurrComponentProps = {
 };
 
 const getRaw = (v: any) => v?.default ?? v ?? '';
+
+const stripJsonExtension = (value: string) => value.replace(/\.json$/i, '');
+
+const getCliCommand = (jsonName?: string) => {
+  if (!jsonName) return null;
+
+  const normalizedName = stripJsonExtension(jsonName);
+  const inShadcnRegistry = shadcnRegistry.items.some(
+    (item) => item.name === normalizedName
+  );
+
+  if (!inShadcnRegistry) {
+    return null;
+  }
+
+  return `npx shadcn@latest add https://ui-layouts.com/r/${normalizedName}`;
+};
+
 
 export default async function ComponentCodePreview({
   hasReTrigger,
@@ -82,6 +101,7 @@ export default async function ComponentCodePreview({
   });
 
   const codeContent = { value: normalizedFileSrc, lang: 'tsx', meta: '' };
+  const shadcnCliCommand = getCliCommand(jsonName);
   return (
     <div className='not-prose relative z-0 flex items-center justify-between pb-3'>
       <Tabs
@@ -113,6 +133,7 @@ export default async function ComponentCodePreview({
             iframeSrc={currComponent?.iframeSrc}
             componentName={currComponent?.componentName}
             code={normalizedFileSrc}
+            copyText={shadcnCliCommand || normalizedFileSrc}
             responsive={responsive}
             isNotCopy={isNotCopy}
             jsonName={jsonName}
