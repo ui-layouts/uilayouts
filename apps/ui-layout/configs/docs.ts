@@ -4,11 +4,31 @@ import type { DocsCategoryKey, DocsFileRef, DocsNavigationCategory } from '../ty
 
 export const DocsNavigationCategories: DocsNavigationCategory[] = [
   {
+    href: '/components/mac-genie',
+    name: 'Mac-Genie',
+    key: DOCS_CATEGORY_KEY['mac-genie'],
+    group: DOCS_CATEGORY_GROUP.VisualEffects,
+    new: true,
+    tags: [
+      'Mac-Genie',
+      'mac genie',
+      'mac genie component',
+      'mac genie card',
+      'mac genie weather',
+      'mac genie weather component',
+      'mac genie notification',
+      'mac genie notification component',
+      'mac genie mobile icons',
+      'mac genie mobile icons component',
+      'mac genie sidebar menu',
+      'mac genie sidebar menu component',
+    ],
+  },
+  {
     href: '/components/liquid-glass',
     name: 'Liquid-Glass',
     key: DOCS_CATEGORY_KEY['liquid-glass'],
     group: DOCS_CATEGORY_GROUP.VisualEffects,
-    new: true,
     tags: [
       'Liquid-Glass',
       'liquid glass',
