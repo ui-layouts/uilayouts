@@ -7,16 +7,15 @@
   },
   "files": {
     "ignoreUnknown": true,
-    "includes": [
-      "**",
-      "!**/node_modules/**",
-      "!**/.next/**",
-      "!**/dist/**",
-      "!**/.turbo/**",
-      "!**/coverage/**",
-      "!**/out/**",
-      "!**/*.min.js",
-      "!**/*.css"
+    "ignore": [
+      "**/node_modules/**",
+      "**/.next/**",
+      "**/dist/**",
+      "**/.turbo/**",
+      "**/coverage/**",
+      "**/out/**",
+      "**/*.min.js",
+      "**/*.css"
     ]
   },
   "formatter": {

@@ -146,7 +146,7 @@ export default async function SectionPage(props: { params: Promise<{ section?: s
               <CarbonAd />
             </div>
             <a href='https://pro.ui-layouts.com/pricing' target='_blank' rel='noopener'>
-              <Image src='/get-pro.png' className='w-72 h-full' alt='' width={288} height={96} />
+              <Image src='/20perc.png' className='w-72 h-full' alt='' width={288} height={96} />
             </a>
           </div>
         </article>

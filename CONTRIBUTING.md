@@ -21,7 +21,7 @@ You can fork this repo by clicking the fork button in the top right corner of th
 ### Clone on your local machine
 
 ```bash
-git clone https://github.com/naymurdev/uilayout.git
+git clone https://github.com/ui-layouts/uilayout.git
 ```
 
 ### Navigate to project directory
