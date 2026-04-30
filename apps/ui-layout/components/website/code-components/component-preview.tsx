@@ -22,6 +22,7 @@ type ComponentPreviewProps = {
   hasReTrigger?: boolean;
   className?: string;
   code?: string;
+  copyText?: string;
   iframeSrc?: string;
   responsive?: boolean;
   isFitheight?: boolean;
@@ -38,6 +39,7 @@ export default function ComponentPreview({
   hasReTrigger = false,
   className,
   code,
+  copyText,
   iframeSrc,
   componentName,
   responsive,
@@ -63,7 +65,7 @@ export default function ComponentPreview({
   };
 
   const onCopy = () => {
-    navigator.clipboard.writeText(code || '');
+    navigator.clipboard.writeText(copyText || code || '');
     setHasCheckIcon(true);
 
     setTimeout(() => {
