@@ -44,6 +44,12 @@ export const basePath = [
     tags: ['mcp', 'mcp', 'mcp', 'mcp'],
   },
   {
+    href: '/changelog',
+    name: 'Changelog',
+    icon: <PenTool />,
+    tags: ['changelog', 'release notes', 'updates', 'major updates'],
+  },
+  {
     href: '/llms.txt',
     name: 'LLMs',
     icon: <Target />,

@@ -17,6 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/get-started',
     '/work-with-us',
     '/mcp',
+    '/changelog',
   ];
 
   return [
