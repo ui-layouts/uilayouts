@@ -52,7 +52,7 @@ bun dev
 
 ## Folder Structure
 
-```
+```text
 uilayouts/
 ├── apps/
 │   └── ui-layout/               # Main Next.js application
