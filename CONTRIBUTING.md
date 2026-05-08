@@ -1,38 +1,38 @@
 # Contributing
 
-Thanks for your interest in contributing to ui-layout. We're happy to have you here.
+Thanks for your interest in contributing to uilayouts. We're happy to have you here.
 
-Please take a moment to review this document before submitting your first pull request. We also strongly recommend that you check for open issues and pull request to see if someone else is working on something similar.
+Please take a moment to review this document before submitting your first pull request. We also strongly recommend that you check for open issues and pull requests to see if someone else is working on something similar.
 
 If you need any help, feel free to reach out to [@naymur](https://x.com/naymur_dev).
 
 ## About this repository
 
-- We use [npm](https://docs.npmjs.com).
-- For animation [framer](https://www.framer.com/motion)
-- For Mdx [next-mdx](https://nextjs.org/docs/pages/guides/mdx)
+This is a monorepo managed with [Turborepo](https://turborepo.dev/).
+
+- We use [Bun](https://bun.sh) as the package manager
+- For animations, we use [Motion](https://motion.dev)
+- For MDX, we use [next-mdx](https://nextjs.org/docs/pages/guides/mdx)
 
 ## Development
 
 ### Fork this repo
 
-You can fork this repo by clicking the fork button in the top right corner of this page.
+Click the **Fork** button in the top right corner of this page to create your own copy.
 
-### Clone on your local machine
-
-```bash
-git clone https://github.com/ui-layouts/uilayout.git
-```
-
-### Navigate to project directory
+### Clone your fork
 
 ```bash
-cd uilayout
+git clone https://github.com/<YOUR_USERNAME>/uilayouts.git
 ```
 
-`Don't work on old-ui-layout`
+### Navigate to the project directory
 
-### Create a new Branch
+```bash
+cd uilayouts
+```
+
+### Create a new branch
 
 ```bash
 git checkout -b my-new-branch
@@ -41,181 +41,73 @@ git checkout -b my-new-branch
 ### Install dependencies
 
 ```bash
-pnpm install
+bun install
 ```
 
-# Folder Structure
+### Start the development server
+
+```bash
+bun dev
+```
+
+## Folder Structure
 
 ```
-├── .eslintrc.json
-├── .example.env
-├── .gitignore
-├── README.md
-├── app
-|     ├── (docs-page)
-|     |     ├── components
-|     |     |     ├── [...slug]
-|     |     |     |     ├── page.tsx
-|     |     |     ├── page.tsx
-|     |     ├── get-started
-|     |     |     ├── page.mdx
-|     |     ├── layout.tsx
-|     ├── favicon.ico
-|     ├── globals.css
-|     ├── layout.tsx
-|     ├── live-components
-|     |     ├── [componentName]
-|     |     |     ├── error.tsx
-|     |     |     ├── loading.tsx
-|     |     |     ├── page.tsx
-|     ├── page.tsx
-├── assets
-|     ├── index.ts
-|     ├── preview
-|     |     ├── buttons.svg
-|     |     ├── card.svg
-|     |     ├── clip-path.svg
-|     |     ├── horizontal-scrolling.svg
-|     |     ├── index.tsx
-|     |     ├── motion-number.svg
-|     ├── preview_bg.png
-├── components
-|     ├── core
-|     |     ├── blur-vignette.tsx
-|     |     ├── cursor-follow-text.tsx
-|     |     ├── drawer
-|     |     |     ├── vaul-main.tsx
-|     |     ├── numbersuffle.tsx
-|     ├── labs
-|     |     ├── preview-tab.tsx
-|     ├── website
-|     |     ├── code-components
-|     |     |     ├── code-block.tsx
-|     |     |     ├── component-block.tsx
-|     |     |     ├── component-code-preview.tsx
-|     |     |     ├── component-preview.tsx
-|     |     |     ├── copy-button.tsx
-|     |     |     ├── copy-npm-button.tsx
-|     |     |     ├── drawer-code-preview.tsx
-|     |     |     ├── iframe-component-preview.tsx
-|     |     |     ├── iframe-tab-codepreview.tsx
-|     |     |     ├── pagination.tsx
-|     |     |     ├── pre-code.tsx
-|     |     |     ├── pre-coded.tsx
-|     |     |     ├── tab-codepreview.tsx
-|     |     ├── constant.tsx
-|     |     ├── dropdown-menu.tsx
-|     |     ├── header.tsx
-|     |     ├── hero-sec.tsx
-|     |     ├── icons
-|     |     |     ├── github.tsx
-|     |     |     ├── x.tsx
-|     |     ├── searchbar.tsx
-|     |     ├── sidebar.tsx
-|     |     ├── tableof-compoents.tsx
-|     |     ├── theme-provider.tsx
-|     |     ├── theme-switch.tsx
-|     |     ├── ui
-|     |     |     ├── button.tsx
-|     |     |     ├── dialog.tsx
-|     |     |     ├── drawer.tsx
-|     |     |     ├── dropdown.tsx
-|     |     |     ├── navigation-menu.tsx
-|     |     |     ├── scroll-area.tsx
-|     |     |     ├── tabs.tsx
-├── configs
-|     ├── docs.ts
-├── content
-|     ├── components
-|     |     ├── blur-vignette.mdx
-|     |     ├── buttons.mdx
-|     |     ├── clip-path.mdx
-|     |     ├── footers.mdx
-|     |     ├── horizontal-scroll.mdx
-|     |     ├── motion-number.mdx
-|     |     ├── product-cards.mdx
-├── hooks
-|     ├── use-media-query.tsx
-|     ├── useClickOutside.tsx
-|     ├── useClipBoarard.tsx
-|     ├── useZustStore.tsx
-├── lib
-|     ├── code.ts
-|     ├── docs.tsx
-|     ├── progressbar.tsx
-|     ├── toc.ts
-|     ├── utils.ts
-├── mdx-components.tsx
-├── next.config.mjs
+uilayouts/
+├── apps/
+│   └── ui-layout/               # Main Next.js application
+│       ├── app/                 # Next.js App Router pages
+│       │   ├── (docs-page)/     # Documentation routes
+│       │   ├── blocks/          # Block showcase pages
+│       │   ├── live-components/ # Live component previews
+│       │   └── page.tsx         # Home page
+│       ├── assets/              # Static assets and preview images
+│       ├── components/
+│       │   ├── ui/              # Base UI primitives
+│       │   └── website/         # Site-specific components
+│       ├── configs/             # App configuration files
+│       ├── content/
+│       │   └── components/      # MDX documentation files
+│       ├── hooks/               # Custom React hooks
+│       ├── lib/                 # Utility functions and helpers
+│       ├── registry/
+│       │   └── components/      # Component source registry
+│       ├── public/              # Static public assets
+│       ├── types/               # TypeScript type definitions
+│       ├── next.config.ts
+│       ├── package.json
+│       └── tsconfig.json
+├── packages/
+│   ├── blocks/                  # Reusable section block components
+│   ├── eslint-config/           # Shared ESLint configuration
+│   ├── shadcn/                  # Shared shadcn/ui components
+│   ├── typescript-config/       # Shared TypeScript configuration
+│   └── ui/                     # Shared UI primitives
+├── biome.json                   # Biome linter/formatter config
+├── bun.lock
 ├── package.json
-├── pnpm-lock.yaml
-├── postcss.config.mjs
-├── prettier.config.js
-├── public
-|     ├── og.jpg
-├── registry
-|     ├── components
-|     |     ├── blurvignette
-|     |     |     ├── blurvignettecard.tsx
-|     |     |     ├── blurvignetteimg.tsx
-|     |     |     ├── blurvignettevideo.tsx
-|     |     ├── button
-|     |     |     ├── btn-bg-shine.tsx
-|     |     |     ├── btn-bg-spotlight.tsx
-|     |     |     ├── btn-hover-active.tsx
-|     |     |     ├── btn-hover1.tsx
-|     |     |     ├── btn-hover2.tsx
-|     |     |     ├── creative-btn1.tsx
-|     |     |     ├── creative-btn2.tsx
-|     |     ├── card
-|     |     |     ├── product-card1.tsx
-|     |     |     ├── product-card2.tsx
-|     |     ├── clip-path
-|     |     |     ├── clip-path-creative.tsx
-|     |     ├── footers
-|     |     |     ├── footer1.tsx
-|     |     |     ├── hover-footer.tsx
-|     |     ├── motion-number
-|     |     |     ├── motion-number-after.tsx
-|     |     |     ├── motion-number-before.tsx
-|     |     |     ├── motion-number-last.tsx
-|     |     |     ├── motion-number-start.tsx
-|     |     |     ├── motion-number.tsx
-|     |     ├── scroll-animation
-|     |     |     ├── framer-horizontal-scroll.tsx
-├── tsconfig.json
+├── turbo.json
+└── CONTRIBUTING.md
 ```
 
 ## Commit Convention
 
-Before you create a Pull Request, please check whether your commits comply with
-the commit conventions used in this repository.
+Before you create a Pull Request, please check whether your commits comply with the commit conventions used in this repository.
 
-When you create a commit we kindly ask you to follow the convention
-`category(scope or module): message` in your commit message while using one of
-the following categories:
+When you create a commit we kindly ask you to follow the convention `category(scope or module): message` using one of the following categories:
 
-- `feat / feature`: all changes that introduce completely new code or new
-  features
-- `fix`: changes that fix a bug (ideally you will additionally reference an
-  issue if present)
+- `feat / feature`: all changes that introduce completely new code or new features
+- `fix`: changes that fix a bug (ideally you will additionally reference an issue if present)
 - `refactor`: any code related change that is not a fix nor a feature
-- `docs`: changing existing or creating new documentation (i.e. README, docs for
-  usage of a lib or cli usage)
-- `build`: all changes regarding the build of the software, changes to
-  dependencies or the addition of new dependencies
-- `test`: all changes regarding tests (adding new tests or changing existing
-  ones)
-- `ci`: all changes regarding the configuration of continuous integration (i.e.
-  github actions, ci system)
-- `chore`: all changes to the repository that do not fit into any of the above
-  categories
+- `docs`: changing existing or creating new documentation (i.e. README, docs for usage of a lib or CLI usage)
+- `build`: all changes regarding the build of the software, changes to dependencies or the addition of new dependencies
+- `test`: all changes regarding tests (adding new tests or changing existing ones)
+- `ci`: all changes regarding the configuration of continuous integration (i.e. GitHub Actions, CI system)
+- `chore`: all changes to the repository that do not fit into any of the above categories
 
-  e.g. `feat(components): add new prop to the avatar component`
+Example: `feat(components): add new prop to the avatar component`
 
-If you are interested in the detailed specification you can visit
-https://www.conventionalcommits.org/ or check out the
-[Angular Commit Message Guidelines](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines).
+If you are interested in the detailed specification you can visit [conventionalcommits.org](https://www.conventionalcommits.org/) or check out the [Angular Commit Message Guidelines](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines).
 
 ## Requests for new components
 
