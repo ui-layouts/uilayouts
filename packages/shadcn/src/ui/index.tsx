@@ -8,3 +8,5 @@ export * from './badge'
 export * from './tooltip'
 export * from './command'
 export * from './popover'
+
+export * from './accordion'
