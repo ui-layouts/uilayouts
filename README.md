@@ -54,22 +54,22 @@ export function useMediaQuery(query: string) {
 
 ## Most Used Components
 
-- [R3F Blob Effect](https://ui-layouts.com/components/r3f-blob)
-- [Image Ripple Effect](https://ui-layouts.com/components/image-ripple-effect)
-- [Buy Me Coffee](https://ui-layouts.com/components/buy-me-coffee)
-- [Youtube Tags](https://ui-layouts.com/components/tags-input)
-- [File Upload](https://ui-layouts.com/components/file-upload)
-- [Password](https://ui-layouts.com/components/password)
-- [Range Slider](https://ui-layouts.com/components/range-slider)
-- [Motion Number](https://ui-layouts.com/components/motion-number)
-- [Embla Carousel](https://ui-layouts.com/components/embla-carousel)
-- [Sparkles](https://ui-layouts.com/components/sparkles)
-- [Drag Items](https://ui-layouts.com/components/drag-items)
-- [Timeline Animation](https://ui-layouts.com/components/timeline-animation)
-- [Clip Path Image](https://ui-layouts.com/components/clip-path-image)
-- [Buttons](https://ui-layouts.com/components/buttons)
-- [Image Mousetrail](https://ui-layouts.com/components/image-mousetrail)
-- [Image Reveal](https://ui-layouts.com/components/image-reveal)
+- [R3F Blob Effect](https://www.ui-layouts.com/components/r3f-blob)
+- [Image Ripple Effect](https://www.ui-layouts.com/components/image-ripple-effect)
+- [Buy Me Coffee](https://www.ui-layouts.com/components/buy-me-coffee)
+- [Youtube Tags](https://www.ui-layouts.com/components/tags-input)
+- [File Upload](https://www.ui-layouts.com/components/file-upload)
+- [Password](https://www.ui-layouts.com/components/password)
+- [Range Slider](https://www.ui-layouts.com/components/range-slider)
+- [Motion Number](https://www.ui-layouts.com/components/motion-number)
+- [Embla Carousel](https://www.ui-layouts.com/components/carousel)
+- [Sparkles](https://www.ui-layouts.com/components/sparkles)
+- [Drag Items](https://www.ui-layouts.com/components/drag-items)
+- [Timeline Animation](https://www.ui-layouts.com/components/timeline-animation)
+- [Clip Path Image](https://www.ui-layouts.com/components/clip-path)
+- [Buttons](https://www.ui-layouts.com/components/buttons)
+- [Image Mousetrail](https://www.ui-layouts.com/components/image-mousetrail)
+- [Image Reveal](https://www.ui-layouts.com/components/image-reveal)
 
 Visit all the [components](https://www.ui-layouts.com/components).
 
