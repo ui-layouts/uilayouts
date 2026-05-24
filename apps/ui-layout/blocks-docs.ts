@@ -100,6 +100,35 @@ export const blocksDesign = [
     tags: ['hero', 'landing', 'above-the-fold'],
     imgSrc: HeroSectionImg,
     blocks: [
+       {
+        id: 'hero-ai-infrastructure',
+        name: 'AI Infrastructure',
+        des: 'A modern hero section with call-to-action and image.',
+        tags: ['hero', 'modern', 'ai-infrastructure'],
+        componentSrc: HeroAiInfrastructure,
+        filePath: [
+          {
+            fileSrc: require('../../packages/blocks/src/hero-section/hero-ai-infrastructure.tsx?raw'),
+            fileName: 'hero-ai-infrastructure.tsx',
+            pathSrc: '../../packages/blocks/src/hero-section/hero-ai-infrastructure.tsx',
+          },
+          {
+            fileSrc: require('./components/ui/motion-drawer.tsx?raw'),
+            pathSrc: './components/ui/motion-drawer.tsx',
+            fileName: 'motion-drawer.tsx',
+          },
+          {
+            fileSrc: require('./components/ui/timeline-animation.tsx?raw'),
+            pathSrc: './components/ui/timeline-animation.tsx',
+            fileName: 'timeline-animation.tsx',
+          },
+          {
+            fileSrc: require('./hooks/use-media-query.tsx?raw'),
+            pathSrc: './hooks/use-media-query.tsx',
+            fileName: 'use-media-query.tsx',
+          },
+        ],
+      },
       {
         id: 'hero-digital-success',
         name: 'Digital Success',
@@ -235,35 +264,7 @@ export const blocksDesign = [
           },
         ],
       },
-      {
-        id: 'hero-ai-infrastructure',
-        name: 'AI Infrastructure',
-        des: 'A modern hero section with call-to-action and image.',
-        tags: ['hero', 'modern', 'ai-infrastructure'],
-        componentSrc: HeroAiInfrastructure,
-        filePath: [
-          {
-            fileSrc: require('../../packages/blocks/src/hero-section/hero-ai-infrastructure.tsx?raw'),
-            fileName: 'hero-ai-infrastructure.tsx',
-            pathSrc: '../../packages/blocks/src/hero-section/hero-ai-infrastructure.tsx',
-          },
-          {
-            fileSrc: require('./components/ui/motion-drawer.tsx?raw'),
-            pathSrc: './components/ui/motion-drawer.tsx',
-            fileName: 'motion-drawer.tsx',
-          },
-          {
-            fileSrc: require('./components/ui/timeline-animation.tsx?raw'),
-            pathSrc: './components/ui/timeline-animation.tsx',
-            fileName: 'timeline-animation.tsx',
-          },
-          {
-            fileSrc: require('./hooks/use-media-query.tsx?raw'),
-            pathSrc: './hooks/use-media-query.tsx',
-            fileName: 'use-media-query.tsx',
-          },
-        ],
-      },
+   
       {
         id: 'hero-financial',
         name: 'Financial',

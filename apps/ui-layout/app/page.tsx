@@ -28,7 +28,6 @@ const homeFaqs = [
 
 export default function Home() {
   const blocksData = getMinimalBlocksBySection();
-
   return (
     <>
       <StructuredData type='homepage' />

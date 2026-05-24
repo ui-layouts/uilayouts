@@ -96,7 +96,7 @@ export default async function SectionPage(props: { params: Promise<{ section?: s
     }))
   );
 
-  console.log('blocksWithCode', blocksWithCode);
+  // console.log('blocksWithCode', blocksWithCode);
 
   return (
     <section className='dark:prose-invert max-w-full'>
