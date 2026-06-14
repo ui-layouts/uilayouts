@@ -39,7 +39,7 @@ function MagnifiedDocOneFile() {
 
   return (
     <>
-      <div className='relative [box-shadow] w-4/5 mx-auto  rounded-xl  dark:bg-neutral-950 bg-neutral-300  [box-shadow:inset_1px_-1px_4px_rgba(0_0_0,0.5)] overflow-hidden '>
+      <div className='relative [box-shadow] w-4/5 mx-auto  rounded-xl  bg-muted  [box-shadow:inset_1px_-1px_4px_rgba(0_0_0,0.5)] overflow-hidden '>
         <div className='relative'>
           {apps.map((app, i) => {
             return (

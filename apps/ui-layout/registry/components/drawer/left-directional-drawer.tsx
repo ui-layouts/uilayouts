@@ -33,7 +33,7 @@ export default function LeftDirectionalDrawer() {
 
               {/* Avatar Preview */}
               <div className='flex justify-center'>
-                <div className='h-32 w-32 rounded-xl dark:bg-neutral-800 bg-muted grid place-content-center text-xl font-medium'>
+                <div className='h-32 w-32 rounded-xl bg-muted grid place-content-center text-xl font-medium'>
                   JP
                 </div>
               </div>
@@ -51,7 +51,7 @@ export default function LeftDirectionalDrawer() {
               {/* Submit */}
               <button
                 type='submit'
-                className='w-full rounded-md bg-black text-white dark:bg-white dark:text-black p-2 font-medium'
+                className='w-full rounded-md bg-foreground text-background p-2 font-medium'
               >
                 Save Changes
               </button>
@@ -71,7 +71,7 @@ export default function LeftDirectionalDrawer() {
           <motion.button
             whileTap={{ scale: 0.8 }}
             onClick={() => setSidebarOpen(true)}
-            className='absolute left-2 bottom-2 p-4 dark:bg-black bg-white rounded-lg shadow-black'
+            className='absolute left-2 bottom-2 p-4 bg-background rounded-lg shadow-black'
           >
             <Edit />
           </motion.button>

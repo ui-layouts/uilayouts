@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 function StripeCard() {
   return (
     <>
-      <div className='w-[90%]] h-[480px] group mx-auto dark:bg-[#252525] p-2 bg-white dark:border-0 border overflow-hidden rounded-md dark:text-white text-black '>
+      <div className='w-[90%]] h-[480px] group mx-auto dark:bg-[#252525] p-2 bg-white border overflow-hidden rounded-md text-foreground '>
         <figure className='w-full h-80 group-hover:h-72 transition-all duration-300 dark:bg-[#0a121a] bg-[#f0f5fa] p-2 rounded-md relative overflow-hidden'>
           <div
             style={{

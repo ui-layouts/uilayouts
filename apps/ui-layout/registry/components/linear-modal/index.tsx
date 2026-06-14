@@ -52,16 +52,16 @@ export default function LinearCard() {
                 style={{
                   borderRadius: '12px',
                 }}
-                className='flex w-full flex-col overflow-hidden border dark:bg-neutral-900 bg-neutral-50 hover:bg-neutral-100 dark:hover:bg-neutral-900'
+                className='flex w-full flex-col overflow-hidden border bg-muted hover:bg-muted/80'
               >
                 <DialogImage src={item.url?.src} alt='' className='h-52 w-full object-cover' />
                 <div className='flex grow flex-row items-end justify-between p-3'>
                   <div>
-                    <DialogTitle className='text-zinc-950 text-xl dark:text-zinc-50'>
+                    <DialogTitle className='text-foreground text-xl'>
                       {item.title}
                     </DialogTitle>
                   </div>
-                  <button className='absolute bottom-2 right-2 p-2 dark:bg-neutral-800 bg-neutral-200 hover:bg-neutral-300 rounded-lg dark:hover:bg-neutral-900'>
+                  <button className='absolute bottom-2 right-2 p-2 bg-muted hover:bg-muted/80 rounded-lg'>
                     <Plus className='w-6 h-6' />
                   </button>
                 </div>
@@ -74,7 +74,7 @@ export default function LinearCard() {
                   style={{
                     borderRadius: '24px',
                   }}
-                  className=' relative flex h-full mx-auto flex-col overflow-y-auto border dark:bg-black bg-white hover:bg-neutral-50 dark:hover:bg-neutral-950 lg:w-[900px] w-[80%] '
+                  className=' relative flex h-full mx-auto flex-col overflow-y-auto border bg-background hover:bg-background/80 lg:w-[900px] w-[80%] '
                 >
                   <DialogImage
                     src={item.url.src}
@@ -82,7 +82,7 @@ export default function LinearCard() {
                     className='h-full  object-contain w-[60%] mx-auto'
                   />
                   <div className='p-6'>
-                    <DialogTitle className='text-5xl text-zinc-950 dark:text-zinc-50'>
+                    <DialogTitle className='text-5xl text-foreground'>
                       {item.title}
                     </DialogTitle>
 
@@ -94,10 +94,10 @@ export default function LinearCard() {
                         exit: { opacity: 0, scale: 0.8, y: -50 },
                       }}
                     >
-                      <p className='mt-2 text-zinc-500 dark:text-zinc-500'>{item.description}</p>
+                      <p className='mt-2 text-muted-foreground'>{item.description}</p>
                     </DialogDescription>
                   </div>
-                  <DialogClose className='text-zinc-50  dark:bg-neutral-900 bg-neutral-200 p-4 hover:bg-neutral-500 rounded-lg dark:hover:bg-neutral-800' />
+                  <DialogClose className='text-zinc-50 bg-muted p-4 hover:bg-muted/80 rounded-lg' />
                 </DialogContent>
               </DialogContainer>
             </Dialog>

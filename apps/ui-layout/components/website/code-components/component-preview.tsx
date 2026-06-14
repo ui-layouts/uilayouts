@@ -66,7 +66,7 @@ export default function ComponentPreview({
         {responsive && (
           <>
             {!hideDeviceOpt && (
-              <div className='flex items-center gap-2 rounded-lg border dark:bg-primary-base bg-neutral-200 p-1'>
+              <div className='flex items-center gap-2 rounded-lg border bg-secondary p-1'>
                 <TooltipProvider>
                   <Tooltip delayDuration={200}>
                     <TooltipTrigger
@@ -80,7 +80,7 @@ export default function ComponentPreview({
                     >
                       <Monitor className='h-5 w-5' />
                     </TooltipTrigger>
-                    <TooltipContent className='dark:bg-primary-base bg-neutral-200 text-primary border px-2 py-1 rounded-md -translate-y-1'>
+                    <TooltipContent className='bg-secondary text-primary border px-2 py-1 rounded-md -translate-y-1'>
                       <p className='capitalize'>Desktop</p>
                     </TooltipContent>
                   </Tooltip>
@@ -100,7 +100,7 @@ export default function ComponentPreview({
                     >
                       <Tablet className='h-5 w-5' />
                     </TooltipTrigger>
-                    <TooltipContent className='dark:bg-primary-base bg-neutral-200 text-primary border px-2 py-1 rounded-md -translate-y-1'>
+                    <TooltipContent className='bg-secondary text-primary border px-2 py-1 rounded-md -translate-y-1'>
                       <p className='capitalize'>Tab</p>
                     </TooltipContent>
                   </Tooltip>
@@ -119,7 +119,7 @@ export default function ComponentPreview({
                     >
                       <Smartphone className='h-4 w-4' />
                     </TooltipTrigger>
-                    <TooltipContent className='dark:bg-primary-base bg-neutral-200 text-primary border px-2 py-1 rounded-md -translate-y-1'>
+                    <TooltipContent className='bg-secondary text-primary border px-2 py-1 rounded-md -translate-y-1'>
                       <p className='capitalize'>Mobile</p>
                     </TooltipContent>
                   </Tooltip>
@@ -131,7 +131,7 @@ export default function ComponentPreview({
 
         {!isNotCopy && (
           <button
-            className='relative grid cursor-pointer -translate-y-[0.05rem] place-content-center rounded-lg border dark:bg-primary-base bg-neutral-200 dark:hover:shadow-[0px_1px_10px_5px_#3f7ef3] hover:shadow-[0px_1px_10px_5px_#9abaf7] dark:hover:border-blue-500 hover:border-blue-300 p-2 px-2.5'
+            className='relative grid cursor-pointer -translate-y-[0.05rem] place-content-center rounded-lg border bg-secondary dark:hover:shadow-[0px_1px_10px_5px_#3f7ef3] hover:shadow-[0px_1px_10px_5px_#9abaf7] dark:hover:border-blue-500 hover:border-blue-300 p-2 px-2.5'
             onClick={onCopy}
           >
             <div
@@ -155,12 +155,12 @@ export default function ComponentPreview({
           <TooltipProvider>
             <Tooltip delayDuration={200}>
               <TooltipTrigger
-                className='relative grid  group cursor-pointer place-content-center rounded-lg border dark:bg-primary-base bg-neutral-200 p-2 px-2'
+                className='relative grid  group cursor-pointer place-content-center rounded-lg border bg-secondary p-2 px-2'
                 onClick={handleReTrigger}
               >
                 <RotateCw className='h-5 w-5 group-hover:rotate-180 transition-transform' />
               </TooltipTrigger>
-              <TooltipContent className='dark:bg-primary-base bg-neutral-200 text-primary border rounded-md px-2 py-1 -translate-y-1'>
+              <TooltipContent className='bg-secondary text-primary border rounded-md px-2 py-1 -translate-y-1'>
                 <p className='capitalize '>Reload</p>
               </TooltipContent>
             </Tooltip>
@@ -200,7 +200,7 @@ export default function ComponentPreview({
                 <a
                   href={`${process.env.NEXT_PUBLIC_ANIMATION_URL}/${iframeComponent}`}
                   target='_blank'
-                  className='relative flex cursor-pointer  items-center  gap-1 rounded-lg border dark:bg-neutral-700 text-primary bg-neutral-200 p-1 px-2.5'
+                  className='relative flex cursor-pointer  items-center  gap-1 rounded-lg border bg-secondary text-secondary-foreground p-1 px-2.5'
                   rel='noreferrer noopener'
                 >
                   Open <Expand size={20} />

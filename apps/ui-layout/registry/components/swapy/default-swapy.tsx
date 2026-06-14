@@ -36,9 +36,9 @@ export function TeamCard() {
         Team of passionate designers and developers
       </div>
       <div>
-        <p className='font-bold text-neutral-800'>Daily New clients</p>
+        <p className='font-bold text-foreground'>Daily New clients</p>
         <div className='flex items-end gap-2'>
-          <span className='text-6xl font-bold text-neutral-900'>54</span>
+          <span className='text-6xl font-bold text-foreground'>54</span>
           <span className='text-green-500 font-medium mb-1'>+40%</span>
         </div>
       </div>
@@ -48,7 +48,7 @@ export function TeamCard() {
 export function AgencyCard() {
   return (
     <div className='bg-purple-300 rounded-xl h-full p-4 relative overflow-hidden shadow-md'>
-      <div className='bg-neutral-900 text-yellow-200 text-lg font-medium px-4 py-2 rounded-lg inline-block mb-4 w-full'>
+      <div className='bg-card text-yellow-200 text-lg font-medium px-4 py-2 rounded-lg inline-block mb-4 w-full'>
         <p>Smart Digital</p>
         <p>Agency For Your</p>
         <p>Business</p>
@@ -70,7 +70,7 @@ export function LogoCard() {
           <circle cx='50' cy='67' r='25' fill='rgb(1, 61, 226)' />
         </svg>
       </div>
-      <h2 className='2xl:text-3xl text-xl font-bold text-neutral-900'>UI-Layouts</h2>
+      <h2 className='2xl:text-3xl text-xl font-bold text-foreground'>UI-Layouts</h2>
     </div>
   );
 }
@@ -81,10 +81,10 @@ export function UserTrustCard() {
       <p className='text-3xl font-bold mb-4'>500+ Users</p>
 
       <div className='flex -space-x-2 mb-4'>
-        <div className='w-10 h-10 rounded-xl overflow-hidden border-2 border-blue-600 bg-neutral-200'></div>
-        <div className='w-10 h-10 rounded-xl overflow-hidden border-2 border-blue-600 bg-neutral-200'></div>
-        <div className='w-10 h-10 rounded-xl overflow-hidden border-2 border-blue-600 bg-neutral-200'></div>
-        <div className='w-10 h-10 rounded-xl overflow-hidden border-2 border-blue-600 bg-neutral-200'></div>
+        <div className='w-10 h-10 rounded-xl overflow-hidden border-2 border-blue-600 bg-muted'></div>
+        <div className='w-10 h-10 rounded-xl overflow-hidden border-2 border-blue-600 bg-muted'></div>
+        <div className='w-10 h-10 rounded-xl overflow-hidden border-2 border-blue-600 bg-muted'></div>
+        <div className='w-10 h-10 rounded-xl overflow-hidden border-2 border-blue-600 bg-muted'></div>
         <div className='w-10 h-10 rounded-xl bg-yellow-500 border-2 border-blue-600 flex items-center justify-center'>
           <PlusCircle className='w-5 h-5 text-white' />
         </div>
@@ -97,8 +97,8 @@ export function UserTrustCard() {
 export function FontCard() {
   return (
     <div className='bg-yellow-200 rounded-xl h-full p-6 col-span-1 shadow-md'>
-      <h2 className='text-3xl font-bold mb-1 text-neutral-900'>Font</h2>
-      <p className='mb-6 text-neutral-700'>SK-Modernist</p>
+      <h2 className='text-3xl font-bold mb-1 text-foreground'>Font</h2>
+      <p className='mb-6 text-muted-foreground'>SK-Modernist</p>
 
       <div className='flex gap-3 mt-4'>
         <div className='w-12 h-12 bg-neutral-800 rounded-md'></div>
@@ -120,8 +120,8 @@ export function DesignIndustryCard() {
 export function CardBalanceCard() {
   return (
     <div className='bg-yellow-200 rounded-xl h-full p-6 shadow-lg'>
-      <h3 className='text-xl font-bold mb-4 text-neutral-950'>Cards balance</h3>
-      <h2 className='text-3xl font-bold mb-6 text-neutral-800'>$ 12,457</h2>
+      <h3 className='text-xl font-bold mb-4 text-foreground'>Cards balance</h3>
+      <h2 className='text-3xl font-bold mb-6 text-foreground'>$ 12,457</h2>
 
       <div className='bg-black text-white rounded-lg p-4 shadow-xs'>
         <div className='flex justify-between text-sm mb-2'>

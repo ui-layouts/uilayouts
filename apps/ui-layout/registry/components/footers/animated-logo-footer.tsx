@@ -87,7 +87,7 @@ const Footer = () => {
         <Toast.Viewport />
       </Toast.Provider> */}
 
-      <div className='relative h-full sm:pt-14 pt-8 bg-[#f7f7f7] text-black' ref={container}>
+      <div className='relative h-full sm:pt-14 pt-8 bg-[#f7f7f7] text-foreground' ref={container}>
         <div className='sm:container  px-4 mx-auto'>
           <div className='md:flex justify-between w-full'>
             <div>
@@ -133,7 +133,7 @@ const Footer = () => {
             </div>
             <div className='flex gap-10'>
               <ul>
-                <li className='text-2xl pb-2 text-black font-semibold'>SITEMAP</li>
+                <li className='text-2xl pb-2 text-foreground font-semibold'>SITEMAP</li>
                 <li className='text-xl font-medium'>
                   <Link href='/'>Home</Link>
                 </li>
@@ -155,7 +155,7 @@ const Footer = () => {
                 </li>
               </ul>
               <ul>
-                <li className='text-2xl pb-2 text-black font-semibold'>SOCIAL</li>
+                <li className='text-2xl pb-2 text-foreground font-semibold'>SOCIAL</li>
                 <li className='text-xl font-medium'>
                   <a
                     href='https://www.linkedin.com/company/next-codez/'
@@ -199,7 +199,7 @@ const Footer = () => {
               </ul>
             </div>
           </div>
-          <div className='border-y-2 md:py-4 border-neutral-200'>
+          <div className='border-y-2 md:py-4 border-border'>
             <motion.svg
               width='776'
               ref={ref}

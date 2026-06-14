@@ -31,7 +31,7 @@ const GitHubButton: React.FC = () => {
       <a
         href='https://github.com/ui-layouts/uilayouts'
         target='_blank'
-        className='relative p-2 inline-block w-52 h-44 mx-auto group dark:bg-neutral-800 bg-white rounded-lg'
+        className='relative p-2 inline-block w-52 h-44 mx-auto group bg-muted rounded-lg'
         rel='noreferrer noopener'
       >
         <div className='absolute w-[142.81%] h-[168.57%] -top-[2.57%] left-1/2 -translate-x-1/2 filter blur-[19px] opacity-70 rotate-45'>
@@ -41,7 +41,7 @@ const GitHubButton: React.FC = () => {
           </div>
         </div>
         <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[40%] w-[96.23%] h-[98.85%] rounded-lg bg-[#010128] filter blur-[7.3px]'></div>
-        <div className='relative w-full h-full overflow-hidden rounded-lg bg-neutral-900 z-50'>
+        <div className='relative w-full h-full overflow-hidden rounded-lg bg-card z-50'>
           <Liquid isHovered={isHovered} colors={COLORS} buttonType />
         </div>
       </a>

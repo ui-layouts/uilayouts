@@ -62,16 +62,16 @@ function Card() {
             />
           ))}
         </div>
-        <article className='text-black pt-2 p-4'>
+        <article className='text-foreground pt-2 p-4'>
           <div className='flex justify-between'>
-            <h1 className='font-semibold text-xl text-black'>Nike Air Max</h1>
+            <h1 className='font-semibold text-xl text-foreground'>Nike Air Max</h1>
             <div className='flex gap-2 items-center'>
               {CardArr.map((data, index) => (
                 <button
                   key={data.color}
                   onClick={() => handleColorButtonClick(data.img, data.color)}
                   className={` relative w-6 h-6 border  rounded-full grid place-content-center transition-all ${
-                    selectedColor === data.color ? ' border-black' : 'border-neutral-200'
+                    selectedColor === data.color ? ' border-foreground' : 'border-border'
                   }`}
                 >
                   <span
@@ -85,7 +85,7 @@ function Card() {
             </div>
           </div>
           <div className='flex justify-between py-2 items-center'>
-            <span className='font-medium text-2xl text-black'>$39</span>
+            <span className='font-medium text-2xl text-foreground'>$39</span>
             <button className='w-fit px-4 text-white flex justify-center items-center gap-2 bg-linear-to-r dark:from-[#070e41] dark:to-[#263381] from-[#3e5068] to-[#0c1970] py-3 rounded-md'>
               <ShoppingCart className='w-5 h-5' />
             </button>

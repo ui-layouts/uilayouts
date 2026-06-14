@@ -28,7 +28,7 @@ function HomeHeader({
     >
       <div
         className={cn(
-          'h-full relative mx-auto flex justify-between dark:bg-zinc-900/10 backdrop-blur-2xl bg-zinc-100/10 rounded-lg items-center',
+          'h-full relative mx-auto flex justify-between bg-muted/10 backdrop-blur-2xl rounded-lg items-center',
           className
         )}
       >

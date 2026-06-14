@@ -75,14 +75,14 @@ function DocsSidebar() {
                     className={`flex gap-2 group font-medium items-center py-1 transition-all ${
                       link.href === pathname
                         ? 'active-nav'
-                        : 'text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white'
+                        : 'text-muted-foreground hover:text-foreground'
                     }`}
                   >
                     {React.cloneElement(link?.icon, {
                       className: `${
                         link.href === pathname
-                          ? 'dark:text-black dark:bg-white bg-black text-white'
-                          : 'dark:bg-zinc-900 dark:text-white group-hover:bg-black group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-black'
+                          ? 'bg-primary text-primary-foreground'
+                          : 'bg-secondary text-secondary-foreground group-hover:bg-primary group-hover:text-primary-foreground'
                       } h-7 w-7 border transition-all rounded-md p-1`,
                     })}
                     {link.name}
@@ -184,7 +184,7 @@ export const ItemsWithName = ({
   return (
     <div ref={groupRef} key={group}>
       <div
-        className={`xl:text-lg relative flex w-full items-center justify-between pr-4 cursor-pointer  dark:text-neutral-100 font-medium capitalize my-1`}
+        className={`xl:text-lg relative flex w-full items-center justify-between pr-4 cursor-pointer text-foreground font-medium capitalize my-1`}
       >
         {group}
         {/* {showExpandButton && (
@@ -224,10 +224,10 @@ export const ItemsWithName = ({
             ref={(el) => {
               itemRefs.current[index] = el;
             }}
-            className={`2xl:text-base xl:text-base text-sm flex items-center gap-1 dark:hover:text-white py-px pl-2 border-l transition-all ${
+            className={`2xl:text-base xl:text-base text-sm flex items-center gap-1 py-px pl-2 border-l transition-all ${
               link.href === pathname
-                ? 'dark:border-white border-black text-black dark:text-white font-semibold'
-                : 'dark:text-slate-400 2xl:font-normal font-medium dark:border-neutral-800 hover:border-black/60 dark:hover:border-white/50 text-slate-500 hover:text-slate-900'
+                ? 'border-foreground text-foreground font-semibold'
+                : 'text-muted-foreground 2xl:font-normal font-medium border-border hover:border-foreground/60 hover:text-foreground'
             }`}
           >
             <Link href={link.href} onClick={() => addVisitedPage(link.href, link.name)}>

@@ -79,7 +79,7 @@ export const SliderModal = ({ item, uniqueId, itemArr }: ImageModalProps) => {
             width={400}
             height={400}
             src={item?.url}
-            className='bg-white text-black rounded-md w-full cursor-zoom-in'
+            className='bg-background text-foreground rounded-md w-full cursor-zoom-in'
             alt='img'
           />
         </motion.div>
@@ -117,7 +117,7 @@ export const SliderModal = ({ item, uniqueId, itemArr }: ImageModalProps) => {
                           {tab.id === newItem.id && (
                             <motion.figure
                               key={tab?.id}
-                              className='dark:bg-neutral-900/40 bg-neutral-100/40 border  rounded-md p-4'
+                              className='bg-muted/40 border  rounded-md p-4'
                             >
                               <motion.div
                                 initial={{ opacity: 0 }}
@@ -155,7 +155,7 @@ export const SliderModal = ({ item, uniqueId, itemArr }: ImageModalProps) => {
                 </AnimatePresence>
               )}
               <motion.div
-                className='h-[300px] overflow-hidden dark:bg-neutral-900/40 bg-white/40 border rounded-md'
+                className='h-[300px] overflow-hidden bg-muted/40 border rounded-md'
                 ref={carousel}
               >
                 <motion.div
@@ -194,7 +194,7 @@ export const SliderModal = ({ item, uniqueId, itemArr }: ImageModalProps) => {
                                   ease: 'easeOut',
                                 },
                               }}
-                              className='absolute top-0 left-0 h-full w-full dark:bg-neutral-100 bg-neutral-800 rounded-md'
+                              className='absolute top-0 left-0 h-full w-full bg-foreground/20 rounded-md'
                             ></motion.div>
                           )}
                         </motion.div>

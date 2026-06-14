@@ -4,7 +4,7 @@ import React from 'react';
 function CardGlobeWhite() {
   return (
     <>
-      <div className='min-h-screen overflow-hidden bg-white text-white'>
+      <div className='min-h-screen overflow-hidden bg-background text-white'>
         <article className='max-w-[500px] overflow-hidden mx-auto mt-6 p-5 text-center   border rounded-lg relative h-[500px]'>
           <div className='absolute top-0 left-0 z-[1] h-full w-full  bg-[radial-gradient(#83838352_1px,#ececec_1px)] bg-[size:20px_20px]'></div>
           <div className='relative z-10 pt-4 h-full'>

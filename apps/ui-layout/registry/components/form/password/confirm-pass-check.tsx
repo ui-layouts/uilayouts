@@ -82,7 +82,7 @@ const PasswordInput = () => {
                 } transition-all `}
               />
             </HoverCardTrigger>
-            <HoverCardContent className='dark:bg-neutral-950 bg-neutral-50'>
+            <HoverCardContent className='bg-muted'>
               <ul className='space-y-1.5' aria-label='Password requirements'>
                 {calculateStrength.requirements.map((req, index) => (
                   <li key={req.text} className='flex items-center space-x-2'>
@@ -118,7 +118,7 @@ const PasswordInput = () => {
             aria-describedby='password-strength'
             className={`cursor-pointer  ${
               STRENGTH_CONFIG.colors[calculateStrength.score]
-            } transition-all w-full p-2 border-2 rounded-md dark:bg-neutral-950 bg-neutral-50 outline-hidden`}
+            } transition-all w-full p-2 border-2 rounded-md bg-muted outline-hidden`}
           />
           <button
             type='button'
@@ -141,7 +141,7 @@ const PasswordInput = () => {
             onChange={(e) => setConfirmPassword(e.target.value)}
             placeholder='Confirm Password'
             aria-invalid={confirmPassword !== '' ? isMatch === false : undefined}
-            className={`cursor-pointer w-full p-2 border-2 rounded-md dark:bg-neutral-950 bg-neutral-50 outline-hidden transition-all ${
+            className={`cursor-pointer w-full p-2 border-2 rounded-md bg-muted outline-hidden transition-all ${
               confirmPassword === '' ? '' : isMatch ? 'border-green-400' : 'border-red-500'
             }`}
           />

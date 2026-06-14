@@ -52,8 +52,8 @@ const ReviewCard = ({
         <div className={cn('rounded-full w-8 h-8', img)}></div>
 
         <div className='flex flex-col'>
-          <figcaption className='text-sm font-medium dark:text-white'>{name}</figcaption>
-          <p className='text-xs font-medium dark:text-white/40'>{username}</p>
+          <figcaption className='text-sm font-medium text-foreground'>{name}</figcaption>
+          <p className='text-xs font-medium text-muted-foreground'>{username}</p>
         </div>
       </div>
       <blockquote className='mt-2 text-sm'>{body}</blockquote>
@@ -63,7 +63,7 @@ const ReviewCard = ({
 
 const MarqueeDemoVertical = () => {
   return (
-    <div className='relative flex h-96 flex-row items-center justify-center overflow-hidden rounded-lg dark:bg-neutral-800 bg-neutral-50 sm:px-10 '>
+    <div className='relative flex h-96 flex-row items-center justify-center overflow-hidden rounded-lg bg-muted sm:px-10 '>
       <Marquee pauseOnHover vertical className='[--duration:20s]'>
         {firstRow.map((review) => (
           <ReviewCard key={review.username} {...review} />

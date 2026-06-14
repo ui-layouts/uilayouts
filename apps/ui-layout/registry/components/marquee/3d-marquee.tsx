@@ -30,7 +30,7 @@ const logos = [
 
 const Marquee3D = () => {
   return (
-    <div className='relative flex h-full w-96 mx-auto flex-col items-center justify-center gap-4 overflow-hidden rounded-lg dark:bg-neutral-800 bg-neutral-50 px-10'>
+    <div className='relative flex h-full w-96 mx-auto flex-col items-center justify-center gap-4 overflow-hidden rounded-lg bg-muted px-10'>
       <div className='flex flex-row gap-4 perspective-near'>
         <Marquee
           className='h-96 justify-center overflow-hidden [--duration:60s] [--gap:1rem]'
@@ -45,7 +45,7 @@ const Marquee3D = () => {
               key={data.name}
               src={data.img}
               alt={data.name}
-              className='mx-auto h-full w-3/4 cursor-pointer rounded-xl border border-neutral-300 transition-all duration-300 hover:ring-1 hover:ring-neutral-300'
+              className='mx-auto h-full w-3/4 cursor-pointer rounded-xl border border-border transition-all duration-300 hover:ring-1 hover:ring-border'
             />
           ))}
         </Marquee>

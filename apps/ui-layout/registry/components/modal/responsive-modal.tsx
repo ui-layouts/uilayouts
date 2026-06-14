@@ -39,14 +39,14 @@ export default function MyDrawer() {
             </motion.button>
           </ResponsiveModalTrigger>
           <ResponsiveModalContent>
-            <figure className='flex flex-col space-y-1.5 text-center  h-fit dark:bg-neutral-800 md:p-4 p-6'>
+            <figure className='flex flex-col space-y-1.5 text-center  h-fit bg-muted md:p-4 p-6'>
               <h1 className='font-medium text-2xl'>Update Profile Image</h1>
               <p className='text-sm text-muted-foreground w-4/5 mx-auto'>
                 Upload a new profile image or remove the current one.
               </p>
               <div data-vaul-no-drag className='py-4 space-y-4'>
                 <span className='relative flex justify-center overflow-hidden rounded-xl w-full '>
-                  <span className='grid place-content-center h-40 w-40 rounded-xl dark:bg-neutral-950 bg-muted'>
+                  <span className='grid place-content-center h-40 w-40 rounded-xl bg-muted'>
                     JP
                   </span>
                 </span>
@@ -60,7 +60,7 @@ export default function MyDrawer() {
                 <button
                   type='submit'
                   onClick={handleSubmit}
-                  className='w-full rounded-xs dark:bg-white bg-black  p-2 dark:text-black text-white'
+                  className='w-full rounded-xs bg-foreground p-2 text-background'
                 >
                   Submit
                 </button>

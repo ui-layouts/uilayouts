@@ -72,48 +72,6 @@
   --grid-row-end-26: 26;
   --grid-row-end-27: 27;
 
-  /* semantic tokens (computed from primitives in token.css) */
-  --color-border: hsl(var(--border));
-  --color-input: hsl(var(--input));
-  --color-ring: hsl(var(--ring));
-  --color-background: hsl(var(--background));
-  --color-foreground: hsl(var(--foreground));
-
-  --color-primary: hsl(var(--primary));
-  --color-primary-foreground: hsl(var(--primary-foreground));
-  --color-primary-base: hsl(var(--primary-base));
-
-  --color-muted: hsl(var(--muted));
-  --color-muted-foreground: hsl(var(--muted-foreground));
-
-  --color-accent: hsl(var(--accent));
-  --color-accent-foreground: hsl(var(--accent-foreground));
-
-  /* alpha colors */
-  --color-codebg: hsl(var(--codebg));
-  --color-cliCodeBg: hsl(var(--cliCodeBg));
-
-  /* UI extras */
-  --color-editor-bg: hsl(var(--background));
-  --color-gutter-bg: hsl(var(--background));
-  --color-scrollbar: hsl(var(--foreground) / 0.3);
-
-  /* Decorative tokens (hero & banners) */
-  --color-decorative-1: hsl(230 100% 60%);
-  --color-decorative-2: hsl(235 100% 68%);
-
-  /* Rainbow banner 1 */
-  --color-rainbow-1-start: hsl(220 100% 50% / 0.5);
-  --color-rainbow-1-mid: hsl(320 100% 50% / 0.77);
-  --color-rainbow-1-end: hsl(20 100% 50% / 0.4);
-  --color-rainbow-1-via: hsl(90 100% 63% / 0.4);
-
-  /* Rainbow banner 2 */
-  --color-rainbow-2-start: hsl(0 100% 73% / 0.5);
-  --color-rainbow-2-mid: hsl(198 100% 57% / 0.4);
-  --color-rainbow-2-end: hsl(255 100% 50% / 0.51);
-  --color-rainbow-2-via: hsl(20 100% 55% / 0.56);
-
   @keyframes border {
     to {
       --border-angle: 360deg;
@@ -407,8 +365,8 @@ html.dark .shiki span {
     @apply border-border;
   }
   body {
-    @apply dark:bg-neutral-950 bg-background text-foreground overflow-x-hidden;
-  } /* 다크 강제 유틸 제거 */
+    @apply bg-background text-foreground overflow-x-hidden;
+  }
 }
 
 @layer utilities {

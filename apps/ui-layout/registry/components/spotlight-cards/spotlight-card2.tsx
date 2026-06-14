@@ -20,7 +20,7 @@ export default function SpotlightCard2() {
               <h1 className='text-xl font-semibold tracking-tight text-white'>
                 Create Group Effortlessly
               </h1>
-              <p className='pt-2  lg:text-base text-sm  text-neutral-300 capitalize'>
+              <p className='pt-2  lg:text-base text-sm  text-muted-foreground capitalize'>
                 Seamless chats, crystal-clear videos, and <br />
                 premium audio quality
               </p>

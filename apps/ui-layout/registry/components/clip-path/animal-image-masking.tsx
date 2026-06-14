@@ -3,7 +3,7 @@ import React from 'react';
 function AnimalImageMasking() {
   return (
     <>
-      <section className='grid grid-cols-2 gap-2 dark:bg-black bg-white border rounded-lg p-5'>
+      <section className='grid grid-cols-2 gap-2 bg-background border rounded-lg p-5'>
         <figure className='relative h-fit'>
           <img
             src='https://images.unsplash.com/photo-1535968881874-0c39f1503640?w=500&auto=format&fit=crop'

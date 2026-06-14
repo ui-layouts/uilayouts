@@ -133,7 +133,7 @@ export function SearchDialog({
     <>
       <button
         className={cn(
-          'relative inline-flex w-full items-center justify-start gap-2 whitespace-nowrap rounded-lg border bg-neutral-200 px-4 py-2 text-sm font-normal text-muted-foreground shadow-none transition-colors hover:border-accent  hover:text-accent-foreground focus-visible:outline-hidden focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 dark:bg-neutral-800 sm:pr-12',
+          'relative inline-flex w-full items-center justify-start gap-2 whitespace-nowrap rounded-lg border bg-muted px-4 py-2 text-sm font-normal text-muted-foreground shadow-none transition-colors hover:border-accent hover:text-accent-foreground focus-visible:outline-hidden focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 sm:pr-12',
           classname
         )}
         onClick={() => setSearchOpen(true)}
@@ -149,7 +149,7 @@ export function SearchDialog({
         )}
       </button>
       <ResponsiveModal
-        classname='rounded-lg border-2 dark:border-neutral-800 border-neutral-300 p-0 lg:max-w-lg xl:max-w-xl dark:bg-neutral-950 bg-white '
+        classname='rounded-lg border-2 border-border p-0 lg:max-w-lg xl:max-w-xl bg-background'
         open={searchOpen}
         setOpen={setSearchOpen}
         clsBtnClassname='top-1 right-1'
@@ -161,7 +161,7 @@ export function SearchDialog({
               value={search}
               onValueChange={setSearch}
               placeholder='Type a command or search...'
-              className='w-full rounded-tl-lg rounded-tr-lg border-b dark:border-neutral-800 border-neutral-300 px-4 outline-hidden bg-primary/10'
+              className='w-full rounded-tl-lg rounded-tr-lg border-b border-border px-4 outline-hidden bg-muted/50'
             />
             <Command.List className='border-none'>
               <ScrollArea className='h-[350px]'>
@@ -171,7 +171,7 @@ export function SearchDialog({
                   <a
                     href='https://x.com/naymur_dev'
                     target='_blank'
-                    className='flex w-full items-center gap-2 rounded-md dark:bg-neutral-800 bg-neutral-200 p-3'
+                    className='flex w-full items-center gap-2 rounded-md bg-muted p-3'
                     rel='noreferrer noopener'
                   >
                     <svg
@@ -193,7 +193,7 @@ export function SearchDialog({
                       key={item.href}
                       value={item.name}
                       onSelect={() => runCommand(() => router.push(item.href))}
-                      className='relative flex select-none items-center gap-2 rounded-lg p-0 text-sm cursor-pointer aria-selected:bg-neutral-200 aria-selected:text-neutral-900 dark:aria-selected:bg-neutral-800 dark:aria-selected:text-neutral-100'
+                      className='relative flex select-none items-center gap-2 rounded-lg p-0 text-sm cursor-pointer aria-selected:bg-accent aria-selected:text-accent-foreground'
                     >
                       <span>{item.icon}</span>
                       <span>{highlightMatch(item.name, search)}</span>
@@ -210,7 +210,7 @@ export function SearchDialog({
                         key={item.href}
                         value={`${item.name} ${item?.tags?.join(' ') || ''}`}
                         onSelect={() => runCommand(() => router.push(item.href))}
-                        className='relative flex select-none rounded-lg items-center gap-2 text-sm cursor-pointer aria-selected:bg-neutral-200 aria-selected:text-neutral-900 dark:aria-selected:bg-neutral-800 dark:aria-selected:text-neutral-100 border border-transparent aria-selected:border-neutral-300 dark:aria-selected:border-neutral-600'
+                        className='relative flex select-none rounded-lg items-center gap-2 text-sm cursor-pointer aria-selected:bg-accent aria-selected:text-accent-foreground border border-transparent aria-selected:border-border'
                       >
                         <svg
                           width='36'
@@ -242,21 +242,21 @@ export function SearchDialog({
                 <Command.Group className='rounded-xl '>
                   <span className='block p-1 py-2'>Theme</span>
                   <Command.Item
-                    className='relative flex cursor-default select-none items-center rounded-xs px-1 py-1 text-sm outline-hidden aria-selected:bg-neutral-200 aria-selected:text-neutral-900 dark:aria-selected:bg-neutral-800 dark:aria-selected:text-neutral-100 data-disabled:opacity-75'
+                    className='relative flex cursor-default select-none items-center rounded-xs px-1 py-1 text-sm outline-hidden aria-selected:bg-accent aria-selected:text-accent-foreground data-disabled:opacity-75'
                     onSelect={() => runCommand(() => setTheme('light'))}
                   >
                     <SunIcon className='mr-2 h-4 w-4' />
                     Light
                   </Command.Item>
                   <Command.Item
-                    className='relative flex cursor-default select-none items-center rounded-xs px-1 py-1 text-sm outline-hidden aria-selected:bg-neutral-200 aria-selected:text-neutral-900 dark:aria-selected:bg-neutral-800 dark:aria-selected:text-neutral-100 data-disabled:opacity-75'
+                    className='relative flex cursor-default select-none items-center rounded-xs px-1 py-1 text-sm outline-hidden aria-selected:bg-accent aria-selected:text-accent-foreground data-disabled:opacity-75'
                     onSelect={() => runCommand(() => setTheme('dark'))}
                   >
                     <MoonIcon className='mr-2 h-4 w-4' />
                     Dark
                   </Command.Item>
                   <Command.Item
-                    className='relative flex cursor-default select-none items-center rounded-xs px-1 py-1 text-sm outline-hidden aria-selected:bg-neutral-200 aria-selected:text-neutral-900 dark:aria-selected:bg-neutral-800 dark:aria-selected:text-neutral-100 data-disabled:opacity-75'
+                    className='relative flex cursor-default select-none items-center rounded-xs px-1 py-1 text-sm outline-hidden aria-selected:bg-accent aria-selected:text-accent-foreground data-disabled:opacity-75'
                     onSelect={() => runCommand(() => setTheme('system'))}
                   >
                     <LaptopIcon className='mr-2 h-4 w-4' />

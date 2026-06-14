@@ -93,7 +93,7 @@ export default function Contributors() {
 
                   {/* Contributor Details */}
                   <div className='p-6'>
-                    <DialogTitle className='text-4xl font-semibold dark:text-white text-zinc-950'>
+                    <DialogTitle className='text-4xl font-semibold text-foreground'>
                       {contributor.alt}
                     </DialogTitle>
 
@@ -105,7 +105,7 @@ export default function Contributors() {
                         exit: { opacity: 0, scale: 0.8, y: -50 },
                       }}
                     >
-                      <ul className='mt-4 list-disc space-y-2 pl-5 text-left text-zinc-700 dark:text-zinc-300'>
+                      <ul className='mt-4 list-disc space-y-2 pl-5 text-left text-muted-foreground'>
                         {contributor.workDetails.map((detail, idx) => (
                           <li key={detail}>{detail}</li>
                         ))}
