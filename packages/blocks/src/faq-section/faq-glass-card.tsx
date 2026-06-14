@@ -5,7 +5,7 @@ import {
   AccordionItem,
   AccordionHeader,
   AccordionPanel,
-} from '@/components/ui/accordion'
+} from '@repo/shadcn'
 import { TimelineAnimation } from '@/components/ui/timeline-animation'
 import { useMediaQuery } from '@/hooks/use-media-query'
 
