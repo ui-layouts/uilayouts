@@ -1,0 +1,8 @@
+packages:
+  - "apps/*"
+  - "packages/*"
+allowBuilds:
+  '@biomejs/biome': true
+  '@tsparticles/engine': true
+  sharp: true
+  unrs-resolver: true

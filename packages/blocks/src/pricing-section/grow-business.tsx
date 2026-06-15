@@ -1,11 +1,7 @@
 'use client'
 import React, { useState, useRef } from 'react'
-import { Check } from 'lucide-react'
-import { motion } from 'motion/react'
 import NumberFlow from '@number-flow/react'
 import { useId } from 'react'
-
-// import { Button } from '@repo/ui/shadcn'
 import { cn } from '@/lib/utils'
 import { Switch, Button } from '@repo/shadcn'
 import { TimelineAnimation } from '@/components/ui/timeline-animation'

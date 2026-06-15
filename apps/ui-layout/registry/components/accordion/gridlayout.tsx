@@ -15,8 +15,8 @@ function SingleLayout() {
     <AccordionContainer className='md:grid-cols-2 grid-cols-1'>
       <AccordionWrapper>
         <Accordion defaultValue={'item-2'}>
-          <AccordionItem value='item-1' className='dark:bg-black bg-white'>
-            <AccordionHeader className='2xl:text-base text-sm dark:text-neutral-300 dark:hover:text-black'>
+          <AccordionItem value='item-1' className='bg-background'>
+            <AccordionHeader className='2xl:text-base text-sm text-muted-foreground hover:text-foreground'>
               What is a UI component?
             </AccordionHeader>
             <AccordionPanel className='2xl:text-base text-sm'>
@@ -25,8 +25,8 @@ function SingleLayout() {
               dropdown menus, sliders.
             </AccordionPanel>
           </AccordionItem>
-          <AccordionItem value='item-2' className='dark:bg-black bg-white'>
-            <AccordionHeader className='2xl:text-base text-sm dark:text-neutral-300 dark:hover:text-black'>
+          <AccordionItem value='item-2' className='bg-background'>
+            <AccordionHeader className='2xl:text-base text-sm text-muted-foreground hover:text-foreground'>
               Why are components important?
             </AccordionHeader>
             <AccordionPanel className='2xl:text-base text-sm'>
@@ -35,8 +35,8 @@ function SingleLayout() {
               across an application.
             </AccordionPanel>
           </AccordionItem>
-          <AccordionItem value='item-3' className='dark:bg-black bg-white'>
-            <AccordionHeader className='2xl:text-base text-sm dark:text-neutral-300 dark:hover:text-black'>
+          <AccordionItem value='item-3' className='bg-background'>
+            <AccordionHeader className='2xl:text-base text-sm text-muted-foreground hover:text-foreground'>
               UI Component Traits
             </AccordionHeader>
             <AccordionPanel className='2xl:text-base text-sm'>
@@ -49,8 +49,8 @@ function SingleLayout() {
       </AccordionWrapper>
       <AccordionWrapper>
         <Accordion defaultValue={'item-4'}>
-          <AccordionItem value='item-4' className='dark:bg-black bg-white'>
-            <AccordionHeader className='2xl:text-base text-sm dark:text-neutral-300 dark:hover:text-black'>
+          <AccordionItem value='item-4' className='bg-background'>
+            <AccordionHeader className='2xl:text-base text-sm text-muted-foreground hover:text-foreground'>
               Does Component Improve UX?
             </AccordionHeader>
             <AccordionPanel className='2xl:text-base text-sm'>
@@ -59,8 +59,8 @@ function SingleLayout() {
               patterns.
             </AccordionPanel>
           </AccordionItem>
-          <AccordionItem value='item-5' className='dark:bg-black bg-white'>
-            <AccordionHeader className='2xl:text-base text-sm dark:text-neutral-300 dark:hover:text-black'>
+          <AccordionItem value='item-5' className='bg-background'>
+            <AccordionHeader className='2xl:text-base text-sm text-muted-foreground hover:text-foreground'>
               component design challenges?
             </AccordionHeader>
             <AccordionPanel className='2xl:text-base text-sm'>
@@ -69,8 +69,8 @@ function SingleLayout() {
               with ease of use.
             </AccordionPanel>
           </AccordionItem>
-          <AccordionItem value='item-6' className='dark:bg-black bg-white'>
-            <AccordionHeader className='2xl:text-base text-sm dark:text-neutral-300 dark:hover:text-black'>
+          <AccordionItem value='item-6' className='bg-background'>
+            <AccordionHeader className='2xl:text-base text-sm text-muted-foreground hover:text-foreground'>
               Ensure Responsiveness
             </AccordionHeader>
             <AccordionPanel className='2xl:text-base text-sm'>

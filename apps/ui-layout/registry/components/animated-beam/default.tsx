@@ -15,7 +15,7 @@ export default function AnimatedBeamDefault() {
 
   return (
     <div
-      className='relative flex w-full max-w-[500px] mx-auto items-center justify-center overflow-hidden rounded-lg border dark:bg-neutral-800 bg-neutral-50 lg:p-10 sm:p-4 p-2 md:shadow-xl'
+      className='relative flex w-full max-w-[500px] mx-auto items-center justify-center overflow-hidden rounded-lg border bg-muted lg:p-10 sm:p-4 p-2 md:shadow-xl'
       ref={containerRef}
     >
       <div className='flex h-full w-full flex-col items-stretch justify-between gap-10'>

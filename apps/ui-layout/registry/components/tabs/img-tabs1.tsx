@@ -49,7 +49,7 @@ function ImageTabs1() {
                 <TabHeader value={tab.id}>{tab.title}</TabHeader>
                 <TabDes value={tab.id}>
                   {' '}
-                  <p className={`dark:bg-white bg-[#F2F2F2] text-black p-3`}>{tab.description}</p>
+                  <p className={`dark:bg-white bg-[#F2F2F2] text-foreground p-3`}>{tab.description}</p>
                   <img src={tab.imageUrl} alt={tab.title} className='md:hidden block rounded-md' />
                 </TabDes>
               </TabItem>

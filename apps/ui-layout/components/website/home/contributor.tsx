@@ -63,7 +63,7 @@ export default function Contributors() {
             {/* Trigger Card */}
             <DialogTrigger
               style={{ borderRadius: '12px' }}
-              className='flex w-full md:h-72 h-60 border dark:bg-black bg-white flex-col overflow-hidden relative'
+              className='flex w-full md:h-72 h-60 border bg-card flex-col overflow-hidden relative'
             >
               <DialogImage
                 src={contributor.src}
@@ -72,7 +72,7 @@ export default function Contributors() {
               />
               <div className='flex grow flex-row items-end justify-between p-3 pt-4 text-primary absolute bottom-0 left-0 w-full bg-linear-to-t from-black/50 to-transparent'>
                 <DialogTitle className='text-xl text-white'>{contributor.alt}</DialogTitle>
-                <button className='absolute bottom-2 right-2 p-2 bg-neutral-200 dark:bg-neutral-900 rounded-lg'>
+                <button className='absolute bottom-2 right-2 p-2 bg-secondary rounded-lg'>
                   <Plus className='w-6 h-6' />
                 </button>
               </div>
@@ -81,7 +81,7 @@ export default function Contributors() {
             {/* Dialog Content */}
             <DialogContainer className='grid place-items-center h-full'>
               <DialogContent style={{ borderRadius: '24px' }} className='h-fit mx-auto'>
-                <div className='flex flex-col relative dark:bg-neutral-900 bg-neutral-100 lg:w-md w-[80%] lg:h-[50vh] h-[80vh] mx-auto overflow-y-auto'>
+                <div className='flex flex-col relative bg-secondary lg:w-md w-[80%] lg:h-[50vh] h-[80vh] mx-auto overflow-y-auto'>
                   {/* Top Image */}
                   <div className='flex-1 overflow-hidden'>
                     <DialogImage
@@ -93,7 +93,7 @@ export default function Contributors() {
 
                   {/* Contributor Details */}
                   <div className='p-6'>
-                    <DialogTitle className='text-4xl font-semibold dark:text-white text-zinc-950'>
+                    <DialogTitle className='text-4xl font-semibold text-foreground'>
                       {contributor.alt}
                     </DialogTitle>
 
@@ -105,7 +105,7 @@ export default function Contributors() {
                         exit: { opacity: 0, scale: 0.8, y: -50 },
                       }}
                     >
-                      <ul className='mt-4 list-disc space-y-2 pl-5 text-left text-zinc-700 dark:text-zinc-300'>
+                      <ul className='mt-4 list-disc space-y-2 pl-5 text-left text-muted-foreground'>
                         {contributor.workDetails.map((detail, idx) => (
                           <li key={detail}>{detail}</li>
                         ))}

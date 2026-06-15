@@ -45,7 +45,7 @@ function ImageItem({ item, index, setSelected }: ImageItemProps) {
       initial='hidden'
       animate={isInView && 'visible'}
       ref={ref}
-      className="inline-block group w-full rounded-md  relative dark:bg-black bg-white  before:absolute before:top-0 before:content-[''] before:h-full before:w-full hover:before:bg-linear-to-t dark:before:from-neutral-900  before:from-neutral-200/90 before:from-5% before:to-transparent before:to-90% cursor-pointer"
+      className="inline-block group w-full rounded-md  relative bg-background  before:absolute before:top-0 before:content-[''] before:h-full before:w-full hover:before:bg-linear-to-t dark:before:from-neutral-900  before:from-neutral-200/90 before:from-5% before:to-transparent before:to-90% cursor-pointer"
       onClick={() => setSelected(item)}
     >
       <motion.img
@@ -137,7 +137,7 @@ function Modal({ selected, setSelected }: ModalProps) {
                 height={400}
                 alt='img'
                 src={selected.url}
-                className='w-full h-full object-contain rounded-md dark:bg-black bg-white'
+                className='w-full h-full object-contain rounded-md bg-background'
               />
             </motion.div>
             <motion.div
@@ -145,7 +145,7 @@ function Modal({ selected, setSelected }: ModalProps) {
               initial='initial'
               animate='animate'
               exit='exit'
-              className='bg-white dark:bg-black dark:text-white text-black p-4  rounded-md  px-8'
+              className='bg-background text-foreground p-4  rounded-md  px-8'
             >
               <motion.h3 variants={itemVariants} className='text-2xl font-bold mb-2'>
                 {selected.title}
@@ -154,7 +154,7 @@ function Modal({ selected, setSelected }: ModalProps) {
                 {selected.tags.map((tag) => {
                   return (
                     <div
-                      className='bg-base-300 border  dark:bg-neutral-100 bg-neutral-50 text-zinc-600 px-2 py-1 rounded-md'
+                      className='bg-muted text-muted-foreground px-2 py-1 rounded-md'
                       key={tag}
                     >
                       {tag}
@@ -167,7 +167,7 @@ function Modal({ selected, setSelected }: ModalProps) {
               </motion.p>
               <motion.a
                 variants={itemVariants}
-                className='flex  w-fit gap-2 cursor-pointer px-4 py-2 dark:hover:bg-black bg-black hover:bg-white hover:text-black text-white border-black dark:hover:text-white transition-colors border-2 dark:border-white dark:bg-white dark:text-black rounded-full font-semibold'
+                className='flex  w-fit gap-2 cursor-pointer px-4 py-2 bg-foreground hover:bg-foreground/90 text-background border-border transition-colors border-2 rounded-full font-semibold'
                 href='#'
               >
                 Download

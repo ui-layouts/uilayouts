@@ -29,7 +29,7 @@ export default function TopDirectionalDrawer() {
               </p>
               <div className='p-2 space-y-4 '>
                 <span className='relative flex justify-center overflow-hidden rounded-xl w-full '>
-                  <span className='grid place-content-center h-40  w-40 rounded-xl dark:bg-neutral-800 bg-muted'>
+                  <span className='grid place-content-center h-40  w-40 rounded-xl bg-muted'>
                     JP
                   </span>
                 </span>
@@ -42,7 +42,7 @@ export default function TopDirectionalDrawer() {
                 </div>
                 <button
                   type='submit'
-                  className='w-full rounded-xs dark:bg-white bg-black  p-2 dark:text-black text-white'
+                  className='w-full rounded-xs bg-foreground p-2 text-background'
                 >
                   Submit
                 </button>
@@ -63,7 +63,7 @@ export default function TopDirectionalDrawer() {
           <motion.button
             whileTap={{ scale: 0.8 }}
             onClick={() => setSidebarOpen(true)}
-            className='absolute left-2 bottom-2 p-4 dark:bg-black bg-white rounded-lg shadow-black'
+            className='absolute left-2 bottom-2 p-4 bg-background rounded-lg shadow-black'
           >
             <Edit />
           </motion.button>

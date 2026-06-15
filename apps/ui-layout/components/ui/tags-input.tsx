@@ -76,7 +76,7 @@ export const TagsInput: React.FC<TagsInputProps> = ({
   return (
     <div
       className={cn(
-        'flex flex-wrap w-full items-center gap-2 p-2 border-2 rounded-md focus-within:border-blue-500 dark:bg-neutral-950 bg-neutral-50',
+        'flex flex-wrap w-full items-center gap-2 p-2 border-2 rounded-md focus-within:border-blue-500 bg-background',
         className
       )}
     >
@@ -90,7 +90,7 @@ export const TagsInput: React.FC<TagsInputProps> = ({
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleAddTag}
               onBlur={handleBlur}
-              className='px-2 py-1 text-sm border dark:bg-neutral-800 bg-neutral-200 rounded-sm outline-hidden'
+              className='px-2 py-1 text-sm border bg-muted rounded-sm outline-hidden'
               placeholder='Edit tag...'
               style={{ width: `${input.length + 1 * 1.2}px` }}
             />
@@ -118,7 +118,7 @@ export const TagsInput: React.FC<TagsInputProps> = ({
         value={input}
         onChange={(e) => setInput(e.target.value)}
         onKeyDown={handleAddTag}
-        className={`grow px-2 py-1 text-sm border-none outline-hidden  dark:bg-neutral-800 bg-neutral-50 rounded-md ${
+        className={`grow px-2 py-1 text-sm border-none outline-hidden bg-background rounded-md ${
           editingIndex !== null ? 'opacity-0' : 'opacity-100'
         }`}
         placeholder='Add a tag...'

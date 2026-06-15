@@ -30,7 +30,7 @@ function Card1() {
             clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)',
           }}
         />
-        <div className='text-black pt-2'>
+        <div className='text-foreground pt-2'>
           <div className='flex justify-between'>
             <h1 className='font-semibold text-xl'>Nike Air Max</h1>
             <motion.button
@@ -62,7 +62,7 @@ function Card1() {
                   key={data.color}
                   onClick={() => handleColorButtonClick(data.img, data.color)}
                   className={` relative w-6 h-6 border  rounded-full grid place-content-center transition-all ${
-                    selectedColor === data.color ? ' border-black' : 'border-neutral-200'
+                    selectedColor === data.color ? ' border-foreground' : 'border-border'
                   }`}
                 >
                   <span

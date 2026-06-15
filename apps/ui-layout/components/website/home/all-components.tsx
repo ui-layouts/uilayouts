@@ -143,11 +143,11 @@ function AllComponents() {
             return (
               <div className={`${component.className}`} key={index}>
                 <div
-                  className={`relative group  h-full w-full rounded-xl bg-white shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:bg-zinc-900 dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:-inset-px dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,0,0,0.20),0px_1px_0px_0px_rgba(255,255,255,0.06)_inset] forced-colors:outline-solid`}
+                  className={`relative group h-full w-full rounded-xl bg-card shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:-inset-px dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,0,0,0.20),0px_1px_0px_0px_rgba(255,255,255,0.06)_inset] forced-colors:outline-solid`}
                 >
                   <Link
                     href={component.link}
-                    className='absolute top-1 transition-all group-hover:opacity-100 opacity-0 text-[0.85rem] px-2 py-0.5 dark:bg-neutral-800  bg-neutral-200 right-2 z-10 rounded-md grid place-content-center cursor-pointer'
+                    className='absolute top-1 transition-all group-hover:opacity-100 opacity-0 text-[0.85rem] px-2 py-0.5 bg-muted right-2 z-10 rounded-md grid place-content-center cursor-pointer'
                   >
                     Preview
                   </Link>
@@ -160,17 +160,17 @@ function AllComponents() {
         <a
           href='/components'
           target='_blank'
-          className='flex sm:text-base text-sm relative z-2 sm:w-fit w-60 py-2 px-3 dark:bg-neutral-900 bg-neutral-100 justify-center group mx-auto font-medium items-center gap-2 rounded-md border dark:border-[#1d1d1d]'
+          className='flex sm:text-base text-sm relative z-2 sm:w-fit w-60 py-2 px-3 bg-secondary justify-center group mx-auto font-medium items-center gap-2 rounded-md border'
           rel='noreferrer noopener'
         >
           {' '}
           <span>Browse all </span>
           <span className='flex items-center gap-2'>
-            <span className='dark:text-zinc-400 text-zinc-500'>Components</span>{' '}
+            <span className='text-muted-foreground'>Components</span>{' '}
             <ArrowRight className=' group-hover:translate-x-1 transition-all' />
           </span>
         </a>
-        <div className='absolute -bottom-5 left-0 w-full h-60 bg-linear-to-t dark:from-neutral-950 from-white dark:via-neutral-950 via-white '></div>
+        <div className='absolute -bottom-5 left-0 w-full h-60 bg-linear-to-t from-background via-background '></div>
       </section>
     </>
   );

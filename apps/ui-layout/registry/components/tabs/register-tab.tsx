@@ -10,7 +10,7 @@ function RegisterTab() {
     <>
       <TabsProvider defaultValue={'login'} wobbly={false}>
         <div className='flex justify-center mt-2'>
-          <div className='flex items-center w-fit dark:bg-[#1a1c20] bg-neutral-200 p-1 dark:text-white text-black rounded-md border'>
+          <div className='flex items-center w-fit dark:bg-[#1a1c20] bg-muted p-1 text-foreground rounded-md border'>
             <TabsBtn value='login'>
               <span className='relative z-2 uppercase'>Login</span>
             </TabsBtn>
@@ -21,7 +21,7 @@ function RegisterTab() {
         </div>
 
         <TabsContent value='login'>
-          <div className='dark:bg-black bg-white  mx-auto max-w-[400px]  dark:text-white text-black p-4 py-8 shadow-md rounded-md space-y-2'>
+          <div className='bg-background mx-auto max-w-[400px]  text-foreground p-4 py-8 shadow-md rounded-md space-y-2'>
             <div className='flex justify-center'>
               <Image
                 src='/apple-touch-icon.png'
@@ -37,7 +37,7 @@ function RegisterTab() {
             </div>
 
             <div className='flex gap-2 justify-between'>
-              <button className='bg-white border dark:bg-neutral-900 w-full p-2 rounded-md text-2xl flex justify-center '>
+              <button className='bg-background border dark:bg-card w-full p-2 rounded-md text-2xl flex justify-center '>
                 <svg
                   width='84'
                   height='84'
@@ -64,7 +64,7 @@ function RegisterTab() {
                   />
                 </svg>
               </button>
-              <button className='bg-white border dark:bg-neutral-900 w-full p-2 rounded-md text-2xl flex justify-center '>
+              <button className='bg-background border dark:bg-card w-full p-2 rounded-md text-2xl flex justify-center '>
                 <svg
                   width='123'
                   height='143'
@@ -81,7 +81,7 @@ function RegisterTab() {
                   />
                 </svg>
               </button>
-              <button className='bg-white border dark:bg-neutral-900 w-full p-2 rounded-md text-2xl text-blue-500 flex justify-center '>
+              <button className='bg-background border dark:bg-card w-full p-2 rounded-md text-2xl text-blue-500 flex justify-center '>
                 <svg
                   width='80'
                   height='80'
@@ -110,12 +110,12 @@ function RegisterTab() {
               <input
                 type='email'
                 placeholder='Enter your Eamil..'
-                className='w-full p-2 border focus:outline-hidden rounded-md dark:bg-neutral-800'
+                className='w-full p-2 border focus:outline-hidden rounded-md dark:bg-input'
               />
               <input
                 type='password'
                 placeholder='Enter your password..'
-                className='w-full p-2 border focus:outline-hidden rounded-md dark:bg-neutral-800'
+                className='w-full p-2 border focus:outline-hidden rounded-md dark:bg-input'
               />
               <button
                 type='submit'
@@ -127,14 +127,14 @@ function RegisterTab() {
             </form>
             <p className='text-center w-full pb-2'>
               Don't have an account yet?{' '}
-              <button className='dark:text-white text-black underline font-semibold'>
+              <button className='text-foreground underline font-semibold'>
                 Sign Up
               </button>
             </p>
           </div>
         </TabsContent>
         <TabsContent value='register'>
-          <div className='dark:bg-black bg-white  mx-auto max-w-[400px]  dark:text-white text-black p-4 py-8 shadow-md rounded-md space-y-2'>
+          <div className='bg-background mx-auto max-w-[400px]  text-foreground p-4 py-8 shadow-md rounded-md space-y-2'>
             <div className='flex justify-center'>
               <Image
                 src='/apple-touch-icon.png'
@@ -153,7 +153,7 @@ function RegisterTab() {
               <input
                 type='text'
                 placeholder='Enter your username'
-                className='w-full p-2 border focus:outline-hidden rounded-md dark:bg-neutral-800'
+                className='w-full p-2 border focus:outline-hidden rounded-md dark:bg-input'
               />
               <div className='flex items-center'>
                 <div className='dark:bg-neutral-50 bg-black h-full p-2 dark:text-black text-white rounded-md'>
@@ -162,18 +162,18 @@ function RegisterTab() {
                 <input
                   type='tel'
                   placeholder='018XXXXXXXX'
-                  className='w-full p-2 border focus:outline-hidden rounded-md dark:bg-neutral-800'
+                  className='w-full p-2 border focus:outline-hidden rounded-md dark:bg-input'
                 />
               </div>
               <input
                 type='email'
                 placeholder='Enter your Eamil'
-                className='w-full p-2 border focus:outline-hidden rounded-md dark:bg-neutral-800'
+                className='w-full p-2 border focus:outline-hidden rounded-md dark:bg-input'
               />
               <input
                 type='password'
                 placeholder='Enter your password'
-                className='w-full p-2 border focus:outline-hidden rounded-md dark:bg-neutral-800'
+                className='w-full p-2 border focus:outline-hidden rounded-md dark:bg-input'
               />
               <button
                 type='submit'
@@ -184,7 +184,7 @@ function RegisterTab() {
             </form>
             <p className='text-center w-full pb-2'>
               Have an account?{' '}
-              <button className='dark:text-white text-black underline font-semibold'>
+              <button className='text-foreground underline font-semibold'>
                 Sign in
               </button>
             </p>
@@ -194,7 +194,7 @@ function RegisterTab() {
               <span className='inline-block w-full border '></span>
             </div>
             <div className='flex gap-2 justify-between w-[90%] mx-auto'>
-              <button className='bg-white border dark:bg-neutral-900 w-full p-2 rounded-md text-2xl flex justify-center '>
+              <button className='bg-background border dark:bg-card w-full p-2 rounded-md text-2xl flex justify-center '>
                 <svg
                   width='84'
                   height='84'
@@ -221,7 +221,7 @@ function RegisterTab() {
                   />
                 </svg>
               </button>
-              <button className='bg-white border dark:bg-neutral-900 w-full p-2 rounded-md text-2xl flex justify-center '>
+              <button className='bg-background border dark:bg-card w-full p-2 rounded-md text-2xl flex justify-center '>
                 <svg
                   width='123'
                   height='143'
@@ -238,7 +238,7 @@ function RegisterTab() {
                   />
                 </svg>
               </button>
-              <button className='bg-white border dark:bg-neutral-900 w-full p-2 rounded-md text-2xl text-blue-500 flex justify-center '>
+              <button className='bg-background border dark:bg-card w-full p-2 rounded-md text-2xl text-blue-500 flex justify-center '>
                 <svg
                   width='80'
                   height='80'

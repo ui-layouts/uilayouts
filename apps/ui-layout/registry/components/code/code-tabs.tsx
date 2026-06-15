@@ -3,7 +3,7 @@ import React from 'react';
 
 function CodeTabsCompponent() {
   return (
-    <div className='w-full dark:bg-black bg-white p-4 rounded-lg'>
+    <div className='w-full bg-background p-4 rounded-lg'>
       <CodeTabs
         tabs={[
           { id: 'npm', label: 'npm', code: 'npm i thing', lang: 'bash' },

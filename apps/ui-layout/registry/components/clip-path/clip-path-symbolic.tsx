@@ -55,7 +55,7 @@ function ClipPathSymbolic() {
         </defs>
       </svg>
 
-      <section className='grid grid-cols-3 gap-8 dark:bg-black bg-white border rounded-lg p-5'>
+      <section className='grid grid-cols-3 gap-8 bg-background border rounded-lg p-5'>
         <figure className='group p-8 hover:p-4 transition-all duration-200 bg-linear-to-b to-[#bd8122] from-[#c9ad66] rounded-xl'>
           <div style={{ clipPath: 'url(#clip-goey1)' }}>
             <img

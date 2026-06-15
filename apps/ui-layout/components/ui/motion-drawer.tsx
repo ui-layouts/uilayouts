@@ -247,7 +247,7 @@ const MotionDrawer: React.FC<SideMenuProps> = ({
               {showToggleButton && (
                 <motion.button
                   className={cn(
-                    'absolute top-2 right-8 p-2 text-black cursor-pointer',
+                    'absolute top-2 right-8 p-2 text-foreground cursor-pointer',
                     clsBtnClassName
                   )}
                   onClick={() => setIsOpen(false)}

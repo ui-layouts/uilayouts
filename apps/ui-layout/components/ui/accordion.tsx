@@ -146,7 +146,7 @@ export function AccordionItem({ children, value, className }: AccordionItemProps
     <div
       data-active={isActive || undefined}
       className={cn(
-        'rounded-lg overflow-hidden mb-2 group border border-neutral-200 dark:border-neutral-800',
+        'rounded-lg overflow-hidden mb-2 group border',
         className
       )}
     >
@@ -188,7 +188,7 @@ export function AccordionHeader({ children, customIcon, className }: AccordionHe
       data-active={isActive || undefined}
       aria-expanded={isActive}
       className={cn(
-        'p-4 cursor-pointer w-full transition-all font-semibold text-neutral-500 dark:data-active:text-neutral-200 data-active:text-neutral-800 dark:data-active:bg-neutral-800 data-active:bg-neutral-200 hover:bg-neutral-100 hover:text-black flex justify-between gap-2 items-center text-left',
+        'p-4 cursor-pointer w-full transition-all font-semibold text-muted-foreground data-active:text-foreground data-active:bg-muted hover:bg-secondary hover:text-foreground flex justify-between gap-2 items-center text-left',
         className
       )}
       onClick={handleClick}
@@ -197,7 +197,7 @@ export function AccordionHeader({ children, customIcon, className }: AccordionHe
       {!customIcon && (
         <ChevronDown
           className={cn(
-            'transition-transform shrink-0 text-neutral-500 dark:text-neutral-400',
+            'transition-transform shrink-0 text-muted-foreground',
             isActive ? 'rotate-180' : 'rotate-0'
           )}
           aria-hidden='true'
@@ -243,7 +243,7 @@ export function AccordionPanel({ children, className, articleClassName }: Accord
           exit={{ height: 0 }}
           transition={{ type: 'spring', duration: 0.3, bounce: 0 }}
           className={cn(
-            'bg-neutral-100 dark:bg-neutral-900 px-2 data-active:bg-neutral-200 dark:data-active:bg-neutral-800 text-black dark:text-white',
+            'bg-secondary px-2 data-active:bg-muted text-foreground',
             className
           )}
         >

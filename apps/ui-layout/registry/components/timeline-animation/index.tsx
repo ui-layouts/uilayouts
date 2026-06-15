@@ -205,8 +205,8 @@ function Others1() {
               className='flex md:flex-row flex-col gap-4 justify-between mb-4 mt-0 rounded-lg dark:from-black/40 to-blue-100 to-100% from-zinc-100 border backdrop-blur-md p-6 2xl:w-[90%] mx-auto relative'
             >
               <div className='absolute bottom-0 left-0 right-0 top-0 z-10 w-full h-full bg-[repeating-linear-gradient(135deg,#475aff33_0px_1px,transparent_1px_15px)] mask-[radial-gradient(ellipse_50%_135%_at_93%_0%,#000_55%,transparent_100%)]'></div>
-              <div className='space-y-2 rounded-md dark:text-white text-black'>
-                <span className='text-sm text-neutral-600'>blocks/FAQs</span>
+              <div className='space-y-2 rounded-md text-foreground'>
+                <span className='text-sm text-muted-foreground'>blocks/FAQs</span>
                 <h1
                   className={cn(
                     'mb-0 flex scroll-m-20 not-prose items-center lg:text-3xl text-2xl gap-2 font-medium tracking-tight'
@@ -254,7 +254,7 @@ function Others1() {
                   customVariants={revealVariants}
                   key={block.id}
                   href={`https://pro.ui-layouts.com/${block.url}`}
-                  className='relative group no-underline  dark:bg-neutral-900 bg-neutral-200 sm:p-4 p-2 rounded-lg border dark:border-neutral-800 border-neutral-300'
+                  className='relative group no-underline  bg-card sm:p-4 p-2 rounded-lg border border-border'
                 >
                   <Image
                     src={block.imgSrc}

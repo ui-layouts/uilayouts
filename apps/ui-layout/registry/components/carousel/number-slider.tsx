@@ -31,7 +31,7 @@ function NumberSlider() {
               <div className='bg-teal-500  h-[500px] w-full rounded-xl'></div>
             </Slider>
           </SliderContainer>
-          <div className='absolute bottom-3 right-3 text-white rounded-lg w-20 h-12 grid place-content-center font-semibold border-2 z-10 dark:bg-black bg-white'>
+          <div className='absolute bottom-3 right-3 text-white rounded-lg w-20 h-12 grid place-content-center font-semibold border-2 z-10 bg-background'>
             <SliderSnapDisplay className='mix-blend-difference' />
           </div>
         </Carousel>

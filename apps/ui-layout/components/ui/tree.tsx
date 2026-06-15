@@ -229,8 +229,8 @@ export const TreeNodeTrigger = ({
     <motion.div
       className={cn(
         'group relative mx-1 flex cursor-pointer items-center rounded-md px-3 py-2 transition-all duration-200',
-        'dark:hover:bg-neutral-800/60 hover:bg-neutral-200 ',
-        isSelected && 'bg-neutral-200 dark:bg-neutral-800/60',
+        'hover:bg-muted',
+        isSelected && 'bg-muted',
         className
       )}
       onClick={(e) => {
@@ -274,7 +274,7 @@ export const TreeLines = () => {
 
         return (
           <div
-            className='absolute top-0 bottom-0 border dark:border-neutral-800 border-l'
+            className='absolute top-0 bottom-0 border-l'
             key={lineLeft}
             style={{
               left: lineLeft,
@@ -286,7 +286,7 @@ export const TreeLines = () => {
 
       {/* Horizontal connector line */}
       <div
-        className='absolute top-1/2 border dark:border-neutral-800 border-t'
+        className='absolute top-1/2 border-t'
         style={{
           left: (level - 1) * (indent ?? 0) + 12,
           width: (indent ?? 0) - 4,
@@ -297,7 +297,7 @@ export const TreeLines = () => {
       {/* Vertical line to midpoint for last items */}
       {isLast && (
         <div
-          className='absolute top-0 border dark:border-neutral-800 border-l'
+          className='absolute top-0 border-l'
           style={{
             left: (level - 1) * (indent ?? 0) + 12,
             height: '50%',

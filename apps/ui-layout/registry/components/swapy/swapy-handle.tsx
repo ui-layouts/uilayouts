@@ -91,7 +91,7 @@ function SwapyHandle() {
                 className={`relative rounded-lg w-full h-full flex flex-col justify-center items-center gap-2 p-8 ${item?.bgColor}`}
               >
                 <DragHandle />
-                <h3 className='text-xl font-bold text-black '>{item?.title}</h3>
+                <h3 className='text-xl font-bold text-foreground '>{item?.title}</h3>
               </SwapyItem>
             </SwapySlot>
           );

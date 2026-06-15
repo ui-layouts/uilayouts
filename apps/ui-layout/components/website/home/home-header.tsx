@@ -28,7 +28,7 @@ function HomeHeader({
     >
       <div
         className={cn(
-          'h-full relative mx-auto flex justify-between dark:bg-zinc-900/10 backdrop-blur-2xl bg-zinc-100/10 rounded-lg items-center',
+          'h-full relative mx-auto flex justify-between bg-muted/10 backdrop-blur-2xl rounded-lg items-center',
           className
         )}
       >
@@ -36,11 +36,11 @@ function HomeHeader({
         <div className='sm:flex hidden justify-start items-center gap-2'>
           <Link
             href='/'
-            className='relative xl:flex hidden items-center gap-2 dark:bg-black/10 bg-neutral-100/10 p-2 rounded-md'
+            className='relative xl:flex hidden items-center gap-2 bg-background/10 p-2 rounded-md'
           >
             <svg
               width='288'
-              className='xl:w-32 w-28 h-full dark:fill-white fill-black'
+              className='xl:w-32 w-28 h-full fill-foreground'
               height='63'
               viewBox='0 0 288 63'
               fill='none'
@@ -62,13 +62,13 @@ function HomeHeader({
             href='/components'
             className={cn(
               'gap-1 group text-primary font-semibold items-center p-2 relative rounded-lg flex',
-              pathName === '/components' && 'dark:bg-neutral-900'
+              pathName === '/components' && 'bg-muted'
             )}
           >
             <Component
               className={cn(
                 'w-6 h-6 stroke-primary',
-                pathName === '/components' && 'stroke-white dark:stroke-black'
+                pathName === '/components' && 'stroke-background'
               )}
             />
             Components
@@ -77,7 +77,7 @@ function HomeHeader({
             href='/blocks'
             className={cn(
               'flex gap-1 group text-primary font-semibold items-center p-2 relative rounded-lg',
-              pathName === '/blocks' && 'dark:bg-neutral-900 bg-neutral-200'
+              pathName === '/blocks' && 'bg-muted'
             )}
           >
             <span className='absolute italic -top-1 -right-4 text-xs text-blue-500'>(New)</span>
@@ -90,7 +90,7 @@ function HomeHeader({
             href='/mcp'
             className={cn(
               'flex gap-1 group transition-all font-semibold items-center p-2  pr-4 relative rounded-lg text-primary',
-              pathName === '/mcp' && 'dark:bg-black'
+              pathName === '/mcp' && 'bg-background'
             )}
           >
             {/* <span className='absolute italic -top-1 -right-4 text-xs'>
@@ -105,7 +105,7 @@ function HomeHeader({
               strokeWidth='1.2'
               className={cn(
                 'w-6 h-6 stroke-primary',
-                pathName === '/mcp' && 'stroke-white dark:stroke-black'
+                pathName === '/mcp' && 'stroke-background'
               )}
               strokeLinecap='round'
               strokeLinejoin='round'
@@ -120,15 +120,15 @@ function HomeHeader({
         <div className='flex items-center gap-2'>
           <div className='flex gap-2 items-center'>
             <SearchDialog
-              classname='sm:w-12 xl:w-12 sm:pr-0 sm:pl-3 dark:bg-black/20 bg-white/40 border dark:border-black/20 border-white/20'
+              classname='sm:w-12 xl:w-12 sm:pr-0 sm:pl-3 bg-background/20 border border-background/20'
               searchBar={true}
             />
-            <ThemeSwitch className='dark:bg-black/20 bg-white/20 border dark:border-black/20 border-white/20 w-12 rounded-md h-11 shrink-0' />
+            <ThemeSwitch className='bg-background/20 border border-background/20 w-12 rounded-md h-11 shrink-0' />
           </div>
           <a
             href='https://discord.gg/4bySmj75'
             target='_blank'
-            className='dark:bg-black/20 bg-white/20 border dark:border-black/20 border-white/20 w-12 rounded-md h-11 shrink-0 grid place-content-center'
+            className='bg-background/20 border border-background/20 w-12 rounded-md h-11 shrink-0 grid place-content-center'
             rel='noreferrer noopener'
           >
             <svg
