@@ -5,7 +5,7 @@ function HomeBtn() {
   return (
     <>
       <div className='flex xl:flex-col xl:flex-nowrap flex-wrap  mx-auto lg:gap-5 gap-2 items-center justify-center lg:py-10 py-2 2xl:px-0 px-2'>
-        <button className='group relative cursor-pointer h-12 2xl:w-36 xl:w-full w-36 border bg-white rounded-full overflow-hidden text-black text-center font-semibold'>
+        <button className='group relative cursor-pointer h-12 2xl:w-36 xl:w-full w-36 border bg-card rounded-full overflow-hidden text-foreground text-center font-semibold'>
           <span className='translate-y-0 group-hover:-translate-y-12 group-hover:opacity-0 transition-all duration-300 inline-block'>
             Our Work
           </span>
@@ -19,7 +19,7 @@ function HomeBtn() {
         <button className=' inline-flex h-12 animate-background-shine items-center justify-center rounded-md  border-2 dark:border-[#656fe2] border-[#c0c6fc] dark:bg-[linear-gradient(110deg,#1e2a78,45%,#3749be,55%,#1e2a78)] bg-[linear-gradient(110deg,#3d5af1,45%,#5471ff,55%,#3d5af1)] bg-size-[200%_100%] dark:hover:border-white w-36 font-medium text-white dark:text-white transition-colors focus:outline-hidden focus:ring-2 dark:focus:ring-neutral-400 focus:ring-offset-2 focus:ring-offset-neutral-50'>
           Click Me
         </button>
-        <button className='group relative cursor-pointer h-12 2xl:w-36 xl:w-full w-36 border bg-white rounded-full overflow-hidden text-black text-center font-semibold'>
+        <button className='group relative cursor-pointer h-12 2xl:w-36 xl:w-full w-36 border bg-card rounded-full overflow-hidden text-foreground text-center font-semibold'>
           <span className='translate-x-1 group-hover:translate-x-12 group-hover:opacity-0 transition-all duration-300 inline-block'>
             About
           </span>

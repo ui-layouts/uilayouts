@@ -44,7 +44,7 @@ function Gallery({ items, setIndex, setOpen, index }) {
               </motion.h1>
             </motion.div>
 
-            <button className='absolute bottom-2 right-2 p-2 text-white dark:bg-black bg-neutral-400 hover:bg-neutral-500 rounded-xl dark:hover:bg-neutral-800'>
+            <button className='absolute bottom-2 right-2 p-2 text-foreground bg-secondary hover:bg-muted rounded-xl'>
               <Plus className='2xl:w-8 w-6 2xl:h-8 h-6' />
             </button>
           </motion.article>
@@ -101,8 +101,7 @@ export default function HomeAccordionModal() {
               exit='closed'
               tabIndex={-1}
               key={`backdrop-${currentItem.id}`}
-              className='dark:bg-black/95 bg-white/95 backdrop-blur-xs fixed h-screen z-50 top-0 left-0 bottom-0 right-0 w-full  grid place-content-center 2xl:py-20 pt-10
-                '
+              className='bg-background/95 backdrop-blur-xs fixed h-screen z-50 top-0 left-0 bottom-0 right-0 w-full grid place-content-center 2xl:py-20 pt-10'
               onClick={() => {
                 setOpen(false);
               }}
@@ -112,10 +111,10 @@ export default function HomeAccordionModal() {
                   key='dialog'
                   layoutId={`dialog-${currentItem.id}`}
                   onClick={(e) => e.stopPropagation()}
-                  className=' p-5  sm:w-[600px] w-[80%] mx-auto  relative  overflow-x-hidden  rounded-md cursor-default  bg-white shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:bg-zinc-900 dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)]'
+                  className='p-5 sm:w-[600px] w-[80%] mx-auto relative overflow-x-hidden rounded-md cursor-default bg-card shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)]'
                 >
                   <button
-                    className='absolute top-2 z-10 right-2 p-2 dark:bg-black bg-neutral-300 hover:bg-neutral-400 rounded-lg dark:hover:bg-neutral-800'
+                    className='absolute top-2 z-10 right-2 p-2 bg-secondary hover:bg-muted rounded-lg'
                     onClick={() => {
                       setOpen(false);
                     }}

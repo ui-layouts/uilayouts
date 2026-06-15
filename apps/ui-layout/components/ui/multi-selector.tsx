@@ -154,7 +154,7 @@ export const MultiSelect = React.forwardRef<HTMLButtonElement, MultiSelectProps>
             {...props}
             onClick={handleTogglePopover}
             className={cn(
-              'flex w-full p-1 rounded-md border min-h-10 h-auto items-center justify-between hover:bg-neutral-100 dark:bg-neutral-900 bg-neutral-50 dark:hover:bg-neutral-950',
+              'flex w-full p-1 rounded-md border min-h-10 h-auto items-center justify-between bg-card hover:bg-secondary',
               className
             )}
           >
@@ -168,7 +168,7 @@ export const MultiSelect = React.forwardRef<HTMLButtonElement, MultiSelectProps>
                       <div
                         key={value}
                         className={cn(
-                          'inline-flex items-center rounded-lg px-2 py-1 text-xs font-semibold dark:bg-neutral-950 bg-neutral-200 text-primary'
+                          'inline-flex items-center rounded-lg px-2 py-1 text-xs font-semibold bg-muted text-primary'
                         )}
                       >
                         {IconComponent && <IconComponent className='h-4 w-4 mr-2' />}

@@ -72,7 +72,7 @@ export function ResponsiveModal({
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className='fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-xs cursor-zoom-out'
+                className='fixed inset-0 z-50 flex items-center justify-center bg-background/50 backdrop-blur-xs cursor-zoom-out'
                 onClick={() => setOpen(false)}
               >
                 <motion.div
@@ -82,7 +82,7 @@ export function ResponsiveModal({
                   transition={{ type: 'spring', duration: 0.5 }}
                   onClick={(e) => e.stopPropagation()}
                   className={cn(
-                    'relative w-full max-w-md border bg-white dark:bg-neutral-900 rounded-lg cursor-default',
+                    'relative w-full max-w-md border bg-card rounded-lg cursor-default',
                     classname
                   )}
                 >
@@ -114,9 +114,9 @@ export function ResponsiveModal({
       {!isDesktop && (
         <VaulDrawer.Root shouldScaleBackground open={open} onOpenChange={setOpen}>
           <VaulDrawer.Portal>
-            <VaulDrawer.Overlay className='fixed inset-0 z-50 bg-white/50 dark:bg-black/50 backdrop-blur-xs' />
-            <VaulDrawer.Content className='fixed bottom-0 left-0 z-50 w-full max-h-[96%] bg-white dark:bg-neutral-900'>
-              <div className='mx-auto w-16 h-[0.30rem] shrink-0 rounded-full bg-neutral-600 my-4' />
+            <VaulDrawer.Overlay className='fixed inset-0 z-50 bg-background/50 backdrop-blur-xs' />
+            <VaulDrawer.Content className='fixed bottom-0 left-0 z-50 w-full max-h-[96%] bg-card'>
+              <div className='mx-auto w-16 h-[0.30rem] shrink-0 rounded-full bg-muted-foreground my-4' />
               <div className='w-full mx-auto max-h-[96vh] overflow-auto px-4 pb-2'>{content}</div>
             </VaulDrawer.Content>
           </VaulDrawer.Portal>

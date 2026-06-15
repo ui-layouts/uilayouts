@@ -21,7 +21,7 @@ const GlowButton: React.FC = () => {
   return (
     <button
       ref={buttonRef}
-      className='relative px-9 py-2 text-black bg-white rounded-full  transition-colors duration-300  group'
+      className='relative px-9 py-2 text-foreground bg-card rounded-full transition-colors duration-300 group'
       onMouseMove={handleMouseMove}
     >
       <span className='relative z-10'>Try it free</span>

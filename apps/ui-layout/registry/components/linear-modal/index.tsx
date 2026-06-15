@@ -54,7 +54,7 @@ export default function LinearCard() {
                 }}
                 className='flex w-full flex-col overflow-hidden border bg-muted hover:bg-muted/80'
               >
-                <DialogImage src={item.url?.src} alt='' className='h-52 w-full object-cover' />
+                <DialogImage src={item.url} alt='' className='h-52 w-full object-cover' />
                 <div className='flex grow flex-row items-end justify-between p-3'>
                   <div>
                     <DialogTitle className='text-foreground text-xl'>
@@ -77,7 +77,7 @@ export default function LinearCard() {
                   className=' relative flex h-full mx-auto flex-col overflow-y-auto border bg-background hover:bg-background/80 lg:w-[900px] w-[80%] '
                 >
                   <DialogImage
-                    src={item.url.src}
+                    src={item.url}
                     alt=''
                     className='h-full  object-contain w-[60%] mx-auto'
                   />

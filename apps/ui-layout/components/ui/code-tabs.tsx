@@ -71,14 +71,14 @@ export function CodeTabs({
         <>
           <Tabs
             defaultValue='ui-layouts'
-            className='rounded-xl bg-codebg dark:border-neutral-800 backdrop-blur-md border relative p-1 my-5'
+            className='rounded-xl bg-codebg border backdrop-blur-md relative p-1 my-5'
           >
-            <TabsList className='rounded-lg mt-1 mx-1 dark:bg-transparent bg-transparent border-0'>
+            <TabsList className='rounded-lg mt-1 mx-1 bg-transparent border-0'>
               {tabs.map((tab) => (
                 <TabsTrigger
                   key={tab.id}
                   value={tab.id}
-                  className='data-[state=active]:bg-white dark:data-[state=active]:bg-zinc-800 gap-1 data-[state=active]:border'
+                  className='data-[state=active]:bg-card gap-1 data-[state=active]:border'
                 >
                   {tab.id === 'ui-layouts' ? (
                     <>
@@ -126,7 +126,7 @@ export function CodeTabs({
 
             {tabs.map((tab) => (
               <TabsContent key={tab.id} value={tab.id} className='mt-1 border-none'>
-                <CopyButton code={tab.code} classname='top-1.5 border bg-white absolute right-3' />
+                <CopyButton code={tab.code} classname='top-1.5 border bg-card absolute right-3' />
                 <div
                   className='cliblocks rounded-xl p-1 px-2 border-none'
                   dangerouslySetInnerHTML={{ __html: tab.code }}
@@ -139,16 +139,16 @@ export function CodeTabs({
         <Tabs
           defaultValue={defaultValue ?? tabs[0].id}
           className={cn(
-            'rounded-xl bg-codebg dark:border-neutral-800 backdrop-blur-md border relative p-1 my-5',
+            'rounded-xl bg-codebg border backdrop-blur-md relative p-1 my-5',
             className
           )}
         >
-          <TabsList className='rounded-lg mt-1 mx-1 dark:bg-transparent bg-transparent border-0'>
+          <TabsList className='rounded-lg mt-1 mx-1 bg-transparent border-0'>
             {tabs.map((t) => (
               <TabsTrigger
                 key={t.id}
                 value={t.id}
-                className='data-[state=active]:bg-white dark:data-[state=active]:bg-zinc-800 gap-1 data-[state=active]:border'
+                className='data-[state=active]:bg-card gap-1 data-[state=active]:border'
               >
                 {t.label}
               </TabsTrigger>
@@ -157,7 +157,7 @@ export function CodeTabs({
 
           {tabs.map((t) => (
             <TabsContent key={t.id} value={t.id} className='mt-1 border-none'>
-              <CopyButton code={t.code} classname='top-1.5 border bg-white absolute right-3' />
+              <CopyButton code={t.code} classname='top-1.5 border bg-card absolute right-3' />
               {highlighted[t.id] ? (
                 <div
                   className='cliblocks rounded-xl p-1 px-2 border-none'

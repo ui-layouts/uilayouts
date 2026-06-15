@@ -33,7 +33,7 @@ export function TreeCodeViewer({
   const selectedFile = selectedId ? fileMap[selectedId] : null;
 
   return (
-    <div className='grid grid-cols-[250px_1fr] border dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-950 overflow-hidden'>
+    <div className='grid grid-cols-[250px_1fr] border bg-background overflow-hidden'>
       {/* LEFT */}
       <TreeProvider
         selectable
@@ -42,7 +42,7 @@ export function TreeCodeViewer({
         onSelectionChange={(ids) => {
           if (ids[0]) setSelectedId(ids[0]);
         }}
-        className='border-r dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900'
+        className='border-r bg-card'
       >
         <TreeView>
           <RenderTree nodes={tree} />

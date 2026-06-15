@@ -1,7 +1,7 @@
 {
   "name": "ui-layout",
   "private": true,
-  "packageManager": "bun@1.1.0",
+  "packageManager": "pnpm@11.3.0",
   "workspaces": [
     "apps/*",
     "packages/*"

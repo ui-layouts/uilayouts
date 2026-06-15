@@ -49,17 +49,17 @@ export function CodeBlock({
   if (isLoading) {
     return (
       <div className={cn('relative', className)}>
-        <div className='p-6 w-full mx-auto h-[400px] dark:bg-neutral-800 bg-neutral-200 animate-pulse rounded-xl'></div>
+        <div className='p-6 w-full mx-auto h-[400px] bg-muted animate-pulse rounded-xl'></div>
       </div>
     );
   }
 
   return (
     <div className={cn('relative', className)}>
-      <CopyButton code={code} classname='right-2 top-2 bg-white dark:bg-neutral-800' />
+      <CopyButton code={code} classname='right-2 top-2 bg-card' />
 
       <div
-        className='not-prose max-h-[550px] overflow-x-hidden rounded-md text-sm border dark:border-neutral-800'
+        className='not-prose max-h-[550px] overflow-x-hidden rounded-md text-sm border'
         dangerouslySetInnerHTML={{ __html: html }}
       />
     </div>

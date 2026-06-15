@@ -40,7 +40,6 @@ const PhoneInput: React.ForwardRefExoticComponent<PhoneInputProps> = React.forwa
        *
        * @param {E164Number | undefined} value - The entered value
        */
-      // @ts-expect-error
       onChange={(value) => onChange?.(value || '')}
       {...props}
     />
@@ -93,7 +92,7 @@ const CountrySelect = ({ disabled, value, onChange, options }: CountrySelectProp
         </Button>
       </PopoverTrigger>
       <PopoverContent className='w-[300px] p-0'>
-        <Command className='dark:bg-neutral-950 border dark:border-neutral-800 border-neutral-200'>
+        <Command className='bg-background border'>
           <CommandList>
             <ScrollArea className='h-72'>
               <CommandInput placeholder='Search country...' />

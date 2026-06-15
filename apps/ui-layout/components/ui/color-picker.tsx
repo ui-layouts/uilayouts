@@ -76,7 +76,7 @@ export function ColorPicker({
               variant='outline'
               size='icon'
               onClick={copyToClipboard}
-              className='h-10 w-12 shrink border-neutral-300 bg-neutral-100 text-neutral-900 hover:bg-neutral-200'
+              className='h-10 w-12 shrink border bg-muted text-foreground hover:bg-secondary'
               style={{ borderRadius: '6px' }}
             >
               <Copy className='h-4 w-4' />
@@ -90,7 +90,7 @@ export function ColorPicker({
                 variant='outline'
                 size='icon'
                 onClick={useEyeDropper}
-                className='h-10 w-10 border-neutral-300 bg-neutral-100 text-neutral-900 hover:bg-neutral-200'
+                className='h-10 w-10 border bg-muted text-foreground hover:bg-secondary'
                 style={{ borderRadius: '6px' }}
               >
                 <Pipette className='h-4 w-4' />
