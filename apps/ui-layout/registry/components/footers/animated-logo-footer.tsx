@@ -87,7 +87,7 @@ const Footer = () => {
         <Toast.Viewport />
       </Toast.Provider> */}
 
-      <div className='relative h-full sm:pt-14 pt-8 bg-[#f7f7f7] text-foreground' ref={container}>
+      <div className='relative h-full sm:pt-14 pt-8 bg-card text-foreground' ref={container}>
         <div className='sm:container  px-4 mx-auto'>
           <div className='md:flex justify-between w-full'>
             <div>
