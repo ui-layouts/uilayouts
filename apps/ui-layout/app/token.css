@@ -31,6 +31,10 @@
     --primary-base: oklch(0.99 0 0);
     --codebg: oklch(0.95 0 0);
     --cliCodeBg: oklch(0.98 0 0);
+
+    --codetabs-surface: oklch(1 0 0);
+    --codetabs-border: var(--border);
+    --codetabs-solid: oklch(0.21 0.006 285.885);
   }
 
   .dark {
@@ -64,6 +68,9 @@
     --primary-base: oklch(0.18 0 0);
     --codebg: oklch(0.21 0 0);
     --cliCodeBg: oklch(0.27 0 0);
+
+    --codetabs-surface: oklch(0.274 0.006 286.033);
+    --codetabs-border: oklch(0.269 0 0);
   }
 }
 
@@ -97,6 +104,10 @@
 
   --color-codebg: var(--codebg);
   --color-cliCodeBg: var(--cliCodeBg);
+
+  --color-codetabs-surface: var(--codetabs-surface);
+  --color-codetabs-border: var(--codetabs-border);
+  --color-codetabs-solid: var(--codetabs-solid);
 
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);

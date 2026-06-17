@@ -30,7 +30,7 @@ export default async function CodeTabsMdx({ children }: any) {
   if (parsed.length === 1) {
     return (
       <div
-        className='rounded bg-zinc-900 p-4'
+        className='rounded bg-codetabs-solid p-4'
         dangerouslySetInnerHTML={{ __html: highlighted[0] }}
       />
     );
@@ -47,14 +47,14 @@ export default async function CodeTabsMdx({ children }: any) {
   return (
     <Tabs
       defaultValue='ui-layouts'
-      className='rounded-xl bg-codebg dark:border-neutral-800 backdrop-blur-md border relative p-1 my-5'
+      className='rounded-xl bg-codebg dark:border-codetabs-border backdrop-blur-md border relative p-1 my-5'
     >
       <TabsList className='rounded-lg mt-1 mx-1 dark:bg-transparent bg-transparent border-0'>
         {tabs.map((tab) => (
           <TabsTrigger
             key={tab.meta}
             value={tab.meta}
-            className='data-[state=active]:bg-white dark:data-[state=active]:bg-zinc-800 gap-1 data-[state=active]:border'
+            className='data-[state=active]:bg-codetabs-surface gap-1 data-[state=active]:border'
           >
             {tab.meta === 'ui-layouts' ? (
               <>
@@ -95,7 +95,10 @@ export default async function CodeTabsMdx({ children }: any) {
 
       {tabs.map((tab) => (
         <TabsContent key={tab.meta} value={tab.meta} className='mt-1 border-none'>
-          <CopyButton code={tab.code} classname='top-1.5 border bg-white absolute right-3' />
+          <CopyButton
+            code={tab.code}
+            classname='top-1.5 border bg-codetabs-surface dark:bg-codetabs-surface absolute right-3'
+          />
           <div
             className='cliblocks rounded-xl p-1 px-2 border-none'
             dangerouslySetInnerHTML={{ __html: tab.html }}

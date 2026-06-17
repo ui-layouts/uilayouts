@@ -90,7 +90,7 @@ const Footer = () => {
       <div className='relative h-full sm:pt-14 pt-8 bg-card text-foreground' ref={container}>
         <div className='sm:container  px-4 mx-auto'>
           <div className='md:flex justify-between w-full'>
-            <div>
+            <div>cd
               <h1 className='md:text-4xl text-2xl font-semibold'>
                 Let&lsquo;s do great work together
               </h1>
