@@ -5,7 +5,7 @@ import {
   AccordionItem,
   AccordionHeader,
   AccordionPanel,
-} from '@/components/ui/accordion'
+} from '@repo/shadcn'
 import { Plus } from 'lucide-react'
 import { TimelineAnimation } from '@/components/ui/timeline-animation'
 import { FaqQuestionImg } from '../../assets'
