@@ -65,26 +65,26 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       <hr className={cn('my-4 md:my-8', className)} {...props} />
     ),
     table: ({ className, ...props }: React.HTMLAttributes<HTMLTableElement>) => (
-      <div className='m-0 w-full overflow-auto not-prose mb-4'>
-        <table className={cn('w-full mb-2', className)} {...props} />
+      <div className='not-prose my-4 w-full overflow-auto rounded-lg border'>
+        <table className={cn('w-full caption-bottom text-sm', className)} {...props} />
       </div>
     ),
     tr: ({ className, ...props }: React.HTMLAttributes<HTMLTableRowElement>) => (
       <tr
         className={cn(
-          'm-0  w-ful overflow-auto border-t p-0 text-sm [&>td:last-child]:w-full',
+          'm-0 w-full border-b p-0 text-sm [&>td:last-child]:w-full',
           className
         )}
         {...props}
       />
     ),
     thead: ({ className, ...props }: React.HTMLAttributes<HTMLTableSectionElement>) => (
-      <thead className={cn('dark:bg-zinc-900 w-full', className)} {...props} />
+      <thead className={cn('bg-muted w-full', className)} {...props} />
     ),
     th: ({ className, ...props }: React.HTMLAttributes<HTMLTableCellElement>) => (
       <th
         className={cn(
-          'border  px-4 py-2 text-left font-bold [[align=center]]:text-center [[align=right]]:text-right',
+          'h-10 px-4 text-left align-middle font-semibold text-foreground [[align=center]]:text-center [[align=right]]:text-right',
           className
         )}
         {...props}
@@ -93,7 +93,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     td: ({ className, ...props }: React.HTMLAttributes<HTMLTableCellElement>) => (
       <td
         className={cn(
-          'border px-4 py-2 text-left [[align=center]]:text-center [[align=right]]:text-right whitespace-nowrap ',
+          'px-4 py-2.5 text-left align-middle whitespace-nowrap [[align=center]]:text-center [[align=right]]:text-right',
           className
         )}
         {...props}

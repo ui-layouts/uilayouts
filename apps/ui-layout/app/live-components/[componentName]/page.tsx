@@ -33,7 +33,7 @@ export default async function SectionPage(props: { params: Promise<{ componentNa
     <section
       className={`${
         isFramerScrolling ? '' : 'flex justify-center items-center h-full'
-      } min-h-screen rounded-md bg-codebg`}
+      } min-h-screen rounded-md bg-muted`}
     >
       <div className='px-4 w-full'>
         <Suspense

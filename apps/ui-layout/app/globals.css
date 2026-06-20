@@ -103,10 +103,10 @@ html.dark .shiki span {
   @apply 3xl:max-w-screen-2xl mx-auto max-w-[1400px] px-5 lg:px-10;
 }
 .shiki {
-  @apply overflow-x-auto rounded-lg p-4 bg-codebg!;
+  @apply overflow-x-auto rounded-lg p-4 bg-code-background!;
 }
 .cliblocks .shiki {
-  @apply overflow-x-auto border rounded-lg p-2 py-3 text-lg bg-cliCodeBg! my-0!;
+  @apply overflow-x-auto border rounded-lg p-2 py-3 text-lg bg-card! my-0!;
 }
 
 @theme inline {

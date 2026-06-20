@@ -198,7 +198,7 @@ export default function TableOfContents({ toc }: TableOfContentsProps) {
 
               <div className='mt-auto relative pt-10'>
                 {/* add something for the pro version */}
-                {/* <div className='m-0 mt-3 text-[0.8em] space-y-2 text-muted-foreground mb-6 p-3 rounded-xl bg-codebg dark:border-neutral-800 backdrop-blur-md border'>
+                {/* <div className='m-0 mt-3 text-[0.8em] space-y-2 text-muted-foreground mb-6 p-3 rounded-xl bg-muted dark:border-neutral-800 backdrop-blur-md border'>
                   <p className='text-primary font-semibold'>
                     Unlock advanced{' '}
                     <a

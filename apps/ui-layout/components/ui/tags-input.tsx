@@ -105,7 +105,7 @@ export const TagsInput: React.FC<TagsInputProps> = ({
                   e.stopPropagation();
                   handleRemoveTag(tag);
                 }}
-                className='text-primary px-1 focus:outline-hidden bg-primary-base rounded-sm'
+                className='text-primary px-1 focus:outline-hidden bg-card rounded-sm'
               >
                 &times;
               </button>

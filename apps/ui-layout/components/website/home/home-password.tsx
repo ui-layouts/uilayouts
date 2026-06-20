@@ -110,7 +110,7 @@ const HomePasswordInput = () => {
             placeholder='password'
             aria-invalid={calculateStrength.score < 4}
             aria-describedby='password-strength'
-            className='w-full p-2 border-2  rounded-md bg-primary-base outline-hidden focus-within:border-blue-700 transition'
+            className='w-full p-2 border-2  rounded-md bg-card outline-hidden focus-within:border-blue-700 transition'
           />
           <button
             type='button'

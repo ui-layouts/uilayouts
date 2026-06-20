@@ -71,7 +71,7 @@ export function CodeTabs({
         <>
           <Tabs
             defaultValue='ui-layouts'
-            className='rounded-xl bg-codebg border backdrop-blur-md relative p-1 my-5'
+            className='rounded-xl bg-muted border backdrop-blur-md relative p-1 my-5'
           >
             <TabsList className='rounded-lg mt-1 mx-1 bg-transparent border-0'>
               {tabs.map((tab) => (
@@ -139,7 +139,7 @@ export function CodeTabs({
         <Tabs
           defaultValue={defaultValue ?? tabs[0].id}
           className={cn(
-            'rounded-xl bg-codebg border backdrop-blur-md relative p-1 my-5',
+            'rounded-xl bg-muted border backdrop-blur-md relative p-1 my-5',
             className
           )}
         >

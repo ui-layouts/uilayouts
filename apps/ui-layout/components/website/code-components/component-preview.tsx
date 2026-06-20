@@ -66,7 +66,7 @@ export default function ComponentPreview({
         {responsive && (
           <>
             {!hideDeviceOpt && (
-              <div className='flex items-center gap-2 rounded-lg border bg-secondary p-1'>
+              <div className='flex items-center gap-2 rounded-lg border bg-card p-1'>
                 <TooltipProvider>
                   <Tooltip delayDuration={200}>
                     <TooltipTrigger
@@ -131,7 +131,7 @@ export default function ComponentPreview({
 
         {!isNotCopy && (
           <button
-            className='relative grid cursor-pointer -translate-y-[0.05rem] place-content-center rounded-lg border bg-secondary dark:hover:shadow-[0px_1px_10px_5px_#3f7ef3] hover:shadow-[0px_1px_10px_5px_#9abaf7] dark:hover:border-blue-500 hover:border-blue-300 p-2 px-2.5'
+            className='relative grid cursor-pointer -translate-y-[0.05rem] place-content-center rounded-lg border bg-card dark:hover:shadow-[0px_1px_10px_5px_#3f7ef3] hover:shadow-[0px_1px_10px_5px_#9abaf7] dark:hover:border-blue-500 hover:border-blue-300 p-2 px-2.5'
             onClick={onCopy}
           >
             <div
@@ -155,7 +155,7 @@ export default function ComponentPreview({
           <TooltipProvider>
             <Tooltip delayDuration={200}>
               <TooltipTrigger
-                className='relative grid  group cursor-pointer place-content-center rounded-lg border bg-secondary p-2 px-2'
+                className='relative grid  group cursor-pointer place-content-center rounded-lg border bg-card p-2 px-2'
                 onClick={handleReTrigger}
               >
                 <RotateCw className='h-5 w-5 group-hover:rotate-180 transition-transform' />
@@ -200,7 +200,7 @@ export default function ComponentPreview({
                 <a
                   href={`${process.env.NEXT_PUBLIC_ANIMATION_URL}/${iframeComponent}`}
                   target='_blank'
-                  className='relative flex cursor-pointer  items-center  gap-1 rounded-lg border bg-secondary text-secondary-foreground p-1 px-2.5'
+                  className='relative flex cursor-pointer  items-center  gap-1 rounded-lg border bg-card text-secondary-foreground p-1 px-2.5'
                   rel='noreferrer noopener'
                 >
                   Open <Expand size={20} />
@@ -219,7 +219,7 @@ export default function ComponentPreview({
             <>
               <div
                 className={cn(
-                  `lg:h-[600px] sm:h-[500px] h-[400px] w-full rounded-lg bg-codebg border dark:border-neutral-800 overflow-hidden pt-16 p-0`,
+                  `lg:h-[600px] sm:h-[500px] h-[400px] w-full rounded-lg bg-muted border dark:border-neutral-800 overflow-hidden pt-16 p-0`,
                   className
                 )}
               >
@@ -240,7 +240,7 @@ export default function ComponentPreview({
               className={cn(
                 `${
                   isFitheight ? 'h-fit py-4' : 'lg:h-[600px] sm:h-[500px] h-[400px]'
-                }  w-full rounded-lg bg-codebg border dark:border-neutral-800 overflow-hidden p-0`,
+                }  w-full rounded-lg bg-muted border dark:border-neutral-800 overflow-hidden p-0`,
                 className
               )}
             >
@@ -263,7 +263,7 @@ export default function ComponentPreview({
         <>
           <div
             className={cn(
-              `w-full rounded-lg flex flex-col justify-center items-center bg-codebg border dark:border-neutral-800 overflow-hidden`,
+              `w-full rounded-lg flex flex-col justify-center items-center bg-muted border dark:border-neutral-800 overflow-hidden`,
               isFitheight
                 ? 'h-fit lg:p-6 p-2'
                 : isFit

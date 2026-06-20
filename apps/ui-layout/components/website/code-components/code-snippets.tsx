@@ -18,8 +18,6 @@ export default async function CodeSnippets({
   const codeContent = { value: fileContent, lang: 'tsx', meta: '' };
 
   return (
-    <>
       <PreCode codeblock={codeContent} classname={classname} />
-    </>
   );
 }

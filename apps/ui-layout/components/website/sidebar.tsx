@@ -204,7 +204,7 @@ export const ItemsWithName = ({
                   />
                 </button>
               </TooltipTrigger>
-              <TooltipContent className='dark:bg-primary-base bg-neutral-50 text-primary border 2xl:text-base text-sm rounded-md px-2 py-1 -translate-y-1'>
+              <TooltipContent className='bg-card text-primary border 2xl:text-base text-sm rounded-md px-2 py-1 -translate-y-1'>
                 <p className='capitalize'>
                   {expandedItems ? 'Collapse' : 'Expand'}
                 </p>

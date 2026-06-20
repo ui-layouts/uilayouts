@@ -72,7 +72,7 @@ export default function CopyPage() {
     window.open(url, '_blank');
   };
   return (
-    <div className='bg-secondary group/buttons relative flex rounded-lg p-1 gap-1'>
+    <div className='group/buttons relative flex rounded-lg p-1 gap-1'>
       <Button variant='uilayouts' size='sm' onClick={handleCopyPage}>
         <AnimatePresence mode='popLayout' initial={false}>
           <motion.div
@@ -131,7 +131,7 @@ export default function CopyPage() {
             <ChevronDown className='w-4 h-4' />
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className='w-56 dark:bg-black bg-white text-primary' align='start'>
+        <DropdownMenuContent className='w-56 bg-popover text-popover-foreground' align='start'>
           <DropdownMenuItem onClick={handleViewAsMarkdown}>
             <svg strokeLinejoin='round' className='w-5 h-5' viewBox='0 0 22 16'>
               <path

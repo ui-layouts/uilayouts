@@ -15,7 +15,7 @@ export default function BoxComponentPreview({ name, isCard }: { name: string; is
         className={`${
           isCard ? 'p-10 h-[550px]' : '2xl:p-20 py-16 px-2'
         } my-2 w-full border rounded-lg overflow-hidden
-            dark:bg-neutral-900 bg-neutral-100
+            bg-muted
             relative grid place-content-center`}
       >
         <div className='not-prose'>
