@@ -7,6 +7,7 @@ import { GapPattern } from '../ui/gap-pattern';
 import HomeGitHubButton from './home/github-repo-button';
 import MobileHeader from './mobile-header';
 import { SearchDialog } from './searchbar';
+import { ThemeCustomizer } from './theme-customizer';
 import ThemeSwitch from './theme-switch';
 
 // import MobileHeader from './moibile-header'
@@ -107,6 +108,7 @@ function Header() {
               </svg>
             </a>
 
+            <ThemeCustomizer className='bg-secondary border w-12 rounded-md h-11 shrink-0' />
             <ThemeSwitch className='bg-secondary border w-12 rounded-md h-11 shrink-0' />
           </div>
         </div>

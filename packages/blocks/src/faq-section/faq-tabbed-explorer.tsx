@@ -214,7 +214,10 @@ export const FaqTabbedExplorer = () => {
             </p>
           </div>
           <div className="space-y-4">
-            <Accordion multiple={false} defaultValue={filteredItems[0]?.id}>
+            <Accordion
+              multiple={false}
+              defaultValue={filteredItems[0] ? [filteredItems[0].id] : []}
+            >
               {filteredItems.map((item) => (
                 <AccordionItem
                   key={item.id}
