@@ -331,7 +331,7 @@ export const FileInput = forwardRef<HTMLDivElement, FileInputProps>(
             dropzoneState.isDragAccept && 'border-green-500 bg-green-50',
             dropzoneState.isDragReject && 'border-red-500 bg-red-50',
             isFileTooBig && 'border-red-500 bg-red-200',
-            !dropzoneState.isDragActive && 'border-neutral-300 hover:border-neutral-400',
+            !dropzoneState.isDragActive && 'border-border hover:border-border/60',
             className
           )}
           {...rootProps}

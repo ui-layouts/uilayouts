@@ -46,7 +46,7 @@ function ProductCard3() {
             </div>
           </Carousel>
         </div>
-        <article className='text-black pt-2 p-2'>
+        <article className='text-foreground pt-2 p-2'>
           <div className='flex justify-between'>
             <h1 className='font-semibold text-xl text-blue-500'>Nike Air Max</h1>
             <span className='font-medium text-xl text-blue-500'>$39</span>

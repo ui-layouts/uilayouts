@@ -3,7 +3,7 @@ import React from 'react';
 function TextOverlayVideoMasking() {
   return (
     <>
-      <section className='gap-2 dark:bg-black bg-white border rounded-lg p-5'>
+      <section className='gap-2 bg-background border rounded-lg p-5'>
         <figure className=' relative w-full h-full bg-black'>
           <svg
             viewBox='0 0 285 80'

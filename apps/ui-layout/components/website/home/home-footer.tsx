@@ -49,16 +49,16 @@ function HomeFooter({
     <footer className={cn('relative', className)}>
       {!isHideCollaboration && (
         <div className='max-w-5xl mx-auto p-10'>
-          <div className='h-full w-full rounded-lg bg-white shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:bg-zinc-900 dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] px-5'>
+          <div className='h-full w-full rounded-lg bg-card shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] px-5'>
             <div className='w-full mx-auto py-10 relative z-2'>
-              <div className='w-full dark:bg-zinc-950 bg-zinc-50 border rounded-3xl relative'>
+              <div className='w-full bg-background border rounded-3xl relative'>
                 <div className='flex lg:flex-row flex-col lg:items-center lg:justify-between lg:gap-0 gap-4 py-6 px-4'>
                   <div className='flex items-center gap-0'>
                     {/* Left side - Avatar and You label */}
                     <div className='flex items-center gap-3'>
                       <div className='relative'>
                         <img
-                          className='h-12 w-12 rounded-full border border-neutral-800'
+                          className='h-12 w-12 rounded-full border'
                           src='/naymur.png'
                           alt='Founder'
                         />
@@ -103,7 +103,7 @@ function HomeFooter({
                 </div>
               </div>
 
-              <span className='text-primary/90 sm:w-[94%] w-[85%] mx-auto flex gap-1 sm:text-sm text-xs items-center font-medium border px-4 bg-neutral-100 dark:bg-neutral-800 py-1.5 rounded-b-xl'>
+              <span className='text-primary/90 sm:w-[94%] w-[85%] mx-auto flex gap-1 sm:text-sm text-xs items-center font-medium border px-4 bg-muted py-1.5 rounded-b-xl'>
                 We believe in people, not forms. Book a call and let’s talk directly.
                 <picture className='shrink-0'>
                   <source
@@ -125,7 +125,7 @@ function HomeFooter({
       )}
       {isHideCollaboration && (
         <div className='2xl:max-w-7xl xl:max-w-5xl lg:max-w-4xl mx-auto p-10 relative z-2'>
-          <article className='relative overflow-hidden border dark:border-neutral-800 bg-linear-to-r from-zinc-100 to-zinc-50 dark:from-zinc-900/70 dark:to-zinc-900/60 p-6'>
+          <article className='relative overflow-hidden border bg-linear-to-r from-secondary/50 to-secondary/30 p-6'>
             <div className='absolute bottom-0 left-0 right-0 top-0 dark:bg-[radial-gradient(#ededed33_1px,#171717_1px)] bg-[radial-gradient(#0000001a_1px,#f8fafc_1px)] bg-size-[16px_16px] mask-[radial-gradient(ellipse_85%_55%_at_100%_0%,#000_70%,transparent_110%)]'></div>
             <a
               href='http://pro.ui-layouts.com/blocks'
@@ -156,7 +156,7 @@ function HomeFooter({
       <GapPattern />
       <div className='p-10 mx-auto max-w-2xl space-y-2 text-center relative z-2'>
         <p className='sm:text-4xl text-2xl'>Sign up for our newsletter</p>
-        <div className='relative bg-neutral-100 dark:bg-neutral-800 flex justify-between items-center border-2 overflow-hidden dark:border-neutral-900 border-neutral-300 rounded-lg'>
+        <div className='relative bg-muted flex justify-between items-center border-2 overflow-hidden rounded-lg'>
           <form onSubmit={(e) => handleNewsLetterData(e)} className='relative z-2 flex w-full'>
             <input
               type='email'
@@ -167,7 +167,7 @@ function HomeFooter({
             />{' '}
             <button
               type='submit'
-              className='cursor-pointer hover:bg-primaryColor bg-white text-white shrink-0 w-fit px-4'
+              className='cursor-pointer hover:bg-primaryColor bg-card shrink-0 w-fit px-4'
             >
               <svg
                 width='15'
@@ -193,47 +193,42 @@ function HomeFooter({
         <div className='flex items-center gap-4'>
           <div className='sm:flex hidden gap-4 items-center'>
             <SearchDialog
-              classname='sm:w-14 xl:w-12 sm:pr-0 sm:pl-2.5 dark:bg-neutral-900 bg-neutral-200 border dark:border-neutral-80 border-white/20'
+              classname='sm:w-14 xl:w-12 sm:pr-0 sm:pl-2.5 bg-secondary border'
               searchBar={true}
             />
-            <ThemeSwitch className='dark:bg-neutral-900 bg-neutral-200 border dark:border-neutral-800 border-neutral-300 w-12 rounded-md h-11 shrink-0' />
+            <ThemeSwitch className='bg-secondary border w-12 rounded-md h-11 shrink-0' />
           </div>
           <HomeGitHubButton />
         </div>
         <div className='flex flex-wrap justify-center sm:gap-4 gap-2 items-center'>
           <a
             href='/components/image-reveal'
-            className='relative block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 dark:after:bg-white 
-              after:bg-white after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100'
+            className='relative block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-foreground after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100'
           >
             Image Reveal
           </a>
           <a
             href='/components/accordion'
-            className='relative block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-left after:scale-x-0 dark:after:bg-white 
-              after:bg-white after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)]  hover:after:scale-x-100'
+            className='relative block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-left after:scale-x-0 after:bg-foreground after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)]  hover:after:scale-x-100'
           >
             Accordion
           </a>
           <a
             href='/components/buttons'
-            className='relative block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-left after:scale-x-0 dark:after:bg-white 
-              after:bg-white after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)]  hover:after:scale-x-100'
+            className='relative block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-left after:scale-x-0 after:bg-foreground after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)]  hover:after:scale-x-100'
           >
             Buttons
           </a>
 
           <a
             href='/components/clipPath'
-            className='relative block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-left after:scale-x-0 dark:after:bg-white 
-              after:bg-white after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)]  hover:after:scale-x-100'
+            className='relative block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-left after:scale-x-0 after:bg-foreground after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)]  hover:after:scale-x-100'
           >
             Clip Path Image
           </a>
           <a
             href='/components/magnified-doc'
-            className='relative block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 dark:after:bg-white 
-              after:bg-white after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100'
+            className='relative block after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-foreground after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100'
           >
             Magnified Doc
           </a>

@@ -3,7 +3,7 @@ import React from 'react';
 function CenterImageMasking() {
   return (
     <>
-      <section className='gap-2 dark:bg-black bg-white border rounded-lg p-5'>
+      <section className='gap-2 bg-background border rounded-lg p-5'>
         <figure className='relative h-[80vh] '>
           <img
             src='https://images.unsplash.com/photo-1433838552652-f9a46b332c40?q=80&w=2070&auto=format&fit=crop'

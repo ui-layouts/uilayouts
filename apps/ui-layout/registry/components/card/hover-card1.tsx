@@ -17,7 +17,7 @@ function HoverCard1() {
             className='h-full w-full object-cover rounded-xl hover:scale-100 scale-105 transition-all duration-300'
           />
         </div>
-        <div className='absolute bottom-2 text-black w-full p-4 flex justify-between items-center'>
+        <div className='absolute bottom-2 text-foreground w-full p-4 flex justify-between items-center'>
           <h3 className='sm:text-xl text-sm bg-black text-white rounded-xl p-2 px-4'>
             Distrokings
           </h3>

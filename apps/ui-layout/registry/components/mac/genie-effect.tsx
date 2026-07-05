@@ -636,7 +636,7 @@ function TrelloContent() {
                 className="rounded-md p-2 bg-white"
                 style={{ boxShadow: "0 1px 0 rgba(0,0,0,.1)" }}
               >
-                <div className="text-[11px] text-neutral-800 leading-tight mb-1.5">
+                <div className="text-[11px] text-foreground leading-tight mb-1.5">
                   {c.title}
                 </div>
                 <span

@@ -39,9 +39,9 @@ export const metadata = {
 
 <Tabs defaultValue="preview">
 
-<TabsList className='border-b w-full bg-white justify-start dark:bg-neutral-800 h-11'>
-  <TabsTrigger value='preview'>Preview</TabsTrigger>
-  <TabsTrigger value='code'>Code</TabsTrigger>
+<TabsList className='border-b w-full bg-muted justify-start h-12 mt-4'>
+  <TabsTrigger value='preview' className="data-[state=active]:bg-card gap-1 data-[state=active]:border">Preview</TabsTrigger>
+  <TabsTrigger value='code' className="data-[state=active]:bg-card gap-1 data-[state=active]:border">Code</TabsTrigger>
 </TabsList>
   <TabsContent value="preview"  className="p-4 dark:bg-black bg-white border">
    <CodeTabsMdx>
@@ -57,9 +57,9 @@ export const metadata = {
 <TabsContent value="code" manualType>
 
 <Tabs defaultValue="index">
-<TabsList className='border-b w-full bg-white justify-start dark:bg-neutral-800 h-11'>
-  <TabsTrigger value='index'>index</TabsTrigger>
-  <TabsTrigger value='shiki'>shiki-highlighter</TabsTrigger>
+<TabsList className='border-b w-full bg-muted justify-start h-12 mt-4'>
+  <TabsTrigger value='index' className="data-[state=active]:bg-card gap-1 data-[state=active]:border">index</TabsTrigger>
+  <TabsTrigger value='shiki' className="data-[state=active]:bg-card gap-1 data-[state=active]:border">shiki-highlighter</TabsTrigger>
 </TabsList>
 <TabsContent value="index">
 
@@ -120,7 +120,7 @@ export default async function CodeTabsMdx({ children }: any) {
   return (
     <Tabs
       defaultValue='ui-layouts'
-      className='rounded-xl bg-codebg dark:border-neutral-800 backdrop-blur-md border relative p-1 my-5'
+      className='rounded-xl bg-muted dark:border-neutral-800 backdrop-blur-md border relative p-1 my-5'
     >
       <TabsList className='rounded-lg mt-1 mx-1 dark:bg-transparent bg-transparent border-0'>
         {tabs.map((tab) => (

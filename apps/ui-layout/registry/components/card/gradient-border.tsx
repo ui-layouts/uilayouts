@@ -18,7 +18,7 @@ function GradientBorder() {
             <h1 className='text-xl font-semibold tracking-tight text-white'>
               Create Group Effortlessly
             </h1>
-            <p className='text-base pt-2  text-neutral-300 capitalize'>
+            <p className='text-base pt-2  text-muted-foreground capitalize'>
               Seamless chats, crystal-clear videos, and <br />
               premium audio quality
             </p>

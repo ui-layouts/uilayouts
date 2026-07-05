@@ -360,7 +360,7 @@ export function ColorPicker({ color, onChange, showEyedropper = true }: ColorPic
             onChange={handleHexChange}
             onBlur={handleHexBlur}
             onKeyDown={handleHexKeyDown}
-            className='flex-1 rounded-md border border-neutral-300 bg-white px-3 py-2 text-neutral-900'
+            className='flex-1 rounded-md border border-border bg-background px-3 py-2 text-foreground'
             pattern='^#[0-9A-F]{6}$'
             maxLength={7}
           />
@@ -368,7 +368,7 @@ export function ColorPicker({ color, onChange, showEyedropper = true }: ColorPic
             variant='outline'
             size='icon'
             onClick={copyToClipboard}
-            className='h-10 w-10 border-neutral-300 bg-neutral-100 text-neutral-900 hover:bg-neutral-200'
+            className='h-10 w-10 border-border bg-muted text-foreground hover:bg-muted/80'
           >
             <Copy className='h-4 w-4' />
             <span className='sr-only'>Copy color</span>
@@ -381,7 +381,7 @@ export function ColorPicker({ color, onChange, showEyedropper = true }: ColorPic
               variant='outline'
               size='icon'
               onClick={useEyeDropper}
-              className='h-10 w-10 border-neutral-300 bg-neutral-100 text-neutral-900 hover:bg-neutral-200'
+              className='h-10 w-10 border-border bg-muted text-foreground hover:bg-muted/80'
             >
               <Pipette className='h-4 w-4' />
               <span className='sr-only'>Pick color</span>
@@ -389,7 +389,7 @@ export function ColorPicker({ color, onChange, showEyedropper = true }: ColorPic
           )}
 
           <div
-            className='h-10 flex-1 rounded-md border border-neutral-300'
+            className='h-10 flex-1 rounded-md border border-border'
             style={{ backgroundColor: internalColor }}
           />
         </div>

@@ -3,7 +3,7 @@ import React from 'react';
 function Hexagon2VideoMasking() {
   return (
     <>
-      <section className='gap-2 dark:bg-black bg-white border rounded-lg p-5'>
+      <section className='gap-2 bg-background border rounded-lg p-5'>
         <figure className='relative   '>
           <video
             autoPlay

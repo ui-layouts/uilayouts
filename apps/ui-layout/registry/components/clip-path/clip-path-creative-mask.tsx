@@ -68,7 +68,7 @@ function ClipPathCreativeMask() {
         </defs>
       </svg>
 
-      <section className='grid grid-cols-3 gap-8 dark:bg-black bg-white border rounded-lg p-5'>
+      <section className='grid grid-cols-3 gap-8 bg-background border rounded-lg p-5'>
         <figure style={{ clipPath: 'url(#clip-pattern)' }}>
           <img
             src='https://images.unsplash.com/photo-1498019559366-a1cbd07b5160?q=80&w=2058&auto=format&fit=crop'
@@ -134,7 +134,7 @@ function ClipPathCreativeMask() {
         </figure>
       </section>
 
-      <section className=' dark:bg-black mt-4 bg-white border rounded-lg p-5'>
+      <section className='mt-4 bg-background border rounded-lg p-5'>
         <figure className='relative group'>
           <svg className='w-full' width={'100%'} height={'100%'} viewBox='0 0 100 40'>
             <defs>

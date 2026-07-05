@@ -93,10 +93,10 @@ function SwapyOpacity() {
               <SwapyItem
                 id={itemId}
                 dragItemOpacity={50}
-                className={`relative flex p-4 w-full items-center  rounded-lg gap-5 h-full border border-dashed border-neutral-300  ${item?.bgColor}`}
+                className={`relative flex p-4 w-full items-center  rounded-lg gap-5 h-full border border-dashed border-border  ${item?.bgColor}`}
               >
                 <div className={`rounded-full flex items-center justify-center`}>{item?.icon}</div>
-                <h3 className='text-xl text-neutral-900 font-medium '>{item?.title}</h3>
+                <h3 className='text-xl text-foreground font-medium '>{item?.title}</h3>
               </SwapyItem>
             </SwapySlot>
           );

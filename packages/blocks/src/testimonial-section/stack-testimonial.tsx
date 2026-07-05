@@ -1,7 +1,7 @@
 'use client'
 import { Star } from 'lucide-react'
 import React, { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence } from 'motion/react'
 import { Button } from '@repo/shadcn'
 
 const testimonials = [

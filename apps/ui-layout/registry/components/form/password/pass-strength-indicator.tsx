@@ -75,7 +75,7 @@ const PasswordInput = () => {
             placeholder='Password'
             aria-invalid={calculateStrength.score < 4}
             aria-describedby='password-strength'
-            className='w-full p-2 border-2 rounded-md dark:bg-neutral-950 bg-neutral-50 outline-hidden focus-within:border-blue-700 transition'
+            className='w-full p-2 border-2 rounded-md bg-muted outline-hidden focus-within:border-blue-700 transition'
           />
           <button
             type='button'
@@ -89,7 +89,7 @@ const PasswordInput = () => {
       </form>
 
       <div
-        className='mt-3 mb-2 h-1 rounded-full dark:bg-neutral-950 bg-neutral-50 overflow-hidden'
+        className='mt-3 mb-2 h-1 rounded-full bg-muted overflow-hidden'
         role='progressbar'
         aria-valuenow={calculateStrength.score}
         aria-valuemin={0}

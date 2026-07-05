@@ -76,7 +76,7 @@ const HomePasswordInput = () => {
                 } transition-all `}
               />
             </HoverCardTrigger>
-            <HoverCardContent className='dark:bg-neutral-800 bg-neutral-50'>
+            <HoverCardContent className='bg-popover'>
               <ul className='space-y-1.5' aria-label='Password requirements'>
                 {calculateStrength.requirements.map((req, index) => (
                   <li key={req.text} className='flex items-center space-x-2'>
@@ -110,7 +110,7 @@ const HomePasswordInput = () => {
             placeholder='password'
             aria-invalid={calculateStrength.score < 4}
             aria-describedby='password-strength'
-            className='w-full p-2 border-2  rounded-md bg-primary-base outline-hidden focus-within:border-blue-700 transition'
+            className='w-full p-2 border-2  rounded-md bg-card outline-hidden focus-within:border-blue-700 transition'
           />
           <button
             type='button'

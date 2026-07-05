@@ -91,7 +91,7 @@ function FramerCarousel() {
                 {tab.id === activeItem.id && (
                   <motion.figure
                     key={tab?.id}
-                    className='dark:bg-neutral-900/60 bg-neutral-100/60 border  rounded-md p-4 backdrop-blur-xs'
+                    className='bg-muted/60 border  rounded-md p-4 backdrop-blur-xs'
                   >
                     <motion.div
                       initial={{ opacity: 0 }}
@@ -125,7 +125,7 @@ function FramerCarousel() {
             </>
           ))}
         </>
-        <motion.div className='w-[550px] mt-4 mx-auto overflow-hidden   dark:bg-neutral-900/60 bg-neutral-100/60 border rounded-md'>
+        <motion.div className='w-[550px] mt-4 mx-auto overflow-hidden   bg-muted/60 border rounded-md'>
           <motion.div
             ref={carousel}
             drag='x'
@@ -158,7 +158,7 @@ function FramerCarousel() {
                           ease: 'easeOut',
                         },
                       }}
-                      className='absolute top-0 left-0 h-full w-full dark:bg-neutral-100 bg-neutral-800 rounded-md'
+                      className='absolute top-0 left-0 h-full w-full bg-foreground/20 rounded-md'
                     ></motion.div>
                   )}
                 </motion.div>

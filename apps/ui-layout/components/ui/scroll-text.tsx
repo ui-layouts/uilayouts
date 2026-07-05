@@ -86,7 +86,7 @@ const TextAnimation = ({
       initial='hidden'
       variants={containerVariants}
       viewport={viewport}
-      className={cn(`inline-block dark:text-white text-black uppercase`, classname)}
+      className={cn(`inline-block text-foreground uppercase`, classname)}
     >
       {lineAnime ? (
         <motion.span className={`inline-block`} variants={modifiedVariants}>

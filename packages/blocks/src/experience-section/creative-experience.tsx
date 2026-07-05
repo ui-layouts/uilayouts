@@ -4,7 +4,7 @@ import {
   AccordionHeader,
   AccordionItem,
   AccordionPanel,
-} from '@/components/ui/accordion'
+} from '@repo/shadcn'
 import { TimelineAnimation } from '@/components/ui/timeline-animation'
 import { Plus } from 'lucide-react'
 import { useRef } from 'react'

@@ -1,11 +1,10 @@
 'use client';
-import type React from 'react';
-import { useCallback, useState } from 'react';
+import { type ChangeEvent, useCallback, useState } from 'react';
 
 const SectionNoise = () => {
   const [opacity, setOpacity] = useState(0.05);
 
-  const handleOpacityChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleOpacityChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     setOpacity(Number.parseFloat(event.target.value));
   }, []);
   return (
@@ -30,7 +29,7 @@ const SectionNoise = () => {
           className="absolute top-0 left-0 w-full h-full content-[''] z-10 pointer-events-none bg-[url('/noise.gif')]"
           style={{ opacity: opacity }}
         ></div>
-        <section className='  font-semibold 2xl:h-[450px] sm:h-[450px] h-[400px] bg-linear-to-t dark:to-neutral-950 dark:from-neutral-950 to-[#dadada] from-[#ebebeb] flex flex-col items-center justify-center dark:text-white text-black'>
+        <section className='  font-semibold 2xl:h-[450px] sm:h-[450px] h-[400px] bg-linear-to-t dark:to-neutral-950 dark:from-neutral-950 to-[#dadada] from-[#ebebeb] flex flex-col items-center justify-center text-foreground'>
           <div className='absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-size-[35px_34px] mask-[radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]'></div>
 
           <h1 className='xl:text-4xl text-3xl px-8 font-semibold text-center tracking-tight leading-[120%]'>

@@ -191,7 +191,7 @@ const ReviewCard = ({
       href={url}
       target='_blank'
       rel='noopener noreferrer'
-      className='shrink-0 w-80 flex flex-col justify-center h-32 dark:bg-neutral-900 bg-neutral-50 border p-4 relative transition-all duration-300 hover:scale-105 mx-2'
+      className='shrink-0 w-80 flex flex-col justify-center h-32 bg-card border p-4 relative transition-all duration-300 hover:scale-105 mx-2'
     >
       <div className='flex items-center mb-3'>
         {avatarContent}
@@ -204,7 +204,7 @@ const ReviewCard = ({
         </div>
         <div className='ml-auto'>{platformIcon}</div>
       </div>
-      <p className='text-sm leading-relaxed text-gray-600 dark:text-gray-300 line-clamp-3'>
+      <p className='text-sm leading-relaxed text-muted-foreground line-clamp-3'>
         {body}
       </p>
     </a>
@@ -506,7 +506,7 @@ function HeroSec({ blocksData }: { blocksData: any[] }) {
               </span>
               <br />
               <span className=''>& Blocks for</span>
-              <span className='dark:bg-neutral-800 ml-2 bg-neutral-50 mt-3 relative  w-fit leading-[100%] inline-block px-1.5 py-0.5 border before:absolute before:top-0 before:left-0 before:w-full before:h-full before:content-[""] before:opacity-[0.09] before:z-10 before:pointer-events-none before:bg-[url("/noise.gif")]'>
+              <span className='bg-card ml-2 mt-3 relative  w-fit leading-[100%] inline-block px-1.5 py-0.5 border before:absolute before:top-0 before:left-0 before:w-full before:h-full before:content-[""] before:opacity-[0.09] before:z-10 before:pointer-events-none before:bg-[url("/noise.gif")]'>
                 <span className='bg-linear-to-t from-blue-400 to-blue-600 bg-clip-text text-transparent font-semibold pr-1'>
                   Developer
                 </span>
@@ -528,7 +528,7 @@ function HeroSec({ blocksData }: { blocksData: any[] }) {
               </a>
               <a
                 href='/components'
-                className='flex items-center gap-2 w-fit sm:text-xl text-sm dark:shadow-none shadow-lg shadow-neutral-300 text-primary dark:border dark:bg-neutral-900 sm:px-4 px-2 py-3'
+                className='flex items-center gap-2 w-fit sm:text-xl text-sm shadow-lg shadow-border text-primary border bg-card sm:px-4 px-2 py-3'
               >
                 <Component className='sm:w-6 sm:h-6 h-5 w-5' /> Browse Component
               </a>
@@ -540,7 +540,7 @@ function HeroSec({ blocksData }: { blocksData: any[] }) {
                     key={profile.href}
                     href={profile.href}
                     target='_block'
-                    className={`dark:bg-neutral-800 bg-neutral-50 p-1 shrink-0 relative z-1 hover:z-2 ${profile.translateX}`}
+                    className={`bg-card p-1 shrink-0 relative z-1 hover:z-2 ${profile.translateX}`}
                   >
                     <Image
                       src={profile.src}
@@ -658,7 +658,7 @@ function HeroSec({ blocksData }: { blocksData: any[] }) {
                     href={project.link}
                     target='_blank'
                     rel='noopener noreferrer'
-                    className='group flex flex-col relative items-center overflow-hidden justify-center dark:bg-black p-6 transition'
+                    className='group flex flex-col relative items-center overflow-hidden justify-center bg-card p-6 transition'
                   >
                     <svg
                       className='absolute top-0 left-0 z-2 w-full h-full mix-blend-multiply opacity-50'

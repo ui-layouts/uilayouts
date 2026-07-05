@@ -75,7 +75,7 @@ const PasswordInput = () => {
             placeholder='Password'
             aria-invalid={calculateStrength.score < 4}
             aria-describedby='password-strength'
-            className='w-full p-2 border-2 rounded-md dark:bg-neutral-950 bg-neutral-50 outline-hidden focus-within:border-blue-700 transition'
+            className='w-full p-2 border-2 rounded-md bg-muted outline-hidden focus-within:border-blue-700 transition'
           />
           <button
             type='button'
@@ -90,27 +90,27 @@ const PasswordInput = () => {
       <div className='flex gap-2 w-full justify-between mt-2'>
         <span
           className={`${
-            calculateStrength.score >= 1 ? 'bg-green-200' : 'dark:bg-neutral-950 bg-neutral-50'
+            calculateStrength.score >= 1 ? 'bg-green-200' : 'bg-muted'
           }  p-1 rounded-full w-full`}
         ></span>
         <span
           className={`${
-            calculateStrength.score >= 2 ? 'bg-green-300' : 'dark:bg-neutral-950 bg-neutral-50'
+            calculateStrength.score >= 2 ? 'bg-green-300' : 'bg-muted'
           }  p-1 rounded-full w-full`}
         ></span>
         <span
           className={`${
-            calculateStrength.score >= 3 ? 'bg-green-400' : 'dark:bg-neutral-950 bg-neutral-50'
+            calculateStrength.score >= 3 ? 'bg-green-400' : 'bg-muted'
           }  p-1 rounded-full w-full`}
         ></span>
         <span
           className={`${
-            calculateStrength.score >= 4 ? 'bg-green-500' : 'dark:bg-neutral-950 bg-neutral-50'
+            calculateStrength.score >= 4 ? 'bg-green-500' : 'bg-muted'
           }  p-1 rounded-full w-full`}
         ></span>
         <span
           className={`${
-            calculateStrength.score >= 5 ? 'bg-green-600' : 'dark:bg-neutral-950 bg-neutral-50'
+            calculateStrength.score >= 5 ? 'bg-green-600' : 'bg-muted'
           }  p-1 rounded-full w-full`}
         ></span>
       </div>

@@ -50,7 +50,7 @@ PhoneInput.displayName = 'PhoneInput';
 const InputComponent = React.forwardRef<HTMLInputElement, any>(({ className, ...props }, ref) => (
   <input
     className={cn(
-      'rounded-e-lg rounded-s-none px-2 bg-primary-base outline-hidden w-full ',
+      'rounded-e-lg rounded-s-none px-2 bg-card outline-hidden w-full ',
       className
     )}
     {...props}
@@ -82,7 +82,7 @@ const CountrySelect = ({ disabled, value, onChange, options }: CountrySelectProp
         <Button
           type='button'
           variant={'outline'}
-          className={cn('flex gap-1 rounded-e-none bg-primary-base rounded-s-lg px-3')}
+          className={cn('flex gap-1 rounded-e-none bg-card rounded-s-lg px-3')}
           disabled={disabled}
         >
           <FlagComponent country={value} countryName={value} />
@@ -92,7 +92,7 @@ const CountrySelect = ({ disabled, value, onChange, options }: CountrySelectProp
         </Button>
       </PopoverTrigger>
       <PopoverContent className='w-[300px] p-0'>
-        <Command className='dark:bg-neutral-950 border dark:border-neutral-800 border-neutral-200'>
+        <Command className='bg-background border'>
           <CommandList>
             <ScrollArea className='h-72'>
               <CommandInput placeholder='Search country...' />

@@ -39,7 +39,7 @@ export function CopyNpmCommandButton({ code, classname }: CopyNpmCommandButtonPr
       <DropdownMenuTrigger asChild>
         <div
           className={cn(
-            'absolute right-2 top-2  cursor-pointer     dark:hover:shadow-[0px_1px_10px_5px_#3f7ef3] hover:shadow-[0px_1px_10px_5px_#9abaf7] dark:hover:border-blue-500 hover:border-blue-300  dark:bg-neutral-950 backdrop-blur-2xl bg-white rounded-md border-2',
+            'absolute right-2 top-2  cursor-pointer     dark:hover:shadow-[0px_1px_10px_5px_#3f7ef3] hover:shadow-[0px_1px_10px_5px_#9abaf7] dark:hover:border-blue-500 hover:border-blue-300  backdrop-blur-2xl bg-card rounded-md border-2',
             classname
           )}
         >
@@ -60,7 +60,7 @@ export function CopyNpmCommandButton({ code, classname }: CopyNpmCommandButtonPr
         </div>
       </DropdownMenuTrigger>
 
-      <DropdownMenuContent className='dark:bg-neutral-800 bg-neutral-50' align='end'>
+      <DropdownMenuContent className='bg-popover' align='end'>
         <DropdownMenuItem onClick={() => copyCommand('npm')}>npm</DropdownMenuItem>
         <DropdownMenuItem onClick={() => copyCommand('yarn')}>yarn</DropdownMenuItem>
         <DropdownMenuItem onClick={() => copyCommand('pnpm')}>pnpm</DropdownMenuItem>

@@ -24,13 +24,13 @@ const DualRangeSlider = React.forwardRef<
       className={cn('relative flex w-full touch-none select-none items-center', className)}
       {...props}
     >
-      <SliderPrimitive.Track className='relative h-6 w-full grow overflow-hidden bg-[linear-gradient(to_right,#e2e2e22c_1px,transparent_1px),linear-gradient(to_bottom,#9c9c9c2c_1px,transparent_1px)] bg-size-[4px_4px] dark:bg-neutral-950 bg-neutral-50 rounded-md dark:bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)]'>
-        <SliderPrimitive.Range className='absolute h-full dark:bg-neutral-100 bg-neutral-950' />
+      <SliderPrimitive.Track className='relative h-6 w-full grow overflow-hidden bg-[linear-gradient(to_right,#e2e2e22c_1px,transparent_1px),linear-gradient(to_bottom,#9c9c9c2c_1px,transparent_1px)] bg-size-[4px_4px] bg-background rounded-md dark:bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)]'>
+        <SliderPrimitive.Range className='absolute h-full bg-primary' />
       </SliderPrimitive.Track>
       <>
         {initialValue.map((value, index) => (
           <React.Fragment key={`thumb-${index}`}>
-            <SliderPrimitive.Thumb className='relative grid h-6 w-3 cursor-grab place-content-center dark:bg-neutral-100 bg-neutral-950 shadow-sm focus-visible:outline-hidden focus-visible:ring-1 focus-visible:ring-white'>
+            <SliderPrimitive.Thumb className='relative grid h-6 w-3 cursor-grab place-content-center bg-primary shadow-sm focus-visible:outline-hidden focus-visible:ring-1 focus-visible:ring-ring'>
               {label && labelPosition !== 'static' && (
                 <div
                   className={cn(

@@ -415,13 +415,13 @@ export const SliderProgress = forwardRef<HTMLDivElement, React.HTMLAttributes<HT
       <div
         ref={ref}
         className={cn(
-          'bg-neutral-500 relative rounded-md h-2 w-96 max-w-full overflow-hidden',
+          'bg-foreground/30 relative rounded-md h-2 w-96 max-w-full overflow-hidden',
           className
         )}
         {...props}
       >
         <div
-          className='dark:bg-white bg-black absolute w-full top-0 -left-full bottom-0 transition-transform'
+          className='bg-foreground absolute w-full top-0 -left-full bottom-0 transition-transform'
           style={{ transform: `translate3d(${scrollProgress}%,0px,0px)` }}
         />
       </div>
@@ -492,7 +492,7 @@ export const SliderDotButton = forwardRef<HTMLDivElement, SliderDotButtonProps>(
           >
             <div
               className={cn(
-                'bg-neutral-500/40 rounded-full ',
+                'bg-foreground/30 rounded-full ',
                 orientation === 'vertical' ? 'h-6 w-1' : 'w-6 h-1'
               )}
             />
@@ -508,7 +508,7 @@ export const SliderDotButton = forwardRef<HTMLDivElement, SliderDotButtonProps>(
                   }}
                   layoutId={`hover-${carouselId}`}
                   className={cn(
-                    'absolute z-3 w-full h-full left-0 top-0 dark:bg-white bg-black rounded-full',
+                    'absolute z-3 w-full h-full left-0 top-0 bg-foreground rounded-full',
                     orientation === 'vertical' ? 'h-6 w-1' : 'w-6 h-1',
                     activeClass
                   )}

@@ -5,7 +5,7 @@ import {
   AccordionItem,
   AccordionHeader,
   AccordionPanel,
-} from '@/components/ui/accordion'
+} from '@repo/shadcn'
 import { LayoutGrid, ShieldCheck, Cpu, CreditCard } from 'lucide-react'
 import { cn } from '@/lib/utils'
 

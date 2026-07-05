@@ -116,7 +116,7 @@ const TimeSegment = ({
 
 // --- Separator Component (the colons) ---
 const Separator = () => (
-  <div className='md:text-6xl text-4xl -translate-y-2 font-extrabold text-gray-600 leading-[90px] mx-1'>
+  <div className='md:text-6xl text-4xl -translate-y-2 font-extrabold text-muted-foreground leading-[90px] mx-1'>
     :
   </div>
 );
