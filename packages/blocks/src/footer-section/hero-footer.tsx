@@ -1,14 +1,7 @@
 import React from 'react'
 import { cn } from '@/lib/utils'
-import {
-  Github,
-  Twitter,
-  Linkedin,
-  Dribbble,
-  Mail,
-  ArrowRight,
-  ArrowUp,
-} from 'lucide-react'
+import { Mail, ArrowRight, ArrowUp } from 'lucide-react'
+import { Github, Twitter, Linkedin, Dribbble } from '@repo/ui'
 import { Button } from '@repo/shadcn'
 
 export const HeroFooter = () => {

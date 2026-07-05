@@ -1,13 +1,10 @@
 'use client';
 
 import { ScrollArea } from '@/components/website/ui//scroll-area';
-import { Dialog, DialogContent } from '@/components/website/ui/dialog';
 import { DocsNavigationCategories } from '@/configs/docs';
 import { cn } from '@/lib/utils';
 import { Command } from 'cmdk';
 import {
-  ChevronRight,
-  Component,
   CornerDownLeft,
   LaptopIcon,
   MoonIcon,
@@ -26,7 +23,7 @@ function highlightMatch(text: string, query: string) {
   const parts = text.split(new RegExp(`(${query})`, 'gi'));
   return parts.map((part, i) =>
     part.toLowerCase() === query.toLowerCase() ? (
-      <span key={`${part}-${query}`} className='bg-yellow-200 dark:bg-yellow-600'>
+      <span key={`${i}-${part}`} className='bg-yellow-200 dark:bg-yellow-600'>
         {part}
       </span>
     ) : (
@@ -57,7 +54,6 @@ export function SearchDialog({
   const inputRef = React.useRef<HTMLInputElement>(null);
   const [searchOpen, setSearchOpen] = React.useState(false);
   const [search, setSearch] = React.useState('');
-  const searchTerm = search.toLowerCase();
 
   const groupedItems = Object.entries(
     DocsNavigationCategories.reduce(
@@ -70,30 +66,6 @@ export function SearchDialog({
       {} as Record<string, typeof DocsNavigationCategories>
     )
   );
-
-  const filteredGroupedItems = groupedItems
-    .map(([group, items]) => {
-      const filtered = items
-        .filter((item) => {
-          const nameMatch = item.name.toLowerCase().includes(searchTerm);
-          const tagsMatch = item.tags?.some((tag) => tag.toLowerCase().includes(searchTerm));
-          return nameMatch || tagsMatch;
-        })
-        .sort((a, b) => {
-          const aName = a.name.toLowerCase();
-          const bName = b.name.toLowerCase();
-          // exact match first
-          if (aName === searchTerm) return -1;
-          if (bName === searchTerm) return 1;
-          // startsWith match next
-          if (aName.startsWith(searchTerm)) return -1;
-          if (bName.startsWith(searchTerm)) return 1;
-          return 0;
-        });
-
-      return { group, items: filtered };
-    })
-    .filter((group) => group.items.length > 0); // remove empty groups
 
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
@@ -108,7 +80,13 @@ export function SearchDialog({
         }
 
         e.preventDefault();
-        setSearchOpen((searchOpen) => !searchOpen);
+        // '/' only opens — don't toggle, since typing '/' in the just-opened
+        // search input would immediately close the dialog again
+        if (e.key === '/') {
+          setSearchOpen(true);
+        } else {
+          setSearchOpen((open) => !open);
+        }
       }
     };
 
@@ -118,9 +96,7 @@ export function SearchDialog({
 
   React.useEffect(() => {
     if (searchOpen) {
-      setTimeout(() => {
-        inputRef.current?.focus();
-      }, 10);
+      inputRef.current?.focus();
     }
   }, [searchOpen]);
 
@@ -188,10 +164,10 @@ export function SearchDialog({
                   </a>
                 </Command.Group>
                 <Command.Group heading='Getting Started' className='py-2 text-sm'>
-                  {basePath.map((item, index) => (
+                  {basePath.map((item) => (
                     <Command.Item
                       key={item.href}
-                      value={item.name}
+                      value={`${item.name} ${item?.tags?.join(' ') || ''}`}
                       onSelect={() => runCommand(() => router.push(item.href))}
                       className='relative flex select-none items-center gap-2 rounded-lg p-0 text-sm cursor-pointer aria-selected:bg-neutral-200 aria-selected:text-neutral-900 dark:aria-selected:bg-neutral-800 dark:aria-selected:text-neutral-100'
                     >
@@ -203,7 +179,7 @@ export function SearchDialog({
 
                 <Command.Separator className='my-1 opacity-30' />
 
-                {filteredGroupedItems.map(({ group, items }) => (
+                {groupedItems.map(([group, items]) => (
                   <Command.Group key={group} heading={group}>
                     {items.map((item, index) => (
                       <Command.Item

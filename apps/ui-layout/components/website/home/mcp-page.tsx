@@ -7,7 +7,8 @@ import HomeFooter from '@/components/website/home/home-footer';
 import HomeHeader from '@/components/website/home/home-header';
 import { Banner } from '@/components/website/ui/banner';
 import { cn } from '@/lib/utils';
-import { ArrowUpRight, Component, Github, LayoutPanelTop, Star } from 'lucide-react';
+import { ArrowUpRight, Component, LayoutPanelTop, Star } from 'lucide-react';
+import { Github } from '@repo/ui';
 import Image from 'next/image';
 import React, { useState } from 'react';
 

@@ -74,7 +74,15 @@ export const imgPreview = {
   img18: 'https://images.unsplash.com/photo-1469212044023-0e55b4b9745a?q=80&w=1200&auto=format',
 };
 
-export const items = [
+export type GalleryItem = {
+  id: number;
+  url: string;
+  title: string;
+  description: string;
+  tags: string[];
+};
+
+export const items: GalleryItem[] = [
   {
     id: 1,
     url: imgPreview.img1,

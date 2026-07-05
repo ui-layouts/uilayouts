@@ -23,7 +23,7 @@ export function Input({
   // Hide the caret during transitions so you can't see it shifting around:
   const [showCaret, setShowCaret] = React.useState(true);
 
-  const handleInput: React.ChangeEventHandler<HTMLInputElement> = ({ currentTarget: el }) => {
+  const handleInput: React.FormEventHandler<HTMLInputElement> = ({ currentTarget: el }) => {
     setAnimated(false);
     if (el.value === '') {
       onChange?.(defaultValue.current);

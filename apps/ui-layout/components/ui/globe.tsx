@@ -54,18 +54,19 @@ const Earth: React.FC<EarthProps> = ({
       glowColor: glowColor,
       opacity: 1,
       offset: [0, 0],
-      markers: [
-        // longitude latitude
-      ],
-      onRender: (state: Record<string, any>) => {
-        // Called on every animation frame.
-        // `state` will be an empty object, return updated params.\
-        state.phi = phi;
-        phi += 0.003;
-      },
+      markers: [],
     });
 
+    let animationFrameId: number;
+    const animate = () => {
+      phi += 0.003;
+      globe.update({ phi });
+      animationFrameId = requestAnimationFrame(animate);
+    };
+    animationFrameId = requestAnimationFrame(animate);
+
     return () => {
+      cancelAnimationFrame(animationFrameId);
       globe.destroy();
     };
   }, []);

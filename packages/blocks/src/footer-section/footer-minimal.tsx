@@ -1,5 +1,6 @@
 import React from 'react'
-import { Mail, Twitter, Github, Linkedin } from 'lucide-react'
+import { Mail } from 'lucide-react'
+import { Github, Linkedin, Twitter } from '@repo/ui'
 
 export const MinimalFooter = () => {
   return (
