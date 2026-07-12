@@ -62,7 +62,7 @@ function HomeFooter({
                           src='/naymur.png'
                           alt='Founder'
                         />
-                        <div className='h-10 w-10 rounded-full absolute bottom-1 -right-4 grid place-items-center bg-purple-100 text-blue-600 border border-blue-300 text-xs px-2 py-0.5 font-medium'>
+                        <div className='h-10 w-10 rounded-full absolute bottom-1 -right-4 grid place-items-center bg-primary text-primary-foreground border border-primary/30 text-xs px-2 py-0.5 font-medium'>
                           You
                         </div>
                       </div>
@@ -70,7 +70,7 @@ function HomeFooter({
 
                     {/* Center - Content */}
                     <div className='flex-1 pl-7'>
-                      <h3 className='font-librecaslon text-xl font-medium text-pirmary mb-1'>
+                      <h3 className='font-librecaslon text-xl font-medium text-primary mb-1'>
                         Got a Project?
                       </h3>
                       <p className='text-primary/90 text-sm font-medium'>
@@ -83,20 +83,20 @@ function HomeFooter({
                   <div className='flex items-center sm:gap-2 gap-1 shrink-0'>
                     <a
                       href='mailto:naymur@ui-layouts.com'
-                      className='flex items-center bg-zinc-900 text-white border shadow-none sm:h-14 h-12 rounded-full sm:px-5 px-4'
+                      className='flex items-center bg-foreground text-background border shadow-none sm:h-14 h-12 rounded-full sm:px-5 px-4'
                     >
                       Email us
                     </a>
                     <a
                       href='https://cal.com/ui-layouts'
                       target='_blank'
-                      className='flex items-center bg-blue-600 hover:bg-blue-700 text-white sm:h-14 h-12 rounded-full sm:px-6 px-4 gap-2'
+                      className='flex items-center bg-primary hover:bg-primary/90 text-primary-foreground sm:h-14 h-12 rounded-full sm:px-6 px-4 gap-2'
                       rel='noreferrer noopener'
                     >
                       Book a free call
                       <span className='relative flex size-3'>
-                        <span className='absolute inline-flex h-full w-full animate-ping rounded-full bg-neutral-100 opacity-75'></span>
-                        <span className='relative inline-flex size-3 rounded-full bg-neutral-100'></span>
+                        <span className='absolute inline-flex h-full w-full animate-ping rounded-full bg-primary-foreground opacity-75'></span>
+                        <span className='relative inline-flex size-3 rounded-full bg-primary-foreground'></span>
                       </span>
                     </a>
                   </div>
@@ -167,7 +167,7 @@ function HomeFooter({
             />{' '}
             <button
               type='submit'
-              className='cursor-pointer hover:bg-primaryColor bg-card shrink-0 w-fit px-4'
+              className='cursor-pointer hover:bg-primary hover:text-primary-foreground bg-card text-card-foreground shrink-0 w-fit px-4'
             >
               <svg
                 width='15'
@@ -179,7 +179,7 @@ function HomeFooter({
               >
                 <path
                   d='M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z'
-                  fill='#000'
+                  fill='currentColor'
                   fillRule='evenodd'
                   clipRule='evenodd'
                 ></path>
@@ -257,8 +257,8 @@ function HomeFooter({
     h-[630px] 
     left-0 
     bottom-0
-    bg-[radial-gradient(108.09%_118.89%_at_50%_-23.55%,#1b98ff_20.88%,#5c9dff_31.25%,rgba(0,0,0,0)_51.21%,rgba(0,0,0,0)_100%)] 
-    dark:bg-[radial-gradient(108.09%_118.89%_at_50%_-23.55%,#1b98ff_20.88%,#0c4eb0_31.25%,rgba(0,0,0,0)_51.21%,rgba(0,0,0,0)_100%)] 
+    bg-[radial-gradient(108.09%_118.89%_at_50%_-23.55%,var(--primary)_20.88%,color-mix(in_oklab,var(--primary),white_40%)_31.25%,rgba(0,0,0,0)_51.21%,rgba(0,0,0,0)_100%)]
+    dark:bg-[radial-gradient(108.09%_118.89%_at_50%_-23.55%,var(--primary)_20.88%,color-mix(in_oklab,var(--primary),black_40%)_31.25%,rgba(0,0,0,0)_51.21%,rgba(0,0,0,0)_100%)]
     rotate-180
   '
       ></div>

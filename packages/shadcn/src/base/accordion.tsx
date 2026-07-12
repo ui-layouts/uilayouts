@@ -112,8 +112,9 @@ function AccordionContent({
 function AccordionPanel({
   className,
   children,
+  articleClassName,
   ...props
-}: AccordionPrimitive.Panel.Props) {
+}: AccordionPrimitive.Panel.Props & { articleClassName?: string }) {
   return (
     <AccordionPrimitive.Panel
       data-slot="accordion-content"
@@ -123,6 +124,7 @@ function AccordionPanel({
       <div
         className={cn(
           "h-(--accordion-panel-height) pt-0 pb-2.5 data-ending-style:h-0 data-starting-style:h-0",
+          articleClassName,
           className
         )}
       >

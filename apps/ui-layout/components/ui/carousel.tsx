@@ -200,7 +200,7 @@ export const Carousel = forwardRef<HTMLDivElement, CarouselProps>(
 
         emblaApi.scrollSnapList().forEach((scrollSnap, snapIndex) => {
           let diffToTarget = scrollSnap - scrollProgress;
-          const slidesInSnap = engine.slideRegistry[snapIndex];
+          const slidesInSnap = engine.slideRegistry[snapIndex] ?? [];
 
           slidesInSnap.forEach((slideIndex) => {
             if (isScrollEvent && !slidesInView.includes(slideIndex)) return;

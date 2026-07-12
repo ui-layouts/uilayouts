@@ -64,11 +64,9 @@ export const PricingOverview = () => {
           </span>
           <Switch
             id={id}
-            // @ts-ignore
             checked={billing === 'yearly'}
             className="bg-neutral-300 rounded-full"
             thumbsClassName="rounded-full"
-            // @ts-ignore
             onCheckedChange={(checked) =>
               setBilling(checked ? 'yearly' : 'monthly')
             }

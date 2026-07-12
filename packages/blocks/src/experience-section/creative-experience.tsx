@@ -78,7 +78,7 @@ export function CreativeExperience() {
         <h1 className="md:text-7xl text-5xl font-manrope font-semibold pb-10">
           My Experience
         </h1>
-        <Accordion defaultValue="item-2">
+        <Accordion defaultValue={['item-2']}>
           {experienceData.map((item, index) => (
             <AccordionItem
               key={index}

@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React from 'react';
 import MobileHeader from '../mobile-header';
+import { ThemeCustomizer } from '../theme-customizer';
 import ThemeSwitch from '../theme-switch';
 import { PlasticButton } from '../ui/plastic-button';
 import HomeGitHubButton from './github-repo-button';
@@ -103,10 +104,7 @@ function HomeHeader({
               height='24'
               fill='none'
               strokeWidth='1.2'
-              className={cn(
-                'w-6 h-6 stroke-primary',
-                pathName === '/mcp' && 'stroke-background'
-              )}
+              className={cn('w-6 h-6 stroke-primary', pathName === '/mcp' && 'stroke-background')}
               strokeLinecap='round'
               strokeLinejoin='round'
             >
@@ -123,6 +121,7 @@ function HomeHeader({
               classname='sm:w-12 xl:w-12 sm:pr-0 sm:pl-3 bg-background/20 border border-background/20'
               searchBar={true}
             />
+            <ThemeCustomizer className='bg-background/20 border border-background/20 w-12 rounded-md h-11 shrink-0' />
             <ThemeSwitch className='bg-background/20 border border-background/20 w-12 rounded-md h-11 shrink-0' />
           </div>
           <a

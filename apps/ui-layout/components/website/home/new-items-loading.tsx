@@ -48,12 +48,12 @@ function NewItemsLoading() {
               <a
                 key={item.href}
                 href={item?.href}
-                className='inline-flex w-fit mx-auto items-center gap-1 rounded-full  bg-[#334cec] border-4 dark:border-[#363d6b] shadow-[#6175f8] py-0.5 pl-0.5 pr-3 text-xs '
+                className='inline-flex w-fit mx-auto items-center gap-1 rounded-full bg-primary border-4 border-primary/20 shadow-primary/40 py-0.5 pl-0.5 pr-3 text-xs '
               >
-                <div className='rounded-full bg-[#fcfdff] px-2 py-1 text-xs text-black '>
+                <div className='rounded-full bg-primary-foreground px-2 py-1 text-xs text-primary '>
                   Update
                 </div>
-                <p className='text-white sm:text-base text-xs inline-block'>
+                <p className='text-primary-foreground sm:text-base text-xs inline-block'>
                   ✨ Introducing
                   <span className='px-1 font-semibold'>{item.title}</span>
                 </p>
@@ -64,7 +64,7 @@ function NewItemsLoading() {
                   fill='currentColor'
                   aria-hidden='true'
                   data-slot='icon'
-                  className='h-3 w-3 text-white'
+                  className='h-3 w-3 text-primary-foreground'
                 >
                   <path
                     fillRule='evenodd'

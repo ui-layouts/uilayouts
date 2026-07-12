@@ -107,7 +107,7 @@ Drawer.displayName = "Drawer";
 // ─── Trigger ─────────────────────────────────────────────────────────────────
 
 const DrawerTrigger = React.forwardRef<
-  HTMLElement,
+  HTMLButtonElement,
   DrawerPrimitive.Trigger.Props
 >(({ className, ...props }, ref) => (
   <DrawerPrimitive.Trigger

@@ -22,7 +22,7 @@ const allProjects = [
           width='208'
           height='48'
           viewBox='0 0 208 48'
-          className='w-full dark:fill-[#cecece] fill-[#303030] dark:stroke-[#cecece] stroke-[#303030]'
+          className='w-full fill-primary stroke-primary'
           fill='none'
           xmlns='http://www.w3.org/2000/svg'
         >
@@ -57,7 +57,7 @@ const allProjects = [
           width='261'
           height='79'
           viewBox='0 0 261 79'
-          className='w-full dark:fill-[#2784fd] fill-[#2784fd]'
+          className='w-full fill-primary'
           fill='none'
           xmlns='http://www.w3.org/2000/svg'
         >
@@ -81,7 +81,7 @@ const allProjects = [
           width='282'
           height='81'
           viewBox='0 0 282 81'
-          className='w-full  fill-green-500  stroke-green-500'
+          className='w-full fill-primary stroke-primary'
           fill='none'
           xmlns='http://www.w3.org/2000/svg'
         >
@@ -181,7 +181,7 @@ const ReviewCard = ({
       className='w-10 h-10 rounded-full object-cover'
     />
   ) : (
-    <div className='w-10 h-10 bg-linear-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-sm'>
+    <div className='w-10 h-10 bg-linear-to-br from-primary to-primary/70 rounded-full flex items-center justify-center text-primary-foreground font-bold text-sm'>
       {name.charAt(0).toUpperCase()}
     </div>
   );
@@ -198,7 +198,7 @@ const ReviewCard = ({
         <div className='ml-3 flex-1'>
           <div className='flex items-center gap-1'>
             <span className='font-semibold text-sm'>{name}</span>
-            {bluetick && !reddit && <Verified className='w-3 h-3 text-blue-500 fill-current' />}
+            {bluetick && !reddit && <Verified className='w-3 h-3 text-primary fill-current' />}
           </div>
           <div className='text-xs text-muted-foreground'>{username}</div>
         </div>
@@ -507,7 +507,7 @@ function HeroSec({ blocksData }: { blocksData: any[] }) {
               <br />
               <span className=''>& Blocks for</span>
               <span className='bg-card ml-2 mt-3 relative  w-fit leading-[100%] inline-block px-1.5 py-0.5 border before:absolute before:top-0 before:left-0 before:w-full before:h-full before:content-[""] before:opacity-[0.09] before:z-10 before:pointer-events-none before:bg-[url("/noise.gif")]'>
-                <span className='bg-linear-to-t from-blue-400 to-blue-600 bg-clip-text text-transparent font-semibold pr-1'>
+                <span className='bg-linear-to-t from-primary/70 to-primary bg-clip-text text-transparent font-semibold pr-1'>
                   Developer
                 </span>
               </span>{' '}
@@ -520,9 +520,9 @@ function HeroSec({ blocksData }: { blocksData: any[] }) {
             <div className='flex gap-2 justify-center items-center'>
               <a
                 href='https://pro.ui-layouts.com/blocks'
-                className='flex items-center gap-2 w-fit sm:text-xl text-sm 
+                className='flex items-center gap-2 w-fit sm:text-xl text-sm
                 shadow-[inset_3px_4px_5px_0px_rgba(183,183,183,0.5),inset_-2px_-2px_5px_0px_rgba(255,255,255,0.5)]
-                text-white bg-linear-to-b from-blue-500  to-blue-600 sm:px-4 px-2 py-3'
+                text-primary-foreground bg-linear-to-b from-primary to-primary/85 sm:px-4 px-2 py-3'
               >
                 <Blocks className='sm:w-6 sm:h-6 h-5 w-5' /> Premium Blocks
               </a>
@@ -676,15 +676,7 @@ function HeroSec({ blocksData }: { blocksData: any[] }) {
                     </div>
                     <div className='absolute bottom-0 left-0 right-0 top-0 dark:bg-[linear-gradient(to_right,#2120202e_1px,transparent_1px),linear-gradient(to_bottom,#2120202e_1px,transparent_1px)] bg-[linear-gradient(to_right,#acacac2d_1px,transparent_1px),linear-gradient(to_bottom,#acacac2d_1px,transparent_1px)] bg-size-[50px_50px] mask-[radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]'></div>
 
-                    {project?.projectsName === 'tools' && (
-                      <div className='absolute inset-0 z-0 mask-[radial-gradient(ellipse_115%_60%_at_50%_100%,#000_70%,transparent_110%)] dark:bg-[radial-gradient(125%_125%_at_50%_10%,#000000_40%,#303030_100%)] bg-[radial-gradient(125%_125%_at_50%_10%,#ffffff_40%,#cecece_100%)]' />
-                    )}
-                    {project?.projectsName === 'cursify' && (
-                      <div className='absolute inset-0 z-0 mask-[radial-gradient(ellipse_115%_60%_at_50%_100%,#000_70%,transparent_110%)] dark:bg-[radial-gradient(125%_125%_at_50%_10%,#000000_40%,#00c950_100%)] bg-[radial-gradient(125%_125%_at_50%_10%,#ffffff_40%,#00c950_100%)]' />
-                    )}
-                    {project?.projectsName === 'blocks' && (
-                      <div className='absolute inset-0 z-0 mask-[radial-gradient(ellipse_115%_60%_at_50%_100%,#000_70%,transparent_110%)] dark:bg-[radial-gradient(125%_125%_at_50%_10%,#000000_40%,#2784fd_100%)] bg-[radial-gradient(125%_125%_at_50%_10%,#ffffff_40%,#3d6aff_100%)]' />
-                    )}
+                    <div className='absolute inset-0 z-0 mask-[radial-gradient(ellipse_115%_60%_at_50%_100%,#000_70%,transparent_110%)] bg-[radial-gradient(125%_125%_at_50%_10%,var(--background)_40%,var(--primary)_100%)]' />
                   </a>
                 </div>
               </div>

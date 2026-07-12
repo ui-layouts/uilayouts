@@ -107,7 +107,7 @@ export const FaqJourney = () => {
             timelineRef={timelineRef}
             className="absolute left-[27px] top-8 bottom-8 w-0.5 bg-slate-200 hidden sm:block"
           />
-          <Accordion multiple={false} defaultValue="g1">
+          <Accordion multiple={false} defaultValue={['g1']}>
             {FAQ_DATA.slice(0, 6).map((item, idx) => (
               <AccordionItem
                 key={item.id}
