@@ -56,7 +56,7 @@ function Card2() {
             />
           ))}
         </div>
-        <article className='text-black pt-2 p-2'>
+        <article className='text-foreground pt-2 p-2'>
           <div className='flex justify-between'>
             <h1 className='font-semibold text-xl text-blue-500'>Nike Air Max</h1>
             <span className='font-medium text-xl text-blue-500'>$39</span>
@@ -73,13 +73,13 @@ function Card2() {
                 aria-label='Food'
               >
                 <Select.Value placeholder='Select a size' />
-                <Select.Icon className='text-black'>
+                <Select.Icon className='text-foreground'>
                   <ChevronDownIcon />
                 </Select.Icon>
               </Select.Trigger>
               <Select.Portal>
-                <Select.Content className='overflow-hidden bg-white  text-black rounded-md shadow-[0px_10px_38px_-10px_rgba(22,23,24,0.35),0px_10px_20px_-15px_rgba(22,23,24,0.2)]'>
-                  <Select.ScrollUpButton className='flex items-center justify-center h-[25px] bg-white text-black cursor-default'>
+                <Select.Content className='overflow-hidden bg-background  text-foreground rounded-md shadow-[0px_10px_38px_-10px_rgba(22,23,24,0.35),0px_10px_20px_-15px_rgba(22,23,24,0.2)]'>
+                  <Select.ScrollUpButton className='flex items-center justify-center h-[25px] bg-background text-foreground cursor-default'>
                     <ChevronUpIcon />
                   </Select.ScrollUpButton>
                   <Select.Viewport className='p-[5px]'>
@@ -102,7 +102,7 @@ function Card2() {
                   key={data.color}
                   onClick={() => handleColorButtonClick(data.img, data.color)}
                   className={` relative w-6 h-6 border  rounded-full grid place-content-center transition-all ${
-                    selectedColor === data.color ? ' border-black' : 'border-neutral-200'
+                    selectedColor === data.color ? ' border-foreground' : 'border-border'
                   }`}
                 >
                   <span

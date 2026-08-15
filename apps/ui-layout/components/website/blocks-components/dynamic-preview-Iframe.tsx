@@ -6,10 +6,10 @@ import { useOptimizedIframe } from '@/hooks/useOptimizedIframe';
 import { RefreshCcw } from 'lucide-react';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
-  type ImperativePanelGroupHandle,
+  type GroupImperativeHandle,
+  Group,
   Panel,
-  PanelGroup,
-  PanelResizeHandle,
+  Separator,
 } from 'react-resizable-panels';
 
 type Props = {
@@ -28,7 +28,7 @@ export default function DynamicPreviewIframe({
   maxHeight = 2200,
 }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const panelGroupRef = useRef<ImperativePanelGroupHandle>(null);
+  const panelGroupRef = useRef<GroupImperativeHandle>(null);
 
   const isLargeScreen = useMediaQuery('(min-width: 1024px)');
   const [refreshKey, setRefreshKey] = useState(0);
@@ -98,9 +98,9 @@ export default function DynamicPreviewIframe({
 
         {/* PANEL GROUP MUST LIVE INSIDE HEIGHT */}
         {shouldLoadIframe && (
-          <PanelGroup
-            ref={panelGroupRef}
-            direction={isLargeScreen ? 'horizontal' : 'vertical'}
+          <Group
+            groupRef={panelGroupRef}
+            orientation={isLargeScreen ? 'horizontal' : 'vertical'}
             className='h-full'
           >
             {/* MAIN PREVIEW — FULL WIDTH */}
@@ -118,7 +118,7 @@ export default function DynamicPreviewIframe({
 
             {/* RESIZE HANDLE */}
             {isLargeScreen && (
-              <PanelResizeHandle className='relative w-2 before:absolute before:inset-0 before:m-auto before:h-12 before:w-1 before:rounded-full before:bg-zinc-300 hover:before:h-16 dark:before:bg-zinc-600' />
+              <Separator className='relative w-2 before:absolute before:inset-0 before:m-auto before:h-12 before:w-1 before:rounded-full before:bg-zinc-300 hover:before:h-16 dark:before:bg-zinc-600' />
             )}
 
             {/* SECOND PANEL — COLLAPSED BY DEFAULT */}
@@ -131,7 +131,7 @@ export default function DynamicPreviewIframe({
                 className='dark:bg-neutral-900 bg-background'
               />
             )}
-          </PanelGroup>
+          </Group>
         )}
       </div>
 

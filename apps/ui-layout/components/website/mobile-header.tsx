@@ -77,18 +77,18 @@ function MobileHeader({ classname }: { classname?: string }) {
                       <Link
                         href={link.href}
                         onClick={() => setSidebarOpen(false)}
-                        className={`flex gap-2 group font-medium items-center py-1  transition-all ${
+                        className={`flex gap-2 group font-medium items-center py-1 transition-all ${
                           link.href === pathname
                             ? 'active-nav'
-                            : 'text-slate-600 hover:text-slate-900  dark:text-slate-400 dark:hover:text-white'
+                            : 'text-muted-foreground hover:text-foreground'
                         }`}
                       >
                         {React.cloneElement(link?.icon, {
                           className: `${
                             link.href === pathname
-                              ? 'dark:text-black dark:bg-white bg-black text-white'
-                              : 'dark:bg-zinc-800 dark:text-white group-hover:bg-black group-hover:text-white  dark:group-hover:bg-white dark:group-hover:text-black'
-                          } h-7 w-7 border transition-all  rounded-xs p-1.5`,
+                              ? 'bg-primary text-primary-foreground'
+                              : 'bg-secondary text-secondary-foreground group-hover:bg-primary group-hover:text-primary-foreground'
+                          } h-7 w-7 border transition-all rounded-xs p-1.5`,
                         })}
 
                         {link.name}
@@ -125,7 +125,7 @@ function MobileHeader({ classname }: { classname?: string }) {
                         rel='noreferrer noopener'
                       >
                         {React.cloneElement(item?.icon, {
-                          className: `${'dark:bg-zinc-800 dark:text-white group-hover:bg-black group-hover:text-white  dark:group-hover:bg-white dark:group-hover:text-black'} h-7 w-7 border transition-all  rounded-xs p-1.5`,
+                          className: `${'bg-secondary text-secondary-foreground group-hover:bg-primary group-hover:text-primary-foreground'} h-7 w-7 border transition-all rounded-xs p-1.5`,
                         })}
                         {item.name}
                       </a>
@@ -168,7 +168,7 @@ function MobileHeader({ classname }: { classname?: string }) {
                 return (
                   <li key={groupName} className='mb-4'>
                     {/* Category Title */}
-                    <h3 className='text-sm font-semibold uppercase text-black dark:text-white px-2'>
+                    <h3 className='text-sm font-semibold uppercase text-foreground px-2'>
                       {groupName}
                     </h3>
 
@@ -178,10 +178,10 @@ function MobileHeader({ classname }: { classname?: string }) {
                         <li key={link.href}>
                           <Link
                             href={link.href}
-                            className={`font-normal py-1 pl-4 border-l border-primary/20 transition-all block ${
+                            className={`font-normal py-1 pl-4 border-l border-border transition-all block ${
                               link.href === pathname
-                                ? 'dark:border-white border-black text-black dark:text-white font-medium'
-                                : 'dark:text-slate-400 hover:border-black/60 dark:hover:border-white/50 text-slate-500 hover:text-slate-900'
+                                ? 'border-foreground text-foreground font-medium'
+                                : 'text-muted-foreground hover:border-foreground/60 hover:text-foreground'
                             }`}
                             onClick={() => setSidebarOpen(false)}
                           >

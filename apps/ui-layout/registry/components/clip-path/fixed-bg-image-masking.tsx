@@ -3,7 +3,7 @@ import React from 'react';
 function FixedBgImageMasking() {
   return (
     <>
-      <section className='w-full gap-2 dark:bg-black bg-white border rounded-lg p-5'>
+      <section className='w-full gap-2 bg-background border rounded-lg p-5'>
         <figure
           className='relative h-[70vh] bg-fixed bg-cover bg-center '
           style={{

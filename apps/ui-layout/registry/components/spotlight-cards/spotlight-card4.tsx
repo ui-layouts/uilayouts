@@ -20,7 +20,7 @@ export default function SpotlightCard4() {
               <h1 className='text-2xl pt-5 font-semibold tracking-tight text-white'>
                 Seamless Animation For All
               </h1>
-              <p className='pt-2 lg:text-base text-sm  text-neutral-300 capitalize'>
+              <p className='pt-2 lg:text-base text-sm  text-muted-foreground capitalize'>
                 Effortlessly connect with today's leading technologies including React, TypeScript,
                 Next.js, Tailwind CSS, Motion, and Cypress.
               </p>

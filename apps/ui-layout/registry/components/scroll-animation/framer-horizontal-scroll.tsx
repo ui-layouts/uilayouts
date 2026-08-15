@@ -168,7 +168,7 @@ export default function FramerHorizontalScroll() {
                 <motion.div
                   {...slideAnimation}
                   key={item.id}
-                  className='group relative h-[300px] w-[300px] overflow-hidden bg-neutral-200'
+                  className='group relative h-[300px] w-[300px] overflow-hidden bg-muted'
                 >
                   <motion.img
                     key={item.id}

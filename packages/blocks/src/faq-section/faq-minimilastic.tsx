@@ -5,7 +5,7 @@ import {
   AccordionItem,
   AccordionHeader,
   AccordionPanel,
-} from '@/components/ui/accordion'
+} from '@repo/shadcn'
 import { Plus } from 'lucide-react'
 import { TimelineAnimation } from '@/components/ui/timeline-animation'
 import { FaqQuestionImg } from '../../assets'
@@ -98,7 +98,7 @@ export const FaqMinimalist = () => {
         >
           All the Answer to Your Question
         </TimelineAnimation>
-        <Accordion multiple={false} defaultValue="g1">
+        <Accordion multiple={false} defaultValue={['g1']}>
           {FAQ_DATA.slice(0, 5).map((item, i) => (
             <AccordionItem key={item.id} value={item.id} className="mb-4">
               <TimelineAnimation

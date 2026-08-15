@@ -23,7 +23,7 @@ export function Input({
   // Hide the caret during transitions so you can't see it shifting around:
   const [showCaret, setShowCaret] = React.useState(true);
 
-  const handleInput: React.ChangeEventHandler<HTMLInputElement> = ({ currentTarget: el }) => {
+  const handleInput: React.FormEventHandler<HTMLInputElement> = ({ currentTarget: el }) => {
     setAnimated(false);
     if (el.value === '') {
       onChange?.(defaultValue.current);
@@ -52,7 +52,7 @@ export function Input({
   };
 
   return (
-    <div className='group flex items-stretch rounded-md text-3xl font-semibold border w-fit mx-auto dark:bg-neutral-950 bg-neutral-50'>
+    <div className='group flex items-stretch rounded-md text-3xl font-semibold border w-fit mx-auto bg-muted'>
       <button
         aria-hidden
         tabIndex={-1}

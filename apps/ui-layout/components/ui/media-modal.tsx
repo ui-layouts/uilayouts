@@ -45,7 +45,7 @@ export function MediaModal({ imgSrc, videoSrc, className }: IMediaModal) {
       <MotionConfig transition={transition}>
         <>
           <motion.div
-            className='w-full h-full flex relative flex-col overflow-hidden border cursor-zoom-in dark:bg-black bg-neutral-300 hover:bg-neutral-200 dark:hover:bg-neutral-950'
+            className='w-full h-full flex relative flex-col overflow-hidden border cursor-zoom-in bg-secondary hover:bg-muted'
             layoutId={`dialog-${uniqueId}`}
             style={{
               borderRadius: '12px',
@@ -77,7 +77,7 @@ export function MediaModal({ imgSrc, videoSrc, className }: IMediaModal) {
             <>
               <motion.div
                 key={`backdrop-${uniqueId}`}
-                className='fixed inset-0 h-full w-full z-50  dark:bg-black/25 bg-white/95 backdrop-blur-xs '
+                className='fixed inset-0 h-full w-full z-50 bg-background/80 backdrop-blur-xs '
                 variants={{ open: { opacity: 1 }, closed: { opacity: 0 } }}
                 initial='closed'
                 animate='open'
@@ -92,7 +92,7 @@ export function MediaModal({ imgSrc, videoSrc, className }: IMediaModal) {
               >
                 <motion.div
                   className={cn(
-                    'pointer-events-auto relative flex flex-col overflow-hidden dark:bg-neutral-950 bg-neutral-200 border w-[80%] h-[90%]',
+                    'pointer-events-auto relative flex flex-col overflow-hidden bg-secondary border w-[80%] h-[90%]',
                     imgSrc && 'cursor-zoom-out'
                   )}
                   layoutId={`dialog-${uniqueId}`}
@@ -127,7 +127,7 @@ export function MediaModal({ imgSrc, videoSrc, className }: IMediaModal) {
                   {videoSrc && (
                     <button
                       onClick={() => setIsMediaModalOpen(false)}
-                      className='absolute right-6 top-6 p-3 text-zinc-50 cursor-pointer dark:bg-neutral-900 bg-neutral-400 hover:bg-neutral-500 rounded-xl dark:hover:bg-neutral-800'
+                      className='absolute right-6 top-6 p-3 text-foreground cursor-pointer bg-muted hover:bg-muted-foreground/30 rounded-xl'
                       type='button'
                       aria-label='Close dialog'
                     >

@@ -5,7 +5,7 @@ import {
   AccordionItem,
   AccordionHeader,
   AccordionPanel,
-} from '@/components/ui/accordion'
+} from '@repo/shadcn'
 import { LayoutGrid, ShieldCheck, Cpu, CreditCard } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -214,7 +214,10 @@ export const FaqTabbedExplorer = () => {
             </p>
           </div>
           <div className="space-y-4">
-            <Accordion multiple={false} defaultValue={filteredItems[0]?.id}>
+            <Accordion
+              multiple={false}
+              defaultValue={filteredItems[0] ? [filteredItems[0].id] : []}
+            >
               {filteredItems.map((item) => (
                 <AccordionItem
                   key={item.id}

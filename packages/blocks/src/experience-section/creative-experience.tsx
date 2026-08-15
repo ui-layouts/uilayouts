@@ -4,7 +4,7 @@ import {
   AccordionHeader,
   AccordionItem,
   AccordionPanel,
-} from '@/components/ui/accordion'
+} from '@repo/shadcn'
 import { TimelineAnimation } from '@/components/ui/timeline-animation'
 import { Plus } from 'lucide-react'
 import { useRef } from 'react'
@@ -78,7 +78,7 @@ export function CreativeExperience() {
         <h1 className="md:text-7xl text-5xl font-manrope font-semibold pb-10">
           My Experience
         </h1>
-        <Accordion defaultValue="item-2">
+        <Accordion defaultValue={['item-2']}>
           {experienceData.map((item, index) => (
             <AccordionItem
               key={index}

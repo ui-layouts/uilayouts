@@ -50,7 +50,7 @@ export default function VerticleProgressive() {
         activeSlider='bbridge'
         className='sm:flex '
       >
-        <SliderBtnGroup className='sm:relative absolute bottom-0 lg:w-md sm:w-96 w-full z-10 sm:flex sm:flex-col grid grid-cols-2 sm:h-[500px] h-fit sm:dark:bg-black sm:bg-white dark:bg-black/80 bg-white/80 backdrop-blur-md overflow-hidden '>
+        <SliderBtnGroup className='sm:relative absolute bottom-0 lg:w-md sm:w-96 w-full z-10 sm:flex sm:flex-col grid grid-cols-2 sm:h-[500px] h-fit sm:bg-background dark:bg-black/80 bg-white/80 backdrop-blur-md overflow-hidden '>
           {items.map((item) => (
             <SliderBtn
               key={item.sliderName}
@@ -61,7 +61,7 @@ export default function VerticleProgressive() {
               <h2 className='relative px-4 rounded-sm w-fit dark:bg-blue-500 bg-black text-white mb-2'>
                 {item.title}
               </h2>
-              <p className='text-sm font-medium dark:text-slate-200 text-slate-900 line-clamp-2'>
+              <p className='text-sm font-medium text-muted-foreground line-clamp-2'>
                 {item.desc}
               </p>
             </SliderBtn>

@@ -1,6 +1,6 @@
 'use client'
 import React, { useRef } from 'react'
-import { Codesandbox } from 'lucide-react'
+import { Codesandbox } from '@repo/ui'
 import { TimelineAnimation } from '@/components/ui/timeline-animation'
 
 export const TEAM_MEMBERS_1 = [

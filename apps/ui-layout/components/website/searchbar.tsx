@@ -1,13 +1,10 @@
 'use client';
 
 import { ScrollArea } from '@/components/website/ui//scroll-area';
-import { Dialog, DialogContent } from '@/components/website/ui/dialog';
 import { DocsNavigationCategories } from '@/configs/docs';
 import { cn } from '@/lib/utils';
 import { Command } from 'cmdk';
 import {
-  ChevronRight,
-  Component,
   CornerDownLeft,
   LaptopIcon,
   MoonIcon,
@@ -26,7 +23,7 @@ function highlightMatch(text: string, query: string) {
   const parts = text.split(new RegExp(`(${query})`, 'gi'));
   return parts.map((part, i) =>
     part.toLowerCase() === query.toLowerCase() ? (
-      <span key={`${part}-${query}`} className='bg-yellow-200 dark:bg-yellow-600'>
+      <span key={`${i}-${part}`} className='bg-yellow-200 dark:bg-yellow-600'>
         {part}
       </span>
     ) : (
@@ -57,7 +54,6 @@ export function SearchDialog({
   const inputRef = React.useRef<HTMLInputElement>(null);
   const [searchOpen, setSearchOpen] = React.useState(false);
   const [search, setSearch] = React.useState('');
-  const searchTerm = search.toLowerCase();
 
   const groupedItems = Object.entries(
     DocsNavigationCategories.reduce(
@@ -70,30 +66,6 @@ export function SearchDialog({
       {} as Record<string, typeof DocsNavigationCategories>
     )
   );
-
-  const filteredGroupedItems = groupedItems
-    .map(([group, items]) => {
-      const filtered = items
-        .filter((item) => {
-          const nameMatch = item.name.toLowerCase().includes(searchTerm);
-          const tagsMatch = item.tags?.some((tag) => tag.toLowerCase().includes(searchTerm));
-          return nameMatch || tagsMatch;
-        })
-        .sort((a, b) => {
-          const aName = a.name.toLowerCase();
-          const bName = b.name.toLowerCase();
-          // exact match first
-          if (aName === searchTerm) return -1;
-          if (bName === searchTerm) return 1;
-          // startsWith match next
-          if (aName.startsWith(searchTerm)) return -1;
-          if (bName.startsWith(searchTerm)) return 1;
-          return 0;
-        });
-
-      return { group, items: filtered };
-    })
-    .filter((group) => group.items.length > 0); // remove empty groups
 
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
@@ -108,7 +80,13 @@ export function SearchDialog({
         }
 
         e.preventDefault();
-        setSearchOpen((searchOpen) => !searchOpen);
+        // '/' only opens — don't toggle, since typing '/' in the just-opened
+        // search input would immediately close the dialog again
+        if (e.key === '/') {
+          setSearchOpen(true);
+        } else {
+          setSearchOpen((open) => !open);
+        }
       }
     };
 
@@ -118,9 +96,7 @@ export function SearchDialog({
 
   React.useEffect(() => {
     if (searchOpen) {
-      setTimeout(() => {
-        inputRef.current?.focus();
-      }, 10);
+      inputRef.current?.focus();
     }
   }, [searchOpen]);
 
@@ -133,7 +109,7 @@ export function SearchDialog({
     <>
       <button
         className={cn(
-          'relative inline-flex w-full items-center justify-start gap-2 whitespace-nowrap rounded-lg border bg-neutral-200 px-4 py-2 text-sm font-normal text-muted-foreground shadow-none transition-colors hover:border-accent  hover:text-accent-foreground focus-visible:outline-hidden focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 dark:bg-neutral-800 sm:pr-12',
+          'relative inline-flex w-full items-center justify-start gap-2 whitespace-nowrap rounded-lg border bg-muted px-4 py-2 text-sm font-normal text-muted-foreground shadow-none transition-colors hover:border-accent hover:text-accent-foreground focus-visible:outline-hidden focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 sm:pr-12',
           classname
         )}
         onClick={() => setSearchOpen(true)}
@@ -149,7 +125,7 @@ export function SearchDialog({
         )}
       </button>
       <ResponsiveModal
-        classname='rounded-lg border-2 dark:border-neutral-800 border-neutral-300 p-0 lg:max-w-lg xl:max-w-xl dark:bg-neutral-950 bg-white '
+        classname='rounded-lg border-2 border-border p-0 lg:max-w-lg xl:max-w-xl bg-background'
         open={searchOpen}
         setOpen={setSearchOpen}
         clsBtnClassname='top-1 right-1'
@@ -161,7 +137,7 @@ export function SearchDialog({
               value={search}
               onValueChange={setSearch}
               placeholder='Type a command or search...'
-              className='w-full rounded-tl-lg rounded-tr-lg border-b dark:border-neutral-800 border-neutral-300 px-4 outline-hidden bg-primary/10'
+              className='w-full rounded-tl-lg rounded-tr-lg border-b border-border px-4 outline-hidden bg-muted/50'
             />
             <Command.List className='border-none'>
               <ScrollArea className='h-[350px]'>
@@ -171,7 +147,7 @@ export function SearchDialog({
                   <a
                     href='https://x.com/naymur_dev'
                     target='_blank'
-                    className='flex w-full items-center gap-2 rounded-md dark:bg-neutral-800 bg-neutral-200 p-3'
+                    className='flex w-full items-center gap-2 rounded-md bg-muted p-3'
                     rel='noreferrer noopener'
                   >
                     <svg
@@ -188,12 +164,12 @@ export function SearchDialog({
                   </a>
                 </Command.Group>
                 <Command.Group heading='Getting Started' className='py-2 text-sm'>
-                  {basePath.map((item, index) => (
+                  {basePath.map((item) => (
                     <Command.Item
                       key={item.href}
-                      value={item.name}
+                      value={`${item.name} ${item?.tags?.join(' ') || ''}`}
                       onSelect={() => runCommand(() => router.push(item.href))}
-                      className='relative flex select-none items-center gap-2 rounded-lg p-0 text-sm cursor-pointer aria-selected:bg-neutral-200 aria-selected:text-neutral-900 dark:aria-selected:bg-neutral-800 dark:aria-selected:text-neutral-100'
+                      className='relative flex select-none items-center gap-2 rounded-lg p-0 text-sm cursor-pointer aria-selected:bg-accent aria-selected:text-accent-foreground'
                     >
                       <span>{item.icon}</span>
                       <span>{highlightMatch(item.name, search)}</span>
@@ -203,14 +179,14 @@ export function SearchDialog({
 
                 <Command.Separator className='my-1 opacity-30' />
 
-                {filteredGroupedItems.map(({ group, items }) => (
+                {groupedItems.map(([group, items]) => (
                   <Command.Group key={group} heading={group}>
                     {items.map((item, index) => (
                       <Command.Item
                         key={item.href}
                         value={`${item.name} ${item?.tags?.join(' ') || ''}`}
                         onSelect={() => runCommand(() => router.push(item.href))}
-                        className='relative flex select-none rounded-lg items-center gap-2 text-sm cursor-pointer aria-selected:bg-neutral-200 aria-selected:text-neutral-900 dark:aria-selected:bg-neutral-800 dark:aria-selected:text-neutral-100 border border-transparent aria-selected:border-neutral-300 dark:aria-selected:border-neutral-600'
+                        className='relative flex select-none rounded-lg items-center gap-2 text-sm cursor-pointer aria-selected:bg-accent aria-selected:text-accent-foreground border border-transparent aria-selected:border-border'
                       >
                         <svg
                           width='36'
@@ -242,21 +218,21 @@ export function SearchDialog({
                 <Command.Group className='rounded-xl '>
                   <span className='block p-1 py-2'>Theme</span>
                   <Command.Item
-                    className='relative flex cursor-default select-none items-center rounded-xs px-1 py-1 text-sm outline-hidden aria-selected:bg-neutral-200 aria-selected:text-neutral-900 dark:aria-selected:bg-neutral-800 dark:aria-selected:text-neutral-100 data-disabled:opacity-75'
+                    className='relative flex cursor-default select-none items-center rounded-xs px-1 py-1 text-sm outline-hidden aria-selected:bg-accent aria-selected:text-accent-foreground data-disabled:opacity-75'
                     onSelect={() => runCommand(() => setTheme('light'))}
                   >
                     <SunIcon className='mr-2 h-4 w-4' />
                     Light
                   </Command.Item>
                   <Command.Item
-                    className='relative flex cursor-default select-none items-center rounded-xs px-1 py-1 text-sm outline-hidden aria-selected:bg-neutral-200 aria-selected:text-neutral-900 dark:aria-selected:bg-neutral-800 dark:aria-selected:text-neutral-100 data-disabled:opacity-75'
+                    className='relative flex cursor-default select-none items-center rounded-xs px-1 py-1 text-sm outline-hidden aria-selected:bg-accent aria-selected:text-accent-foreground data-disabled:opacity-75'
                     onSelect={() => runCommand(() => setTheme('dark'))}
                   >
                     <MoonIcon className='mr-2 h-4 w-4' />
                     Dark
                   </Command.Item>
                   <Command.Item
-                    className='relative flex cursor-default select-none items-center rounded-xs px-1 py-1 text-sm outline-hidden aria-selected:bg-neutral-200 aria-selected:text-neutral-900 dark:aria-selected:bg-neutral-800 dark:aria-selected:text-neutral-100 data-disabled:opacity-75'
+                    className='relative flex cursor-default select-none items-center rounded-xs px-1 py-1 text-sm outline-hidden aria-selected:bg-accent aria-selected:text-accent-foreground data-disabled:opacity-75'
                     onSelect={() => runCommand(() => setTheme('system'))}
                   >
                     <LaptopIcon className='mr-2 h-4 w-4' />

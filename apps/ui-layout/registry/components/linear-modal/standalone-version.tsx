@@ -113,7 +113,7 @@ const LinearCardDialog: React.FC = () => {
           {items.map((item, i) => (
             <motion.div
               key={item.id}
-              className='shrink-0 flex relative flex-col overflow-hidden border dark:bg-black bg-neutral-100 hover:bg-neutral-200 dark:hover:bg-neutral-950 cursor-pointer transition-colors'
+              className='shrink-0 flex relative flex-col overflow-hidden border bg-muted hover:bg-muted/80 cursor-pointer transition-colors'
               layoutId={`dialog-${item.id}`}
               style={{ width: '250px', borderRadius: '12px' }}
               tabIndex={i}
@@ -139,13 +139,13 @@ const LinearCardDialog: React.FC = () => {
                 <div className='flex-1'>
                   <motion.h3
                     layoutId={`dialog-title-${item.id}`}
-                    className='dark:text-white text-black font-semibold text-sm truncate'
+                    className='text-foreground font-semibold text-sm truncate'
                   >
                     {item.title}
                   </motion.h3>
                 </div>
                 <button
-                  className='absolute bottom-2 right-2 p-2 dark:bg-neutral-800 bg-neutral-300 hover:bg-neutral-400 dark:hover:bg-neutral-700 rounded-xl transition-colors'
+                  className='absolute bottom-2 right-2 p-2 bg-muted hover:bg-muted/80 rounded-xl transition-colors'
                   aria-label={`Open ${item.title}`}
                   tabIndex={-1}
                 >
@@ -174,7 +174,7 @@ const LinearCardDialog: React.FC = () => {
                 className='pointer-events-none fixed inset-0 flex items-center justify-center z-50 p-4'
               >
                 <motion.div
-                  className='pointer-events-auto relative flex h-auto w-full max-w-[500px] flex-col overflow-hidden dark:bg-neutral-900 bg-white border shadow-2xl max-h-[90vh] overflow-y-auto'
+                  className='pointer-events-auto relative flex h-auto w-full max-w-[500px] flex-col overflow-hidden bg-background border shadow-2xl max-h-[90vh] overflow-y-auto'
                   layoutId={`dialog-${currentItem.id}`}
                   tabIndex={-1}
                   style={{ borderRadius: '24px' }}
@@ -192,7 +192,7 @@ const LinearCardDialog: React.FC = () => {
                   <div className='p-6'>
                     <motion.h2
                       layoutId={`dialog-title-${currentItem.id}`}
-                      className='text-2xl font-bold text-zinc-950 dark:text-zinc-50 mb-4'
+                      className='text-2xl font-bold text-foreground mb-4'
                       id={`dialog-title-${currentItem.id}`}
                     >
                       {currentItem.title}
@@ -202,7 +202,7 @@ const LinearCardDialog: React.FC = () => {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 20 }}
                       transition={{ delay: 0.1 }}
-                      className='text-zinc-700 dark:text-zinc-300 leading-relaxed'
+                      className='text-muted-foreground leading-relaxed'
                       id={`dialog-description-${currentItem.id}`}
                     >
                       {currentItem.description}
@@ -212,7 +212,7 @@ const LinearCardDialog: React.FC = () => {
                         {currentItem.tags.map((tag, tagIndex) => (
                           <span
                             key={`${tag}-${tagIndex}`}
-                            className='px-2 py-1 text-xs bg-neutral-200 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 rounded-full'
+                            className='px-2 py-1 text-xs bg-muted text-muted-foreground rounded-full'
                           >
                             {tag}
                           </span>

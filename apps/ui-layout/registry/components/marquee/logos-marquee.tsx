@@ -34,7 +34,7 @@ const Logo = ({ name, img }: { name: string; img: string }) => {
 
 const MarqueeLogos = () => {
   return (
-    <div className='relative flex h-full w-full flex-col items-center justify-center gap-4 overflow-hidden rounded-lg dark:bg-neutral-800 bg-neutral-50 py-20 '>
+    <div className='relative flex h-full w-full flex-col items-center justify-center gap-4 overflow-hidden rounded-lg bg-muted py-20 '>
       <Marquee className='[--gap:3rem]'>
         {logos.map((logo) => (
           <Logo key={logo.name} {...logo} />

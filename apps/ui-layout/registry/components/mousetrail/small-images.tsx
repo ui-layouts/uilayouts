@@ -26,7 +26,7 @@ export default function SmallImages() {
         maxNumberOfImages={9}
         distance={35}
         imgClass='w-20 h-24'
-        className='bg-white text-black'
+        className='bg-background text-foreground'
       >
         <article className='relative z-50 '>
           <h1 className='xl:text-[7em] sm:text-6xl text-4xl text-center font-semibold '>

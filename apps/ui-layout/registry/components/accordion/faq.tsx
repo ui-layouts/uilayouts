@@ -67,13 +67,13 @@ function SingleLayout() {
             >
               {/* Accessible button - handle click here instead of the wrapping div */}
               <button
-                onClick={() => handleClick(index)}
-                className='p-3 px-2 w-full cursor-pointer sm:text-base text-xs items-center transition-all font-semibold dark:text-white text-black flex gap-2'
+                className={`p-3 px-2 w-full cursor-pointer sm:text-base text-xs items-center transition-all font-semibold text-foreground   flex gap-2
+               `}
               >
                 <Plus
                   className={`${
-                    isOpen ? 'rotate-45' : 'rotate-0'
-                  } transition-transform duration-300 ease-in-out w-5 h-5 dark:text-neutral-200 text-neutral-600`}
+                    activeIndex === index ? 'rotate-45' : 'rotate-0 '
+                  } transition-transform ease-in-out w-5 h-5  text-muted-foreground`}
                 />
                 {tab.title}
               </button>
@@ -89,7 +89,9 @@ function SingleLayout() {
                       ease: 'easeInOut',
                     }}
                   >
-                    <p className='dark:text-neutral-300 text-neutral-700 p-3 xl:text-base sm:text-sm text-xs pt-0 w-[90%]'>
+                    <p
+                      className={`text-foreground p-3 xl:text-base sm:text-sm text-xs pt-0 w-[90%]`}
+                    >
                       {tab.description}
                     </p>
                   </motion.div>

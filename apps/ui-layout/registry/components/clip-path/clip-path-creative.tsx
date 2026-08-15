@@ -32,7 +32,7 @@ function ClipPathCreative() {
         </defs>
       </svg>
 
-      <section className='grid grid-cols-3 gap-8 dark:bg-black bg-white border rounded-lg p-5'>
+      <section className='grid grid-cols-3 gap-8 bg-background border rounded-lg p-5'>
         <figure style={{ clipPath: 'url(#clip-squiggle)' }}>
           <img
             src='https://images.unsplash.com/photo-1727889490721-4f27ef9b6673?q=80&w=870&auto=format&fit=crop'

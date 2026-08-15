@@ -18,7 +18,7 @@ export default function HomeDateTimePicker() {
         value={selectedDate}
         onValueChange={handleDateChange}
         placeholder='Enter a date and time'
-        className='bg-primary-base'
+        className='bg-card'
       />
     </div>
   );

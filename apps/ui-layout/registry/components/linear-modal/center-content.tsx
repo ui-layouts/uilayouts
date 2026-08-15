@@ -51,14 +51,14 @@ export default function App() {
                 style={{
                   borderRadius: '12px',
                 }}
-                className='flex w-full h-72 border dark:bg-black bg-white flex-col overflow-hidden'
+                className='flex w-full h-72 border bg-background flex-col overflow-hidden'
               >
                 <DialogImage src={item.url} alt='' className='h-full w-full object-cover' />
                 <div className='flex grow flex-row items-end justify-between p-3 pt-4 text-primary'>
                   <div>
                     <DialogTitle className='text-xl '>{item.title}</DialogTitle>
                   </div>
-                  <button className='absolute bottom-2 right-2 p-2 bg-neutral-200 dark:bg-neutral-900 rounded-lg'>
+                  <button className='absolute bottom-2 right-2 p-2 bg-muted rounded-lg'>
                     <Plus className='w-6 h-6' />
                   </button>
                 </div>
@@ -70,7 +70,7 @@ export default function App() {
                   }}
                   className='h-fit mx-auto border-4'
                 >
-                  <div className='flex flex-col relative dark:bg-neutral-900 bg-neutral-100 lg:w-176 w-[80%] h-[80vh] overflow-y-auto '>
+                  <div className='flex flex-col relative bg-muted lg:w-176 w-[80%] h-[80vh] overflow-y-auto '>
                     <div className='flex-1 overflow-hidden'>
                       <DialogImage
                         src={item.url}
@@ -80,7 +80,7 @@ export default function App() {
                     </div>
 
                     <div className='p-6'>
-                      <DialogTitle className='text-5xl dark:text-white text-zinc-950 '>
+                      <DialogTitle className='text-5xl text-foreground '>
                         {item.title}
                       </DialogTitle>
 
@@ -92,7 +92,7 @@ export default function App() {
                           exit: { opacity: 0, scale: 0.8, y: -50 },
                         }}
                       >
-                        <p className='mt-2 dark:text-white text-zinc-500 '>{item.description}</p>
+                        <p className='mt-2 text-muted-foreground '>{item.description}</p>
                       </DialogDescription>
                     </div>
                     <DialogClose className='text-primary  bg-primary-foreground p-4 rounded-lg' />

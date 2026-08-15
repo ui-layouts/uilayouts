@@ -44,7 +44,7 @@ export default function SpotlightPage() {
                   {/* Text */}
                   <div className='grow mb-5'>
                     <h2 className='text-xl text-slate-200 font-bold mb-1'>Amazing Integration</h2>
-                    <p className='text-sm text-slate-500'>
+                    <p className='text-sm text-muted-foreground'>
                       Quickly apply filters to refine your issues lists and create custom views.
                     </p>
                   </div>
@@ -95,7 +95,7 @@ export default function SpotlightPage() {
                   {/* Text */}
                   <div className='grow mb-5'>
                     <h2 className='text-xl text-slate-200 font-bold mb-1'>Amazing Integration</h2>
-                    <p className='text-sm text-slate-500'>
+                    <p className='text-sm text-muted-foreground'>
                       Quickly apply filters to refine your issues lists and create custom views.
                     </p>
                   </div>
@@ -146,7 +146,7 @@ export default function SpotlightPage() {
                   {/* Text */}
                   <div className='grow mb-5'>
                     <h2 className='text-xl text-slate-200 font-bold mb-1'>Amazing Integration</h2>
-                    <p className='text-sm text-slate-500'>
+                    <p className='text-sm text-muted-foreground'>
                       Quickly apply filters to refine your issues lists and create custom views.
                     </p>
                   </div>
@@ -197,7 +197,7 @@ export default function SpotlightPage() {
                   {/* Text */}
                   <div className='grow mb-5'>
                     <h2 className='text-xl text-slate-200 font-bold mb-1'>Amazing Integration</h2>
-                    <p className='text-sm text-slate-500'>
+                    <p className='text-sm text-muted-foreground'>
                       Quickly apply filters to refine your issues lists and create custom views.
                     </p>
                   </div>
@@ -248,7 +248,7 @@ export default function SpotlightPage() {
                   {/* Text */}
                   <div className='grow mb-5'>
                     <h2 className='text-xl text-slate-200 font-bold mb-1'>Amazing Integration</h2>
-                    <p className='text-sm text-slate-500'>
+                    <p className='text-sm text-muted-foreground'>
                       Quickly apply filters to refine your issues lists and create custom views.
                     </p>
                   </div>
@@ -299,7 +299,7 @@ export default function SpotlightPage() {
                   {/* Text */}
                   <div className='grow mb-5'>
                     <h2 className='text-xl text-slate-200 font-bold mb-1'>Amazing Integration</h2>
-                    <p className='text-sm text-slate-500'>
+                    <p className='text-sm text-muted-foreground'>
                       Quickly apply filters to refine your issues lists and create custom views.
                     </p>
                   </div>

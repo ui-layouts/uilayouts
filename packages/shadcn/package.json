@@ -14,22 +14,23 @@
     "build": "tsc --project tsconfig.json"
   },
   "dependencies": {
-    "@radix-ui/react-aspect-ratio": "^1.0.3",
-    "@radix-ui/react-slot": "^1.0.2",
-    "@radix-ui/react-switch": "^1.1.2",
-    "class-variance-authority": "^0.7.0",
+    "@base-ui/react": "^1.6.0",
+    "@radix-ui/react-aspect-ratio": "^1.1.11",
+    "@radix-ui/react-slot": "^1.3.0",
+    "@radix-ui/react-switch": "^1.3.2",
+    "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "lucide-react": "^0.344.0",
-    "react-day-picker": "^8.10.1",
-    "tailwind-merge": "^2.6.0"
+    "lucide-react": "^1.23.0",
+    "react-day-picker": "^10.0.1",
+    "tailwind-merge": "^3.6.0"
   },
   "peerDependencies": {
     "react": "^19.1.4",
     "react-dom": "^19.1.4"
   },
   "devDependencies": {
-    "typescript": "^5.3.3",
-    "@types/react": "^19.0.12",
-    "@types/react-dom": "^19.0.4"
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "typescript": "^6.0.3"
   }
 }

@@ -72,7 +72,7 @@ export function NavigationMenuDemo() {
   return (
     <NavigationMenuPrimitive.Root className='relative  '>
       <NavigationMenuPrimitive.List
-        className={cn('flex flex-row rounded-lg hover:bg-white  p-2 space-x-2')}
+        className={cn('flex flex-row rounded-lg hover:bg-card p-2 space-x-2')}
       >
         <NavigationMenuPrimitive.Item>
           <NavigationMenuPrimitive.Trigger
@@ -155,7 +155,7 @@ export function NavigationMenuDemo() {
             'transition-[width_transform] duration-250 ease-[ease]'
           )}
         >
-          <div className='top-1 relative bg-white  w-2 h-2 rotate-45' />
+          <div className='top-1 relative bg-popover w-2 h-2 rotate-45' />
         </NavigationMenuPrimitive.Indicator>
       </NavigationMenuPrimitive.List>
 
@@ -167,7 +167,7 @@ export function NavigationMenuDemo() {
       >
         <NavigationMenuPrimitive.Viewport
           className={cn(
-            'relative mt-2 shadow-lg rounded-md bg-white  overflow-hidden',
+            'relative mt-2 shadow-lg rounded-md bg-popover overflow-hidden',
             'w-radix-navigation-menu-viewport',
             'h-radix-navigation-menu-viewport',
             'radix-state-open:animate-scale-in-content',

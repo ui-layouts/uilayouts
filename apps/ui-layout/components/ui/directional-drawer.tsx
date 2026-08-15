@@ -124,13 +124,13 @@ export function DirectionalDrawer({
       >
         <VaulSidebar.Portal>
           <VaulSidebar.Overlay
-            className='fixed inset-0 dark:bg-black/40 bg-white/50 backdrop-blur-xs z-50'
+            className='fixed inset-0 bg-background/50 backdrop-blur-xs z-50'
             onClick={() => setOpen(false)}
           />
           <VaulSidebar.Content
             className={cn(
               `${directionClasses.border} z-50 ${directionClasses.size} fixed ${directionClasses.position} ${
-                outsideClose ? 'dark:bg-zinc-950 bg-zinc-100' : ''
+                outsideClose ? 'bg-secondary' : ''
               }`,
               className
             )}
@@ -139,7 +139,7 @@ export function DirectionalDrawer({
               className={`${
                 outsideClose
                   ? 'w-full h-full'
-                  : `dark:bg-neutral-900 relative bg-white ${directionClasses.border} ${directionClasses.size}`
+                  : `relative bg-card ${directionClasses.border} ${directionClasses.size}`
               }`}
             >
               {isDesktop ? (
@@ -151,7 +151,7 @@ export function DirectionalDrawer({
                 </button>
               ) : (
                 <div
-                  className={`absolute ${directionClasses.handlePosition} mx-auto ${directionClasses.handleSize} shrink-0 rounded-full bg-neutral-600 my-4`}
+                  className={`absolute ${directionClasses.handlePosition} mx-auto ${directionClasses.handleSize} shrink-0 rounded-full bg-muted-foreground my-4`}
                 />
               )}
               {content}

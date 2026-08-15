@@ -191,12 +191,12 @@ export default function TreeCodeViewerDemo() {
 
   if (files.length === 0) {
     return (
-      <div className='p-6 w-full mx-auto h-[400px] dark:bg-neutral-800 bg-neutral-200 animate-pulse'></div>
+      <div className='p-6 w-full mx-auto h-[400px] bg-muted animate-pulse'></div>
     );
   }
 
   return (
-    <div className='p-6 w-full mx-auto dark:bg-black bg-white rounded'>
+    <div className='p-6 w-full mx-auto bg-background rounded'>
       <TreeCodeViewer files={files} />
     </div>
   );

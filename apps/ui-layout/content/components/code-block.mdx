@@ -31,9 +31,9 @@ export const metadata = {
 
 <Tabs defaultValue="cli">
 
-<TabsList className='w-full bg-white justify-start dark:bg-neutral-800 h-11'>
-  <TabsTrigger value='cli'>CLI</TabsTrigger>
-  <TabsTrigger value='manual'>Manual</TabsTrigger>
+<TabsList className='border-b w-full bg-muted justify-start h-12 mt-4'>
+  <TabsTrigger value='cli' className="data-[state=active]:bg-card gap-1 data-[state=active]:border">CLI</TabsTrigger>
+  <TabsTrigger value='manual' className="data-[state=active]:bg-card gap-1 data-[state=active]:border">Manual</TabsTrigger>
 </TabsList>
 
   <TabsContent value="cli">

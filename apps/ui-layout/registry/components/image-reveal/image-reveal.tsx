@@ -77,7 +77,7 @@ function ImageReveal2() {
           onMouseEnter={() => handleImageInteraction(item, 1)}
           onMouseMove={() => handleImageInteraction(item, 1)}
           onMouseLeave={() => handleImageInteraction(item, 0)}
-          className='w-full py-5 cursor-pointer text-center flex justify-between items-center text-primary border-b dark:border-neutral-800 border-neutral-50 last:border-none'
+          className='w-full py-5 cursor-pointer text-center flex justify-between items-center text-primary border-b border-border last:border-none'
         >
           <p className='text-5xl'>{item.label}</p>
           <span>

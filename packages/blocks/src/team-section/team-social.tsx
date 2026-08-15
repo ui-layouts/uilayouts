@@ -2,7 +2,7 @@
 
 import { TimelineAnimation } from '@/components/ui/timeline-animation'
 import { Button } from '@repo/shadcn'
-import { LinkedinIcon, TwitterIcon } from 'lucide-react'
+import { LinkedinIcon, TwitterIcon } from '@repo/ui'
 import React, { useRef } from 'react'
 const TEAM_MEMBERS_3 = [
   {

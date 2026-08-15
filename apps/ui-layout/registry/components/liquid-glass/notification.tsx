@@ -39,9 +39,9 @@ const NotificationLiquid = () => {
             <div className='grow pr-4'>
               <div className='font-semibold text-lg'>UI-Layouts</div>
               <div className='text-sm'>New components are available for you</div>
-              <div className='text-sm text-neutral-200'>Liquid-Glass</div>
+              <div className='text-sm text-muted-foreground'>Liquid-Glass</div>
             </div>
-            <div className='shrink-0 ml-4 text-sm text-neutral-200 self-start pt-1'>12:34</div>
+            <div className='shrink-0 ml-4 text-sm text-muted-foreground self-start pt-1'>12:34</div>
           </div>
           <Image
             src='/og.jpg'
@@ -103,7 +103,7 @@ const NotificationLiquid = () => {
               </div>
               <div className='text-sm'>New components are available for you</div>
             </div>
-            <div className='shrink-0 ml-4 text-sm text-neutral-200 self-start pt-1'>12:34</div>
+            <div className='shrink-0 ml-4 text-sm text-muted-foreground self-start pt-1'>12:34</div>
           </div>
         </LiquidGlassCard>
       </div>
