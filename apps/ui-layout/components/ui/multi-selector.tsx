@@ -186,7 +186,7 @@ export const MultiSelect = React.forwardRef<HTMLButtonElement, MultiSelectProps>
                   {!showall && selectedValues.length > maxCount && (
                     <div
                       className={cn(
-                        'bg-primary-foreground inline-flex items-center border px-2 py-0.5 rounded-lg text-foreground border-foreground/1 hover:bg-transparent'
+                        'bg-transparent inline-flex items-center border px-2 py-0.5 rounded-lg text-foreground border-foreground/10 hover:bg-transparent'
                       )}
                       style={{ animationDuration: `${animation}s` }}
                     >
