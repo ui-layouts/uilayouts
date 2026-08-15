@@ -9,6 +9,7 @@ import { StructuredData } from '@/components/seo/structured-data';
 import { Container } from '@/components/ui/container';
 import { TreeCodeViewer } from '@/components/ui/tree-view-code';
 import CliCopyBtn from '@/components/website/blocks-components/cli-copy-btn';
+import { DesignMarkdown } from '@/components/website/blocks-components/design-markdown';
 import DynamicPreviewIframe from '@/components/website/blocks-components/dynamic-preview-Iframe';
 import { TableOfContents } from '@/components/website/blocks-components/table-of-contents';
 import CarbonAd from '@/components/website/carbon-ads';
@@ -16,7 +17,8 @@ import { ClientPreCode } from '@/components/website/code-components/client-pre-c
 import HomeFooter from '@/components/website/home/home-footer';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/website/ui/tabs';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/website/ui/tooltip';
-import { generateDesignSystem } from '@/lib/generate-design-system';
+import { getBlockDesignSystem } from '@/lib/design-systems';
+import { renderDesignSystem } from '@/lib/design-systems/render';
 import { highlightCode } from '@/lib/shiki-highlighter';
 import { transformCodeFiles } from '@/lib/transform-code-files';
 import { cn } from '@/lib/utils';
@@ -93,12 +95,7 @@ export default async function SectionPage(props: { params: Promise<{ section?: s
   const blocksWithCode = await Promise.all(
     sectionData.blocks.map(async (block) => {
       const transformedCodeFiles = await transformCodeFiles(block.filePath, block.id);
-      const designMarkdown = generateDesignSystem({
-        id: block.id,
-        name: block.name,
-        description: block.des,
-        source: transformedCodeFiles[0].raw,
-      });
+      const designMarkdown = renderDesignSystem(block.id, getBlockDesignSystem(block.id));
 
       return {
         ...block,
@@ -273,7 +270,11 @@ export default async function SectionPage(props: { params: Promise<{ section?: s
                     </TabsContent>
                     {/* PORTABLE DESIGN SYSTEM */}
                     <TabsContent value='design'>
-                      <ClientPreCode html={block.designHtml} raw={block.designMarkdown} />
+                      <DesignMarkdown
+                        id={block.id}
+                        html={block.designHtml}
+                        markdown={block.designMarkdown}
+                      />
                     </TabsContent>
                     {/* CODE */}
                     <TabsContent value='code'>
