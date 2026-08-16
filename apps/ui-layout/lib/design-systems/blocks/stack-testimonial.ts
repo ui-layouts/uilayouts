@@ -2,6 +2,35 @@ import { defineDesignSystem } from '../types';
 
 export const stack_testimonialDesign = defineDesignSystem({
   name: 'Stack Testimonial',
+  sourceFiles: [
+    {
+      path: 'packages/blocks/src/testimonial-section/stack-testimonial.tsx',
+      role: 'the canonical block source and the exact effect composition',
+    },
+    {
+      path: 'packages/shadcn/src/index.tsx',
+      role: 'the open-source workspace component barrel used by this block',
+    },
+  ],
+  dependencies: [
+    {
+      name: 'lucide-react',
+      kind: 'external',
+      role: 'provides the line-icon vocabulary used by controls and labels',
+      install: 'pnpm add lucide-react',
+    },
+    {
+      name: 'motion',
+      kind: 'external',
+      role: 'provides the entrance, presence, drag, spring, and layout animation behavior',
+      install: 'pnpm add motion',
+    },
+    {
+      name: '@repo/shadcn',
+      kind: 'workspace',
+      role: 'an existing workspace design primitive; reuse it rather than replacing its behavior',
+    },
+  ],
   personality:
     'Draggable card deck defines the identity. The section should feel purposeful and visually specific; new sections should inherit its visual mechanism, not merely its colors.',
   typography:

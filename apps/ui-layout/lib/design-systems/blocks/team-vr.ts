@@ -2,6 +2,35 @@ import { defineDesignSystem } from '../types';
 
 export const team_vrDesign = defineDesignSystem({
   name: 'VR',
+  sourceFiles: [
+    {
+      path: 'packages/blocks/src/team-section/team-vr.tsx',
+      role: 'the canonical block source and the exact effect composition',
+    },
+    {
+      path: 'apps/ui-layout/components/ui/timeline-animation.tsx',
+      role: 'the scroll-triggered stagger primitive used to sequence the block',
+    },
+  ],
+  dependencies: [
+    {
+      name: '@/components/ui/timeline-animation',
+      kind: 'local',
+      role: 'the scroll-triggered stagger primitive used to sequence the block',
+    },
+    {
+      name: 'lucide-react',
+      kind: 'external',
+      role: 'provides the line-icon vocabulary used by controls and labels',
+      install: 'pnpm add lucide-react',
+    },
+    {
+      name: 'motion',
+      kind: 'external',
+      role: 'provides the entrance, presence, drag, spring, and layout animation behavior',
+      install: 'pnpm add motion',
+    },
+  ],
   personality:
     'Pink-orange VR horizon defines the identity. The section should feel purposeful and visually specific; new sections should inherit its visual mechanism, not merely its colors.',
   typography:

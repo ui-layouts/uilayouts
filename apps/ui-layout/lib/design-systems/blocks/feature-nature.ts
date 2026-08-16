@@ -2,6 +2,44 @@ import { defineDesignSystem } from '../types';
 
 export const feature_natureDesign = defineDesignSystem({
   name: 'Feature Nature',
+  sourceFiles: [
+    {
+      path: 'packages/blocks/src/feature-section/feature-nature.tsx',
+      role: 'the canonical block source and the exact effect composition',
+    },
+    {
+      path: 'apps/ui-layout/lib/utils.ts',
+      role: 'the class-merging utility',
+    },
+    {
+      path: 'packages/shadcn/src/index.tsx',
+      role: 'the open-source workspace component barrel used by this block',
+    },
+  ],
+  dependencies: [
+    {
+      name: '@/lib/utils',
+      kind: 'local',
+      role: 'the class-merging utility',
+    },
+    {
+      name: '@repo/shadcn',
+      kind: 'workspace',
+      role: 'an existing workspace design primitive; reuse it rather than replacing its behavior',
+    },
+    {
+      name: 'clsx',
+      kind: 'external',
+      role: 'provides an external primitive used by this effect',
+      install: 'pnpm add clsx',
+    },
+    {
+      name: 'tailwind-merge',
+      kind: 'external',
+      role: 'provides an external primitive used by this effect',
+      install: 'pnpm add tailwind-merge',
+    },
+  ],
   personality:
     'Editorial forest contrast defines the identity. The section should feel purposeful and visually specific; new sections should inherit its visual mechanism, not merely its colors.',
   typography:

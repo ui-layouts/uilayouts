@@ -2,6 +2,35 @@ import { defineDesignSystem } from '../types';
 
 export const faq_founderDesign = defineDesignSystem({
   name: 'FAQs Founder',
+  sourceFiles: [
+    {
+      path: 'packages/blocks/src/faq-section/faq-founder.tsx',
+      role: 'the canonical block source and the exact effect composition',
+    },
+    {
+      path: 'apps/ui-layout/components/ui/timeline-animation.tsx',
+      role: 'the scroll-triggered stagger primitive used to sequence the block',
+    },
+  ],
+  dependencies: [
+    {
+      name: 'motion',
+      kind: 'external',
+      role: 'provides the entrance, presence, drag, spring, and layout animation behavior',
+      install: 'pnpm add motion',
+    },
+    {
+      name: 'lucide-react',
+      kind: 'external',
+      role: 'provides the line-icon vocabulary used by controls and labels',
+      install: 'pnpm add lucide-react',
+    },
+    {
+      name: '@/components/ui/timeline-animation',
+      kind: 'local',
+      role: 'the scroll-triggered stagger primitive used to sequence the block',
+    },
+  ],
   personality:
     'Founder Q&A split defines the identity. The section should feel purposeful and visually specific; new sections should inherit its visual mechanism, not merely its colors.',
   typography:

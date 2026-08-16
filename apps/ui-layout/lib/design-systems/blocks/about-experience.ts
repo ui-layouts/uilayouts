@@ -2,6 +2,29 @@ import { defineDesignSystem } from '../types';
 
 export const about_experienceDesign = defineDesignSystem({
   name: 'Experience',
+  sourceFiles: [
+    {
+      path: 'packages/blocks/src/about-section/about-experience.tsx',
+      role: 'the canonical block source and the exact effect composition',
+    },
+    {
+      path: 'packages/shadcn/src/index.tsx',
+      role: 'the open-source workspace component barrel used by this block',
+    },
+  ],
+  dependencies: [
+    {
+      name: '@repo/shadcn',
+      kind: 'workspace',
+      role: 'an existing workspace design primitive; reuse it rather than replacing its behavior',
+    },
+    {
+      name: 'motion',
+      kind: 'external',
+      role: 'provides the entrance, presence, drag, spring, and layout animation behavior',
+      install: 'pnpm add motion',
+    },
+  ],
   personality:
     'Oxide-red heritage panel defines the identity. The section should feel purposeful and visually specific; new sections should inherit its visual mechanism, not merely its colors.',
   typography:

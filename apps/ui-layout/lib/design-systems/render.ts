@@ -1,6 +1,15 @@
 import type { DesignSystemSpec } from './types';
 
 export function renderDesignSystem(id: string, spec: DesignSystemSpec) {
+  const sourceFiles = spec.sourceFiles
+    .map(({ path, role }) => `- \`${path}\` — ${role}`)
+    .join('\n');
+  const dependencies = spec.dependencies
+    .map(({ name, kind, role, install }) => {
+      const installation = install ? ` Install with \`${install}\`.` : '';
+      return `- **${name}** (${kind}) — ${role}.${installation}`;
+    })
+    .join('\n');
   const effects = spec.effects
     .map(
       ({ name, recipe, usage }, index) =>
@@ -11,6 +20,16 @@ export function renderDesignSystem(id: string, spec: DesignSystemSpec) {
   return `# ${spec.name} — Design.md
 
 > **Purpose:** Give this file to an AI before asking it to add a page or section that must match the \`${id}\` block. This is an authored visual specification, not a dump of the component's CSS classes.
+
+## Where the implementation lives
+
+Read these open-source files before recreating the effect:
+
+${sourceFiles}
+
+### Libraries and project primitives
+
+${dependencies || '- No effect library is required; the effect is implemented directly with React and CSS/Tailwind.'}
 
 ## Design thesis
 

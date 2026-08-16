@@ -2,6 +2,23 @@ import { defineDesignSystem } from '../types';
 
 export const footer_detailedDesign = defineDesignSystem({
   name: 'Footer Detailed',
+  sourceFiles: [
+    {
+      path: 'packages/blocks/src/footer-section/footer-detailed.tsx',
+      role: 'the canonical block source and the exact effect composition',
+    },
+    {
+      path: 'packages/shadcn/src/index.tsx',
+      role: 'the open-source workspace component barrel used by this block',
+    },
+  ],
+  dependencies: [
+    {
+      name: '@repo/shadcn',
+      kind: 'workspace',
+      role: 'an existing workspace design primitive; reuse it rather than replacing its behavior',
+    },
+  ],
   personality:
     'Deep directory footer defines the identity. The section should feel purposeful and visually specific; new sections should inherit its visual mechanism, not merely its colors.',
   typography:

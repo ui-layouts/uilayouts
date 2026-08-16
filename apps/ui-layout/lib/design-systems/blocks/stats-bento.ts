@@ -2,6 +2,13 @@ import { defineDesignSystem } from '../types';
 
 export const stats_bentoDesign = defineDesignSystem({
   name: 'Stats Bento',
+  sourceFiles: [
+    {
+      path: 'packages/blocks/src/stats-section/stats-bento.tsx',
+      role: 'the canonical block source and the exact effect composition',
+    },
+  ],
+  dependencies: [],
   personality:
     'Offset monochrome metrics defines the identity. The section should feel purposeful and visually specific; new sections should inherit its visual mechanism, not merely its colors.',
   typography:

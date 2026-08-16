@@ -2,6 +2,13 @@ import { defineDesignSystem } from '../types';
 
 export const footer_boldDesign = defineDesignSystem({
   name: 'Footer Bold',
+  sourceFiles: [
+    {
+      path: 'packages/blocks/src/footer-section/footer-bold.tsx',
+      role: 'the canonical block source and the exact effect composition',
+    },
+  ],
+  dependencies: [],
   personality:
     'Monumental wordmark footer defines the identity. The section should feel purposeful and visually specific; new sections should inherit its visual mechanism, not merely its colors.',
   typography:

@@ -2,6 +2,35 @@ import { defineDesignSystem } from '../types';
 
 export const hero_ai_value_propositionDesign = defineDesignSystem({
   name: 'AI Value Proposition',
+  sourceFiles: [
+    {
+      path: 'packages/blocks/src/hero-section/hero-ai-value-proposition.tsx',
+      role: 'the canonical block source and the exact effect composition',
+    },
+    {
+      path: 'apps/ui-layout/components/ui/timeline-animation.tsx',
+      role: 'the scroll-triggered stagger primitive used to sequence the block',
+    },
+  ],
+  dependencies: [
+    {
+      name: 'lucide-react',
+      kind: 'external',
+      role: 'provides the line-icon vocabulary used by controls and labels',
+      install: 'pnpm add lucide-react',
+    },
+    {
+      name: '@/components/ui/timeline-animation',
+      kind: 'local',
+      role: 'the scroll-triggered stagger primitive used to sequence the block',
+    },
+    {
+      name: 'motion',
+      kind: 'external',
+      role: 'provides the entrance, presence, drag, spring, and layout animation behavior',
+      install: 'pnpm add motion',
+    },
+  ],
   personality:
     'Floating product constellation defines the identity. The section should feel immersive and launch-ready.',
   typography:

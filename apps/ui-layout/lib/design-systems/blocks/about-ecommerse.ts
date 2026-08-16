@@ -2,6 +2,20 @@ import { defineDesignSystem } from '../types';
 
 export const about_ecommerseDesign = defineDesignSystem({
   name: 'About e-commerse',
+  sourceFiles: [
+    {
+      path: 'packages/blocks/src/about-section/about-ecommerse.tsx',
+      role: 'the canonical block source and the exact effect composition',
+    },
+  ],
+  dependencies: [
+    {
+      name: 'motion',
+      kind: 'external',
+      role: 'provides the entrance, presence, drag, spring, and layout animation behavior',
+      install: 'pnpm add motion',
+    },
+  ],
   personality:
     'Warm editorial reveal defines the identity. The section should feel purposeful and visually specific; new sections should inherit its visual mechanism, not merely its colors.',
   typography:

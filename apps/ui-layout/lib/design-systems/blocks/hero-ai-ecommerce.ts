@@ -2,6 +2,57 @@ import { defineDesignSystem } from '../types';
 
 export const hero_ai_ecommerceDesign = defineDesignSystem({
   name: 'AI Ecommerce',
+  sourceFiles: [
+    {
+      path: 'packages/blocks/src/hero-section/hero-ai-ecommerce.tsx',
+      role: 'the canonical block source and the exact effect composition',
+    },
+    {
+      path: 'packages/blocks/assets/index.ts',
+      role: 'a supporting module imported by the canonical block',
+    },
+    {
+      path: 'apps/ui-layout/components/ui/timeline-animation.tsx',
+      role: 'the scroll-triggered stagger primitive used to sequence the block',
+    },
+    {
+      path: 'apps/ui-layout/hooks/use-media-query.tsx',
+      role: 'the breakpoint hook that switches the mobile composition',
+    },
+    {
+      path: 'apps/ui-layout/components/ui/motion-drawer.tsx',
+      role: 'the responsive navigation drawer used by this block',
+    },
+  ],
+  dependencies: [
+    {
+      name: 'lucide-react',
+      kind: 'external',
+      role: 'provides the line-icon vocabulary used by controls and labels',
+      install: 'pnpm add lucide-react',
+    },
+    {
+      name: '@/components/ui/timeline-animation',
+      kind: 'local',
+      role: 'the scroll-triggered stagger primitive used to sequence the block',
+    },
+    {
+      name: '@/hooks/use-media-query',
+      kind: 'local',
+      role: 'the breakpoint hook that switches the mobile composition',
+    },
+    {
+      name: '@/components/ui/motion-drawer',
+      kind: 'local',
+      role: 'the responsive navigation drawer used by this block',
+    },
+    {
+      name: 'motion',
+      kind: 'external',
+      role: 'provides the entrance, presence, drag, spring, and layout animation behavior',
+      install: 'pnpm add motion',
+    },
+  ],
   personality:
     'Indigo commerce glass defines the identity. The section should feel immersive and launch-ready.',
   typography:

@@ -2,6 +2,66 @@ import { defineDesignSystem } from '../types';
 
 export const advanced_statsDesign = defineDesignSystem({
   name: 'Advanced Stats',
+  sourceFiles: [
+    {
+      path: 'packages/blocks/src/stats-section/advanced-stats/index.tsx',
+      role: 'the canonical block source and the exact effect composition',
+    },
+    {
+      path: 'apps/ui-layout/lib/utils.ts',
+      role: 'the class-merging utility',
+    },
+    {
+      path: 'packages/blocks/src/stats-section/advanced-stats/charts.tsx',
+      role: 'a supporting module imported by the canonical block',
+    },
+    {
+      path: 'apps/ui-layout/components/ui/timeline-animation.tsx',
+      role: 'the scroll-triggered stagger primitive used to sequence the block',
+    },
+  ],
+  dependencies: [
+    {
+      name: '@/lib/utils',
+      kind: 'local',
+      role: 'the class-merging utility',
+    },
+    {
+      name: '@/components/ui/timeline-animation',
+      kind: 'local',
+      role: 'the scroll-triggered stagger primitive used to sequence the block',
+    },
+    {
+      name: 'clsx',
+      kind: 'external',
+      role: 'provides an external primitive used by this effect',
+      install: 'pnpm add clsx',
+    },
+    {
+      name: 'tailwind-merge',
+      kind: 'external',
+      role: 'provides an external primitive used by this effect',
+      install: 'pnpm add tailwind-merge',
+    },
+    {
+      name: 'recharts',
+      kind: 'external',
+      role: 'renders the chart geometry and data visualization',
+      install: 'pnpm add recharts',
+    },
+    {
+      name: 'lucide-react',
+      kind: 'external',
+      role: 'provides the line-icon vocabulary used by controls and labels',
+      install: 'pnpm add lucide-react',
+    },
+    {
+      name: 'motion',
+      kind: 'external',
+      role: 'provides the entrance, presence, drag, spring, and layout animation behavior',
+      install: 'pnpm add motion',
+    },
+  ],
   personality:
     'Analytical chart cockpit defines the identity. The section should feel purposeful and visually specific; new sections should inherit its visual mechanism, not merely its colors.',
   typography:

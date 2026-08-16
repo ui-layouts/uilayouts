@@ -2,6 +2,50 @@ import { defineDesignSystem } from '../types';
 
 export const team_classicDesign = defineDesignSystem({
   name: 'Classic',
+  sourceFiles: [
+    {
+      path: 'packages/blocks/src/team-section/team-classic.tsx',
+      role: 'the canonical block source and the exact effect composition',
+    },
+    {
+      path: 'apps/ui-layout/components/ui/timeline-animation.tsx',
+      role: 'the scroll-triggered stagger primitive used to sequence the block',
+    },
+    {
+      path: 'apps/ui-layout/lib/utils.ts',
+      role: 'the class-merging utility',
+    },
+  ],
+  dependencies: [
+    {
+      name: '@/components/ui/timeline-animation',
+      kind: 'local',
+      role: 'the scroll-triggered stagger primitive used to sequence the block',
+    },
+    {
+      name: '@/lib/utils',
+      kind: 'local',
+      role: 'the class-merging utility',
+    },
+    {
+      name: 'motion',
+      kind: 'external',
+      role: 'provides the entrance, presence, drag, spring, and layout animation behavior',
+      install: 'pnpm add motion',
+    },
+    {
+      name: 'clsx',
+      kind: 'external',
+      role: 'provides an external primitive used by this effect',
+      install: 'pnpm add clsx',
+    },
+    {
+      name: 'tailwind-merge',
+      kind: 'external',
+      role: 'provides an external primitive used by this effect',
+      install: 'pnpm add tailwind-merge',
+    },
+  ],
   personality:
     'Floating profile note defines the identity. The section should feel purposeful and visually specific; new sections should inherit its visual mechanism, not merely its colors.',
   typography:

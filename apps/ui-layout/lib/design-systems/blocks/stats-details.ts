@@ -2,6 +2,20 @@ import { defineDesignSystem } from '../types';
 
 export const stats_detailsDesign = defineDesignSystem({
   name: 'Stats Details',
+  sourceFiles: [
+    {
+      path: 'packages/blocks/src/stats-section/stats-details.tsx',
+      role: 'the canonical block source and the exact effect composition',
+    },
+  ],
+  dependencies: [
+    {
+      name: 'lucide-react',
+      kind: 'external',
+      role: 'provides the line-icon vocabulary used by controls and labels',
+      install: 'pnpm add lucide-react',
+    },
+  ],
   personality:
     'Orange detail rail defines the identity. The section should feel purposeful and visually specific; new sections should inherit its visual mechanism, not merely its colors.',
   typography:

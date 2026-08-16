@@ -2,6 +2,13 @@ import { defineDesignSystem } from '../types';
 
 export const stats_boldDesign = defineDesignSystem({
   name: 'Stats Bold',
+  sourceFiles: [
+    {
+      path: 'packages/blocks/src/stats-section/stats-bold.tsx',
+      role: 'the canonical block source and the exact effect composition',
+    },
+  ],
+  dependencies: [],
   personality:
     'Oversized editorial numbers defines the identity. The section should feel purposeful and visually specific; new sections should inherit its visual mechanism, not merely its colors.',
   typography:

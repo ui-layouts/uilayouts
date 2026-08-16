@@ -2,6 +2,20 @@ import { defineDesignSystem } from '../types';
 
 export const stats_sectionDesign = defineDesignSystem({
   name: 'Stats Section',
+  sourceFiles: [
+    {
+      path: 'packages/blocks/src/stats-section/stats-section.tsx',
+      role: 'the canonical block source and the exact effect composition',
+    },
+  ],
+  dependencies: [
+    {
+      name: 'motion',
+      kind: 'external',
+      role: 'provides the entrance, presence, drag, spring, and layout animation behavior',
+      install: 'pnpm add motion',
+    },
+  ],
   personality:
     'Violet radial metric field defines the identity. The section should feel purposeful and visually specific; new sections should inherit its visual mechanism, not merely its colors.',
   typography:

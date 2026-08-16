@@ -2,6 +2,65 @@ import { defineDesignSystem } from '../types';
 
 export const pricing_grow_businessDesign = defineDesignSystem({
   name: 'Grow Business',
+  sourceFiles: [
+    {
+      path: 'packages/blocks/src/pricing-section/grow-business.tsx',
+      role: 'the canonical block source and the exact effect composition',
+    },
+    {
+      path: 'apps/ui-layout/lib/utils.ts',
+      role: 'the class-merging utility',
+    },
+    {
+      path: 'apps/ui-layout/components/ui/timeline-animation.tsx',
+      role: 'the scroll-triggered stagger primitive used to sequence the block',
+    },
+    {
+      path: 'packages/shadcn/src/index.tsx',
+      role: 'the open-source workspace component barrel used by this block',
+    },
+  ],
+  dependencies: [
+    {
+      name: '@number-flow/react',
+      kind: 'external',
+      role: 'animates changing numeric price and metric values',
+      install: 'pnpm add @number-flow/react',
+    },
+    {
+      name: '@/lib/utils',
+      kind: 'local',
+      role: 'the class-merging utility',
+    },
+    {
+      name: '@repo/shadcn',
+      kind: 'workspace',
+      role: 'an existing workspace design primitive; reuse it rather than replacing its behavior',
+    },
+    {
+      name: '@/components/ui/timeline-animation',
+      kind: 'local',
+      role: 'the scroll-triggered stagger primitive used to sequence the block',
+    },
+    {
+      name: 'clsx',
+      kind: 'external',
+      role: 'provides an external primitive used by this effect',
+      install: 'pnpm add clsx',
+    },
+    {
+      name: 'tailwind-merge',
+      kind: 'external',
+      role: 'provides an external primitive used by this effect',
+      install: 'pnpm add tailwind-merge',
+    },
+    {
+      name: 'motion',
+      kind: 'external',
+      role: 'provides the entrance, presence, drag, spring, and layout animation behavior',
+      install: 'pnpm add motion',
+    },
+  ],
   personality:
     'Lime growth tiers defines the identity. The section should feel purposeful and visually specific; new sections should inherit its visual mechanism, not merely its colors.',
   typography:

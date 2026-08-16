@@ -2,6 +2,41 @@ import { defineDesignSystem } from '../types';
 
 export const feature_velocityDesign = defineDesignSystem({
   name: 'Feature Velocity',
+  sourceFiles: [
+    {
+      path: 'packages/blocks/src/feature-section/feature-velocity.tsx',
+      role: 'the canonical block source and the exact effect composition',
+    },
+    {
+      path: 'apps/ui-layout/lib/utils.ts',
+      role: 'the class-merging utility',
+    },
+  ],
+  dependencies: [
+    {
+      name: '@/lib/utils',
+      kind: 'local',
+      role: 'the class-merging utility',
+    },
+    {
+      name: 'lucide-react',
+      kind: 'external',
+      role: 'provides the line-icon vocabulary used by controls and labels',
+      install: 'pnpm add lucide-react',
+    },
+    {
+      name: 'clsx',
+      kind: 'external',
+      role: 'provides an external primitive used by this effect',
+      install: 'pnpm add clsx',
+    },
+    {
+      name: 'tailwind-merge',
+      kind: 'external',
+      role: 'provides an external primitive used by this effect',
+      install: 'pnpm add tailwind-merge',
+    },
+  ],
   personality:
     'Dark velocity beams defines the identity. The section should feel purposeful and visually specific; new sections should inherit its visual mechanism, not merely its colors.',
   typography:

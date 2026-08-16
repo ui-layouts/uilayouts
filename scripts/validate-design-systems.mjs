@@ -1,4 +1,4 @@
-import { readdirSync, readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
 
 const registry = readFileSync('apps/ui-layout/blocks-docs.ts', 'utf8');
 const blockIds = [
@@ -17,6 +17,8 @@ const duplicates = blockIds.filter((id, index) => blockIds.indexOf(id) !== index
 const incomplete = specIds.filter((id) => {
   const source = readFileSync(`${specDirectory}/${id}.ts`, 'utf8');
   return ![
+    'sourceFiles:',
+    'dependencies:',
     'personality:',
     'typography:',
     'palette:',
@@ -30,9 +32,22 @@ const incomplete = specIds.filter((id) => {
     'avoid:',
   ].every((field) => source.includes(field));
 });
+const brokenReferences = specIds.flatMap((id) => {
+  const source = readFileSync(`${specDirectory}/${id}.ts`, 'utf8');
+  return [...source.matchAll(/path: '([^']+)'/g)]
+    .map((match) => match[1])
+    .filter((path) => !existsSync(path))
+    .map((path) => `${id}: ${path}`);
+});
 
-if (missing.length || orphaned.length || duplicates.length || incomplete.length) {
-  console.error({ missing, orphaned, duplicates, incomplete });
+if (
+  missing.length ||
+  orphaned.length ||
+  duplicates.length ||
+  incomplete.length ||
+  brokenReferences.length
+) {
+  console.error({ missing, orphaned, duplicates, incomplete, brokenReferences });
   process.exit(1);
 }
 

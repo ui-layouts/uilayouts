@@ -2,6 +2,47 @@ import { defineDesignSystem } from '../types';
 
 export const feature_flowDesign = defineDesignSystem({
   name: 'Feature Flow',
+  sourceFiles: [
+    {
+      path: 'packages/blocks/src/feature-section/feature-flow.tsx',
+      role: 'the canonical block source and the exact effect composition',
+    },
+    {
+      path: 'apps/ui-layout/components/ui/carousel.tsx',
+      role: 'the carousel mechanics and navigation behavior',
+    },
+  ],
+  dependencies: [
+    {
+      name: 'lucide-react',
+      kind: 'external',
+      role: 'provides the line-icon vocabulary used by controls and labels',
+      install: 'pnpm add lucide-react',
+    },
+    {
+      name: '@/components/ui/carousel',
+      kind: 'local',
+      role: 'the carousel mechanics and navigation behavior',
+    },
+    {
+      name: 'embla-carousel',
+      kind: 'external',
+      role: 'provides an external primitive used by this effect',
+      install: 'pnpm add embla-carousel',
+    },
+    {
+      name: 'embla-carousel-react',
+      kind: 'external',
+      role: 'provides an external primitive used by this effect',
+      install: 'pnpm add embla-carousel-react',
+    },
+    {
+      name: 'motion',
+      kind: 'external',
+      role: 'provides the entrance, presence, drag, spring, and layout animation behavior',
+      install: 'pnpm add motion',
+    },
+  ],
   personality:
     'Warm workflow carousel defines the identity. The section should feel purposeful and visually specific; new sections should inherit its visual mechanism, not merely its colors.',
   typography:

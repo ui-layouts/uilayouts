@@ -2,6 +2,20 @@ import { defineDesignSystem } from '../types';
 
 export const feature_highlightsDesign = defineDesignSystem({
   name: 'Feature Highlights',
+  sourceFiles: [
+    {
+      path: 'packages/blocks/src/feature-section/feature-highlights.tsx',
+      role: 'the canonical block source and the exact effect composition',
+    },
+  ],
+  dependencies: [
+    {
+      name: 'lucide-react',
+      kind: 'external',
+      role: 'provides the line-icon vocabulary used by controls and labels',
+      install: 'pnpm add lucide-react',
+    },
+  ],
   personality:
     'Black spotlight strip defines the identity. The section should feel purposeful and visually specific; new sections should inherit its visual mechanism, not merely its colors.',
   typography:

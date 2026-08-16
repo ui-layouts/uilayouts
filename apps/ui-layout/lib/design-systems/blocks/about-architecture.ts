@@ -2,6 +2,20 @@ import { defineDesignSystem } from '../types';
 
 export const about_architectureDesign = defineDesignSystem({
   name: 'Architecture',
+  sourceFiles: [
+    {
+      path: 'packages/blocks/src/about-section/about-architecture.tsx',
+      role: 'the canonical block source and the exact effect composition',
+    },
+  ],
+  dependencies: [
+    {
+      name: 'motion',
+      kind: 'external',
+      role: 'provides the entrance, presence, drag, spring, and layout animation behavior',
+      install: 'pnpm add motion',
+    },
+  ],
   personality:
     'Architectural image rhythm defines the identity. The section should feel purposeful and visually specific; new sections should inherit its visual mechanism, not merely its colors.',
   typography:

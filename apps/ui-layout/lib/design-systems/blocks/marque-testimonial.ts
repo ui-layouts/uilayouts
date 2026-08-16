@@ -2,6 +2,26 @@ import { defineDesignSystem } from '../types';
 
 export const marque_testimonialDesign = defineDesignSystem({
   name: 'Marque Testimonial',
+  sourceFiles: [
+    {
+      path: 'packages/blocks/src/testimonial-section/marque-testimonial.tsx',
+      role: 'the canonical block source and the exact effect composition',
+    },
+  ],
+  dependencies: [
+    {
+      name: 'motion',
+      kind: 'external',
+      role: 'provides the entrance, presence, drag, spring, and layout animation behavior',
+      install: 'pnpm add motion',
+    },
+    {
+      name: 'lucide-react',
+      kind: 'external',
+      role: 'provides the line-icon vocabulary used by controls and labels',
+      install: 'pnpm add lucide-react',
+    },
+  ],
   personality:
     'Endless review ribbons defines the identity. The section should feel purposeful and visually specific; new sections should inherit its visual mechanism, not merely its colors.',
   typography:

@@ -2,6 +2,20 @@ import { defineDesignSystem } from '../types';
 
 export const stats_bannerDesign = defineDesignSystem({
   name: 'Stats Banner',
+  sourceFiles: [
+    {
+      path: 'packages/blocks/src/stats-section/stats-banner.tsx',
+      role: 'the canonical block source and the exact effect composition',
+    },
+  ],
+  dependencies: [
+    {
+      name: 'motion',
+      kind: 'external',
+      role: 'provides the entrance, presence, drag, spring, and layout animation behavior',
+      install: 'pnpm add motion',
+    },
+  ],
   personality:
     'Blue glass metric banner defines the identity. The section should feel purposeful and visually specific; new sections should inherit its visual mechanism, not merely its colors.',
   typography:

@@ -2,6 +2,23 @@ import { defineDesignSystem } from '../types';
 
 export const about_bentoDesign = defineDesignSystem({
   name: 'Bento',
+  sourceFiles: [
+    {
+      path: 'packages/blocks/src/about-section/about-bento.tsx',
+      role: 'the canonical block source and the exact effect composition',
+    },
+    {
+      path: 'packages/shadcn/src/index.tsx',
+      role: 'the open-source workspace component barrel used by this block',
+    },
+  ],
+  dependencies: [
+    {
+      name: '@repo/shadcn',
+      kind: 'workspace',
+      role: 'an existing workspace design primitive; reuse it rather than replacing its behavior',
+    },
+  ],
   personality:
     'Violet achievement bento defines the identity. The section should feel purposeful and visually specific; new sections should inherit its visual mechanism, not merely its colors.',
   typography:

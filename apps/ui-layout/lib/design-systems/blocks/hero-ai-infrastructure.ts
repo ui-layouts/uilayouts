@@ -2,6 +2,59 @@ import { defineDesignSystem } from '../types';
 
 export const hero_ai_infrastructureDesign = defineDesignSystem({
   name: 'AI Infrastructure',
+  sourceFiles: [
+    {
+      path: 'packages/blocks/src/hero-section/hero-ai-infrastructure.tsx',
+      role: 'the canonical block source and the exact effect composition',
+    },
+    {
+      path: 'apps/ui-layout/components/ui/timeline-animation.tsx',
+      role: 'the scroll-triggered stagger primitive used to sequence the block',
+    },
+    {
+      path: 'apps/ui-layout/hooks/use-media-query.tsx',
+      role: 'the breakpoint hook that switches the mobile composition',
+    },
+    {
+      path: 'apps/ui-layout/components/ui/motion-drawer.tsx',
+      role: 'the responsive navigation drawer used by this block',
+    },
+  ],
+  dependencies: [
+    {
+      name: 'lucide-react',
+      kind: 'external',
+      role: 'provides the line-icon vocabulary used by controls and labels',
+      install: 'pnpm add lucide-react',
+    },
+    {
+      name: '@shadergradient/react',
+      kind: 'external',
+      role: 'renders the animated WebGL shader/gradient field; use its configured uniforms rather than a CSS approximation',
+      install: 'pnpm add @shadergradient/react',
+    },
+    {
+      name: '@/components/ui/timeline-animation',
+      kind: 'local',
+      role: 'the scroll-triggered stagger primitive used to sequence the block',
+    },
+    {
+      name: '@/hooks/use-media-query',
+      kind: 'local',
+      role: 'the breakpoint hook that switches the mobile composition',
+    },
+    {
+      name: '@/components/ui/motion-drawer',
+      kind: 'local',
+      role: 'the responsive navigation drawer used by this block',
+    },
+    {
+      name: 'motion',
+      kind: 'external',
+      role: 'provides the entrance, presence, drag, spring, and layout animation behavior',
+      install: 'pnpm add motion',
+    },
+  ],
   personality:
     'Shader-lit infrastructure field defines the identity. The section should feel immersive and launch-ready.',
   typography:
@@ -11,12 +64,12 @@ export const hero_ai_infrastructureDesign = defineDesignSystem({
   composition:
     'Use a wide hero stage with a centered or split headline and an overlapping product visualization; preserve generous vertical air.',
   background:
-    'Place a full-bleed ShaderGradient scene behind a near-black scrim; keep blue light concentrated around the product diagram and use translucent white/10 glass panels with blur.',
+    'Render a full-bleed `ShaderGradientCanvas` as an absolute 100vw × 120vh layer behind the content. The sphere shader itself creates the blue-to-black shadow gradient; there is no static gradient image. Foreground content stays at `z-10`, and translucent white/10 glass controls add local depth without covering the shader.',
   effects: [
     {
       name: 'Shader-lit infrastructure field',
       recipe:
-        'Place a full-bleed ShaderGradient scene behind a near-black scrim; keep blue light concentrated around the product diagram and use translucent white/10 glass panels with blur.',
+        'Import `ShaderGradientCanvas` and `ShaderGradient` from `@shadergradient/react`. In the canvas, render a sphere with `animate="on"`, `uSpeed={0.3}`, `uStrength={0.4}`, `uDensity={0.8}`, `uFrequency={5.5}`, `uAmplitude={7}`, and `rotationZ={140}`. Set `color1="#1f469a"` and both `color2`/`color3` to `#000000` to form the blue light falling into black shadow. Reproduce the camera with azimuth 250, polar 140, distance 1.5, and zoom 12.5; use 3D light, brightness 1.5, city environment, reflection 0.5, and grain. Keep the canvas `pointerEvents="none"` and behind the `z-10` content.',
       usage: 'ambient technological depth behind the headline and infrastructure UI',
     },
     {

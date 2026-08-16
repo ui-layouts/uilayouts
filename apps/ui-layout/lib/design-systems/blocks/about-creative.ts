@@ -2,6 +2,29 @@ import { defineDesignSystem } from '../types';
 
 export const about_creativeDesign = defineDesignSystem({
   name: 'Creative',
+  sourceFiles: [
+    {
+      path: 'packages/blocks/src/about-section/about-creative.tsx',
+      role: 'the canonical block source and the exact effect composition',
+    },
+    {
+      path: 'packages/shadcn/src/index.tsx',
+      role: 'the open-source workspace component barrel used by this block',
+    },
+  ],
+  dependencies: [
+    {
+      name: 'motion',
+      kind: 'external',
+      role: 'provides the entrance, presence, drag, spring, and layout animation behavior',
+      install: 'pnpm add motion',
+    },
+    {
+      name: '@repo/shadcn',
+      kind: 'workspace',
+      role: 'an existing workspace design primitive; reuse it rather than replacing its behavior',
+    },
+  ],
   personality:
     'Monochrome studio contact sheet defines the identity. The section should feel purposeful and visually specific; new sections should inherit its visual mechanism, not merely its colors.',
   typography:

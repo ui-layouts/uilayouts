@@ -2,6 +2,38 @@ import { defineDesignSystem } from '../types';
 
 export const team_modernDesign = defineDesignSystem({
   name: 'Modern',
+  sourceFiles: [
+    {
+      path: 'packages/blocks/src/team-section/team-modern.tsx',
+      role: 'the canonical block source and the exact effect composition',
+    },
+    {
+      path: 'apps/ui-layout/components/ui/timeline-animation.tsx',
+      role: 'the scroll-triggered stagger primitive used to sequence the block',
+    },
+    {
+      path: 'packages/ui/src/index.tsx',
+      role: 'the open-source workspace UI primitive barrel used by this block',
+    },
+  ],
+  dependencies: [
+    {
+      name: '@repo/ui',
+      kind: 'workspace',
+      role: 'an existing workspace design primitive; reuse it rather than replacing its behavior',
+    },
+    {
+      name: '@/components/ui/timeline-animation',
+      kind: 'local',
+      role: 'the scroll-triggered stagger primitive used to sequence the block',
+    },
+    {
+      name: 'motion',
+      kind: 'external',
+      role: 'provides the entrance, presence, drag, spring, and layout animation behavior',
+      install: 'pnpm add motion',
+    },
+  ],
   personality:
     'Clean social team cards defines the identity. The section should feel purposeful and visually specific; new sections should inherit its visual mechanism, not merely its colors.',
   typography:

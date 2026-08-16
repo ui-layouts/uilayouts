@@ -2,6 +2,13 @@ import { defineDesignSystem } from '../types';
 
 export const footer_privilegeDesign = defineDesignSystem({
   name: 'Footer Privilege',
+  sourceFiles: [
+    {
+      path: 'packages/blocks/src/footer-section/footer-privilege.tsx',
+      role: 'the canonical block source and the exact effect composition',
+    },
+  ],
+  dependencies: [],
   personality:
     'Luxury access footer defines the identity. The section should feel purposeful and visually specific; new sections should inherit its visual mechanism, not merely its colors.',
   typography:

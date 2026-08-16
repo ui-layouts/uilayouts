@@ -1,5 +1,12 @@
 export type DesignSystemSpec = {
   name: string;
+  sourceFiles: Array<{ path: string; role: string }>;
+  dependencies: Array<{
+    name: string;
+    kind: 'external' | 'workspace' | 'local';
+    role: string;
+    install?: string;
+  }>;
   personality: string;
   typography: string;
   palette: string;

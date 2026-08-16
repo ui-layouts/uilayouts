@@ -2,6 +2,47 @@ import { defineDesignSystem } from '../types';
 
 export const faq_glass_cardDesign = defineDesignSystem({
   name: 'Glass Card',
+  sourceFiles: [
+    {
+      path: 'packages/blocks/src/faq-section/faq-glass-card.tsx',
+      role: 'the canonical block source and the exact effect composition',
+    },
+    {
+      path: 'apps/ui-layout/components/ui/timeline-animation.tsx',
+      role: 'the scroll-triggered stagger primitive used to sequence the block',
+    },
+    {
+      path: 'apps/ui-layout/hooks/use-media-query.tsx',
+      role: 'the breakpoint hook that switches the mobile composition',
+    },
+    {
+      path: 'packages/shadcn/src/index.tsx',
+      role: 'the open-source workspace component barrel used by this block',
+    },
+  ],
+  dependencies: [
+    {
+      name: '@repo/shadcn',
+      kind: 'workspace',
+      role: 'an existing workspace design primitive; reuse it rather than replacing its behavior',
+    },
+    {
+      name: '@/components/ui/timeline-animation',
+      kind: 'local',
+      role: 'the scroll-triggered stagger primitive used to sequence the block',
+    },
+    {
+      name: '@/hooks/use-media-query',
+      kind: 'local',
+      role: 'the breakpoint hook that switches the mobile composition',
+    },
+    {
+      name: 'motion',
+      kind: 'external',
+      role: 'provides the entrance, presence, drag, spring, and layout animation behavior',
+      install: 'pnpm add motion',
+    },
+  ],
   personality:
     'Landscape glass accordion defines the identity. The section should feel purposeful and visually specific; new sections should inherit its visual mechanism, not merely its colors.',
   typography:
