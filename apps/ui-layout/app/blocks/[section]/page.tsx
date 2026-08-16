@@ -17,8 +17,7 @@ import { ClientPreCode } from '@/components/website/code-components/client-pre-c
 import HomeFooter from '@/components/website/home/home-footer';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/website/ui/tabs';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/website/ui/tooltip';
-import { getBlockDesignSystem } from '@/lib/design-systems';
-import { renderDesignSystem } from '@/lib/design-systems/render';
+import { getBlockDesignMarkdown } from '@/lib/block-design-documents';
 import { highlightCode } from '@/lib/shiki-highlighter';
 import { transformCodeFiles } from '@/lib/transform-code-files';
 import { cn } from '@/lib/utils';
@@ -95,7 +94,7 @@ export default async function SectionPage(props: { params: Promise<{ section?: s
   const blocksWithCode = await Promise.all(
     sectionData.blocks.map(async (block) => {
       const transformedCodeFiles = await transformCodeFiles(block.filePath, block.id);
-      const designMarkdown = renderDesignSystem(block.id, getBlockDesignSystem(block.id));
+      const designMarkdown = getBlockDesignMarkdown(block.id);
 
       return {
         ...block,

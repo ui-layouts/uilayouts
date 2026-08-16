@@ -1,54 +1,56 @@
-import { existsSync, readdirSync, readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
+import { dirname, resolve } from 'node:path';
 
 const registry = readFileSync('apps/ui-layout/blocks-docs.ts', 'utf8');
+const loaderPath = 'apps/ui-layout/lib/block-design-documents.ts';
+const loader = readFileSync(loaderPath, 'utf8');
 const blockIds = [
   ...registry.matchAll(
     /\{\s*id: '([^']+)',\s*name: '[^']+',\s*des: '[^']*',[\s\S]*?fileSrc: require\(/g
   ),
 ].map((match) => match[1]);
-const specDirectory = 'apps/ui-layout/lib/design-systems/blocks';
-const specIds = readdirSync(specDirectory)
-  .filter((file) => file.endsWith('.ts'))
-  .map((file) => file.slice(0, -3));
-
-const missing = blockIds.filter((id) => !specIds.includes(id));
-const orphaned = specIds.filter((id) => !blockIds.includes(id));
-const duplicates = blockIds.filter((id, index) => blockIds.indexOf(id) !== index);
-const incomplete = specIds.filter((id) => {
-  const source = readFileSync(`${specDirectory}/${id}.ts`, 'utf8');
-  return ![
-    'sourceFiles:',
-    'dependencies:',
-    'personality:',
-    'typography:',
-    'palette:',
-    'composition:',
-    'background:',
-    'effects:',
-    'buttons:',
-    'interactions:',
-    'imagery:',
-    'extensionRules:',
-    'avoid:',
-  ].every((field) => source.includes(field));
-});
-const brokenReferences = specIds.flatMap((id) => {
-  const source = readFileSync(`${specDirectory}/${id}.ts`, 'utf8');
-  return [...source.matchAll(/path: '([^']+)'/g)]
-    .map((match) => match[1])
-    .filter((path) => !existsSync(path))
-    .map((path) => `${id}: ${path}`);
+const documents = [...loader.matchAll(/'([^']+)': require\('([^']+)\?raw'\)/g)].map(
+  ([, id, relativePath]) => ({ id, path: resolve(dirname(loaderPath), relativePath) })
+);
+const documentIds = documents.map(({ id }) => id);
+const missing = blockIds.filter((id) => !documentIds.includes(id));
+const orphaned = documentIds.filter((id) => !blockIds.includes(id));
+const duplicates = documentIds.filter((id, index) => documentIds.indexOf(id) !== index);
+const missingFiles = documents.filter(({ path }) => !existsSync(path));
+const requiredSections = [
+  '## Source of truth',
+  '## Required libraries and primitives',
+  '## Typography',
+  '## Palette and contrast',
+  '## Composition and rhythm',
+  '## Background construction',
+  '## Unique components and signature effects',
+  '## Buttons',
+  '## Motion and interaction states',
+  '## AI implementation instruction',
+];
+const incomplete = documents.flatMap(({ id, path }) => {
+  if (!existsSync(path)) return [];
+  const markdown = readFileSync(path, 'utf8');
+  const absent = requiredSections.filter((section) => !markdown.includes(section));
+  const sourceReferences = [...markdown.matchAll(/^- `([^`]+\.(?:ts|tsx))`/gm)].map(
+    (match) => match[1]
+  );
+  const brokenSources = sourceReferences.filter((source) => !existsSync(source));
+  return absent.length || !sourceReferences.length || brokenSources.length
+    ? [{ id, absent, brokenSources }]
+    : [];
 });
 
 if (
   missing.length ||
   orphaned.length ||
   duplicates.length ||
-  incomplete.length ||
-  brokenReferences.length
+  missingFiles.length ||
+  incomplete.length
 ) {
-  console.error({ missing, orphaned, duplicates, incomplete, brokenReferences });
+  console.error({ missing, orphaned, duplicates, missingFiles, incomplete });
   process.exit(1);
 }
 
-console.log(`Validated ${blockIds.length} authored block design systems.`);
+console.log(`Validated ${documents.length} adjacent block design documents and their sources.`);

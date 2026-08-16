@@ -16,7 +16,7 @@ export function DesignMarkdown({
     const url = URL.createObjectURL(new Blob([markdown], { type: 'text/markdown;charset=utf-8' }));
     const anchor = document.createElement('a');
     anchor.href = url;
-    anchor.download = `${id}-design.md`;
+    anchor.download = 'design.md';
     anchor.click();
     URL.revokeObjectURL(url);
   };
