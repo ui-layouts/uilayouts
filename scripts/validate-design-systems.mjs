@@ -1,5 +1,5 @@
 import { existsSync, readFileSync } from 'node:fs';
-import { dirname, resolve } from 'node:path';
+import { resolve } from 'node:path';
 
 const registry = readFileSync('apps/ui-layout/blocks-docs.ts', 'utf8');
 const loaderPath = 'apps/ui-layout/lib/block-design-documents.ts';
@@ -9,8 +9,8 @@ const blockIds = [
     /\{\s*id: '([^']+)',\s*name: '[^']+',\s*des: '[^']*',[\s\S]*?fileSrc: require\(/g
   ),
 ].map((match) => match[1]);
-const documents = [...loader.matchAll(/'([^']+)': require\('([^']+)\?raw'\)/g)].map(
-  ([, id, relativePath]) => ({ id, path: resolve(dirname(loaderPath), relativePath) })
+const documents = [...loader.matchAll(/'([^']+)':\s+'(packages\/[^']+\/design\.md)'/g)].map(
+  ([, id, path]) => ({ id, path: resolve(path) })
 );
 const documentIds = documents.map(({ id }) => id);
 const missing = blockIds.filter((id) => !documentIds.includes(id));
@@ -37,8 +37,8 @@ const incomplete = documents.flatMap(({ id, path }) => {
     (match) => match[1]
   );
   const brokenSources = sourceReferences.filter((source) => !existsSync(source));
-  return absent.length || !sourceReferences.length || brokenSources.length
-    ? [{ id, absent, brokenSources }]
+  return !markdown.trim() || absent.length || !sourceReferences.length || brokenSources.length
+    ? [{ id, empty: !markdown.trim(), absent, brokenSources }]
     : [];
 });
 
