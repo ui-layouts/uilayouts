@@ -49,6 +49,59 @@ Use documentary portraits, work samples, or brand proof; preserve the source cro
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Overlapping transformed composition
+
+**Location:** `packages/blocks/src/about-section/about-me.tsx:16-22`
+**Why it is core:** Rotation and offset create the intentionally physical, layered arrangement.
+
+```tsx
+          </div>
+          <div className="absolute -bottom-12 -left-4">
+            {/* Simple representation of the handwritten signature */}
+            <div className="font-serif italic text-2xl text-gray-800 -rotate-6">
+              Naymur Rahman
+              <div className="h-px w-48 bg-gray-400 -mt-1"></div>
+            </div>
+```
+
+### 2. Source-specific visual behavior
+
+**Location:** `packages/blocks/src/about-section/about-me.tsx:46-54`
+**Why it is core:** This source fragment contains a high-signal visual or interaction decision unique to the block.
+
+```tsx
+            </p>
+          </div>
+
+          <Button className="bg-violet-600 hover:bg-violet-700 text-white px-8 py-4 rounded-full font-semibold flex items-center gap-3 transition-colors group">
+            Read My Full Story
+            <div className="size-8 bg-white rounded-full flex items-center justify-center text-violet-600 group-hover:translate-x-1 transition-transform">
+              <span className="text-lg">›</span>
+            </div>
+          </Button>
+```
+
+### 3. Overlapping transformed composition
+
+**Location:** `packages/blocks/src/about-section/about-me.tsx:55-61`
+**Why it is core:** Rotation and offset create the intentionally physical, layered arrangement.
+
+```tsx
+        </div>
+
+        <div className="hidden lg:block w-48 shrink-0 self-end">
+          <div className="aspect-square rounded-3xl overflow-hidden bg-gray-200 rotate-6 shadow-xl">
+            <img
+              src="https://images.unsplash.com/photo-1765779038142-054a9f8c2268?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              className="w-full h-full object-cover"
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Use one decisive filled CTA and a lower-emphasis text/outline action; buttons should never compete with imagery.

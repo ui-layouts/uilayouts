@@ -49,6 +49,47 @@ Use project/customer imagery only when tied to the active record; otherwise let 
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Structural border treatment
+
+**Location:** `packages/blocks/src/experience-section/creative-experience.tsx:90-100`
+**Why it is core:** The border placement creates the block’s visual grouping and alignment.
+
+```tsx
+                animationNum={index}
+                timelineRef={heroRef}
+                customVariants={revealVariants}
+                className="border-t border-neutral-300"
+              >
+                <AccordionHeader
+                  customIcon
+                  className="hover:no-underline px-4 gap-4 py-2 relative data-active:bg-zinc-200 hover:bg-transparent text-black sm:text-base text-sm"
+                >
+                  <div className="flex items-center space-x-2 sm:gap-5 gap-2 sm:justify-between justify-end">
+                    <span className="flex flex-col space-y-2">
+```
+
+### 2. Low-opacity icon pattern
+
+**Location:** `packages/blocks/src/experience-section/creative-experience.tsx:102-109`
+**Why it is core:** Repeated icons at low opacity create a branded texture without competing with foreground content.
+
+```tsx
+                        ({item.year})
+                      </span>
+                    </span>
+                    <span className="relative opacity-0 scale-95 group-data-active:opacity-100 group-data-active:scale-100 group-hover:scale-100 group-hover:opacity-100 transition-opacity group-data-active:rotate-90 text-neutral-600 p-2 -translate-x-1 rounded-xl">
+                      <Plus className="group-data-active:rotate-45 transition-all duration-300" />
+                    </span>
+                  </div>
+                  <p className="flex flex-col">
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Use text arrows or compact icon controls, with the accent appearing only on the active or actionable item.

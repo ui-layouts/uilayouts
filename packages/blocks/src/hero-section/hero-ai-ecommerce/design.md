@@ -52,6 +52,59 @@ Use high-quality product/UI composites or portraits with deliberate overlap; ico
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Source-specific visual behavior
+
+**Location:** `packages/blocks/src/hero-section/hero-ai-ecommerce.tsx:15-21`
+**Why it is core:** This source fragment contains a high-signal visual or interaction decision unique to the block.
+
+```tsx
+      ref={timelineRef}
+      className="min-h-screen text-black bg-white relative overflow-hidden flex flex-col items-center"
+    >
+      <div className="absolute inset-0 z-0 bg-[url('https://images.unsplash.com/photo-1764138370667-d15f89ee1c45?q=80&w=1760&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center opacity-50" />
+      {/* Mobile Navigation */}
+      {isMobile && (
+        <div className="flex gap-4 justify-between items-center px-10 pt-4">
+```
+
+### 2. Custom elevation recipe
+
+**Location:** `packages/blocks/src/hero-section/hero-ai-ecommerce.tsx:161-169`
+**Why it is core:** The nonstandard shadow values create the block’s characteristic depth.
+
+```tsx
+            as="button"
+            animationNum={6}
+            timelineRef={timelineRef}
+            className="p-1.5 bg-linear-to-t from-indigo-800 to-indigo-100 h-20 rounded-full"
+          >
+            <span className="bg-linear-to-l from-indigo-500 to-indigo-600 shadow-[inset_4px_4px_5px_0px_rgba(168,170,241,0.5),inset_-1px_-2px_5px_0px_rgba(74,78,197,0.5),inset_-1px_4px_8px_0px_rgba(44,58,98,0.25)] text-white px-10 py-5 rounded-full text-lg font-semibold cursor-pointer">
+              Start Your 14 Day Free Trial
+            </span>
+          </TimelineAnimation>
+```
+
+### 3. Translucent glass layer
+
+**Location:** `packages/blocks/src/hero-section/hero-ai-ecommerce.tsx:183-189`
+**Why it is core:** Blur, transparency, border, and stacking work together as one glass treatment.
+
+```tsx
+        <TimelineAnimation
+          animationNum={7}
+          timelineRef={timelineRef}
+          className="rounded-2xl bg-white/50 backdrop-blur-lg p-4"
+        >
+          <TimelineAnimation
+            animationNum={8}
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Primary actions carry the block accent; secondary actions are quieter bordered or glass controls with the same height.

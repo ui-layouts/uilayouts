@@ -44,6 +44,59 @@ Use project/customer imagery only when tied to the active record; otherwise let 
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Structural border grid
+
+**Location:** `packages/blocks/src/experience-section/customer-experience.tsx:113-121`
+**Why it is core:** Shared border rails divide the page into aligned editorial bands.
+
+```tsx
+      <div
+        ref={containerRef}
+        onMouseMove={handleMove}
+        className="relative max-w-6xl mx-auto border-x border-orange-500"
+      >
+        <h1 className="lg:text-9xl sm:text-8xl px-5 text-7xl border-b border-orange-500 font-bold py-10 text-orange-500 font-spaceGrotesk">
+          EXPERIENCE
+        </h1>
+        {list.map((item) => (
+```
+
+### 2. Structural border treatment
+
+**Location:** `packages/blocks/src/experience-section/customer-experience.tsx:124-130`
+**Why it is core:** The border placement creates the block’s visual grouping and alignment.
+
+```tsx
+            onMouseEnter={() => handleImageInteraction(item, 1)}
+            onMouseMove={() => handleImageInteraction(item, 1)}
+            onMouseLeave={() => handleImageInteraction(item, 0)}
+            className="w-full py-5 px-5 cursor-pointer relative text-center md:flex justify-between items-center text-primary border-b border-orange-500 last:border-none"
+          >
+            <div className="flex gap-2 items-center">
+              <svg
+```
+
+### 3. Motion-driven behavior
+
+**Location:** `packages/blocks/src/experience-section/customer-experience.tsx:148-154`
+**Why it is core:** The motion configuration controls the effect’s timing, position, and interaction response.
+
+```tsx
+          </div>
+        ))}
+
+        <motion.img
+          ref={imageRef}
+          src={img.src}
+          alt={img.alt}
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Use text arrows or compact icon controls, with the accent appearing only on the active or actionable item.

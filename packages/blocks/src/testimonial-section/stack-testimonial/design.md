@@ -47,6 +47,61 @@ Use consistent avatar crops and genuine product/chat context; stars or platform 
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Source-specific visual behavior
+
+**Location:** `packages/blocks/src/testimonial-section/stack-testimonial.tsx:53-59`
+**Why it is core:** This source fragment contains a high-signal visual or interaction decision unique to the block.
+
+```tsx
+  }
+
+  return (
+    <section className="relative font-manrope w-full bg-linear-to-br from-zinc-50 to-white py-16 px-6">
+      <div className="max-w-2xl mx-auto">
+        <article>
+          <h2 className="text-5xl font-bold tracking-tight text-zinc-900 mb-4">
+```
+
+### 2. Motion-driven behavior
+
+**Location:** `packages/blocks/src/testimonial-section/stack-testimonial.tsx:72-82`
+**Why it is core:** The motion configuration controls the effect’s timing, position, and interaction response.
+
+```tsx
+            const isVisible = position < 3
+
+            return (
+              <motion.div
+                key={testimonial.id}
+                className="absolute w-full"
+                initial={false}
+                animate={{
+                  scale: isActive ? 1 : position === 1 ? 0.95 : 0.9,
+                  y: isActive ? 0 : position === 1 ? 16 : 32,
+                  x: isActive ? 0 : position === 1 ? 0 : 2,
+```
+
+### 3. Motion-driven behavior
+
+**Location:** `packages/blocks/src/testimonial-section/stack-testimonial.tsx:131-137`
+**Why it is core:** The motion configuration controls the effect’s timing, position, and interaction response.
+
+```tsx
+                    </button>
+                  </div>
+                </div>
+              </motion.div>
+            )
+          })}
+        </div>
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Navigation is compact, high-contrast and tactile; testimonial cards themselves are not buttons unless explicitly interactive.

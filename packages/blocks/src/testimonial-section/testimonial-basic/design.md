@@ -48,6 +48,60 @@ Use consistent avatar crops and genuine product/chat context; stars or platform 
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Patterned background layer
+
+**Location:** `packages/blocks/src/testimonial-section/testimonial-basic.tsx:53-59`
+**Why it is core:** The repeated line recipe gives the surface its recognizable texture.
+
+```tsx
+            )}
+          >
+            <div className="lg:col-span-7 p-6 bg-neutral-100 overflow-hidden aspect-video relative group cursor-pointer">
+              <div className="absolute pointer-events-none bottom-0 left-0 right-0 top-0 bg-[repeating-linear-gradient(45deg,#eeeeee_0px_1px,transparent_1px_8px)] "></div>
+
+              <img
+                src={t.videoThumbnail}
+```
+
+### 2. Translucent glass layer
+
+**Location:** `packages/blocks/src/testimonial-section/testimonial-basic.tsx:60-66`
+**Why it is core:** Blur, transparency, border, and stacking work together as one glass treatment.
+
+```tsx
+                className="w-full h-full relative z-10 object-cover transition-transform duration-300 rounded-2xl"
+                alt={`Testimonial Video ${i}`}
+              />
+              <div className="absolute bottom-8 left-8 z-10 bg-black/50 backdrop-blur px-6 py-3 rounded-2xl border border-white/20">
+                <span className="text-white font-mono text-sm tracking-tighter">
+                  04:32 // HD_PLAYBACK
+                </span>
+```
+
+### 3. Patterned background layer
+
+**Location:** `packages/blocks/src/testimonial-section/testimonial-basic.tsx:67-76`
+**Why it is core:** The repeated line recipe gives the surface its recognizable texture.
+
+```tsx
+              </div>
+            </div>
+
+            <div className="lg:col-span-5 border-l border-neutral-200">
+              <div className="flex gap-2 items-center border-b p-2 bg-neutral-50 border-neutral-200 relative">
+                <div className="absolute pointer-events-none  bottom-0 left-0 right-0 top-0 bg-[repeating-linear-gradient(45deg,#eeeeee_0px_1px,transparent_1px_8px)] "></div>
+                <div className="relative z-10 size-16 rounded-3xl overflow-hidden bg-neutral-200 border-4 border-violet-50">
+                  <img
+                    src={t.image}
+                    alt={t.name}
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Navigation is compact, high-contrast and tactile; testimonial cards themselves are not buttons unless explicitly interactive.

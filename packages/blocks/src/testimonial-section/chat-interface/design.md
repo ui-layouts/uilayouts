@@ -48,6 +48,65 @@ Use consistent avatar crops and genuine product/chat context; stars or platform 
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Motion-driven behavior
+
+**Location:** `packages/blocks/src/testimonial-section/chat-interface.tsx:69-78`
+**Why it is core:** The motion configuration controls the effect’s timing, position, and interaction response.
+
+```tsx
+const TypingIndicator = () => (
+  <div className="flex gap-1 px-4 py-3">
+    {[0, 1, 2].map((i) => (
+      <motion.div
+        key={i}
+        className="size-2 bg-zinc-400 rounded-full"
+        animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
+        transition={{
+          duration: 1,
+          repeat: Infinity,
+```
+
+### 2. Border-led structure
+
+**Location:** `packages/blocks/src/testimonial-section/chat-interface.tsx:138-148`
+**Why it is core:** Hairline borders establish grouping and rhythm without relying on filled cards.
+
+```tsx
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          {/* Left Content */}
+          <div className="space-y-8">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              className="bg-white rounded-2xl p-8 border border-zinc-200 "
+            >
+              <h3 className="text-2xl font-bold text-zinc-900 mb-4">
+                Real Customer Experiences
+```
+
+### 3. Radial background field
+
+**Location:** `packages/blocks/src/testimonial-section/chat-interface.tsx:474-481`
+**Why it is core:** The gradient’s focal point, stops, and layer position establish the block’s backdrop.
+
+```tsx
+          </div>
+        </div>
+      </div>
+      <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#efefef_1px,transparent_1px),linear-gradient(to_bottom,#efefef_1px,transparent_1px)] bg-size-[6rem_4rem] mask-[radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
+      <div className="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(125%_125%_at_50%_10%,rgba(255,255,255,0)_40%,rgba(237,218,50,1)_100%)]"></div>
+    </section>
+  )
+}
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Navigation is compact, high-contrast and tactile; testimonial cards themselves are not buttons unless explicitly interactive.

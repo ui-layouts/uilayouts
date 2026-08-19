@@ -50,6 +50,50 @@ Use preview/product imagery when it clarifies answers; decorative scenery must r
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Radial background field
+
+**Location:** `packages/blocks/src/faq-section/faq-minimilastic.tsx:86-92`
+**Why it is core:** The gradient’s focal point, stops, and layer position establish the block’s backdrop.
+
+```tsx
+        className="absolute inset-0 z-0 h-full w-full"
+        style={{
+          background:
+            'radial-gradient(125% 125% at 50% 10%, #fff 40%, #55a0f7 100%)',
+        }}
+      /> */}
+      <div className="w-full max-w-3xl mx-auto px-4 relative">
+```
+
+### 2. Translucent glass layer
+
+**Location:** `packages/blocks/src/faq-section/faq-minimilastic.tsx:104-118`
+**Why it is core:** Blur, transparency, border, and stacking work together as one glass treatment.
+
+```tsx
+              <TimelineAnimation
+                timelineRef={timelineRef}
+                animationNum={i + 1}
+                className="border border-slate-200 bg-blue-100 data-active:bg-blue-100 backdrop-blur-sm rounded-2xl overflow-hidden transition-all duration-500"
+              >
+                <AccordionHeader
+                  customIcon
+                  className="p-4 text-xl dark:bg-transparent bg-transparent data-active:bg-transparent text-blue-800 hover:text-blue-800 hover:bg-blue-50"
+                >
+                  {item.question}
+                  <span className="relative group-data-active:rotate-90 border border-neutral-200 bg-white text-neutral-950 p-2 -translate-x-1 rounded-xl">
+                    <Plus className="group-data-active:rotate-45 transition-all duration-300" />
+                  </span>
+                </AccordionHeader>
+                <AccordionPanel className="px-3 dark:bg-transparent bg-transparent data-active:bg-transparent">
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Use CTA styling only outside accordion rows; the entire question header is the disclosure button with visible focus.

@@ -89,6 +89,102 @@ The glow is not a CSS box shadow. It is the visible edge of a full-bleed WebGL s
 
 Keep this canvas before the content in DOM order. Give content `relative z-10`; use `overflow-hidden` on the hero and white/10–white/20 backdrop-blurred controls so the moving blue light remains visible without reducing text contrast.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Configured shader field
+
+**Location:** `packages/blocks/src/hero-section/hero-ai-infrastructure.tsx:1-7`
+**Why it is core:** This library component and its exact uniforms generate the block’s atmospheric field.
+
+```tsx
+'use client'
+import React, { Suspense, useRef } from 'react'
+import { ArrowRight } from 'lucide-react'
+import { ShaderGradient, ShaderGradientCanvas } from '@shadergradient/react'
+import { TimelineAnimation } from '@/components/ui/timeline-animation'
+import { useMediaQuery } from '@/hooks/use-media-query'
+import MotionDrawer from '@/components/ui/motion-drawer'
+```
+
+### 2. Configured shader field
+
+**Location:** `packages/blocks/src/hero-section/hero-ai-infrastructure.tsx:19-70`
+**Why it is core:** This library component and its exact uniforms generate the block’s atmospheric field.
+
+```tsx
+        <ShaderGradientCanvas
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100vw',
+            height: '120vh',
+          }}
+          lazyLoad={undefined}
+          fov={undefined}
+          pixelDensity={1}
+          pointerEvents="none"
+        >
+          <ShaderGradient
+            animate="on"
+            type="sphere"
+            wireframe={false}
+            shader="defaults"
+            uTime={0}
+            uSpeed={0.3}
+            uStrength={0.4}
+            uDensity={0.8}
+            uFrequency={5.5}
+            uAmplitude={7}
+            positionX={0}
+            positionY={0}
+            positionZ={0}
+            rotationX={0}
+            rotationY={0}
+            rotationZ={140}
+            color1="#1f469a"
+            color2="#000000"
+            color3="#000000"
+            reflection={0.5}
+            // View (camera) props
+            cAzimuthAngle={250}
+            cPolarAngle={140}
+            cDistance={1.5}
+            cameraZoom={12.5}
+            // Effect props
+            lightType="3d"
+            brightness={1.5}
+            envPreset="city"
+            grain="on"
+            // Tool props
+            toggleAxis={false}
+            zoomOut={false}
+            hoverState=""
+            // Optional - if using transition features
+            enableTransition={false}
+          />
+        </ShaderGradientCanvas>
+```
+
+### 3. Translucent glass layer
+
+**Location:** `packages/blocks/src/hero-section/hero-ai-infrastructure.tsx:190-196`
+**Why it is core:** Blur, transparency, border, and stacking work together as one glass treatment.
+
+```tsx
+        <TimelineAnimation
+          timelineRef={timelineRef}
+          animationNum={3}
+          className="border border-blue-800 flex items-center gap-2 rounded-2xl p-1 pr-3 bg-blue-800/50 backdrop-blur-lg"
+        >
+          <span className="py-0.5 px-1 rounded-lg bg-blue-600 text-white">
+            New
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Primary actions carry the block accent; secondary actions are quieter bordered or glass controls with the same height.

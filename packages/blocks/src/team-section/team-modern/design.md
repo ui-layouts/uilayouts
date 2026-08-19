@@ -48,6 +48,60 @@ Portraits are the visual core. Preserve deliberate grayscale, crop, overlay, and
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Depth and glow treatment
+
+**Location:** `packages/blocks/src/team-section/team-modern.tsx:75-84`
+**Why it is core:** These exact shadows and blur layers distinguish foreground from atmosphere.
+
+```tsx
+              animationNum={4}
+              className="flex items-center gap-4"
+            >
+              <button className="font-spaceGrotesk px-3 py-2.5 bg-orange-500 shadow-lg shadow-orange-500 text-white font-semibold rounded-lg hover:bg-orange-600 transition-colors">
+                Get started
+              </button>
+              <button className="font-spaceGrotesk bg-neutral-100 px-3 py-2.5 border border-neutral-300 text-neutral-700 font-semibold rounded-lg hover:bg-neutral-50 transition-colors">
+                Explore features
+              </button>
+            </TimelineAnimation>
+```
+
+### 2. Structural border treatment
+
+**Location:** `packages/blocks/src/team-section/team-modern.tsx:88-94`
+**Why it is core:** The border placement creates the block’s visual grouping and alignment.
+
+```tsx
+        <TimelineAnimation
+          timelineRef={timelineRef}
+          animationNum={5}
+          className="flex flex-wrap gap-8 py-12 mb-12 border-b border-neutral-100"
+        >
+          <div className="flex items-center gap-2 text-neutral-900 font-semibold text-xl">
+            <Codesandbox color="#7C3AED" size={32} /> UI-Layouts
+```
+
+### 3. Source-specific visual behavior
+
+**Location:** `packages/blocks/src/team-section/team-modern.tsx:116-122`
+**Why it is core:** This source fragment contains a high-signal visual or interaction decision unique to the block.
+
+```tsx
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
+              <h3 className="text-xl font-spaceGrotesk font-semibold text-neutral-900 mb-1">
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Actions are compact social/contact controls derived from the accent; give each at least a 44px hit area.

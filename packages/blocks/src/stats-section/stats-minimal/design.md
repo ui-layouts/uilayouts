@@ -44,6 +44,27 @@ Prefer charts, sparklines and abstract data marks over stock photography; icons 
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Border-led structure
+
+**Location:** `packages/blocks/src/stats-section/stats-minimal.tsx:15-21`
+**Why it is core:** Hairline borders establish grouping and rhythm without relying on filled cards.
+
+```tsx
+          {stats.map((stat) => (
+            <div
+              key={stat.label}
+              className="flex flex-col gap-1 border-l border-zinc-200 px-6 py-2 hover:bg-zinc-200"
+            >
+              <p className="text-3xl font-bold tracking-tight text-zinc-900 ">
+                {stat.value}
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Use buttons only for drill-down or a final CTA; style them as a continuation of the surrounding surface.

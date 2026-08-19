@@ -46,6 +46,27 @@ Portraits are the visual core. Preserve deliberate grayscale, crop, overlay, and
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Depth and glow treatment
+
+**Location:** `packages/blocks/src/team-section/team-troops.tsx:92-98`
+**Why it is core:** These exact shadows and blur layers distinguish foreground from atmosphere.
+
+```tsx
+            <div className="w-full relative z-10">
+              <img
+                src={src}
+                className="w-full grayscale group-hover:grayscale-0 transition-all border-4 group-hover:shadow-xl border-white group-hover:border-black shadow-black"
+                alt="Team member"
+              />
+            </div>
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Actions are compact social/contact controls derived from the accent; give each at least a 44px hit area.

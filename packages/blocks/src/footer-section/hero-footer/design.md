@@ -52,6 +52,76 @@ Use a wordmark, small brand symbol or restrained background art—never unrelate
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Depth and glow treatment
+
+**Location:** `packages/blocks/src/footer-section/hero-footer.tsx:10-19`
+**Why it is core:** These exact shadows and blur layers distinguish foreground from atmosphere.
+
+```tsx
+      <div className="w-[80%] mx-auto px-6">
+        {/* Floating Call to Action */}
+        <div className="relative z-10 -mb-24">
+          <div className="bg-linear-to-r from-gray-200 to-gray-300 rounded-2xl overflow-hidden h-96 relative group shadow-2xl">
+            <img
+              src="https://images.unsplash.com/photo-1549979047-f06bb9619b61?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              className="w-full h-full object-cover opacity-80"
+            />
+            <div className="absolute inset-0 bg-black/20 flex flex-col justify-center p-12 md:p-24">
+              <h2 className="text-white text-5xl md:text-6xl font-bold max-w-2xl mb-8">
+```
+
+### 2. Structural border treatment
+
+**Location:** `packages/blocks/src/footer-section/hero-footer.tsx:94-100`
+**Why it is core:** The border placement creates the block’s visual grouping and alignment.
+
+```tsx
+                    placeholder="Enter your email"
+                    className="w-full bg-transparent border border-gray-700 rounded-full px-6 py-3 pr-12 text-white focus:outline-none focus:border-violet-500 transition-colors"
+                  />
+                  <button className="absolute right-2 top-1/2 -translate-y-1/2 size-8 bg-violet-600 rounded-full flex items-center justify-center hover:bg-violet-700 transition-colors">
+                    <span className="text-xl">›</span>
+                  </button>
+                </div>
+```
+
+### 3. Structural border treatment
+
+**Location:** `packages/blocks/src/footer-section/hero-footer.tsx:101-123`
+**Why it is core:** The border placement creates the block’s visual grouping and alignment.
+
+```tsx
+              </div>
+            </div>
+
+            <nav className="border-t border-gray-800 py-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 text-sm font-medium text-gray-300">
+              <a href="#" className="hover:text-white transition-colors">
+                Portfolio
+              </a>
+              <a href="#" className="hover:text-white transition-colors">
+                About
+              </a>
+              <a href="#" className="hover:text-white transition-colors">
+                Services
+              </a>
+              <a href="#" className="hover:text-white transition-colors">
+                Blog
+              </a>
+              <a href="#" className="hover:text-white transition-colors">
+                Contact
+              </a>
+              <a href="#" className="hover:text-white transition-colors">
+                Resume
+              </a>
+            </nav>
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Newsletter and final CTAs use the block’s primary contrast; utility/social controls are smaller but retain 44px targets.

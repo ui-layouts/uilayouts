@@ -50,6 +50,45 @@ Use preview/product imagery when it clarifies answers; decorative scenery must r
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Source-specific visual behavior
+
+**Location:** `packages/blocks/src/faq-section/faq-glass-card.tsx:90-96`
+**Why it is core:** This source fragment contains a high-signal visual or interaction decision unique to the block.
+
+```tsx
+      >
+        Frequently Asked Questions
+      </TimelineAnimation>
+      <div className="absolute inset-0 z-0 bg-[url('https://images.unsplash.com/photo-1597200381847-30ec200eeb9a?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center opacity-50" />
+      <div className="max-w-4xl relative z-2 mx-auto w-full">
+        <Accordion multiple={false}>
+          {FAQ_DATA.slice(0, 5).map((item, i) => (
+```
+
+### 2. Translucent glass layer
+
+**Location:** `packages/blocks/src/faq-section/faq-glass-card.tsx:98-107`
+**Why it is core:** Blur, transparency, border, and stacking work together as one glass treatment.
+
+```tsx
+              <TimelineAnimation
+                animationNum={i}
+                timelineRef={timelineRef}
+                className="border dark:border-white/10 border-white/20  dark:bg-black/40 bg-white/40 backdrop-blur-xl rounded-xl p-3 hover:scale-[1.01] transition-all duration-500"
+              >
+                <AccordionHeader className="px-6 py-4 text-xl font-semibold bg-transparent data-active:bg-transparent  hover:bg-transparent">
+                  <span className="bg-clip-text text-transparent bg-linear-to-r from-slate-900 to-slate-500 dark:from-slate-50 dark:to-slate-200">
+                    {item.question}
+                  </span>
+                </AccordionHeader>
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Use CTA styling only outside accordion rows; the entire question header is the disclosure button with visible focus.

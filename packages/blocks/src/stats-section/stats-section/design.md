@@ -44,6 +44,61 @@ Prefer charts, sparklines and abstract data marks over stock photography; icons 
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Radial background field
+
+**Location:** `packages/blocks/src/stats-section/stats-section.tsx:12-22`
+**Why it is core:** The gradient’s focal point, stops, and layer position establish the block’s backdrop.
+
+```tsx
+export const StatsSection = () => {
+  return (
+    <section className="py-32 px-6 bg-neutral-950 text-white min-h-screen relative">
+      <div className="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(125%_125%_at_50%_10%,rgba(255,255,255,0)_40%,rgba(102,51,238,1)_100%)] pointer-events-none"></div>
+      <div className="max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-24 items-center ">
+          <div className="space-y-10">
+            <span className="inline-flex px-4 py-1.5 text-xs font-semibold border border-zinc-800 rounded-full text-zinc-500 uppercase tracking-[0.2em] bg-zinc-900/50">
+              Agency Metrics
+            </span>
+            <h2 className="text-6xl md:text-7xl font-bold font-dmSans tracking-tighter text-balance leading-none">
+```
+
+### 2. Motion-driven behavior
+
+**Location:** `packages/blocks/src/stats-section/stats-section.tsx:25-31`
+**Why it is core:** The motion configuration controls the effect’s timing, position, and interaction response.
+
+```tsx
+            </h2>
+            <div className="grid grid-cols-2 gap-x-12 gap-y-16 pt-12">
+              {stats.map((stat, i) => (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+```
+
+### 3. Low-opacity icon pattern
+
+**Location:** `packages/blocks/src/stats-section/stats-section.tsx:48-54`
+**Why it is core:** Repeated icons at low opacity create a branded texture without competing with foreground content.
+
+```tsx
+          </div>
+
+          <div className="relative group">
+            <div className="absolute -inset-20 bg-linear-to-tr from-white/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000 blur-3xl pointer-events-none" />
+            <div className="space-y-8 relative z-10">
+              <p className="text-xl md:text-2xl text-zinc-400 leading-relaxed text-pretty font-medium">
+                We recognized a demand for solutions that empower enterprises to
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Use buttons only for drill-down or a final CTA; style them as a continuation of the surrounding surface.

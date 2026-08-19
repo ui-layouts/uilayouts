@@ -47,6 +47,61 @@ Portraits are the visual core. Preserve deliberate grayscale, crop, overlay, and
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Depth and glow treatment
+
+**Location:** `packages/blocks/src/team-section/team-expert.tsx:46-54`
+**Why it is core:** These exact shadows and blur layers distinguish foreground from atmosphere.
+
+```tsx
+  <TimelineAnimation
+    timelineRef={timelineRef}
+    animationNum={animationNum}
+    className="bg-white p-8 rounded-2xl shadow-sm border border-neutral-100 flex flex-col items-center text-center hover:shadow-md transition-shadow group cursor-default"
+  >
+    <div className="w-12 h-12 bg-orange-500 rounded-2xl flex items-center justify-center text-orange-50 group-hover:scale-110 transition-transform">
+      <Boxes />
+    </div>
+    <h4 className="text-lg font-spaceGrotesk font-bold text-neutral-800 my-1">
+```
+
+### 2. Depth and glow treatment
+
+**Location:** `packages/blocks/src/team-section/team-expert.tsx:92-115`
+**Why it is core:** These exact shadows and blur layers distinguish foreground from atmosphere.
+
+```tsx
+              key={member.id}
+              timelineRef={timelineRef}
+              animationNum={2 + i}
+              className="group p-6 rounded-3xl transition-all duration-300 bg-orange-100 border border-orange-200 hover:bg-[#FF6B00] hover:shadow-2xl hover:shadow-orange-200"
+            >
+              <div className="aspect-square rounded-2xl overflow-hidden mb-6 border-4 border-transparent group-hover:border-white/20 transition-all">
+                <img
+                  src={member.image}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  alt={member.name}
+                />
+              </div>
+              <h3 className="font-spaceGrotesk text-2xl font-semibold mb-2 text-neutral-900 group-hover:text-white transition-colors">
+                {member.name}
+              </h3>
+              <p className="text-sm mb-6 text-neutral-500 group-hover:text-white/80 transition-colors">
+                {member.role}
+              </p>
+              <button className="font-spaceGrotesk text-sm font-semibold flex items-center gap-2 text-[#FF6B00] group-hover:text-white transition-colors">
+                READ MORE
+                <span className="group-hover:translate-x-1 transition-transform">
+                  →
+                </span>
+              </button>
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Actions are compact social/contact controls derived from the accent; give each at least a 44px hit area.

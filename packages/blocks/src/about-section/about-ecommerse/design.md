@@ -44,6 +44,42 @@ Use documentary portraits, work samples, or brand proof; preserve the source cro
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Motion-driven behavior
+
+**Location:** `packages/blocks/src/about-section/about-ecommerse.tsx:6-12`
+**Why it is core:** The motion configuration controls the effect’s timing, position, and interaction response.
+
+```tsx
+  return (
+    <section className="py-32 px-6 bg-orange-50 text-orange-950">
+      <div className="max-w-7xl mx-auto text-center">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+```
+
+### 2. Motion-driven behavior
+
+**Location:** `packages/blocks/src/about-section/about-ecommerse.tsx:26-32`
+**Why it is core:** The motion configuration controls the effect’s timing, position, and interaction response.
+
+```tsx
+            "We believe that the things we surround ourselves with should tell a
+            story. Not just of where they came from, but where they are going."
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          <div className="space-y-6">
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Use one decisive filled CTA and a lower-emphasis text/outline action; buttons should never compete with imagery.

@@ -50,6 +50,63 @@ Portraits are the visual core. Preserve deliberate grayscale, crop, overlay, and
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Structural border treatment
+
+**Location:** `packages/blocks/src/team-section/team-classic.tsx:101-107`
+**Why it is core:** The border placement creates the block’s visual grouping and alignment.
+
+```tsx
+            >
+              <div
+                className={cn(
+                  `relative sm:w-56 w-48 sm:h-56 h-48 rounded-xl p-1 mb-5 group-hover:ring-4`,
+                  member.borderClass
+                )}
+              >
+```
+
+### 2. Low-opacity icon pattern
+
+**Location:** `packages/blocks/src/team-section/team-classic.tsx:112-118`
+**Why it is core:** Repeated icons at low opacity create a branded texture without competing with foreground content.
+
+```tsx
+                    alt={member.name}
+                  />
+                </div>
+                <div className="absolute top-0 group-hover:opacity-100 opacity-0 right-0 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg transform translate-x-1/4 -translate-y-1/4 text-green-500 transition-opacity duration-300">
+                  {member.emoji}
+                </div>
+              </div>
+```
+
+### 3. Source-specific visual behavior
+
+**Location:** `packages/blocks/src/team-section/team-classic.tsx:123-135`
+**Why it is core:** This source fragment contains a high-signal visual or interaction decision unique to the block.
+
+```tsx
+                {member.role}
+              </p>
+              <div className="flex gap-6 text-neutral-500">
+                <a href="#" className="hover:text-black transition-colors">
+                  <Icons.Facebook />
+                </a>
+                <a href="#" className="hover:text-black transition-colors">
+                  <Icons.Twitter />
+                </a>
+                <a href="#" className="hover:text-black transition-colors">
+                  <Icons.Instagram />
+                </a>
+              </div>
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Actions are compact social/contact controls derived from the accent; give each at least a 44px hit area.

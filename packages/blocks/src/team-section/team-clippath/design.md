@@ -46,6 +46,65 @@ Portraits are the visual core. Preserve deliberate grayscale, crop, overlay, and
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Motion-driven behavior
+
+**Location:** `packages/blocks/src/team-section/team-clippath.tsx:71-77`
+**Why it is core:** The motion configuration controls the effect’s timing, position, and interaction response.
+
+```tsx
+            const isOtherHovered = hoveredId !== null && hoveredId !== item.id
+
+            return (
+              <motion.div
+                key={item.id}
+                className="relative cursor-pointer h-full"
+                style={{ overflow: 'hidden' }}
+```
+
+### 2. Motion-driven behavior
+
+**Location:** `packages/blocks/src/team-section/team-clippath.tsx:121-130`
+**Why it is core:** The motion configuration controls the effect’s timing, position, and interaction response.
+
+```tsx
+
+                {/* Content */}
+                <div className="absolute inset-0 p-6 flex flex-col justify-end text-white z-10">
+                  <motion.h2
+                    className="text-2xl font-semibold mb-2 whitespace-nowrap overflow-hidden"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{
+                      opacity: isHovered ? 1 : 0,
+                      y: isHovered ? 0 : 20,
+                    }}
+```
+
+### 3. Motion-driven behavior
+
+**Location:** `packages/blocks/src/team-section/team-clippath.tsx:135-146`
+**Why it is core:** The motion configuration controls the effect’s timing, position, and interaction response.
+
+```tsx
+                    }}
+                  >
+                    {item.title}
+                  </motion.h2>
+
+                  <motion.p
+                    className="text-lg opacity-90 mb-4 whitespace-nowrap overflow-hidden"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{
+                      opacity: isHovered ? 1 : 0,
+                      y: isHovered ? 0 : 20,
+                    }}
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Actions are compact social/contact controls derived from the accent; give each at least a 44px hit area.

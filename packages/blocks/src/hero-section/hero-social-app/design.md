@@ -52,6 +52,65 @@ Use high-quality product/UI composites or portraits with deliberate overlap; ico
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Patterned background layer
+
+**Location:** `packages/blocks/src/hero-section/hero-social-app.tsx:85-95`
+**Why it is core:** The repeated line recipe gives the surface its recognizable texture.
+
+```tsx
+
+      {/* Header */}
+      {!isMobile && (
+        <header className="w-full container sm:px-20 px-10 border-b border-x relative border-neutral-200">
+          <TimelineAnimation
+            animationNum={2}
+            timelineRef={timelineRef}
+            className="sm:w-20 w-10 h-full absolute left-0 top-0 bg-[repeating-linear-gradient(135deg,#e0e0e0_0px_1px,transparent_1px_10px)]"
+          />
+          <TimelineAnimation
+            animationNum={2}
+```
+
+### 2. Patterned background layer
+
+**Location:** `packages/blocks/src/hero-section/hero-social-app.tsx:152-162`
+**Why it is core:** The repeated line recipe gives the surface its recognizable texture.
+
+```tsx
+      )}
+
+      {/* Hero Layout */}
+      <div className="w-full container sm:px-20 px-10 border-x border-b relative border-neutral-200">
+        <TimelineAnimation
+          animationNum={3}
+          timelineRef={timelineRef}
+          className="sm:w-20 w-10 h-full absolute left-0 top-0 bg-[repeating-linear-gradient(135deg,#e0e0e0_0px_1px,transparent_1px_10px)]"
+        />
+        <TimelineAnimation
+          animationNum={4}
+```
+
+### 3. Radial background field
+
+**Location:** `packages/blocks/src/hero-section/hero-social-app.tsx:440-446`
+**Why it is core:** The gradient’s focal point, stops, and layer position establish the block’s backdrop.
+
+```tsx
+            <TimelineAnimation
+              animationNum={6}
+              timelineRef={timelineRef}
+              className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] bg-size-[14px_14px] mask-[radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]"
+            />
+          </TimelineAnimation>
+        </div>
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Primary actions carry the block accent; secondary actions are quieter bordered or glass controls with the same height.

@@ -50,6 +50,60 @@ Portraits are the visual core. Preserve deliberate grayscale, crop, overlay, and
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Depth and glow treatment
+
+**Location:** `packages/blocks/src/team-section/team-social.tsx:72-81`
+**Why it is core:** These exact shadows and blur layers distinguish foreground from atmosphere.
+
+```tsx
+            animationNum={4}
+            className="flex items-center justify-center gap-4"
+          >
+            <Button className="px-6 py-3 font-spaceGrotesk bg-orange-500 shadow-lg shadow-orange-500 text-white font-bold rounded-xl hover:bg-ornage-600 transition-all ">
+              Get started
+            </Button>
+            <Button className="px-4 py-3 font-spaceGrotesk border border-neutral-200 font-bold rounded-xl text-white transition-all">
+              Explore features
+            </Button>
+          </TimelineAnimation>
+```
+
+### 2. Source-specific visual behavior
+
+**Location:** `packages/blocks/src/team-section/team-social.tsx:89-95`
+**Why it is core:** This source fragment contains a high-signal visual or interaction decision unique to the block.
+
+```tsx
+              animationNum={5 + i}
+              className="flex flex-col items-center text-center group"
+            >
+              <div className="w-full rounded-full overflow-hidden mb-6 ring-4 ring-transparent group-hover:ring-orange-100 transition-all duration-300">
+                <img
+                  src={member.image}
+                  alt={member.name}
+```
+
+### 3. Source-specific visual behavior
+
+**Location:** `packages/blocks/src/team-section/team-social.tsx:103-109`
+**Why it is core:** This source fragment contains a high-signal visual or interaction decision unique to the block.
+
+```tsx
+              <div className="flex gap-4 text-neutral-400">
+                <a
+                  href="#"
+                  className="hover:text-neutral-600 transition-colors"
+                >
+                  <TwitterIcon />
+                </a>
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Actions are compact social/contact controls derived from the accent; give each at least a 44px hit area.

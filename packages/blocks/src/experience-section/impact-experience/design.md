@@ -47,6 +47,56 @@ Use project/customer imagery only when tied to the active record; otherwise let 
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Low-opacity icon pattern
+
+**Location:** `packages/blocks/src/experience-section/impact-experience.tsx:39-45`
+**Why it is core:** Repeated icons at low opacity create a branded texture without competing with foreground content.
+
+```tsx
+          <img
+            src="https://images.unsplash.com/photo-1763010156322-2fb80d48ea8b?q=80&w=1760&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt=""
+            className="absolute top-0 left-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out"
+          />
+        )}
+        {index === '2' && (
+```
+
+### 2. Low-opacity icon pattern
+
+**Location:** `packages/blocks/src/experience-section/impact-experience.tsx:46-52`
+**Why it is core:** Repeated icons at low opacity create a branded texture without competing with foreground content.
+
+```tsx
+          <img
+            src="https://images.unsplash.com/photo-1762227144867-c66aee797440?q=80&w=1760&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt=""
+            className="absolute top-0 left-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out"
+          />
+        )}
+        {index === '3' && (
+```
+
+### 3. Low-opacity icon pattern
+
+**Location:** `packages/blocks/src/experience-section/impact-experience.tsx:53-59`
+**Why it is core:** Repeated icons at low opacity create a branded texture without competing with foreground content.
+
+```tsx
+          <img
+            src="https://images.unsplash.com/photo-1764138370667-d15f89ee1c45?q=80&w=1760&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt=""
+            className="absolute top-0 left-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out"
+          />
+        )}
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Use text arrows or compact icon controls, with the accent appearing only on the active or actionable item.

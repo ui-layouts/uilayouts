@@ -53,6 +53,62 @@ Prefer charts, sparklines and abstract data marks over stock photography; icons 
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Source-specific visual behavior
+
+**Location:** `packages/blocks/src/stats-section/advanced-stats/index.tsx:1-7`
+**Why it is core:** This source fragment contains a high-signal visual or interaction decision unique to the block.
+
+```tsx
+'use client'
+import { cn } from '@/lib/utils'
+import React, { useRef } from 'react'
+import { ClippedAreaChart } from './charts'
+import { TimelineAnimation } from '@/components/ui/timeline-animation'
+
+const kpis = [
+```
+
+### 2. Border-led structure
+
+**Location:** `packages/blocks/src/stats-section/advanced-stats/index.tsx:35-43`
+**Why it is core:** Hairline borders establish grouping and rhythm without relying on filled cards.
+
+```tsx
+          <TimelineAnimation
+            animationNum={1}
+            timelineRef={timelineRef}
+            className="lg:col-span-2 p-8 rounded-3xl bg-zinc-50 border border-zinc-200"
+          >
+            <ClippedAreaChart />
+          </TimelineAnimation>
+
+          {/* Breakdown Section */}
+```
+
+### 3. Border-led structure
+
+**Location:** `packages/blocks/src/stats-section/advanced-stats/index.tsx:117-126`
+**Why it is core:** Hairline borders establish grouping and rhythm without relying on filled cards.
+
+```tsx
+              timelineRef={timelineRef}
+              key={kpi.label}
+              className={cn(
+                'p-6 rounded-2xl border bg-zinc-50 border-zinc-200 transition-colors',
+                kpi.status === 'up'
+                  ? 'hover:border-emerald-400 hover:bg-emerald-50'
+                  : 'hover:border-rose-400 hover:bg-rose-50'
+              )}
+            >
+              <p className="text-xs font-bold text-zinc-400 uppercase tracking-widest mb-2">
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Use buttons only for drill-down or a final CTA; style them as a continuation of the surrounding surface.

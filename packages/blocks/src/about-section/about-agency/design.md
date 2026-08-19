@@ -46,6 +46,74 @@ Use documentary portraits, work samples, or brand proof; preserve the source cro
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Motion-driven behavior
+
+**Location:** `packages/blocks/src/about-section/about-agency.tsx:8-16`
+**Why it is core:** The motion configuration controls the effect’s timing, position, and interaction response.
+
+```tsx
+      <div className="max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
+          <div className="space-y-10">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.4, ease: 'easeOut' }}
+            >
+              <h1 className="text-7xl md:text-8xl font-bold font-spaceGrotesk tracking-tighter ">
+```
+
+### 2. Motion-driven behavior
+
+**Location:** `packages/blocks/src/about-section/about-agency.tsx:35-50`
+**Why it is core:** The motion configuration controls the effect’s timing, position, and interaction response.
+
+```tsx
+              </p>
+
+              <div className="pt-4">
+                <Button className="h-12 px-8 bg-black dark:hover:bg-black/90 hover:bg-black/90 text-white rounded-full font-bold text-sm transition-transform active:scale-95 duration-200">
+                  Our Portfolio
+                </Button>
+              </div>
+            </motion.div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.2 }}
+            className="relative aspect-4/5 lg:aspect-square overflow-hidden rounded-3xl bg-zinc-100 shadow-2xl"
+          >
+```
+
+### 3. Translucent glass layer
+
+**Location:** `packages/blocks/src/about-section/about-agency.tsx:51-63`
+**Why it is core:** Blur, transparency, border, and stacking work together as one glass treatment.
+
+```tsx
+            <img
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1000&auto=format&fit=crop"
+              alt="Our creative team in action"
+              className="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-700 ease-in-out"
+            />
+            <div className="absolute top-8 right-8">
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+                className="size-28 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center p-4 text-center"
+              >
+                <span className="text-xs font-black uppercase text-white tracking-[0.2em] leading-tight">
+                  Design • Strategy • Future
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Use one decisive filled CTA and a lower-emphasis text/outline action; buttons should never compete with imagery.

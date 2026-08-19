@@ -50,6 +50,60 @@ Use preview/product imagery when it clarifies answers; decorative scenery must r
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Structural border treatment
+
+**Location:** `packages/blocks/src/faq-section/faq-tabbed-explorer.tsx:182-188`
+**Why it is core:** The border placement creates the block’s visual grouping and alignment.
+
+```tsx
+  return (
+    <section className="w-full min-h-screen flex items-center justify-center bg-white">
+      <div className="w-full max-w-5xl mx-auto bg-slate-50 rounded-3xl border border-slate-200 flex flex-col md:flex-row justify-center">
+        <div className="w-full md:w-72 bg-slate-50 p-6 border-b md:border-b-0 md:border-r border-slate-200 pt-10 rounded-l-3xl">
+          <h3 className="text-sm font-semibold font-spaceGrotesk text-slate-400 uppercase tracking-widest mb-4 px-2">
+            Knowledge Base
+          </h3>
+```
+
+### 2. Custom elevation recipe
+
+**Location:** `packages/blocks/src/faq-section/faq-tabbed-explorer.tsx:194-201`
+**Why it is core:** The nonstandard shadow values create the block’s characteristic depth.
+
+```tsx
+                className={cn(
+                  'w-full flex items-center font-spaceGrotesk cursor-pointer gap-3 px-2 py-3 border rounded-xl transition-all font-medium',
+                  activeTab === cat.id
+                    ? 'bg-neutral-100 text-black border-neutral-200 shadow-primary-500/30 shadow-[30px_54px_67px_0px_rgba(209,217,230,0.67),25px_27px_27px_-7px_rgba(209,217,230,0.34),-34px_-30px_65px_0px_rgba(255,255,255,0.75),-9px_-20px_29px_0px_rgba(255,255,255,0.54),-13px_-11px_22px_7px_rgba(255,255,255,0.25),-16px_-7px_21px_4px_rgba(255,255,255,0.25)]'
+                    : 'text-slate-600 hover:bg-slate-200/50  border-slate-50'
+                )}
+              >
+                <cat.icon size={18} />
+```
+
+### 3. Structural border treatment
+
+**Location:** `packages/blocks/src/faq-section/faq-tabbed-explorer.tsx:222-230`
+**Why it is core:** The border placement creates the block’s visual grouping and alignment.
+
+```tsx
+                <AccordionItem
+                  key={item.id}
+                  value={item.id}
+                  className="border border-neutral-200 bg-transparent mb-4"
+                >
+                  <AccordionHeader className="rounded-xl hover:bg-slate-50 bg-white py-4 px-3 font-semibold font-spaceGrotesk">
+                    <span className="text-slate-900">{item.question}</span>
+                  </AccordionHeader>
+                  <AccordionPanel className="px-0 bg-white  data-active:bg-white">
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Use CTA styling only outside accordion rows; the entire question header is the disclosure button with visible focus.

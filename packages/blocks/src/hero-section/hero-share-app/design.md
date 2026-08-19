@@ -19,7 +19,7 @@
 
 ## Design thesis
 
-Radial sharing orbit defines the identity. The section should feel immersive and launch-ready.
+A red sunrise background and tilted photo fan define the identity. The section should feel immersive and launch-ready.
 
 ## Typography
 
@@ -35,7 +35,7 @@ Use a wide hero stage with a centered or split headline and an overlapping produ
 
 ## Background construction
 
-Anchor a red gradient share control in the center, then absolutely orbit rotated user/file cards around it; use red haze, hard white cards, and opposing ±15° tilts to imply outward distribution.
+The signature canvas is a pale red-to-white radial wash: `radial-gradient(125% 125% at 50% 90%, #fff 40%, #f16d63 100%)`. It sits as an absolute `inset-0 z-0` layer, while the headline, pill, store buttons, and tilted photo fan remain at `z-10` or higher.
 
 ## Imagery and iconography
 
@@ -43,13 +43,64 @@ Use high-quality product/UI composites or portraits with deliberate overlap; ico
 
 ## Unique components and signature effects
 
-1. **Radial sharing orbit.** Anchor a red gradient share control in the center, then absolutely orbit rotated user/file cards around it; use red haze, hard white cards, and opposing ±15° tilts to imply outward distribution.
-   - **Use it for:** visualizing content radiating from a single action
+1. **Red sunrise background and tilted photo fan.** The signature canvas is a pale red-to-white radial wash: `radial-gradient(125% 125% at 50% 90%, #fff 40%, #f16d63 100%)`. It sits as an absolute `inset-0 z-0` layer, while the headline, pill, store buttons, and tilted photo fan remain at `z-10` or higher.
+   - **Use it for:** the full hero atmosphere and any sibling section that must continue the warm red canvas
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
 2. **Layer discipline.** Separate atmosphere, content surface, and foreground controls into distinct layers. Decorative layers use pointer-events-none and sit below readable content; preserve clipping at the section boundary.
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
+
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Radial background field
+
+**Location:** `packages/blocks/src/hero-section/hero-share-app.tsx:126-132`
+**Why it is core:** The gradient’s focal point, stops, and layer position establish the block’s backdrop.
+
+```tsx
+        className="absolute inset-0 z-0"
+        style={{
+          background:
+            'radial-gradient(125% 125% at 50% 90%, #fff 40%, #f16d63 100%)',
+        }}
+      />
+      <div className="relative z-10 grow flex flex-col items-center justify-center text-center px-4 pt-10">
+```
+
+### 2. Depth and glow treatment
+
+**Location:** `packages/blocks/src/hero-section/hero-share-app.tsx:187-193`
+**Why it is core:** These exact shadows and blur layers distinguish foreground from atmosphere.
+
+```tsx
+            as="button"
+            timelineRef={timelineRef}
+            animationNum={7}
+            className="bg-linear-to-t from-red-400 to-red-500 cursor-pointer text-white px-4 py-4 rounded-xl font-semibold text-xl shadow-2xl flex items-center gap-3 transition"
+          >
+            <svg viewBox="0 0 814 1000" className="w-8 h-8">
+              <path
+```
+
+### 3. Overlapping transformed composition
+
+**Location:** `packages/blocks/src/hero-section/hero-share-app.tsx:241-247`
+**Why it is core:** Rotation and offset create the intentionally physical, layered arrangement.
+
+```tsx
+            as="button"
+            timelineRef={timelineRef}
+            animationNum={9}
+            className="absolute left-0 bottom-[-100px] w-105 h-96 bg-white rounded-4xl shadow-2xl overflow-hidden transform rotate-[-15deg] translate-x-12 translate-y-12 border-4 border-white"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?q=80&w=710&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+```
+<!-- source-audit:end -->
 
 ## Buttons
 
@@ -61,7 +112,7 @@ Use slow entrance staging and restrained hover/press feedback; decorative atmosp
 
 ## Rules for extending this design
 
-1. Carry the **Radial sharing orbit** into at least one meaningful focal area; reproduce its layer recipe rather than substituting a generic gradient.
+1. Carry the **red sunrise background and tilted photo fan** into at least one meaningful focal area; reproduce its layer recipe rather than substituting a generic gradient.
 2. Reuse the same accent-to-neutral ratio, image treatment, corner language, and density so adjacent sections read as one system.
 3. On small screens, preserve hierarchy and effect placement while removing overlap that could obscure content.
 4. Provide reduced-motion behavior and keyboard focus parity for every hover-driven reveal.

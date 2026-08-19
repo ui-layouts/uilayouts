@@ -25,6 +25,7 @@ const requiredSections = [
   '## Composition and rhythm',
   '## Background construction',
   '## Unique components and signature effects',
+  '## Audited source implementation',
   '## Buttons',
   '## Motion and interaction states',
   '## AI implementation instruction',
@@ -37,8 +38,28 @@ const incomplete = documents.flatMap(({ id, path }) => {
     (match) => match[1]
   );
   const brokenSources = sourceReferences.filter((source) => !existsSync(source));
-  return !markdown.trim() || absent.length || !sourceReferences.length || brokenSources.length
-    ? [{ id, empty: !markdown.trim(), absent, brokenSources }]
+  const auditedLocations = [
+    ...markdown.matchAll(/\*\*Location:\*\* `([^`]+\.(?:ts|tsx):\d+-\d+)`/g),
+  ].map((match) => match[1]);
+  const hasImplementationCode = /## Audited source implementation[\s\S]+```tsx[\s\S]+```/.test(
+    markdown
+  );
+  return !markdown.trim() ||
+    absent.length ||
+    !sourceReferences.length ||
+    brokenSources.length ||
+    !auditedLocations.length ||
+    !hasImplementationCode
+    ? [
+        {
+          id,
+          empty: !markdown.trim(),
+          absent,
+          brokenSources,
+          auditedLocations: auditedLocations.length,
+          hasImplementationCode,
+        },
+      ]
     : [];
 });
 

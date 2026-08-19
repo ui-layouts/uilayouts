@@ -49,6 +49,57 @@ Use tiny product icons or abstract glow only; never distract from price, billing
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Depth and glow treatment
+
+**Location:** `packages/blocks/src/pricing-section/product-packs.tsx:44-50`
+**Why it is core:** These exact shadows and blur layers distinguish foreground from atmosphere.
+
+```tsx
+          <TimelineAnimation
+            animationNum={5}
+            timelineRef={timelineRef}
+            className="bg-amber-300 border border-neutral-100 rounded-4xl p-10 flex flex-col shadow-sm space-y-6"
+          >
+            <div className="space-y-2">
+              <h3 className="text-2xl font-semibold mb-2 flex items-center gap-2">
+```
+
+### 2. Custom elevation recipe
+
+**Location:** `packages/blocks/src/pricing-section/product-packs.tsx:110-116`
+**Why it is core:** The nonstandard shadow values create the block’s characteristic depth.
+
+```tsx
+            </div>
+            <Button
+              variant="outline"
+              className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-neutral-200 border-2 border-black px-6 font-medium text-black transition-all duration-100 shadow-[5px_5px_rgb(0_0_0)] active:translate-x-[3px] active:translate-y-[3px] active:shadow-none "
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+```
+
+### 3. Custom elevation recipe
+
+**Location:** `packages/blocks/src/pricing-section/product-packs.tsx:193-199`
+**Why it is core:** The nonstandard shadow values create the block’s characteristic depth.
+
+```tsx
+
+            <Button
+              variant="outline"
+              className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-neutral-50 border-2 border-amber-300 px-6 font-medium text-black transition-all duration-100 shadow-[5px_5px_rgb(255_210_48)] active:translate-x-[3px] active:translate-y-[3px] hover:bg-neutral-100 active:shadow-none "
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Use full-width, high-contrast CTAs with real press feedback; featured plans own the accent while secondary plans stay neutral.

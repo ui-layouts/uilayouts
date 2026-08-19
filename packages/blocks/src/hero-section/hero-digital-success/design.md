@@ -20,7 +20,7 @@
 
 ## Design thesis
 
-Volumetric red shader glow defines the identity. The section should feel immersive and launch-ready.
+A cool volumetric WebGL sphere fills the black canvas while the oversized “Digital Success” word introduces a separate white-to-red typographic flare. The contrast between the moving blue field and the sharp red type/button glow is the identity.
 
 ## Typography
 
@@ -36,7 +36,7 @@ Use a wide hero stage with a centered or split headline and an overlapping produ
 
 ## Background construction
 
-Use the shader gradient as the canvas, overlay black for legibility, then reserve the white-to-red gradient and 20px red glow for the oversized display word and primary accent.
+Render the configured blue `ShaderGradient` edge-to-edge behind a black content layer. Keep the shader cool (`#92dbe0`, `#0b7bff`, `#3865cf`); red is a separate foreground accent used by the display-word gradient and the primary button’s 20px glow.
 
 ## Imagery and iconography
 
@@ -44,13 +44,109 @@ Use high-quality product/UI composites or portraits with deliberate overlap; ico
 
 ## Unique components and signature effects
 
-1. **Volumetric red shader glow.** Use the shader gradient as the canvas, overlay black for legibility, then reserve the white-to-red gradient and 20px red glow for the oversized display word and primary accent.
-   - **Use it for:** the single emotional focal point, never every card
-   - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
+1. **Cool volumetric shadow gradient.** The full-viewport `ShaderGradientCanvas` renders a sphere using the exact uniforms shown in the audited source below: speed `0.3`, strength `0.3`, density `0.8`, frequency `5.5`, amplitude `3.2`, Y rotation `130`, Z rotation `70`, and the three-color blue palette. Camera zoom `15.1` and distance `0.5` push the sphere close enough that only its luminous edge is visible against black.
+   - **Use it for:** the atmospheric background behind every sibling section that needs to feel part of this page.
+   - **Do not:** replace it with the AI Infrastructure shader settings—the color palette, amplitude, rotations, camera, and lighting are different.
 
-2. **Layer discipline.** Separate atmosphere, content surface, and foreground controls into distinct layers. Decorative layers use pointer-events-none and sit below readable content; preserve clipping at the section boundary.
-   - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
-   - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
+2. **White-to-red display-word flare.** Apply transparent clipped text with a left-to-right `from-white via-red-500 to-red-500` gradient only to the “Digital Success” phrase. The primary CTA repeats the red accent as `shadow-[0_0_20px_rgba(255,60,60,0.4)]` while the rest of the interface remains black, white, and glassy.
+   - **Use it for:** one headline fragment and the primary conversion action, not the background shader itself.
+
+3. **Black glass information layer.** Place statistics in `bg-black/20 backdrop-blur-lg` and secondary controls in `bg-white/5 backdrop-blur-md border-white/20`, above the shader at `relative z-10`.
+   - **Use it for:** preserving readability without hiding the animated field.
+
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Configured shader field
+
+**Location:** `packages/blocks/src/hero-section/hero-digital-success.tsx:1-6`
+**Why it is core:** This library component and its exact uniforms generate the block’s atmospheric field.
+
+```tsx
+'use client'
+import React, { Suspense, useRef } from 'react'
+import { ShaderGradient, ShaderGradientCanvas } from '@shadergradient/react'
+import { TimelineAnimation } from '@/components/ui/timeline-animation'
+import { useMediaQuery } from '@/hooks/use-media-query'
+import { Component, Layout, Wallet } from 'lucide-react'
+```
+
+### 2. Configured shader field
+
+**Location:** `packages/blocks/src/hero-section/hero-digital-success.tsx:19-69`
+**Why it is core:** This library component and its exact uniforms generate the block’s atmospheric field.
+
+```tsx
+        <ShaderGradientCanvas
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100vw',
+            height: '100vh',
+          }}
+          lazyLoad={false}
+          pixelDensity={1}
+          pointerEvents="none"
+        >
+          <ShaderGradient
+            animate="on"
+            type="sphere"
+            wireframe={false}
+            shader="defaults"
+            uTime={0}
+            uSpeed={0.3}
+            uStrength={0.3}
+            uDensity={0.8}
+            uFrequency={5.5}
+            uAmplitude={3.2}
+            positionX={-0.1}
+            positionY={0}
+            positionZ={0}
+            rotationX={0}
+            rotationY={130}
+            rotationZ={70}
+            color1="#92dbe0"
+            color2="#0b7bff"
+            color3="#3865cf"
+            reflection={0.4}
+            // View (camera) props
+            cAzimuthAngle={270}
+            cPolarAngle={180}
+            cDistance={0.5}
+            cameraZoom={15.1}
+            // Effect props
+            lightType="env"
+            brightness={0.8}
+            envPreset="city"
+            grain="on"
+            // Tool props
+            toggleAxis={false}
+            zoomOut={false}
+            hoverState=""
+            // Optional - if using transition features
+            enableTransition={false}
+          />
+        </ShaderGradientCanvas>
+```
+
+### 3. Source-specific visual behavior
+
+**Location:** `packages/blocks/src/hero-section/hero-digital-success.tsx:185-191`
+**Why it is core:** This source fragment contains a high-signal visual or interaction decision unique to the block.
+
+```tsx
+          className="flex flex-col xl:flex-row text-[10vw] xl:text-[6.5vw] font-medium leading-[100%] items-baseline gap-x-8 gap-y-2 pb-10 "
+        >
+          Unlocking
+          <span className="bg-clip-text text-transparent bg-linear-to-r from-white via-red-500 to-red-500 pb-8 xl:inline-block block">
+            Digital Success
+          </span>
+        </TimelineAnimation>
+```
+<!-- source-audit:end -->
 
 ## Buttons
 
@@ -62,7 +158,7 @@ Use slow entrance staging and restrained hover/press feedback; decorative atmosp
 
 ## Rules for extending this design
 
-1. Carry the **Volumetric red shader glow** into at least one meaningful focal area; reproduce its layer recipe rather than substituting a generic gradient.
+1. Carry both the **cool volumetric shadow gradient** and the restrained **red typographic flare** into at least one meaningful focal area; reproduce its layer recipe rather than substituting a generic gradient.
 2. Reuse the same accent-to-neutral ratio, image treatment, corner language, and density so adjacent sections read as one system.
 3. On small screens, preserve hierarchy and effect placement while removing overlap that could obscure content.
 4. Provide reduced-motion behavior and keyboard focus parity for every hover-driven reveal.

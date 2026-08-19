@@ -44,6 +44,68 @@ Favor product crops, diagrams, or symbolic line icons; each should explain the c
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Translucent glass layer
+
+**Location:** `packages/blocks/src/feature-section/feature-bento.tsx:58-69`
+**Why it is core:** Blur, transparency, border, and stacking work together as one glass treatment.
+
+```tsx
+          </div>
+
+          {/* CTA Card */}
+          <div className="bg-linear-to-br from-neutral-950 to-neutral-800 rounded-3xl p-8 text-white flex flex-col justify-between transition-all cursor-pointer group">
+            <div className="flex justify-between items-start">
+              <span className="text-xs font-bold uppercase tracking-wider bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full">
+                Join Now
+              </span>
+              <div className="size-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-xl group-hover:bg-white/30 group-hover:rotate-45 transition-all">
+                ↗
+              </div>
+            </div>
+```
+
+### 2. Low-opacity icon pattern
+
+**Location:** `packages/blocks/src/feature-section/feature-bento.tsx:76-88`
+**Why it is core:** Repeated icons at low opacity create a branded texture without competing with foreground content.
+
+```tsx
+
+          {/* Stats Card 2 */}
+          <div className="bg-gray-950 rounded-3xl p-8 text-white flex flex-col justify-center gap-3 relative overflow-hidden group">
+            <div className="absolute inset-0 bg-linear-to-br from-purple-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <span className="absolute top-5 right-5 flex size-3">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-400 opacity-75"></span>
+              <span className="relative inline-flex size-3 rounded-full bg-blue-500"></span>
+            </span>
+            <div className="relative z-10">
+              <span className="text-5xl font-black bg-linear-to-r from-blue-200 to-blue-600 bg-clip-text text-transparent">
+                18.2k+
+              </span>
+              <p className="text-sm uppercase tracking-widest text-neutral-500 font-semibold mt-2">
+```
+
+### 3. Depth and glow treatment
+
+**Location:** `packages/blocks/src/feature-section/feature-bento.tsx:92-98`
+**Why it is core:** These exact shadows and blur layers distinguish foreground from atmosphere.
+
+```tsx
+          </div>
+
+          {/* Stats Card 3 */}
+          <div className="bg-linear-to-br from-blue-500 to-blue-600 rounded-3xl p-8 text-white flex flex-col justify-center gap-3 relative overflow-hidden group hover:shadow-2xl transition-all">
+            <div className="absolute -bottom-10 -right-10 size-40 bg-white/10 rounded-full blur-3xl" />
+            <div className="relative z-10">
+              <span className="text-5xl font-black">94%</span>
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Primary actions use the accent fill; card-level actions are compact arrows or icon controls and must visibly respond on hover.

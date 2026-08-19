@@ -50,6 +50,65 @@ Use documentary portraits, work samples, or brand proof; preserve the source cro
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Translucent glass layer
+
+**Location:** `packages/blocks/src/about-section/about-vision.tsx:13-28`
+**Why it is core:** Blur, transparency, border, and stacking work together as one glass treatment.
+
+```tsx
+            alt="Consultation"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]" />
+        </div>
+        <div className="relative z-10 text-center space-y-4">
+          <motion.h1
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-5xl font-bold text-white tracking-tight"
+          >
+            About Us
+          </motion.h1>
+          <div className="flex items-center justify-center gap-2 text-xs font-medium uppercase tracking-widest text-zinc-300">
+            <span>Home</span>
+            <span className="text-blue-500">→</span>
+```
+
+### 2. Motion-driven behavior
+
+**Location:** `packages/blocks/src/about-section/about-vision.tsx:53-59`
+**Why it is core:** The motion configuration controls the effect’s timing, position, and interaction response.
+
+```tsx
+                textColor: 'text-white/70',
+              },
+            ].map((card, i) => (
+              <motion.div
+                key={card.title}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+```
+
+### 3. Motion-driven behavior
+
+**Location:** `packages/blocks/src/about-section/about-vision.tsx:82-88`
+**Why it is core:** The motion configuration controls the effect’s timing, position, and interaction response.
+
+```tsx
+                  condimentum, turpis neque commodo mauris, id rutrum lacus nisl
+                  a risus.
+                </p>
+              </motion.div>
+            ))}
+          </div>
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Use one decisive filled CTA and a lower-emphasis text/outline action; buttons should never compete with imagery.

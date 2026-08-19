@@ -46,6 +46,27 @@ Favor product crops, diagrams, or symbolic line icons; each should explain the c
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Low-opacity icon pattern
+
+**Location:** `packages/blocks/src/feature-section/feature-platform.tsx:89-95`
+**Why it is core:** Repeated icons at low opacity create a branded texture without competing with foreground content.
+
+```tsx
+            </h3>
+            <Wallet className="size-8 text-black" />
+          </div>
+          <div className="absolute inset-0 grid grid-cols-4 gap-2 opacity-10 p-4 pointer-events-none">
+            {Array.from({ length: 16 }).map((_, i) => (
+              <DollarSign key={i} className="size-6 text-white" />
+            ))}
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Primary actions use the accent fill; card-level actions are compact arrows or icon controls and must visibly respond on hover.

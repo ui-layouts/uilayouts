@@ -44,6 +44,64 @@ Prefer charts, sparklines and abstract data marks over stock photography; icons 
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Motion-driven behavior
+
+**Location:** `packages/blocks/src/stats-section/stats-banner.tsx:4-13`
+**Why it is core:** The motion configuration controls the effect’s timing, position, and interaction response.
+
+```tsx
+
+export const StatsBanner = () => {
+  return (
+    <section className="py-20 px-6 bg-linear-to-b from-slate-50 to-white overflow-hidden min-h-screen">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-12">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+```
+
+### 2. Motion-driven behavior
+
+**Location:** `packages/blocks/src/stats-section/stats-banner.tsx:14-21`
+**Why it is core:** The motion configuration controls the effect’s timing, position, and interaction response.
+
+```tsx
+            className="text-5xl font-semibold text-slate-900 mb-4 text-balance"
+          >
+            Trusted by Thousands
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+```
+
+### 3. Motion-driven behavior
+
+**Location:** `packages/blocks/src/stats-section/stats-banner.tsx:48-57`
+**Why it is core:** The motion configuration controls the effect’s timing, position, and interaction response.
+
+```tsx
+            </div>
+
+            {/* Grid pattern overlay */}
+            <div className="absolute inset-0 opacity-5 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-size-[4rem_4rem]"></div>
+
+            <div className="relative z-10">
+              <motion.span
+                initial={{ scale: 0.5, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                viewport={{ once: true }}
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Use buttons only for drill-down or a final CTA; style them as a continuation of the surrounding surface.

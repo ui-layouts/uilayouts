@@ -46,6 +46,60 @@ Use a wordmark, small brand symbol or restrained background art—never unrelate
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Structural border treatment
+
+**Location:** `packages/blocks/src/footer-section/footer-bento.tsx:7-13`
+**Why it is core:** The border placement creates the block’s visual grouping and alignment.
+
+```tsx
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+          {/* Main Info Card */}
+          <div className="md:col-span-2 row-span-2 bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-neutral-800 p-8 flex flex-col justify-between">
+            <div>
+              <div className="size-10 rounded-xl bg-neutral-900 dark:bg-neutral-100 mb-6 flex items-center justify-center">
+                <Rainbow />
+```
+
+### 2. Structural border treatment
+
+**Location:** `packages/blocks/src/footer-section/footer-bento.tsx:21-30`
+**Why it is core:** The border placement creates the block’s visual grouping and alignment.
+
+```tsx
+              </p>
+            </div>
+            <div className="mt-12 flex gap-4">
+              <Button className="px-6 py-2.5 bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900 rounded-lg text-sm font-semibold hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-colors">
+                Get Started
+              </Button>
+              <Button className="px-6 py-2.5 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 text-neutral-900 dark:text-neutral-50 rounded-lg text-sm font-semibold hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors">
+                Book Demo
+              </Button>
+            </div>
+```
+
+### 3. Structural border treatment
+
+**Location:** `packages/blocks/src/footer-section/footer-bento.tsx:31-37`
+**Why it is core:** The border placement creates the block’s visual grouping and alignment.
+
+```tsx
+          </div>
+
+          {/* Social Card */}
+          <div className="bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-neutral-800 p-6 flex flex-col justify-between">
+            <span className="text-xs font-bold uppercase tracking-widest text-neutral-400 dark:text-neutral-600">
+              Connect
+            </span>
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Newsletter and final CTAs use the block’s primary contrast; utility/social controls are smaller but retain 44px targets.

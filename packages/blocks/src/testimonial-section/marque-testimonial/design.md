@@ -45,6 +45,67 @@ Use consistent avatar crops and genuine product/chat context; stars or platform 
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Motion-driven behavior
+
+**Location:** `packages/blocks/src/testimonial-section/marque-testimonial.tsx:61-72`
+**Why it is core:** The motion configuration controls the effect’s timing, position, and interaction response.
+
+```tsx
+      </div>
+
+      {/* Gradient fades */}
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-linear-to-r from-zinc-50 to-transparent z-10" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-linear-to-l from-zinc-50 to-transparent z-10" />
+
+      <motion.div
+        className="flex gap-6 px-6 w-max"
+        animate={{ x: ['0%', '-50%'] }}
+        transition={{
+          duration: 25,
+          repeat: Infinity,
+```
+
+### 2. Motion-driven behavior
+
+**Location:** `packages/blocks/src/testimonial-section/marque-testimonial.tsx:113-124`
+**Why it is core:** The motion configuration controls the effect’s timing, position, and interaction response.
+
+```tsx
+            </div>
+          </div>
+        ))}
+      </motion.div>
+
+      {/* Second row with opposite direction */}
+      <motion.div
+        className="flex gap-6 px-6 w-max mt-6"
+        animate={{ x: ['-50%', '0%'] }}
+        transition={{
+          duration: 30,
+          repeat: Infinity,
+```
+
+### 3. Motion-driven behavior
+
+**Location:** `packages/blocks/src/testimonial-section/marque-testimonial.tsx:165-171`
+**Why it is core:** The motion configuration controls the effect’s timing, position, and interaction response.
+
+```tsx
+            </div>
+          </div>
+        ))}
+      </motion.div>
+    </section>
+  )
+}
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Navigation is compact, high-contrast and tactile; testimonial cards themselves are not buttons unless explicitly interactive.

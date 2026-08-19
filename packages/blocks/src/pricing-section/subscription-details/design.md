@@ -54,6 +54,64 @@ Use tiny product icons or abstract glow only; never distract from price, billing
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Depth and glow treatment
+
+**Location:** `packages/blocks/src/pricing-section/subscription-details.tsx:122-128`
+**Why it is core:** These exact shadows and blur layers distinguish foreground from atmosphere.
+
+```tsx
+                  'xl:p-8 md:p-4 p-6 rounded-2xl relative border transition-all flex flex-col',
+                  plan.featured
+                    ? 'bg-black text-white shadow-2xl relative overflow-hidden border-none'
+                    : 'bg-neutral-100 border-neutral-300 border-2 border-dashed'
+                )}
+              >
+                {plan.featured && (
+```
+
+### 2. Translucent glass layer
+
+**Location:** `packages/blocks/src/pricing-section/subscription-details.tsx:129-139`
+**Why it is core:** Blur, transparency, border, and stacking work together as one glass treatment.
+
+```tsx
+                  <>
+                    <img
+                      src="https://images.unsplash.com/photo-1600619030925-569b3b964418?q=80&w=627&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                      className="w-full h-full object-fill absolute -bottom-40 rotate-180 left-0"
+                      alt=""
+                    />
+                    <div className="absolute inset-0 bg-linear-to-br from-orange-500/20 via-pink-500/10 to-transparent blur-3xl opacity-60 pointer-events-none" />
+                    <div className="absolute top-4 right-4 bg-white/10 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider z-20">
+                      Most popular
+                    </div>
+                  </>
+```
+
+### 3. Depth and glow treatment
+
+**Location:** `packages/blocks/src/pricing-section/subscription-details.tsx:178-187`
+**Why it is core:** These exact shadows and blur layers distinguish foreground from atmosphere.
+
+```tsx
+                <Button
+                  variant="outline"
+                  className={cn(
+                    'relative z-10 gap-2 h-12 border-neutral-200 mt-auto transition-transform',
+                    plan.featured
+                      ? 'bg-white text-black hover:bg-neutral-100 border-none shadow-lg active:scale-95'
+                      : 'text-neutral-600 active:scale-95 hover:bg-white '
+                  )}
+                >
+                  <svg
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Use full-width, high-contrast CTAs with real press feedback; featured plans own the accent while secondary plans stay neutral.

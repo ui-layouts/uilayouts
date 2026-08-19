@@ -13,7 +13,7 @@
     "lint:fix": "biome check --write .",
     "lint:workspaces": "turbo run lint",
     "format:check": "biome format .",
-    "validate:design-systems": "node scripts/validate-design-systems.mjs"
+    "validate:design-systems": "node scripts/audit-block-design-effects.mjs --check && node scripts/validate-design-systems.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

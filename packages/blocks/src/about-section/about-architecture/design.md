@@ -44,6 +44,60 @@ Use documentary portraits, work samples, or brand proof; preserve the source cro
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Motion-driven behavior
+
+**Location:** `packages/blocks/src/about-section/about-architecture.tsx:9-15`
+**Why it is core:** The motion configuration controls the effect’s timing, position, and interaction response.
+
+```tsx
+      <div className="max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-12 gap-12 items-end mb-24">
+          <div className="lg:col-span-8">
+            <motion.div
+              initial={{ opacity: 0, x: -10 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              className="flex items-center gap-4 mb-8"
+```
+
+### 2. Motion-driven behavior
+
+**Location:** `packages/blocks/src/about-section/about-architecture.tsx:21-27`
+**Why it is core:** The motion configuration controls the effect’s timing, position, and interaction response.
+
+```tsx
+              <span className="text-[10px] font-black uppercase tracking-[0.4em] text-black">
+                About the Studio
+              </span>
+            </motion.div>
+            <h2 className="text-7xl md:text-9xl font-spaceGrotesk font-bold tracking-tighter leading-none text-balance">
+              Building <br /> <span className="italic">Modernity</span>.
+            </h2>
+```
+
+### 3. Source-specific visual behavior
+
+**Location:** `packages/blocks/src/about-section/about-architecture.tsx:40-49`
+**Why it is core:** This source fragment contains a high-signal visual or interaction decision unique to the block.
+
+```tsx
+            <div className="aspect-3/4 overflow-hidden rounded-sm group relative">
+              <img
+                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000"
+                className="object-cover size-full grayscale group-hover:grayscale-0 transition-all duration-1000"
+                alt="Architecture detail"
+              />
+              <div className="absolute bottom-8 left-8 text-white mix-blend-difference">
+                <span className="text-xs font-mono">
+                  01 / STRUCTURAL INTEGRITY
+                </span>
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Use one decisive filled CTA and a lower-emphasis text/outline action; buttons should never compete with imagery.

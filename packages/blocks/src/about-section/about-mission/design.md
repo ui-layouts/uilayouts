@@ -46,6 +46,30 @@ Use documentary portraits, work samples, or brand proof; preserve the source cro
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Radial background field
+
+**Location:** `packages/blocks/src/about-section/about-mission.tsx:10-19`
+**Why it is core:** The gradient’s focal point, stops, and layer position establish the block’s backdrop.
+
+```tsx
+        <span className="text-6xl max-w-3xl mx-auto text-center font-medium">
+          We are driven by the vision of sustainable future
+        </span>
+        <Button className="flex gap-2 items-center border-2 backdrop-blur-md border-black rounded-full p-2 px-3 cursor-pointer">
+          Scroll Down <ChevronDown />
+        </Button>
+        <div className="absolute bottom-0 left-0 right-0 top-0 z-0 pointer-events-none bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-size-[48px_50px] mask-[radial-gradient(ellipse_25%_30%_at_50%_50%,#000_65%,transparent_110%)]"></div>
+      </div>
+
+      <div className="p-8 lg:p-12">
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Use one decisive filled CTA and a lower-emphasis text/outline action; buttons should never compete with imagery.

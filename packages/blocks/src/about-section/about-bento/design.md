@@ -45,6 +45,42 @@ Use documentary portraits, work samples, or brand proof; preserve the source cro
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Overlapping transformed composition
+
+**Location:** `packages/blocks/src/about-section/about-bento.tsx:21-27`
+**Why it is core:** Rotation and offset create the intentionally physical, layered arrangement.
+
+```tsx
+            <svg
+              width="377"
+              height="368"
+              className="w-105 fill-neutral-100 absolute -bottom-16 group-hover:rotate-180 duration-2000 ease-in -right-16"
+              viewBox="0 0 377 368"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+```
+
+### 2. Custom elevation recipe
+
+**Location:** `packages/blocks/src/about-section/about-bento.tsx:53-59`
+**Why it is core:** The nonstandard shadow values create the block’s characteristic depth.
+
+```tsx
+            <div className="space-y-1">
+              <span className="text-6xl font-black tracking-tighter">450%</span>
+              <div className="h-1.5 w-full bg-white/20 rounded-full">
+                <div className="h-full w-4/5 bg-white rounded-full shadow-[0_0_12px_rgba(255,255,255,0.8)]" />
+              </div>
+            </div>
+          </Card>
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Use one decisive filled CTA and a lower-emphasis text/outline action; buttons should never compete with imagery.

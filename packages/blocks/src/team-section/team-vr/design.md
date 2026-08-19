@@ -47,6 +47,63 @@ Portraits are the visual core. Preserve deliberate grayscale, crop, overlay, and
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Radial background field
+
+**Location:** `packages/blocks/src/team-section/team-vr.tsx:42-49`
+**Why it is core:** The gradient’s focal point, stops, and layer position establish the block’s backdrop.
+
+```tsx
+      className="bg-neutral-950 min-h-screen py-24 px-6 overflow-hidden"
+      ref={timelineRef}
+    >
+      <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#292929_1px,transparent_1px),linear-gradient(to_bottom,#292929_1px,transparent_1px)] bg-size-[6rem_4rem] mask-[radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)] pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(125%_125%_at_50%_10%,rgba(255,255,255,0)_40%,#ee33a6_100%)] pointer-events-none"></div>
+      <div className="max-w-7xl mx-auto text-center relative z-10">
+        <TimelineAnimation
+          timelineRef={timelineRef}
+```
+
+### 2. Custom elevation recipe
+
+**Location:** `packages/blocks/src/team-section/team-vr.tsx:70-78`
+**Why it is core:** The nonstandard shadow values create the block’s characteristic depth.
+
+```tsx
+              animationNum={3 + i}
+              className="flex flex-col items-center group cursor-pointer"
+            >
+              <div className="relative w-full aspect-square mb-8 rounded-2xl overflow-hidden transition-all duration-700 ease-out group-hover:shadow-[0_0_50px_rgba(255,0,128,0.3)]">
+                <div className="absolute inset-0 h-full rounded-2xl px-10  flex justify-center flex-col items-center bg-linear-to-tr from-[#FF0080] to-[#FF8C00] opacity-0 group-hover:opacity-90 transition-opacity duration-500 z-10">
+                  <Quote className="fill-white rotate-180 mb-5" />{' '}
+                  <span>{member.quote}</span>
+                </div>
+                <img
+```
+
+### 3. Source-specific visual behavior
+
+**Location:** `packages/blocks/src/team-section/team-vr.tsx:82-91`
+**Why it is core:** This source fragment contains a high-signal visual or interaction decision unique to the block.
+
+```tsx
+                />
+              </div>
+
+              <h3 className="font-spaceGrotesk text-white text-2xl font-bold mb-1 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-linear-to-r group-hover:from-[#FF0080] group-hover:to-[#FF8C00] transition-all duration-300">
+                {member.name}
+              </h3>
+              <p className="text-neutral-500 font-medium uppercase tracking-widest text-[10px] group-hover:text-neutral-300 transition-colors">
+                {member.role}
+              </p>
+            </TimelineAnimation>
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Actions are compact social/contact controls derived from the accent; give each at least a 44px hit area.

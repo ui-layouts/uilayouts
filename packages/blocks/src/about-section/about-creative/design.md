@@ -46,6 +46,64 @@ Use documentary portraits, work samples, or brand proof; preserve the source cro
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Border-led structure
+
+**Location:** `packages/blocks/src/about-section/about-creative.tsx:46-52`
+**Why it is core:** Hairline borders establish grouping and rhythm without relying on filled cards.
+
+```tsx
+              excellence. We're driven by the desire to build something
+              meaningful.
+            </p>
+            <Button className="h-12 px-6 dark:hover:bg-zinc-50 border text-black border-zinc-200 bg-zinc-100 rounded-full text-sm font-bold hover:bg-zinc-50 transition-colors active:scale-95">
+              Read our values
+            </Button>
+          </div>
+```
+
+### 2. Motion-driven behavior
+
+**Location:** `packages/blocks/src/about-section/about-creative.tsx:55-61`
+**Why it is core:** The motion configuration controls the effect’s timing, position, and interaction response.
+
+```tsx
+        <div className="grid lg:grid-cols-2 gap-24 items-start">
+          <div className="grid sm:grid-cols-2 ">
+            {values.map((v, i) => (
+              <motion.div
+                key={v.title}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+```
+
+### 3. Radial background field
+
+**Location:** `packages/blocks/src/about-section/about-creative.tsx:117-130`
+**Why it is core:** The gradient’s focal point, stops, and layer position establish the block’s backdrop.
+
+```tsx
+                <img
+                  src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=800"
+                  alt="Detail"
+                  className="object-cover size-full grayscale group-hover:grayscale-0 transition-all duration-700"
+                />
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+      <div className="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] bg-size-[16px_16px] mask-[radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
+    </section>
+  )
+}
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Use one decisive filled CTA and a lower-emphasis text/outline action; buttons should never compete with imagery.

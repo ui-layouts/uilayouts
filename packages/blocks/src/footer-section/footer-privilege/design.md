@@ -44,6 +44,57 @@ Use a wordmark, small brand symbol or restrained background art—never unrelate
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Border-led structure
+
+**Location:** `packages/blocks/src/footer-section/footer-privilege.tsx:2-8`
+**Why it is core:** Hairline borders establish grouping and rhythm without relying on filled cards.
+
+```tsx
+
+export const FooterPrivilege = () => {
+  return (
+    <footer className="bg-white dark:bg-zinc-950 text-black dark:text-white py-20 px-8 border-t border-gray-100 dark:border-zinc-900 transition-colors duration-500">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-end">
+        <div>
+          <h2 className="text-7xl font-light tracking-tighter mb-4">
+```
+
+### 2. Overlapping transformed composition
+
+**Location:** `packages/blocks/src/footer-section/footer-privilege.tsx:10-16`
+**Why it is core:** Rotation and offset create the intentionally physical, layered arrangement.
+
+```tsx
+          </h2>
+          <div className="mt-16 flex items-center gap-4">
+            <div className="w-12 h-12 bg-black dark:bg-white flex items-center justify-center rounded-sm">
+              {/* <div className="w-6 h-6 border-2 border-white dark:border-zinc-950 rotate-45"></div> */}
+              <svg
+                width="285"
+                height="318"
+```
+
+### 3. Border-led structure
+
+**Location:** `packages/blocks/src/footer-section/footer-privilege.tsx:43-49`
+**Why it is core:** Hairline borders establish grouping and rhythm without relying on filled cards.
+
+```tsx
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto mt-32 pt-8 border-t border-gray-100 dark:border-zinc-900 flex flex-col md:flex-row justify-between text-[10px] uppercase tracking-[0.3em] font-medium text-gray-400 dark:text-zinc-600">
+        <p>© 2026 LAYOUTS EQUITY</p>
+        <p>ALL RIGHTS RESERVED</p>
+        <a href="https://x.com/naymur_dev" target="_blank">
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Newsletter and final CTAs use the block’s primary contrast; utility/social controls are smaller but retain 44px targets.

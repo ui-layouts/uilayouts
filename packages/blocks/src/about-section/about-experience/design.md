@@ -46,6 +46,68 @@ Use project/customer imagery only when tied to the active record; otherwise let 
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Translucent glass layer
+
+**Location:** `packages/blocks/src/about-section/about-experience.tsx:12-27`
+**Why it is core:** Blur, transparency, border, and stacking work together as one glass treatment.
+
+```tsx
+            alt="Consultation"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]" />
+        </div>
+        <div className="relative z-10 text-center space-y-4">
+          <motion.h1
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-5xl font-bold text-white tracking-tight"
+          >
+            About Us
+          </motion.h1>
+          <div className="flex items-center justify-center gap-2 text-xs font-medium uppercase tracking-widest text-zinc-300">
+            <span>Home</span>
+            <span className="text-red-500">→</span>
+```
+
+### 2. Motion-driven behavior
+
+**Location:** `packages/blocks/src/about-section/about-experience.tsx:36-42`
+**Why it is core:** The motion configuration controls the effect’s timing, position, and interaction response.
+
+```tsx
+        <div className="grid md:grid-cols-2 gap-16 items-center">
+          {/* Left: Image Grid */}
+          <div className="flex gap-6 lg:h-110">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+```
+
+### 3. Motion-driven behavior
+
+**Location:** `packages/blocks/src/about-section/about-experience.tsx:47-55`
+**Why it is core:** The motion configuration controls the effect’s timing, position, and interaction response.
+
+```tsx
+                alt="Business Team"
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+            <div className="flex-1 space-y-6">
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Use text arrows or compact icon controls, with the accent appearing only on the active or actionable item.

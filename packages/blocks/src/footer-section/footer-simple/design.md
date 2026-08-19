@@ -44,6 +44,66 @@ Use a wordmark, small brand symbol or restrained background art—never unrelate
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Source-specific visual behavior
+
+**Location:** `packages/blocks/src/footer-section/footer-simple.tsx:17-29`
+**Why it is core:** This source fragment contains a high-signal visual or interaction decision unique to the block.
+
+```tsx
+              Social
+            </div>
+            <div className="flex flex-col gap-2 text-sm text-zinc-600">
+              <a href="#" className="hover:text-black">
+                Twitter
+              </a>
+              <a href="#" className="hover:text-black">
+                LinkedIn
+              </a>
+              <a href="#" className="hover:text-black">
+                Instagram
+              </a>
+            </div>
+```
+
+### 2. Source-specific visual behavior
+
+**Location:** `packages/blocks/src/footer-section/footer-simple.tsx:33-42`
+**Why it is core:** This source fragment contains a high-signal visual or interaction decision unique to the block.
+
+```tsx
+              Legal
+            </div>
+            <div className="flex flex-col gap-2 text-sm text-zinc-600">
+              <a href="#" className="hover:text-black">
+                Privacy
+              </a>
+              <a href="#" className="hover:text-black">
+                Terms
+              </a>
+            </div>
+```
+
+### 3. Border-led structure
+
+**Location:** `packages/blocks/src/footer-section/footer-simple.tsx:43-49`
+**Why it is core:** Hairline borders establish grouping and rhythm without relying on filled cards.
+
+```tsx
+          </div>
+        </div>
+      </div>
+      <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-zinc-50 text-xs text-zinc-400 flex justify-between">
+        <span>&copy; 2026 UI-Layouts. All rights reserved.</span>
+        <span>Made with Precision.</span>
+      </div>
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Newsletter and final CTAs use the block’s primary contrast; utility/social controls are smaller but retain 44px targets.

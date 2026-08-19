@@ -45,6 +45,65 @@ Use a wordmark, small brand symbol or restrained background art—never unrelate
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Border-led structure
+
+**Location:** `packages/blocks/src/footer-section/footer-detailed.tsx:23-29`
+**Why it is core:** Hairline borders establish grouping and rhythm without relying on filled cards.
+
+```tsx
+
+export const DetailedFooter = () => {
+  return (
+    <footer className="w-full bg-zinc-950 text-zinc-400 border-t border-zinc-800 min-h-screen">
+      <div className="max-w-7xl mx-auto px-4 pt-16 pb-8 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:grid-cols-5">
+          <div className="col-span-2 lg:col-span-1">
+```
+
+### 2. Border-led structure
+
+**Location:** `packages/blocks/src/footer-section/footer-detailed.tsx:62-74`
+**Why it is core:** Hairline borders establish grouping and rhythm without relying on filled cards.
+
+```tsx
+          ))}
+        </div>
+
+        <div className="mt-16 pt-8 border-t border-zinc-800 flex flex-col items-center justify-between gap-4 md:flex-row">
+          <div className="flex gap-4">
+            <span className="text-xs">© 2026 Platform Inc.</span>
+            <a href="#" className="text-xs hover:text-white">
+              Terms
+            </a>
+            <a href="#" className="text-xs hover:text-white">
+              Privacy
+            </a>
+          </div>
+```
+
+### 3. Border-led structure
+
+**Location:** `packages/blocks/src/footer-section/footer-detailed.tsx:80-88`
+**Why it is core:** Hairline borders establish grouping and rhythm without relying on filled cards.
+
+```tsx
+            <input
+              type="email"
+              placeholder="Enter your email"
+              className="w-full bg-zinc-900 border border-zinc-800 rounded-full px-4 py-2.5 pr-12 text-sm focus:outline-none focus:ring-2 focus:ring-white/20 transition-all"
+            />
+            <Button className="absolute right-2 top-1/2 -translate-y-1/2 bg-white text-zinc-900 size-8 rounded-full flex items-center justify-center hover:bg-zinc-200 transition-colors">
+              <svg
+                className="size-4"
+                fill="none"
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Newsletter and final CTAs use the block’s primary contrast; utility/social controls are smaller but retain 44px targets.

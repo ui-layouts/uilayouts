@@ -53,6 +53,42 @@ Use preview/product imagery when it clarifies answers; decorative scenery must r
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Depth and glow treatment
+
+**Location:** `packages/blocks/src/faq-section/faq-journey.tsx:118-124`
+**Why it is core:** These exact shadows and blur layers distinguish foreground from atmosphere.
+
+```tsx
+                  <TimelineAnimation
+                    animationNum={idx + 1}
+                    timelineRef={timelineRef}
+                    className="shrink-0 w-14 h-14 translate-x-1 rounded-full bg-white border-2 border-slate-100 flex items-center justify-center text-xl font-semibold font-spaceGrotesk text-neutral-500 group-data-active:border-primary-500 group-data-active:bg-black group-data-active:text-white transition-all duration-500 shadow-xl sm:flex"
+                  >
+                    {(idx + 1).toString().padStart(2, '0')}
+                  </TimelineAnimation>
+```
+
+### 2. Structural border treatment
+
+**Location:** `packages/blocks/src/faq-section/faq-journey.tsx:131-137`
+**Why it is core:** The border placement creates the block’s visual grouping and alignment.
+
+```tsx
+                      {item.question}
+                    </AccordionHeader>
+                    <AccordionPanel className="data-active:bg-transparent">
+                      <div className="text-slate-500  border-t border-slate-100 pt-4 mt-2">
+                        {item.answer}
+                      </div>
+                    </AccordionPanel>
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Use CTA styling only outside accordion rows; the entire question header is the disclosure button with visible focus.

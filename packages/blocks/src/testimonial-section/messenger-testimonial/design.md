@@ -48,6 +48,71 @@ Use consistent avatar crops and genuine product/chat context; stars or platform 
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Motion-driven behavior
+
+**Location:** `packages/blocks/src/testimonial-section/messenger-testimonial.tsx:69-78`
+**Why it is core:** The motion configuration controls the effect’s timing, position, and interaction response.
+
+```tsx
+const TypingIndicator = () => (
+  <div className="flex gap-1 px-4 py-3">
+    {[0, 1, 2].map((i) => (
+      <motion.div
+        key={i}
+        className="size-2 bg-zinc-400 rounded-full"
+        animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
+        transition={{
+          duration: 1,
+          repeat: Infinity,
+```
+
+### 2. Structural border grid
+
+**Location:** `packages/blocks/src/testimonial-section/messenger-testimonial.tsx:134-147`
+**Why it is core:** Shared border rails divide the page into aligned editorial bands.
+
+```tsx
+      </div>
+
+      {/* chat interface */}
+      <div className="max-w-xl mx-auto flex flex-col border-x border-neutral-200">
+        {/* Header */}
+        <div className="text-center py-5 pb-10 border-b border-neutral-200">
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 font-manrope bg-white border border-zinc-200 rounded-full px-4 py-2"
+          >
+            <div className="size-2 bg-green-500 rounded-full animate-pulse" />
+            <span className="text-xs font-black uppercase tracking-[0.2em] text-zinc-600">
+```
+
+### 3. Translucent glass layer
+
+**Location:** `packages/blocks/src/testimonial-section/messenger-testimonial.tsx:300-310`
+**Why it is core:** Blur, transparency, border, and stacking work together as one glass treatment.
+
+```tsx
+        </div>
+
+        {/* Footer Stats */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.5 }}
+          className="border-b bg-neutral-200 border-neutral-200 p-5 flex items-center justify-between backdrop-blur-sm"
+        >
+          <div className="flex items-center gap-3">
+            <div className="relative">
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Navigation is compact, high-contrast and tactile; testimonial cards themselves are not buttons unless explicitly interactive.

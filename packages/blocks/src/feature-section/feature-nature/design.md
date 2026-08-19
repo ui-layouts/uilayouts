@@ -49,6 +49,46 @@ Favor product crops, diagrams, or symbolic line icons; each should explain the c
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Depth and glow treatment
+
+**Location:** `packages/blocks/src/feature-section/feature-nature.tsx:18-27`
+**Why it is core:** These exact shadows and blur layers distinguish foreground from atmosphere.
+
+```tsx
+  return (
+    <div
+      className={cn(
+        'rounded-2xl p-4 flex flex-col h-full transition-all duration-300 border-2',
+        active
+          ? 'bg-emerald-950 border-emerald-950 text-white shadow-2xl'
+          : 'bg-white border-transparent text-gray-900 shadow-sm hover:border-emerald-100'
+      )}
+    >
+      <div
+```
+
+### 2. Source-specific visual behavior
+
+**Location:** `packages/blocks/src/feature-section/feature-nature.tsx:45-52`
+**Why it is core:** This source fragment contains a high-signal visual or interaction decision unique to the block.
+
+```tsx
+        className={cn(
+          'mt-auto px-6 py-3 rounded-full font-bold w-fit transition-colors',
+          active
+            ? 'bg-white text-emerald-950 hover:bg-emerald-50'
+            : 'bg-emerald-950 text-white hover:bg-emerald-900'
+        )}
+      >
+        Learn More
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Primary actions use the accent fill; card-level actions are compact arrows or icon controls and must visibly respond on hover.

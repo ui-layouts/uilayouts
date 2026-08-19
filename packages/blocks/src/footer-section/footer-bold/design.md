@@ -44,6 +44,59 @@ Use a wordmark, small brand symbol or restrained background art—never unrelate
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Border-led structure
+
+**Location:** `packages/blocks/src/footer-section/footer-bold.tsx:1-6`
+**Why it is core:** Hairline borders establish grouping and rhythm without relying on filled cards.
+
+```tsx
+export const BoldFooter = () => {
+  return (
+    <footer className="w-full min-h-screen bg-white text-zinc-900 overflow-hidden border-t border-zinc-200 font-dmSans">
+      <div className="max-w-7xl mx-auto px-4 py-20 sm:px-6 lg:px-8 flex flex-col items-center">
+        <div className="w-full flex flex-col md:flex-row justify-between items-start gap-12 mb-20">
+          <div className="max-w-md">
+```
+
+### 2. Border-led structure
+
+**Location:** `packages/blocks/src/footer-section/footer-bold.tsx:9-15`
+**Why it is core:** Hairline borders establish grouping and rhythm without relying on filled cards.
+
+```tsx
+            </h2>
+            <a
+              href="mailto:hello@example.com"
+              className="text-lg font-medium border-b-2 border-zinc-900 pb-1 hover:text-zinc-500 hover:border-zinc-500 transition-all"
+            >
+              hello@example.com
+            </a>
+```
+
+### 3. Translucent glass layer
+
+**Location:** `packages/blocks/src/footer-section/footer-bold.tsx:45-54`
+**Why it is core:** Blur, transparency, border, and stacking work together as one glass treatment.
+
+```tsx
+        </div>
+
+        <div className="relative w-full">
+          <h1 className="text-[12vw] font-black tracking-tighter text-zinc-950 select-none pointer-events-none leading-none -mb-[2vw] opacity-5">
+            UI-Layouts
+          </h1>
+          <div className="flex justify-between items-end border-t backdrop-blur border-zinc-200 pt-8 pb-6 relative z-10">
+            <span className="text-xs font-medium uppercase tracking-widest text-zinc-400">
+              © 2026 UI-Layouts{' '}
+            </span>
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Newsletter and final CTAs use the block’s primary contrast; utility/social controls are smaller but retain 44px targets.

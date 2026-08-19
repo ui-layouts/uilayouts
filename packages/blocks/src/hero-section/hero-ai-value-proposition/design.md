@@ -15,7 +15,7 @@
 
 ## Design thesis
 
-Floating product constellation defines the identity. The section should feel immersive and launch-ready.
+An editorial border grid divides the page into deliberate horizontal bands and a shared centered column. Inside that frame, a softly elevated product mockup uses stacked shells, restrained shadows, translucent borders, and blurred color pools to feel dimensional without leaving the near-white system.
 
 ## Typography
 
@@ -31,7 +31,7 @@ Use a wide hero stage with a centered or split headline and an overlapping produ
 
 ## Background construction
 
-Build a soft #f9f9f9 stage with a 100px blurred blue aura; position compact product cards around a central device, using white/80 glass, 2xl shadow, and selectively desaturating logos until hover.
+Build the page on `#f9f9f9`. Repeat `border-x border-zinc-200` on the shared `max-w-7xl` column and `border-y`/`border-b` on section bands so every region aligns to the same rails. The product frame then adds a custom low-alpha shadow, two offset shells, pink/orange 100px blurs, and bordered white content cards.
 
 ## Imagery and iconography
 
@@ -39,13 +39,74 @@ Use high-quality product/UI composites or portraits with deliberate overlap; ico
 
 ## Unique components and signature effects
 
-1. **Floating product constellation.** Build a soft #f9f9f9 stage with a 100px blurred blue aura; position compact product cards around a central device, using white/80 glass, 2xl shadow, and selectively desaturating logos until hover.
-   - **Use it for:** showing an ecosystem orbiting one clear value proposition
-   - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
+1. **Continuous editorial border rails.** Every major band owns a horizontal divider while its `max-w-7xl` child repeats `border-x border-zinc-200`. The header, headline, CTA/social-proof band, and mockup all share those exact vertical rails.
+   - **Use it for:** aligning any new page section to the same invisible column system.
+   - **Do not:** wrap each section in unrelated rounded cards; the continuous rails are the page skeleton.
 
-2. **Layer discipline.** Separate atmosphere, content surface, and foreground controls into distinct layers. Decorative layers use pointer-events-none and sit below readable content; preserve clipping at the section boundary.
-   - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
-   - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
+2. **Low, broad mockup elevation.** The preview frame uses `shadow-[0_40px_100px_-20px_rgba(0,0,0,0.08)]`, a `border-zinc-200` edge, and only `p-2`. This produces depth without a dark floating-card shadow.
+   - **Use it for:** the single dominant product preview or another primary artifact.
+
+3. **Stacked paper shells and color pools.** Two neutral shells sit behind the internal mockup at `-top-8`/`-top-4` with progressively wider widths. Pink and orange 300px circles blurred by 100px soften the otherwise monochrome frame.
+   - **Use it for:** layered product surfaces; keep the pools at `opacity-40` so borders remain the primary structure.
+
+4. **Selected-versus-dormant option cards.** The selected card uses `border-2 border-blue-500 shadow-2xl`; alternatives use `bg-white/80 border-neutral-100 opacity-80 grayscale` and restore color/opacity on hover.
+   - **Use it for:** clearly separating the current AI choice from available options.
+
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Custom elevation recipe
+
+**Location:** `packages/blocks/src/hero-section/hero-ai-value-proposition.tsx:134-145`
+**Why it is core:** The nonstandard shadow values create the block’s characteristic depth.
+
+```tsx
+            once={true}
+            animationNum={8}
+            timelineRef={timelineRef}
+            className="relative bg-white backdrop-blur-xl rounded-4xl shadow-[0_40px_100px_-20px_rgba(0,0,0,0.08)] border border-zinc-200 p-2"
+          >
+            <div className="bg-linear-to-b from-neutral-200 from-50% to-blue-400/80 rounded-4xl pt-32">
+              {/* Background decorative glows inside the frame */}
+              <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-pink-100 rounded-full blur-[100px] opacity-40"></div>
+              <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-orange-100 rounded-full blur-[100px] opacity-40"></div>
+
+              {/* Internal Mockup Shell */}
+              <TimelineAnimation
+```
+
+### 2. Translucent glass layer
+
+**Location:** `packages/blocks/src/hero-section/hero-ai-value-proposition.tsx:165-171`
+**Why it is core:** Blur, transparency, border, and stacking work together as one glass treatment.
+
+```tsx
+                  once={true}
+                  animationNum={10}
+                  timelineRef={timelineRef}
+                  className="flex flex-col gap-12 bg-white backdrop-blur-md border border-neutral-100/50 rounded-t-4xl p-12"
+                >
+                  {/* Breadcrumbs & Profile */}
+                  <div className="flex items-center justify-between">
+```
+
+### 3. Low-opacity icon pattern
+
+**Location:** `packages/blocks/src/hero-section/hero-ai-value-proposition.tsx:259-265`
+**Why it is core:** Repeated icons at low opacity create a branded texture without competing with foreground content.
+
+```tsx
+                            once={true}
+                            animationNum={15}
+                            timelineRef={timelineRef}
+                            className="bg-white/80 p-5 rounded-2xl border border-neutral-100 flex flex-col gap-4 opacity-80 grayscale hover:grayscale-0 hover:opacity-100 transition-all cursor-pointer"
+                          >
+                            <div className="w-10 h-10 bg-neutral-100 text-neutral-400 rounded-xl flex items-center justify-center">
+                              <PenTool size={20} />
+```
+<!-- source-audit:end -->
 
 ## Buttons
 
@@ -57,7 +118,7 @@ Use slow entrance staging and restrained hover/press feedback; decorative atmosp
 
 ## Rules for extending this design
 
-1. Carry the **Floating product constellation** into at least one meaningful focal area; reproduce its layer recipe rather than substituting a generic gradient.
+1. Carry the **continuous editorial border rails and restrained mockup elevation** into at least one meaningful focal area; reproduce its layer recipe rather than substituting a generic gradient.
 2. Reuse the same accent-to-neutral ratio, image treatment, corner language, and density so adjacent sections read as one system.
 3. On small screens, preserve hierarchy and effect placement while removing overlap that could obscure content.
 4. Provide reduced-motion behavior and keyboard focus parity for every hover-driven reveal.

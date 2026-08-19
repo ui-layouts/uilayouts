@@ -49,6 +49,59 @@ Use tiny product icons or abstract glow only; never distract from price, billing
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Depth and glow treatment
+
+**Location:** `packages/blocks/src/pricing-section/startup-plans.tsx:38-46`
+**Why it is core:** These exact shadows and blur layers distinguish foreground from atmosphere.
+
+```tsx
+            <TimelineAnimation
+              animationNum={3}
+              timelineRef={timelineRef}
+              className="bg-white rounded-xl p-8 border border-neutral-200 relative h-fit overflow-hidden group"
+            >
+              <div className="absolute top-0 right-0 size-32 bg-blue-500/40 blur-3xl -mr-16 -mt-16 pointer-events-none group-hover:bg-blue-500/50 transition-colors" />
+              <div className="flex justify-between items-start mb-6">
+                <span className="text-xs font-semibold text-neutral-400 uppercase tracking-widest">
+                  Premium Plan
+```
+
+### 2. Custom elevation recipe
+
+**Location:** `packages/blocks/src/pricing-section/startup-plans.tsx:83-89`
+**Why it is core:** The nonstandard shadow values create the block’s characteristic depth.
+
+```tsx
+              </div>
+              <TimelineAnimation animationNum={4} timelineRef={timelineRef}>
+                <Button
+                  className="w-full py-8 rounded-2xl bg-black text-white gap-2 active:scale-98 text-lg transition-transform shadow-[inset_3px_4px_5px_0px_rgba(183,183,183,0.5),inset_-2px_-2px_5px_0px_rgba(255,255,255,0.5)]"
+                  size="lg"
+                >
+                  Get started <ChevronRight className="size-5" />
+```
+
+### 3. Custom elevation recipe
+
+**Location:** `packages/blocks/src/pricing-section/startup-plans.tsx:147-153`
+**Why it is core:** The nonstandard shadow values create the block’s characteristic depth.
+
+```tsx
+                  ))}
+                </div>
+                <TimelineAnimation animationNum={6} timelineRef={timelineRef}>
+                  <Button className="w-full py-4 rounded-2xl active:scale-98 bg-orange-500 hover:bg-orange-500 border-none text-lg shadow-[inset_3px_4px_5px_0px_rgba(0,0,0,0.5),inset_-2px_-2px_5px_0px_rgba(255,255,255,0.5)]">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Use full-width, high-contrast CTAs with real press feedback; featured plans own the accent while secondary plans stay neutral.

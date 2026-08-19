@@ -49,6 +49,57 @@ Favor product crops, diagrams, or symbolic line icons; each should explain the c
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Source-specific visual behavior
+
+**Location:** `packages/blocks/src/feature-section/feature-flow.tsx:6-12`
+**Why it is core:** This source fragment contains a high-signal visual or interaction decision unique to the block.
+
+```tsx
+  Zap,
+  ChevronLeft,
+  ChevronRight,
+  BarChart3,
+  Shield,
+  Users,
+  Clock,
+```
+
+### 2. Carousel interaction primitive
+
+**Location:** `packages/blocks/src/feature-section/feature-flow.tsx:14-20`
+**Why it is core:** This component supplies the block’s distinctive navigation and content motion.
+
+```tsx
+  Lightbulb,
+} from 'lucide-react'
+import {
+  Carousel,
+  SliderContainer,
+  Slider,
+  SliderPrevButton,
+```
+
+### 3. Translucent glass layer
+
+**Location:** `packages/blocks/src/feature-section/feature-flow.tsx:90-96`
+**Why it is core:** Blur, transparency, border, and stacking work together as one glass treatment.
+
+```tsx
+              {/* <SliderSnapDisplay className="text-sm" /> */}
+              <div className="flex gap-4">
+                <SliderPrevButton
+                  className="size-12 rounded-full border disabled:opacity-40 cursor-pointer backdrop-blur-lg border-slate-200 flex items-center justify-center hover:bg-slate-50 transition-colors"
+                  aria-label="Previous"
+                >
+                  <ChevronLeft className="size-5 text-orange-600" />
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Primary actions use the accent fill; card-level actions are compact arrows or icon controls and must visibly respond on hover.

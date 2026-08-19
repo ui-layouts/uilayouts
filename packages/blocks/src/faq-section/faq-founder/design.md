@@ -47,6 +47,61 @@ Use preview/product imagery when it clarifies answers; decorative scenery must r
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Structural border treatment
+
+**Location:** `packages/blocks/src/faq-section/faq-founder.tsx:29-35`
+**Why it is core:** The border placement creates the block’s visual grouping and alignment.
+
+```tsx
+    <TimelineAnimation
+      animationNum={animationNum}
+      timelineRef={timelineRef}
+      className="rounded-2xl bg-neutral-100 border dark:border-neutral-700 border-neutral-200 dark:bg-neutral-900"
+    >
+      <button
+        type="button"
+```
+
+### 2. Motion-driven behavior
+
+**Location:** `packages/blocks/src/faq-section/faq-founder.tsx:48-58`
+**Why it is core:** The motion configuration controls the effect’s timing, position, and interaction response.
+
+```tsx
+        </span>
+      </button>
+
+      <motion.div
+        id={contentId}
+        role="region"
+        initial={false}
+        animate={{ gridTemplateRows: isOpen ? '1fr' : '0fr' }}
+        transition={{ duration: 0.2, ease: 'easeOut' }}
+        className="grid overflow-hidden px-2 sm:px-4"
+      >
+```
+
+### 3. Motion-driven behavior
+
+**Location:** `packages/blocks/src/faq-section/faq-founder.tsx:61-67`
+**Why it is core:** The motion configuration controls the effect’s timing, position, and interaction response.
+
+```tsx
+            {answer}
+          </p>
+        </div>
+      </motion.div>
+    </TimelineAnimation>
+  )
+}
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Use CTA styling only outside accordion rows; the entire question header is the disclosure button with visible focus.

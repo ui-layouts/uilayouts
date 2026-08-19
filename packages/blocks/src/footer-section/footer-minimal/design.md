@@ -46,6 +46,59 @@ Use a wordmark, small brand symbol or restrained background art—never unrelate
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Border-led structure
+
+**Location:** `packages/blocks/src/footer-section/footer-minimal.tsx:4-10`
+**Why it is core:** Hairline borders establish grouping and rhythm without relying on filled cards.
+
+```tsx
+
+export const MinimalFooter = () => {
+  return (
+    <footer className="w-full bg-white border-t border-zinc-200 min-h-screen">
+      <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
+        {/* Main Content */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+```
+
+### 2. Border-led structure
+
+**Location:** `packages/blocks/src/footer-section/footer-minimal.tsx:105-113`
+**Why it is core:** Hairline borders establish grouping and rhythm without relying on filled cards.
+
+```tsx
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-3 py-2 pr-10 text-sm focus:outline-none focus:ring-1 focus:ring-zinc-400 transition-all"
+              />
+              <button className="absolute right-1 top-1/2 -translate-y-1/2 bg-zinc-900 text-white size-6 rounded flex items-center justify-center hover:bg-zinc-800 transition-colors">
+                <svg
+                  className="size-3"
+                  fill="none"
+```
+
+### 3. Border-led structure
+
+**Location:** `packages/blocks/src/footer-section/footer-minimal.tsx:127-133`
+**Why it is core:** Hairline borders establish grouping and rhythm without relying on filled cards.
+
+```tsx
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="pt-8 border-t border-zinc-200 flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="flex items-center gap-6">
+            <span className="text-xs text-zinc-400">© 2026 Minimal Inc.</span>
+            <div className="flex items-center gap-4">
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Newsletter and final CTAs use the block’s primary contrast; utility/social controls are smaller but retain 44px targets.

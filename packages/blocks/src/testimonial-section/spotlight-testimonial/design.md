@@ -50,6 +50,62 @@ Use consistent avatar crops and genuine product/chat context; stars or platform 
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Motion-driven behavior
+
+**Location:** `packages/blocks/src/testimonial-section/spotlight-testimonial.tsx:99-108`
+**Why it is core:** The motion configuration controls the effect’s timing, position, and interaction response.
+
+```tsx
+          className="relative min-h-[200px] flex items-center justify-center mb-5"
+        >
+          <AnimatePresence mode="wait">
+            <motion.blockquote
+              key={activeTestimonial?.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5, ease: [0.32, 0.72, 0, 1] }}
+              className="text-2xl sm:text-4xl font-semibold tracking-tight text-zinc-900 text-balance leading-tight"
+```
+
+### 2. Motion-driven behavior
+
+**Location:** `packages/blocks/src/testimonial-section/spotlight-testimonial.tsx:112-118`
+**Why it is core:** The motion configuration controls the effect’s timing, position, and interaction response.
+
+```tsx
+                {activeTestimonial?.highlight}
+              </span>{' '}
+              {activeTestimonial?.quoteEnd}"
+            </motion.blockquote>
+          </AnimatePresence>
+        </TimelineAnimation>
+```
+
+### 3. Motion-driven behavior
+
+**Location:** `packages/blocks/src/testimonial-section/spotlight-testimonial.tsx:122-131`
+**Why it is core:** The motion configuration controls the effect’s timing, position, and interaction response.
+
+```tsx
+          className="relative min-h-24 flex items-center"
+        >
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTestimonial?.id}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.4, ease: [0.32, 0.72, 0, 1] }}
+              className="flex flex-col items-center gap-2"
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Navigation is compact, high-contrast and tactile; testimonial cards themselves are not buttons unless explicitly interactive.

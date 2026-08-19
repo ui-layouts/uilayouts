@@ -45,6 +45,61 @@ Use documentary portraits, work samples, or brand proof; preserve the source cro
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Motion-driven behavior
+
+**Location:** `packages/blocks/src/about-section/about-sass.tsx:48-54`
+**Why it is core:** The motion configuration controls the effect’s timing, position, and interaction response.
+
+```tsx
+          />
+
+          <div className="max-w-3xl relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+```
+
+### 2. Custom elevation recipe
+
+**Location:** `packages/blocks/src/about-section/about-sass.tsx:55-65`
+**Why it is core:** The nonstandard shadow values create the block’s characteristic depth.
+
+```tsx
+              transition={{ duration: 0.4 }}
+              className="flex items-center gap-3 mb-8"
+            >
+              <div className="size-2.5 bg-black rounded-full shadow-[0_0_10px_rgba(0,0,0,0.1)]" />
+              <span className="text-[10px] font-black uppercase tracking-[0.25em] text-zinc-900">
+                Company Introduction
+              </span>
+            </motion.div>
+
+            <h2 className="text-6xl md:text-7xl font-bold tracking-tighter text-balance leading-[0.9] mb-8">
+              Built by developers, <br /> for the future of SaaS.
+```
+
+### 3. Motion-driven behavior
+
+**Location:** `packages/blocks/src/about-section/about-sass.tsx:119-125`
+**Why it is core:** The motion configuration controls the effect’s timing, position, and interaction response.
+
+```tsx
+            />
+            <div className="space-y-4 relative z-10">
+              <div className="h-1 w-full bg-zinc-700 rounded-full overflow-hidden">
+                <motion.div
+                  initial={{ x: '-100%' }}
+                  whileInView={{ x: '0%' }}
+                  transition={{ duration: 1, ease: 'easeOut' }}
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Use one decisive filled CTA and a lower-emphasis text/outline action; buttons should never compete with imagery.

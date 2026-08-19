@@ -44,6 +44,59 @@ Prefer charts, sparklines and abstract data marks over stock photography; icons 
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Radial background field
+
+**Location:** `packages/blocks/src/stats-section/stats-bento.tsx:7-15`
+**Why it is core:** The gradient’s focal point, stops, and layer position establish the block’s backdrop.
+
+```tsx
+      <div className="grid grid-cols-1 md:grid-cols-6 md:grid-rows-2 gap-4 max-w-7xl mx-auto">
+        {/* Primary Stat */}
+        <div className="md:col-span-3 md:row-span-2 bg-zinc-950 rounded-3xl p-10 flex flex-col justify-between overflow-hidden relative">
+          <div className="absolute bottom-0 left-0 right-0 top-0 bg-[repeating-linear-gradient(45deg,#383838_0px_1px,transparent_1px_10px)] mask-[radial-gradient(ellipse_80%_50%_at_100%_0%,#000_70%,transparent_110%)] pointer-events-none"></div>
+          {/* <div className="absolute top-0 right-0 p-8 opacity-20">
+            <div className="size-40 border-8 border-white rounded-full translate-x-10 -translate-y-10" />
+          </div> */}
+          <div>
+            <span className="inline-block px-3 py-1 bg-zinc-800 rounded-full text-[10px] font-semibold text-zinc-400 uppercase tracking-widest mb-6">
+```
+
+### 2. Border-led structure
+
+**Location:** `packages/blocks/src/stats-section/stats-bento.tsx:24-30`
+**Why it is core:** Hairline borders establish grouping and rhythm without relying on filled cards.
+
+```tsx
+        </div>
+
+        {/* Secondary Stat A */}
+        <div className="md:col-span-3 bg-zinc-50 rounded-3xl p-8 border border-zinc-200 flex items-center justify-between">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-widest text-zinc-400 mb-1">
+              Growth
+```
+
+### 3. Border-led structure
+
+**Location:** `packages/blocks/src/stats-section/stats-bento.tsx:43-49`
+**Why it is core:** Hairline borders establish grouping and rhythm without relying on filled cards.
+
+```tsx
+        </div>
+
+        {/* Tertiary Stat B */}
+        <div className="md:col-span-1 bg-white rounded-3xl p-6 border border-zinc-200 flex flex-col justify-center text-center">
+          <p className="text-2xl text-zinc-900">12</p>
+          <p className="text-xs font-semibold uppercase tracking-widest text-zinc-400">
+            Awards
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Use buttons only for drill-down or a final CTA; style them as a continuation of the surrounding surface.

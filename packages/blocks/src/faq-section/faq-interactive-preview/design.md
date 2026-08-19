@@ -51,6 +51,60 @@ Use preview/product imagery when it clarifies answers; decorative scenery must r
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Motion-driven behavior
+
+**Location:** `packages/blocks/src/faq-section/faq-interactive-preview.tsx:101-107`
+**Why it is core:** The motion configuration controls the effect’s timing, position, and interaction response.
+
+```tsx
+      <div className="w-full max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 px-4 py-12 relative z-10">
+        <div className="space-y-4 ">
+          {FAQ_DATA.slice(0, 6).map((item, i) => (
+            <motion.button
+              key={item.id}
+              onMouseEnter={() => setActiveItem(item)}
+              onClick={() => setActiveItem(item)}
+```
+
+### 2. Low-opacity icon pattern
+
+**Location:** `packages/blocks/src/faq-section/faq-interactive-preview.tsx:119-129`
+**Why it is core:** Repeated icons at low opacity create a branded texture without competing with foreground content.
+
+```tsx
+                className={cn(
+                  'transition-transform',
+                  activeItem?.id === item.id
+                    ? 'translate-x-0'
+                    : '-translate-x-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-0'
+                )}
+              />
+            </motion.button>
+          ))}
+        </div>
+```
+
+### 3. Motion-driven behavior
+
+**Location:** `packages/blocks/src/faq-section/faq-interactive-preview.tsx:152-158`
+**Why it is core:** The motion configuration controls the effect’s timing, position, and interaction response.
+
+```tsx
+                className="aspect-video rounded-lg mt-4 object-cover"
+              />
+            </div>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+    </section>
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Use CTA styling only outside accordion rows; the entire question header is the disclosure button with visible focus.

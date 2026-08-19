@@ -54,6 +54,64 @@ Use tiny product icons or abstract glow only; never distract from price, billing
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Border-led structure
+
+**Location:** `packages/blocks/src/pricing-section/pricing-overview.tsx:98-107`
+**Why it is core:** Hairline borders establish grouping and rhythm without relying on filled cards.
+
+```tsx
+        <TimelineAnimation
+          animationNum={5}
+          timelineRef={timelineRef}
+          className="bg-gray-100 border border-neutral-200 rounded-xl p-2 flex flex-col hover:shadow-md transition-shadow"
+        >
+          <div className="bg-white p-1.5 rounded-lg">
+            <div className="p-4 bg-neutral-100 border border-zinc-100 rounded-lg space-y-2">
+              <h3 className="text-3xl font-bold mb-2">Landing Page</h3>
+              <p className="text-neutral-500 text-sm font-medium">
+                Get a high quality landing page for your product.
+```
+
+### 2. Border-led structure
+
+**Location:** `packages/blocks/src/pricing-section/pricing-overview.tsx:161-171`
+**Why it is core:** Hairline borders establish grouping and rhythm without relying on filled cards.
+
+```tsx
+        <TimelineAnimation
+          animationNum={7}
+          timelineRef={timelineRef}
+          className="bg-gray-100 border border-neutral-200 rounded-xl p-2 flex flex-col hover:shadow-md transition-shadow"
+        >
+          <div className="bg-white p-1.5 rounded-lg">
+            <div className="p-4 bg-neutral-100 border border-zinc-100 rounded-lg relative overflow-hidden space-y-2">
+              <div className="absolute top-0 right-0 size-32 bg-red-500/40 blur-3xl -mr-16 -mt-16 group-hover:bg-[#FF7777]/20 transition-colors" />
+              <h3 className="text-3xl font-bold mb-2">Product design</h3>
+              <p className="text-neutral-500 text-sm">
+                Let's bring your idea to life.
+```
+
+### 3. Source-specific visual behavior
+
+**Location:** `packages/blocks/src/pricing-section/pricing-overview.tsx:229-235`
+**Why it is core:** This source fragment contains a high-signal visual or interaction decision unique to the block.
+
+```tsx
+      <TimelineAnimation
+        animationNum={9}
+        timelineRef={timelineRef}
+        className="mt-6 bg-linear-to-b from-neutral-950 to-neutral-800 text-white rounded-3xl p-10 md:flex items-center gap-4 relative overflow-hidden"
+      >
+        <div className="flex-1 space-y-3 relative z-10">
+          <div className="flex items-center gap-2 text-lime-400 text-sm font-medium">
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Use full-width, high-contrast CTAs with real press feedback; featured plans own the accent while secondary plans stay neutral.

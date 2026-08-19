@@ -48,6 +48,69 @@ Portraits are the visual core. Preserve deliberate grayscale, crop, overlay, and
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Translucent glass layer
+
+**Location:** `packages/blocks/src/team-section/team-magic.tsx:81-96`
+**Why it is core:** Blur, transparency, border, and stacking work together as one glass treatment.
+
+```tsx
+              key={member.id}
+              timelineRef={timelineRef}
+              animationNum={3 + i}
+              className="relative group perspective-1000"
+            >
+              <div className="aspect-4/5 rounded-[2.5rem] overflow-hidden border border-white/10 group-hover:border-blue-500/50 transition-all duration-700 relative">
+                <img
+                  src={member.img}
+                  className="w-full h-full object-cover filter brightness-75 group-hover:brightness-50 group-hover:scale-110 transition-all duration-700"
+                  alt={member.name}
+                />
+
+                <div className="absolute inset-4 rounded-3xl border border-white/20 backdrop-blur-md bg-white/5 flex flex-col items-center justify-center p-6 border-b-0 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
+                  <div className="mt-auto text-center">
+                    <h4 className="text-2xl font-bold font-spaceGrotesk mb-1 text-blue-600">
+                      {member.name}
+```
+
+### 2. Structural border treatment
+
+**Location:** `packages/blocks/src/team-section/team-magic.tsx:109-115`
+**Why it is core:** The border placement creates the block’s visual grouping and alignment.
+
+```tsx
+        <TimelineAnimation
+          timelineRef={timelineRef}
+          animationNum={6}
+          className="flex flex-col md:flex-row items-center justify-between text-left gap-8 py-12 border-t border-white/5"
+        >
+          <div>
+            <h3 className="text-3xl font-spaceGrotesk font-bold mb-4">
+```
+
+### 3. Structural border treatment
+
+**Location:** `packages/blocks/src/team-section/team-magic.tsx:123-132`
+**Why it is core:** The border placement creates the block’s visual grouping and alignment.
+
+```tsx
+          </div>
+          <Button
+            variant="outline"
+            className="flex items-center gap-4 text-white cursor-pointer hover:text-white bg-white/5 p-3 h-14 rounded-full border border-white/10 hover:bg-white/10 transition-all group"
+          >
+            <span className="font-bold">Contact Us</span>
+            <div className="w-8 h-8 bg-[#00D1FF]/20 text-[#00D1FF] rounded-full flex items-center justify-center group-hover:bg-[#00D1FF] group-hover:text-black transition-all">
+              <svg
+                className="w-5 h-5"
+                fill="none"
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Actions are compact social/contact controls derived from the accent; give each at least a 44px hit area.

@@ -44,6 +44,54 @@ Prefer charts, sparklines and abstract data marks over stock photography; icons 
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Border-led structure
+
+**Location:** `packages/blocks/src/stats-section/stats-details.tsx:30-48`
+**Why it is core:** Hairline borders establish grouping and rhythm without relying on filled cards.
+
+```tsx
+          {stats.map((stat) => (
+            <div
+              key={stat.label}
+              className="group p-8 rounded-2xl relative overflow-hidden bg-zinc-50 border border-zinc-100 hover:border-zinc-200 transition-colors"
+            >
+              <article className="relative z-10">
+                <div className="size-8 rounded-lg bg-white group-hover:bg-orange-600 border border-zinc-200 flex items-center justify-center text-lg font-bold text-zinc-900 mb-6 group-hover:text-white transition-colors">
+                  {stat.icon}
+                </div>
+                <h3 className="text-xs font-bold uppercase tracking-widest group-hover:text-zinc-100 text-zinc-400 mb-2">
+                  {stat.label}
+                </h3>
+                <p className="text-4xl font-semibold tracking-tight group-hover:text-white text-zinc-900 mb-4 ">
+                  {stat.value}
+                </p>
+                <p className="text-sm group-hover:text-zinc-100 text-zinc-500 text-pretty leading-relaxed">
+                  {stat.description}
+                </p>
+              </article>
+```
+
+### 2. Low-opacity icon pattern
+
+**Location:** `packages/blocks/src/stats-section/stats-details.tsx:49-55`
+**Why it is core:** Repeated icons at low opacity create a branded texture without competing with foreground content.
+
+```tsx
+              <img
+                src="https://images.unsplash.com/photo-1604076984203-587c92ab2e58?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="supportive img"
+                className="absolute top-0 left-0 w-full object-fill opacity-0 group-hover:opacity-100 pointer-events-none"
+              />
+            </div>
+          ))}
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Use buttons only for drill-down or a final CTA; style them as a continuation of the surrounding surface.

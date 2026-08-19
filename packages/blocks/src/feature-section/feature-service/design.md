@@ -50,6 +50,27 @@ Favor product crops, diagrams, or symbolic line icons; each should explain the c
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Depth and glow treatment
+
+**Location:** `packages/blocks/src/feature-section/feature-service.tsx:24-30`
+**Why it is core:** These exact shadows and blur layers distinguish foreground from atmosphere.
+
+```tsx
+            deep industry knowledge and cutting-edge strategies to ensure
+            lasting growth.
+          </p>
+          <Button className="bg-blue-600 text-white px-8 py-3 rounded-lg font-bold flex items-center gap-2 hover:bg-blue-700 transition-all active:scale-95 shadow-xl shadow-blue-100">
+            Get Started <ArrowRight className="size-4" />
+          </Button>
+        </div>
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Primary actions use the accent fill; card-level actions are compact arrows or icon controls and must visibly respond on hover.

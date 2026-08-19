@@ -48,6 +48,48 @@ Favor product crops, diagrams, or symbolic line icons; each should explain the c
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Radial background field
+
+**Location:** `packages/blocks/src/feature-section/feature-velocity.tsx:5-13`
+**Why it is core:** The gradient’s focal point, stops, and layer position establish the block’s backdrop.
+
+```tsx
+export const FeatureVelocity = () => {
+  return (
+    <section className="bg-black py-32 px-6 min-h-screen font-dmSans relative">
+      <div className="absolute inset-0 bg-[repeating-linear-gradient(45deg,#252525_0px_1px,transparent_1px_8px)] mask-[radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
+      <div className="max-w-7xl mx-auto space-y-24 relative z-2">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-12 border-b border-neutral-800 pb-12">
+          <div className="space-y-6">
+            <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter uppercase leading-none">
+              High Velocity
+```
+
+### 2. Low-opacity icon pattern
+
+**Location:** `packages/blocks/src/feature-section/feature-velocity.tsx:42-52`
+**Why it is core:** Repeated icons at low opacity create a branded texture without competing with foreground content.
+
+```tsx
+          ].map((card, i) => (
+            <div
+              key={i}
+              className="group relative bg-neutral-950 border border-neutral-800 rounded-2xl p-12 overflow-hidden hover:border-neutral-950 transition-all duration-500"
+            >
+              <div
+                className={cn(
+                  'absolute inset-0 bg-linear-to-br to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700',
+                  card.color
+                )}
+              />
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Primary actions use the accent fill; card-level actions are compact arrows or icon controls and must visibly respond on hover.

@@ -53,6 +53,64 @@ Use consistent avatar crops and genuine product/chat context; stars or platform 
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Carousel interaction primitive
+
+**Location:** `packages/blocks/src/testimonial-section/testimonial-carousel.tsx:2-8`
+**Why it is core:** This component supplies the block’s distinctive navigation and content motion.
+
+```tsx
+import React from 'react'
+import { cn } from '@/lib/utils'
+import {
+  Carousel,
+  SliderContainer,
+  Slider,
+  SliderPrevButton,
+```
+
+### 2. Structural border grid
+
+**Location:** `packages/blocks/src/testimonial-section/testimonial-carousel.tsx:40-49`
+**Why it is core:** Shared border rails divide the page into aligned editorial bands.
+
+```tsx
+  },
+]
+
+export const TestimonialCarousel = () => {
+  return (
+    <section className="bg-white py-24 px-6 font-dmSans text-black min-h-screen">
+      <div className="max-w-6xl mx-auto border-x border-neutral-200">
+        <div className="text-center mb-16 space-y-4">
+          <div className="inline-flex items-center gap-2 text-sm text-nuetral-500 font-medium uppercase tracking-wider">
+            « Testimonials »
+```
+
+### 3. Carousel interaction primitive
+
+**Location:** `packages/blocks/src/testimonial-section/testimonial-carousel.tsx:53-63`
+**Why it is core:** This component supplies the block’s distinctive navigation and content motion.
+
+```tsx
+          </h2>
+        </div>
+
+        <Carousel options={{ loop: true }}>
+          <SliderContainer>
+            {TESTIMONIALS.map((t, i) => (
+              <Slider key={i} className="w-full p-0">
+                <div className="grid grid-cols-1 lg:grid-cols-2 h-full border-y border-neutral-200">
+                  <div className="rounded-2xl h-full w-full p-4 overflow-hidden aspect-video bg-nuetral-100 relative group cursor-pointer">
+                    <img
+                      src={t.videoThumbnail}
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Navigation is compact, high-contrast and tactile; testimonial cards themselves are not buttons unless explicitly interactive.

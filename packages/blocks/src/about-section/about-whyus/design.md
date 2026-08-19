@@ -44,6 +44,42 @@ Use documentary portraits, work samples, or brand proof; preserve the source cro
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Radial background field
+
+**Location:** `packages/blocks/src/about-section/about-whyus.tsx:5-11`
+**Why it is core:** The gradient’s focal point, stops, and layer position establish the block’s backdrop.
+
+```tsx
+export const AboutWhyUs = () => {
+  return (
+    <section className="py-32 px-6 bg-slate-50 relative font-manrope min-h-screen">
+      <div className="absolute bottom-0 left-0 right-0 top-0 bg-[repeating-linear-gradient(45deg,#efefef_0px_1px,transparent_1px_8px)] mask-[radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
+
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-20 relative z-10">
+        <div className="lg:col-span-4 space-y-6">
+```
+
+### 2. Depth and glow treatment
+
+**Location:** `packages/blocks/src/about-section/about-whyus.tsx:84-90`
+**Why it is core:** These exact shadows and blur layers distinguish foreground from atmosphere.
+
+```tsx
+}
+
+const StatColumn = ({ number, label, sub }: any) => (
+  <div className="bg-white p-6 rounded-3xl group relative border border-slate-100 flex flex-col justify-end gap-16 min-h-72 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+    <span className="text-6xl font-bold text-slate-900  tracking-tighter">
+      {number}
+    </span>
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Use one decisive filled CTA and a lower-emphasis text/outline action; buttons should never compete with imagery.

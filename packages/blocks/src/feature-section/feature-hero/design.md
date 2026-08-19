@@ -49,6 +49,58 @@ Favor product crops, diagrams, or symbolic line icons; each should explain the c
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Source-specific visual behavior
+
+**Location:** `packages/blocks/src/feature-section/feature-hero.tsx:1-5`
+**Why it is core:** This source fragment contains a high-signal visual or interaction decision unique to the block.
+
+```tsx
+'use client'
+import { Settings, Users, BarChart3, Lightbulb, Target } from 'lucide-react'
+import { motion } from 'motion/react'
+import { cn } from '@/lib/utils'
+```
+
+### 2. Source-specific visual behavior
+
+**Location:** `packages/blocks/src/feature-section/feature-hero.tsx:16-22`
+**Why it is core:** This source fragment contains a high-signal visual or interaction decision unique to the block.
+
+```tsx
+    highlight: true,
+  },
+  {
+    icon: BarChart3,
+    title: 'AI Ad Budget Allocation',
+    desc: 'Automatically manages and allocates ad budgets based on campaign performance',
+  },
+```
+
+### 3. Radial background field
+
+**Location:** `packages/blocks/src/feature-section/feature-hero.tsx:35-45`
+**Why it is core:** The gradient’s focal point, stops, and layer position establish the block’s backdrop.
+
+```tsx
+export const FeatureHero = () => {
+  return (
+    <section className="py-24 bg-white px-6 font-dmSans relative min-h-screen">
+      <div className="absolute bottom-0 left-0 right-0 top-0 bg-[repeating-linear-gradient(45deg,#f3f3f3_0px_1px,transparent_1px_8px)] mask-[radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
+      <div className="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(125%_125%_at_50%_10%,rgba(255,255,255,0)_40%,rgba(50,97,237,1)_100%)]"></div>
+
+      <div className="py-24 px-6 max-w-7xl mx-auto text-center font-dmSans relative">
+        <motion.div
+          initial={{ opacity: 0, transform: 'translateY(20px)' }}
+          whileInView={{ opacity: 1, transform: 'translateY(0)' }}
+          viewport={{ once: true }}
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Primary actions use the accent fill; card-level actions are compact arrows or icon controls and must visibly respond on hover.

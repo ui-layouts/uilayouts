@@ -52,6 +52,57 @@ Use high-quality product/UI composites or portraits with deliberate overlap; ico
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Low-opacity icon pattern
+
+**Location:** `packages/blocks/src/hero-section/hero-financial.tsx:119-125`
+**Why it is core:** Repeated icons at low opacity create a branded texture without competing with foreground content.
+
+```tsx
+      <TimelineAnimation
+        timelineRef={timelineRef}
+        animationNum={5}
+        className="absolute top-0 left-0 w-full h-[600px] bg-linear-to-b from-blue-50 via-blue-100 to-transparent opacity-100"
+      />
+      {isMobile && (
+        <div className="flex gap-4 justify-between items-center px-5 w-full pt-4">
+```
+
+### 2. Depth and glow treatment
+
+**Location:** `packages/blocks/src/hero-section/hero-financial.tsx:256-262`
+**Why it is core:** These exact shadows and blur layers distinguish foreground from atmosphere.
+
+```tsx
+            as="button"
+            animationNum={4}
+            timelineRef={timelineRef}
+            className="px-4 bg-linear-to-br from-blue-500 via-blue-400 to-blue-200 text-white text-xl rounded-lg shadow-sm transition py-2.5 border border-blue-300"
+          >
+            Get Started
+          </TimelineAnimation>
+```
+
+### 3. Depth and glow treatment
+
+**Location:** `packages/blocks/src/hero-section/hero-financial.tsx:264-270`
+**Why it is core:** These exact shadows and blur layers distinguish foreground from atmosphere.
+
+```tsx
+            as="button"
+            animationNum={5}
+            timelineRef={timelineRef}
+            className="px-4 bg-linear-to-br from-neutral-50 via-neutral-100 to-neutral-300 text-black text-xl rounded-lg shadow-sm  transition py-2.5 border border-neutral-300"
+          >
+            Learn more
+          </TimelineAnimation>
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Primary actions carry the block accent; secondary actions are quieter bordered or glass controls with the same height.

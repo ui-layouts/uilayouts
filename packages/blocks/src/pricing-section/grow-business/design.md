@@ -53,6 +53,59 @@ Use tiny product icons or abstract glow only; never distract from price, billing
    - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
    - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
 
+<!-- source-audit:start -->
+## Audited source implementation
+
+These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+
+### 1. Structural border treatment
+
+**Location:** `packages/blocks/src/pricing-section/grow-business.tsx:81-87`
+**Why it is core:** The border placement creates the block’s visual grouping and alignment.
+
+```tsx
+        <TimelineAnimation
+          animationNum={3}
+          timelineRef={timelineRef}
+          className="flex items-center justify-center gap-4 mb-16 bg-lime-100 border border-lime-400 font-semibold w-fit p-3 mx-auto rounded-full"
+        >
+          <span
+            className={cn(
+```
+
+### 2. Depth and glow treatment
+
+**Location:** `packages/blocks/src/pricing-section/grow-business.tsx:131-138`
+**Why it is core:** These exact shadows and blur layers distinguish foreground from atmosphere.
+
+```tsx
+                className={cn(
+                  'rounded-lg p-4 flex flex-col border transition-all',
+                  plan.featured
+                    ? 'bg-neutral-950 text-white shadow-2xl z-10 border-transparent'
+                    : 'bg-white border border-neutral-200'
+                )}
+              >
+                <div className="text-left mb-4">
+```
+
+### 3. Depth and glow treatment
+
+**Location:** `packages/blocks/src/pricing-section/grow-business.tsx:178-185`
+**Why it is core:** These exact shadows and blur layers distinguish foreground from atmosphere.
+
+```tsx
+                    className={cn(
+                      'w-full mb-5 rounded-lg h-14',
+                      plan.featured
+                        ? 'py-4 bg-lime-500 border border-neutral-700'
+                        : 'bg-white border-neutral-200 hover:shadow-neutral-200 hover:shadow-lg hover:bg-white'
+                    )}
+                  >
+                    Select Plan
+```
+<!-- source-audit:end -->
+
 ## Buttons
 
 Use full-width, high-contrast CTAs with real press feedback; featured plans own the accent while secondary plans stay neutral.
