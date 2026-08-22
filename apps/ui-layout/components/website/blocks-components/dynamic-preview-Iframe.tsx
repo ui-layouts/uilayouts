@@ -1,16 +1,11 @@
 'use client';
 
+import { RefreshCcw } from 'lucide-react';
+import { useRef, useState } from 'react';
+import { Group, type GroupImperativeHandle, Panel, Separator } from 'react-resizable-panels';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/website/ui/tooltip';
 import { useMediaQuery } from '@/hooks/use-media-query';
 import { useOptimizedIframe } from '@/hooks/useOptimizedIframe';
-import { RefreshCcw } from 'lucide-react';
-import React, { useEffect, useMemo, useRef, useState } from 'react';
-import {
-  type GroupImperativeHandle,
-  Group,
-  Panel,
-  Separator,
-} from 'react-resizable-panels';
 
 type Props = {
   src: string;
@@ -22,11 +17,7 @@ type Props = {
 
 const DEFAULTSIZE = 100;
 
-export default function DynamicPreviewIframe({
-  src,
-  fallbackHeight = 800,
-  maxHeight = 2200,
-}: Props) {
+export default function DynamicPreviewIframe({ src }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   const panelGroupRef = useRef<GroupImperativeHandle>(null);
 
@@ -38,44 +29,7 @@ export default function DynamicPreviewIframe({
     containerRef,
   });
 
-  const [height, setHeight] = useState<number>(fallbackHeight);
-  const [hasMeasured, setHasMeasured] = useState(false);
-
-  const expectedId = useMemo(() => {
-    try {
-      return new URL(src, window.location.origin).pathname;
-    } catch {
-      return src.split('?')[0];
-    }
-  }, [src]);
-
-  // reset on src change
-  useEffect(() => {
-    setHeight(fallbackHeight);
-    setHasMeasured(false);
-  }, [src, fallbackHeight]);
-
-  // listen for iframe height
-  useEffect(() => {
-    if (!shouldLoadIframe) return;
-
-    const handler = (e: MessageEvent) => {
-      if (e.data?.type !== 'IFRAME_HEIGHT') return;
-      if (e.data.id !== expectedId) return;
-
-      const next = Math.min(Math.ceil(Number(e.data.height) || fallbackHeight), maxHeight);
-
-      setHeight((prev) => (Math.abs(prev - next) < 2 ? prev : next));
-      setHasMeasured(true);
-    };
-
-    window.addEventListener('message', handler);
-    return () => window.removeEventListener('message', handler);
-  }, [shouldLoadIframe, expectedId, fallbackHeight, maxHeight]);
-
   const handleRefresh = () => {
-    setHasMeasured(false);
-    setHeight(fallbackHeight);
     setRefreshKey((k) => k + 1);
   };
 
@@ -85,16 +39,11 @@ export default function DynamicPreviewIframe({
       <div
         ref={containerRef}
         className='relative w-full border bg-background h-[calc(100vh-12rem)]'
-        // style={{ height }}
       >
         {/* LOADING STATES */}
         {!shouldLoadIframe && (
           <div className='flex h-full items-center justify-center bg-neutral-200 dark:bg-neutral-800 animate-pulse' />
         )}
-
-        {/* {shouldLoadIframe && !hasMeasured && (
-          <div className='absolute inset-0 z-10 flex items-center justify-center bg-neutral-200 dark:bg-neutral-800 animate-pulse' />
-        )} */}
 
         {/* PANEL GROUP MUST LIVE INSIDE HEIGHT */}
         {shouldLoadIframe && (
@@ -133,21 +82,23 @@ export default function DynamicPreviewIframe({
             )}
           </Group>
         )}
-      </div>
 
-      {/* TOOLBAR */}
-      <div className='absolute top-0 2xl:left-[16.8rem] lg:left-[15.2rem] sm:left-[14.2rem] left-[7.6rem] pl-2 gap-2 md:flex hidden'>
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <button
-              onClick={handleRefresh}
-              className='grid h-10 w-10 cursor-pointer place-items-center border bg-neutral-100 text-primary dark:bg-neutral-700'
-            >
-              <RefreshCcw className='h-5 w-5' />
-            </button>
-          </TooltipTrigger>
-          <TooltipContent>Refresh</TooltipContent>
-        </Tooltip>
+        {/* Keep preview actions inside the viewport so they never overlap the page-level tabs. */}
+        <div className='absolute right-2 top-2 z-20 hidden md:flex'>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <button
+                type='button'
+                onClick={handleRefresh}
+                className='grid h-10 w-10 cursor-pointer place-items-center border bg-neutral-100/90 text-primary shadow-sm backdrop-blur dark:bg-neutral-700/90'
+                aria-label='Refresh preview'
+              >
+                <RefreshCcw className='h-5 w-5' />
+              </button>
+            </TooltipTrigger>
+            <TooltipContent>Refresh preview</TooltipContent>
+          </Tooltip>
+        </div>
       </div>
     </>
   );

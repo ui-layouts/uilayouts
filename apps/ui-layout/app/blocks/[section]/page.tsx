@@ -1,24 +1,26 @@
+import { Blocks, Code, Component, Expand, Eye, FileText } from 'lucide-react';
+import type { Metadata } from 'next';
+import Image from 'next/image';
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
 import { blocksDesign, getBlocksDesignMeta } from '@/blocks-docs';
 import { BreadcrumbStructuredData } from '@/components/seo/breadcrumb-structured-data';
 import { StructuredData } from '@/components/seo/structured-data';
 import { Container } from '@/components/ui/container';
 import { TreeCodeViewer } from '@/components/ui/tree-view-code';
 import CliCopyBtn from '@/components/website/blocks-components/cli-copy-btn';
+import { DesignMarkdown } from '@/components/website/blocks-components/design-markdown';
 import DynamicPreviewIframe from '@/components/website/blocks-components/dynamic-preview-Iframe';
 import { TableOfContents } from '@/components/website/blocks-components/table-of-contents';
 import CarbonAd from '@/components/website/carbon-ads';
 import { ClientPreCode } from '@/components/website/code-components/client-pre-code';
-import Footer from '@/components/website/footer';
 import HomeFooter from '@/components/website/home/home-footer';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/website/ui/tabs';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/website/ui/tooltip';
+import { getBlockDesignMarkdown } from '@/lib/block-design-documents';
+import { highlightCode } from '@/lib/shiki-highlighter';
 import { transformCodeFiles } from '@/lib/transform-code-files';
 import { cn } from '@/lib/utils';
-import { Blocks, Code, Component, Expand, Eye } from 'lucide-react';
-import type { Metadata } from 'next';
-import Image from 'next/image';
-import Link from 'next/link';
-import { notFound } from 'next/navigation';
 
 export const dynamic = 'force-static';
 export const dynamicParams = false;
@@ -90,10 +92,17 @@ export default async function SectionPage(props: { params: Promise<{ section?: s
   if (!sectionData) return notFound();
 
   const blocksWithCode = await Promise.all(
-    sectionData.blocks.map(async (block) => ({
-      ...block,
-      transformedCodeFiles: await transformCodeFiles(block.filePath, block.id),
-    }))
+    sectionData.blocks.map(async (block) => {
+      const transformedCodeFiles = await transformCodeFiles(block.filePath, block.id);
+      const designMarkdown = getBlockDesignMarkdown(block.id);
+
+      return {
+        ...block,
+        transformedCodeFiles,
+        designMarkdown,
+        designHtml: await highlightCode(designMarkdown, 'markdown'),
+      };
+    })
   );
 
   // console.log('blocksWithCode', blocksWithCode);
@@ -156,10 +165,6 @@ export default async function SectionPage(props: { params: Promise<{ section?: s
         <div className='space-y-5 pb-10 prose max-w-full relative'>
           {blocksWithCode.map((block, index) => {
             const isMultiple = block.transformedCodeFiles.length > 1;
-            const url = encodeURIComponent(`https://www.ui-layouts.com/r/${block?.id}.json`);
-            const finalUrl = `https://v0.dev/chat/api/open?url=${url}`;
-            console.log('html', block?.transformedCodeFiles[0].html);
-            console.log('raw', block?.transformedCodeFiles[0].raw);
 
             return (
               <div key={block.id} id={block.id} className='relative'>
@@ -190,6 +195,13 @@ export default async function SectionPage(props: { params: Promise<{ section?: s
                         >
                           <Eye className='w-4 h-4' />
                           Preview
+                        </TabsTrigger>
+                        <TabsTrigger
+                          value='design'
+                          className='flex gap-1 px-2 h-8 text-md items-center cursor-pointer rounded-none'
+                        >
+                          <FileText className='w-4 h-4' />
+                          Design.md
                         </TabsTrigger>
                         <TabsTrigger
                           value='code'
@@ -253,6 +265,14 @@ export default async function SectionPage(props: { params: Promise<{ section?: s
                         src={`/preview/${section}/${block.id}`}
                         blockId={block.id}
                         section={section || ''}
+                      />
+                    </TabsContent>
+                    {/* PORTABLE DESIGN SYSTEM */}
+                    <TabsContent value='design'>
+                      <DesignMarkdown
+                        id={block.id}
+                        html={block.designHtml}
+                        markdown={block.designMarkdown}
                       />
                     </TabsContent>
                     {/* CODE */}
