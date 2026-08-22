@@ -4,18 +4,22 @@
 
 ## Source of truth
 
-- `packages/blocks/src/hero-section/hero-digital-success.tsx` — the canonical block source and the exact effect composition
-- `apps/ui-layout/components/ui/timeline-animation.tsx` — the scroll-triggered stagger primitive used to sequence the block
-- `apps/ui-layout/hooks/use-media-query.tsx` — the breakpoint hook that switches the mobile composition
-- `apps/ui-layout/components/ui/motion-drawer.tsx` — the responsive navigation drawer used by this block
+**Repository:** [ui-layouts/uilayouts](https://github.com/ui-layouts/uilayouts)
+
+Use the links below; do not search for these paths in the consuming project.
+
+- [`packages/blocks/src/hero-section/hero-digital-success.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/hero-section/hero-digital-success.tsx) — the canonical block source and the exact effect composition
+- [`apps/ui-layout/components/ui/timeline-animation.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/apps/ui-layout/components/ui/timeline-animation.tsx) — the scroll-triggered stagger primitive used to sequence the block
+- [`apps/ui-layout/hooks/use-media-query.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/apps/ui-layout/hooks/use-media-query.tsx) — the breakpoint hook that switches the mobile composition
+- [`apps/ui-layout/components/ui/motion-drawer.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/apps/ui-layout/components/ui/motion-drawer.tsx) — the responsive navigation drawer used by this block
 
 ## Required libraries and primitives
 
 - **@shadergradient/react** (external) — renders the animated WebGL shader/gradient field; use its configured uniforms rather than a CSS approximation. Install with `pnpm add @shadergradient/react`.
-- **@/components/ui/timeline-animation** (local) — the scroll-triggered stagger primitive used to sequence the block.
-- **@/hooks/use-media-query** (local) — the breakpoint hook that switches the mobile composition.
+- **@/components/ui/timeline-animation** (repository primitive) — the scroll-triggered stagger primitive used to sequence the block. Retrieve it from the linked repository source above; do not look for the alias in the consuming project.
+- **@/hooks/use-media-query** (repository primitive) — the breakpoint hook that switches the mobile composition. Retrieve it from the linked repository source above; do not look for the alias in the consuming project.
 - **lucide-react** (external) — provides the line-icon vocabulary used by controls and labels. Install with `pnpm add lucide-react`.
-- **@/components/ui/motion-drawer** (local) — the responsive navigation drawer used by this block.
+- **@/components/ui/motion-drawer** (repository primitive) — the responsive navigation drawer used by this block. Retrieve it from the linked repository source above; do not look for the alias in the consuming project.
 - **motion** (external) — provides the entrance, presence, drag, spring, and layout animation behavior. Install with `pnpm add motion`.
 
 ## Design thesis
@@ -28,7 +32,7 @@ A bold display face or the project sans at very large responsive sizes; compact 
 
 ## Palette and contrast
 
-The implementation anchors its palette with `bg-black`, `text-white`, `bg-neutral-800`, `border-neutral-900`, `bg-white`, `text-black`, `bg-neutral-100`, `bg-red-500`, `from-white`, `via-red-500`. Preserve their roles—canvas, surface, foreground, muted copy, accent and glow—rather than treating them as interchangeable swatches. Do not expand the palette with unrelated accents.
+Core palette: `bg-black`, `text-white`, `bg-neutral-800`, `border-neutral-900`, `bg-red-500`, `via-red-500`. Keep the same canvas, text, border, and accent roles; do not add unrelated colors.
 
 ## Composition and rhythm
 
@@ -57,95 +61,19 @@ Use high-quality product/UI composites or portraits with deliberate overlap; ico
 <!-- source-audit:start -->
 ## Audited source implementation
 
-These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+These linked source ranges contain the block’s highest-signal visual decisions. Treat them as part of its identity and preserve their values, stacking order, and interaction state.
 
 ### 1. Configured shader field
 
-**Location:** `packages/blocks/src/hero-section/hero-digital-success.tsx:1-6`
-**Why it is core:** This library component and its exact uniforms generate the block’s atmospheric field.
-
-```tsx
-'use client'
-import React, { Suspense, useRef } from 'react'
-import { ShaderGradient, ShaderGradientCanvas } from '@shadergradient/react'
-import { TimelineAnimation } from '@/components/ui/timeline-animation'
-import { useMediaQuery } from '@/hooks/use-media-query'
-import { Component, Layout, Wallet } from 'lucide-react'
-```
+[Open the exact implementation (lines 1–6)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/hero-section/hero-digital-success.tsx#L1-L6) — This library component and its exact uniforms generate the block’s atmospheric field.
 
 ### 2. Configured shader field
 
-**Location:** `packages/blocks/src/hero-section/hero-digital-success.tsx:19-69`
-**Why it is core:** This library component and its exact uniforms generate the block’s atmospheric field.
-
-```tsx
-        <ShaderGradientCanvas
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100vw',
-            height: '100vh',
-          }}
-          lazyLoad={false}
-          pixelDensity={1}
-          pointerEvents="none"
-        >
-          <ShaderGradient
-            animate="on"
-            type="sphere"
-            wireframe={false}
-            shader="defaults"
-            uTime={0}
-            uSpeed={0.3}
-            uStrength={0.3}
-            uDensity={0.8}
-            uFrequency={5.5}
-            uAmplitude={3.2}
-            positionX={-0.1}
-            positionY={0}
-            positionZ={0}
-            rotationX={0}
-            rotationY={130}
-            rotationZ={70}
-            color1="#92dbe0"
-            color2="#0b7bff"
-            color3="#3865cf"
-            reflection={0.4}
-            // View (camera) props
-            cAzimuthAngle={270}
-            cPolarAngle={180}
-            cDistance={0.5}
-            cameraZoom={15.1}
-            // Effect props
-            lightType="env"
-            brightness={0.8}
-            envPreset="city"
-            grain="on"
-            // Tool props
-            toggleAxis={false}
-            zoomOut={false}
-            hoverState=""
-            // Optional - if using transition features
-            enableTransition={false}
-          />
-        </ShaderGradientCanvas>
-```
+[Open the exact implementation (lines 19–69)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/hero-section/hero-digital-success.tsx#L19-L69) — This library component and its exact uniforms generate the block’s atmospheric field.
 
 ### 3. Source-specific visual behavior
 
-**Location:** `packages/blocks/src/hero-section/hero-digital-success.tsx:185-191`
-**Why it is core:** This source fragment contains a high-signal visual or interaction decision unique to the block.
-
-```tsx
-          className="flex flex-col xl:flex-row text-[10vw] xl:text-[6.5vw] font-medium leading-[100%] items-baseline gap-x-8 gap-y-2 pb-10 "
-        >
-          Unlocking
-          <span className="bg-clip-text text-transparent bg-linear-to-r from-white via-red-500 to-red-500 pb-8 xl:inline-block block">
-            Digital Success
-          </span>
-        </TimelineAnimation>
-```
+[Open the exact implementation (lines 185–191)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/hero-section/hero-digital-success.tsx#L185-L191) — This source fragment contains a high-signal visual or interaction decision unique to the block.
 <!-- source-audit:end -->
 
 ## Buttons
@@ -159,16 +87,13 @@ Use slow entrance staging and restrained hover/press feedback; decorative atmosp
 ## Rules for extending this design
 
 1. Carry both the **cool volumetric shadow gradient** and the restrained **red typographic flare** into at least one meaningful focal area; reproduce its layer recipe rather than substituting a generic gradient.
-2. Reuse the same accent-to-neutral ratio, image treatment, corner language, and density so adjacent sections read as one system.
-3. On small screens, preserve hierarchy and effect placement while removing overlap that could obscure content.
-4. Provide reduced-motion behavior and keyboard focus parity for every hover-driven reveal.
+2. Preserve the same responsive hierarchy and provide keyboard-visible focus and reduced-motion behavior.
 
 ## Do not
 
-- Listing raw utility classes as a substitute for design intent.
-- Applying the signature effect to every surface; protect a clear hierarchy and quiet reading areas.
-- Introducing a second visual metaphor, unrelated accent palette, or different portrait/illustration treatment.
+- Do not replace the signature construction with a generic gradient, shadow, card, or animation.
+- Do not introduce a competing palette, type system, or image treatment.
 
 ## AI implementation instruction
 
-Build the requested interface as a sibling of **Digital Success**. First inspect every file under **Source of truth**. Reproduce the applicable unique component using the exact dependency, configuration, layer order, palette, and interaction described above; do not replace it with a generic gradient or approximation. Then translate the same typography, spacing, surfaces, imagery, controls, and responsive hierarchy into the new content. Use semantic HTML, keyboard-visible focus, reduced-motion fallbacks, and existing project primitives.
+Open the linked source files first. Reuse the applicable unique effect with its exact values and layer order, then extend the same typography, spacing, surfaces, imagery, controls, and responsive behavior into the requested UI. Keep the result accessible and production-ready.

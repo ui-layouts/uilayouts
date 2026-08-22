@@ -8,6 +8,7 @@ const checkOnly = process.argv.includes('--check');
 let stale = 0;
 const START = '<!-- source-audit:start -->';
 const END = '<!-- source-audit:end -->';
+const GITHUB_BLOB = 'https://github.com/ui-layouts/uilayouts/blob/main/';
 const patterns = [
   [/ShaderGradient|Canvas|recharts|AreaChart|LineChart|BarChart|Carousel|motion\./, 12],
   [/radial-gradient|linear-gradient|repeating-linear-gradient|bg-linear|from-\[|to-\[/, 10],
@@ -138,7 +139,9 @@ function candidates(lines) {
 }
 for (const { id, designPath } of documents) {
   let markdown = readFileSync(designPath, 'utf8');
-  const sourcePath = markdown.match(/^- `([^`]+\.(?:ts|tsx))`/m)?.[1];
+  const sourcePath = markdown.match(
+    /^- \[`([^`]+\.(?:ts|tsx))`\]\(https:\/\/github\.com\/ui-layouts\/uilayouts\/blob\/main\/[^)]+\)/m
+  )?.[1];
   if (!sourcePath) throw new Error(`No canonical source in ${designPath}`);
   const lines = readFileSync(sourcePath, 'utf8').split('\n');
   const groups = candidates(lines);
@@ -150,10 +153,10 @@ for (const { id, designPath } of documents) {
         .join('\n')
         .trimEnd();
       const { title, why } = describe(code);
-      return `### ${i + 1}. ${title}\n\n**Location:** \`${sourcePath}:${g.start + 1}-${g.end + 1}\`\n**Why it is core:** ${why}\n\n\`\`\`tsx\n${code}\n\`\`\``;
+      return `### ${i + 1}. ${title}\n\n[Open the exact implementation (lines ${g.start + 1}–${g.end + 1})](${GITHUB_BLOB}${sourcePath}#L${g.start + 1}-L${g.end + 1}) — ${why}`;
     })
     .join('\n\n');
-  const audit = `${START}\n## Audited source implementation\n\nThese are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.\n\n${items}\n${END}`;
+  const audit = `${START}\n## Audited source implementation\n\nThese linked source ranges contain the block’s highest-signal visual decisions. Treat them as part of its identity and preserve their values, stacking order, and interaction state.\n\n${items}\n${END}`;
   if (markdown.includes(START))
     markdown = markdown.replace(new RegExp(`${START}[\\s\\S]*?${END}`), audit);
   else markdown = markdown.replace('\n## Buttons', `\n${audit}\n\n## Buttons`);

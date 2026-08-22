@@ -4,7 +4,11 @@
 
 ## Source of truth
 
-- `packages/blocks/src/footer-section/footer-privilege.tsx` — the canonical block source and the exact effect composition
+**Repository:** [ui-layouts/uilayouts](https://github.com/ui-layouts/uilayouts)
+
+Use the links below; do not search for these paths in the consuming project.
+
+- [`packages/blocks/src/footer-section/footer-privilege.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/footer-section/footer-privilege.tsx) — the canonical block source and the exact effect composition
 
 ## Required libraries and primitives
 
@@ -20,7 +24,7 @@ Use clear link-group headings, compact links and a brand statement sized to the 
 
 ## Palette and contrast
 
-The implementation anchors its palette with `bg-white`, `bg-zinc-950`, `text-black`, `text-white`, `border-gray-100`, `border-zinc-900`, `bg-black`, `border-white`, `border-zinc-950`, `text-gray-400`. Preserve their roles—canvas, surface, foreground, muted copy, accent and glow—rather than treating them as interchangeable swatches. Do not expand the palette with unrelated accents.
+Core palette: `bg-white`, `bg-zinc-950`, `text-black`, `text-white`. Keep the same canvas, text, border, and accent roles; do not add unrelated colors.
 
 ## Composition and rhythm
 
@@ -38,61 +42,24 @@ Use a wordmark, small brand symbol or restrained background art—never unrelate
 
 1. **Luxury access footer.** Use black/zinc-950 surfaces, thin white borders, tiny uppercase labels and a 45° geometric diamond; treat spacing and contrast as the luxury signal.
    - **Use it for:** closing a premium or members-only experience
-   - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
-
-2. **Layer discipline.** Separate atmosphere, content surface, and foreground controls into distinct layers. Decorative layers use pointer-events-none and sit below readable content; preserve clipping at the section boundary.
-   - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
-   - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
+   - **Implementation:** use the audited GitHub ranges below.
 
 <!-- source-audit:start -->
 ## Audited source implementation
 
-These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+These linked source ranges contain the block’s highest-signal visual decisions. Treat them as part of its identity and preserve their values, stacking order, and interaction state.
 
 ### 1. Border-led structure
 
-**Location:** `packages/blocks/src/footer-section/footer-privilege.tsx:2-8`
-**Why it is core:** Hairline borders establish grouping and rhythm without relying on filled cards.
-
-```tsx
-
-export const FooterPrivilege = () => {
-  return (
-    <footer className="bg-white dark:bg-zinc-950 text-black dark:text-white py-20 px-8 border-t border-gray-100 dark:border-zinc-900 transition-colors duration-500">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-end">
-        <div>
-          <h2 className="text-7xl font-light tracking-tighter mb-4">
-```
+[Open the exact implementation (lines 2–8)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/footer-section/footer-privilege.tsx#L2-L8) — Hairline borders establish grouping and rhythm without relying on filled cards.
 
 ### 2. Overlapping transformed composition
 
-**Location:** `packages/blocks/src/footer-section/footer-privilege.tsx:10-16`
-**Why it is core:** Rotation and offset create the intentionally physical, layered arrangement.
-
-```tsx
-          </h2>
-          <div className="mt-16 flex items-center gap-4">
-            <div className="w-12 h-12 bg-black dark:bg-white flex items-center justify-center rounded-sm">
-              {/* <div className="w-6 h-6 border-2 border-white dark:border-zinc-950 rotate-45"></div> */}
-              <svg
-                width="285"
-                height="318"
-```
+[Open the exact implementation (lines 10–16)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/footer-section/footer-privilege.tsx#L10-L16) — Rotation and offset create the intentionally physical, layered arrangement.
 
 ### 3. Border-led structure
 
-**Location:** `packages/blocks/src/footer-section/footer-privilege.tsx:43-49`
-**Why it is core:** Hairline borders establish grouping and rhythm without relying on filled cards.
-
-```tsx
-        </div>
-      </div>
-
-      <div className="max-w-7xl mx-auto mt-32 pt-8 border-t border-gray-100 dark:border-zinc-900 flex flex-col md:flex-row justify-between text-[10px] uppercase tracking-[0.3em] font-medium text-gray-400 dark:text-zinc-600">
-        <p>© 2026 LAYOUTS EQUITY</p>
-        <p>ALL RIGHTS RESERVED</p>
-        <a href="https://x.com/naymur_dev" target="_blank">
-```
+[Open the exact implementation (lines 43–49)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/footer-section/footer-privilege.tsx#L43-L49) — Hairline borders establish grouping and rhythm without relying on filled cards.
 <!-- source-audit:end -->
 
 ## Buttons
@@ -106,16 +73,13 @@ Keep footer motion minimal: link color/underline and button press states are suf
 ## Rules for extending this design
 
 1. Carry the **Luxury access footer** into at least one meaningful focal area; reproduce its layer recipe rather than substituting a generic gradient.
-2. Reuse the same accent-to-neutral ratio, image treatment, corner language, and density so adjacent sections read as one system.
-3. On small screens, preserve hierarchy and effect placement while removing overlap that could obscure content.
-4. Provide reduced-motion behavior and keyboard focus parity for every hover-driven reveal.
+2. Preserve the same responsive hierarchy and provide keyboard-visible focus and reduced-motion behavior.
 
 ## Do not
 
-- Listing raw utility classes as a substitute for design intent.
-- Applying the signature effect to every surface; protect a clear hierarchy and quiet reading areas.
-- Introducing a second visual metaphor, unrelated accent palette, or different portrait/illustration treatment.
+- Do not replace the signature construction with a generic gradient, shadow, card, or animation.
+- Do not introduce a competing palette, type system, or image treatment.
 
 ## AI implementation instruction
 
-Build the requested interface as a sibling of **Footer Privilege**. First inspect every file under **Source of truth**. Reproduce the applicable unique component using the exact dependency, configuration, layer order, palette, and interaction described above; do not replace it with a generic gradient or approximation. Then translate the same typography, spacing, surfaces, imagery, controls, and responsive hierarchy into the new content. Use semantic HTML, keyboard-visible focus, reduced-motion fallbacks, and existing project primitives.
+Open the linked source files first. Reuse the applicable unique effect with its exact values and layer order, then extend the same typography, spacing, surfaces, imagery, controls, and responsive behavior into the requested UI. Keep the result accessible and production-ready.

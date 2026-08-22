@@ -4,7 +4,11 @@
 
 ## Source of truth
 
-- `packages/blocks/src/stats-section/stats-section.tsx` — the canonical block source and the exact effect composition
+**Repository:** [ui-layouts/uilayouts](https://github.com/ui-layouts/uilayouts)
+
+Use the links below; do not search for these paths in the consuming project.
+
+- [`packages/blocks/src/stats-section/stats-section.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/stats-section/stats-section.tsx) — the canonical block source and the exact effect composition
 
 ## Required libraries and primitives
 
@@ -20,7 +24,7 @@ Numbers are the display typography; labels remain compact and muted, with descri
 
 ## Palette and contrast
 
-The implementation anchors its palette with `bg-neutral-950`, `text-white`, `bg-[radial-gradient(125%_125%_at_50%_10%,rgba(255,255,255,0)_40%,rgba(102,51,238,1)_100%)]`, `border-zinc-800`, `text-zinc-500`, `bg-zinc-900/50`, `text-zinc-600`, `from-white/15`, `text-zinc-400`, `bg-zinc-800`. Preserve their roles—canvas, surface, foreground, muted copy, accent and glow—rather than treating them as interchangeable swatches. Do not expand the palette with unrelated accents.
+Core palette: `bg-neutral-950`, `text-white`, `bg-[radial-gradient(125%_125%_at_50%_10%,rgba(255,255,255,0)_40%,rgba(102,51,238,1)_100%)]`, `border-zinc-800`. Keep the same canvas, text, border, and accent roles; do not add unrelated colors.
 
 ## Composition and rhythm
 
@@ -38,65 +42,24 @@ Prefer charts, sparklines and abstract data marks over stock photography; icons 
 
 1. **Violet radial metric field.** Use neutral-950 with a violet radial horizon and a broad 3xl blur; reveal a subtle white/15 card gradient only on hover while number counters animate.
    - **Use it for:** giving core metrics a quiet cosmic glow
-   - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
-
-2. **Layer discipline.** Separate atmosphere, content surface, and foreground controls into distinct layers. Decorative layers use pointer-events-none and sit below readable content; preserve clipping at the section boundary.
-   - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
-   - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
+   - **Implementation:** use the audited GitHub ranges below.
 
 <!-- source-audit:start -->
 ## Audited source implementation
 
-These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+These linked source ranges contain the block’s highest-signal visual decisions. Treat them as part of its identity and preserve their values, stacking order, and interaction state.
 
 ### 1. Radial background field
 
-**Location:** `packages/blocks/src/stats-section/stats-section.tsx:12-22`
-**Why it is core:** The gradient’s focal point, stops, and layer position establish the block’s backdrop.
-
-```tsx
-export const StatsSection = () => {
-  return (
-    <section className="py-32 px-6 bg-neutral-950 text-white min-h-screen relative">
-      <div className="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(125%_125%_at_50%_10%,rgba(255,255,255,0)_40%,rgba(102,51,238,1)_100%)] pointer-events-none"></div>
-      <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-24 items-center ">
-          <div className="space-y-10">
-            <span className="inline-flex px-4 py-1.5 text-xs font-semibold border border-zinc-800 rounded-full text-zinc-500 uppercase tracking-[0.2em] bg-zinc-900/50">
-              Agency Metrics
-            </span>
-            <h2 className="text-6xl md:text-7xl font-bold font-dmSans tracking-tighter text-balance leading-none">
-```
+[Open the exact implementation (lines 12–22)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/stats-section/stats-section.tsx#L12-L22) — The gradient’s focal point, stops, and layer position establish the block’s backdrop.
 
 ### 2. Motion-driven behavior
 
-**Location:** `packages/blocks/src/stats-section/stats-section.tsx:25-31`
-**Why it is core:** The motion configuration controls the effect’s timing, position, and interaction response.
-
-```tsx
-            </h2>
-            <div className="grid grid-cols-2 gap-x-12 gap-y-16 pt-12">
-              {stats.map((stat, i) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-```
+[Open the exact implementation (lines 25–31)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/stats-section/stats-section.tsx#L25-L31) — The motion configuration controls the effect’s timing, position, and interaction response.
 
 ### 3. Low-opacity icon pattern
 
-**Location:** `packages/blocks/src/stats-section/stats-section.tsx:48-54`
-**Why it is core:** Repeated icons at low opacity create a branded texture without competing with foreground content.
-
-```tsx
-          </div>
-
-          <div className="relative group">
-            <div className="absolute -inset-20 bg-linear-to-tr from-white/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000 blur-3xl pointer-events-none" />
-            <div className="space-y-8 relative z-10">
-              <p className="text-xl md:text-2xl text-zinc-400 leading-relaxed text-pretty font-medium">
-                We recognized a demand for solutions that empower enterprises to
-```
+[Open the exact implementation (lines 48–54)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/stats-section/stats-section.tsx#L48-L54) — Repeated icons at low opacity create a branded texture without competing with foreground content.
 <!-- source-audit:end -->
 
 ## Buttons
@@ -110,16 +73,13 @@ Animate values once on entry and make hover effects explanatory, not celebratory
 ## Rules for extending this design
 
 1. Carry the **Violet radial metric field** into at least one meaningful focal area; reproduce its layer recipe rather than substituting a generic gradient.
-2. Reuse the same accent-to-neutral ratio, image treatment, corner language, and density so adjacent sections read as one system.
-3. On small screens, preserve hierarchy and effect placement while removing overlap that could obscure content.
-4. Provide reduced-motion behavior and keyboard focus parity for every hover-driven reveal.
+2. Preserve the same responsive hierarchy and provide keyboard-visible focus and reduced-motion behavior.
 
 ## Do not
 
-- Listing raw utility classes as a substitute for design intent.
-- Applying the signature effect to every surface; protect a clear hierarchy and quiet reading areas.
-- Introducing a second visual metaphor, unrelated accent palette, or different portrait/illustration treatment.
+- Do not replace the signature construction with a generic gradient, shadow, card, or animation.
+- Do not introduce a competing palette, type system, or image treatment.
 
 ## AI implementation instruction
 
-Build the requested interface as a sibling of **Stats Section**. First inspect every file under **Source of truth**. Reproduce the applicable unique component using the exact dependency, configuration, layer order, palette, and interaction described above; do not replace it with a generic gradient or approximation. Then translate the same typography, spacing, surfaces, imagery, controls, and responsive hierarchy into the new content. Use semantic HTML, keyboard-visible focus, reduced-motion fallbacks, and existing project primitives.
+Open the linked source files first. Reuse the applicable unique effect with its exact values and layer order, then extend the same typography, spacing, surfaces, imagery, controls, and responsive behavior into the requested UI. Keep the result accessible and production-ready.

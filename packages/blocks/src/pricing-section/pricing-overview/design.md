@@ -4,10 +4,14 @@
 
 ## Source of truth
 
-- `packages/blocks/src/pricing-section/pricing-overview.tsx` — the canonical block source and the exact effect composition
-- `apps/ui-layout/lib/utils.ts` — the class-merging utility
-- `apps/ui-layout/components/ui/timeline-animation.tsx` — the scroll-triggered stagger primitive used to sequence the block
-- `packages/shadcn/src/index.tsx` — the open-source workspace component barrel used by this block
+**Repository:** [ui-layouts/uilayouts](https://github.com/ui-layouts/uilayouts)
+
+Use the links below; do not search for these paths in the consuming project.
+
+- [`packages/blocks/src/pricing-section/pricing-overview.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/pricing-section/pricing-overview.tsx) — the canonical block source and the exact effect composition
+- [`apps/ui-layout/lib/utils.ts`](https://github.com/ui-layouts/uilayouts/blob/main/apps/ui-layout/lib/utils.ts) — the class-merging utility
+- [`apps/ui-layout/components/ui/timeline-animation.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/apps/ui-layout/components/ui/timeline-animation.tsx) — the scroll-triggered stagger primitive used to sequence the block
+- [`packages/shadcn/src/index.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/packages/shadcn/src/index.tsx) — the open-source workspace component barrel used by this block
 
 ## Required libraries and primitives
 
@@ -15,8 +19,8 @@
 - **motion** (external) — provides the entrance, presence, drag, spring, and layout animation behavior. Install with `pnpm add motion`.
 - **@number-flow/react** (external) — animates changing numeric price and metric values. Install with `pnpm add @number-flow/react`.
 - **@repo/shadcn** (workspace) — an existing workspace design primitive; reuse it rather than replacing its behavior.
-- **@/lib/utils** (local) — the class-merging utility.
-- **@/components/ui/timeline-animation** (local) — the scroll-triggered stagger primitive used to sequence the block.
+- **@/lib/utils** (repository primitive) — the class-merging utility. Retrieve it from the linked repository source above; do not look for the alias in the consuming project.
+- **@/components/ui/timeline-animation** (repository primitive) — the scroll-triggered stagger primitive used to sequence the block. Retrieve it from the linked repository source above; do not look for the alias in the consuming project.
 - **clsx** (external) — provides an external primitive used by this effect. Install with `pnpm add clsx`.
 - **tailwind-merge** (external) — provides an external primitive used by this effect. Install with `pnpm add tailwind-merge`.
 
@@ -30,7 +34,7 @@ Prices are large and tabular-looking; plan names are medium weight, descriptions
 
 ## Palette and contrast
 
-The implementation anchors its palette with `text-neutral-500`, `text-neutral-900`, `text-neutral-400`, `bg-neutral-300`, `bg-[#C7FF33]`, `bg-gray-100`, `border-neutral-200`, `bg-white`, `bg-neutral-100`, `border-zinc-100`. Preserve their roles—canvas, surface, foreground, muted copy, accent and glow—rather than treating them as interchangeable swatches. Do not expand the palette with unrelated accents.
+Core palette: `text-neutral-500`, `text-neutral-900`, `text-neutral-400`, `bg-neutral-300`, `bg-[#C7FF33]`. Keep the same canvas, text, border, and accent roles; do not add unrelated colors.
 
 ## Composition and rhythm
 
@@ -48,68 +52,24 @@ Use tiny product icons or abstract glow only; never distract from price, billing
 
 1. **Acid-lime pricing console.** Use #C7FF33 for the featured action/plan, neutral panels elsewhere, and blurred red decorative orbs behind the grid; animate price values rather than replacing whole cards.
    - **Use it for:** giving pricing a playful product-led edge
-   - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
-
-2. **Layer discipline.** Separate atmosphere, content surface, and foreground controls into distinct layers. Decorative layers use pointer-events-none and sit below readable content; preserve clipping at the section boundary.
-   - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
-   - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
+   - **Implementation:** use the audited GitHub ranges below.
 
 <!-- source-audit:start -->
 ## Audited source implementation
 
-These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+These linked source ranges contain the block’s highest-signal visual decisions. Treat them as part of its identity and preserve their values, stacking order, and interaction state.
 
 ### 1. Border-led structure
 
-**Location:** `packages/blocks/src/pricing-section/pricing-overview.tsx:98-107`
-**Why it is core:** Hairline borders establish grouping and rhythm without relying on filled cards.
-
-```tsx
-        <TimelineAnimation
-          animationNum={5}
-          timelineRef={timelineRef}
-          className="bg-gray-100 border border-neutral-200 rounded-xl p-2 flex flex-col hover:shadow-md transition-shadow"
-        >
-          <div className="bg-white p-1.5 rounded-lg">
-            <div className="p-4 bg-neutral-100 border border-zinc-100 rounded-lg space-y-2">
-              <h3 className="text-3xl font-bold mb-2">Landing Page</h3>
-              <p className="text-neutral-500 text-sm font-medium">
-                Get a high quality landing page for your product.
-```
+[Open the exact implementation (lines 98–107)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/pricing-section/pricing-overview.tsx#L98-L107) — Hairline borders establish grouping and rhythm without relying on filled cards.
 
 ### 2. Border-led structure
 
-**Location:** `packages/blocks/src/pricing-section/pricing-overview.tsx:161-171`
-**Why it is core:** Hairline borders establish grouping and rhythm without relying on filled cards.
-
-```tsx
-        <TimelineAnimation
-          animationNum={7}
-          timelineRef={timelineRef}
-          className="bg-gray-100 border border-neutral-200 rounded-xl p-2 flex flex-col hover:shadow-md transition-shadow"
-        >
-          <div className="bg-white p-1.5 rounded-lg">
-            <div className="p-4 bg-neutral-100 border border-zinc-100 rounded-lg relative overflow-hidden space-y-2">
-              <div className="absolute top-0 right-0 size-32 bg-red-500/40 blur-3xl -mr-16 -mt-16 group-hover:bg-[#FF7777]/20 transition-colors" />
-              <h3 className="text-3xl font-bold mb-2">Product design</h3>
-              <p className="text-neutral-500 text-sm">
-                Let's bring your idea to life.
-```
+[Open the exact implementation (lines 161–171)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/pricing-section/pricing-overview.tsx#L161-L171) — Hairline borders establish grouping and rhythm without relying on filled cards.
 
 ### 3. Source-specific visual behavior
 
-**Location:** `packages/blocks/src/pricing-section/pricing-overview.tsx:229-235`
-**Why it is core:** This source fragment contains a high-signal visual or interaction decision unique to the block.
-
-```tsx
-      <TimelineAnimation
-        animationNum={9}
-        timelineRef={timelineRef}
-        className="mt-6 bg-linear-to-b from-neutral-950 to-neutral-800 text-white rounded-3xl p-10 md:flex items-center gap-4 relative overflow-hidden"
-      >
-        <div className="flex-1 space-y-3 relative z-10">
-          <div className="flex items-center gap-2 text-lime-400 text-sm font-medium">
-```
+[Open the exact implementation (lines 229–235)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/pricing-section/pricing-overview.tsx#L229-L235) — This source fragment contains a high-signal visual or interaction decision unique to the block.
 <!-- source-audit:end -->
 
 ## Buttons
@@ -123,16 +83,13 @@ Animate numeric billing changes and press states; avoid gratuitous card movement
 ## Rules for extending this design
 
 1. Carry the **Acid-lime pricing console** into at least one meaningful focal area; reproduce its layer recipe rather than substituting a generic gradient.
-2. Reuse the same accent-to-neutral ratio, image treatment, corner language, and density so adjacent sections read as one system.
-3. On small screens, preserve hierarchy and effect placement while removing overlap that could obscure content.
-4. Provide reduced-motion behavior and keyboard focus parity for every hover-driven reveal.
+2. Preserve the same responsive hierarchy and provide keyboard-visible focus and reduced-motion behavior.
 
 ## Do not
 
-- Listing raw utility classes as a substitute for design intent.
-- Applying the signature effect to every surface; protect a clear hierarchy and quiet reading areas.
-- Introducing a second visual metaphor, unrelated accent palette, or different portrait/illustration treatment.
+- Do not replace the signature construction with a generic gradient, shadow, card, or animation.
+- Do not introduce a competing palette, type system, or image treatment.
 
 ## AI implementation instruction
 
-Build the requested interface as a sibling of **Overview**. First inspect every file under **Source of truth**. Reproduce the applicable unique component using the exact dependency, configuration, layer order, palette, and interaction described above; do not replace it with a generic gradient or approximation. Then translate the same typography, spacing, surfaces, imagery, controls, and responsive hierarchy into the new content. Use semantic HTML, keyboard-visible focus, reduced-motion fallbacks, and existing project primitives.
+Open the linked source files first. Reuse the applicable unique effect with its exact values and layer order, then extend the same typography, spacing, surfaces, imagery, controls, and responsive behavior into the requested UI. Keep the result accessible and production-ready.

@@ -4,18 +4,22 @@
 
 ## Source of truth
 
-- `packages/blocks/src/pricing-section/subscription-details.tsx` — the canonical block source and the exact effect composition
-- `apps/ui-layout/lib/utils.ts` — the class-merging utility
-- `apps/ui-layout/components/ui/timeline-animation.tsx` — the scroll-triggered stagger primitive used to sequence the block
-- `packages/shadcn/src/index.tsx` — the open-source workspace component barrel used by this block
+**Repository:** [ui-layouts/uilayouts](https://github.com/ui-layouts/uilayouts)
+
+Use the links below; do not search for these paths in the consuming project.
+
+- [`packages/blocks/src/pricing-section/subscription-details.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/pricing-section/subscription-details.tsx) — the canonical block source and the exact effect composition
+- [`apps/ui-layout/lib/utils.ts`](https://github.com/ui-layouts/uilayouts/blob/main/apps/ui-layout/lib/utils.ts) — the class-merging utility
+- [`apps/ui-layout/components/ui/timeline-animation.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/apps/ui-layout/components/ui/timeline-animation.tsx) — the scroll-triggered stagger primitive used to sequence the block
+- [`packages/shadcn/src/index.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/packages/shadcn/src/index.tsx) — the open-source workspace component barrel used by this block
 
 ## Required libraries and primitives
 
 - **lucide-react** (external) — provides the line-icon vocabulary used by controls and labels. Install with `pnpm add lucide-react`.
 - **@number-flow/react** (external) — animates changing numeric price and metric values. Install with `pnpm add @number-flow/react`.
-- **@/lib/utils** (local) — the class-merging utility.
+- **@/lib/utils** (repository primitive) — the class-merging utility. Retrieve it from the linked repository source above; do not look for the alias in the consuming project.
 - **@repo/shadcn** (workspace) — an existing workspace design primitive; reuse it rather than replacing its behavior.
-- **@/components/ui/timeline-animation** (local) — the scroll-triggered stagger primitive used to sequence the block.
+- **@/components/ui/timeline-animation** (repository primitive) — the scroll-triggered stagger primitive used to sequence the block. Retrieve it from the linked repository source above; do not look for the alias in the consuming project.
 - **clsx** (external) — provides an external primitive used by this effect. Install with `pnpm add clsx`.
 - **tailwind-merge** (external) — provides an external primitive used by this effect. Install with `pnpm add tailwind-merge`.
 - **motion** (external) — provides the entrance, presence, drag, spring, and layout animation behavior. Install with `pnpm add motion`.
@@ -30,7 +34,7 @@ Prices are large and tabular-looking; plan names are medium weight, descriptions
 
 ## Palette and contrast
 
-The implementation anchors its palette with `bg-white`, `text-black`, `bg-neutral-100`, `text-neutral-500`, `text-neutral-900`, `bg-black`, `text-white`, `border-neutral-300`, `from-orange-500/20`, `via-pink-500/10`. Preserve their roles—canvas, surface, foreground, muted copy, accent and glow—rather than treating them as interchangeable swatches. Do not expand the palette with unrelated accents.
+Core palette: `bg-white`, `text-black`, `bg-neutral-100`, `text-neutral-500`, `from-orange-500/20`, `via-pink-500/10`. Keep the same canvas, text, border, and accent roles; do not add unrelated colors.
 
 ## Composition and rhythm
 
@@ -48,68 +52,24 @@ Use tiny product icons or abstract glow only; never distract from price, billing
 
 1. **Layered subscription glass.** Place black and white plan slabs over an orange/20 blurred glow; use white/40 glass, backdrop blur, slight rotated decoration and layered sm-to-2xl shadows.
    - **Use it for:** creating premium depth while keeping plan details readable
-   - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
-
-2. **Layer discipline.** Separate atmosphere, content surface, and foreground controls into distinct layers. Decorative layers use pointer-events-none and sit below readable content; preserve clipping at the section boundary.
-   - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
-   - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
+   - **Implementation:** use the audited GitHub ranges below.
 
 <!-- source-audit:start -->
 ## Audited source implementation
 
-These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+These linked source ranges contain the block’s highest-signal visual decisions. Treat them as part of its identity and preserve their values, stacking order, and interaction state.
 
 ### 1. Depth and glow treatment
 
-**Location:** `packages/blocks/src/pricing-section/subscription-details.tsx:122-128`
-**Why it is core:** These exact shadows and blur layers distinguish foreground from atmosphere.
-
-```tsx
-                  'xl:p-8 md:p-4 p-6 rounded-2xl relative border transition-all flex flex-col',
-                  plan.featured
-                    ? 'bg-black text-white shadow-2xl relative overflow-hidden border-none'
-                    : 'bg-neutral-100 border-neutral-300 border-2 border-dashed'
-                )}
-              >
-                {plan.featured && (
-```
+[Open the exact implementation (lines 122–128)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/pricing-section/subscription-details.tsx#L122-L128) — These exact shadows and blur layers distinguish foreground from atmosphere.
 
 ### 2. Translucent glass layer
 
-**Location:** `packages/blocks/src/pricing-section/subscription-details.tsx:129-139`
-**Why it is core:** Blur, transparency, border, and stacking work together as one glass treatment.
-
-```tsx
-                  <>
-                    <img
-                      src="https://images.unsplash.com/photo-1600619030925-569b3b964418?q=80&w=627&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                      className="w-full h-full object-fill absolute -bottom-40 rotate-180 left-0"
-                      alt=""
-                    />
-                    <div className="absolute inset-0 bg-linear-to-br from-orange-500/20 via-pink-500/10 to-transparent blur-3xl opacity-60 pointer-events-none" />
-                    <div className="absolute top-4 right-4 bg-white/10 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider z-20">
-                      Most popular
-                    </div>
-                  </>
-```
+[Open the exact implementation (lines 129–139)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/pricing-section/subscription-details.tsx#L129-L139) — Blur, transparency, border, and stacking work together as one glass treatment.
 
 ### 3. Depth and glow treatment
 
-**Location:** `packages/blocks/src/pricing-section/subscription-details.tsx:178-187`
-**Why it is core:** These exact shadows and blur layers distinguish foreground from atmosphere.
-
-```tsx
-                <Button
-                  variant="outline"
-                  className={cn(
-                    'relative z-10 gap-2 h-12 border-neutral-200 mt-auto transition-transform',
-                    plan.featured
-                      ? 'bg-white text-black hover:bg-neutral-100 border-none shadow-lg active:scale-95'
-                      : 'text-neutral-600 active:scale-95 hover:bg-white '
-                  )}
-                >
-                  <svg
-```
+[Open the exact implementation (lines 178–187)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/pricing-section/subscription-details.tsx#L178-L187) — These exact shadows and blur layers distinguish foreground from atmosphere.
 <!-- source-audit:end -->
 
 ## Buttons
@@ -123,16 +83,13 @@ Animate numeric billing changes and press states; avoid gratuitous card movement
 ## Rules for extending this design
 
 1. Carry the **Layered subscription glass** into at least one meaningful focal area; reproduce its layer recipe rather than substituting a generic gradient.
-2. Reuse the same accent-to-neutral ratio, image treatment, corner language, and density so adjacent sections read as one system.
-3. On small screens, preserve hierarchy and effect placement while removing overlap that could obscure content.
-4. Provide reduced-motion behavior and keyboard focus parity for every hover-driven reveal.
+2. Preserve the same responsive hierarchy and provide keyboard-visible focus and reduced-motion behavior.
 
 ## Do not
 
-- Listing raw utility classes as a substitute for design intent.
-- Applying the signature effect to every surface; protect a clear hierarchy and quiet reading areas.
-- Introducing a second visual metaphor, unrelated accent palette, or different portrait/illustration treatment.
+- Do not replace the signature construction with a generic gradient, shadow, card, or animation.
+- Do not introduce a competing palette, type system, or image treatment.
 
 ## AI implementation instruction
 
-Build the requested interface as a sibling of **Subscription Details**. First inspect every file under **Source of truth**. Reproduce the applicable unique component using the exact dependency, configuration, layer order, palette, and interaction described above; do not replace it with a generic gradient or approximation. Then translate the same typography, spacing, surfaces, imagery, controls, and responsive hierarchy into the new content. Use semantic HTML, keyboard-visible focus, reduced-motion fallbacks, and existing project primitives.
+Open the linked source files first. Reuse the applicable unique effect with its exact values and layer order, then extend the same typography, spacing, surfaces, imagery, controls, and responsive behavior into the requested UI. Keep the result accessible and production-ready.

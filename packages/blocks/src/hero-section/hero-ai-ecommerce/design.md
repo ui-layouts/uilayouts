@@ -4,18 +4,22 @@
 
 ## Source of truth
 
-- `packages/blocks/src/hero-section/hero-ai-ecommerce.tsx` — the canonical block source and the exact effect composition
-- `packages/blocks/assets/index.ts` — a supporting module imported by the canonical block
-- `apps/ui-layout/components/ui/timeline-animation.tsx` — the scroll-triggered stagger primitive used to sequence the block
-- `apps/ui-layout/hooks/use-media-query.tsx` — the breakpoint hook that switches the mobile composition
-- `apps/ui-layout/components/ui/motion-drawer.tsx` — the responsive navigation drawer used by this block
+**Repository:** [ui-layouts/uilayouts](https://github.com/ui-layouts/uilayouts)
+
+Use the links below; do not search for these paths in the consuming project.
+
+- [`packages/blocks/src/hero-section/hero-ai-ecommerce.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/hero-section/hero-ai-ecommerce.tsx) — the canonical block source and the exact effect composition
+- [`packages/blocks/assets/index.ts`](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/assets/index.ts) — a supporting module imported by the canonical block
+- [`apps/ui-layout/components/ui/timeline-animation.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/apps/ui-layout/components/ui/timeline-animation.tsx) — the scroll-triggered stagger primitive used to sequence the block
+- [`apps/ui-layout/hooks/use-media-query.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/apps/ui-layout/hooks/use-media-query.tsx) — the breakpoint hook that switches the mobile composition
+- [`apps/ui-layout/components/ui/motion-drawer.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/apps/ui-layout/components/ui/motion-drawer.tsx) — the responsive navigation drawer used by this block
 
 ## Required libraries and primitives
 
 - **lucide-react** (external) — provides the line-icon vocabulary used by controls and labels. Install with `pnpm add lucide-react`.
-- **@/components/ui/timeline-animation** (local) — the scroll-triggered stagger primitive used to sequence the block.
-- **@/hooks/use-media-query** (local) — the breakpoint hook that switches the mobile composition.
-- **@/components/ui/motion-drawer** (local) — the responsive navigation drawer used by this block.
+- **@/components/ui/timeline-animation** (repository primitive) — the scroll-triggered stagger primitive used to sequence the block. Retrieve it from the linked repository source above; do not look for the alias in the consuming project.
+- **@/hooks/use-media-query** (repository primitive) — the breakpoint hook that switches the mobile composition. Retrieve it from the linked repository source above; do not look for the alias in the consuming project.
+- **@/components/ui/motion-drawer** (repository primitive) — the responsive navigation drawer used by this block. Retrieve it from the linked repository source above; do not look for the alias in the consuming project.
 - **motion** (external) — provides the entrance, presence, drag, spring, and layout animation behavior. Install with `pnpm add motion`.
 
 ## Design thesis
@@ -28,7 +32,7 @@ A bold display face or the project sans at very large responsive sizes; compact 
 
 ## Palette and contrast
 
-The implementation anchors its palette with `text-black`, `bg-white`, `bg-neutral-800`, `border-neutral-900`, `text-white`, `border-neutral-200`, `bg-neutral-200`, `text-[#5d5dff]`, `text-neutral-800`, `text-indigo-500`. Preserve their roles—canvas, surface, foreground, muted copy, accent and glow—rather than treating them as interchangeable swatches. Do not expand the palette with unrelated accents.
+Core palette: `text-black`, `bg-white`, `bg-neutral-800`, `border-neutral-900`, `text-[#5d5dff]`, `text-indigo-500`. Keep the same canvas, text, border, and accent roles; do not add unrelated colors.
 
 ## Composition and rhythm
 
@@ -46,63 +50,24 @@ Use high-quality product/UI composites or portraits with deliberate overlap; ico
 
 1. **Indigo commerce glass.** Use a pale commerce canvas with an indigo illustration wash; construct the primary CTA with three inset highlights/shadows so it reads as molded glass, and float compact commerce widgets in white/50 panels.
    - **Use it for:** premium AI-commerce actions and generated product evidence
-   - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
-
-2. **Layer discipline.** Separate atmosphere, content surface, and foreground controls into distinct layers. Decorative layers use pointer-events-none and sit below readable content; preserve clipping at the section boundary.
-   - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
-   - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
+   - **Implementation:** use the audited GitHub ranges below.
 
 <!-- source-audit:start -->
 ## Audited source implementation
 
-These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+These linked source ranges contain the block’s highest-signal visual decisions. Treat them as part of its identity and preserve their values, stacking order, and interaction state.
 
 ### 1. Source-specific visual behavior
 
-**Location:** `packages/blocks/src/hero-section/hero-ai-ecommerce.tsx:15-21`
-**Why it is core:** This source fragment contains a high-signal visual or interaction decision unique to the block.
-
-```tsx
-      ref={timelineRef}
-      className="min-h-screen text-black bg-white relative overflow-hidden flex flex-col items-center"
-    >
-      <div className="absolute inset-0 z-0 bg-[url('https://images.unsplash.com/photo-1764138370667-d15f89ee1c45?q=80&w=1760&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center opacity-50" />
-      {/* Mobile Navigation */}
-      {isMobile && (
-        <div className="flex gap-4 justify-between items-center px-10 pt-4">
-```
+[Open the exact implementation (lines 15–21)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/hero-section/hero-ai-ecommerce.tsx#L15-L21) — This source fragment contains a high-signal visual or interaction decision unique to the block.
 
 ### 2. Custom elevation recipe
 
-**Location:** `packages/blocks/src/hero-section/hero-ai-ecommerce.tsx:161-169`
-**Why it is core:** The nonstandard shadow values create the block’s characteristic depth.
-
-```tsx
-            as="button"
-            animationNum={6}
-            timelineRef={timelineRef}
-            className="p-1.5 bg-linear-to-t from-indigo-800 to-indigo-100 h-20 rounded-full"
-          >
-            <span className="bg-linear-to-l from-indigo-500 to-indigo-600 shadow-[inset_4px_4px_5px_0px_rgba(168,170,241,0.5),inset_-1px_-2px_5px_0px_rgba(74,78,197,0.5),inset_-1px_4px_8px_0px_rgba(44,58,98,0.25)] text-white px-10 py-5 rounded-full text-lg font-semibold cursor-pointer">
-              Start Your 14 Day Free Trial
-            </span>
-          </TimelineAnimation>
-```
+[Open the exact implementation (lines 161–169)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/hero-section/hero-ai-ecommerce.tsx#L161-L169) — The nonstandard shadow values create the block’s characteristic depth.
 
 ### 3. Translucent glass layer
 
-**Location:** `packages/blocks/src/hero-section/hero-ai-ecommerce.tsx:183-189`
-**Why it is core:** Blur, transparency, border, and stacking work together as one glass treatment.
-
-```tsx
-        <TimelineAnimation
-          animationNum={7}
-          timelineRef={timelineRef}
-          className="rounded-2xl bg-white/50 backdrop-blur-lg p-4"
-        >
-          <TimelineAnimation
-            animationNum={8}
-```
+[Open the exact implementation (lines 183–189)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/hero-section/hero-ai-ecommerce.tsx#L183-L189) — Blur, transparency, border, and stacking work together as one glass treatment.
 <!-- source-audit:end -->
 
 ## Buttons
@@ -116,16 +81,13 @@ Use slow entrance staging and restrained hover/press feedback; decorative atmosp
 ## Rules for extending this design
 
 1. Carry the **Indigo commerce glass** into at least one meaningful focal area; reproduce its layer recipe rather than substituting a generic gradient.
-2. Reuse the same accent-to-neutral ratio, image treatment, corner language, and density so adjacent sections read as one system.
-3. On small screens, preserve hierarchy and effect placement while removing overlap that could obscure content.
-4. Provide reduced-motion behavior and keyboard focus parity for every hover-driven reveal.
+2. Preserve the same responsive hierarchy and provide keyboard-visible focus and reduced-motion behavior.
 
 ## Do not
 
-- Listing raw utility classes as a substitute for design intent.
-- Applying the signature effect to every surface; protect a clear hierarchy and quiet reading areas.
-- Introducing a second visual metaphor, unrelated accent palette, or different portrait/illustration treatment.
+- Do not replace the signature construction with a generic gradient, shadow, card, or animation.
+- Do not introduce a competing palette, type system, or image treatment.
 
 ## AI implementation instruction
 
-Build the requested interface as a sibling of **AI Ecommerce**. First inspect every file under **Source of truth**. Reproduce the applicable unique component using the exact dependency, configuration, layer order, palette, and interaction described above; do not replace it with a generic gradient or approximation. Then translate the same typography, spacing, surfaces, imagery, controls, and responsive hierarchy into the new content. Use semantic HTML, keyboard-visible focus, reduced-motion fallbacks, and existing project primitives.
+Open the linked source files first. Reuse the applicable unique effect with its exact values and layer order, then extend the same typography, spacing, surfaces, imagery, controls, and responsive behavior into the requested UI. Keep the result accessible and production-ready.

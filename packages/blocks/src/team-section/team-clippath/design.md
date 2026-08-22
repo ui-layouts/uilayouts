@@ -4,13 +4,17 @@
 
 ## Source of truth
 
-- `packages/blocks/src/team-section/team-clippath.tsx` — the canonical block source and the exact effect composition
-- `apps/ui-layout/components/ui/timeline-animation.tsx` — the scroll-triggered stagger primitive used to sequence the block
+**Repository:** [ui-layouts/uilayouts](https://github.com/ui-layouts/uilayouts)
+
+Use the links below; do not search for these paths in the consuming project.
+
+- [`packages/blocks/src/team-section/team-clippath.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/team-section/team-clippath.tsx) — the canonical block source and the exact effect composition
+- [`apps/ui-layout/components/ui/timeline-animation.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/apps/ui-layout/components/ui/timeline-animation.tsx) — the scroll-triggered stagger primitive used to sequence the block
 
 ## Required libraries and primitives
 
 - **motion** (external) — provides the entrance, presence, drag, spring, and layout animation behavior. Install with `pnpm add motion`.
-- **@/components/ui/timeline-animation** (local) — the scroll-triggered stagger primitive used to sequence the block.
+- **@/components/ui/timeline-animation** (repository primitive) — the scroll-triggered stagger primitive used to sequence the block. Retrieve it from the linked repository source above; do not look for the alias in the consuming project.
 
 ## Design thesis
 
@@ -22,7 +26,7 @@ Use a strong team heading, readable names, muted roles, and 10–12px metadata o
 
 ## Palette and contrast
 
-The implementation anchors its palette with `bg-neutral-100`, `text-neutral-900`, `text-neutral-600`, `from-black/70`, `via-black/20`, `text-white`, `bg-white/20`. Preserve their roles—canvas, surface, foreground, muted copy, accent and glow—rather than treating them as interchangeable swatches. Do not expand the palette with unrelated accents.
+Core palette: `bg-neutral-100`, `text-neutral-900`, `text-neutral-600`, `from-black/70`. Keep the same canvas, text, border, and accent roles; do not add unrelated colors.
 
 ## Composition and rhythm
 
@@ -40,69 +44,24 @@ Portraits are the visual core. Preserve deliberate grayscale, crop, overlay, and
 
 1. **Morphing portrait crop.** Crop portraits with animated CSS clipPath shapes, interpolate from softened/blurred silhouettes to clear images, and retain a black-to-transparent caption gradient.
    - **Use it for:** making team discovery feel art-directed and fluid
-   - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
-
-2. **Layer discipline.** Separate atmosphere, content surface, and foreground controls into distinct layers. Decorative layers use pointer-events-none and sit below readable content; preserve clipping at the section boundary.
-   - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
-   - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
+   - **Implementation:** use the audited GitHub ranges below.
 
 <!-- source-audit:start -->
 ## Audited source implementation
 
-These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+These linked source ranges contain the block’s highest-signal visual decisions. Treat them as part of its identity and preserve their values, stacking order, and interaction state.
 
 ### 1. Motion-driven behavior
 
-**Location:** `packages/blocks/src/team-section/team-clippath.tsx:71-77`
-**Why it is core:** The motion configuration controls the effect’s timing, position, and interaction response.
-
-```tsx
-            const isOtherHovered = hoveredId !== null && hoveredId !== item.id
-
-            return (
-              <motion.div
-                key={item.id}
-                className="relative cursor-pointer h-full"
-                style={{ overflow: 'hidden' }}
-```
+[Open the exact implementation (lines 71–77)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/team-section/team-clippath.tsx#L71-L77) — The motion configuration controls the effect’s timing, position, and interaction response.
 
 ### 2. Motion-driven behavior
 
-**Location:** `packages/blocks/src/team-section/team-clippath.tsx:121-130`
-**Why it is core:** The motion configuration controls the effect’s timing, position, and interaction response.
-
-```tsx
-
-                {/* Content */}
-                <div className="absolute inset-0 p-6 flex flex-col justify-end text-white z-10">
-                  <motion.h2
-                    className="text-2xl font-semibold mb-2 whitespace-nowrap overflow-hidden"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{
-                      opacity: isHovered ? 1 : 0,
-                      y: isHovered ? 0 : 20,
-                    }}
-```
+[Open the exact implementation (lines 121–130)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/team-section/team-clippath.tsx#L121-L130) — The motion configuration controls the effect’s timing, position, and interaction response.
 
 ### 3. Motion-driven behavior
 
-**Location:** `packages/blocks/src/team-section/team-clippath.tsx:135-146`
-**Why it is core:** The motion configuration controls the effect’s timing, position, and interaction response.
-
-```tsx
-                    }}
-                  >
-                    {item.title}
-                  </motion.h2>
-
-                  <motion.p
-                    className="text-lg opacity-90 mb-4 whitespace-nowrap overflow-hidden"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{
-                      opacity: isHovered ? 1 : 0,
-                      y: isHovered ? 0 : 20,
-                    }}
-```
+[Open the exact implementation (lines 135–146)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/team-section/team-clippath.tsx#L135-L146) — The motion configuration controls the effect’s timing, position, and interaction response.
 <!-- source-audit:end -->
 
 ## Buttons
@@ -116,16 +75,13 @@ Use group hover to connect portrait, name and action; also expose equivalent key
 ## Rules for extending this design
 
 1. Carry the **Morphing portrait crop** into at least one meaningful focal area; reproduce its layer recipe rather than substituting a generic gradient.
-2. Reuse the same accent-to-neutral ratio, image treatment, corner language, and density so adjacent sections read as one system.
-3. On small screens, preserve hierarchy and effect placement while removing overlap that could obscure content.
-4. Provide reduced-motion behavior and keyboard focus parity for every hover-driven reveal.
+2. Preserve the same responsive hierarchy and provide keyboard-visible focus and reduced-motion behavior.
 
 ## Do not
 
-- Listing raw utility classes as a substitute for design intent.
-- Applying the signature effect to every surface; protect a clear hierarchy and quiet reading areas.
-- Introducing a second visual metaphor, unrelated accent palette, or different portrait/illustration treatment.
+- Do not replace the signature construction with a generic gradient, shadow, card, or animation.
+- Do not introduce a competing palette, type system, or image treatment.
 
 ## AI implementation instruction
 
-Build the requested interface as a sibling of **Clip Path**. First inspect every file under **Source of truth**. Reproduce the applicable unique component using the exact dependency, configuration, layer order, palette, and interaction described above; do not replace it with a generic gradient or approximation. Then translate the same typography, spacing, surfaces, imagery, controls, and responsive hierarchy into the new content. Use semantic HTML, keyboard-visible focus, reduced-motion fallbacks, and existing project primitives.
+Open the linked source files first. Reuse the applicable unique effect with its exact values and layer order, then extend the same typography, spacing, surfaces, imagery, controls, and responsive behavior into the requested UI. Keep the result accessible and production-ready.

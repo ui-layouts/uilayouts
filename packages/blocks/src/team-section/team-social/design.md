@@ -4,14 +4,18 @@
 
 ## Source of truth
 
-- `packages/blocks/src/team-section/team-social.tsx` — the canonical block source and the exact effect composition
-- `apps/ui-layout/components/ui/timeline-animation.tsx` — the scroll-triggered stagger primitive used to sequence the block
-- `packages/shadcn/src/index.tsx` — the open-source workspace component barrel used by this block
-- `packages/ui/src/index.tsx` — the open-source workspace UI primitive barrel used by this block
+**Repository:** [ui-layouts/uilayouts](https://github.com/ui-layouts/uilayouts)
+
+Use the links below; do not search for these paths in the consuming project.
+
+- [`packages/blocks/src/team-section/team-social.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/team-section/team-social.tsx) — the canonical block source and the exact effect composition
+- [`apps/ui-layout/components/ui/timeline-animation.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/apps/ui-layout/components/ui/timeline-animation.tsx) — the scroll-triggered stagger primitive used to sequence the block
+- [`packages/shadcn/src/index.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/packages/shadcn/src/index.tsx) — the open-source workspace component barrel used by this block
+- [`packages/ui/src/index.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/packages/ui/src/index.tsx) — the open-source workspace UI primitive barrel used by this block
 
 ## Required libraries and primitives
 
-- **@/components/ui/timeline-animation** (local) — the scroll-triggered stagger primitive used to sequence the block.
+- **@/components/ui/timeline-animation** (repository primitive) — the scroll-triggered stagger primitive used to sequence the block. Retrieve it from the linked repository source above; do not look for the alias in the consuming project.
 - **@repo/shadcn** (workspace) — an existing workspace design primitive; reuse it rather than replacing its behavior.
 - **@repo/ui** (workspace) — an existing workspace design primitive; reuse it rather than replacing its behavior.
 - **motion** (external) — provides the entrance, presence, drag, spring, and layout animation behavior. Install with `pnpm add motion`.
@@ -26,7 +30,7 @@ Use a strong team heading, readable names, muted roles, and 10–12px metadata o
 
 ## Palette and contrast
 
-The implementation anchors its palette with `bg-white`, `bg-green-50`, `text-green-700`, `text-neutral-900`, `text-neutral-500`, `bg-orange-500`, `shadow-orange-500`, `text-white`, `border-neutral-200`, `text-neutral-400`. Preserve their roles—canvas, surface, foreground, muted copy, accent and glow—rather than treating them as interchangeable swatches. Do not expand the palette with unrelated accents.
+Core palette: `bg-white`, `bg-green-50`, `text-green-700`, `text-neutral-900`, `bg-orange-500`, `shadow-orange-500`. Keep the same canvas, text, border, and accent roles; do not add unrelated colors.
 
 ## Composition and rhythm
 
@@ -44,64 +48,24 @@ Portraits are the visual core. Preserve deliberate grayscale, crop, overlay, and
 
 1. **Community action cards.** Use clean white cards, green social/status chips, and a saturated orange floating action with matching shadow; keep most text neutral.
    - **Use it for:** making connection and availability the primary behavior
-   - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
-
-2. **Layer discipline.** Separate atmosphere, content surface, and foreground controls into distinct layers. Decorative layers use pointer-events-none and sit below readable content; preserve clipping at the section boundary.
-   - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
-   - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
+   - **Implementation:** use the audited GitHub ranges below.
 
 <!-- source-audit:start -->
 ## Audited source implementation
 
-These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+These linked source ranges contain the block’s highest-signal visual decisions. Treat them as part of its identity and preserve their values, stacking order, and interaction state.
 
 ### 1. Depth and glow treatment
 
-**Location:** `packages/blocks/src/team-section/team-social.tsx:72-81`
-**Why it is core:** These exact shadows and blur layers distinguish foreground from atmosphere.
-
-```tsx
-            animationNum={4}
-            className="flex items-center justify-center gap-4"
-          >
-            <Button className="px-6 py-3 font-spaceGrotesk bg-orange-500 shadow-lg shadow-orange-500 text-white font-bold rounded-xl hover:bg-ornage-600 transition-all ">
-              Get started
-            </Button>
-            <Button className="px-4 py-3 font-spaceGrotesk border border-neutral-200 font-bold rounded-xl text-white transition-all">
-              Explore features
-            </Button>
-          </TimelineAnimation>
-```
+[Open the exact implementation (lines 72–81)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/team-section/team-social.tsx#L72-L81) — These exact shadows and blur layers distinguish foreground from atmosphere.
 
 ### 2. Source-specific visual behavior
 
-**Location:** `packages/blocks/src/team-section/team-social.tsx:89-95`
-**Why it is core:** This source fragment contains a high-signal visual or interaction decision unique to the block.
-
-```tsx
-              animationNum={5 + i}
-              className="flex flex-col items-center text-center group"
-            >
-              <div className="w-full rounded-full overflow-hidden mb-6 ring-4 ring-transparent group-hover:ring-orange-100 transition-all duration-300">
-                <img
-                  src={member.image}
-                  alt={member.name}
-```
+[Open the exact implementation (lines 89–95)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/team-section/team-social.tsx#L89-L95) — This source fragment contains a high-signal visual or interaction decision unique to the block.
 
 ### 3. Source-specific visual behavior
 
-**Location:** `packages/blocks/src/team-section/team-social.tsx:103-109`
-**Why it is core:** This source fragment contains a high-signal visual or interaction decision unique to the block.
-
-```tsx
-              <div className="flex gap-4 text-neutral-400">
-                <a
-                  href="#"
-                  className="hover:text-neutral-600 transition-colors"
-                >
-                  <TwitterIcon />
-                </a>
-```
+[Open the exact implementation (lines 103–109)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/team-section/team-social.tsx#L103-L109) — This source fragment contains a high-signal visual or interaction decision unique to the block.
 <!-- source-audit:end -->
 
 ## Buttons
@@ -115,16 +79,13 @@ Use group hover to connect portrait, name and action; also expose equivalent key
 ## Rules for extending this design
 
 1. Carry the **Community action cards** into at least one meaningful focal area; reproduce its layer recipe rather than substituting a generic gradient.
-2. Reuse the same accent-to-neutral ratio, image treatment, corner language, and density so adjacent sections read as one system.
-3. On small screens, preserve hierarchy and effect placement while removing overlap that could obscure content.
-4. Provide reduced-motion behavior and keyboard focus parity for every hover-driven reveal.
+2. Preserve the same responsive hierarchy and provide keyboard-visible focus and reduced-motion behavior.
 
 ## Do not
 
-- Listing raw utility classes as a substitute for design intent.
-- Applying the signature effect to every surface; protect a clear hierarchy and quiet reading areas.
-- Introducing a second visual metaphor, unrelated accent palette, or different portrait/illustration treatment.
+- Do not replace the signature construction with a generic gradient, shadow, card, or animation.
+- Do not introduce a competing palette, type system, or image treatment.
 
 ## AI implementation instruction
 
-Build the requested interface as a sibling of **Social**. First inspect every file under **Source of truth**. Reproduce the applicable unique component using the exact dependency, configuration, layer order, palette, and interaction described above; do not replace it with a generic gradient or approximation. Then translate the same typography, spacing, surfaces, imagery, controls, and responsive hierarchy into the new content. Use semantic HTML, keyboard-visible focus, reduced-motion fallbacks, and existing project primitives.
+Open the linked source files first. Reuse the applicable unique effect with its exact values and layer order, then extend the same typography, spacing, surfaces, imagery, controls, and responsive behavior into the requested UI. Keep the result accessible and production-ready.

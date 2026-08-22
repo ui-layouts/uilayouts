@@ -4,16 +4,20 @@
 
 ## Source of truth
 
-- `packages/blocks/src/faq-section/faq-glass-card.tsx` — the canonical block source and the exact effect composition
-- `apps/ui-layout/components/ui/timeline-animation.tsx` — the scroll-triggered stagger primitive used to sequence the block
-- `apps/ui-layout/hooks/use-media-query.tsx` — the breakpoint hook that switches the mobile composition
-- `packages/shadcn/src/index.tsx` — the open-source workspace component barrel used by this block
+**Repository:** [ui-layouts/uilayouts](https://github.com/ui-layouts/uilayouts)
+
+Use the links below; do not search for these paths in the consuming project.
+
+- [`packages/blocks/src/faq-section/faq-glass-card.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/faq-section/faq-glass-card.tsx) — the canonical block source and the exact effect composition
+- [`apps/ui-layout/components/ui/timeline-animation.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/apps/ui-layout/components/ui/timeline-animation.tsx) — the scroll-triggered stagger primitive used to sequence the block
+- [`apps/ui-layout/hooks/use-media-query.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/apps/ui-layout/hooks/use-media-query.tsx) — the breakpoint hook that switches the mobile composition
+- [`packages/shadcn/src/index.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/packages/shadcn/src/index.tsx) — the open-source workspace component barrel used by this block
 
 ## Required libraries and primitives
 
 - **@repo/shadcn** (workspace) — an existing workspace design primitive; reuse it rather than replacing its behavior.
-- **@/components/ui/timeline-animation** (local) — the scroll-triggered stagger primitive used to sequence the block.
-- **@/hooks/use-media-query** (local) — the breakpoint hook that switches the mobile composition.
+- **@/components/ui/timeline-animation** (repository primitive) — the scroll-triggered stagger primitive used to sequence the block. Retrieve it from the linked repository source above; do not look for the alias in the consuming project.
+- **@/hooks/use-media-query** (repository primitive) — the breakpoint hook that switches the mobile composition. Retrieve it from the linked repository source above; do not look for the alias in the consuming project.
 - **motion** (external) — provides the entrance, presence, drag, spring, and layout animation behavior. Install with `pnpm add motion`.
 
 ## Design thesis
@@ -26,7 +30,7 @@ Questions are medium/semibold and answers are relaxed body text; category labels
 
 ## Palette and contrast
 
-The implementation anchors its palette with `text-neutral-900`, `text-white`, `border-white/10`, `border-white/20`, `bg-black/40`, `bg-white/40`, `from-slate-900`, `to-slate-500`, `from-slate-50`, `to-slate-200`. Preserve their roles—canvas, surface, foreground, muted copy, accent and glow—rather than treating them as interchangeable swatches. Do not expand the palette with unrelated accents.
+Core palette: `text-neutral-900`, `text-white`, `border-white/10`, `border-white/20`. Keep the same canvas, text, border, and accent roles; do not add unrelated colors.
 
 ## Composition and rhythm
 
@@ -44,49 +48,20 @@ Use preview/product imagery when it clarifies answers; decorative scenery must r
 
 1. **Landscape glass accordion.** Set a photographic/gradient scene behind black/40 or white/40 translucent cards; apply backdrop-blur-xl, white/10 borders and a 1.01 hover scale.
    - **Use it for:** keeping questions readable while preserving an atmospheric backdrop
-   - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
-
-2. **Layer discipline.** Separate atmosphere, content surface, and foreground controls into distinct layers. Decorative layers use pointer-events-none and sit below readable content; preserve clipping at the section boundary.
-   - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
-   - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
+   - **Implementation:** use the audited GitHub ranges below.
 
 <!-- source-audit:start -->
 ## Audited source implementation
 
-These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+These linked source ranges contain the block’s highest-signal visual decisions. Treat them as part of its identity and preserve their values, stacking order, and interaction state.
 
 ### 1. Source-specific visual behavior
 
-**Location:** `packages/blocks/src/faq-section/faq-glass-card.tsx:90-96`
-**Why it is core:** This source fragment contains a high-signal visual or interaction decision unique to the block.
-
-```tsx
-      >
-        Frequently Asked Questions
-      </TimelineAnimation>
-      <div className="absolute inset-0 z-0 bg-[url('https://images.unsplash.com/photo-1597200381847-30ec200eeb9a?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center opacity-50" />
-      <div className="max-w-4xl relative z-2 mx-auto w-full">
-        <Accordion multiple={false}>
-          {FAQ_DATA.slice(0, 5).map((item, i) => (
-```
+[Open the exact implementation (lines 90–96)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/faq-section/faq-glass-card.tsx#L90-L96) — This source fragment contains a high-signal visual or interaction decision unique to the block.
 
 ### 2. Translucent glass layer
 
-**Location:** `packages/blocks/src/faq-section/faq-glass-card.tsx:98-107`
-**Why it is core:** Blur, transparency, border, and stacking work together as one glass treatment.
-
-```tsx
-              <TimelineAnimation
-                animationNum={i}
-                timelineRef={timelineRef}
-                className="border dark:border-white/10 border-white/20  dark:bg-black/40 bg-white/40 backdrop-blur-xl rounded-xl p-3 hover:scale-[1.01] transition-all duration-500"
-              >
-                <AccordionHeader className="px-6 py-4 text-xl font-semibold bg-transparent data-active:bg-transparent  hover:bg-transparent">
-                  <span className="bg-clip-text text-transparent bg-linear-to-r from-slate-900 to-slate-500 dark:from-slate-50 dark:to-slate-200">
-                    {item.question}
-                  </span>
-                </AccordionHeader>
-```
+[Open the exact implementation (lines 98–107)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/faq-section/faq-glass-card.tsx#L98-L107) — Blur, transparency, border, and stacking work together as one glass treatment.
 <!-- source-audit:end -->
 
 ## Buttons
@@ -100,16 +75,13 @@ Rotate plus/chevron indicators and reveal answer height/opacity; preserve keyboa
 ## Rules for extending this design
 
 1. Carry the **Landscape glass accordion** into at least one meaningful focal area; reproduce its layer recipe rather than substituting a generic gradient.
-2. Reuse the same accent-to-neutral ratio, image treatment, corner language, and density so adjacent sections read as one system.
-3. On small screens, preserve hierarchy and effect placement while removing overlap that could obscure content.
-4. Provide reduced-motion behavior and keyboard focus parity for every hover-driven reveal.
+2. Preserve the same responsive hierarchy and provide keyboard-visible focus and reduced-motion behavior.
 
 ## Do not
 
-- Listing raw utility classes as a substitute for design intent.
-- Applying the signature effect to every surface; protect a clear hierarchy and quiet reading areas.
-- Introducing a second visual metaphor, unrelated accent palette, or different portrait/illustration treatment.
+- Do not replace the signature construction with a generic gradient, shadow, card, or animation.
+- Do not introduce a competing palette, type system, or image treatment.
 
 ## AI implementation instruction
 
-Build the requested interface as a sibling of **Glass Card**. First inspect every file under **Source of truth**. Reproduce the applicable unique component using the exact dependency, configuration, layer order, palette, and interaction described above; do not replace it with a generic gradient or approximation. Then translate the same typography, spacing, surfaces, imagery, controls, and responsive hierarchy into the new content. Use semantic HTML, keyboard-visible focus, reduced-motion fallbacks, and existing project primitives.
+Open the linked source files first. Reuse the applicable unique effect with its exact values and layer order, then extend the same typography, spacing, surfaces, imagery, controls, and responsive behavior into the requested UI. Keep the result accessible and production-ready.

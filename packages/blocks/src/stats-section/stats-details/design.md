@@ -4,7 +4,11 @@
 
 ## Source of truth
 
-- `packages/blocks/src/stats-section/stats-details.tsx` — the canonical block source and the exact effect composition
+**Repository:** [ui-layouts/uilayouts](https://github.com/ui-layouts/uilayouts)
+
+Use the links below; do not search for these paths in the consuming project.
+
+- [`packages/blocks/src/stats-section/stats-details.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/stats-section/stats-details.tsx) — the canonical block source and the exact effect composition
 
 ## Required libraries and primitives
 
@@ -20,7 +24,7 @@ Numbers are the display typography; labels remain compact and muted, with descri
 
 ## Palette and contrast
 
-The implementation anchors its palette with `bg-white`, `bg-zinc-50`, `border-zinc-100`, `border-zinc-200`, `bg-orange-600`, `text-zinc-900`, `text-white`, `text-zinc-100`, `text-zinc-400`, `text-zinc-500`. Preserve their roles—canvas, surface, foreground, muted copy, accent and glow—rather than treating them as interchangeable swatches. Do not expand the palette with unrelated accents.
+Core palette: `bg-white`, `bg-zinc-50`, `border-zinc-100`, `border-zinc-200`, `bg-orange-600`. Keep the same canvas, text, border, and accent roles; do not add unrelated colors.
 
 ## Composition and rhythm
 
@@ -38,58 +42,20 @@ Prefer charts, sparklines and abstract data marks over stock photography; icons 
 
 1. **Orange detail rail.** Keep the main grid white with orange-600 as the section marker; reveal contextual actions by opacity on card hover rather than moving the entire surface.
    - **Use it for:** pairing bold totals with readable supporting explanations
-   - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
-
-2. **Layer discipline.** Separate atmosphere, content surface, and foreground controls into distinct layers. Decorative layers use pointer-events-none and sit below readable content; preserve clipping at the section boundary.
-   - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
-   - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
+   - **Implementation:** use the audited GitHub ranges below.
 
 <!-- source-audit:start -->
 ## Audited source implementation
 
-These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+These linked source ranges contain the block’s highest-signal visual decisions. Treat them as part of its identity and preserve their values, stacking order, and interaction state.
 
 ### 1. Border-led structure
 
-**Location:** `packages/blocks/src/stats-section/stats-details.tsx:30-48`
-**Why it is core:** Hairline borders establish grouping and rhythm without relying on filled cards.
-
-```tsx
-          {stats.map((stat) => (
-            <div
-              key={stat.label}
-              className="group p-8 rounded-2xl relative overflow-hidden bg-zinc-50 border border-zinc-100 hover:border-zinc-200 transition-colors"
-            >
-              <article className="relative z-10">
-                <div className="size-8 rounded-lg bg-white group-hover:bg-orange-600 border border-zinc-200 flex items-center justify-center text-lg font-bold text-zinc-900 mb-6 group-hover:text-white transition-colors">
-                  {stat.icon}
-                </div>
-                <h3 className="text-xs font-bold uppercase tracking-widest group-hover:text-zinc-100 text-zinc-400 mb-2">
-                  {stat.label}
-                </h3>
-                <p className="text-4xl font-semibold tracking-tight group-hover:text-white text-zinc-900 mb-4 ">
-                  {stat.value}
-                </p>
-                <p className="text-sm group-hover:text-zinc-100 text-zinc-500 text-pretty leading-relaxed">
-                  {stat.description}
-                </p>
-              </article>
-```
+[Open the exact implementation (lines 30–48)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/stats-section/stats-details.tsx#L30-L48) — Hairline borders establish grouping and rhythm without relying on filled cards.
 
 ### 2. Low-opacity icon pattern
 
-**Location:** `packages/blocks/src/stats-section/stats-details.tsx:49-55`
-**Why it is core:** Repeated icons at low opacity create a branded texture without competing with foreground content.
-
-```tsx
-              <img
-                src="https://images.unsplash.com/photo-1604076984203-587c92ab2e58?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt="supportive img"
-                className="absolute top-0 left-0 w-full object-fill opacity-0 group-hover:opacity-100 pointer-events-none"
-              />
-            </div>
-          ))}
-```
+[Open the exact implementation (lines 49–55)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/stats-section/stats-details.tsx#L49-L55) — Repeated icons at low opacity create a branded texture without competing with foreground content.
 <!-- source-audit:end -->
 
 ## Buttons
@@ -103,16 +69,13 @@ Animate values once on entry and make hover effects explanatory, not celebratory
 ## Rules for extending this design
 
 1. Carry the **Orange detail rail** into at least one meaningful focal area; reproduce its layer recipe rather than substituting a generic gradient.
-2. Reuse the same accent-to-neutral ratio, image treatment, corner language, and density so adjacent sections read as one system.
-3. On small screens, preserve hierarchy and effect placement while removing overlap that could obscure content.
-4. Provide reduced-motion behavior and keyboard focus parity for every hover-driven reveal.
+2. Preserve the same responsive hierarchy and provide keyboard-visible focus and reduced-motion behavior.
 
 ## Do not
 
-- Listing raw utility classes as a substitute for design intent.
-- Applying the signature effect to every surface; protect a clear hierarchy and quiet reading areas.
-- Introducing a second visual metaphor, unrelated accent palette, or different portrait/illustration treatment.
+- Do not replace the signature construction with a generic gradient, shadow, card, or animation.
+- Do not introduce a competing palette, type system, or image treatment.
 
 ## AI implementation instruction
 
-Build the requested interface as a sibling of **Stats Details**. First inspect every file under **Source of truth**. Reproduce the applicable unique component using the exact dependency, configuration, layer order, palette, and interaction described above; do not replace it with a generic gradient or approximation. Then translate the same typography, spacing, surfaces, imagery, controls, and responsive hierarchy into the new content. Use semantic HTML, keyboard-visible focus, reduced-motion fallbacks, and existing project primitives.
+Open the linked source files first. Reuse the applicable unique effect with its exact values and layer order, then extend the same typography, spacing, surfaces, imagery, controls, and responsive behavior into the requested UI. Keep the result accessible and production-ready.

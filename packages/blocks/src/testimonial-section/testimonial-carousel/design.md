@@ -4,14 +4,18 @@
 
 ## Source of truth
 
-- `packages/blocks/src/testimonial-section/testimonial-carousel.tsx` — the canonical block source and the exact effect composition
-- `apps/ui-layout/lib/utils.ts` — the class-merging utility
-- `apps/ui-layout/components/ui/carousel.tsx` — the carousel mechanics and navigation behavior
+**Repository:** [ui-layouts/uilayouts](https://github.com/ui-layouts/uilayouts)
+
+Use the links below; do not search for these paths in the consuming project.
+
+- [`packages/blocks/src/testimonial-section/testimonial-carousel.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/testimonial-section/testimonial-carousel.tsx) — the canonical block source and the exact effect composition
+- [`apps/ui-layout/lib/utils.ts`](https://github.com/ui-layouts/uilayouts/blob/main/apps/ui-layout/lib/utils.ts) — the class-merging utility
+- [`apps/ui-layout/components/ui/carousel.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/apps/ui-layout/components/ui/carousel.tsx) — the carousel mechanics and navigation behavior
 
 ## Required libraries and primitives
 
-- **@/lib/utils** (local) — the class-merging utility.
-- **@/components/ui/carousel** (local) — the carousel mechanics and navigation behavior.
+- **@/lib/utils** (repository primitive) — the class-merging utility. Retrieve it from the linked repository source above; do not look for the alias in the consuming project.
+- **@/components/ui/carousel** (repository primitive) — the carousel mechanics and navigation behavior. Retrieve it from the linked repository source above; do not look for the alias in the consuming project.
 - **lucide-react** (external) — provides the line-icon vocabulary used by controls and labels. Install with `pnpm add lucide-react`.
 - **clsx** (external) — provides an external primitive used by this effect. Install with `pnpm add clsx`.
 - **tailwind-merge** (external) — provides an external primitive used by this effect. Install with `pnpm add tailwind-merge`.
@@ -29,7 +33,7 @@ Quotes use generous readable type; names, roles and ratings use a compact suppor
 
 ## Palette and contrast
 
-The implementation anchors its palette with `bg-white`, `text-black`, `border-neutral-200`, `bg-neutral-100`, `bg-[repeating-linear-gradient(45deg,#eeeeee_0px_1px,transparent_1px_8px)]`, `bg-neutral-200`, `text-white`, `border-neutral-300`, `bg-yellow-500`. Preserve their roles—canvas, surface, foreground, muted copy, accent and glow—rather than treating them as interchangeable swatches. Do not expand the palette with unrelated accents.
+Core palette: `bg-white`, `text-black`, `border-neutral-200`, `bg-neutral-100`, `bg-[repeating-linear-gradient(45deg,#eeeeee_0px_1px,transparent_1px_8px)]`, `bg-yellow-500`. Keep the same canvas, text, border, and accent roles; do not add unrelated colors.
 
 ## Composition and rhythm
 
@@ -47,68 +51,24 @@ Use consistent avatar crops and genuine product/chat context; stars or platform 
 
 1. **Striped review carousel.** Frame a white carousel with a repeating 45° gray stripe field; use yellow rating controls and crisp bordered navigation without soft decorative gradients.
    - **Use it for:** presenting reviews as a practical browsable module
-   - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
-
-2. **Layer discipline.** Separate atmosphere, content surface, and foreground controls into distinct layers. Decorative layers use pointer-events-none and sit below readable content; preserve clipping at the section boundary.
-   - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
-   - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
+   - **Implementation:** use the audited GitHub ranges below.
 
 <!-- source-audit:start -->
 ## Audited source implementation
 
-These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+These linked source ranges contain the block’s highest-signal visual decisions. Treat them as part of its identity and preserve their values, stacking order, and interaction state.
 
 ### 1. Carousel interaction primitive
 
-**Location:** `packages/blocks/src/testimonial-section/testimonial-carousel.tsx:2-8`
-**Why it is core:** This component supplies the block’s distinctive navigation and content motion.
-
-```tsx
-import React from 'react'
-import { cn } from '@/lib/utils'
-import {
-  Carousel,
-  SliderContainer,
-  Slider,
-  SliderPrevButton,
-```
+[Open the exact implementation (lines 2–8)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/testimonial-section/testimonial-carousel.tsx#L2-L8) — This component supplies the block’s distinctive navigation and content motion.
 
 ### 2. Structural border grid
 
-**Location:** `packages/blocks/src/testimonial-section/testimonial-carousel.tsx:40-49`
-**Why it is core:** Shared border rails divide the page into aligned editorial bands.
-
-```tsx
-  },
-]
-
-export const TestimonialCarousel = () => {
-  return (
-    <section className="bg-white py-24 px-6 font-dmSans text-black min-h-screen">
-      <div className="max-w-6xl mx-auto border-x border-neutral-200">
-        <div className="text-center mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 text-sm text-nuetral-500 font-medium uppercase tracking-wider">
-            « Testimonials »
-```
+[Open the exact implementation (lines 40–49)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/testimonial-section/testimonial-carousel.tsx#L40-L49) — Shared border rails divide the page into aligned editorial bands.
 
 ### 3. Carousel interaction primitive
 
-**Location:** `packages/blocks/src/testimonial-section/testimonial-carousel.tsx:53-63`
-**Why it is core:** This component supplies the block’s distinctive navigation and content motion.
-
-```tsx
-          </h2>
-        </div>
-
-        <Carousel options={{ loop: true }}>
-          <SliderContainer>
-            {TESTIMONIALS.map((t, i) => (
-              <Slider key={i} className="w-full p-0">
-                <div className="grid grid-cols-1 lg:grid-cols-2 h-full border-y border-neutral-200">
-                  <div className="rounded-2xl h-full w-full p-4 overflow-hidden aspect-video bg-nuetral-100 relative group cursor-pointer">
-                    <img
-                      src={t.videoThumbnail}
-```
+[Open the exact implementation (lines 53–63)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/testimonial-section/testimonial-carousel.tsx#L53-L63) — This component supplies the block’s distinctive navigation and content motion.
 <!-- source-audit:end -->
 
 ## Buttons
@@ -122,16 +82,13 @@ Use spring or carousel motion to explain reordering; respect reduced motion and 
 ## Rules for extending this design
 
 1. Carry the **Striped review carousel** into at least one meaningful focal area; reproduce its layer recipe rather than substituting a generic gradient.
-2. Reuse the same accent-to-neutral ratio, image treatment, corner language, and density so adjacent sections read as one system.
-3. On small screens, preserve hierarchy and effect placement while removing overlap that could obscure content.
-4. Provide reduced-motion behavior and keyboard focus parity for every hover-driven reveal.
+2. Preserve the same responsive hierarchy and provide keyboard-visible focus and reduced-motion behavior.
 
 ## Do not
 
-- Listing raw utility classes as a substitute for design intent.
-- Applying the signature effect to every surface; protect a clear hierarchy and quiet reading areas.
-- Introducing a second visual metaphor, unrelated accent palette, or different portrait/illustration treatment.
+- Do not replace the signature construction with a generic gradient, shadow, card, or animation.
+- Do not introduce a competing palette, type system, or image treatment.
 
 ## AI implementation instruction
 
-Build the requested interface as a sibling of **Testimonial Carousel**. First inspect every file under **Source of truth**. Reproduce the applicable unique component using the exact dependency, configuration, layer order, palette, and interaction described above; do not replace it with a generic gradient or approximation. Then translate the same typography, spacing, surfaces, imagery, controls, and responsive hierarchy into the new content. Use semantic HTML, keyboard-visible focus, reduced-motion fallbacks, and existing project primitives.
+Open the linked source files first. Reuse the applicable unique effect with its exact values and layer order, then extend the same typography, spacing, surfaces, imagery, controls, and responsive behavior into the requested UI. Keep the result accessible and production-ready.

@@ -4,7 +4,11 @@
 
 ## Source of truth
 
-- `packages/blocks/src/about-section/about-ecommerse.tsx` — the canonical block source and the exact effect composition
+**Repository:** [ui-layouts/uilayouts](https://github.com/ui-layouts/uilayouts)
+
+Use the links below; do not search for these paths in the consuming project.
+
+- [`packages/blocks/src/about-section/about-ecommerse.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/about-section/about-ecommerse.tsx) — the canonical block source and the exact effect composition
 
 ## Required libraries and primitives
 
@@ -20,7 +24,7 @@ Favor editorial headings with short line lengths, neutral body copy, and tiny me
 
 ## Palette and contrast
 
-The implementation anchors its palette with `bg-orange-50`, `text-orange-950`, `bg-orange-800/20`, `text-orange-800/60`, `text-zinc-900`, `text-zinc-600`, `text-zinc-500`. Preserve their roles—canvas, surface, foreground, muted copy, accent and glow—rather than treating them as interchangeable swatches. Do not expand the palette with unrelated accents.
+Core palette: `bg-orange-50`, `text-orange-950`, `bg-orange-800/20`, `text-orange-800/60`. Keep the same canvas, text, border, and accent roles; do not add unrelated colors.
 
 ## Composition and rhythm
 
@@ -38,46 +42,20 @@ Use documentary portraits, work samples, or brand proof; preserve the source cro
 
 1. **Warm editorial reveal.** Use orange-50 as a quiet wash, oversized orange typography at reduced opacity behind the story, and gently scaling content/image reveals.
    - **Use it for:** introducing a commerce brand with warmth instead of dashboard chrome
-   - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
-
-2. **Layer discipline.** Separate atmosphere, content surface, and foreground controls into distinct layers. Decorative layers use pointer-events-none and sit below readable content; preserve clipping at the section boundary.
-   - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
-   - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
+   - **Implementation:** use the audited GitHub ranges below.
 
 <!-- source-audit:start -->
 ## Audited source implementation
 
-These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+These linked source ranges contain the block’s highest-signal visual decisions. Treat them as part of its identity and preserve their values, stacking order, and interaction state.
 
 ### 1. Motion-driven behavior
 
-**Location:** `packages/blocks/src/about-section/about-ecommerse.tsx:6-12`
-**Why it is core:** The motion configuration controls the effect’s timing, position, and interaction response.
-
-```tsx
-  return (
-    <section className="py-32 px-6 bg-orange-50 text-orange-950">
-      <div className="max-w-7xl mx-auto text-center">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6 }}
-```
+[Open the exact implementation (lines 6–12)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/about-section/about-ecommerse.tsx#L6-L12) — The motion configuration controls the effect’s timing, position, and interaction response.
 
 ### 2. Motion-driven behavior
 
-**Location:** `packages/blocks/src/about-section/about-ecommerse.tsx:26-32`
-**Why it is core:** The motion configuration controls the effect’s timing, position, and interaction response.
-
-```tsx
-            "We believe that the things we surround ourselves with should tell a
-            story. Not just of where they came from, but where they are going."
-          </p>
-        </motion.div>
-
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className="space-y-6">
-```
+[Open the exact implementation (lines 26–32)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/about-section/about-ecommerse.tsx#L26-L32) — The motion configuration controls the effect’s timing, position, and interaction response.
 <!-- source-audit:end -->
 
 ## Buttons
@@ -91,16 +69,13 @@ Stagger story elements gently; image reveals and hover states should feel editor
 ## Rules for extending this design
 
 1. Carry the **Warm editorial reveal** into at least one meaningful focal area; reproduce its layer recipe rather than substituting a generic gradient.
-2. Reuse the same accent-to-neutral ratio, image treatment, corner language, and density so adjacent sections read as one system.
-3. On small screens, preserve hierarchy and effect placement while removing overlap that could obscure content.
-4. Provide reduced-motion behavior and keyboard focus parity for every hover-driven reveal.
+2. Preserve the same responsive hierarchy and provide keyboard-visible focus and reduced-motion behavior.
 
 ## Do not
 
-- Listing raw utility classes as a substitute for design intent.
-- Applying the signature effect to every surface; protect a clear hierarchy and quiet reading areas.
-- Introducing a second visual metaphor, unrelated accent palette, or different portrait/illustration treatment.
+- Do not replace the signature construction with a generic gradient, shadow, card, or animation.
+- Do not introduce a competing palette, type system, or image treatment.
 
 ## AI implementation instruction
 
-Build the requested interface as a sibling of **About e-commerse**. First inspect every file under **Source of truth**. Reproduce the applicable unique component using the exact dependency, configuration, layer order, palette, and interaction described above; do not replace it with a generic gradient or approximation. Then translate the same typography, spacing, surfaces, imagery, controls, and responsive hierarchy into the new content. Use semantic HTML, keyboard-visible focus, reduced-motion fallbacks, and existing project primitives.
+Open the linked source files first. Reuse the applicable unique effect with its exact values and layer order, then extend the same typography, spacing, surfaces, imagery, controls, and responsive behavior into the requested UI. Keep the result accessible and production-ready.

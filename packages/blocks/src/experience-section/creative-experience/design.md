@@ -4,14 +4,18 @@
 
 ## Source of truth
 
-- `packages/blocks/src/experience-section/creative-experience.tsx` — the canonical block source and the exact effect composition
-- `apps/ui-layout/components/ui/timeline-animation.tsx` — the scroll-triggered stagger primitive used to sequence the block
-- `packages/shadcn/src/index.tsx` — the open-source workspace component barrel used by this block
+**Repository:** [ui-layouts/uilayouts](https://github.com/ui-layouts/uilayouts)
+
+Use the links below; do not search for these paths in the consuming project.
+
+- [`packages/blocks/src/experience-section/creative-experience.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/experience-section/creative-experience.tsx) — the canonical block source and the exact effect composition
+- [`apps/ui-layout/components/ui/timeline-animation.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/apps/ui-layout/components/ui/timeline-animation.tsx) — the scroll-triggered stagger primitive used to sequence the block
+- [`packages/shadcn/src/index.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/packages/shadcn/src/index.tsx) — the open-source workspace component barrel used by this block
 
 ## Required libraries and primitives
 
 - **@repo/shadcn** (workspace) — an existing workspace design primitive; reuse it rather than replacing its behavior.
-- **@/components/ui/timeline-animation** (local) — the scroll-triggered stagger primitive used to sequence the block.
+- **@/components/ui/timeline-animation** (repository primitive) — the scroll-triggered stagger primitive used to sequence the block. Retrieve it from the linked repository source above; do not look for the alias in the consuming project.
 - **lucide-react** (external) — provides the line-icon vocabulary used by controls and labels. Install with `pnpm add lucide-react`.
 - **motion** (external) — provides the entrance, presence, drag, spring, and layout animation behavior. Install with `pnpm add motion`.
 
@@ -25,7 +29,7 @@ Use editorial role/project titles, muted dates, and small categorical labels; ke
 
 ## Palette and contrast
 
-The implementation anchors its palette with `bg-zinc-100`, `border-neutral-300`, `bg-zinc-200`, `text-black`, `text-neutral-600`, `text-zinc-800`, `bg-neutral-200`. Preserve their roles—canvas, surface, foreground, muted copy, accent and glow—rather than treating them as interchangeable swatches. Do not expand the palette with unrelated accents.
+Core palette: `bg-zinc-100`, `border-neutral-300`, `bg-zinc-200`, `text-black`. Keep the same canvas, text, border, and accent roles; do not add unrelated colors.
 
 ## Composition and rhythm
 
@@ -43,51 +47,20 @@ Use project/customer imagery only when tied to the active record; otherwise let 
 
 1. **Expandable creative accordion.** Use neutral paper panels and data-active icon rotations; blur/scale content from 95% into clarity, reveal supporting imagery and controls only for the active row.
    - **Use it for:** turning a timeline into an exploratory editorial interaction
-   - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
-
-2. **Layer discipline.** Separate atmosphere, content surface, and foreground controls into distinct layers. Decorative layers use pointer-events-none and sit below readable content; preserve clipping at the section boundary.
-   - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
-   - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
+   - **Implementation:** use the audited GitHub ranges below.
 
 <!-- source-audit:start -->
 ## Audited source implementation
 
-These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+These linked source ranges contain the block’s highest-signal visual decisions. Treat them as part of its identity and preserve their values, stacking order, and interaction state.
 
 ### 1. Structural border treatment
 
-**Location:** `packages/blocks/src/experience-section/creative-experience.tsx:90-100`
-**Why it is core:** The border placement creates the block’s visual grouping and alignment.
-
-```tsx
-                animationNum={index}
-                timelineRef={heroRef}
-                customVariants={revealVariants}
-                className="border-t border-neutral-300"
-              >
-                <AccordionHeader
-                  customIcon
-                  className="hover:no-underline px-4 gap-4 py-2 relative data-active:bg-zinc-200 hover:bg-transparent text-black sm:text-base text-sm"
-                >
-                  <div className="flex items-center space-x-2 sm:gap-5 gap-2 sm:justify-between justify-end">
-                    <span className="flex flex-col space-y-2">
-```
+[Open the exact implementation (lines 90–100)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/experience-section/creative-experience.tsx#L90-L100) — The border placement creates the block’s visual grouping and alignment.
 
 ### 2. Low-opacity icon pattern
 
-**Location:** `packages/blocks/src/experience-section/creative-experience.tsx:102-109`
-**Why it is core:** Repeated icons at low opacity create a branded texture without competing with foreground content.
-
-```tsx
-                        ({item.year})
-                      </span>
-                    </span>
-                    <span className="relative opacity-0 scale-95 group-data-active:opacity-100 group-data-active:scale-100 group-hover:scale-100 group-hover:opacity-100 transition-opacity group-data-active:rotate-90 text-neutral-600 p-2 -translate-x-1 rounded-xl">
-                      <Plus className="group-data-active:rotate-45 transition-all duration-300" />
-                    </span>
-                  </div>
-                  <p className="flex flex-col">
-```
+[Open the exact implementation (lines 102–109)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/experience-section/creative-experience.tsx#L102-L109) — Repeated icons at low opacity create a branded texture without competing with foreground content.
 <!-- source-audit:end -->
 
 ## Buttons
@@ -101,16 +74,13 @@ Entry reveals follow chronology; active-item transitions may crossfade, but layo
 ## Rules for extending this design
 
 1. Carry the **Expandable creative accordion** into at least one meaningful focal area; reproduce its layer recipe rather than substituting a generic gradient.
-2. Reuse the same accent-to-neutral ratio, image treatment, corner language, and density so adjacent sections read as one system.
-3. On small screens, preserve hierarchy and effect placement while removing overlap that could obscure content.
-4. Provide reduced-motion behavior and keyboard focus parity for every hover-driven reveal.
+2. Preserve the same responsive hierarchy and provide keyboard-visible focus and reduced-motion behavior.
 
 ## Do not
 
-- Listing raw utility classes as a substitute for design intent.
-- Applying the signature effect to every surface; protect a clear hierarchy and quiet reading areas.
-- Introducing a second visual metaphor, unrelated accent palette, or different portrait/illustration treatment.
+- Do not replace the signature construction with a generic gradient, shadow, card, or animation.
+- Do not introduce a competing palette, type system, or image treatment.
 
 ## AI implementation instruction
 
-Build the requested interface as a sibling of **Creative Experience**. First inspect every file under **Source of truth**. Reproduce the applicable unique component using the exact dependency, configuration, layer order, palette, and interaction described above; do not replace it with a generic gradient or approximation. Then translate the same typography, spacing, surfaces, imagery, controls, and responsive hierarchy into the new content. Use semantic HTML, keyboard-visible focus, reduced-motion fallbacks, and existing project primitives.
+Open the linked source files first. Reuse the applicable unique effect with its exact values and layer order, then extend the same typography, spacing, surfaces, imagery, controls, and responsive behavior into the requested UI. Keep the result accessible and production-ready.

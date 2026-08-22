@@ -4,10 +4,14 @@
 
 ## Source of truth
 
-- `packages/blocks/src/pricing-section/growth-plans.tsx` — the canonical block source and the exact effect composition
-- `apps/ui-layout/lib/utils.ts` — the class-merging utility
-- `packages/shadcn/src/index.tsx` — the open-source workspace component barrel used by this block
-- `packages/ui/src/index.tsx` — the open-source workspace UI primitive barrel used by this block
+**Repository:** [ui-layouts/uilayouts](https://github.com/ui-layouts/uilayouts)
+
+Use the links below; do not search for these paths in the consuming project.
+
+- [`packages/blocks/src/pricing-section/growth-plans.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/pricing-section/growth-plans.tsx) — the canonical block source and the exact effect composition
+- [`apps/ui-layout/lib/utils.ts`](https://github.com/ui-layouts/uilayouts/blob/main/apps/ui-layout/lib/utils.ts) — the class-merging utility
+- [`packages/shadcn/src/index.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/packages/shadcn/src/index.tsx) — the open-source workspace component barrel used by this block
+- [`packages/ui/src/index.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/packages/ui/src/index.tsx) — the open-source workspace UI primitive barrel used by this block
 
 ## Required libraries and primitives
 
@@ -15,7 +19,7 @@
 - **motion** (external) — provides the entrance, presence, drag, spring, and layout animation behavior. Install with `pnpm add motion`.
 - **@number-flow/react** (external) — animates changing numeric price and metric values. Install with `pnpm add @number-flow/react`.
 - **@repo/ui/shadcn** (workspace) — an existing workspace design primitive; reuse it rather than replacing its behavior.
-- **@/lib/utils** (local) — the class-merging utility.
+- **@/lib/utils** (repository primitive) — the class-merging utility. Retrieve it from the linked repository source above; do not look for the alias in the consuming project.
 - **@repo/shadcn** (workspace) — an existing workspace design primitive; reuse it rather than replacing its behavior.
 - **clsx** (external) — provides an external primitive used by this effect. Install with `pnpm add clsx`.
 - **tailwind-merge** (external) — provides an external primitive used by this effect. Install with `pnpm add tailwind-merge`.
@@ -30,7 +34,7 @@ Prices are large and tabular-looking; plan names are medium weight, descriptions
 
 ## Palette and contrast
 
-The implementation anchors its palette with `bg-white`, `text-black`, `text-neutral-500`, `bg-neutral-100`, `border-neutral-200`, `text-neutral-900`, `text-neutral-400`, `bg-neutral-300`, `bg-neutral-950`, `text-white`. Preserve their roles—canvas, surface, foreground, muted copy, accent and glow—rather than treating them as interchangeable swatches. Do not expand the palette with unrelated accents.
+Core palette: `bg-white`, `text-black`, `text-neutral-500`, `bg-neutral-100`. Keep the same canvas, text, border, and accent roles; do not add unrelated colors.
 
 ## Composition and rhythm
 
@@ -48,63 +52,24 @@ Use tiny product icons or abstract glow only; never distract from price, billing
 
 1. **Dark featured pricing tier.** Use neutral pricing cards with one neutral-950 tier enlarged to 105%; retain crisp borders and give lighter cards a neutral hover shadow while prices flow numerically.
    - **Use it for:** making the recommended plan obvious through mass and contrast
-   - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
-
-2. **Layer discipline.** Separate atmosphere, content surface, and foreground controls into distinct layers. Decorative layers use pointer-events-none and sit below readable content; preserve clipping at the section boundary.
-   - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
-   - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
+   - **Implementation:** use the audited GitHub ranges below.
 
 <!-- source-audit:start -->
 ## Audited source implementation
 
-These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+These linked source ranges contain the block’s highest-signal visual decisions. Treat them as part of its identity and preserve their values, stacking order, and interaction state.
 
 ### 1. Structural border treatment
 
-**Location:** `packages/blocks/src/pricing-section/growth-plans.tsx:108-114`
-**Why it is core:** The border placement creates the block’s visual grouping and alignment.
-
-```tsx
-          Unlock potential with plans designed to fuel growth.
-        </p>
-
-        <div className="flex items-center justify-center gap-4 mb-16 bg-neutral-100 border border-neutral-200 w-fit p-3 mx-auto">
-          <span
-            className={cn(
-              'text-sm transition-colors',
-```
+[Open the exact implementation (lines 108–114)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/pricing-section/growth-plans.tsx#L108-L114) — The border placement creates the block’s visual grouping and alignment.
 
 ### 2. Depth and glow treatment
 
-**Location:** `packages/blocks/src/pricing-section/growth-plans.tsx:161-168`
-**Why it is core:** These exact shadows and blur layers distinguish foreground from atmosphere.
-
-```tsx
-                'rounded-lg p-8 flex flex-col border transition-all',
-
-                plan.featured
-                  ? 'bg-neutral-950 text-white scale-105 shadow-2xl z-10 border-transparent'
-                  : 'bg-neutral-100 border border-neutral-200'
-              )}
-            >
-              <div className="text-left mb-8">
-```
+[Open the exact implementation (lines 161–168)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/pricing-section/growth-plans.tsx#L161-L168) — These exact shadows and blur layers distinguish foreground from atmosphere.
 
 ### 3. Depth and glow treatment
 
-**Location:** `packages/blocks/src/pricing-section/growth-plans.tsx:211-218`
-**Why it is core:** These exact shadows and blur layers distinguish foreground from atmosphere.
-
-```tsx
-                  'w-full mb-10 rounded-lg h-14',
-
-                  plan.featured
-                    ? 'py-4 bg-neutral-800 border border-neutral-700'
-                    : 'bg-white border-neutral-200 hover:shadow-neutral-200 hover:shadow-lg hover:bg-white'
-                )}
-              >
-                Select Plan
-```
+[Open the exact implementation (lines 211–218)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/pricing-section/growth-plans.tsx#L211-L218) — These exact shadows and blur layers distinguish foreground from atmosphere.
 <!-- source-audit:end -->
 
 ## Buttons
@@ -118,16 +83,13 @@ Animate numeric billing changes and press states; avoid gratuitous card movement
 ## Rules for extending this design
 
 1. Carry the **Dark featured pricing tier** into at least one meaningful focal area; reproduce its layer recipe rather than substituting a generic gradient.
-2. Reuse the same accent-to-neutral ratio, image treatment, corner language, and density so adjacent sections read as one system.
-3. On small screens, preserve hierarchy and effect placement while removing overlap that could obscure content.
-4. Provide reduced-motion behavior and keyboard focus parity for every hover-driven reveal.
+2. Preserve the same responsive hierarchy and provide keyboard-visible focus and reduced-motion behavior.
 
 ## Do not
 
-- Listing raw utility classes as a substitute for design intent.
-- Applying the signature effect to every surface; protect a clear hierarchy and quiet reading areas.
-- Introducing a second visual metaphor, unrelated accent palette, or different portrait/illustration treatment.
+- Do not replace the signature construction with a generic gradient, shadow, card, or animation.
+- Do not introduce a competing palette, type system, or image treatment.
 
 ## AI implementation instruction
 
-Build the requested interface as a sibling of **Growth Plans**. First inspect every file under **Source of truth**. Reproduce the applicable unique component using the exact dependency, configuration, layer order, palette, and interaction described above; do not replace it with a generic gradient or approximation. Then translate the same typography, spacing, surfaces, imagery, controls, and responsive hierarchy into the new content. Use semantic HTML, keyboard-visible focus, reduced-motion fallbacks, and existing project primitives.
+Open the linked source files first. Reuse the applicable unique effect with its exact values and layer order, then extend the same typography, spacing, surfaces, imagery, controls, and responsive behavior into the requested UI. Keep the result accessible and production-ready.

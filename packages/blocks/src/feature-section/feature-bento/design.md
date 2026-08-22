@@ -4,7 +4,11 @@
 
 ## Source of truth
 
-- `packages/blocks/src/feature-section/feature-bento.tsx` — the canonical block source and the exact effect composition
+**Repository:** [ui-layouts/uilayouts](https://github.com/ui-layouts/uilayouts)
+
+Use the links below; do not search for these paths in the consuming project.
+
+- [`packages/blocks/src/feature-section/feature-bento.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/feature-section/feature-bento.tsx) — the canonical block source and the exact effect composition
 
 ## Required libraries and primitives
 
@@ -20,7 +24,7 @@ Use a confident section heading, readable slate body copy, and compact uppercase
 
 ## Palette and contrast
 
-The implementation anchors its palette with `bg-slate-50`, `from-blue-100`, `via-blue-600`, `to-blue-500`, `text-white`, `from-black/60`, `bg-white/20`, `bg-green-400`, `text-white/90`, `from-blue-300`. Preserve their roles—canvas, surface, foreground, muted copy, accent and glow—rather than treating them as interchangeable swatches. Do not expand the palette with unrelated accents.
+Core palette: `bg-slate-50`, `from-blue-100`, `via-blue-600`, `to-blue-500`, `bg-green-400`, `from-blue-300`. Keep the same canvas, text, border, and accent roles; do not add unrelated colors.
 
 ## Composition and rhythm
 
@@ -38,72 +42,24 @@ Favor product crops, diagrams, or symbolic line icons; each should explain the c
 
 1. **Electric bento atmosphere.** Vary card spans and surface colors; layer blue gradient blobs with 2xl/3xl blur, photographic overlays, glass chips, and an icon that rotates 45° while the card subtly scales.
    - **Use it for:** giving each capability a distinct miniature world inside one grid
-   - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
-
-2. **Layer discipline.** Separate atmosphere, content surface, and foreground controls into distinct layers. Decorative layers use pointer-events-none and sit below readable content; preserve clipping at the section boundary.
-   - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
-   - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
+   - **Implementation:** use the audited GitHub ranges below.
 
 <!-- source-audit:start -->
 ## Audited source implementation
 
-These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+These linked source ranges contain the block’s highest-signal visual decisions. Treat them as part of its identity and preserve their values, stacking order, and interaction state.
 
 ### 1. Translucent glass layer
 
-**Location:** `packages/blocks/src/feature-section/feature-bento.tsx:58-69`
-**Why it is core:** Blur, transparency, border, and stacking work together as one glass treatment.
-
-```tsx
-          </div>
-
-          {/* CTA Card */}
-          <div className="bg-linear-to-br from-neutral-950 to-neutral-800 rounded-3xl p-8 text-white flex flex-col justify-between transition-all cursor-pointer group">
-            <div className="flex justify-between items-start">
-              <span className="text-xs font-bold uppercase tracking-wider bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full">
-                Join Now
-              </span>
-              <div className="size-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-xl group-hover:bg-white/30 group-hover:rotate-45 transition-all">
-                ↗
-              </div>
-            </div>
-```
+[Open the exact implementation (lines 58–69)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/feature-section/feature-bento.tsx#L58-L69) — Blur, transparency, border, and stacking work together as one glass treatment.
 
 ### 2. Low-opacity icon pattern
 
-**Location:** `packages/blocks/src/feature-section/feature-bento.tsx:76-88`
-**Why it is core:** Repeated icons at low opacity create a branded texture without competing with foreground content.
-
-```tsx
-
-          {/* Stats Card 2 */}
-          <div className="bg-gray-950 rounded-3xl p-8 text-white flex flex-col justify-center gap-3 relative overflow-hidden group">
-            <div className="absolute inset-0 bg-linear-to-br from-purple-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <span className="absolute top-5 right-5 flex size-3">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-400 opacity-75"></span>
-              <span className="relative inline-flex size-3 rounded-full bg-blue-500"></span>
-            </span>
-            <div className="relative z-10">
-              <span className="text-5xl font-black bg-linear-to-r from-blue-200 to-blue-600 bg-clip-text text-transparent">
-                18.2k+
-              </span>
-              <p className="text-sm uppercase tracking-widest text-neutral-500 font-semibold mt-2">
-```
+[Open the exact implementation (lines 76–88)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/feature-section/feature-bento.tsx#L76-L88) — Repeated icons at low opacity create a branded texture without competing with foreground content.
 
 ### 3. Depth and glow treatment
 
-**Location:** `packages/blocks/src/feature-section/feature-bento.tsx:92-98`
-**Why it is core:** These exact shadows and blur layers distinguish foreground from atmosphere.
-
-```tsx
-          </div>
-
-          {/* Stats Card 3 */}
-          <div className="bg-linear-to-br from-blue-500 to-blue-600 rounded-3xl p-8 text-white flex flex-col justify-center gap-3 relative overflow-hidden group hover:shadow-2xl transition-all">
-            <div className="absolute -bottom-10 -right-10 size-40 bg-white/10 rounded-full blur-3xl" />
-            <div className="relative z-10">
-              <span className="text-5xl font-black">94%</span>
-```
+[Open the exact implementation (lines 92–98)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/feature-section/feature-bento.tsx#L92-L98) — These exact shadows and blur layers distinguish foreground from atmosphere.
 <!-- source-audit:end -->
 
 ## Buttons
@@ -117,16 +73,13 @@ Reveal secondary layers on group hover and keep transforms small so the grid rem
 ## Rules for extending this design
 
 1. Carry the **Electric bento atmosphere** into at least one meaningful focal area; reproduce its layer recipe rather than substituting a generic gradient.
-2. Reuse the same accent-to-neutral ratio, image treatment, corner language, and density so adjacent sections read as one system.
-3. On small screens, preserve hierarchy and effect placement while removing overlap that could obscure content.
-4. Provide reduced-motion behavior and keyboard focus parity for every hover-driven reveal.
+2. Preserve the same responsive hierarchy and provide keyboard-visible focus and reduced-motion behavior.
 
 ## Do not
 
-- Listing raw utility classes as a substitute for design intent.
-- Applying the signature effect to every surface; protect a clear hierarchy and quiet reading areas.
-- Introducing a second visual metaphor, unrelated accent palette, or different portrait/illustration treatment.
+- Do not replace the signature construction with a generic gradient, shadow, card, or animation.
+- Do not introduce a competing palette, type system, or image treatment.
 
 ## AI implementation instruction
 
-Build the requested interface as a sibling of **Feature Bento**. First inspect every file under **Source of truth**. Reproduce the applicable unique component using the exact dependency, configuration, layer order, palette, and interaction described above; do not replace it with a generic gradient or approximation. Then translate the same typography, spacing, surfaces, imagery, controls, and responsive hierarchy into the new content. Use semantic HTML, keyboard-visible focus, reduced-motion fallbacks, and existing project primitives.
+Open the linked source files first. Reuse the applicable unique effect with its exact values and layer order, then extend the same typography, spacing, surfaces, imagery, controls, and responsive behavior into the requested UI. Keep the result accessible and production-ready.

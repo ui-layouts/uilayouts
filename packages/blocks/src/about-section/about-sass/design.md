@@ -4,7 +4,11 @@
 
 ## Source of truth
 
-- `packages/blocks/src/about-section/about-sass.tsx` — the canonical block source and the exact effect composition
+**Repository:** [ui-layouts/uilayouts](https://github.com/ui-layouts/uilayouts)
+
+Use the links below; do not search for these paths in the consuming project.
+
+- [`packages/blocks/src/about-section/about-sass.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/about-section/about-sass.tsx) — the canonical block source and the exact effect composition
 
 ## Required libraries and primitives
 
@@ -21,7 +25,7 @@ Favor editorial headings with short line lengths, neutral body copy, and tiny me
 
 ## Palette and contrast
 
-The implementation anchors its palette with `bg-zinc-50`, `text-black`, `bg-white`, `border-zinc-200/60`, `bg-black`, `shadow-[0_0_10px_rgba(0,0,0,0.1)]`, `text-zinc-900`, `text-zinc-500`, `border-zinc-100`, `text-zinc-400`. Preserve their roles—canvas, surface, foreground, muted copy, accent and glow—rather than treating them as interchangeable swatches. Do not expand the palette with unrelated accents.
+Core palette: `bg-zinc-50`, `text-black`, `bg-white`, `border-zinc-200/60`, `shadow-[0_0_10px_rgba(0,0,0,0.1)]`. Keep the same canvas, text, border, and accent roles; do not add unrelated colors.
 
 ## Composition and rhythm
 
@@ -39,65 +43,24 @@ Use documentary portraits, work samples, or brand proof; preserve the source cro
 
 1. **SaaS metrics mosaic.** Compose white/zinc metric tiles with hairline borders and tiny 10px labels; include a nearly invisible decorative layer and 10px ambient card shadow, strengthening elevation on hover.
    - **Use it for:** balancing credible metrics with clean software-product polish
-   - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
-
-2. **Layer discipline.** Separate atmosphere, content surface, and foreground controls into distinct layers. Decorative layers use pointer-events-none and sit below readable content; preserve clipping at the section boundary.
-   - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
-   - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
+   - **Implementation:** use the audited GitHub ranges below.
 
 <!-- source-audit:start -->
 ## Audited source implementation
 
-These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+These linked source ranges contain the block’s highest-signal visual decisions. Treat them as part of its identity and preserve their values, stacking order, and interaction state.
 
 ### 1. Motion-driven behavior
 
-**Location:** `packages/blocks/src/about-section/about-sass.tsx:48-54`
-**Why it is core:** The motion configuration controls the effect’s timing, position, and interaction response.
-
-```tsx
-          />
-
-          <div className="max-w-3xl relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-```
+[Open the exact implementation (lines 48–54)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/about-section/about-sass.tsx#L48-L54) — The motion configuration controls the effect’s timing, position, and interaction response.
 
 ### 2. Custom elevation recipe
 
-**Location:** `packages/blocks/src/about-section/about-sass.tsx:55-65`
-**Why it is core:** The nonstandard shadow values create the block’s characteristic depth.
-
-```tsx
-              transition={{ duration: 0.4 }}
-              className="flex items-center gap-3 mb-8"
-            >
-              <div className="size-2.5 bg-black rounded-full shadow-[0_0_10px_rgba(0,0,0,0.1)]" />
-              <span className="text-[10px] font-black uppercase tracking-[0.25em] text-zinc-900">
-                Company Introduction
-              </span>
-            </motion.div>
-
-            <h2 className="text-6xl md:text-7xl font-bold tracking-tighter text-balance leading-[0.9] mb-8">
-              Built by developers, <br /> for the future of SaaS.
-```
+[Open the exact implementation (lines 55–65)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/about-section/about-sass.tsx#L55-L65) — The nonstandard shadow values create the block’s characteristic depth.
 
 ### 3. Motion-driven behavior
 
-**Location:** `packages/blocks/src/about-section/about-sass.tsx:119-125`
-**Why it is core:** The motion configuration controls the effect’s timing, position, and interaction response.
-
-```tsx
-            />
-            <div className="space-y-4 relative z-10">
-              <div className="h-1 w-full bg-zinc-700 rounded-full overflow-hidden">
-                <motion.div
-                  initial={{ x: '-100%' }}
-                  whileInView={{ x: '0%' }}
-                  transition={{ duration: 1, ease: 'easeOut' }}
-```
+[Open the exact implementation (lines 119–125)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/about-section/about-sass.tsx#L119-L125) — The motion configuration controls the effect’s timing, position, and interaction response.
 <!-- source-audit:end -->
 
 ## Buttons
@@ -111,16 +74,13 @@ Stagger story elements gently; image reveals and hover states should feel editor
 ## Rules for extending this design
 
 1. Carry the **SaaS metrics mosaic** into at least one meaningful focal area; reproduce its layer recipe rather than substituting a generic gradient.
-2. Reuse the same accent-to-neutral ratio, image treatment, corner language, and density so adjacent sections read as one system.
-3. On small screens, preserve hierarchy and effect placement while removing overlap that could obscure content.
-4. Provide reduced-motion behavior and keyboard focus parity for every hover-driven reveal.
+2. Preserve the same responsive hierarchy and provide keyboard-visible focus and reduced-motion behavior.
 
 ## Do not
 
-- Listing raw utility classes as a substitute for design intent.
-- Applying the signature effect to every surface; protect a clear hierarchy and quiet reading areas.
-- Introducing a second visual metaphor, unrelated accent palette, or different portrait/illustration treatment.
+- Do not replace the signature construction with a generic gradient, shadow, card, or animation.
+- Do not introduce a competing palette, type system, or image treatment.
 
 ## AI implementation instruction
 
-Build the requested interface as a sibling of **SASS**. First inspect every file under **Source of truth**. Reproduce the applicable unique component using the exact dependency, configuration, layer order, palette, and interaction described above; do not replace it with a generic gradient or approximation. Then translate the same typography, spacing, surfaces, imagery, controls, and responsive hierarchy into the new content. Use semantic HTML, keyboard-visible focus, reduced-motion fallbacks, and existing project primitives.
+Open the linked source files first. Reuse the applicable unique effect with its exact values and layer order, then extend the same typography, spacing, surfaces, imagery, controls, and responsive behavior into the requested UI. Keep the result accessible and production-ready.

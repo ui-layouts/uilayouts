@@ -4,13 +4,17 @@
 
 ## Source of truth
 
-- `packages/blocks/src/hero-section/hero-ai-value-proposition.tsx` — the canonical block source and the exact effect composition
-- `apps/ui-layout/components/ui/timeline-animation.tsx` — the scroll-triggered stagger primitive used to sequence the block
+**Repository:** [ui-layouts/uilayouts](https://github.com/ui-layouts/uilayouts)
+
+Use the links below; do not search for these paths in the consuming project.
+
+- [`packages/blocks/src/hero-section/hero-ai-value-proposition.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/hero-section/hero-ai-value-proposition.tsx) — the canonical block source and the exact effect composition
+- [`apps/ui-layout/components/ui/timeline-animation.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/apps/ui-layout/components/ui/timeline-animation.tsx) — the scroll-triggered stagger primitive used to sequence the block
 
 ## Required libraries and primitives
 
 - **lucide-react** (external) — provides the line-icon vocabulary used by controls and labels. Install with `pnpm add lucide-react`.
-- **@/components/ui/timeline-animation** (local) — the scroll-triggered stagger primitive used to sequence the block.
+- **@/components/ui/timeline-animation** (repository primitive) — the scroll-triggered stagger primitive used to sequence the block. Retrieve it from the linked repository source above; do not look for the alias in the consuming project.
 - **motion** (external) — provides the entrance, presence, drag, spring, and layout animation behavior. Install with `pnpm add motion`.
 
 ## Design thesis
@@ -23,7 +27,7 @@ A bold display face or the project sans at very large responsive sizes; compact 
 
 ## Palette and contrast
 
-The implementation anchors its palette with `bg-[#f9f9f9]`, `text-[#111]`, `border-zinc-200`, `text-slate-900`, `bg-white`, `border-neutral-100`, `text-neutral-500`, `text-black`, `border-neutral-300`, `text-neutral-400`. Preserve their roles—canvas, surface, foreground, muted copy, accent and glow—rather than treating them as interchangeable swatches. Do not expand the palette with unrelated accents.
+Core palette: `bg-[#f9f9f9]`, `text-[#111]`, `border-zinc-200`, `text-slate-900`. Keep the same canvas, text, border, and accent roles; do not add unrelated colors.
 
 ## Composition and rhythm
 
@@ -55,57 +59,19 @@ Use high-quality product/UI composites or portraits with deliberate overlap; ico
 <!-- source-audit:start -->
 ## Audited source implementation
 
-These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+These linked source ranges contain the block’s highest-signal visual decisions. Treat them as part of its identity and preserve their values, stacking order, and interaction state.
 
 ### 1. Custom elevation recipe
 
-**Location:** `packages/blocks/src/hero-section/hero-ai-value-proposition.tsx:134-145`
-**Why it is core:** The nonstandard shadow values create the block’s characteristic depth.
-
-```tsx
-            once={true}
-            animationNum={8}
-            timelineRef={timelineRef}
-            className="relative bg-white backdrop-blur-xl rounded-4xl shadow-[0_40px_100px_-20px_rgba(0,0,0,0.08)] border border-zinc-200 p-2"
-          >
-            <div className="bg-linear-to-b from-neutral-200 from-50% to-blue-400/80 rounded-4xl pt-32">
-              {/* Background decorative glows inside the frame */}
-              <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-pink-100 rounded-full blur-[100px] opacity-40"></div>
-              <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-orange-100 rounded-full blur-[100px] opacity-40"></div>
-
-              {/* Internal Mockup Shell */}
-              <TimelineAnimation
-```
+[Open the exact implementation (lines 134–145)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/hero-section/hero-ai-value-proposition.tsx#L134-L145) — The nonstandard shadow values create the block’s characteristic depth.
 
 ### 2. Translucent glass layer
 
-**Location:** `packages/blocks/src/hero-section/hero-ai-value-proposition.tsx:165-171`
-**Why it is core:** Blur, transparency, border, and stacking work together as one glass treatment.
-
-```tsx
-                  once={true}
-                  animationNum={10}
-                  timelineRef={timelineRef}
-                  className="flex flex-col gap-12 bg-white backdrop-blur-md border border-neutral-100/50 rounded-t-4xl p-12"
-                >
-                  {/* Breadcrumbs & Profile */}
-                  <div className="flex items-center justify-between">
-```
+[Open the exact implementation (lines 165–171)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/hero-section/hero-ai-value-proposition.tsx#L165-L171) — Blur, transparency, border, and stacking work together as one glass treatment.
 
 ### 3. Low-opacity icon pattern
 
-**Location:** `packages/blocks/src/hero-section/hero-ai-value-proposition.tsx:259-265`
-**Why it is core:** Repeated icons at low opacity create a branded texture without competing with foreground content.
-
-```tsx
-                            once={true}
-                            animationNum={15}
-                            timelineRef={timelineRef}
-                            className="bg-white/80 p-5 rounded-2xl border border-neutral-100 flex flex-col gap-4 opacity-80 grayscale hover:grayscale-0 hover:opacity-100 transition-all cursor-pointer"
-                          >
-                            <div className="w-10 h-10 bg-neutral-100 text-neutral-400 rounded-xl flex items-center justify-center">
-                              <PenTool size={20} />
-```
+[Open the exact implementation (lines 259–265)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/hero-section/hero-ai-value-proposition.tsx#L259-L265) — Repeated icons at low opacity create a branded texture without competing with foreground content.
 <!-- source-audit:end -->
 
 ## Buttons
@@ -119,16 +85,13 @@ Use slow entrance staging and restrained hover/press feedback; decorative atmosp
 ## Rules for extending this design
 
 1. Carry the **continuous editorial border rails and restrained mockup elevation** into at least one meaningful focal area; reproduce its layer recipe rather than substituting a generic gradient.
-2. Reuse the same accent-to-neutral ratio, image treatment, corner language, and density so adjacent sections read as one system.
-3. On small screens, preserve hierarchy and effect placement while removing overlap that could obscure content.
-4. Provide reduced-motion behavior and keyboard focus parity for every hover-driven reveal.
+2. Preserve the same responsive hierarchy and provide keyboard-visible focus and reduced-motion behavior.
 
 ## Do not
 
-- Listing raw utility classes as a substitute for design intent.
-- Applying the signature effect to every surface; protect a clear hierarchy and quiet reading areas.
-- Introducing a second visual metaphor, unrelated accent palette, or different portrait/illustration treatment.
+- Do not replace the signature construction with a generic gradient, shadow, card, or animation.
+- Do not introduce a competing palette, type system, or image treatment.
 
 ## AI implementation instruction
 
-Build the requested interface as a sibling of **AI Value Proposition**. First inspect every file under **Source of truth**. Reproduce the applicable unique component using the exact dependency, configuration, layer order, palette, and interaction described above; do not replace it with a generic gradient or approximation. Then translate the same typography, spacing, surfaces, imagery, controls, and responsive hierarchy into the new content. Use semantic HTML, keyboard-visible focus, reduced-motion fallbacks, and existing project primitives.
+Open the linked source files first. Reuse the applicable unique effect with its exact values and layer order, then extend the same typography, spacing, surfaces, imagery, controls, and responsive behavior into the requested UI. Keep the result accessible and production-ready.

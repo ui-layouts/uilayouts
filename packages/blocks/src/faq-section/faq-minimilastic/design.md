@@ -4,16 +4,20 @@
 
 ## Source of truth
 
-- `packages/blocks/src/faq-section/faq-minimilastic.tsx` — the canonical block source and the exact effect composition
-- `apps/ui-layout/components/ui/timeline-animation.tsx` — the scroll-triggered stagger primitive used to sequence the block
+**Repository:** [ui-layouts/uilayouts](https://github.com/ui-layouts/uilayouts)
+
+Use the links below; do not search for these paths in the consuming project.
+
+- [`packages/blocks/src/faq-section/faq-minimilastic.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/faq-section/faq-minimilastic.tsx) — the canonical block source and the exact effect composition
+- [`apps/ui-layout/components/ui/timeline-animation.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/apps/ui-layout/components/ui/timeline-animation.tsx) — the scroll-triggered stagger primitive used to sequence the block
 - `packages/blocks/assets` — a supporting module imported by the canonical block
-- `packages/shadcn/src/index.tsx` — the open-source workspace component barrel used by this block
+- [`packages/shadcn/src/index.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/packages/shadcn/src/index.tsx) — the open-source workspace component barrel used by this block
 
 ## Required libraries and primitives
 
 - **@repo/shadcn** (workspace) — an existing workspace design primitive; reuse it rather than replacing its behavior.
 - **lucide-react** (external) — provides the line-icon vocabulary used by controls and labels. Install with `pnpm add lucide-react`.
-- **@/components/ui/timeline-animation** (local) — the scroll-triggered stagger primitive used to sequence the block.
+- **@/components/ui/timeline-animation** (repository primitive) — the scroll-triggered stagger primitive used to sequence the block. Retrieve it from the linked repository source above; do not look for the alias in the consuming project.
 - **motion** (external) — provides the entrance, presence, drag, spring, and layout animation behavior. Install with `pnpm add motion`.
 
 ## Design thesis
@@ -26,7 +30,7 @@ Questions are medium/semibold and answers are relaxed body text; category labels
 
 ## Palette and contrast
 
-The implementation anchors its palette with `bg-blue-50`, `text-blue-800`, `border-slate-200`, `bg-blue-100`, `border-neutral-200`, `bg-white`, `text-neutral-950`, `text-slate-600`, `bg-blue-800`, `text-white`. Preserve their roles—canvas, surface, foreground, muted copy, accent and glow—rather than treating them as interchangeable swatches. Do not expand the palette with unrelated accents.
+Core palette: `bg-blue-50`, `text-blue-800`, `border-slate-200`, `bg-blue-100`, `bg-blue-800`. Keep the same canvas, text, border, and accent roles; do not add unrelated colors.
 
 ## Composition and rhythm
 
@@ -44,54 +48,20 @@ Use preview/product imagery when it clarifies answers; decorative scenery must r
 
 1. **Blue radial minimal FAQ.** Keep white accordion rows over a pale blue radial corner glow; active plus icons rotate 45/90 degrees, with blue-800 reserved for the decisive action.
    - **Use it for:** adding just enough energy to a minimal help section
-   - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
-
-2. **Layer discipline.** Separate atmosphere, content surface, and foreground controls into distinct layers. Decorative layers use pointer-events-none and sit below readable content; preserve clipping at the section boundary.
-   - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
-   - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
+   - **Implementation:** use the audited GitHub ranges below.
 
 <!-- source-audit:start -->
 ## Audited source implementation
 
-These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+These linked source ranges contain the block’s highest-signal visual decisions. Treat them as part of its identity and preserve their values, stacking order, and interaction state.
 
 ### 1. Radial background field
 
-**Location:** `packages/blocks/src/faq-section/faq-minimilastic.tsx:86-92`
-**Why it is core:** The gradient’s focal point, stops, and layer position establish the block’s backdrop.
-
-```tsx
-        className="absolute inset-0 z-0 h-full w-full"
-        style={{
-          background:
-            'radial-gradient(125% 125% at 50% 10%, #fff 40%, #55a0f7 100%)',
-        }}
-      /> */}
-      <div className="w-full max-w-3xl mx-auto px-4 relative">
-```
+[Open the exact implementation (lines 86–92)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/faq-section/faq-minimilastic.tsx#L86-L92) — The gradient’s focal point, stops, and layer position establish the block’s backdrop.
 
 ### 2. Translucent glass layer
 
-**Location:** `packages/blocks/src/faq-section/faq-minimilastic.tsx:104-118`
-**Why it is core:** Blur, transparency, border, and stacking work together as one glass treatment.
-
-```tsx
-              <TimelineAnimation
-                timelineRef={timelineRef}
-                animationNum={i + 1}
-                className="border border-slate-200 bg-blue-100 data-active:bg-blue-100 backdrop-blur-sm rounded-2xl overflow-hidden transition-all duration-500"
-              >
-                <AccordionHeader
-                  customIcon
-                  className="p-4 text-xl dark:bg-transparent bg-transparent data-active:bg-transparent text-blue-800 hover:text-blue-800 hover:bg-blue-50"
-                >
-                  {item.question}
-                  <span className="relative group-data-active:rotate-90 border border-neutral-200 bg-white text-neutral-950 p-2 -translate-x-1 rounded-xl">
-                    <Plus className="group-data-active:rotate-45 transition-all duration-300" />
-                  </span>
-                </AccordionHeader>
-                <AccordionPanel className="px-3 dark:bg-transparent bg-transparent data-active:bg-transparent">
-```
+[Open the exact implementation (lines 104–118)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/faq-section/faq-minimilastic.tsx#L104-L118) — Blur, transparency, border, and stacking work together as one glass treatment.
 <!-- source-audit:end -->
 
 ## Buttons
@@ -105,16 +75,13 @@ Rotate plus/chevron indicators and reveal answer height/opacity; preserve keyboa
 ## Rules for extending this design
 
 1. Carry the **Blue radial minimal FAQ** into at least one meaningful focal area; reproduce its layer recipe rather than substituting a generic gradient.
-2. Reuse the same accent-to-neutral ratio, image treatment, corner language, and density so adjacent sections read as one system.
-3. On small screens, preserve hierarchy and effect placement while removing overlap that could obscure content.
-4. Provide reduced-motion behavior and keyboard focus parity for every hover-driven reveal.
+2. Preserve the same responsive hierarchy and provide keyboard-visible focus and reduced-motion behavior.
 
 ## Do not
 
-- Listing raw utility classes as a substitute for design intent.
-- Applying the signature effect to every surface; protect a clear hierarchy and quiet reading areas.
-- Introducing a second visual metaphor, unrelated accent palette, or different portrait/illustration treatment.
+- Do not replace the signature construction with a generic gradient, shadow, card, or animation.
+- Do not introduce a competing palette, type system, or image treatment.
 
 ## AI implementation instruction
 
-Build the requested interface as a sibling of **Minimilastic**. First inspect every file under **Source of truth**. Reproduce the applicable unique component using the exact dependency, configuration, layer order, palette, and interaction described above; do not replace it with a generic gradient or approximation. Then translate the same typography, spacing, surfaces, imagery, controls, and responsive hierarchy into the new content. Use semantic HTML, keyboard-visible focus, reduced-motion fallbacks, and existing project primitives.
+Open the linked source files first. Reuse the applicable unique effect with its exact values and layer order, then extend the same typography, spacing, surfaces, imagery, controls, and responsive behavior into the requested UI. Keep the result accessible and production-ready.

@@ -4,15 +4,19 @@
 
 ## Source of truth
 
-- `packages/blocks/src/pricing-section/startup-plans.tsx` — the canonical block source and the exact effect composition
-- `apps/ui-layout/components/ui/timeline-animation.tsx` — the scroll-triggered stagger primitive used to sequence the block
-- `packages/shadcn/src/index.tsx` — the open-source workspace component barrel used by this block
+**Repository:** [ui-layouts/uilayouts](https://github.com/ui-layouts/uilayouts)
+
+Use the links below; do not search for these paths in the consuming project.
+
+- [`packages/blocks/src/pricing-section/startup-plans.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/pricing-section/startup-plans.tsx) — the canonical block source and the exact effect composition
+- [`apps/ui-layout/components/ui/timeline-animation.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/apps/ui-layout/components/ui/timeline-animation.tsx) — the scroll-triggered stagger primitive used to sequence the block
+- [`packages/shadcn/src/index.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/packages/shadcn/src/index.tsx) — the open-source workspace component barrel used by this block
 
 ## Required libraries and primitives
 
 - **lucide-react** (external) — provides the line-icon vocabulary used by controls and labels. Install with `pnpm add lucide-react`.
 - **@repo/shadcn** (workspace) — an existing workspace design primitive; reuse it rather than replacing its behavior.
-- **@/components/ui/timeline-animation** (local) — the scroll-triggered stagger primitive used to sequence the block.
+- **@/components/ui/timeline-animation** (repository primitive) — the scroll-triggered stagger primitive used to sequence the block. Retrieve it from the linked repository source above; do not look for the alias in the consuming project.
 - **motion** (external) — provides the entrance, presence, drag, spring, and layout animation behavior. Install with `pnpm add motion`.
 
 ## Design thesis
@@ -25,7 +29,7 @@ Prices are large and tabular-looking; plan names are medium weight, descriptions
 
 ## Palette and contrast
 
-The implementation anchors its palette with `bg-neutral-100/50`, `text-neutral-500`, `bg-white`, `border-neutral-200`, `bg-blue-500/40`, `bg-blue-500/50`, `text-neutral-400`, `bg-neutral-200`, `text-neutral-600`, `border-neutral-100`. Preserve their roles—canvas, surface, foreground, muted copy, accent and glow—rather than treating them as interchangeable swatches. Do not expand the palette with unrelated accents.
+Core palette: `bg-neutral-100/50`, `text-neutral-500`, `bg-white`, `border-neutral-200`, `bg-blue-500/40`, `bg-blue-500/50`. Keep the same canvas, text, border, and accent roles; do not add unrelated colors.
 
 ## Composition and rhythm
 
@@ -43,63 +47,24 @@ Use tiny product icons or abstract glow only; never distract from price, billing
 
 1. **Industrial startup pricing.** Use neutral-950 cards with orange selection accents and blue blurred atmosphere; construct CTA wells with opposing inset dark/light shadows and compress to 98% on press.
    - **Use it for:** making plans feel like controls on a high-end device
-   - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
-
-2. **Layer discipline.** Separate atmosphere, content surface, and foreground controls into distinct layers. Decorative layers use pointer-events-none and sit below readable content; preserve clipping at the section boundary.
-   - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
-   - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
+   - **Implementation:** use the audited GitHub ranges below.
 
 <!-- source-audit:start -->
 ## Audited source implementation
 
-These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+These linked source ranges contain the block’s highest-signal visual decisions. Treat them as part of its identity and preserve their values, stacking order, and interaction state.
 
 ### 1. Depth and glow treatment
 
-**Location:** `packages/blocks/src/pricing-section/startup-plans.tsx:38-46`
-**Why it is core:** These exact shadows and blur layers distinguish foreground from atmosphere.
-
-```tsx
-            <TimelineAnimation
-              animationNum={3}
-              timelineRef={timelineRef}
-              className="bg-white rounded-xl p-8 border border-neutral-200 relative h-fit overflow-hidden group"
-            >
-              <div className="absolute top-0 right-0 size-32 bg-blue-500/40 blur-3xl -mr-16 -mt-16 pointer-events-none group-hover:bg-blue-500/50 transition-colors" />
-              <div className="flex justify-between items-start mb-6">
-                <span className="text-xs font-semibold text-neutral-400 uppercase tracking-widest">
-                  Premium Plan
-```
+[Open the exact implementation (lines 38–46)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/pricing-section/startup-plans.tsx#L38-L46) — These exact shadows and blur layers distinguish foreground from atmosphere.
 
 ### 2. Custom elevation recipe
 
-**Location:** `packages/blocks/src/pricing-section/startup-plans.tsx:83-89`
-**Why it is core:** The nonstandard shadow values create the block’s characteristic depth.
-
-```tsx
-              </div>
-              <TimelineAnimation animationNum={4} timelineRef={timelineRef}>
-                <Button
-                  className="w-full py-8 rounded-2xl bg-black text-white gap-2 active:scale-98 text-lg transition-transform shadow-[inset_3px_4px_5px_0px_rgba(183,183,183,0.5),inset_-2px_-2px_5px_0px_rgba(255,255,255,0.5)]"
-                  size="lg"
-                >
-                  Get started <ChevronRight className="size-5" />
-```
+[Open the exact implementation (lines 83–89)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/pricing-section/startup-plans.tsx#L83-L89) — The nonstandard shadow values create the block’s characteristic depth.
 
 ### 3. Custom elevation recipe
 
-**Location:** `packages/blocks/src/pricing-section/startup-plans.tsx:147-153`
-**Why it is core:** The nonstandard shadow values create the block’s characteristic depth.
-
-```tsx
-                  ))}
-                </div>
-                <TimelineAnimation animationNum={6} timelineRef={timelineRef}>
-                  <Button className="w-full py-4 rounded-2xl active:scale-98 bg-orange-500 hover:bg-orange-500 border-none text-lg shadow-[inset_3px_4px_5px_0px_rgba(0,0,0,0.5),inset_-2px_-2px_5px_0px_rgba(255,255,255,0.5)]">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-```
+[Open the exact implementation (lines 147–153)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/pricing-section/startup-plans.tsx#L147-L153) — The nonstandard shadow values create the block’s characteristic depth.
 <!-- source-audit:end -->
 
 ## Buttons
@@ -113,16 +78,13 @@ Animate numeric billing changes and press states; avoid gratuitous card movement
 ## Rules for extending this design
 
 1. Carry the **Industrial startup pricing** into at least one meaningful focal area; reproduce its layer recipe rather than substituting a generic gradient.
-2. Reuse the same accent-to-neutral ratio, image treatment, corner language, and density so adjacent sections read as one system.
-3. On small screens, preserve hierarchy and effect placement while removing overlap that could obscure content.
-4. Provide reduced-motion behavior and keyboard focus parity for every hover-driven reveal.
+2. Preserve the same responsive hierarchy and provide keyboard-visible focus and reduced-motion behavior.
 
 ## Do not
 
-- Listing raw utility classes as a substitute for design intent.
-- Applying the signature effect to every surface; protect a clear hierarchy and quiet reading areas.
-- Introducing a second visual metaphor, unrelated accent palette, or different portrait/illustration treatment.
+- Do not replace the signature construction with a generic gradient, shadow, card, or animation.
+- Do not introduce a competing palette, type system, or image treatment.
 
 ## AI implementation instruction
 
-Build the requested interface as a sibling of **Startup Plans**. First inspect every file under **Source of truth**. Reproduce the applicable unique component using the exact dependency, configuration, layer order, palette, and interaction described above; do not replace it with a generic gradient or approximation. Then translate the same typography, spacing, surfaces, imagery, controls, and responsive hierarchy into the new content. Use semantic HTML, keyboard-visible focus, reduced-motion fallbacks, and existing project primitives.
+Open the linked source files first. Reuse the applicable unique effect with its exact values and layer order, then extend the same typography, spacing, surfaces, imagery, controls, and responsive behavior into the requested UI. Keep the result accessible and production-ready.

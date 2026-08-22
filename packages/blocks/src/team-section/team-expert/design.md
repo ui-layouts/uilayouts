@@ -4,12 +4,16 @@
 
 ## Source of truth
 
-- `packages/blocks/src/team-section/team-expert.tsx` — the canonical block source and the exact effect composition
-- `apps/ui-layout/components/ui/timeline-animation.tsx` — the scroll-triggered stagger primitive used to sequence the block
+**Repository:** [ui-layouts/uilayouts](https://github.com/ui-layouts/uilayouts)
+
+Use the links below; do not search for these paths in the consuming project.
+
+- [`packages/blocks/src/team-section/team-expert.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/team-section/team-expert.tsx) — the canonical block source and the exact effect composition
+- [`apps/ui-layout/components/ui/timeline-animation.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/apps/ui-layout/components/ui/timeline-animation.tsx) — the scroll-triggered stagger primitive used to sequence the block
 
 ## Required libraries and primitives
 
-- **@/components/ui/timeline-animation** (local) — the scroll-triggered stagger primitive used to sequence the block.
+- **@/components/ui/timeline-animation** (repository primitive) — the scroll-triggered stagger primitive used to sequence the block. Retrieve it from the linked repository source above; do not look for the alias in the consuming project.
 - **lucide-react** (external) — provides the line-icon vocabulary used by controls and labels. Install with `pnpm add lucide-react`.
 - **motion** (external) — provides the entrance, presence, drag, spring, and layout animation behavior. Install with `pnpm add motion`.
 
@@ -23,7 +27,7 @@ Use a strong team heading, readable names, muted roles, and 10–12px metadata o
 
 ## Palette and contrast
 
-The implementation anchors its palette with `bg-white`, `border-neutral-100`, `bg-orange-500`, `text-orange-50`, `text-neutral-800`, `text-neutral-400`, `bg-neutral-50`, `text-neutral-500`, `bg-orange-100`, `border-orange-200`. Preserve their roles—canvas, surface, foreground, muted copy, accent and glow—rather than treating them as interchangeable swatches. Do not expand the palette with unrelated accents.
+Core palette: `bg-white`, `border-neutral-100`, `bg-orange-500`, `text-orange-50`, `bg-orange-100`, `border-orange-200`. Keep the same canvas, text, border, and accent roles; do not add unrelated colors.
 
 ## Composition and rhythm
 
@@ -41,65 +45,20 @@ Portraits are the visual core. Preserve deliberate grayscale, crop, overlay, and
 
 1. **Orange expertise cards.** Use orange #FF6B00 for badges, icon blocks and emphasis; allow portraits/icons to scale slightly while cards gain orange-tinted 2xl elevation and arrows travel right.
    - **Use it for:** making specialists feel energetic and directly accessible
-   - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
-
-2. **Layer discipline.** Separate atmosphere, content surface, and foreground controls into distinct layers. Decorative layers use pointer-events-none and sit below readable content; preserve clipping at the section boundary.
-   - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
-   - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
+   - **Implementation:** use the audited GitHub ranges below.
 
 <!-- source-audit:start -->
 ## Audited source implementation
 
-These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+These linked source ranges contain the block’s highest-signal visual decisions. Treat them as part of its identity and preserve their values, stacking order, and interaction state.
 
 ### 1. Depth and glow treatment
 
-**Location:** `packages/blocks/src/team-section/team-expert.tsx:46-54`
-**Why it is core:** These exact shadows and blur layers distinguish foreground from atmosphere.
-
-```tsx
-  <TimelineAnimation
-    timelineRef={timelineRef}
-    animationNum={animationNum}
-    className="bg-white p-8 rounded-2xl shadow-sm border border-neutral-100 flex flex-col items-center text-center hover:shadow-md transition-shadow group cursor-default"
-  >
-    <div className="w-12 h-12 bg-orange-500 rounded-2xl flex items-center justify-center text-orange-50 group-hover:scale-110 transition-transform">
-      <Boxes />
-    </div>
-    <h4 className="text-lg font-spaceGrotesk font-bold text-neutral-800 my-1">
-```
+[Open the exact implementation (lines 46–54)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/team-section/team-expert.tsx#L46-L54) — These exact shadows and blur layers distinguish foreground from atmosphere.
 
 ### 2. Depth and glow treatment
 
-**Location:** `packages/blocks/src/team-section/team-expert.tsx:92-115`
-**Why it is core:** These exact shadows and blur layers distinguish foreground from atmosphere.
-
-```tsx
-              key={member.id}
-              timelineRef={timelineRef}
-              animationNum={2 + i}
-              className="group p-6 rounded-3xl transition-all duration-300 bg-orange-100 border border-orange-200 hover:bg-[#FF6B00] hover:shadow-2xl hover:shadow-orange-200"
-            >
-              <div className="aspect-square rounded-2xl overflow-hidden mb-6 border-4 border-transparent group-hover:border-white/20 transition-all">
-                <img
-                  src={member.image}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  alt={member.name}
-                />
-              </div>
-              <h3 className="font-spaceGrotesk text-2xl font-semibold mb-2 text-neutral-900 group-hover:text-white transition-colors">
-                {member.name}
-              </h3>
-              <p className="text-sm mb-6 text-neutral-500 group-hover:text-white/80 transition-colors">
-                {member.role}
-              </p>
-              <button className="font-spaceGrotesk text-sm font-semibold flex items-center gap-2 text-[#FF6B00] group-hover:text-white transition-colors">
-                READ MORE
-                <span className="group-hover:translate-x-1 transition-transform">
-                  →
-                </span>
-              </button>
-```
+[Open the exact implementation (lines 92–115)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/team-section/team-expert.tsx#L92-L115) — These exact shadows and blur layers distinguish foreground from atmosphere.
 <!-- source-audit:end -->
 
 ## Buttons
@@ -113,16 +72,13 @@ Use group hover to connect portrait, name and action; also expose equivalent key
 ## Rules for extending this design
 
 1. Carry the **Orange expertise cards** into at least one meaningful focal area; reproduce its layer recipe rather than substituting a generic gradient.
-2. Reuse the same accent-to-neutral ratio, image treatment, corner language, and density so adjacent sections read as one system.
-3. On small screens, preserve hierarchy and effect placement while removing overlap that could obscure content.
-4. Provide reduced-motion behavior and keyboard focus parity for every hover-driven reveal.
+2. Preserve the same responsive hierarchy and provide keyboard-visible focus and reduced-motion behavior.
 
 ## Do not
 
-- Listing raw utility classes as a substitute for design intent.
-- Applying the signature effect to every surface; protect a clear hierarchy and quiet reading areas.
-- Introducing a second visual metaphor, unrelated accent palette, or different portrait/illustration treatment.
+- Do not replace the signature construction with a generic gradient, shadow, card, or animation.
+- Do not introduce a competing palette, type system, or image treatment.
 
 ## AI implementation instruction
 
-Build the requested interface as a sibling of **Expert**. First inspect every file under **Source of truth**. Reproduce the applicable unique component using the exact dependency, configuration, layer order, palette, and interaction described above; do not replace it with a generic gradient or approximation. Then translate the same typography, spacing, surfaces, imagery, controls, and responsive hierarchy into the new content. Use semantic HTML, keyboard-visible focus, reduced-motion fallbacks, and existing project primitives.
+Open the linked source files first. Reuse the applicable unique effect with its exact values and layer order, then extend the same typography, spacing, surfaces, imagery, controls, and responsive behavior into the requested UI. Keep the result accessible and production-ready.

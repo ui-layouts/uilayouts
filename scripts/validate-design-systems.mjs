@@ -34,30 +34,37 @@ const incomplete = documents.flatMap(({ id, path }) => {
   if (!existsSync(path)) return [];
   const markdown = readFileSync(path, 'utf8');
   const absent = requiredSections.filter((section) => !markdown.includes(section));
-  const sourceReferences = [...markdown.matchAll(/^- `([^`]+\.(?:ts|tsx))`/gm)].map(
-    (match) => match[1]
-  );
-  const brokenSources = sourceReferences.filter((source) => !existsSync(source));
-  const auditedLocations = [
-    ...markdown.matchAll(/\*\*Location:\*\* `([^`]+\.(?:ts|tsx):\d+-\d+)`/g),
+  const sourceReferences = [
+    ...markdown.matchAll(
+      /^- \[`([^`]+\.(?:ts|tsx))`\]\(https:\/\/github\.com\/ui-layouts\/uilayouts\/blob\/main\/[^)]+\)/gm
+    ),
   ].map((match) => match[1]);
-  const hasImplementationCode = /## Audited source implementation[\s\S]+```tsx[\s\S]+```/.test(
-    markdown
+  const brokenSources = sourceReferences.filter((source) => !existsSync(source));
+  const hasRepositoryLink = markdown.includes(
+    '[ui-layouts/uilayouts](https://github.com/ui-layouts/uilayouts)'
   );
+  const hasLocalOnlySourceReference = /^- `[^`]+\.(?:ts|tsx)`/m.test(markdown);
+  const auditedLocations = [
+    ...markdown.matchAll(
+      /\[Open the exact implementation \(lines \d+–\d+\)\]\(https:\/\/github\.com\/ui-layouts\/uilayouts\/blob\/main\/[^)#]+#L\d+-L\d+\)/g
+    ),
+  ];
   return !markdown.trim() ||
     absent.length ||
     !sourceReferences.length ||
     brokenSources.length ||
-    !auditedLocations.length ||
-    !hasImplementationCode
+    !hasRepositoryLink ||
+    hasLocalOnlySourceReference ||
+    !auditedLocations.length
     ? [
         {
           id,
           empty: !markdown.trim(),
           absent,
           brokenSources,
+          hasRepositoryLink,
+          hasLocalOnlySourceReference,
           auditedLocations: auditedLocations.length,
-          hasImplementationCode,
         },
       ]
     : [];

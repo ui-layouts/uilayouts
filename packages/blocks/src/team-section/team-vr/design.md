@@ -4,12 +4,16 @@
 
 ## Source of truth
 
-- `packages/blocks/src/team-section/team-vr.tsx` — the canonical block source and the exact effect composition
-- `apps/ui-layout/components/ui/timeline-animation.tsx` — the scroll-triggered stagger primitive used to sequence the block
+**Repository:** [ui-layouts/uilayouts](https://github.com/ui-layouts/uilayouts)
+
+Use the links below; do not search for these paths in the consuming project.
+
+- [`packages/blocks/src/team-section/team-vr.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/team-section/team-vr.tsx) — the canonical block source and the exact effect composition
+- [`apps/ui-layout/components/ui/timeline-animation.tsx`](https://github.com/ui-layouts/uilayouts/blob/main/apps/ui-layout/components/ui/timeline-animation.tsx) — the scroll-triggered stagger primitive used to sequence the block
 
 ## Required libraries and primitives
 
-- **@/components/ui/timeline-animation** (local) — the scroll-triggered stagger primitive used to sequence the block.
+- **@/components/ui/timeline-animation** (repository primitive) — the scroll-triggered stagger primitive used to sequence the block. Retrieve it from the linked repository source above; do not look for the alias in the consuming project.
 - **lucide-react** (external) — provides the line-icon vocabulary used by controls and labels. Install with `pnpm add lucide-react`.
 - **motion** (external) — provides the entrance, presence, drag, spring, and layout animation behavior. Install with `pnpm add motion`.
 
@@ -23,7 +27,7 @@ Use a strong team heading, readable names, muted roles, and 10–12px metadata o
 
 ## Palette and contrast
 
-The implementation anchors its palette with `bg-neutral-950`, `bg-[linear-gradient(to_right,#292929_1px,transparent_1px),linear-gradient(to_bottom,#292929_1px,transparent_1px)]`, `bg-[radial-gradient(125%_125%_at_50%_10%,rgba(255,255,255,0)_40%,#ee33a6_100%)]`, `text-neutral-500`, `text-white`, `shadow-[0_0_50px_rgba(255,0,128,0.3)]`, `from-[#FF0080]`, `to-[#FF8C00]`, `text-neutral-300`. Preserve their roles—canvas, surface, foreground, muted copy, accent and glow—rather than treating them as interchangeable swatches. Do not expand the palette with unrelated accents.
+Core palette: `bg-neutral-950`, `bg-[linear-gradient(to_right,#292929_1px,transparent_1px),linear-gradient(to_bottom,#292929_1px,transparent_1px)]`, `bg-[radial-gradient(125%_125%_at_50%_10%,rgba(255,255,255,0)_40%,#ee33a6_100%)]`, `text-neutral-500`, `shadow-[0_0_50px_rgba(255,0,128,0.3)]`, `from-[#FF0080]`, `to-[#FF8C00]`. Keep the same canvas, text, border, and accent roles; do not add unrelated colors.
 
 ## Composition and rhythm
 
@@ -41,67 +45,24 @@ Portraits are the visual core. Preserve deliberate grayscale, crop, overlay, and
 
 1. **Pink-orange VR horizon.** Draw a dark technical grid, fade it through a top ellipse mask, and terminate it in a hot-pink radial horizon; reveal color portraits and a 50px pink glow while gradient labels shift from #FF0080 to #FF8C00.
    - **Use it for:** creating a glowing virtual-world team showcase
-   - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
-
-2. **Layer discipline.** Separate atmosphere, content surface, and foreground controls into distinct layers. Decorative layers use pointer-events-none and sit below readable content; preserve clipping at the section boundary.
-   - **Use it for:** all new sections that reuse the signature treatment without obscuring text or controls
-   - **Exact implementation:** Open the canonical block file above and search for the effect name, gradient/color values, or library component described in this recipe. Preserve the same layer order and configuration.
+   - **Implementation:** use the audited GitHub ranges below.
 
 <!-- source-audit:start -->
 ## Audited source implementation
 
-These are the highest-signal implementation fragments found by reviewing the canonical block. They are part of this design’s identity—not optional examples. When extending the block, reuse the relevant construction and preserve its values, stacking order, and interaction state.
+These linked source ranges contain the block’s highest-signal visual decisions. Treat them as part of its identity and preserve their values, stacking order, and interaction state.
 
 ### 1. Radial background field
 
-**Location:** `packages/blocks/src/team-section/team-vr.tsx:42-49`
-**Why it is core:** The gradient’s focal point, stops, and layer position establish the block’s backdrop.
-
-```tsx
-      className="bg-neutral-950 min-h-screen py-24 px-6 overflow-hidden"
-      ref={timelineRef}
-    >
-      <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#292929_1px,transparent_1px),linear-gradient(to_bottom,#292929_1px,transparent_1px)] bg-size-[6rem_4rem] mask-[radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)] pointer-events-none"></div>
-      <div className="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(125%_125%_at_50%_10%,rgba(255,255,255,0)_40%,#ee33a6_100%)] pointer-events-none"></div>
-      <div className="max-w-7xl mx-auto text-center relative z-10">
-        <TimelineAnimation
-          timelineRef={timelineRef}
-```
+[Open the exact implementation (lines 42–49)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/team-section/team-vr.tsx#L42-L49) — The gradient’s focal point, stops, and layer position establish the block’s backdrop.
 
 ### 2. Custom elevation recipe
 
-**Location:** `packages/blocks/src/team-section/team-vr.tsx:70-78`
-**Why it is core:** The nonstandard shadow values create the block’s characteristic depth.
-
-```tsx
-              animationNum={3 + i}
-              className="flex flex-col items-center group cursor-pointer"
-            >
-              <div className="relative w-full aspect-square mb-8 rounded-2xl overflow-hidden transition-all duration-700 ease-out group-hover:shadow-[0_0_50px_rgba(255,0,128,0.3)]">
-                <div className="absolute inset-0 h-full rounded-2xl px-10  flex justify-center flex-col items-center bg-linear-to-tr from-[#FF0080] to-[#FF8C00] opacity-0 group-hover:opacity-90 transition-opacity duration-500 z-10">
-                  <Quote className="fill-white rotate-180 mb-5" />{' '}
-                  <span>{member.quote}</span>
-                </div>
-                <img
-```
+[Open the exact implementation (lines 70–78)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/team-section/team-vr.tsx#L70-L78) — The nonstandard shadow values create the block’s characteristic depth.
 
 ### 3. Source-specific visual behavior
 
-**Location:** `packages/blocks/src/team-section/team-vr.tsx:82-91`
-**Why it is core:** This source fragment contains a high-signal visual or interaction decision unique to the block.
-
-```tsx
-                />
-              </div>
-
-              <h3 className="font-spaceGrotesk text-white text-2xl font-bold mb-1 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-linear-to-r group-hover:from-[#FF0080] group-hover:to-[#FF8C00] transition-all duration-300">
-                {member.name}
-              </h3>
-              <p className="text-neutral-500 font-medium uppercase tracking-widest text-[10px] group-hover:text-neutral-300 transition-colors">
-                {member.role}
-              </p>
-            </TimelineAnimation>
-```
+[Open the exact implementation (lines 82–91)](https://github.com/ui-layouts/uilayouts/blob/main/packages/blocks/src/team-section/team-vr.tsx#L82-L91) — This source fragment contains a high-signal visual or interaction decision unique to the block.
 <!-- source-audit:end -->
 
 ## Buttons
@@ -115,16 +76,13 @@ Use group hover to connect portrait, name and action; also expose equivalent key
 ## Rules for extending this design
 
 1. Carry the **Pink-orange VR horizon** into at least one meaningful focal area; reproduce its layer recipe rather than substituting a generic gradient.
-2. Reuse the same accent-to-neutral ratio, image treatment, corner language, and density so adjacent sections read as one system.
-3. On small screens, preserve hierarchy and effect placement while removing overlap that could obscure content.
-4. Provide reduced-motion behavior and keyboard focus parity for every hover-driven reveal.
+2. Preserve the same responsive hierarchy and provide keyboard-visible focus and reduced-motion behavior.
 
 ## Do not
 
-- Listing raw utility classes as a substitute for design intent.
-- Applying the signature effect to every surface; protect a clear hierarchy and quiet reading areas.
-- Introducing a second visual metaphor, unrelated accent palette, or different portrait/illustration treatment.
+- Do not replace the signature construction with a generic gradient, shadow, card, or animation.
+- Do not introduce a competing palette, type system, or image treatment.
 
 ## AI implementation instruction
 
-Build the requested interface as a sibling of **VR**. First inspect every file under **Source of truth**. Reproduce the applicable unique component using the exact dependency, configuration, layer order, palette, and interaction described above; do not replace it with a generic gradient or approximation. Then translate the same typography, spacing, surfaces, imagery, controls, and responsive hierarchy into the new content. Use semantic HTML, keyboard-visible focus, reduced-motion fallbacks, and existing project primitives.
+Open the linked source files first. Reuse the applicable unique effect with its exact values and layer order, then extend the same typography, spacing, surfaces, imagery, controls, and responsive behavior into the requested UI. Keep the result accessible and production-ready.
