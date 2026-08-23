@@ -1,14 +1,12 @@
 'use client';
-import { SearchDialog } from '@/components/website/searchbar';
-import { cn } from '@/lib/utils';
 import { Blocks, Component } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import React from 'react';
+import { SearchDialog } from '@/components/website/searchbar';
+import { cn } from '@/lib/utils';
 import MobileHeader from '../mobile-header';
 import { ThemeCustomizer } from '../theme-customizer';
 import ThemeSwitch from '../theme-switch';
-import { PlasticButton } from '../ui/plastic-button';
 import HomeGitHubButton from './github-repo-button';
 
 function HomeHeader({
@@ -46,6 +44,7 @@ function HomeHeader({
               viewBox='0 0 288 63'
               fill='none'
               xmlns='http://www.w3.org/2000/svg'
+              aria-hidden='true'
             >
               {' '}
               <path d='M29.8927 13.0934L42.3657 17.3582C43.5794 17.7732 44.395 18.9141 44.395 20.1968V45.5696C44.395 46.5029 43.9759 47.3196 43.1376 48.0196C42.3552 48.6729 41.4052 48.9996 40.2875 48.9996H20.0848C18.7435 48.9996 17.5979 48.6029 16.6478 47.8096C15.6978 47.0163 15.2227 46.0829 15.2227 45.0096V41.5096C15.2227 40.5296 14.9433 39.6196 14.3844 38.7796C13.8256 37.9396 13.0432 37.2862 12.0372 36.8196C11.0872 36.3062 10.0254 36.0262 8.85176 35.9796H5.33096C4.04559 35.9796 2.92788 35.6062 1.97782 34.8595C1.02776 34.0662 0.552734 33.1095 0.552734 31.9895V14.5914C0.552734 8.74425 4.76702 3.74833 10.5305 2.76298L15.3818 1.93359L15.3066 34.7195C15.3066 35.0462 15.4183 35.3262 15.6419 35.5595C15.9213 35.7929 16.2566 35.9095 16.6478 35.9095H28.4676C28.8588 35.9095 29.1941 35.7929 29.4736 35.5595C29.753 35.3262 29.8927 35.0462 29.8927 34.7195V13.0934Z' />{' '}
@@ -62,35 +61,28 @@ function HomeHeader({
           <a
             href='/components'
             className={cn(
-              'gap-1 group text-primary font-semibold items-center p-2 relative rounded-lg flex',
+              'gap-1 group text-foreground font-semibold items-center p-2 relative rounded-lg flex',
               pathName === '/components' && 'bg-muted'
             )}
           >
-            <Component
-              className={cn(
-                'w-6 h-6 stroke-primary',
-                pathName === '/components' && 'stroke-background'
-              )}
-            />
+            <Component className={cn('w-6 h-6 stroke-current')} />
             Components
           </a>
           <a
             href='/blocks'
             className={cn(
-              'flex gap-1 group text-primary font-semibold items-center p-2 relative rounded-lg',
+              'flex gap-1 group text-foreground font-semibold items-center p-2 relative rounded-lg',
               pathName === '/blocks' && 'bg-muted'
             )}
           >
             <span className='absolute italic -top-1 -right-4 text-xs text-blue-500'>(New)</span>
-            <Blocks
-              className={cn('w-6 h-6 stroke-primary', pathName === '/blocks' && 'stroke-primary')}
-            />
+            <Blocks className='w-6 h-6 stroke-current' />
             Blocks
           </a>
           <a
             href='/mcp'
             className={cn(
-              'flex gap-1 group transition-all font-semibold items-center p-2  pr-4 relative rounded-lg text-primary',
+              'flex gap-1 group transition-all font-semibold items-center p-2 pr-4 relative rounded-lg text-foreground',
               pathName === '/mcp' && 'bg-background'
             )}
           >
@@ -104,9 +96,10 @@ function HomeHeader({
               height='24'
               fill='none'
               strokeWidth='1.2'
-              className={cn('w-6 h-6 stroke-primary', pathName === '/mcp' && 'stroke-background')}
+              className='w-6 h-6 stroke-current'
               strokeLinecap='round'
               strokeLinejoin='round'
+              aria-hidden='true'
             >
               <path d='M3.49994 11.7501L11.6717 3.57855C12.7762 2.47398 14.5672 2.47398 15.6717 3.57855C16.7762 4.68312 16.7762 6.47398 15.6717 7.57855M15.6717 7.57855L9.49994 13.7501M15.6717 7.57855C16.7762 6.47398 18.5672 6.47398 19.6717 7.57855C20.7762 8.68312 20.7762 10.474 19.6717 11.5785L12.7072 18.543C12.3167 18.9335 12.3167 19.5667 12.7072 19.9572L13.9999 21.2499' />
               <path d='M17.4999 9.74921L11.3282 15.921C10.2237 17.0255 8.43272 17.0255 7.32822 15.921C6.22373 14.8164 6.22373 13.0255 7.32822 11.921L13.4999 5.74939' />
@@ -129,13 +122,15 @@ function HomeHeader({
             target='_blank'
             className='bg-background/20 border border-background/20 w-12 rounded-md h-11 shrink-0 grid place-content-center'
             rel='noreferrer noopener'
+            aria-label='Join UI Layouts on Discord'
           >
             <svg
               viewBox='0 0 256 199'
               width='1em'
               height='1em'
               xmlns='http://www.w3.org/2000/svg'
-              className='w-6 h-6 fill-primary'
+              className='w-6 h-6 fill-foreground'
+              aria-hidden='true'
             >
               <path d='M216.856 16.597A208.502 208.502 0 0 0 164.042 0c-2.275 4.113-4.933 9.645-6.766 14.046-19.692-2.961-39.203-2.961-58.533 0-1.832-4.4-4.55-9.933-6.846-14.046a207.809 207.809 0 0 0-52.855 16.638C5.618 67.147-3.443 116.4 1.087 164.956c22.169 16.555 43.653 26.612 64.775 33.193A161.094 161.094 0 0 0 79.735 175.3a136.413 136.413 0 0 1-21.846-10.632 108.636 108.636 0 0 0 5.356-4.237c42.122 19.702 87.89 19.702 129.51 0a131.66 131.66 0 0 0 5.355 4.237 136.07 136.07 0 0 1-21.886 10.653c4.006 8.02 8.638 15.67 13.873 22.848 21.142-6.58 42.646-16.637 64.815-33.213 5.316-56.288-9.08-105.09-38.056-148.36ZM85.474 135.095c-12.645 0-23.015-11.805-23.015-26.18s10.149-26.2 23.015-26.2c12.867 0 23.236 11.804 23.015 26.2.02 14.375-10.148 26.18-23.015 26.18Zm85.051 0c-12.645 0-23.014-11.805-23.014-26.18s10.148-26.2 23.014-26.2c12.867 0 23.236 11.804 23.015 26.2 0 14.375-10.148 26.18-23.015 26.18Z' />
             </svg>
