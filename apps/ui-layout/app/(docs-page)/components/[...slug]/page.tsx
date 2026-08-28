@@ -135,8 +135,8 @@ export default async function DocPage(props: { params: Promise<{ slug?: string[]
             </article>
             <Content />
             <ComponentPagination doc={doc} />
+            <Footer />
           </section>
-          <Footer />
           <GapPattern className='2xl:h-full lg:h-full h-full lg:block hidden 2xl:w-10 lg:w-7 w-5 border-x border-y-0 absolute -right-8 top-0' />
         </div>
         <TableOfContents toc={doc.toc} />
