@@ -1,7 +1,5 @@
 'use client';
 import { type Colors, Liquid } from '@/components/ui/liquid-gradient';
-import { Star } from 'lucide-react';
-import { Github } from '@repo/ui';
 import type React from 'react';
 import { useState } from 'react';
 
