@@ -36,3 +36,7 @@ yarn-error.log*
 # Misc
 .DS_Store
 *.pem
+
+# Downloaded Apple reference assets (not covered by the MIT license)
+/apps/ui-layout/public/iphone-duo/*
+!/apps/ui-layout/public/iphone-duo/NOTICE.txt

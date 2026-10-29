@@ -1,0 +1,35 @@
+MIT License
+
+Copyright (c) 2026 jadon7
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+Adapted from https://github.com/chuspeeism/iphone-duo
+
+
+
+The iPhone Duo model, textures, wallpapers, and Launcher screenshots belong to Apple and/or their respective rights holders. They are excluded from this repository and from its MIT license. The asset preparation script downloads them from their original Apple URLs for local use; it does not grant rights to these assets.
+
+- [iPhone Duo product page](https://www.apple.com/iphone-duo/)
+- [Original Star White USDZ model](https://www.apple.com/105/media/us/iphone-duo/2026/9305e4b9-72d9-4c05-9381-b572adadd5e5/ar/iPhone_Duo_e-sim_Star-White_Variant.usdz)
+- [Apple HIG: Designing for iPhone Duo](https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo)
+- [Apple website terms](https://www.apple.com/legal/internet-services/terms/site.html)
+
+This is an independent animation study, not an Apple product or an Apple-endorsed project. iPhone and Apple are trademarks of Apple Inc.

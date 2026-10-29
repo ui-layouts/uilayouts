@@ -4,6 +4,35 @@
   "homepage": "https://www.ui-layouts.com",
   "items": [
     {
+      "name": "iphone-duo",
+      "type": "registry:component",
+      "title": "iPhone Duo",
+      "description": "Interactive folding iPhone Duo with projected screens and progressive blur. Prepare Apple reference assets separately; see the component documentation.",
+      "dependencies": [
+        "three@0.186.0"
+      ],
+      "devDependencies": [
+        "@types/three@0.183.1"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/iphone-duo.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "./public/iphone-duo/NOTICE.txt",
+          "type": "registry:file",
+          "target": "public/iphone-duo/NOTICE.txt"
+        },
+        {
+          "path": "./scripts/prepare-iphone-duo-assets.py",
+          "type": "registry:file",
+          "target": "scripts/prepare-iphone-duo-assets.py"
+        }
+      ]
+    },
+    {
       "name": "btn-bg-shine",
       "type": "registry:component",
       "devDependencies": [],

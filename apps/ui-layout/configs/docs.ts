@@ -4,6 +4,14 @@ import type { DocsCategoryKey, DocsFileRef, DocsNavigationCategory } from '../ty
 
 export const DocsNavigationCategories: DocsNavigationCategory[] = [
   {
+    href: '/components/iphone-duo',
+    name: 'iPhone Duo',
+    key: DOCS_CATEGORY_KEY['iphone-duo'],
+    group: DOCS_CATEGORY_GROUP.Visual3D,
+    new: true,
+    tags: ['iphone', 'foldable', 'threejs', '3d', 'device', 'mockup'],
+  },
+  {
     href: '/components/mac-genie',
     name: 'Mac-Genie',
     key: DOCS_CATEGORY_KEY['mac-genie'],
@@ -1029,6 +1037,22 @@ export type ComponentMeta = {
 };
 
 export const AllComponents: IAllComponents[] = [
+  {
+    category: DOCS_CATEGORY_KEY['iphone-duo'],
+    componentName: COMPONENT_KEYS.IPHONE_DUO_DEMO,
+    componentSrc: React.lazy(() => import('@/registry/components/iphone-duo/iphone-duo-demo')),
+    title: 'iPhone Duo',
+    href: '/components/iphone-duo',
+    slug: 'iphone-duo',
+    description: 'A folding 3D iPhone with projected screen content and progressive blur.',
+    filesrc: require('../registry/components/iphone-duo/iphone-duo-demo.tsx?raw'),
+    filesArray: [
+      { name: 'iphone-duo-demo.tsx', filesrc: require('../registry/components/iphone-duo/iphone-duo-demo.tsx?raw') },
+      { name: 'iphone-duo.tsx', filesrc: require('../components/ui/iphone-duo.tsx?raw') },
+    ],
+    iframeSrc: 'live-components/iphone-duo-demo',
+    tags: ['iphone', 'foldable', 'threejs', '3d'],
+  },
   {
     category: DOCS_CATEGORY_KEY['liquid-glass'],
     title: humanize(COMPONENT_KEYS.LIQUID_GLASS_SIDEBAR_MENU),

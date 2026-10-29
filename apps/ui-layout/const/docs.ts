@@ -14,6 +14,7 @@ export const DOCS_CATEGORY_GROUP = {
 } as const;
 
 export const DOCS_CATEGORY_KEY = {
+  'iphone-duo': 'iphone-duo',
   'liquid-glass': 'liquid-glass',
   'color-picker': 'color-picker',
   buttons: 'buttons',
@@ -92,6 +93,7 @@ export const DOCS_CATEGORY_KEY = {
 } as const;
 
 export const COMPONENT_KEYS = {
+  IPHONE_DUO_DEMO: 'iphone-duo-demo',
   // Default category
   MAC_GENIE: 'mac-genie',
   LIQUID_GLASS_SIDEBAR_MENU: 'liquid-glass-sidebar-menu',
