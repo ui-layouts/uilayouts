@@ -94,6 +94,7 @@ export const DOCS_CATEGORY_KEY = {
 
 export const COMPONENT_KEYS = {
   IPHONE_DUO_DEMO: 'iphone-duo-demo',
+  IPHONE_DUO_HOVER: 'iphone-duo-hover',
   // Default category
   MAC_GENIE: 'mac-genie',
   LIQUID_GLASS_SIDEBAR_MENU: 'liquid-glass-sidebar-menu',

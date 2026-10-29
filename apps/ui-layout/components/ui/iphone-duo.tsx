@@ -1,5 +1,10 @@
 'use client';
 
+import { useEffect, useRef, useState } from 'react';
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { USDLoader } from 'three/addons/loaders/USDLoader.js';
 /**
  * Adapted from https://github.com/chuspeeism/iphone-duo (MIT, copyright 2026 jadon7).
  * See public/iphone-duo/NOTICE.txt for asset attribution.
@@ -26,22 +31,19 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-import { type ChangeEvent, useEffect, useId, useRef, useState } from 'react';
-import * as THREE from 'three';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
-import { USDLoader } from 'three/addons/loaders/USDLoader.js';
-
-type ScreenMode = 'wallpaper' | 'launcher' | 'custom';
+import { cn } from '@/lib/utils';
 
 export interface IPhoneDuoProps {
   className?: string;
-  /** Folder containing the prepared model, textures, and ui subfolder. */
-  assetPath?: string;
+  /** Controlled opening angle: 0 is closed, 180 is fully open. */
+  angle?: number;
   defaultAngle?: number;
-  autoPlay?: boolean;
-  showControls?: boolean;
-  onAngleChange?: (angle: number) => void;
+  screen?: 'wallpaper' | 'launcher';
+  /** A URL or object URL; the outer screen uses the image's right half. */
+  imageSrc?: string;
+  /** Enable drag-to-orbit and wheel-to-zoom. Disable for scroll or hover demos. */
+  interactive?: boolean;
+  assetPath?: string;
 }
 
 type Screen = {
@@ -54,9 +56,8 @@ type Screen = {
 
 type Controller = {
   setAngle: (angle: number) => void;
-  setPlaying: (playing: boolean) => void;
-  setMode: (mode: Exclude<ScreenMode, 'custom'>) => void;
-  upload: (file: File) => Promise<void>;
+  setContent: (screen: 'wallpaper' | 'launcher', imageSrc?: string) => Promise<void>;
+  setInteractive: (interactive: boolean) => void;
 };
 
 const clampAngle = (angle: number) =>
@@ -204,28 +205,32 @@ vec4 bendStrip(vec3 p) {
 export function IPhoneDuo({
   className = '',
   assetPath = '/iphone-duo',
+  angle,
   defaultAngle = 180,
-  autoPlay = false,
-  showControls = true,
-  onAngleChange,
+  screen = 'wallpaper',
+  imageSrc,
+  interactive = true,
 }: IPhoneDuoProps) {
   const viewportRef = useRef<HTMLDivElement>(null);
   const controllerRef = useRef<Controller | null>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
-  const sliderRef = useRef<HTMLInputElement>(null);
-  const outputRef = useRef<HTMLOutputElement>(null);
-  const callbackRef = useRef(onAngleChange);
-  const initialRef = useRef({ angle: clampAngle(defaultAngle), autoPlay });
+  const angleRef = useRef(clampAngle(angle ?? defaultAngle));
   const [status, setStatus] = useState<'loading' | 'ready' | 'error'>('loading');
   const [error, setError] = useState('');
-  const [playing, setPlaying] = useState(false);
-  const [mode, setMode] = useState<ScreenMode>('wallpaper');
   const [attempt, setAttempt] = useState(0);
-  const id = useId();
 
   useEffect(() => {
-    callbackRef.current = onAngleChange;
-  }, [onAngleChange]);
+    if (angle === undefined) return;
+    angleRef.current = clampAngle(angle);
+    controllerRef.current?.setAngle(angleRef.current);
+  }, [angle]);
+
+  useEffect(() => {
+    if (status === 'ready') void controllerRef.current?.setContent(screen, imageSrc);
+  }, [screen, imageSrc, status]);
+
+  useEffect(() => {
+    if (status === 'ready') controllerRef.current?.setInteractive(interactive);
+  }, [interactive, status]);
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: attempt deliberately recreates the scene for Retry.
   useEffect(() => {
@@ -258,8 +263,6 @@ export function IPhoneDuo({
     };
     setStatus('loading');
     setError('');
-    setMode('wallpaper');
-    setPlaying(false);
 
     async function initialize(viewport: HTMLDivElement) {
       try {
@@ -435,39 +438,21 @@ export function IPhoneDuo({
           mesh.frustumCulled = false;
           phone.add(mesh);
         });
-        let angle = initialRef.current.angle;
-        let isPlaying =
-          initialRef.current.autoPlay &&
-          !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        let phase = 0;
-        let transition: { from: number; elapsed: number } | null = null;
         let customTexture: THREE.CanvasTexture | undefined;
-        let uploadVersion = 0;
+        let contentVersion = 0;
         const setAngle = (value: number) => {
-          angle = clampAngle(value);
-          bend.value = ((180 - angle) / 180) * Math.PI;
-          screens.outer.material.color.setScalar(angle >= 180 ? 0 : 1);
-          if (sliderRef.current) sliderRef.current.value = String(angle);
-          if (outputRef.current) outputRef.current.value = `${Math.round(angle)}°`;
-          callbackRef.current?.(angle);
-        };
-        const setPlayingValue = (value: boolean) => {
-          if (value && !isPlaying) phase = 1.2 + (Math.acos((2 * angle) / 180 - 1) / Math.PI) * 3.1;
-          isPlaying = value;
-          setPlaying(value);
+          const opening = clampAngle(value);
+          bend.value = ((180 - opening) / 180) * Math.PI;
+          screens.outer.material.color.setScalar(opening >= 180 ? 0 : 1);
         };
         controllerRef.current = {
-          setAngle(value) {
-            transition = null;
-            setPlayingValue(false);
-            setAngle(value);
+          setAngle,
+          setInteractive(value) {
+            if (controls) controls.enabled = value;
+            if (renderer) renderer.domElement.style.touchAction = value ? 'none' : 'pan-y';
           },
-          setPlaying(value) {
-            transition = null;
-            setPlayingValue(value);
-          },
-          setMode(theme) {
-            uploadVersion++;
+          async setContent(theme, source) {
+            const version = ++contentVersion;
             for (const kind of ['inner', 'outer'] as const) {
               const screen = screens[kind];
               const texture = screen.defaultTextures[theme];
@@ -476,17 +461,21 @@ export function IPhoneDuo({
               screen.frame.value.copy(kind === 'inner' ? innerUIFrame : outerUIFrame);
               screen.gradient.value.set(kind === 'inner' ? 0.5 : 0, kind === 'inner' ? 0 : 1);
             }
-            setMode(theme);
             setError('');
-          },
-          async upload(file) {
-            const version = ++uploadVersion;
-            const url = URL.createObjectURL(file);
+            if (!source) {
+              if (customTexture) {
+                customTexture.dispose();
+                textures.delete(customTexture);
+                customTexture = undefined;
+              }
+              return;
+            }
             try {
               const image = new Image();
-              image.src = url;
+              image.crossOrigin = 'anonymous';
+              image.src = source;
               await image.decode();
-              if (disposed || version !== uploadVersion) return;
+              if (disposed || version !== contentVersion) return;
               const canvas = document.createElement('canvas');
               canvas.width = 1600;
               canvas.height = 1125;
@@ -513,15 +502,10 @@ export function IPhoneDuo({
                 screen.frame.value.copy(innerUIFrame);
                 screen.gradient.value.set(0.5, kind === 'inner' ? 0 : 1);
               }
-              setMode('custom');
               setError('');
-              setPlayingValue(false);
-              transition = { from: angle, elapsed: 0 };
             } catch {
-              if (!disposed && version === uploadVersion)
-                setError('Unable to read this image. Choose a PNG, JPG, or WebP file.');
-            } finally {
-              URL.revokeObjectURL(url);
+              if (!disposed && version === contentVersion)
+                setError('Unable to load the screen image. Check its URL and CORS permissions.');
             }
           },
         };
@@ -538,34 +522,10 @@ export function IPhoneDuo({
         observer = new ResizeObserver(resize);
         observer.observe(viewport);
         resize();
-        setAngle(angle);
-        if (isPlaying) phase = 1.2 + (Math.acos((2 * angle) / 180 - 1) / Math.PI) * 3.1;
-        setPlaying(isPlaying);
+        setAngle(angleRef.current);
         setStatus('ready');
-        let lastTime = performance.now();
-        renderer.setAnimationLoop((now) => {
-          const delta = Math.min((now - lastTime) / 1000, 0.05);
-          lastTime = now;
+        renderer.setAnimationLoop(() => {
           if (document.hidden) return;
-          if (isPlaying) {
-            phase = (phase + delta) % 8.6;
-            const value =
-              phase < 1.2
-                ? 180
-                : phase < 4.3
-                  ? 90 * (1 + Math.cos(((phase - 1.2) / 3.1) * Math.PI))
-                  : phase < 5.5
-                    ? 0
-                    : 90 * (1 - Math.cos(((phase - 5.5) / 3.1) * Math.PI));
-            setAngle(value);
-          } else if (transition) {
-            transition.elapsed += delta;
-            const progress = Math.min(transition.elapsed / 1.4, 1);
-            setAngle(
-              THREE.MathUtils.lerp(transition.from, 180, progress * progress * (3 - 2 * progress))
-            );
-            if (progress === 1) transition = null;
-          }
           controls?.update();
           renderer?.render(scene, camera);
         });
@@ -588,38 +548,31 @@ export function IPhoneDuo({
     };
   }, [assetPath, attempt]);
 
-  const upload = (event: ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (file) void controllerRef.current?.upload(file);
-    event.target.value = '';
-  };
-  const buttonClass =
-    'rounded-lg px-3 py-2 text-xs transition-colors hover:bg-white/70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700 disabled:cursor-wait disabled:opacity-40';
   return (
     <div
-      className={`relative isolate flex min-h-[520px] w-full flex-col overflow-hidden rounded-2xl bg-[#f6f6f3] text-[#242622] ${className}`}
+      className={cn('relative min-h-[280px] w-full', className)}
       data-iphone-duo=''
       data-status={status}
     >
-      <div ref={viewportRef} className='relative min-h-[330px] flex-1' />
+      <div ref={viewportRef} className='absolute inset-0' />
       {status === 'loading' && (
         <p
           role='status'
-          className='pointer-events-none absolute inset-x-0 top-1/3 text-center text-sm text-neutral-500'
+          className='pointer-events-none absolute inset-0 grid place-items-center text-sm opacity-60'
         >
-          Loading iPhone Duo…
+          Loading device…
         </p>
       )}
       {error && (
         <div
           role='alert'
-          className='absolute inset-x-4 top-4 z-10 rounded-xl border border-red-200 bg-white/95 p-4 text-center text-sm'
+          className='absolute inset-x-4 top-4 rounded-xl border bg-background/95 p-4 text-center text-sm text-foreground'
         >
           <p>{error}</p>
           {status === 'error' && (
             <button
               type='button'
-              className={`${buttonClass} mt-2 border`}
+              className='mt-2 rounded-md border px-3 py-2 focus-visible:outline-2 focus-visible:outline-offset-2'
               onClick={() => setAttempt((value) => value + 1)}
             >
               Try again
@@ -627,95 +580,6 @@ export function IPhoneDuo({
           )}
         </div>
       )}
-      {showControls && (
-        <div className='mx-auto mb-6 mt-2 flex w-[calc(100%-32px)] max-w-[700px] flex-wrap items-center gap-5 rounded-3xl border border-[#d8dcd2] bg-white/90 p-5 shadow-[0_16px_50px_-26px_#7c83773d] backdrop-blur-md'>
-          <div className='min-w-[180px] flex-1'>
-            <p className='mb-2 text-xs font-medium'>Screen content</p>
-            <fieldset aria-label='Screen content' className='flex rounded-xl bg-[#ecefe6] p-1'>
-              {(['wallpaper', 'launcher', 'custom'] as const).map((theme) => (
-                <button
-                  key={theme}
-                  type='button'
-                  disabled={status !== 'ready'}
-                  aria-pressed={mode === theme}
-                  className={`${buttonClass} flex-1 capitalize ${mode === theme ? 'bg-white text-[#45533b] shadow-sm' : 'text-[#66705e]'}`}
-                  onClick={() =>
-                    theme === 'custom'
-                      ? inputRef.current?.click()
-                      : controllerRef.current?.setMode(theme)
-                  }
-                >
-                  {theme}
-                </button>
-              ))}
-            </fieldset>
-            <input
-              ref={inputRef}
-              type='file'
-              accept='image/png,image/jpeg,image/webp,image/avif'
-              aria-label='Upload screen image'
-              className='hidden'
-              onChange={upload}
-            />
-          </div>
-          <div className='flex min-w-[210px] flex-[1.4] items-center gap-4'>
-            <button
-              type='button'
-              disabled={status !== 'ready'}
-              aria-label={playing ? 'Pause animation' : 'Play animation'}
-              aria-pressed={playing}
-              onClick={() => controllerRef.current?.setPlaying(!playing)}
-              className='grid size-11 shrink-0 place-items-center rounded-full bg-[#262c24] text-white hover:bg-[#4e5e44] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-700 disabled:opacity-40'
-            >
-              {playing ? (
-                <svg
-                  aria-hidden='true'
-                  width='18'
-                  height='18'
-                  viewBox='0 0 24 24'
-                  fill='currentColor'
-                >
-                  <path d='M6 4h4v16H6zm8 0h4v16h-4z' />
-                </svg>
-              ) : (
-                <svg
-                  aria-hidden='true'
-                  width='18'
-                  height='18'
-                  viewBox='0 0 24 24'
-                  fill='currentColor'
-                >
-                  <path d='m7 3 15 9-15 9z' />
-                </svg>
-              )}
-            </button>
-            <label className='sr-only' htmlFor={`${id}-angle`}>
-              Fold angle
-            </label>
-            <input
-              ref={sliderRef}
-              id={`${id}-angle`}
-              type='range'
-              min='0'
-              max='180'
-              step='0.1'
-              defaultValue={initialRef.current.angle}
-              disabled={status !== 'ready'}
-              onChange={(event) => controllerRef.current?.setAngle(Number(event.target.value))}
-              className='h-9 min-w-0 flex-1 cursor-ew-resize accent-[#6a795c]'
-            />
-            <output
-              ref={outputRef}
-              htmlFor={`${id}-angle`}
-              aria-live='off'
-              className='w-10 text-right text-xs tabular-nums'
-            >
-              {initialRef.current.angle}°
-            </output>
-          </div>
-        </div>
-      )}
-      <p className='mb-4 text-center text-[11px] text-[#818974]'>Drag to orbit · Scroll to zoom</p>
     </div>
   );
 }

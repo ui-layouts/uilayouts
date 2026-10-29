@@ -4,12 +4,91 @@
   "homepage": "https://www.ui-layouts.com",
   "items": [
     {
+      "name": "iphone-duo-demo",
+      "type": "registry:component",
+      "title": "Scroll to unfold",
+      "description": "Scroll to unfold with the reusable iPhone Duo component.",
+      "dependencies": [
+        "three@0.186.0",
+        "clsx",
+        "tailwind-merge",
+        "lucide-react"
+      ],
+      "devDependencies": [
+        "@types/three@0.183.1"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/iphone-duo.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "./public/iphone-duo/NOTICE.txt",
+          "type": "registry:file",
+          "target": "public/iphone-duo/NOTICE.txt"
+        },
+        {
+          "path": "./scripts/prepare-iphone-duo-assets.py",
+          "type": "registry:file",
+          "target": "scripts/prepare-iphone-duo-assets.py"
+        },
+        {
+          "path": "./registry/components/iphone-duo/iphone-duo-demo.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./public/iphone-duo-artwork.svg",
+          "type": "registry:file",
+          "target": "public/iphone-duo-artwork.svg"
+        }
+      ]
+    },
+    {
+      "name": "iphone-duo-hover",
+      "type": "registry:component",
+      "title": "Hover or tap to unfold",
+      "description": "Hover or tap to unfold with the reusable iPhone Duo component.",
+      "dependencies": [
+        "three@0.186.0",
+        "clsx",
+        "tailwind-merge",
+        "motion"
+      ],
+      "devDependencies": [
+        "@types/three@0.183.1"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/iphone-duo.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "./public/iphone-duo/NOTICE.txt",
+          "type": "registry:file",
+          "target": "public/iphone-duo/NOTICE.txt"
+        },
+        {
+          "path": "./scripts/prepare-iphone-duo-assets.py",
+          "type": "registry:file",
+          "target": "scripts/prepare-iphone-duo-assets.py"
+        },
+        {
+          "path": "./registry/components/iphone-duo/iphone-duo-hover.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "iphone-duo",
       "type": "registry:component",
       "title": "iPhone Duo",
-      "description": "Interactive folding iPhone Duo with projected screens and progressive blur. Prepare Apple reference assets separately; see the component documentation.",
+      "description": "A reusable folding device with projected screens and progressive blur. Compose scroll, hover, or click interactions with the controlled angle prop.",
       "dependencies": [
-        "three@0.186.0"
+        "three@0.186.0",
+        "clsx",
+        "tailwind-merge"
       ],
       "devDependencies": [
         "@types/three@0.183.1"

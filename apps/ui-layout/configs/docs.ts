@@ -1054,6 +1054,22 @@ export const AllComponents: IAllComponents[] = [
     tags: ['iphone', 'foldable', 'threejs', '3d'],
   },
   {
+    category: DOCS_CATEGORY_KEY['iphone-duo'],
+    componentName: COMPONENT_KEYS.IPHONE_DUO_HOVER,
+    componentSrc: React.lazy(() => import('@/registry/components/iphone-duo/iphone-duo-hover')),
+    title: 'iPhone Duo Hover',
+    href: '/components/iphone-duo',
+    slug: 'iphone-duo-hover',
+    description: 'A folding 3D iPhone with projected screen content and progressive blur.',
+    filesrc: require('../registry/components/iphone-duo/iphone-duo-hover.tsx?raw'),
+    filesArray: [
+      { name: 'iphone-duo-hover.tsx', filesrc: require('../registry/components/iphone-duo/iphone-duo-hover.tsx?raw') },
+      { name: 'iphone-duo.tsx', filesrc: require('../components/ui/iphone-duo.tsx?raw') },
+    ],
+    iframeSrc: 'live-components/iphone-duo-hover',
+    tags: ['iphone', 'foldable', 'threejs', '3d'],
+  },
+  {
     category: DOCS_CATEGORY_KEY['liquid-glass'],
     title: humanize(COMPONENT_KEYS.LIQUID_GLASS_SIDEBAR_MENU),
     slug: 'liquid-glass/sidebar-menu',

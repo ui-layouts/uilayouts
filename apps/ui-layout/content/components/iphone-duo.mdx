@@ -1,31 +1,53 @@
 export const metadata = {
   title: 'iPhone Duo',
-  description: 'An interactive React iPhone Duo with a flexible hinge, projected screen content, progressive blur, image uploads, and Three.js orbit controls.',
-  keywords: ['React', 'Three.js', 'iPhone Duo', 'foldable phone', '3D device mockup'],
+  description: 'A reusable folding-device component with projected screen content and progressive blur. Compose your own scroll, hover, and click interactions.',
+  keywords: ['React', 'Three.js', 'iPhone Duo', 'fold effect', 'scroll animation', '3D device mockup'],
 };
 
-<ComponentCodePreview name='iphone-duo-demo' jsonName='iphone-duo' hasReTrigger responsive />
+> Fold rendering adapted from [iPhone Duo](https://github.com/chuspeeism/iphone-duo). The examples below use their own presentation and interactions.
+
+<ComponentCodePreview name='iphone-duo-demo' jsonName='iphone-duo-demo' hasReTrigger isFitheight />
 
 ## Installation
 
-```bash
-npx shadcn@latest add https://www.ui-layouts.com/r/iphone-duo.json
-```
+<Tabs defaultValue="cli">
+  <TabsList className='border-b w-full bg-muted justify-start h-12 mt-4'>
+    <TabsTrigger value='cli' className="data-[state=active]:bg-card gap-1 data-[state=active]:border">CLI</TabsTrigger>
+    <TabsTrigger value='manual' className="data-[state=active]:bg-card gap-1 data-[state=active]:border">Manual</TabsTrigger>
+  </TabsList>
 
-For manual installation, install `three@0.186.0` and `@types/three`, then copy the component below into `components/ui/iphone-duo.tsx`.
+  <TabsContent value="cli">
+    <CodeTabsMdx>
+      ```bash
+      npx uilayouts@latest add iphone-duo
+      ```
 
-<CodeSnippets name='iphone-duo' />
+      ```bash
+      npx shadcn@latest add 'https://www.ui-layouts.com/r/iphone-duo.json'
+      ```
+    </CodeTabsMdx>
+  </TabsContent>
 
-### Prepare the reference assets
+  <TabsContent value="manual" manualType>
+    ```bash
+    npm install three@0.186.0
+    npm install -D @types/three@0.183.1
+    ```
 
-The model and screen imagery are downloaded from Apple separately and are not part of the component's MIT license. Run these commands from the UI Layouts repository root with Python 3.12:
+    <CodeSnippets name='iphone-duo' />
+  </TabsContent>
+</Tabs>
+
+### Reference assets
+
+The model and screen imagery are downloaded from Apple separately and retain their own terms. The shadcn command includes the preparation script and attribution notice. For the UI Layouts CLI or manual installation, copy [the script](https://github.com/ui-layouts/uilayouts/blob/main/apps/ui-layout/scripts/prepare-iphone-duo-assets.py). With Python 3.12, run these commands in your app:
 
 ```bash
 python -m pip install usd-core==26.8
-python apps/ui-layout/scripts/prepare-iphone-duo-assets.py
+python scripts/prepare-iphone-duo-assets.py --output public/iphone-duo
 ```
 
-The shadcn command also installs `scripts/prepare-iphone-duo-assets.py`. In another React project, run `python scripts/prepare-iphone-duo-assets.py` (or use `--output public/iphone-duo` to choose the output explicitly). For manual installation, copy [the preparation script](https://github.com/ui-layouts/uilayouts/blob/main/apps/ui-layout/scripts/prepare-iphone-duo-assets.py). Include the generated model, `textures/`, and `ui/` when deploying. The script selects the Landscape pose and rewrites the model's texture paths. UI Layouts' Vercel configuration prepares these assets before building. On other deployment hosts, run preparation before building a fresh checkout; include Python 3.12 and `usd-core==26.8` in that build environment. See `/iphone-duo/NOTICE.txt` for attribution and asset terms.
+In the UI Layouts monorepo, the script is in `apps/ui-layout/scripts/`. The Vercel configuration prepares the assets before building. On another host, run preparation before building a fresh checkout and include the generated files in your deployment.
 
 ## Usage
 
@@ -33,29 +55,51 @@ The shadcn command also installs `scripts/prepare-iphone-duo-assets.py`. In anot
 import { IPhoneDuo } from '@/components/ui/iphone-duo';
 
 export default function Demo() {
-  return <IPhoneDuo className='h-[700px]' defaultAngle={180} />;
+  return <IPhoneDuo className='h-[420px]' angle={120} />;
 }
 ```
 
-## Interaction
-
-Drag the device to orbit and scroll or pinch to zoom. Use the play button to animate between open and closed, or scrub the fold slider with a pointer or arrow keys. Wallpaper and Launcher select the reference layouts. Custom opens an image picker; the full image appears inside and its right half appears outside. Uploaded images stay in the current tab. A landscape image around 2670 × 1878 works well.
+The component renders the device only. Set `angle` from your own scroll position, motion value, hover state, or button. It has no built-in playback interface. Set `interactive={false}` when the surrounding UI handles pointer or scroll input; the default enables drag to orbit and wheel or pinch to zoom.
 
 ## Props
 
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| className | string | `''` | Container classes, including height. |
-| assetPath | string | `/iphone-duo` | Folder containing the prepared model, textures, and UI images. |
-| defaultAngle | number | `180` | Initial opening angle, clamped to 0–180 degrees. |
-| autoPlay | boolean | `false` | Start playback on mount; respects reduced-motion preferences. |
-| showControls | boolean | `true` | Show screen modes, playback, and fold slider. |
-| onAngleChange | (angle: number) => void | — | Receives the angle while scrubbing or animating. |
+| `className` | `string` | — | Container styling, including height and background. |
+| `angle` | `number` | — | Controlled opening angle, from 0° closed to 180° open. |
+| `defaultAngle` | `number` | `180` | Initial angle when `angle` is omitted. |
+| `screen` | `'wallpaper' or 'launcher'` | `'wallpaper'` | Default screen content. |
+| `imageSrc` | `string` | — | Image URL or object URL, overriding the preset on both displays. |
+| `interactive` | `boolean` | `true` | Enable orbit and zoom controls. |
+| `assetPath` | `string` | `'/iphone-duo'` | Folder containing the prepared model, textures, and UI images. |
 
-`defaultAngle` and `autoPlay` set the initial state. Changing `assetPath` reloads the scene. Multiple instances have independent controls and resources; unmounting disposes geometry, materials, textures, controls, and the renderer.
+The inside displays the whole custom image; the outside displays its right half. Remote image hosts must allow CORS. You can pass a locally selected file as an object URL; revoke that URL when your app stops using it. Angle and content updates reuse the scene. Unmounting disposes its GPU resources.
+
+## Examples
+
+### Scroll to unfold
+
+The first example maps the preview's scroll position to `angle`. Its canvas leaves scrolling to the parent. Focus the preview to use arrow keys, Page Up, Page Down, Home, or End.
+
+### Hover or tap
+
+Hover to unfold, or use the card's button on a touch screen or keyboard. Motion handles the angle transition and respects reduced-motion preferences.
+
+<ComponentCodePreview name='iphone-duo-hover' jsonName='iphone-duo-hover' hasReTrigger isFitheight />
+
+### Custom artwork
+
+```tsx
+<IPhoneDuo
+  className='h-[420px]'
+  angle={135}
+  imageSrc='/images/your-artwork.jpg'
+  interactive={false}
+/>
+```
 
 ## How it works
 
-Only the cover half rotates around the hinge; the camera half stays fixed. A Hermite curve bends the flexible screen strip and its normals. The screen shader projects content from a fixed front-view camera instead of stretching the image with the mesh. Blur increases to 72 source pixels and darkening follows image coordinates as the cover folds. The outer screen stays anchored to its hinge edge and turns off at full opening.
+The cover rotates while the camera half stays fixed. A Hermite curve bends the hinge strip. The shader projects the image from a fixed front view and progressively blurs and darkens it along the fold, including its edges. The outer image stays anchored to the hinge and switches off at full opening.
 
-Adapted from [chuspeeism/iphone-duo](https://github.com/chuspeeism/iphone-duo), MIT © 2026 jadon7. Apple models and imagery retain their separate terms. This is an independent animation study.
+The fold and screen shaders retain the reference effect. The reusable API, scroll composition, and hover example are independent of the reference demo's controls. MIT © 2026 jadon7; see the included notice for the license and Apple asset attribution.
