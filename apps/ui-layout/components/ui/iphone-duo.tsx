@@ -272,10 +272,7 @@ export function IPhoneDuo({
         renderer.toneMappingExposure = 1.18;
         renderer.domElement.style.cssText =
           'display:block;width:100%;height:100%;touch-action:none;outline:none';
-        renderer.domElement.setAttribute(
-          'aria-label',
-          '3D folding iPhone Duo. Drag to orbit and scroll to zoom.'
-        );
+        renderer.domElement.setAttribute('aria-label', '3D folding iPhone Duo');
         viewport.appendChild(renderer.domElement);
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(32, 1, 0.1, 250);
