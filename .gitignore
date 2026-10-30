@@ -40,3 +40,7 @@ yarn-error.log*
 # Downloaded Apple reference assets (not covered by the MIT license)
 /apps/ui-layout/public/iphone-duo/*
 !/apps/ui-layout/public/iphone-duo/NOTICE.txt
+
+# Small first-frame posters are shipped with the component.
+!/apps/ui-layout/public/iphone-duo/posters/
+!/apps/ui-layout/public/iphone-duo/posters/*.svg

@@ -44,6 +44,8 @@ export interface IPhoneDuoProps {
   /** Enable drag-to-orbit and wheel-to-zoom. Disable when scroll or slider input controls the fold. */
   interactive?: boolean;
   assetPath?: string;
+  /** Optional image matching the initial pose, displayed until the first 3D frame. */
+  posterSrc?: string;
 }
 
 type Screen = {
@@ -114,6 +116,100 @@ async function loadDefaultUIs(assetPath: string) {
     }
   }
   return themes;
+}
+
+type DuoAssets = {
+  model: THREE.Group;
+  uis: Awaited<ReturnType<typeof loadDefaultUIs>>;
+  textures: Set<THREE.Texture>;
+};
+
+type AssetEntry = { promise: Promise<DuoAssets>; users: number };
+const assetCache = new Map<string, AssetEntry>();
+
+function disposeAssets(assets: Pick<DuoAssets, 'model' | 'textures'>) {
+  const geometries = new Set<THREE.BufferGeometry>();
+  const materials = new Set<THREE.Material>();
+  assets.model.traverse((object) => {
+    if (!(object instanceof THREE.Mesh)) return;
+    geometries.add(object.geometry);
+    for (const material of Array.isArray(object.material) ? object.material : [object.material]) {
+      materials.add(material);
+    }
+  });
+  for (const geometry of geometries) geometry.dispose();
+  for (const material of materials) material.dispose();
+  for (const texture of assets.textures) texture.dispose();
+}
+
+function pruneAssets() {
+  // Retain at most two idle sources for route revisits; mounted instances own their GPU resources.
+  const idle = [...assetCache].filter(([, entry]) => entry.users === 0);
+  for (const [key, entry] of idle.slice(0, Math.max(0, idle.length - 2))) {
+    assetCache.delete(key);
+    void entry.promise.then(disposeAssets, () => {});
+  }
+}
+
+function acquireAssets(base: string) {
+  let entry = assetCache.get(base);
+  if (!entry) {
+    // Start both requests together. A failed source is removed so Retry can fetch it again.
+    const promise = Promise.allSettled([
+      new USDLoader().loadAsync(`${base}/iPhone_Duo_Render.usdc`),
+      loadDefaultUIs(base),
+    ]).then(([modelResult, uiResult]) => {
+      if (modelResult.status === 'rejected') throw modelResult.reason;
+      const model = modelResult.value;
+      const textures = new Set<THREE.Texture>();
+      model.traverse((object) => {
+        if (!(object instanceof THREE.Mesh)) return;
+        for (const material of Array.isArray(object.material)
+          ? object.material
+          : [object.material]) {
+          for (const value of Object.values(material)) {
+            if (value instanceof THREE.Texture) textures.add(value);
+          }
+        }
+      });
+      if (uiResult.status === 'rejected') {
+        disposeAssets({ model, textures });
+        throw uiResult.reason;
+      }
+      return { model, textures, uis: uiResult.value };
+    });
+    entry = { promise, users: 0 };
+    assetCache.set(base, entry);
+    const created = entry;
+    void promise.catch(() => {
+      if (assetCache.get(base) === created) assetCache.delete(base);
+    });
+  }
+  // Map order is the eviction order. Active sources are never evicted.
+  assetCache.delete(base);
+  assetCache.set(base, entry);
+  entry.users++;
+  let released = false;
+  return {
+    promise: entry.promise,
+    release() {
+      if (released) return;
+      released = true;
+      entry.users--;
+      pruneAssets();
+    },
+  };
+}
+
+/** Warm the source cache before navigating to a device preview. */
+export async function preloadIPhoneDuo(assetPath = '/iphone-duo') {
+  if (typeof window === 'undefined') return;
+  const lease = acquireAssets(assetPath.replace(/\/$/, ''));
+  try {
+    await lease.promise;
+  } finally {
+    lease.release();
+  }
 }
 
 const screenShader = `
@@ -210,10 +306,13 @@ export function IPhoneDuo({
   screen = 'wallpaper',
   imageSrc,
   interactive = true,
+  posterSrc,
 }: IPhoneDuoProps) {
   const viewportRef = useRef<HTMLDivElement>(null);
   const controllerRef = useRef<Controller | null>(null);
   const angleRef = useRef(clampAngle(angle ?? defaultAngle));
+  const initialAngleRef = useRef(angleRef.current);
+  const contentRef = useRef({ screen, imageSrc, interactive });
   const [status, setStatus] = useState<'loading' | 'ready' | 'error'>('loading');
   const [error, setError] = useState('');
   const [attempt, setAttempt] = useState(0);
@@ -225,10 +324,13 @@ export function IPhoneDuo({
   }, [angle]);
 
   useEffect(() => {
+    contentRef.current.screen = screen;
+    contentRef.current.imageSrc = imageSrc;
     if (status === 'ready') void controllerRef.current?.setContent(screen, imageSrc);
   }, [screen, imageSrc, status]);
 
   useEffect(() => {
+    contentRef.current.interactive = interactive;
     if (status === 'ready') controllerRef.current?.setInteractive(interactive);
   }, [interactive, status]);
 
@@ -237,6 +339,9 @@ export function IPhoneDuo({
     const viewport = viewportRef.current;
     if (!viewport) return;
     let disposed = false;
+    const lease = acquireAssets(assetPath.replace(/\/$/, ''));
+    let sharedTextures = new Set<THREE.Texture>();
+    const textureCopies = new Map<THREE.Texture, THREE.Texture>();
     let renderer: THREE.WebGLRenderer | undefined;
     let controls: OrbitControls | undefined;
     let observer: ResizeObserver | undefined;
@@ -246,8 +351,21 @@ export function IPhoneDuo({
     const textures = new Set<THREE.Texture>();
     const rememberMaterial = (material: THREE.Material) => {
       materials.add(material);
-      for (const value of Object.values(material)) {
-        if (value instanceof THREE.Texture) textures.add(value);
+      const properties = material as unknown as Record<string, unknown>;
+      for (const [key, value] of Object.entries(material)) {
+        if (!(value instanceof THREE.Texture)) continue;
+        if (sharedTextures.has(value)) {
+          // Reuse decoded pixels, but give every renderer its own disposable texture objects.
+          let copy = textureCopies.get(value);
+          if (!copy) {
+            copy = value.clone();
+            textureCopies.set(value, copy);
+          }
+          properties[key] = copy;
+          textures.add(copy);
+        } else {
+          textures.add(value);
+        }
       }
     };
     const release = () => {
@@ -308,9 +426,11 @@ export function IPhoneDuo({
           7.73936,
           11.2513
         ).multiplyScalar((40 - 0.24948) / (40 - 0.825538));
-        const base = assetPath.replace(/\/$/, '');
-        const defaultUIs = await loadDefaultUIs(base);
+        const assets = await lease.promise;
         if (disposed) return;
+        sharedTextures = assets.textures;
+        const defaultUIs = assets.uis;
+        const model = assets.model.clone(true);
         const screens = {} as Record<'inner' | 'outer', Screen>;
         for (const kind of ['inner', 'outer'] as const) {
           const defaultTextures = {} as Screen['defaultTextures'];
@@ -335,20 +455,6 @@ export function IPhoneDuo({
             },
             pixel: { value: new THREE.Vector2(1 / defaultUIs.wallpaper[kind].width, 1 / 1125) },
           };
-        }
-        const model = await new USDLoader().loadAsync(`${base}/iPhone_Duo_Render.usdc`);
-        // Remember source resources too: USDLoader creates textures and geometry of its own.
-        model.traverse((object) => {
-          if (!(object instanceof THREE.Mesh)) return;
-          geometries.add(object.geometry);
-          for (const material of Array.isArray(object.material)
-            ? object.material
-            : [object.material])
-            rememberMaterial(material);
-        });
-        if (disposed) {
-          release();
-          return;
         }
         model.scale.multiplyScalar(100);
         model.updateMatrixWorld(true);
@@ -437,6 +543,7 @@ export function IPhoneDuo({
         });
         let customTexture: THREE.CanvasTexture | undefined;
         let contentVersion = 0;
+        let appliedContent: { theme: 'wallpaper' | 'launcher'; source?: string } | undefined;
         const setAngle = (value: number) => {
           const opening = clampAngle(value);
           bend.value = ((180 - opening) / 180) * Math.PI;
@@ -449,6 +556,7 @@ export function IPhoneDuo({
             if (renderer) renderer.domElement.style.touchAction = value ? 'none' : 'pan-y';
           },
           async setContent(theme, source) {
+            if (appliedContent?.theme === theme && appliedContent.source === source) return;
             const version = ++contentVersion;
             for (const kind of ['inner', 'outer'] as const) {
               const screen = screens[kind];
@@ -460,6 +568,7 @@ export function IPhoneDuo({
             }
             setError('');
             if (!source) {
+              appliedContent = { theme, source };
               if (customTexture) {
                 customTexture.dispose();
                 textures.delete(customTexture);
@@ -499,6 +608,7 @@ export function IPhoneDuo({
                 screen.frame.value.copy(innerUIFrame);
                 screen.gradient.value.set(0.5, kind === 'inner' ? 0 : 1);
               }
+              appliedContent = { theme, source };
               setError('');
             } catch {
               if (!disposed && version === contentVersion)
@@ -519,7 +629,17 @@ export function IPhoneDuo({
         observer = new ResizeObserver(resize);
         observer.observe(viewport);
         resize();
+        controllerRef.current.setInteractive(contentRef.current.interactive);
+        await controllerRef.current.setContent(
+          contentRef.current.screen,
+          contentRef.current.imageSrc
+        );
+        if (disposed) return;
         setAngle(angleRef.current);
+        await renderer.compileAsync(scene, camera);
+        if (disposed) return;
+        // Draw a complete frame behind the poster before fading the poster away.
+        renderer.render(scene, camera);
         setStatus('ready');
         renderer.setAnimationLoop(() => {
           if (document.hidden) return;
@@ -542,6 +662,7 @@ export function IPhoneDuo({
       disposed = true;
       controllerRef.current = null;
       release();
+      lease.release();
     };
   }, [assetPath, attempt]);
 
@@ -551,19 +672,35 @@ export function IPhoneDuo({
       data-iphone-duo=''
       data-status={status}
     >
-      <div ref={viewportRef} className='absolute inset-0' />
-      {status === 'loading' && (
-        <p
-          role='status'
-          className='pointer-events-none absolute inset-0 grid place-items-center text-sm opacity-60'
-        >
-          Loading device…
-        </p>
-      )}
+      <div
+        ref={viewportRef}
+        className='absolute inset-0'
+        style={{ opacity: status === 'ready' ? 1 : 0 }}
+      />
+      <div
+        className='pointer-events-none absolute inset-0 z-10 grid place-items-center overflow-hidden transition-opacity duration-200 motion-reduce:transition-none'
+        style={{ containerType: 'size', opacity: status === 'ready' ? 0 : 1 }}
+        aria-hidden={status === 'ready'}
+      >
+        {/* biome-ignore lint/performance/noImgElement: this portable poster must render before JavaScript, without a Next.js image optimizer. */}
+        <img
+          src={
+            posterSrc ??
+            `${assetPath.replace(/\/$/, '')}/posters/${screen}-${initialAngleRef.current < 90 ? 'closed' : 'open'}.svg`
+          }
+          alt='iPhone Duo'
+          width={925}
+          height={629}
+          loading='eager'
+          fetchPriority='high'
+          decoding='async'
+          style={{ width: 'min(100cqw, calc(100cqh * 25 / 17), 925px)', height: 'auto' }}
+        />
+      </div>
       {error && (
         <div
           role='alert'
-          className='absolute inset-x-4 top-4 rounded-xl border bg-background/95 p-4 text-center text-sm text-foreground'
+          className='absolute inset-x-4 top-4 z-20 rounded-xl border bg-background/95 p-4 text-center text-sm text-foreground'
         >
           <p>{error}</p>
           {status === 'error' && (

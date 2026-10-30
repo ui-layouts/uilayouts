@@ -84,4 +84,25 @@ for filename, url in ui_sources.items():
     print(f"Downloading {filename}...", flush=True)
     urlretrieve(url, ui / filename)
 
+# Shadcn installs these posters directly. Standalone script users fetch the same
+# small, attributed first-frame images instead of generating WebGL assets locally.
+posters = assets / "posters"
+posters.mkdir(parents=True, exist_ok=True)
+poster_sources = Path(__file__).resolve().parents[1] / "public/iphone-duo/posters"
+for theme in ("wallpaper", "launcher"):
+    for pose in ("open", "closed"):
+        filename = f"{theme}-{pose}.svg"
+        target = posters / filename
+        if target.exists():
+            continue
+        local = poster_sources / filename
+        if local.exists():
+            copyfile(local, target)
+        else:
+            urlretrieve(
+                "https://raw.githubusercontent.com/ui-layouts/uilayouts/main/"
+                f"apps/ui-layout/public/iphone-duo/posters/{filename}",
+                target,
+            )
+
 print(f"Assets ready at {assets}. Start the React app to view the component.")

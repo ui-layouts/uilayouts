@@ -55,7 +55,7 @@ In the UI Layouts monorepo, the script is in `apps/ui-layout/scripts/`. The Verc
 import { IPhoneDuo } from '@/components/ui/iphone-duo';
 
 export default function Demo() {
-  return <IPhoneDuo className='h-[420px]' angle={120} />;
+  return <IPhoneDuo className='h-[420px]' angle={180} />;
 }
 ```
 
@@ -71,9 +71,25 @@ The component renders the device only. Set `angle` from a scroll position or sli
 | `screen` | `'wallpaper' or 'launcher'` | `'wallpaper'` | Default screen content. |
 | `imageSrc` | `string` | — | Image URL or object URL, overriding the preset on both displays. |
 | `interactive` | `boolean` | `true` | Enable orbit and zoom controls. |
-| `assetPath` | `string` | `'/iphone-duo'` | Folder containing the prepared model, textures, and UI images. |
+| `assetPath` | `string` | `'/iphone-duo'` | Folder containing the prepared model, textures, UI images, and posters. |
+| `posterSrc` | `string` | Matching open/closed preset | First-frame image for custom artwork, backgrounds, or an initial pose other than 0° / 180°. |
 
-The inside displays the whole custom image; the outside displays its right half. Remote image hosts must allow CORS. You can pass a locally selected file as an object URL; revoke that URL when your app stops using it. Angle and content updates reuse the scene. Unmounting disposes its GPU resources.
+The inside displays the whole custom image; the outside displays its right half. Remote image hosts must allow CORS. You can pass a locally selected file as an object URL; revoke that URL when your app stops using it. Angle and content updates reuse the scene. Unmounting disposes each renderer and its GPU resources. Up to two idle model sources stay cached in the current tab so remounting reuses the parsed model and decoded screens.
+
+### First-frame display
+
+A small, eager-loaded image of the device appears in the server-rendered HTML. It stays visible while the model loads and shaders compile, then fades away after a complete 3D frame has rendered. There is no loading message or spinner. The default images match the original light theme and the 0° / 180° starting poses used by the two examples. For different artwork, backgrounds, or a different initial angle, provide a matching `posterSrc`.
+
+Model and screen requests run in parallel and are shared between instances. Cached sources are reused on route revisits within the tab; a full reload still initializes WebGL in the background. You can optionally warm that source cache before navigation:
+
+```tsx
+import { preloadIPhoneDuo } from '@/components/ui/iphone-duo';
+
+// Call from a navigation link's onPointerEnter or onFocus handler.
+function warmDuo() {
+  void preloadIPhoneDuo().catch(() => {});
+}
+```
 
 ## Examples
 

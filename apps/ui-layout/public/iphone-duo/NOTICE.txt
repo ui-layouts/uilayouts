@@ -33,3 +33,5 @@ The iPhone Duo model, textures, wallpapers, and Launcher screenshots belong to A
 - [Apple website terms](https://www.apple.com/legal/internet-services/terms/site.html)
 
 This is an independent animation study, not an Apple product or an Apple-endorsed project. iPhone and Apple are trademarks of Apple Inc.
+
+The first-frame images embedded in posters/*.svg are renders of the Apple reference model and screen imagery. They retain the same separate asset terms described above; the MIT license does not cover that imagery.

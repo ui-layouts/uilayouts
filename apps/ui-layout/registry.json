@@ -35,6 +35,26 @@
         {
           "path": "./registry/components/iphone-duo/iphone-duo-demo.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "./public/iphone-duo/posters/wallpaper-open.svg",
+          "type": "registry:file",
+          "target": "public/iphone-duo/posters/wallpaper-open.svg"
+        },
+        {
+          "path": "./public/iphone-duo/posters/wallpaper-closed.svg",
+          "type": "registry:file",
+          "target": "public/iphone-duo/posters/wallpaper-closed.svg"
+        },
+        {
+          "path": "./public/iphone-duo/posters/launcher-open.svg",
+          "type": "registry:file",
+          "target": "public/iphone-duo/posters/launcher-open.svg"
+        },
+        {
+          "path": "./public/iphone-duo/posters/launcher-closed.svg",
+          "type": "registry:file",
+          "target": "public/iphone-duo/posters/launcher-closed.svg"
         }
       ]
     },
@@ -70,6 +90,26 @@
         {
           "path": "./registry/components/iphone-duo/iphone-duo-slider.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "./public/iphone-duo/posters/wallpaper-open.svg",
+          "type": "registry:file",
+          "target": "public/iphone-duo/posters/wallpaper-open.svg"
+        },
+        {
+          "path": "./public/iphone-duo/posters/wallpaper-closed.svg",
+          "type": "registry:file",
+          "target": "public/iphone-duo/posters/wallpaper-closed.svg"
+        },
+        {
+          "path": "./public/iphone-duo/posters/launcher-open.svg",
+          "type": "registry:file",
+          "target": "public/iphone-duo/posters/launcher-open.svg"
+        },
+        {
+          "path": "./public/iphone-duo/posters/launcher-closed.svg",
+          "type": "registry:file",
+          "target": "public/iphone-duo/posters/launcher-closed.svg"
         }
       ]
     },
@@ -101,6 +141,26 @@
           "path": "./scripts/prepare-iphone-duo-assets.py",
           "type": "registry:file",
           "target": "scripts/prepare-iphone-duo-assets.py"
+        },
+        {
+          "path": "./public/iphone-duo/posters/wallpaper-open.svg",
+          "type": "registry:file",
+          "target": "public/iphone-duo/posters/wallpaper-open.svg"
+        },
+        {
+          "path": "./public/iphone-duo/posters/wallpaper-closed.svg",
+          "type": "registry:file",
+          "target": "public/iphone-duo/posters/wallpaper-closed.svg"
+        },
+        {
+          "path": "./public/iphone-duo/posters/launcher-open.svg",
+          "type": "registry:file",
+          "target": "public/iphone-duo/posters/launcher-open.svg"
+        },
+        {
+          "path": "./public/iphone-duo/posters/launcher-closed.svg",
+          "type": "registry:file",
+          "target": "public/iphone-duo/posters/launcher-closed.svg"
         }
       ]
     },
