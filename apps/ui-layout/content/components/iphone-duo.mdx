@@ -1,10 +1,10 @@
 export const metadata = {
   title: 'iPhone Duo',
-  description: 'A reusable folding-device component with projected screen content and progressive blur. Compose your own scroll, hover, and click interactions.',
+  description: 'A reusable folding-device component with projected screen content and progressive blur. Control the fold with scrolling or a slider.',
   keywords: ['React', 'Three.js', 'iPhone Duo', 'fold effect', 'scroll animation', '3D device mockup'],
 };
 
-> Fold rendering adapted from [iPhone Duo](https://github.com/chuspeeism/iphone-duo). The examples below use their own presentation and interactions.
+> Fold rendering adapted from [iPhone Duo](https://github.com/chuspeeism/iphone-duo). Both variants use the original Duo wallpaper and light theme.
 
 <ComponentCodePreview name='iphone-duo-demo' jsonName='iphone-duo-demo' hasReTrigger isFitheight />
 
@@ -59,7 +59,7 @@ export default function Demo() {
 }
 ```
 
-The component renders the device only. Set `angle` from your own scroll position, motion value, hover state, or button. It has no built-in playback interface. Set `interactive={false}` when the surrounding UI handles pointer or scroll input; the default enables drag to orbit and wheel or pinch to zoom.
+The component renders the device only. Set `angle` from a scroll position or slider value. It has no built-in playback interface. Set `interactive={false}` when the surrounding UI handles pointer or scroll input; the default enables drag to orbit and wheel or pinch to zoom.
 
 ## Props
 
@@ -81,25 +81,14 @@ The inside displays the whole custom image; the outside displays its right half.
 
 The first example maps the preview's scroll position to `angle`. Its canvas leaves scrolling to the parent. Focus the preview to use arrow keys, Page Up, Page Down, Home, or End.
 
-### Hover or tap
+### Slider
 
-Hover to unfold, or use the card's button on a touch screen or keyboard. Motion handles the angle transition and respects reduced-motion preferences.
+Drag the slider or use the arrow keys to control the fold. This variant displays only the device and its slider, using the same wallpaper and light theme as the scroll variant.
 
-<ComponentCodePreview name='iphone-duo-hover' jsonName='iphone-duo-hover' hasReTrigger isFitheight />
-
-### Custom artwork
-
-```tsx
-<IPhoneDuo
-  className='h-[420px]'
-  angle={135}
-  imageSrc='/images/your-artwork.jpg'
-  interactive={false}
-/>
-```
+<ComponentCodePreview name='iphone-duo-slider' jsonName='iphone-duo-slider' hasReTrigger isFitheight />
 
 ## How it works
 
 The cover rotates while the camera half stays fixed. A Hermite curve bends the hinge strip. The shader projects the image from a fixed front view and progressively blurs and darkens it along the fold, including its edges. The outer image stays anchored to the hinge and switches off at full opening.
 
-The fold and screen shaders retain the reference effect. The reusable API, scroll composition, and hover example are independent of the reference demo's controls. MIT © 2026 jadon7; see the included notice for the license and Apple asset attribution.
+The fold and screen shaders retain the reference effect. The two examples provide scroll and slider control without playback buttons or content filters. MIT © 2026 jadon7; see the included notice for the license and Apple asset attribution.

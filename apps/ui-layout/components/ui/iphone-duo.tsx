@@ -41,7 +41,7 @@ export interface IPhoneDuoProps {
   screen?: 'wallpaper' | 'launcher';
   /** A URL or object URL; the outer screen uses the image's right half. */
   imageSrc?: string;
-  /** Enable drag-to-orbit and wheel-to-zoom. Disable for scroll or hover demos. */
+  /** Enable drag-to-orbit and wheel-to-zoom. Disable when scroll or slider input controls the fold. */
   interactive?: boolean;
   assetPath?: string;
 }

@@ -7,7 +7,7 @@
       "name": "iphone-duo",
       "type": "registry:component",
       "title": "iPhone Duo",
-      "description": "A reusable folding device with projected screens and progressive blur. Compose scroll, hover, or click interactions with the controlled angle prop.",
+      "description": "A folding iPhone Duo with the original wallpaper, projected screen content, and progressive blur.",
       "dependencies": [
         "three@0.186.0",
         "clsx",

@@ -6,13 +6,12 @@
     {
       "name": "iphone-duo-demo",
       "type": "registry:component",
-      "title": "Scroll to unfold",
-      "description": "Scroll to unfold with the reusable iPhone Duo component.",
+      "title": "Scroll-controlled Duo",
+      "description": "A folding iPhone Duo with the original wallpaper, projected screen content, and progressive blur.",
       "dependencies": [
         "three@0.186.0",
         "clsx",
-        "tailwind-merge",
-        "lucide-react"
+        "tailwind-merge"
       ],
       "devDependencies": [
         "@types/three@0.183.1"
@@ -36,24 +35,18 @@
         {
           "path": "./registry/components/iphone-duo/iphone-duo-demo.tsx",
           "type": "registry:component"
-        },
-        {
-          "path": "./public/iphone-duo-artwork.svg",
-          "type": "registry:file",
-          "target": "public/iphone-duo-artwork.svg"
         }
       ]
     },
     {
-      "name": "iphone-duo-hover",
+      "name": "iphone-duo-slider",
       "type": "registry:component",
-      "title": "Hover or tap to unfold",
-      "description": "Hover or tap to unfold with the reusable iPhone Duo component.",
+      "title": "Slider-controlled Duo",
+      "description": "A folding iPhone Duo with the original wallpaper, projected screen content, and progressive blur.",
       "dependencies": [
         "three@0.186.0",
         "clsx",
-        "tailwind-merge",
-        "motion"
+        "tailwind-merge"
       ],
       "devDependencies": [
         "@types/three@0.183.1"
@@ -75,7 +68,7 @@
           "target": "scripts/prepare-iphone-duo-assets.py"
         },
         {
-          "path": "./registry/components/iphone-duo/iphone-duo-hover.tsx",
+          "path": "./registry/components/iphone-duo/iphone-duo-slider.tsx",
           "type": "registry:component"
         }
       ]
@@ -84,7 +77,7 @@
       "name": "iphone-duo",
       "type": "registry:component",
       "title": "iPhone Duo",
-      "description": "A reusable folding device with projected screens and progressive blur. Compose scroll, hover, or click interactions with the controlled angle prop.",
+      "description": "A folding iPhone Duo with the original wallpaper, projected screen content, and progressive blur.",
       "dependencies": [
         "three@0.186.0",
         "clsx",
