@@ -1,0 +1,8 @@
+.page {
+  isolation: isolate;
+}
+
+/* Recording canvases must reach the viewport edge, including the page scrollbar gutter. */
+:global(html):has(.page) {
+  scrollbar-gutter: auto;
+}
