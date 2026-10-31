@@ -1,15 +1,12 @@
 import ComponentSection from '@/components/website/labs/component-section';
-import React from 'react';
+import styles from './labs.module.css';
 
-async function page() {
+export default function LabsPage() {
   return (
-    <main>
-      <div className='absolute top-0 z-[-2] h-screen w-full dark:bg-[#000000] bg-neutral-100 dark:bg-[radial-gradient(#ffffff33_1px,#0c0c0c_1px)] bg-[radial-gradient(#c0c8df_1px,transparent_1px)] bg-size-[20px_20px]'></div>
-      <section>
-        <ComponentSection />
-      </section>
+    <main
+      className={`${styles.page} fixed inset-0 h-dvh overflow-hidden bg-neutral-100 dark:bg-black`}
+    >
+      <ComponentSection />
     </main>
   );
 }
-
-export default page;
