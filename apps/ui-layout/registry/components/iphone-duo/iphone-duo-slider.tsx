@@ -22,6 +22,7 @@ export default function IPhoneDuoSlider() {
           step='0.1'
           value={angle}
           onChange={(event) => setAngle(Number(event.target.value))}
+          style={{ colorScheme: 'light' }}
           className='h-9 w-full cursor-ew-resize accent-[#6a795c]'
         />
       </div>
