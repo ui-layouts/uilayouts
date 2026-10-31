@@ -47,7 +47,7 @@ function getAllFiles(dir: string): string[] {
     if (file.isDirectory()) {
       filePaths = [...filePaths, ...getAllFiles(path.join(dir, file.name))];
     } else if (file.name.endsWith('.mdx')) {
-      filePaths.push(path.join(dir, file.name).replace(docsDirectory + '/', ''));
+      filePaths.push(path.relative(docsDirectory, path.join(dir, file.name)).split(path.sep).join('/'));
     }
   }
 

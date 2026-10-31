@@ -1,0 +1,4 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "uv run --no-project --python 3.12 --with usd-core==26.8 python scripts/prepare-iphone-duo-assets.py && pnpm build"
+}

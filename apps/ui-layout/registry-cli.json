@@ -4,6 +4,32 @@
   "homepage": "https://www.ui-layouts.com",
   "items": [
     {
+      "name": "iphone-duo",
+      "type": "registry:component",
+      "title": "iPhone Duo",
+      "description": "A folding iPhone Duo with the original wallpaper, projected screen content, and progressive blur.",
+      "dependencies": [
+        "three@0.186.0",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "devDependencies": [
+        "@types/three@0.183.1"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/iphone-duo.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "./public/iphone-duo/NOTICE.txt",
+          "type": "registry:file",
+          "target": "public/iphone-duo/NOTICE.txt"
+        }
+      ]
+    },
+    {
       "name": "btn-bg-shine",
       "type": "registry:component",
       "devDependencies": [],
