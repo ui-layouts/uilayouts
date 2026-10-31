@@ -242,7 +242,9 @@ vec3 screenColor() {
   float blurGradient = clamp(edge, 0.0, 1.0);
   float darkenGradient = clamp((edge - 0.2) / 0.8, 0.0, 1.0);
   float effect = motion * pow(darkenGradient, 1.35);
-  float radius = 72.0 * motion * pow(blurGradient, 1.35);
+  // Spread softness across the folding side, including small opening changes.
+  // Source-pixel units keep the blur consistent across viewport sizes and DPRs.
+  float radius = 96.0 * motion * pow(blurGradient, 1.05);
   vec2 aa = max(fwidth(sourceUV), uiPixel * 0.5);
   vec2 dx = dFdx(sourceUV) / uiPixel;
   vec2 dy = dFdy(sourceUV) / uiPixel;
@@ -268,7 +270,13 @@ vec3 screenColor() {
       }
     }
   }
-  return color * (1.0 - min(1.0, effect * 2.0));
+  color *= 1.0 - min(1.0, effect * 2.0);
+  #ifdef INNER_UI
+    // The moving cover shades the stationary half as the two screens meet.
+    float coverShadow = 0.65 * smoothstep(1.2, 2.8, foldAngle);
+    color *= 1.0 - coverShadow * smoothstep(0.48, 0.58, sourceUV.x);
+  #endif
+  return color;
 }
 `;
 
@@ -544,10 +552,15 @@ export function IPhoneDuo({
         let customTexture: THREE.CanvasTexture | undefined;
         let contentVersion = 0;
         let appliedContent: { theme: 'wallpaper' | 'launcher'; source?: string } | undefined;
-        const setAngle = (value: number) => {
-          const opening = clampAngle(value);
+        let targetAngle = angleRef.current;
+        let displayedAngle = targetAngle;
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        const applyAngle = (opening: number) => {
           bend.value = ((180 - opening) / 180) * Math.PI;
           screens.outer.material.color.setScalar(opening >= 180 ? 0 : 1);
+        };
+        const setAngle = (value: number) => {
+          targetAngle = clampAngle(value);
         };
         controllerRef.current = {
           setAngle,
@@ -636,13 +649,26 @@ export function IPhoneDuo({
         );
         if (disposed) return;
         setAngle(angleRef.current);
+        displayedAngle = targetAngle;
+        applyAngle(displayedAngle);
         await renderer.compileAsync(scene, camera);
         if (disposed) return;
         // Draw a complete frame behind the poster before fading the poster away.
         renderer.render(scene, camera);
         setStatus('ready');
-        renderer.setAnimationLoop(() => {
+        let lastFrameTime: number | undefined;
+        renderer.setAnimationLoop((time) => {
+          const delta =
+            lastFrameTime === undefined ? 0 : Math.min((time - lastFrameTime) / 1000, 0.05);
+          lastFrameTime = time;
           if (document.hidden) return;
+          // Dampen wheel/trackpad steps and fast slider input with one shared fold value.
+          // The geometry, blur and shading therefore settle together in either direction.
+          displayedAngle = reducedMotion.matches
+            ? targetAngle
+            : THREE.MathUtils.damp(displayedAngle, targetAngle, 14, delta);
+          if (Math.abs(displayedAngle - targetAngle) < 0.01) displayedAngle = targetAngle;
+          applyAngle(displayedAngle);
           controls?.update();
           renderer?.render(scene, camera);
         });
