@@ -1,3 +1,7 @@
+import { noIndexMetadata } from '@/lib/seo';
+
+export const metadata = noIndexMetadata;
+
 import ComponentSection from '@/components/website/labs/component-section';
 import styles from './labs.module.css';
 

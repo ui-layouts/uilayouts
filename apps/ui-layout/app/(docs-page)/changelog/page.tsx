@@ -1,14 +1,15 @@
 import { cn } from '@/lib/utils';
 import { Component } from 'lucide-react';
-import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Changelog | UI Layouts',
   description:
-    'Track major UI Layouts updates. We only include meaningful additions and improvements, not every small commit.',
-};
+    'Track major UI Layouts updates, new components, blocks, and documentation improvements.',
+  path: '/changelog',
+});
 
 type ChangeDetail = {
   label: string;

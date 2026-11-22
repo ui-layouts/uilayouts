@@ -6,8 +6,8 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function absoluteUrl(path: string) {
-  const base = process.env.NEXT_PUBLIC_CLIENT_URL || siteConfig.url;
-  return `${base}${path}`;
+  // Canonicals describe the public site, even on local or preview deployments.
+  return new URL(path, siteConfig.url).toString();
 }
 
 function debounce(func: (...args: any[]) => any, wait: number, immediate = false) {
@@ -52,9 +52,9 @@ export const siteConfig = {
   blocksUrl: 'https://www.ui-layouts.com/blocks',
   ogImage: 'https://www.ui-layouts.com/og.jpg',
   BlocksOgImage: 'https://www.ui-layouts.com/blocks-og.jpg',
-  workWithUsOgImage: 'https://www.ui-layouts.com/work-with-usog.jpg',
+  workWithUsOgImage: 'https://www.ui-layouts.com/work-with-us-og.jpg',
   description:
-    'Beautifully designed React + Next.js + TailwindCSS components. 60+ ready-to-use, accessible, and customizable UI pieces — open source and free.',
+    'Open-source React, Next.js, and Tailwind CSS components and website blocks. Preview interactive examples, copy the source code, and customize your interface.',
   blocksDescription:
     'Creatively crafted blocks built with Tailwind CSS and shadcn/ui, ready to drop into real-world React and Next.js projects.  Clean, responsive, and easy to customize',
   links: {

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     canonical: '/mcp',
   },
   title: 'UI-Layouts MCP',
-  description: 'Real UI Components for Vibe Coder',
+  description: 'Connect UI Layouts MCP to your AI editor to discover React components, read documentation, and use real source code in your frontend workflow.',
   keywords: [
     'UI-Layouts MCP',
     'Model Context Protocol',
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     siteName: 'UI-Layouts',
     images: [
       {
-        url: 'https://www.ui-layouts.com/mcp.png',
+        url: 'https://www.ui-layouts.com/mcp.jpg',
         width: 1200,
         height: 630,
         alt: 'UI-Layouts MCP',
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     title: 'UI-Layouts MCP',
     description:
       'A Model Context Protocol for frontend developers. Let AI editors read real UI components and documentation.',
-    images: ['https://www.ui-layouts.com/mcp.png'],
+    images: ['https://www.ui-layouts.com/mcp.jpg'],
     creator: '@naymur_dev',
   },
   icons: {
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
     shortcut: '/favicon-16x16.png',
     apple: '/apple-touch-icon.png',
   },
-  manifest: 'https://www.ui-layouts.com/site.webmanifest',
+  manifest: 'https://www.ui-layouts.com/manifest.webmanifest',
 };
 
 function page() {

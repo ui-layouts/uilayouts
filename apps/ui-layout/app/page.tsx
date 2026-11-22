@@ -1,5 +1,6 @@
+import { pageMetadata } from '@/lib/seo';
+import { siteConfig } from '@/lib/utils';
 import { getMinimalBlocksBySection } from '@/blocks-docs';
-import { FaqStructuredData } from '@/components/seo/faq-structured-data';
 import { StructuredData } from '@/components/seo/structured-data';
 import { Container } from '@/components/ui/container';
 import HeroSec from '@/components/website/home/hero-sec';
@@ -9,29 +10,17 @@ import { Banner } from '@/components/website/ui/banner';
 import { cn } from '@/lib/utils';
 import { ArrowUpRight } from 'lucide-react';
 
-const homeFaqs = [
-  {
-    question: 'What is UI Layouts?',
-    answer:
-      'UI Layouts is an open-source library of copy-and-paste React, Next.js, and Tailwind CSS components and website blocks.',
-  },
-  {
-    question: 'Are the UI components free to use?',
-    answer:
-      'Yes. UI Layouts provides free, open-source components you can use in personal or commercial projects.',
-  },
-  {
-    question: 'Does UI Layouts support TypeScript?',
-    answer: 'Yes. Components are built to work with modern TypeScript and Next.js projects.',
-  },
-];
+export const metadata = pageMetadata({
+  title: siteConfig.name,
+  description: siteConfig.description,
+  path: '/',
+});
 
 export default function Home() {
   const blocksData = getMinimalBlocksBySection();
   return (
     <>
       <StructuredData type='homepage' />
-      <FaqStructuredData items={homeFaqs} />
       <Container>
         <div className='relative bg-black'>
           <div
@@ -69,7 +58,9 @@ export default function Home() {
         </div>
         <section className='relative'>
           <HomeHeader />
-          <HeroSec blocksData={blocksData} />
+          <main>
+            <HeroSec blocksData={blocksData} />
+          </main>
         </section>
         <HomeFooter />
       </Container>

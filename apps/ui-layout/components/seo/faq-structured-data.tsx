@@ -1,3 +1,5 @@
+import { serializeJsonLd } from '@/lib/seo';
+
 interface FaqItem {
   question: string;
   answer: string;
@@ -27,7 +29,7 @@ export function FaqStructuredData({ items }: FaqStructuredDataProps) {
     <script
       type='application/ld+json'
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(faqData),
+        __html: serializeJsonLd(faqData),
       }}
     />
   );
