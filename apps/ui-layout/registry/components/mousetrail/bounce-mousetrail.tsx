@@ -16,6 +16,7 @@ export default function BounceMousetrail() {
     <ImageMouseTrail
       items={images}
       variant='bounce'
+      touchAction='none'
       fadeAnimation
       threshold={90}
       maxNumberOfImages={8}

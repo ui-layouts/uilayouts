@@ -35,7 +35,7 @@ export const metadata = {
   ],
 };
 
-Three ways to turn pointer movement into an image trail. Move across a preview, or drag on a touch screen. Images are decorative and do not block links, selection, or page scrolling.
+Three ways to turn pointer movement into an image trail. Move across a preview, or drag on a touch screen. Images are decorative and never intercept links or selection. The previews allow dragging in any direction; page scrolling remains available outside them.
 
 ## Smooth Follow
 
@@ -98,7 +98,7 @@ export default function Gallery() {
 }
 ```
 
-No animation library or extra CSS is required. Each instance owns a bounded image pool and cancels its animations when it unmounts. Failed images are skipped. Fading images finish their exit when the pointer leaves; persistent images clear on leave. Cancelling a touch gesture, resizing, or switching windows clears the trail. Reduced-motion preferences replace movement and scaling with a simple fade.
+No animation library or extra CSS is required. By default, `touchAction="pan-y"` keeps vertical page scrolling available and supports horizontal trail gestures. Set `touchAction="none"` for unrestricted dragging inside the component, as in these previews. Each instance owns a bounded image pool and cancels its animations when it unmounts. Failed images are skipped. Fading images finish their exit when the pointer leaves; persistent images clear on leave. Cancelling a touch gesture, resizing, or switching windows clears the trail. Reduced-motion preferences replace movement and scaling with a simple fade.
 
 ## Props
 
@@ -114,6 +114,7 @@ No animation library or extra CSS is required. Each instance owns a bounded imag
 | maxNumberOfImages | number | 5 | Image pool size, clamped to 1–30. Reuses the oldest slot. |
 | fadeAnimation | boolean | false | Fade follow images on idle. Otherwise they remain until replaced or the pointer leaves. |
 | duration | number | 1200 | Animation lifetime in milliseconds, minimum 400. |
+| touchAction | 'auto' / 'pan-y' / 'none' | 'pan-y' | Touch gesture policy. Use none for two-dimensional dragging. |
 
 ## Inspiration
 

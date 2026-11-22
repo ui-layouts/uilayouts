@@ -19,6 +19,8 @@ export interface ImageMouseTrailProps {
   variant?: ImageTrailVariant;
   /** Lifetime in milliseconds for fading trails. */
   duration?: number;
+  /** pan-y preserves vertical page scrolling; none enables unrestricted dragging. */
+  touchAction?: 'auto' | 'pan-y' | 'none';
 }
 
 type Point = { x: number; y: number };
@@ -35,6 +37,7 @@ export default function ImageMouseTrail({
   fadeAnimation = false,
   variant = 'follow',
   duration = 1200,
+  touchAction = 'pan-y',
 }: ImageMouseTrailProps) {
   // Equal URL lists should not restart the trail when a parent re-renders.
   const sourceKey = JSON.stringify(items);
@@ -57,7 +60,9 @@ export default function ImageMouseTrail({
     const preload = [...new Set(sources)].map((src) => {
       const image = new Image();
       image.onload = () => {
-        if (!disposed) ready.add(src);
+        if (disposed) return;
+        ready.add(src);
+        if (pending && !frame) frame = requestAnimationFrame(render);
       };
       image.src = src;
       if (image.complete && image.naturalWidth > 0) ready.add(src);
@@ -86,7 +91,7 @@ export default function ImageMouseTrail({
 
     const emit = (at: Point, delta: Point) => {
       const available = sources.filter((src) => ready.has(src));
-      if (!available.length) return;
+      if (!available.length) return false;
       const image = images[index++ % images.length];
       animations.get(image)?.cancel();
       image.src = available[sequence++ % available.length];
@@ -151,6 +156,7 @@ export default function ImageMouseTrail({
           animations.delete(image);
           order = order.filter((item) => item !== image);
         };
+      return true;
     };
 
     const render = () => {
@@ -159,8 +165,8 @@ export default function ImageMouseTrail({
       const target = pending;
       pending = null;
       if (!last) {
-        emit(target, { x: 0, y: 0 });
-        last = target;
+        if (emit(target, { x: 0, y: 0 })) last = target;
+        else pending = target;
         return;
       }
       const dx = target.x - last.x;
@@ -176,8 +182,11 @@ export default function ImageMouseTrail({
       for (let i = 1; i <= steps; i++) {
         const fraction = steps === poolSize ? i / steps : (i * spacing) / length;
         const point = { x: start.x + dx * fraction, y: start.y + dy * fraction };
-        emit(point, { x: dx / Math.max(1, steps), y: dy / Math.max(1, steps) });
-        last = point;
+        if (emit(point, { x: dx / Math.max(1, steps), y: dy / Math.max(1, steps) })) last = point;
+        else {
+          pending = target;
+          break;
+        }
       }
     };
     const move = (event: PointerEvent) => {
@@ -227,6 +236,7 @@ export default function ImageMouseTrail({
   return (
     <div
       ref={containerRef}
+      style={{ touchAction }}
       className={cn(
         'relative isolate grid h-[600px] w-full place-items-center overflow-hidden rounded-lg bg-muted text-foreground',
         className

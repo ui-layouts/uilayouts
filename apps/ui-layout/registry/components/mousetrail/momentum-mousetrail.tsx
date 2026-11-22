@@ -16,6 +16,7 @@ export default function MomentumMousetrail() {
     <ImageMouseTrail
       items={images}
       variant='momentum'
+      touchAction='none'
       fadeAnimation
       threshold={90}
       maxNumberOfImages={8}

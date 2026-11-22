@@ -16,6 +16,7 @@ export default function FollowMousetrail() {
     <ImageMouseTrail
       items={images}
       variant='follow'
+      touchAction='none'
       fadeAnimation
       threshold={90}
       maxNumberOfImages={8}
