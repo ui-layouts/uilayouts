@@ -9,6 +9,7 @@ interface StructuredDataProps {
     image?: string;
     path?: string;
     itemType?: 'component' | 'block';
+    items?: { name: string; path: string }[];
   };
 }
 
@@ -63,6 +64,19 @@ export function StructuredData({ type, componentData }: StructuredDataProps) {
         url: siteConfig.url,
       },
       ...(componentData.image ? { image: componentData.image } : {}),
+      ...(isBlockCollection && componentData.items?.length
+        ? {
+            mainEntity: {
+              '@type': 'ItemList',
+              itemListElement: componentData.items.map(({ name, path }, index) => ({
+                '@type': 'ListItem',
+                position: index + 1,
+                name,
+                url: absoluteUrl(path),
+              })),
+            },
+          }
+        : {}),
       ...(!isBlockCollection
         ? {
             about: {

@@ -208,30 +208,20 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  verification: {
-    google: 'google-site-verification-code',
-    yandex: 'yandex-verification-code',
-    yahoo: 'yahoo-site-verification-code',
-  },
   alternates: {
     canonical: siteConfig.blocksUrl,
-    languages: {
-      'en-US': siteConfig.blocksUrl,
-      'en-GB': siteConfig.blocksUrl,
-    },
   },
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon-16x16.png',
     apple: '/apple-touch-icon.png',
   },
-  manifest: `${siteConfig.url}/site.webmanifest`,
+  manifest: '/manifest.webmanifest',
   other: {
     'theme-color': '#000000',
     'msapplication-TileColor': '#000000',
     'apple-mobile-web-app-title': 'UI-Layouts Blocks',
     'application-name': 'UI-Layouts Blocks',
-    'msapplication-config': '/browserconfig.xml',
   },
   category: 'technology',
   classification: 'Web Development',

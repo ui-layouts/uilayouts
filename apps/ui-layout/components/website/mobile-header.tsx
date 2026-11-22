@@ -111,7 +111,7 @@ function MobileHeader({ classname }: { classname?: string }) {
                 },
                 {
                   name: 'blocks',
-                  url: 'https://ui-layouts.com/blocks',
+                  url: '/blocks',
                   icon: <LayoutPanelTop />,
                 },
               ].map((item) => {

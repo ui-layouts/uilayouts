@@ -5,7 +5,8 @@ from html.parser import HTMLParser
 import json
 import re
 from urllib.parse import urlsplit
-from urllib.request import Request, urlopen
+from urllib.error import HTTPError
+from urllib.request import HTTPRedirectHandler, Request, build_opener, urlopen
 import xml.etree.ElementTree as ET
 
 ORIGIN = 'https://www.ui-layouts.com'
@@ -13,23 +14,30 @@ ORIGIN = 'https://www.ui-layouts.com'
 class Page(HTMLParser):
     def __init__(self):
         super().__init__()
-        self.canonicals, self.meta, self.titles, self.schemas = [], {}, [], []
+        self.canonicals, self.meta, self.titles, self.schemas, self.links = [], {}, [], [], []
         self.capture = None
         self.text = ''
-        self.h1 = self.main = 0
+        self.h1, self.main, self.images = [], 0, {}
     def handle_starttag(self, tag, pairs):
         attrs = dict(pairs)
-        if tag == 'meta': self.meta[attrs.get('name', attrs.get('property'))] = attrs.get('content', '')
+        if tag == 'meta':
+            key = attrs.get('name', attrs.get('property'))
+            value = attrs.get('content', '')
+            if key in ('og:image', 'twitter:image'):
+                self.images.setdefault(key, []).append(value)
+            else:
+                self.meta[key] = value
         if tag == 'link' and attrs.get('rel') == 'canonical': self.canonicals.append(attrs.get('href'))
-        if tag == 'h1': self.h1 += 1
+        if tag == 'a' and attrs.get('href'): self.links.append(attrs['href'])
         if tag == 'main': self.main += 1
-        if tag == 'title' or (tag == 'script' and attrs.get('type') == 'application/ld+json'):
+        if tag in ('title', 'h1') or (tag == 'script' and attrs.get('type') == 'application/ld+json'):
             self.capture, self.text = tag, ''
     def handle_data(self, text):
         if self.capture: self.text += text
     def handle_endtag(self, tag):
         if tag == self.capture:
             if tag == 'title': self.titles.append(self.text)
+            elif tag == 'h1': self.h1.append(self.text.strip())
             else: self.schemas.append(json.loads(self.text))
             self.capture = None
 
@@ -39,14 +47,21 @@ def main():
     args = parser.parse_args()
     base = args.base_url.rstrip('/')
     def fetch(path):
-        with urlopen(Request(base + path, headers={'User-Agent': 'UI-Layouts-SEO-Audit/1.0'}), timeout=60) as response:
+        request = Request(base + path, headers={'User-Agent': 'UI-Layouts-SEO-Audit/1.0'})
+        with urlopen(request, timeout=60) as response:
+            assert response.url == request.full_url, f'{path}: redirects to {response.url}'
             return response.status, response.read().decode('utf8'), response.headers
     _, xml, _ = fetch('/sitemap.xml')
     tree = ET.fromstring(xml)
     urls = [node.text for node in tree.findall('{*}url/{*}loc')]
     assert len(urls) == len(set(urls)), 'Sitemap contains duplicates'
     assert not tree.findall('{*}url/{*}lastmod'), 'Do not invent modification timestamps'
-    assert all(url.startswith(ORIGIN) for url in urls), 'Sitemap must use the public canonical host'
+    origin = urlsplit(ORIGIN)
+    assert all(
+        (urlsplit(url).scheme, urlsplit(url).netloc) == (origin.scheme, origin.netloc)
+        and not urlsplit(url).query and not urlsplit(url).fragment
+        for url in urls
+    ), 'Sitemap must use canonical URLs on the public origin'
     paths = [urlsplit(url).path or '/' for url in urls]
     assert not any(path.startswith(('/labs', '/preview', '/live-components', '/example', '/search')) for path in paths)
     def audit(path):
@@ -54,6 +69,8 @@ def main():
         page = Page(); page.feed(html)
         expected = ORIGIN + ('' if path == '/' else path)
         assert status == 200, path
+        if path.startswith('/blocks/'):
+            assert len(html.encode('utf8')) < 2_000_000, f'{path}: HTML exceeds 2 MB'
         assert len(page.titles) == 1 and page.titles[0].strip(), f'{path}: missing title'
         assert page.meta.get('description'), f'{path}: missing description'
         assert page.canonicals == [expected], f'{path}: canonical {page.canonicals}'
@@ -62,13 +79,30 @@ def main():
         for schema in page.schemas:
             serialized = json.dumps(schema)
             assert schema.get('@context') == 'https://schema.org', path
+            assert schema.get('@type') not in ('Product', 'SoftwareApplication'), f'{path}: catalog marked as a product'
             assert 'AggregateRating' not in serialized, f'{path}: unverified rating'
             assert '"softwareVersion"' not in serialized, f'{path}: unverified version'
             assert '"dateModified"' not in serialized, f'{path}: unverified modification date'
             assert 'FAQPage' not in serialized, f'{path}: hidden FAQ markup'
         return path, page
     with ThreadPoolExecutor(max_workers=4) as pool: pages = dict(pool.map(audit, paths))
-    assert pages['/get-started'].h1 == 1, 'Getting started needs a primary heading'
+    assert len(pages['/get-started'].h1) == 1 and pages['/get-started'].h1[0], 'Getting started needs a primary heading'
+    assert pages['/changelog'].h1 == ['Changelog'], 'The changelog needs a primary heading'
+    assert 'MCP Server' in pages['/mcp'].titles[0], 'The MCP page should identify its purpose'
+    category_descriptions = set()
+    for path, page in pages.items():
+        assert 'https://ui-layouts.com/blocks' not in page.links, f'{path}: link to redirected host'
+        assert 'http://pro.ui-layouts.com/blocks' not in page.links, f'{path}: link to HTTP'
+        if path.startswith('/blocks/'):
+            assert len(page.h1) == 1 and page.h1[0], f'{path}: missing or duplicate primary heading'
+            description = page.meta['description']
+            assert description not in category_descriptions, f'{path}: duplicate category description'
+            category_descriptions.add(description)
+            collections = [schema for schema in page.schemas if schema.get('@type') == 'CollectionPage']
+            assert len(collections) == 1, f'{path}: missing CollectionPage markup'
+            item_list = collections[0]['mainEntity']
+            assert item_list['@type'] == 'ItemList' and item_list['itemListElement'], path
+            assert all(item['url'].startswith(ORIGIN + path + '#') for item in item_list['itemListElement']), path
     assert pages['/'].main == 1, 'Homepage needs a main landmark'
     component = next(path for path in paths if path.startswith('/components/'))
     _, html, _ = fetch('/live-components/image-mousetrail-default')
@@ -83,8 +117,22 @@ def main():
     assert 'Disallow: /live-components' not in robots, 'Keep noindex pages crawlable'
     _, manifest, _ = fetch('/manifest.webmanifest')
     manifest = json.loads(manifest)
+    assert {'192x192', '512x512'} <= {icon['sizes'] for icon in manifest['icons']}
     for icon in manifest['icons']:
-        with urlopen(base + icon['src'], timeout=60) as response: assert response.status == 200
+        with urlopen(base + icon['src'], timeout=60) as response:
+            data = response.read(24)
+            assert response.status == 200 and data.startswith(b'\x89PNG\r\n\x1a\n'), icon
+            dimensions = tuple(int.from_bytes(data[offset:offset + 4], 'big') for offset in (16, 20))
+            assert 'x'.join(map(str, dimensions)) == icon['sizes'], icon
+    class NoRedirect(HTTPRedirectHandler):
+        def redirect_request(self, request, fp, code, msg, headers, newurl):
+            return None
+    try:
+        build_opener(NoRedirect).open(base + '/profitables', timeout=60)
+    except HTTPError as error:
+        assert error.code == 308 and error.headers.get('Location') == 'https://profitables.ui-layouts.com/', error
+    else:
+        raise AssertionError('The retired Profitables path should redirect permanently')
     for path in ['/llms.txt', '/llms-full.txt']:
         _, markdown, _ = fetch(path)
         links = re.findall(r'\]\((https://www\.ui-layouts\.com[^)]+)\)', markdown)
@@ -96,11 +144,12 @@ def main():
     image_paths = set()
     for page in pages.values():
         for name in ['og:image', 'twitter:image']:
-            image = page.meta.get(name)
-            assert image, f'Missing {name}'
-            assert urlsplit(image).netloc == 'www.ui-layouts.com', image
-            target = urlsplit(image)
-            image_paths.add(target.path + ('?' + target.query if target.query else ''))
+            images = page.images.get(name)
+            assert images, f'Missing {name}'
+            for image in images:
+                target = urlsplit(image)
+                assert (target.scheme, target.netloc) == (origin.scheme, origin.netloc), image
+                image_paths.add(target.path + ('?' + target.query if target.query else ''))
     with ThreadPoolExecutor(max_workers=4) as pool:
         def check_image(path):
             try:

@@ -128,7 +128,7 @@ function HomeFooter({
           <article className='relative overflow-hidden border bg-linear-to-r from-secondary/50 to-secondary/30 p-6'>
             <div className='absolute bottom-0 left-0 right-0 top-0 dark:bg-[radial-gradient(#ededed33_1px,#171717_1px)] bg-[radial-gradient(#0000001a_1px,#f8fafc_1px)] bg-size-[16px_16px] mask-[radial-gradient(ellipse_85%_55%_at_100%_0%,#000_70%,transparent_110%)]'></div>
             <a
-              href='http://pro.ui-layouts.com/blocks'
+              href='https://pro.ui-layouts.com/blocks'
               target='_blank'
               className='space-y-2 relative z-4'
               rel='noreferrer noopener'

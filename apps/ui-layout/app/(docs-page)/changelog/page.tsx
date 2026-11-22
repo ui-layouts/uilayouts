@@ -125,9 +125,12 @@ export default function ChangelogPage() {
                 'mb-0 flex font-medium items-center md:text-3xl sm:text-2xl text-xl sm:gap-3 gap-2 tracking-tight capitalize'
               )}
             >
-              <div className='sm:w-9 w-7 sm:h-9 h-7 bg-base-orange grid place-content-center  text-white rounded-lg'>
+              <span
+                className='sm:w-9 w-7 sm:h-9 h-7 bg-base-orange grid place-content-center text-white rounded-lg'
+                aria-hidden='true'
+              >
                 <Component />
-              </div>
+              </span>
               Changelog
             </h1>
             <p className='md:w-140 sm:text-sm text-xs pt-2'>
