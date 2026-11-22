@@ -88,7 +88,7 @@ export function ResponsiveModal({
                 >
                   <button
                     className={cn(
-                      'absolute top-2 right-2 bg-primary text-background p-2 border z-1 rounded-md',
+                      'absolute top-2 right-2 bg-muted text-muted-foreground hover:bg-accent hover:text-accent-foreground p-2 border z-1 rounded-md',
                       clsBtnClassname
                     )}
                     onClick={() => setOpen(false)}

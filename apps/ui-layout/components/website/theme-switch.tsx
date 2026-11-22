@@ -19,7 +19,10 @@ export default function ThemeSwitch({ className }: { className?: string }) {
   return (
     <button
       onClick={toggleTheme}
-      className={cn('inline-flex h-9 w-9 items-center justify-center', className)}
+      className={cn(
+        'inline-flex h-9 w-9 items-center justify-center text-foreground hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
+        className
+      )}
       aria-label='Toggle theme'
       type='button'
     >

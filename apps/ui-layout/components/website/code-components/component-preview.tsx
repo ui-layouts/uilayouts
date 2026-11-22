@@ -73,7 +73,7 @@ export default function ComponentPreview({
                   <Tooltip delayDuration={200}>
                     <TooltipTrigger
                       className={`rounded-md p-1 ${
-                        mode === 'desktop' ? 'bg-primary text-primary-foreground' : ''
+                        mode === 'desktop' ? 'bg-muted text-muted-foreground' : ''
                       }`}
                       onClick={() => {
                         setMode('desktop');
@@ -82,7 +82,7 @@ export default function ComponentPreview({
                     >
                       <Monitor className='h-5 w-5' />
                     </TooltipTrigger>
-                    <TooltipContent className='bg-secondary text-primary border px-2 py-1 rounded-md -translate-y-1'>
+                    <TooltipContent className='bg-secondary text-secondary-foreground border px-2 py-1 rounded-md -translate-y-1'>
                       <p className='capitalize'>Desktop</p>
                     </TooltipContent>
                   </Tooltip>
@@ -92,7 +92,7 @@ export default function ComponentPreview({
                   <Tooltip delayDuration={200}>
                     <TooltipTrigger
                       className={`rounded-md p-1 ${
-                        mode === 'tablet' ? 'bg-primary text-primary-foreground' : ''
+                        mode === 'tablet' ? 'bg-muted text-muted-foreground' : ''
                       }`}
                       onClick={() => {
                         setMode('tablet');
@@ -102,7 +102,7 @@ export default function ComponentPreview({
                     >
                       <Tablet className='h-5 w-5' />
                     </TooltipTrigger>
-                    <TooltipContent className='bg-secondary text-primary border px-2 py-1 rounded-md -translate-y-1'>
+                    <TooltipContent className='bg-secondary text-secondary-foreground border px-2 py-1 rounded-md -translate-y-1'>
                       <p className='capitalize'>Tab</p>
                     </TooltipContent>
                   </Tooltip>
@@ -112,7 +112,7 @@ export default function ComponentPreview({
                   <Tooltip delayDuration={200}>
                     <TooltipTrigger
                       className={`rounded-md p-1 ${
-                        mode === 'mobile' ? 'bg-primary text-primary-foreground' : ''
+                        mode === 'mobile' ? 'bg-muted text-muted-foreground' : ''
                       }`}
                       onClick={() => {
                         setMode('mobile');
@@ -121,7 +121,7 @@ export default function ComponentPreview({
                     >
                       <Smartphone className='h-4 w-4' />
                     </TooltipTrigger>
-                    <TooltipContent className='bg-secondary text-primary border px-2 py-1 rounded-md -translate-y-1'>
+                    <TooltipContent className='bg-secondary text-secondary-foreground border px-2 py-1 rounded-md -translate-y-1'>
                       <p className='capitalize'>Mobile</p>
                     </TooltipContent>
                   </Tooltip>
@@ -162,7 +162,7 @@ export default function ComponentPreview({
               >
                 <RotateCw className='h-5 w-5 group-hover:rotate-180 transition-transform' />
               </TooltipTrigger>
-              <TooltipContent className='bg-secondary text-primary border rounded-md px-2 py-1 -translate-y-1'>
+              <TooltipContent className='bg-secondary text-secondary-foreground border rounded-md px-2 py-1 -translate-y-1'>
                 <p className='capitalize '>Reload</p>
               </TooltipContent>
             </Tooltip>

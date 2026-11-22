@@ -596,7 +596,7 @@ export default function Home() {
               <li key={component.id}>
                 <Link
                   href={component?.url}
-                  className='block h-full border p-2 transition-all rounded-lg dark:bg-black/40 bg-primary-foreground backdrop-blur-xs'
+                  className='block h-full border p-2 transition-all rounded-lg bg-card text-card-foreground backdrop-blur-xs'
                 >
                   <>
                     {component.imgSrc && (

@@ -14,7 +14,7 @@ function MobileHeader({ classname }: { classname?: string }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   return (
     <>
-      <button className={cn(classname, 'text-3xl')} onClick={() => setSidebarOpen(true)}>
+      <button aria-label='Open navigation' className={cn(classname, 'text-3xl text-foreground')} onClick={() => setSidebarOpen(true)}>
         {/* <HiOutlineMenuAlt2 /> */}
         <svg
           width='642'
@@ -22,7 +22,7 @@ function MobileHeader({ classname }: { classname?: string }) {
           viewBox='0 0 642 421'
           fill='none'
           xmlns='http://www.w3.org/2000/svg'
-          className=' stroke-primary w-9 h-9'
+          className=' stroke-current w-9 h-9'
         >
           <path d='M52.333 359H252.333' strokeWidth='66.6667' strokeLinecap='round' />
           <path d='M52.333 212H452.333' strokeWidth='66.6667' strokeLinecap='round' />
@@ -44,7 +44,7 @@ function MobileHeader({ classname }: { classname?: string }) {
             >
               <svg
                 width='288'
-                className='w-36 h-full dark:fill-white fill-black'
+                className='w-36 h-full fill-current'
                 height='63'
                 viewBox='0 0 288 63'
                 fill='none'
@@ -79,15 +79,15 @@ function MobileHeader({ classname }: { classname?: string }) {
                         onClick={() => setSidebarOpen(false)}
                         className={`flex gap-2 group font-medium items-center py-1 transition-all ${
                           link.href === pathname
-                            ? 'active-nav'
+                            ? 'text-foreground font-semibold'
                             : 'text-muted-foreground hover:text-foreground'
                         }`}
                       >
                         {React.cloneElement(link?.icon, {
                           className: `${
                             link.href === pathname
-                              ? 'bg-primary text-primary-foreground'
-                              : 'bg-secondary text-secondary-foreground group-hover:bg-primary group-hover:text-primary-foreground'
+                              ? 'bg-muted text-muted-foreground'
+                              : 'bg-muted text-muted-foreground group-hover:bg-accent group-hover:text-accent-foreground'
                           } h-7 w-7 border transition-all rounded-xs p-1.5`,
                         })}
 
@@ -125,7 +125,7 @@ function MobileHeader({ classname }: { classname?: string }) {
                         rel='noreferrer noopener'
                       >
                         {React.cloneElement(item?.icon, {
-                          className: `${'bg-secondary text-secondary-foreground group-hover:bg-primary group-hover:text-primary-foreground'} h-7 w-7 border transition-all rounded-xs p-1.5`,
+                          className: `${'bg-muted text-muted-foreground group-hover:bg-accent group-hover:text-accent-foreground'} h-7 w-7 border transition-all rounded-xs p-1.5`,
                         })}
                         {item.name}
                       </a>
@@ -191,7 +191,7 @@ function MobileHeader({ classname }: { classname?: string }) {
                               <span className='ml-2 text-xs text-green-500 font-medium'>New</span>
                             )}
                             {link.updated && (
-                              <span className='ml-2 text-xs text-blue-500 font-medium'>
+                              <span className='ml-2 text-xs text-muted-foreground font-medium'>
                                 Updated
                               </span>
                             )}

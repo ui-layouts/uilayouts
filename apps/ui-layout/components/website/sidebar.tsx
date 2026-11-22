@@ -75,15 +75,15 @@ function DocsSidebar() {
                     onClick={() => addVisitedPage(link.href, link.name)}
                     className={`flex gap-2 group font-medium items-center py-1 transition-all ${
                       link.href === pathname
-                        ? 'active-nav'
+                        ? 'text-foreground font-semibold'
                         : 'text-muted-foreground hover:text-foreground'
                     }`}
                   >
                     {React.cloneElement(link?.icon, {
                       className: `${
                         link.href === pathname
-                          ? 'bg-primary text-primary-foreground'
-                          : 'bg-secondary text-secondary-foreground group-hover:bg-primary group-hover:text-primary-foreground'
+                          ? 'bg-muted text-muted-foreground'
+                          : 'bg-muted text-muted-foreground group-hover:bg-accent group-hover:text-accent-foreground'
                       } h-7 w-7 border transition-all rounded-md p-1`,
                     })}
                     {link.name}
@@ -206,7 +206,7 @@ export const ItemsWithName = ({
                   />
                 </button>
               </TooltipTrigger>
-              <TooltipContent className='bg-card text-primary border 2xl:text-base text-sm rounded-md px-2 py-1 -translate-y-1'>
+              <TooltipContent className='bg-card text-card-foreground border 2xl:text-base text-sm rounded-md px-2 py-1 -translate-y-1'>
                 <p className='capitalize'>
                   {expandedItems ? 'Collapse' : 'Expand'}
                 </p>
@@ -218,7 +218,7 @@ export const ItemsWithName = ({
 
       <ul className='relative'>
         {/* {!expandedItems && showExpandButton && (
-          <div className='absolute w-full bottom-0 left-0 h-7 bg-linear-to-t dark:from-neutral-950 from-zinc-50 from-20%' />
+          <div className='absolute w-full bottom-0 left-0 h-7 bg-linear-to-t from-background pointer-events-none from-20%' />
         )} */}
         {itemsToShow.map((link, index) => (
           <li
@@ -236,7 +236,7 @@ export const ItemsWithName = ({
               {link.name}
             </Link>
             {link?.updated && (
-              <span className='2xl:text-xs italic text-[0.74em]  text-blue-500'>(Updated)</span>
+              <span className='2xl:text-xs italic text-[0.74em]  text-muted-foreground'>(Updated)</span>
             )}
             {link?.new && <span className='2xl:text-xs text-[0.74em] text-green-500'>(New)</span>}
           </li>

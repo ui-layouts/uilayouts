@@ -639,8 +639,8 @@ function HeroSec({ blocksData }: { blocksData: any[] }) {
                   <ReviewCard key={review.username} {...review} />
                 ))}
               </Marquee>
-              <div className='pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-linear-to-r from-white dark:from-neutral-950'></div>
-              <div className='pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-linear-to-l from-white dark:from-neutral-950'></div>
+              <div className='pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-linear-to-r from-background'></div>
+              <div className='pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-linear-to-l from-background'></div>
             </div>
           </div>
           <GapPattern />

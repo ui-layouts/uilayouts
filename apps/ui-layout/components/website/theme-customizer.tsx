@@ -84,7 +84,7 @@ export function ThemeCustomizer({ className }: { className?: string }) {
         onClick={() => setOpen(true)}
         aria-label='Customize theme'
         className={cn(
-          'relative inline-flex items-center justify-center transition-colors',
+          'relative inline-flex items-center justify-center text-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
           className
         )}
       >
