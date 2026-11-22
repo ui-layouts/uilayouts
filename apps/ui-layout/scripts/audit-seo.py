@@ -41,6 +41,25 @@ class Page(HTMLParser):
             else: self.schemas.append(json.loads(self.text))
             self.capture = None
 
+def schema_objects(value):
+    if isinstance(value, dict):
+        yield value
+        for child in value.values():
+            yield from schema_objects(child)
+    elif isinstance(value, list):
+        for child in value:
+            yield from schema_objects(child)
+
+
+def schema_type_names(node):
+    value = node.get('@type')
+    if isinstance(value, str):
+        return (value,)
+    if isinstance(value, list):
+        return tuple(name for name in value if isinstance(name, str))
+    return ()
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--base-url', required=True)
@@ -78,8 +97,10 @@ def main():
         assert 'noindex' not in page.meta.get('robots', ''), f'{path}: unexpectedly noindexed'
         for schema in page.schemas:
             serialized = json.dumps(schema)
-            assert schema.get('@context') == 'https://schema.org', path
-            assert schema.get('@type') not in ('Product', 'SoftwareApplication'), f'{path}: catalog marked as a product'
+            roots = schema if isinstance(schema, list) else [schema]
+            assert roots and all(isinstance(root, dict) and root.get('@context') == 'https://schema.org' for root in roots), path
+            schema_types = {name for node in schema_objects(schema) for name in schema_type_names(node)}
+            assert not schema_types.intersection({'Product', 'SoftwareApplication'}), f'{path}: catalog marked as a product'
             assert 'AggregateRating' not in serialized, f'{path}: unverified rating'
             assert '"softwareVersion"' not in serialized, f'{path}: unverified version'
             assert '"dateModified"' not in serialized, f'{path}: unverified modification date'
@@ -98,7 +119,10 @@ def main():
             description = page.meta['description']
             assert description not in category_descriptions, f'{path}: duplicate category description'
             category_descriptions.add(description)
-            collections = [schema for schema in page.schemas if schema.get('@type') == 'CollectionPage']
+            collections = [
+                node for schema in page.schemas for node in schema_objects(schema)
+                if 'CollectionPage' in schema_type_names(node)
+            ]
             assert len(collections) == 1, f'{path}: missing CollectionPage markup'
             item_list = collections[0]['mainEntity']
             assert item_list['@type'] == 'ItemList' and item_list['itemListElement'], path
