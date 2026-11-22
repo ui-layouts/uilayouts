@@ -48,7 +48,7 @@ function ProductCard3() {
         </div>
         <article className='text-foreground pt-2 p-2'>
           <div className='flex justify-between'>
-            <h1 className='font-semibold text-xl text-blue-500'>Nike Air Max</h1>
+            <h2 className='font-semibold text-xl text-blue-500'>Nike Air Max</h2>
             <span className='font-medium text-xl text-blue-500'>$39</span>
           </div>
           <p className='text-xs pb-2'>

@@ -63,8 +63,9 @@ function DocsSidebar() {
   const { addVisitedPage } = useRecentPagesStore();
   return (
     <>
-      <aside className='h-full lg:block hidden'>
+      <aside aria-label='Documentation sidebar' className='h-full lg:block hidden'>
         <div className='h-full w-full'>
+          <nav aria-label='Documentation navigation'>
           <ScrollArea className='h-[calc(100vh-6em)] px-3'>
             <ul className='pb-1 pt-12'>
               {basePath?.map((link) => (
@@ -146,6 +147,7 @@ function DocsSidebar() {
               ))}
             </div>
           </ScrollArea>
+          </nav>
         </div>
       </aside>
     </>

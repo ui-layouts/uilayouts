@@ -23,7 +23,7 @@ function StripeCard() {
         </figure>
         <article className='  p-4 space-y-2'>
           <div className='h-8 w-20 bg-[#4393fc] rounded-md'></div>
-          <h1 className='text-xl font-semibold capitalize'>Incorporate your company</h1>
+          <h2 className='text-xl font-semibold capitalize'>Incorporate your company</h2>
           <p className='text-base leading-[120%]'>
             Form a legal entity, issue stock, and start accepting payments.
           </p>

@@ -20,9 +20,9 @@ export default function SpotlightCard3() {
               className='w-fit mx-auto '
               height={600}
             />
-            <h1 className='text-3xl pt-6 font-medium tracking-tight text-white'>
+            <h2 className='text-3xl pt-6 font-medium tracking-tight text-white'>
               Subscriber Growth
-            </h1>
+            </h2>
             <p className='pt-2  text-muted-foreground capitalize'>
               Experience a significant boost in your subscriber <br /> count, achieving 3x growth.
             </p>

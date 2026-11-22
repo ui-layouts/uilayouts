@@ -41,7 +41,7 @@ const FlipCountdownTailwind = () => {
   if (timeRemaining <= 0) {
     return (
       <div className='bg-black p-10 text-center font-sans text-white'>
-        <h1 className='text-5xl font-extrabold text-red-600'>🥳 Time's Up!</h1>
+        <h2 className='text-5xl font-extrabold text-red-600'>🥳 Time's Up!</h2>
       </div>
     );
   }

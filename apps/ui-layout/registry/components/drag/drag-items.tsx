@@ -48,7 +48,7 @@ export default function DragItems() {
     >
       {items.map((item) => (
         <Item key={item.id} item={item}>
-          <h1 className='text-xl'>{item.title}</h1>
+          <h2 className='text-xl'>{item.title}</h2>
           <p className='text-sm'>{item.subtitle}</p>
           <span>{item.date}</span>
           <a

@@ -109,7 +109,7 @@ function Others1() {
     },
   };
   return (
-    <main ref={timelineRef}>
+    <div ref={timelineRef}>
       <TimelineAnimation
         as='header'
         animationNum={1}
@@ -207,7 +207,7 @@ function Others1() {
               <div className='absolute bottom-0 left-0 right-0 top-0 z-10 w-full h-full bg-[repeating-linear-gradient(135deg,#475aff33_0px_1px,transparent_1px_15px)] mask-[radial-gradient(ellipse_50%_135%_at_93%_0%,#000_55%,transparent_100%)]'></div>
               <div className='space-y-2 rounded-md text-foreground'>
                 <span className='text-sm text-muted-foreground'>blocks/FAQs</span>
-                <h1
+                <h2
                   className={cn(
                     'mb-0 flex scroll-m-20 not-prose items-center lg:text-3xl text-2xl gap-2 font-medium tracking-tight'
                   )}
@@ -216,7 +216,7 @@ function Others1() {
                     <Component />
                   </div>
                   FAQs
-                </h1>
+                </h2>
                 <p className='sm:text-sm text-xs text-primary/70'>
                   Beautiful FAQ layouts to start your landing page.
                 </p>
@@ -272,7 +272,7 @@ function Others1() {
           </section>
         </div>
       </div>
-    </main>
+    </div>
   );
 }
 

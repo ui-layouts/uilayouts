@@ -22,7 +22,7 @@ export default function BottomDirectionalDrawer() {
       >
         <DrawerContent className='w-full h-full flex justify-end'>
           <div className='p-5 rounded-t-md grow w-full pt-14'>
-            <h1 className='font-medium  text-2xl'>Update Profile Image</h1>
+            <h2 className='font-medium  text-2xl'>Update Profile Image</h2>
             <p className='text-sm text-muted-foreground'>
               Upload a new profile image or remove the current one.
             </p>

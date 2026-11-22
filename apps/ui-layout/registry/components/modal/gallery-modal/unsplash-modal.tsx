@@ -96,7 +96,7 @@ function ImageItem({ item, index, setSelected, isLoaded, onLoad }: ImageItemProp
         />
       )}
       <div className="flex flex-wrap mt-2 absolute bottom-0 left-0 p-2 group-hover:opacity-100 opacity-0 font-semibold transition-opacity">
-        <h1>{item.title}</h1>
+        <h2>{item.title}</h2>
       </div>
     </motion.figure>
   );

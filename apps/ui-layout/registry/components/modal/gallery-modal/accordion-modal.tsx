@@ -186,7 +186,7 @@ export default function AccordionModal() {
                   className='rounded-2xl h-full w-full object-cover'
                 />
                 <article className='dark:bg-black/40 bg-white/40 backdrop-blur-md absolute -bottom-1 left-0 w-full rounded-md p-2'>
-                  <motion.h1
+                  <motion.h2
                     initial={{ scaleY: 0.2 }}
                     animate={{ scaleY: 1 }}
                     exit={{ scaleY: 0.2 }}
@@ -194,7 +194,7 @@ export default function AccordionModal() {
                     className='text-xl font-semibold'
                   >
                     {itemsArr[index].title}
-                  </motion.h1>
+                  </motion.h2>
                   <motion.p
                     initial={{ y: -10, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}

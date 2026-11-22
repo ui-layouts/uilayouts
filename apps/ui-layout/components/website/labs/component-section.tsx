@@ -18,6 +18,7 @@ import { Suspense, useEffect, useState } from 'react';
 import { AllComponents } from '@/configs/docs';
 import { useSelectedComponentStore, useStateChange } from '@/hooks/useZustStore';
 import { cn } from '@/lib/utils';
+import { getPreviewUrl } from '@/lib/preview-url';
 import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover';
 import { findLabComponent, labComponentKey } from './component-selection';
 import LabSidebar from './labs-sidebar';
@@ -92,13 +93,8 @@ export default function ComponentSection() {
     setSizes((previous) => ({ ...previous, [key]: value }));
   const Preview = current?.componentSrc;
   const iframeSrc = current?.iframe
-    ? current.iframeSrc &&
-      (/^https?:\/\//.test(current.iframeSrc)
-        ? current.iframeSrc
-        : `/${current.iframeSrc.replace(/^\/+/, '')}`)
-    : current?.iframelink && process.env.NEXT_PUBLIC_ANIMATION_URL
-      ? `${process.env.NEXT_PUBLIC_ANIMATION_URL.replace(/\/$/, '')}/${current.iframelink}`
-      : undefined;
+    ? getPreviewUrl(current.iframeSrc)
+    : getPreviewUrl(undefined, current?.iframelink);
 
   return (
     <div

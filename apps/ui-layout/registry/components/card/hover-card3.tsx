@@ -19,7 +19,7 @@ function HoverCard3() {
         </div>
         <article className='p-8 w-full h-full overflow-hidden z-10  absolute top-0 flex flex-col justify-end rounded-md   bg-[#c34c32]  opacity-0 group-hover:opacity-100  transition-all duration-300'>
           <div className='translate-y-10 group-hover:translate-y-0 transition-all duration-300 space-y-2'>
-            <h1 className='md:text-2xl font-semibold'>Who We are</h1>
+            <h2 className='md:text-2xl font-semibold'>Who We are</h2>
             <p className='sm:text-base text-sm'>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad consectetur ducimus vel
               nemo deserunt possimus inventore ipsum nostrum. Sapiente, facilis?
@@ -30,7 +30,7 @@ function HoverCard3() {
           </div>
         </article>
         <article className='p-2 w-full h-[20%] flex flex-col justify-end  overflow-hidden  absolute bottom-0 rounded-b-md bg-linear-to-t from-[#c34c32]  opacity-100 group-hover:opacity-0 group-hover:-bottom-4 transition-all duration-300'>
-          <h1 className='md:text-2xl font-semibold'>Naymur Rahman</h1>
+          <h2 className='md:text-2xl font-semibold'>Naymur Rahman</h2>
           <p className='sm:text-base text-sm'>CEO &amp; Design Engineer</p>
         </article>
       </div>

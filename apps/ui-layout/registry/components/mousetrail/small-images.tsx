@@ -29,9 +29,9 @@ export default function SmallImages() {
         className='bg-background text-foreground'
       >
         <article className='relative z-50 '>
-          <h1 className='xl:text-[7em] sm:text-6xl text-4xl text-center font-semibold '>
+          <h2 className='xl:text-[7em] sm:text-6xl text-4xl text-center font-semibold '>
             ✨Experience
-          </h1>
+          </h2>
         </article>
       </ImageMouseTrail>
     </section>

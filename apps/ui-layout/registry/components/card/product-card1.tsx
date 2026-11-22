@@ -32,7 +32,7 @@ function Card1() {
         />
         <div className='text-foreground pt-2'>
           <div className='flex justify-between'>
-            <h1 className='font-semibold text-xl'>Nike Air Max</h1>
+            <h2 className='font-semibold text-xl'>Nike Air Max</h2>
             <motion.button
               className=' text-2xl text-red-400 pr-2 '
               onClick={handleClick}

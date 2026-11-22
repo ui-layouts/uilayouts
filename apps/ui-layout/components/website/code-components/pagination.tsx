@@ -14,12 +14,15 @@ export function ComponentPagination({ doc }: any) {
 
   // Get the next component, if it exists
   const nextComponent =
-    currentIndex < flatDocsNavigationCategories.length - 1
+    currentIndex >= 0 && currentIndex < flatDocsNavigationCategories.length - 1
       ? flatDocsNavigationCategories[currentIndex + 1]
       : null;
 
   return (
-    <div className='flex flex-row items-center justify-between mt-5 mb-2'>
+    <nav
+      aria-label='Component pagination'
+      className='flex flex-row items-center justify-between mt-5 mb-2'
+    >
       {previousComponent && (
         <Link
           href={previousComponent.href}
@@ -38,6 +41,6 @@ export function ComponentPagination({ doc }: any) {
           <ChevronsRight className='ml-1 h-4 w-4' />
         </Link>
       )}
-    </div>
+    </nav>
   );
 }

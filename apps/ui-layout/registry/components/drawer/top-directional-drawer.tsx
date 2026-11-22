@@ -23,7 +23,7 @@ export default function TopDirectionalDrawer() {
         <DrawerContent>
           <figure className='w-full h-full  flex flex-col'>
             <div className='p-5 rounded-t-[10px] grow  h-full w-full'>
-              <h1 className='font-medium text-2xl'>Update Profile Image</h1>
+              <h2 className='font-medium text-2xl'>Update Profile Image</h2>
               <p className='text-sm text-muted-foreground'>
                 Upload a new profile image or remove the current one.
               </p>

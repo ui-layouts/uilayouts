@@ -6,7 +6,7 @@ function ScrollTextAnimation() {
   return (
     <div>
       <div className='h-[550px] grid place-content-center'>
-        <h1 className='text-5xl font-semibold'>Scroll Down👇</h1>
+        <h2 className='text-5xl font-semibold'>Scroll Down👇</h2>
       </div>
 
       <div className='h-[80vh] flex flex-col justify-center items-center text-center'>

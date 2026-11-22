@@ -76,9 +76,9 @@ export default function DemoSpotlightCard4() {
               className='w-fit mx-auto '
               height={600}
             />
-            <h1 className='text-2xl pt-5 font-semibold tracking-tight text-white'>
+            <h2 className='text-2xl pt-5 font-semibold tracking-tight text-white'>
               Seamless Animation For All
-            </h1>
+            </h2>
             <p className='pt-2 lg:text-base text-sm  text-muted-foreground capitalize'>
               Effortlessly connect with today's leading technologies
               <br />

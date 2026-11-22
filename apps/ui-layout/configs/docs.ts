@@ -1209,7 +1209,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'swapy',
     description: 'OPACITY SWAPY component',
     filesrc: require('../registry/components/swapy/swapy-opacity.tsx?raw'),
-    iframeSrc: 'live-components/swapy-opacity',
+    iframeSrc: "live-components/opacity-swapy",
     componentSrc: React.lazy(() => import('@/registry/components/swapy/swapy-opacity')),
     tags: ['Swapy drag', 'swapy draggable', 'swapy items', 'swapy sortable', 'swapy list'],
   },
@@ -1529,7 +1529,7 @@ export const AllComponents: IAllComponents[] = [
     description: 'PHONE INPUT DEFAULT component',
     filesrc: require('../registry/components/form/phone-number/index.tsx?raw'),
     componentSrc: React.lazy(() => import('@/registry/components/form/phone-number')),
-    iframeSrc: 'live-components/phone-input',
+    iframeSrc: "live-components/phone-input-default",
     tags: ['phone-input', 'Phone Input', 'Input'],
   },
 
@@ -1542,7 +1542,7 @@ export const AllComponents: IAllComponents[] = [
     description: 'BUYME ACOFFEE component',
     filesrc: require('../registry/components/buy-me-coffee.tsx?raw'),
     componentSrc: React.lazy(() => import('@/registry/components/buy-me-coffee')),
-    iframeSrc: 'live-components/buy-me-acoffee',
+    iframeSrc: "live-components/buyme-acoffee",
     tags: ['Sponser', 'Buy me a coffee', 'co-fi', 'Buy-me-a-coffee', 'supports'],
   },
 
@@ -1595,7 +1595,7 @@ export const AllComponents: IAllComponents[] = [
     description: 'FILE UPLOAD DEFAULT - file upload component',
     filesrc: require('../registry/components/form/file-upload/index.tsx?raw'),
     componentSrc: React.lazy(() => import('@/registry/components/form/file-upload')),
-    iframeSrc: 'live-components/file-upload',
+    iframeSrc: "live-components/file-upload-default",
     tags: ['DropZone input', 'File Upload Input ', 'file-upload'],
   },
 
@@ -1607,7 +1607,7 @@ export const AllComponents: IAllComponents[] = [
     slug: 'multi-selector-default',
     description: 'MULTI SELECTOR DEFAULT - multi-selector component',
     componentSrc: React.lazy(() => import('@/registry/components/form/multiple-selector')),
-    iframeSrc: 'live-components/multi-selector',
+    iframeSrc: "live-components/multi-selector-default",
     tags: ['Multi Selector Input', 'Selector Input Tag', 'Multiple Selector Input'],
     filesArray: [
       {
@@ -1707,7 +1707,7 @@ export const AllComponents: IAllComponents[] = [
     description: 'DATETIME PICKER DEFAULT - date/time picker component',
     filesrc: require('../registry/components/form/datetime-picker/index.tsx?raw'),
     componentSrc: React.lazy(() => import('@/registry/components/form/datetime-picker')),
-    iframeSrc: 'live-components/datetime-picker',
+    iframeSrc: "live-components/datetime-picke-default",
     tags: ['date picker', 'time picker', 'date time picker', 'date-time picker', 'DateTime Picker'],
   },
 
@@ -2170,7 +2170,7 @@ export const AllComponents: IAllComponents[] = [
     filesrc: require('../registry/components/button/btn-black-shadow.tsx?raw'),
     componentSrc: React.lazy(() => import('@/registry/components/button/btn-black-shadow')),
     center: true,
-    iframeSrc: 'live-components/btn-hover12',
+    iframeSrc: "live-components/button-hover-12",
     tags: ['button', 'hover', 'active', 'button hover', 'button active'],
   },
 
@@ -2211,7 +2211,7 @@ export const AllComponents: IAllComponents[] = [
     filesrc: require('../registry/components/button/btn-rotating-gradient.tsx?raw'),
     componentSrc: React.lazy(() => import('@/registry/components/button/btn-rotating-gradient')),
     center: true,
-    iframeSrc: 'live-components/btn-rotating-bgGradient',
+    iframeSrc: "live-components/button-rotating-gradient",
     tags: ['button', 'hover', 'active', 'button hover', 'button active'],
   },
 
@@ -2473,7 +2473,7 @@ export const AllComponents: IAllComponents[] = [
     description: 'VERTICAL THUMBNAIL SLIDER - carousel component',
     filesrc: require('../registry/components/carousel/verticalthumbs-slider.tsx?raw'),
     componentSrc: React.lazy(() => import('@/registry/components/carousel/verticalthumbs-slider')),
-    iframeSrc: 'live-components/verticalthumbs-slider',
+    iframeSrc: "live-components/vertical-thumbnail-slider",
     tags: ['carousel', 'vertical', 'preview-slider', 'image-carousel'],
   },
 
@@ -2488,7 +2488,7 @@ export const AllComponents: IAllComponents[] = [
     componentSrc: React.lazy(
       () => import('@/registry/components/carousel/verticalthumbs-autostart-slider')
     ),
-    iframeSrc: 'live-components/verticalthumbs-autostart-slider',
+    iframeSrc: "live-components/vertical-thumbnail-autostart-slider",
     tags: ['carousel', 'vertical', 'preview-slider', 'image-carousel'],
   },
 
@@ -2641,7 +2641,7 @@ export const AllComponents: IAllComponents[] = [
     componentSrc: React.lazy(
       () => import('@/registry/components/carousel/framer/framer-thumnbails')
     ),
-    iframeSrc: 'live-components/framer-thumnbails',
+    iframeSrc: "live-components/framer-thumbnails",
     tags: ['carousel', 'motion/react', 'animated-carousel', 'carousel-1'],
   },
 
@@ -2656,7 +2656,7 @@ export const AllComponents: IAllComponents[] = [
     componentSrc: React.lazy(
       () => import('@/registry/components/carousel/framer/framer-moveable-thumnbails')
     ),
-    iframeSrc: 'live-components/framer-moveable-thumnbails',
+    iframeSrc: "live-components/framer-moveable-thumbnails",
     tags: ['carousel', 'motion/react', 'animated-carousel', 'carousel-1'],
   },
 
@@ -2723,7 +2723,7 @@ export const AllComponents: IAllComponents[] = [
   {
     category: DOCS_CATEGORY_KEY['liquid-button'],
     componentName: COMPONENT_KEYS.LIQUID_BUTTON,
-    href: '/components/liquid-button',
+    href: '/components/liquid-gradient',
     title: humanize(COMPONENT_KEYS.LIQUID_BUTTON),
     slug: 'liquid-button',
     description: 'LIQUID BUTTON - liquid button component with liquid-like animations',
@@ -2953,7 +2953,7 @@ export const AllComponents: IAllComponents[] = [
     componentSrc: React.lazy(
       () => import('@/registry/components/motion-number/number-flow-trading')
     ),
-    iframeSrc: 'live-components/motion-number-trading',
+    iframeSrc: "live-components/number-flow-trading",
   },
 
   {
@@ -3385,7 +3385,7 @@ export const AllComponents: IAllComponents[] = [
   {
     category: DOCS_CATEGORY_KEY['scroll-text-marquee'],
     componentName: COMPONENT_KEYS.SCROLL_TEXT_MARQUEE_UNIDIRECTIONAL,
-    href: '/components/scroll-text-marquee-unidirectional',
+    href: '/components/scroll-text-marquee',
     title: humanize(COMPONENT_KEYS.SCROLL_TEXT_MARQUEE_UNIDIRECTIONAL),
     slug: 'scroll-text-marquee-unidirectional',
     description: 'SCROLL TEXT MARQUEE UNIDIRECTIONAL component made with motion',
@@ -3393,14 +3393,14 @@ export const AllComponents: IAllComponents[] = [
     componentSrc: React.lazy(
       () => import('@/registry/components/text-animation/text-marque/animationone')
     ),
-    iframeSrc: 'live-components/scroll-text-marquee',
+    iframeSrc: "live-components/scroll-text-marquee-unidirectional",
     tags: ['marquee', 'text', 'animation'],
   },
 
   {
     category: DOCS_CATEGORY_KEY['scroll-text-marquee'],
     componentName: COMPONENT_KEYS.SCROLL_TEXT_MARQUEE_BIDIRECTIONAL,
-    href: '/components/scroll-text-marquee-bidirectional',
+    href: '/components/scroll-text-marquee',
     title: humanize(COMPONENT_KEYS.SCROLL_TEXT_MARQUEE_BIDIRECTIONAL),
     slug: 'scroll-text-marquee-bidirectional',
     description: 'SCROLL TEXT MARQUEE BIDIRECTIONAL component made with motion',
@@ -3408,7 +3408,7 @@ export const AllComponents: IAllComponents[] = [
     componentSrc: React.lazy(
       () => import('@/registry/components/text-animation/text-marque/animationtwo')
     ),
-    iframeSrc: 'live-components/scroll-text-marquee2',
+    iframeSrc: "live-components/scroll-text-marquee-bidirectional",
     tags: ['marquee', 'text', 'animation'],
   },
 
@@ -3456,7 +3456,7 @@ export const AllComponents: IAllComponents[] = [
   {
     category: DOCS_CATEGORY_KEY['grid'],
     componentName: COMPONENT_KEYS.NORMALGRID,
-    href: '/components/normal-grid',
+    href: '/components/grid',
     title: humanize(COMPONENT_KEYS.NORMALGRID),
     slug: 'normalgrid',
     description: 'NORMALGRID - grid component',
@@ -3469,7 +3469,7 @@ export const AllComponents: IAllComponents[] = [
   {
     category: DOCS_CATEGORY_KEY['grid'],
     componentName: COMPONENT_KEYS.BOXGRID,
-    href: '/components/box-grid',
+    href: '/components/grid',
     title: humanize(COMPONENT_KEYS.BOXGRID),
     slug: 'boxgrid',
     description: 'BOXGRID - grid component',
@@ -3482,7 +3482,7 @@ export const AllComponents: IAllComponents[] = [
   {
     category: DOCS_CATEGORY_KEY['grid'],
     componentName: COMPONENT_KEYS.CONDITIONGRID,
-    href: '/components/condition-grid',
+    href: '/components/grid',
     title: humanize(COMPONENT_KEYS.CONDITIONGRID),
     slug: 'conditiongrid',
     description: 'CONDITIONGRID - grid component',
@@ -3495,7 +3495,7 @@ export const AllComponents: IAllComponents[] = [
   {
     category: DOCS_CATEGORY_KEY['grid'],
     componentName: COMPONENT_KEYS.UNSPLASHGRID,
-    href: '/components/unsplash-grid',
+    href: '/components/grid',
     title: humanize(COMPONENT_KEYS.UNSPLASHGRID),
     slug: 'unsplashgrid',
     description: 'UNSPLASHGRID - grid component',
@@ -3508,7 +3508,7 @@ export const AllComponents: IAllComponents[] = [
   {
     category: DOCS_CATEGORY_KEY['marquee'],
     componentName: COMPONENT_KEYS.DEFAULT_MARQUEE,
-    href: '/components/default-marquee',
+    href: '/components/marquee',
     title: humanize(COMPONENT_KEYS.DEFAULT_MARQUEE),
     slug: 'default-marquee',
     description: 'DEFAULT MARQUEE - marquee component',
@@ -3521,13 +3521,13 @@ export const AllComponents: IAllComponents[] = [
   {
     category: DOCS_CATEGORY_KEY['marquee'],
     componentName: COMPONENT_KEYS.VERTICLE_MARQUEE,
-    href: '/components/verticle-marquee',
+    href: '/components/marquee',
     title: humanize(COMPONENT_KEYS.VERTICLE_MARQUEE),
     slug: 'verticle-marquee',
     description: 'VERTICLE MARQUEE - marquee component',
     filesrc: require('../registry/components/marquee/verticle-marquee.tsx?raw'),
     componentSrc: React.lazy(() => import('@/registry/components/marquee/verticle-marquee')),
-    iframeSrc: 'live-components/verticl-emarquee',
+    iframeSrc: "live-components/verticle-marquee",
     tags: ['vertical', 'marquee', 'animation'],
   },
 
@@ -3547,7 +3547,7 @@ export const AllComponents: IAllComponents[] = [
   {
     category: DOCS_CATEGORY_KEY['marquee'],
     componentName: COMPONENT_KEYS.MARQUEE_3D,
-    href: '/components/marquee-3d',
+    href: '/components/marquee',
     title: humanize(COMPONENT_KEYS.MARQUEE_3D),
     slug: 'marquee-3d',
     description: 'MARQUEE 3D - marquee component',
@@ -3637,7 +3637,7 @@ export const AllComponents: IAllComponents[] = [
     componentSrc: React.lazy(
       () => import('@/registry/components/clip-path/creative-image-masking')
     ),
-    iframeSrc: 'live-components/hexagon2-videomasking',
+    iframeSrc: "live-components/creative-imagemasking",
     tags: ['image-masking', 'creative', 'masking'],
   },
 

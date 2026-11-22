@@ -43,7 +43,7 @@ function Card2() {
         </div>
         <article className='text-foreground space-y-2 p-2 pb-3'>
           <div className='flex justify-between'>
-            <h1 className='font-semibold text-xl text-primary-dark'>Nike Air Max</h1>
+            <h2 className='font-semibold text-xl text-primary-dark'>Nike Air Max</h2>
             <span className='font-medium text-xl text-primary-dark'>$394</span>
           </div>
           <p className='text-xs  text-foreground'>Lorem ipsum, dolor sit amet consectetur adipisicing</p>

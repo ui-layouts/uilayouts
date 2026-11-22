@@ -49,7 +49,7 @@ function Card() {
           />
         </div>
         <article className='text-foreground pt-2 '>
-          <h1 className='font-semibold text-2xl text-foreground'>Air Jordan 1 Mid SE</h1>
+          <h2 className='font-semibold text-2xl text-foreground'>Air Jordan 1 Mid SE</h2>
           <p className='text-xs'>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore porro quos quae autem
             vel praesentium.

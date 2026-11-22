@@ -1,6 +1,7 @@
 'use client';
 import { getComponentPreview } from '@/lib/component-projections';
 import { cn } from '@/lib/utils';
+import { getPreviewUrl } from '@/lib/preview-url';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@radix-ui/react-tooltip';
 import { Check, Copy, Expand, Monitor, RotateCw, Smartphone, Tablet } from 'lucide-react';
 import React, { Suspense, useEffect, useMemo, useRef, useState } from 'react';
@@ -44,6 +45,7 @@ export default function ComponentPreview({
   const [mode, setMode] = useState<'desktop' | 'tablet' | 'mobile'>('desktop');
 
   const ComponentPreview = getComponentPreview(componentName || '');
+  const previewUrl = getPreviewUrl(iframeSrc, iframeComponent);
 
   const handleReTrigger = () => {
     if (hasReTrigger) {
@@ -198,7 +200,7 @@ export default function ComponentPreview({
             {iframeComponent ? (
               <>
                 <a
-                  href={`${process.env.NEXT_PUBLIC_ANIMATION_URL}/${iframeComponent}`}
+                  href={previewUrl}
                   target='_blank'
                   className='relative flex cursor-pointer  items-center  gap-1 rounded-lg border bg-card text-secondary-foreground p-1 px-2.5'
                   rel='noreferrer noopener'
@@ -213,7 +215,7 @@ export default function ComponentPreview({
         )}
       </div>
 
-      {responsive ? (
+      {responsive && previewUrl ? (
         <>
           {iframeComponent ? (
             <>
@@ -225,7 +227,7 @@ export default function ComponentPreview({
               >
                 <div className='h-full not-prose mx-auto' style={{ width: width }}>
                   <iframe
-                    src={`${process.env.NEXT_PUBLIC_ANIMATION_URL}/${iframeComponent}`}
+                    src={previewUrl}
                     className='h-full w-full'
                     style={{ maxWidth: '100%' }}
                     loading='lazy'
@@ -247,7 +249,7 @@ export default function ComponentPreview({
               <div className='h-full not-prose mx-auto' style={{ width: width }}>
                 <>
                   <iframe
-                    src={`${process.env.NEXT_PUBLIC_CLIENT_URL}/${iframeSrc}`}
+                    src={previewUrl}
                     className='h-full w-full'
                     style={{ maxWidth: '100%' }}
                     loading='lazy'

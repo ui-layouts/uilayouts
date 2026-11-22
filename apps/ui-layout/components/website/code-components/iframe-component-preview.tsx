@@ -95,6 +95,8 @@ export default async function IframeComponentPrieview(
             hideDeviceOpt={hideDeviceOpt}
             hasReTrigger={hasReTrigger}
             iframeComponent={currComponent.iframelink}
+            iframeSrc={currComponent.iframeSrc}
+            componentName={currComponent.componentName}
             responsive={responsive || false}
             isNotCopy={true}
             isFitheight={isFitheight}
