@@ -1011,6 +1011,8 @@ export interface IAllComponents {
   tags: string[];
   iframe?: boolean;
   center?: boolean;
+  /** Expand a single surface root to the Labs canvas; leave cards and fragments intrinsic. */
+  labsLayout?: 'fill';
   href: string;
   slug: string;
   title: string;
@@ -2240,6 +2242,7 @@ export const AllComponents: IAllComponents[] = [
   {
     category: DOCS_CATEGORY_KEY['noise'],
     componentName: COMPONENT_KEYS.NOISE_EFFECT,
+    labsLayout: 'fill',
     title: humanize(COMPONENT_KEYS.NOISE_EFFECT),
     href: '/components/noise',
     slug: 'noise',
@@ -2666,6 +2669,7 @@ export const AllComponents: IAllComponents[] = [
   {
     category: DOCS_CATEGORY_KEY['liquid-gradient'],
     componentName: COMPONENT_KEYS.LIQUID_GRADIENT,
+    labsLayout: 'fill',
     href: '/components/liquid-gradient',
     title: humanize(COMPONENT_KEYS.LIQUID_GRADIENT),
     slug: 'liquid-gradient',
@@ -2856,6 +2860,7 @@ export const AllComponents: IAllComponents[] = [
   {
     category: DOCS_CATEGORY_KEY['blocks'],
     componentName: COMPONENT_KEYS.BG_BLOCKS_ONE,
+    labsLayout: 'fill',
     href: '/components/blocks',
     title: humanize(COMPONENT_KEYS.BG_BLOCKS_ONE),
     slug: 'bg-blocks-one',

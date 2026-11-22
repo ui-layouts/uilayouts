@@ -1,6 +1,6 @@
-import { DocsNavigationCategories } from '@/configs/docs';
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+import { DocsNavigationCategories } from '@/configs/docs';
 
 export interface IRecentPage {
   id: string;
@@ -65,6 +65,7 @@ export const useRecentPagesStore = create<RecentPagesStore>()(
 );
 
 export interface ISelectedComponent {
+  category?: string;
   componentName: string;
   pagelink: string;
   fileSrc: string;
@@ -85,7 +86,10 @@ export const useSelectedComponentStore = create<SelectedComponentState>()(
       addSelectedComponent: (component) => {
         set((state) => {
           const existingComponentIndex = state.recentComponents.findIndex(
-            (c) => c.componentName === component.componentName && c.type === component.type
+            (c) =>
+              c.componentName === component.componentName &&
+              c.type === component.type &&
+              c.pagelink === component.pagelink
           );
           let newRecentComponents: ISelectedComponent[];
 

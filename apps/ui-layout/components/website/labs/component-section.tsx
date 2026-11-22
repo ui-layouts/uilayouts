@@ -19,6 +19,7 @@ import { AllComponents } from '@/configs/docs';
 import { useSelectedComponentStore, useStateChange } from '@/hooks/useZustStore';
 import { cn } from '@/lib/utils';
 import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover';
+import { findLabComponent, labComponentKey } from './component-selection';
 import LabSidebar from './labs-sidebar';
 
 const defaults = {
@@ -76,7 +77,7 @@ export default function ComponentSection() {
   const { theme, setTheme } = useTheme();
   const { toggleSidebar, isSidebarOpen } = useStateChange();
   const selected = useSelectedComponentStore((state) => state.recentComponents[0]);
-  const current = AllComponents.find((item) => item.componentName === selected?.componentName);
+  const current = findLabComponent(AllComponents, selected);
   const [sizes, setSizes] = useState(defaults);
   const [recording, setRecording] = useState(false);
   useEffect(() => {
@@ -125,9 +126,9 @@ export default function ComponentSection() {
             {current ? (
               <div
                 data-testid='labs-component'
-                key={current.componentName}
+                key={labComponentKey(current)}
                 className={cn(
-                  'relative mx-auto h-full min-h-0 origin-center',
+                  'relative mx-auto h-full min-h-0 origin-top-left',
                   current.center && 'grid place-items-center'
                 )}
                 style={{
@@ -146,9 +147,9 @@ export default function ComponentSection() {
                   <div
                     className={cn(
                       'h-full min-h-0 w-full',
-                      current.center
-                        ? 'grid place-items-center'
-                        : '[&>*]:h-full! [&>*]:min-h-0! [&>*]:w-full! [&>*]:max-w-none!'
+                      current.center && 'grid place-items-center',
+                      current.labsLayout === 'fill' &&
+                        '[&>:only-child]:h-full! [&>:only-child]:min-h-0! [&>:only-child]:w-full! [&>:only-child]:max-w-none!'
                     )}
                   >
                     <Suspense
@@ -180,7 +181,7 @@ export default function ComponentSection() {
             <div
               role='toolbar'
               aria-label='Labs controls'
-              className='pointer-events-auto flex max-w-full items-center gap-2 rounded-xl border bg-background/95 p-2 shadow-lg backdrop-blur'
+              className='pointer-events-auto flex max-w-full flex-wrap items-center gap-2 rounded-xl border bg-background/95 p-2 shadow-lg backdrop-blur'
             >
               <Link
                 href='/components'

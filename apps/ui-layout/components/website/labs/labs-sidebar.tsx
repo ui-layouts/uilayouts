@@ -11,9 +11,14 @@ import {
   CommandList,
 } from '@/components/website/ui/command';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/website/ui/popover';
-import { AllComponents } from '@/configs/docs';
-import { useSelectedComponentStore, useStateChange } from '@/hooks/useZustStore';
+import { AllComponents, type IAllComponents } from '@/configs/docs';
+import {
+  type ISelectedComponent,
+  useSelectedComponentStore,
+  useStateChange,
+} from '@/hooks/useZustStore';
 import { cn } from '@/lib/utils';
+import { findLabComponent, labComponentKey } from './component-selection';
 import LabsLogo from './labs-logo';
 
 function LabSidebar() {
@@ -21,7 +26,8 @@ function LabSidebar() {
   const { isSidebarOpen, toggleSidebar } = useStateChange();
   const [searchTerm, setSearchTerm] = useState('');
   const recentComponents = useSelectedComponentStore((state) => state.recentComponents);
-  const value = recentComponents[0]?.componentName ?? '';
+  const current = findLabComponent(AllComponents, recentComponents[0]);
+  const value = current ? labComponentKey(current) : '';
   const addSelectedComponent = useSelectedComponentStore((state) => state.addSelectedComponent);
 
   const filteredComponents = AllComponents.filter((component) => {
@@ -33,11 +39,13 @@ function LabSidebar() {
 
     return nameMatches || tagMatches;
   });
-  const handleSelectComponent = (component: { componentName: string }) => {
-    const metadata = AllComponents.find((item) => item.componentName === component.componentName);
+  const handleSelectComponent = (component: IAllComponents | ISelectedComponent) => {
+    const metadata = 'href' in component ? component : findLabComponent(AllComponents, component);
+    if (!metadata) return;
     addSelectedComponent({
-      componentName: component.componentName,
-      pagelink: metadata?.href ?? '',
+      componentName: metadata.componentName,
+      category: metadata.category,
+      pagelink: metadata.href,
       fileSrc: '',
       type: 'component',
     });
@@ -88,10 +96,7 @@ function LabSidebar() {
                   aria-expanded={open}
                   className='w-full border border-input dark:bg-neutral-800 bg-neutral-50 hover:bg-accent   text-primary  inline-flex items-center justify-between gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0  capitalize h-10 px-4 py-2'
                 >
-                  {value
-                    ? AllComponents.find((component) => component.componentName === value)
-                        ?.componentName
-                    : 'Select component...'}
+                  {current?.componentName ?? 'Select component...'}
                   <ChevronsUpDown className='ml-2 h-4 w-4 shrink-0 opacity-50' />
                 </button>
               </PopoverTrigger>
@@ -114,17 +119,24 @@ function LabSidebar() {
                     <CommandGroup>
                       {filteredComponents.map((component) => (
                         <CommandItem
-                          key={`${component.category}-${component.componentName}`}
-                          value={component.componentName}
+                          key={labComponentKey(component)}
+                          value={labComponentKey(component)}
                           onSelect={() => handleSelectComponent(component)}
                           className={cn(
                             'capitalize flex gap-2  items-center',
-                            value === component.componentName ? '' : ''
+                            value === labComponentKey(component) ? '' : ''
                           )}
                         >
                           {component.componentName}{' '}
+                          {AllComponents.filter(
+                            (item) => item.componentName === component.componentName
+                          ).length > 1 && (
+                            <span className='text-xs text-muted-foreground'>
+                              {component.category}
+                            </span>
+                          )}
                           <AnimatePresence mode='wait'>
-                            {value === component.componentName && (
+                            {value === labComponentKey(component) && (
                               <motion.div
                                 initial={{ opacity: 0, scale: 0 }}
                                 animate={{ opacity: 1, scale: 1 }}
@@ -159,10 +171,10 @@ function LabSidebar() {
                       <motion.button
                         type='button'
                         layout
-                        key={`${component.type}-${component.componentName}`}
+                        key={`${component.type}-${component.category ?? component.pagelink}-${component.componentName}`}
                         onClick={() => handleSelectComponent(component)}
                         className={`border w-fit p-1 2xl:text-sm text-xs px-2 cursor-pointer rounded-md flex 2xl:gap-1 items-center capitalize ${
-                          value === component.componentName
+                          findLabComponent(AllComponents, component) === current
                             ? 'bg-primary text-primary-foreground'
                             : 'dark:bg-neutral-800 bg-neutral-50 text-foreground'
                         } hover:bg-primary hover:text-primary-foreground transition-colors duration-200`}
@@ -180,7 +192,7 @@ function LabSidebar() {
                       >
                         {component.componentName}
                         {/* <AnimatePresence> */}
-                        {value === component.componentName && (
+                        {findLabComponent(AllComponents, component) === current && (
                           <motion.div>
                             <CheckCheck className='w-4 h-4' />
                           </motion.div>
