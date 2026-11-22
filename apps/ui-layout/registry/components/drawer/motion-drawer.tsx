@@ -32,7 +32,7 @@ function MotionDrawerExample() {
           </a>
         </nav>
       </MotionDrawer>
-      <h1 className='text-7xl text-center'>Motion Drawer</h1>
+      <h2 className='text-7xl text-center'>Motion Drawer</h2>
     </div>
   );
 }

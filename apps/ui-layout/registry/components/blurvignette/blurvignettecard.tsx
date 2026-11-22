@@ -17,7 +17,7 @@ function Blurvignettecard() {
           />
           <BlurVignetteArticle classname='h-[35%] w-[96%] ml-2 mt-auto mb-1 border border-neutral-900/20 rounded-xl text-white '>
             <article className=' py-5 px-3'>
-              <h1 className='2xl:text-3xl text-2xl'>UiLayout</h1>
+              <h2 className='2xl:text-3xl text-2xl'>UiLayout</h2>
               <p className='2xl:text-sm text-xs'>
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis, quaerat ab? Rerum
                 facilis dignissimos voluptatum!
@@ -35,7 +35,7 @@ function Blurvignettecard() {
           />
           <BlurVignetteArticle classname='h-[35%] w-[96%] ml-2 mt-auto mb-1 border border-neutral-900/20 text-white '>
             <article className=' py-5 px-3'>
-              <h1 className='2xl:text-3xl text-2xl'>UiLayout</h1>
+              <h2 className='2xl:text-3xl text-2xl'>UiLayout</h2>
               <p className='2xl:text-sm text-xs'>
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis, quaerat ab? Rerum
                 facilis dignissimos voluptatum!

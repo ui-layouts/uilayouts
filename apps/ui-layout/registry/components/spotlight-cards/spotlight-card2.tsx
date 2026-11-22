@@ -17,9 +17,9 @@ export default function SpotlightCard2() {
                 className='mx-auto w-[85%]'
                 height={600}
               />
-              <h1 className='text-xl font-semibold tracking-tight text-white'>
+              <h2 className='text-xl font-semibold tracking-tight text-white'>
                 Create Group Effortlessly
-              </h1>
+              </h2>
               <p className='pt-2  lg:text-base text-sm  text-muted-foreground capitalize'>
                 Seamless chats, crystal-clear videos, and <br />
                 premium audio quality

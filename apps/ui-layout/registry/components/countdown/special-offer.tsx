@@ -40,7 +40,7 @@ const SpecialOffer = () => {
   if (timeRemaining <= 0) {
     return (
       <div className='w-full bg-linear-to-r from-gray-900 to-black p-8 text-center'>
-        <h1 className='text-4xl font-extrabold text-pink-500'>🥳 Sale Ended!</h1>
+        <h2 className='text-4xl font-extrabold text-pink-500'>🥳 Sale Ended!</h2>
       </div>
     );
   }

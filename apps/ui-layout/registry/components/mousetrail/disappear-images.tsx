@@ -25,10 +25,10 @@ export default function DisappearImages() {
         fadeAnimation={true}
       >
         <article className='relative z-50 mix-blend-difference'>
-          <h1 className='lg:text-4xl md:text-3xl text-xl text-center font-semibold '>
+          <h2 className='lg:text-4xl md:text-3xl text-xl text-center font-semibold '>
             ✨ Experience Interactive Designs with <br />
             Dynamic Mouse Trails
-          </h1>
+          </h2>
         </article>
       </ImageMouseTrail>
     </section>

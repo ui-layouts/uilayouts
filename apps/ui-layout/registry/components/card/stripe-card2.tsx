@@ -19,9 +19,9 @@ function StripeCard() {
         </figure>
         <div className='absolute top-0 left-0 w-full h-full  transition-all duration-300 bg-linear-to-b from-[#02cc6e25] via-[#02cc6e5b]  to-[#02cc6e]'></div>
         <article className='p-4 space-y-2 absolute -bottom-10 group-hover:bottom-0 transition-all duration-300 '>
-          <h1 className='text-2xl font-semibold capitalize w-[90%]'>
+          <h2 className='text-2xl font-semibold capitalize w-[90%]'>
             Learn why going to the mountains can change your thoughts and lifestyle forever
-          </h1>
+          </h2>
           <a
             href='#'
             className=' text-base dark:text-white text-blue-600 font-normal  group-hover:opacity-100 opacity-0 translate-y-2 group-hover:translate-y-0 pt-2 flex gap-1  transition-all duration-300  '

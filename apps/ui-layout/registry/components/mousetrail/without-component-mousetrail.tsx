@@ -64,11 +64,11 @@ export default function ImageMouseTrail3() {
         />
       ))}
       <article className='relative z-20 mix-blend-difference'>
-        <h1 className='md:text-4xl text-2xl text-center font-semibold'>
+        <h2 className='md:text-4xl text-2xl text-center font-semibold'>
           ✨ Experience Interactive Designs <br />
           with Dynamic Mouse Trails <br />
           built with Tailwind CSS
-        </h1>
+        </h2>
       </article>
     </section>
   );

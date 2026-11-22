@@ -91,9 +91,9 @@ const Footer = () => {
         <div className='sm:container  px-4 mx-auto'>
           <div className='md:flex justify-between w-full'>
             <div>
-              <h1 className='md:text-4xl text-2xl font-semibold'>
+              <h2 className='md:text-4xl text-2xl font-semibold'>
                 Let&lsquo;s do great work together
-              </h1>
+              </h2>
               <div className='pt-2 pb-6 md:w-99  '>
                 <p className='md:text-2xl text-xl  py-4'>Sign up for our newsletter*</p>
                 <div className=' hover-button relative bg-black flex justify-between items-center border-2 overflow-hidden  border-black rounded-full  text-white hover:text-black md:text-2xl'>

@@ -64,7 +64,7 @@ function Card() {
         </div>
         <article className='text-foreground pt-2 p-4'>
           <div className='flex justify-between'>
-            <h1 className='font-semibold text-xl text-foreground'>Nike Air Max</h1>
+            <h2 className='font-semibold text-xl text-foreground'>Nike Air Max</h2>
             <div className='flex gap-2 items-center'>
               {CardArr.map((data, index) => (
                 <button

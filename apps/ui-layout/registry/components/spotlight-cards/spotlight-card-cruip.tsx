@@ -11,7 +11,7 @@ import Spotlight, { SpotlightCard } from '@/components/ui/spam-spotlight';
 export default function SpotlightPage() {
   return (
     <>
-      <main className='relative  flex flex-col justify-center bg-black  rounded-md overflow-hidden'>
+      <div className='relative  flex flex-col justify-center bg-black  rounded-md overflow-hidden'>
         <div className='w-full max-w-6xl mx-auto px-4 md:px-6 py-24'>
           <Spotlight className='max-w-sm mx-auto grid gap-2 lg:grid-cols-3 items-start lg:max-w-none group'>
             {/* Card #1 */}
@@ -322,7 +322,7 @@ export default function SpotlightPage() {
             </SpotlightCard>
           </Spotlight>
         </div>
-      </main>
+      </div>
     </>
   );
 }

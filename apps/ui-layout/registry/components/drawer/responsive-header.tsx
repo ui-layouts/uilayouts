@@ -26,7 +26,7 @@ export default function ResponsiveHeader() {
   return (
     <>
       <header className='flex justify-between border items-center p-3 bg-background/45 backdrop-blur-md rounded-md'>
-        <h1>Logo</h1>
+        <h2>Logo</h2>
         <HeaderDrawer
           open={headerOpen}
           setOpen={setHeaderOpen}
@@ -54,7 +54,7 @@ export default function ResponsiveHeader() {
                     <X />
                   </button>
                 )}
-                <h1 className='mx-auto text-2xl'>UI-LAYOUT</h1>
+                <h2 className='mx-auto text-2xl'>UI-LAYOUT</h2>
               </div>
               <div className='flex justify-between xl:px-0 px-2 py-2'>
                 <nav className='flex gap-8'>

@@ -32,6 +32,48 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: '/components/animated-slider',
+        destination: '/components/range-slider',
+        permanent: true,
+      },
+      { source: '/components/clipPath', destination: '/components/clip-path', permanent: true },
+      {
+        source: '/components/bg-mesh-gradient',
+        destination: '/components/mesh-gradients',
+        permanent: true,
+      },
+      { source: '/components/3d-blob', destination: '/components/r3f-blob', permanent: true },
+      { source: '/components/box-grid', destination: '/components/grid', permanent: true },
+      { source: '/components/condition-grid', destination: '/components/grid', permanent: true },
+      { source: '/components/normal-grid', destination: '/components/grid', permanent: true },
+      { source: '/components/unsplash-grid', destination: '/components/grid', permanent: true },
+      {
+        source: '/components/default-marquee',
+        destination: '/components/marquee',
+        permanent: true,
+      },
+      {
+        source: '/components/verticle-marquee',
+        destination: '/components/marquee',
+        permanent: true,
+      },
+      { source: '/components/marquee-3d', destination: '/components/marquee', permanent: true },
+      {
+        source: '/components/scroll-text-marquee-bidirectional',
+        destination: '/components/scroll-text-marquee',
+        permanent: true,
+      },
+      {
+        source: '/components/scroll-text-marquee-unidirectional',
+        destination: '/components/scroll-text-marquee',
+        permanent: true,
+      },
+      {
+        source: '/components/liquid-button',
+        destination: '/components/liquid-gradient',
+        permanent: true,
+      },
+      {
         source: '/:path*',
         has: [
           {

@@ -13,7 +13,7 @@ function HoverFooter() {
         <div className='w-fit flex-col  flex  justify-center'>
           <div className='2xl:w-24 2xl:h-24 w-20 h-20 ml-3 bg-white  rounded-xs before:absolute relative before:w-full before:h-full before:bg-white/50  before:rounded-md before:-top-3 before:-left-3'></div>
           <article className='py-2  2xl:w-80 w-64  space-y-1'>
-            <h1 className='newFont text-3xl font-bold'>UI-LAYOUT</h1>
+            <h2 className='newFont text-3xl font-bold'>UI-LAYOUT</h2>
             <p className='text-sm  leading-[120%] '>
               Copy and paste designs that you love to have on your website. Don't forget to share
               them with your friends. I'll bring more and more components that really make sense for

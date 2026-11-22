@@ -44,7 +44,7 @@ const homeComponents = [
 
   {
     id: 4,
-    link: '/components/clipPath',
+    link: '/components/clip-path',
 
     componentSrc: <HomeClipPath />,
     className:

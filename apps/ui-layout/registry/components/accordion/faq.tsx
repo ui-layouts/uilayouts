@@ -53,9 +53,9 @@ function SingleLayout() {
 
   return (
     <div className='container mx-auto pb-10 pt-2'>
-      <h1 className='uppercase text-center text-4xl font-bold pt-2 pb-4'>
+      <h2 className='uppercase text-center text-4xl font-bold pt-2 pb-4'>
         FAQ
-      </h1>
+      </h2>
       <div className='h-fit border rounded-lg p-2 dark:bg-[#111111] bg-[#F2F2F2]'>
         {tabs.map((tab, index) => {
           const isOpen = activeIndex === index;

@@ -8,7 +8,7 @@ export default function MotionNumberSlider() {
     <>
       <div className='w-3/5 mx-auto px-10 gap-10 py-16'>
         <div>
-          <h1>Width</h1>
+          <h2>Width</h2>
           <DualRangeSlider
             label
             lableContenPos={'left'}

@@ -32,7 +32,7 @@ function RegisterTab() {
               />
             </div>
             <div className='text-center py-2'>
-              <h1 className='font-semibold text-2xl'>Welcome Back</h1>
+              <h2 className='font-semibold text-2xl'>Welcome Back</h2>
               <p>Please Enter Your Details to Sign In</p>
             </div>
 
@@ -145,7 +145,7 @@ function RegisterTab() {
               />
             </div>
             <div className='text-center py-2'>
-              <h1 className='font-semibold text-2xl'>Register Account</h1>
+              <h2 className='font-semibold text-2xl'>Register Account</h2>
               <p>Please Enter Your Details to Sign up</p>
             </div>
 

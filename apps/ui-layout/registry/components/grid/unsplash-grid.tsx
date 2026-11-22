@@ -53,7 +53,7 @@ function ImageItem({ item, index, setSelected }: ImageItemProps) {
         className='w-full bg-base-100 shadow-xl image-full cursor-pointer'
       />
       <div className='flex flex-wrap mt-2 absolute bottom-0 left-0 p-2 group-hover:opacity-100 opacity-0 font-semibold '>
-        <h1>{item.title}</h1>
+        <h2>{item.title}</h2>
       </div>
     </motion.figure>
   );

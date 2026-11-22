@@ -114,28 +114,35 @@ export default async function DocPage(props: { params: Promise<{ slug?: string[]
       />
       <div className='lg:px-0 lg:pt-0 pt-6 px-3 mt-0 flex w-full lg:gap-10 '>
         <div className='w-full relative xl:pl-0 lg:pl-4 pl-0'>
-          <section className='3xl:max-w-5xl 2xl:max-w-210 xl:max-w-190 lg:max-w-140 max-w-5xl mx-auto prose prose-zinc pb-5 dark:prose-invert prose-h1:text-2xl prose-h1:font-semibold prose-h2:text-3xl prose-h2:mt-4 prose-h2:mb-4 prose-h2:pt-4 prose-h3:py-1 prose-h2:font-medium prose-h3:text-2xl prose-h3:text-primary/70 prose-h3:mt-4 prose-h3:mb-2 prose-h3:font-medium prose-strong:font-medium prose-table:block prose-table:overflow-y-auto lg:pt-4'>
-            <article className='mb-4 mt-0 rounded-lg bg-muted p-4 border'>
+          <article
+            aria-labelledby='component-title'
+            className='3xl:max-w-5xl 2xl:max-w-210 xl:max-w-190 lg:max-w-140 max-w-5xl mx-auto prose prose-zinc pb-5 dark:prose-invert prose-h1:text-2xl prose-h1:font-semibold prose-h2:text-3xl prose-h2:mt-4 prose-h2:mb-4 prose-h2:pt-4 prose-h3:py-1 prose-h2:font-medium prose-h3:text-2xl prose-h3:text-primary/70 prose-h3:mt-4 prose-h3:mb-2 prose-h3:font-medium prose-strong:font-medium prose-table:block prose-table:overflow-y-auto lg:pt-4'
+          >
+            <header className='mb-4 mt-0 rounded-lg bg-muted p-4 border'>
               <div className='space-y-2 rounded-md text-foreground'>
                 <div className='flex items-center gap-2 justify-between'>
                   <h1
+                    id='component-title'
                     className={cn(
                       'mb-0 flex scroll-m-20 not-prose items-center lg:text-3xl text-2xl gap-2 font-medium tracking-tight'
                     )}
                   >
-                    <div className='lg:w-9 w-8 lg:h-9 h-8 bg-primary grid place-content-center text-primary-foreground rounded-lg'>
+                    <span
+                      aria-hidden='true'
+                      className='lg:w-9 w-8 lg:h-9 h-8 bg-primary grid place-content-center text-primary-foreground rounded-lg'
+                    >
                       <Component size={20} />
-                    </div>
+                    </span>
                     {doc.content.metadata.title}
                   </h1>
                   <CopyPage />
                 </div>
                 <p className='sm:text-sm text-xs pt-2'>{doc.content.metadata.description}</p>
               </div>
-            </article>
+            </header>
             <Content />
             <ComponentPagination doc={doc} />
-          </section>
+          </article>
           <Footer />
           <GapPattern className='2xl:h-full lg:h-full h-full lg:block hidden 2xl:w-10 lg:w-7 w-5 border-x border-y-0 absolute -right-8 top-0' />
         </div>

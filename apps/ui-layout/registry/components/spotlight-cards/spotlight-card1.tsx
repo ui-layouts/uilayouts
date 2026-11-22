@@ -59,9 +59,9 @@ export default function SpotlightCard1() {
                       className='w-fit mx-auto '
                       height={600}
                     />
-                    <h1 className='text-center xl:text-2xl lg:text-xl text-2xl font-semibold'>
+                    <h2 className='text-center xl:text-2xl lg:text-xl text-2xl font-semibold'>
                       {box?.title}
-                    </h1>
+                    </h2>
                     <p className='text-center lg:text-base text-xs'>{box?.des}</p>
                   </div>
                 </div>

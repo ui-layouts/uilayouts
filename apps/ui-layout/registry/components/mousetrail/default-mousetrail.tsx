@@ -24,10 +24,10 @@ export default function DefaultMousetrail() {
         imgClass='sm:w-40 w-28 sm:h-48 h-36'
       >
         <article className='relative z-50 mix-blend-difference'>
-          <h1 className='lg:text-4xl md:text-3xl text-xl text-center font-semibold mix-blend-difference'>
+          <h2 className='lg:text-4xl md:text-3xl text-xl text-center font-semibold mix-blend-difference'>
             ✨ Experience Interactive Designs with <br />
             Dynamic Mouse Trails
-          </h1>
+          </h2>
         </article>
       </ImageMouseTrail>
     </section>

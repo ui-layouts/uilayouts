@@ -104,9 +104,9 @@ function Gallery({ items, setIndex, index }: GaleryProps) {
                   animate='show'
                   className='absolute flex rounded-xl  flex-col justify-end h-full top-0 p-3 space-y-2 overflow-hidden bg-linear-to-t dark:from-neutral-900/60 from-neutral-100/60  from-20% to-transparent to-80% '
                 >
-                  <motion.h1 variants={article} className='text-2xl font-semibold'>
+                  <motion.h2 variants={article} className='text-2xl font-semibold'>
                     {item?.title}
-                  </motion.h1>
+                  </motion.h2>
                   <motion.p variants={article} className='leading-[120%]'>
                     {item?.description}
                   </motion.p>

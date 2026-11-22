@@ -34,7 +34,7 @@ export default function DirectionalDrawerDefault() {
                 {/* Header / Body */}
                 <div className='p-6 flex flex-col gap-4 grow'>
                   <div>
-                    <h1 className='font-semibold text-xl'>Update Profile Image</h1>
+                    <h2 className='font-semibold text-xl'>Update Profile Image</h2>
                     <p className='text-sm text-muted-foreground mt-1'>
                       Upload a new profile image or remove the current one.
                     </p>

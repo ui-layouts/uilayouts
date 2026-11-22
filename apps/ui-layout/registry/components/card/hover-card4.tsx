@@ -19,9 +19,9 @@ function HoverCard4() {
         </figure>
         <div className='p-4 space-y-1  transition-all duration-300 '>
           <span className='text-sm'>9 des 2023</span>
-          <h1 className='text-lg font-medium capitalize '>
+          <h2 className='text-lg font-medium capitalize '>
             Learn why UI/UX Important and How Implement well in your site.
-          </h1>
+          </h2>
           <a
             href='#'
             className='bg-green-400 w-fit text-base dark:text-white rounded-md text-blue-600 font-normal p-2 flex justify-center '

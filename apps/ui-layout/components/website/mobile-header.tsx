@@ -155,7 +155,7 @@ function MobileHeader({ classname }: { classname?: string }) {
               Discord
             </a>
 
-            <h1 className='text-sm font-semibold pb-1'>Components</h1>
+            <p className='text-sm font-semibold pb-1'>Components</p>
             <ul>
               {Object.values(DOCS_CATEGORY_GROUP).map((groupName) => {
                 // Filter components for this group

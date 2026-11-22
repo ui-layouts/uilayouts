@@ -6,7 +6,7 @@ function TextScroll() {
   return (
     <section>
       <div className='h-[500px] grid place-content-center'>
-        <h1 className='text-6xl font-semibold text-center py-8'>Scroll Down 👇 </h1>
+        <h2 className='text-6xl font-semibold text-center py-8'>Scroll Down 👇 </h2>
       </div>
       <div className='py-2'>
         <div>

@@ -168,6 +168,9 @@ importers:
       geist:
         specifier: ^1.7.2
         version: 1.7.2(next@15.5.20(react-dom@19.2.7(react@19.2.7))(react@19.2.7))
+      github-slugger:
+        specifier: 2.0.0
+        version: 2.0.0
       gray-matter:
         specifier: ^4.0.3
         version: 4.0.3
@@ -177,6 +180,9 @@ importers:
       lucide-react:
         specifier: ^1.23.0
         version: 1.23.0(react@19.2.7)
+      mdast-util-to-string:
+        specifier: 4.0.0
+        version: 4.0.0
       motion:
         specifier: ^12.42.2
         version: 12.42.2(react-dom@19.2.7(react@19.2.7))(react@19.2.7)

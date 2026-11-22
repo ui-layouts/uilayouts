@@ -9,7 +9,7 @@ import * as React from 'react';
 const components: { title: string; href: string; description: string }[] = [
   {
     title: '3D Blob ',
-    href: 'components/3d-blob',
+    href: '/components/r3f-blob',
     description:
       'When you scroll down to that specific section, all the animations will slowly play one after another.',
   },
@@ -25,12 +25,12 @@ const components: { title: string; href: string; description: string }[] = [
   },
   {
     title: 'Mesh Gradient',
-    href: '/components/bg-mesh-gradient',
+    href: '/components/mesh-gradients',
     description: 'For sighted users to preview content available behind a link.',
   },
   {
     title: 'Timeline Animation',
-    href: 'components/timeline-animation',
+    href: '/components/timeline-animation',
     description:
       'When you scroll down to that specific section, all the animations will slowly play one after another.',
   },
@@ -41,18 +41,18 @@ const components: { title: string; href: string; description: string }[] = [
   },
   {
     title: 'Dialog',
-    href: 'components/dialog',
+    href: '/components/dialog',
     description:
       'Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.',
   },
   {
     title: 'Text Scroll Animation ',
-    href: 'components/scroll-text',
+    href: '/components/scroll-text',
     description: 'Visually or semantically separates content.',
   },
   {
     title: 'Tabs',
-    href: 'components/tabs',
+    href: '/components/tabs',
     description:
       'A set of layered sections of content—known as tab panels—that are displayed one at a time.',
   },

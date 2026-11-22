@@ -67,8 +67,6 @@ export default function TableOfContents({ toc }: TableOfContentsProps) {
   const strokeDashoffset = useTransform(progress, [0, 1], [circumference, 0]);
   // Resolving the TOC promise and setting the toc items
   useEffect(() => {
-    console.log(toc);
-
     toc.then((resolvedToc) => {
       setTocItems(resolvedToc.items);
     });
@@ -131,7 +129,7 @@ export default function TableOfContents({ toc }: TableOfContentsProps) {
                 }
               `}</style>
               {tocItems?.length !== 0 && (
-                <div>
+                <nav aria-label='On this page'>
                   <span className='text-sm px-1 text-primary font-semibold pb-1 inline-block'>
                     On This Page
                   </span>
@@ -172,7 +170,7 @@ export default function TableOfContents({ toc }: TableOfContentsProps) {
                       );
                     })}
                   </ul>
-                </div>
+                </nav>
               )}
 
               <div className='pt-4'>

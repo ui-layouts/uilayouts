@@ -40,7 +40,7 @@ export default function MyDrawer() {
           </ResponsiveModalTrigger>
           <ResponsiveModalContent>
             <figure className='flex flex-col space-y-1.5 text-center  h-fit bg-muted md:p-4 p-6'>
-              <h1 className='font-medium text-2xl'>Update Profile Image</h1>
+              <h2 className='font-medium text-2xl'>Update Profile Image</h2>
               <p className='text-sm text-muted-foreground w-4/5 mx-auto'>
                 Upload a new profile image or remove the current one.
               </p>
