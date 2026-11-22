@@ -1721,6 +1721,14 @@
       "registryDependencies": [],
       "files": [
         {
+          "path": "./components/ui/mousetrail.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./registry/components/mousetrail/default-mousetrail.tsx",
+          "type": "registry:component"
+        },
+        {
           "path": "./registry/components/mousetrail/without-component-mousetrail.tsx",
           "type": "registry:component"
         }
@@ -5403,6 +5411,40 @@
         },
         {
           "path": "./components/ui/magnified-doc.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "image-mousetrail-momentum",
+      "type": "registry:component",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/mousetrail.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./registry/components/mousetrail/momentum-mousetrail.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "image-mousetrail-bounce",
+      "type": "registry:component",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/mousetrail.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./registry/components/mousetrail/bounce-mousetrail.tsx",
           "type": "registry:component"
         }
       ]

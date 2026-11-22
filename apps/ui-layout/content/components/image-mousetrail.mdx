@@ -35,24 +35,35 @@ export const metadata = {
   ],
 };
 
-<ComponentCodePreview
-  name='image-mousetrail-default'
-  jsonName='mousetrail.json'
-  hasReTrigger
-  isFitheight
-/>
+Three ways to turn pointer movement into an image trail. Move across a preview, or drag on a touch screen. Images are decorative and do not block links, selection, or page scrolling.
+
+## Smooth Follow
+
+Images ease into place and gently fade away. Use it for portfolios, editorial headers, and image collections.
+
+<ComponentCodePreview name='image-mousetrail-default' jsonName='mousetrail.json' hasReTrigger isFitheight />
+
+## Momentum
+
+Images pick up the direction of your gesture, rotate, and drift away. A more expressive option for creative landing pages.
+
+<ComponentCodePreview name='image-mousetrail-momentum' hasReTrigger isFitheight />
+
+## Pop & Bounce
+
+Each image pops past its natural size, settles, then rebounds before shrinking away. Useful for playful product and campaign pages.
+
+<ComponentCodePreview name='image-mousetrail-bounce' hasReTrigger isFitheight />
 
 ## Installation
 
 <Tabs defaultValue="cli">
-
   <TabsList className='border-b w-full bg-muted justify-start h-12 mt-4'>
     <TabsTrigger value="cli" className="data-[state=active]:bg-card gap-1 data-[state=active]:border">CLI</TabsTrigger>
     <TabsTrigger value="manual" className="data-[state=active]:bg-card gap-1 data-[state=active]:border">Manual</TabsTrigger>
   </TabsList>
-
   <TabsContent value="cli">
-   <CodeTabsMdx>
+    <CodeTabsMdx>
       ```bash
       npx uilayouts@latest add mousetrail
       ```
@@ -60,91 +71,50 @@ export const metadata = {
       ```bash
       npx shadcn@latest add 'https://www.ui-layouts.com/r/mousetrail.json'
       ```
-   </CodeTabsMdx>
+    </CodeTabsMdx>
   </TabsContent>
-  
   <TabsContent value="manual" manualType>
-
-<CodeSnippets name="mousetrail" />
-
-</TabsContent>
+    <CodeSnippets name="mousetrail" />
+  </TabsContent>
 </Tabs>
 
-I use `data-status` atribute to handle active and inactive item and you can add animation using this attribute:
+## Usage
 
-```jsx
-{
-  items.map((item, index) => (
-    <>
-      <img
-        key={index}
-        className={cn(
-          // !mark(1:2)
-          // !mark[/active/] pink
-          "object-cover  scale-0 opacity:0 data-[status='active']:scale-100  data-[status='active']:opacity-100 transition-transform data-[status='active']:duration-500 duration-300 data-[status='active']:ease-out-expo  absolute   -translate-y-[50%] -translate-x-[50%] ",
-          imgClass
-        )}
-        data-index={index}
-        data-status='inactive'
-        src={item}
-        alt={`image-${index}`}
-        ref={refs.current[index]}
-      />
-    </>
-  ));
-}
-````
+```tsx
+import ImageMouseTrail from '@/components/ui/mousetrail';
 
-Add the following cubic-bazeir to your `global.css` file:
-
-```css global.css
-@import "tailwindcss";
-
-@theme {
-  --ease-out-expo: cubic-bezier(0.34, 1.56, 0.64, 1);
+export default function Gallery() {
+  return (
+    <ImageMouseTrail
+      items={['/photos/coast.jpg', '/photos/mountain.jpg', '/photos/forest.jpg']}
+      variant="bounce"
+      threshold={70}
+      maxNumberOfImages={10}
+      duration={1500}
+    >
+      <h2>Good things pop up.</h2>
+    </ImageMouseTrail>
+  );
 }
 ```
 
-you can fade out animation when you don't mousemove:
-
-```jsx
-const activate = (image, x, y) => {
-  setTimeout(() => {
-    image.dataset.status = 'inactive';
-  }, 1000);
-};
-```
+No animation library or extra CSS is required. Each instance owns a bounded image pool and cancels its animations when it unmounts. Failed images are skipped. Fading images finish their exit when the pointer leaves; persistent images clear on leave. Cancelling a touch gesture, resizing, or switching windows clears the trail. Reduced-motion preferences replace movement and scaling with a simple fade.
 
 ## Props
 
-| Prop              | Type      | Default     | Description                                                  |
-| ----------------- | --------- | ----------- | ------------------------------------------------------------ |
-| items             | any[]     | -           | Array of items to display in the mouse trail effect.         |
-| children          | ReactNode | undefined   | Optional child elements to render inside the component.      |
-| className         | string    | undefined   | Optional CSS class for styling the wrapper of the component. |
-| imgClass          | string    | 'w-40 h-48' | CSS class for styling the images in the mouse trail.         |
-| distance          | number    | 20          | Distance between each image in the mouse trail.              |
-| maxNumberOfImages | number    | 5           | Maximum number of images to display in the trail.            |
-| fadeAnimation     | boolean   | false       | Whether to apply fade animation to the images.               |
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| items | string[] | Required | Image URLs. An empty list renders the children without a trail. |
+| variant | 'follow' / 'momentum' / 'bounce' | 'follow' | Animation style. Momentum and bounce always disappear. |
+| children | ReactNode | — | Content displayed above the decorative trail. |
+| className | string | — | Container sizing and colors. |
+| imgClass | string | 'w-40 h-48' | Image size, crop, border, and shadow classes. |
+| threshold | number | — | Distance between images in container CSS pixels. Minimum 8. Overrides distance. |
+| distance | number | 20 | Legacy density: container width divided by this value. Higher values emit more images. |
+| maxNumberOfImages | number | 5 | Image pool size, clamped to 1–30. Reuses the oldest slot. |
+| fadeAnimation | boolean | false | Fade follow images on idle. Otherwise they remain until replaced or the pointer leaves. |
+| duration | number | 1200 | Animation lifetime in milliseconds, minimum 400. |
 
-## Example
+## Inspiration
 
-### Small Images
-
-<ComponentCodePreview name='image-mousetrail-small' hasReTrigger isFitheight />
-
-### Disappear Images
-
-<ComponentCodePreview
-  name='image-mousetrail-disappear'
-  hasReTrigger
-  isFitheight
-/>
-
-### Without Components
-
-<ComponentCodePreview
-  name='image-mousetrail-without-component'
-  hasReTrigger
-  isFitheight
-/>
+Inspired by the movement and image sequencing in Codrops’ [Image Trail Effects](https://github.com/codrops/ImageTrailEffects) and [Motion Trail Animations](https://github.com/codrops/MotionTrailAnimations). This React implementation uses the browser’s Web Animations API.

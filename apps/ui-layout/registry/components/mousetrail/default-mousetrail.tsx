@@ -1,35 +1,38 @@
 'use client';
-import React from 'react';
 
 import ImageMouseTrail from '@/components/ui/mousetrail';
 
 const images = [
-  'https://images.unsplash.com/photo-1709949908058-a08659bfa922?q=80&w=1200&auto=format',
-  'https://images.unsplash.com/photo-1548192746-dd526f154ed9?q=80&w=1200&auto=format',
-  'https://images.unsplash.com/photo-1693581176773-a5f2362209e6?q=80&w=1200&auto=format',
-  'https://images.unsplash.com/photo-1584043204475-8cc101d6c77a?q=80&w=1200&auto=format',
-  'https://images.unsplash.com/photo-1709949908058-a08659bfa922?q=80&w=1200&auto=format',
-  'https://images.unsplash.com/photo-1518599904199-0ca897819ddb?q=80&w=1200&auto=format',
-  'https://images.unsplash.com/photo-1706049379414-437ec3a54e93?q=80&w=1200&auto=format',
-  'https://images.unsplash.com/photo-1709949908219-fd9046282019?q=80&w=1200&auto=format',
-  'https://images.unsplash.com/photo-1508873881324-c92a3fc536ba?q=80&w=1200&auto=format',
+  'https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=480&q=85',
+  'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=480&q=85',
+  'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=480&q=85',
+  'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=480&q=85',
+  'https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=480&q=85',
+  'https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=480&q=85',
 ];
-export default function DefaultMousetrail() {
+
+export default function FollowMousetrail() {
   return (
-    <section>
-      <ImageMouseTrail
-        items={images}
-        maxNumberOfImages={5}
-        distance={25}
-        imgClass='sm:w-40 w-28 sm:h-48 h-36'
-      >
-        <article className='relative z-50 mix-blend-difference'>
-          <h2 className='lg:text-4xl md:text-3xl text-xl text-center font-semibold mix-blend-difference'>
-            ✨ Experience Interactive Designs with <br />
-            Dynamic Mouse Trails
-          </h2>
-        </article>
-      </ImageMouseTrail>
-    </section>
+    <ImageMouseTrail
+      items={images}
+      variant='follow'
+      fadeAnimation
+      threshold={70}
+      maxNumberOfImages={10}
+      duration={1300}
+      imgClass='h-40 w-28 rounded-md shadow-xl sm:h-52 sm:w-40'
+      className='h-[560px] bg-[#f3f0e9] text-[#272821]'
+    >
+      <div className='pointer-events-none px-6 text-center'>
+        <p className='mb-6 text-xs uppercase tracking-[0.3em] opacity-60'>Image trail / 01</p>
+        <h2 className='max-w-xl text-5xl font-medium leading-[1.05] tracking-tight sm:text-7xl'>
+          Leave a little wonder.
+        </h2>
+        <p className='mt-6 text-sm opacity-60'>A softer way to follow your curiosity.</p>
+        <p className='mt-16 text-xs uppercase tracking-[0.2em] opacity-50'>
+          Move your pointer · Drag on touch
+        </p>
+      </div>
+    </ImageMouseTrail>
   );
 }
