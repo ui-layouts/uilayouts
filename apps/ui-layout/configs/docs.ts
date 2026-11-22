@@ -7,7 +7,7 @@ export const DocsNavigationCategories: DocsNavigationCategory[] = [
     href: '/components/iphone-duo',
     name: 'iPhone Duo',
     key: DOCS_CATEGORY_KEY['iphone-duo'],
-    group: DOCS_CATEGORY_GROUP.Visual3D,
+    group: DOCS_CATEGORY_GROUP.AppleUI,
     new: true,
     tags: ['iphone', 'foldable', 'threejs', '3d', 'device', 'mockup'],
   },
@@ -15,7 +15,7 @@ export const DocsNavigationCategories: DocsNavigationCategory[] = [
     href: '/components/mac-genie',
     name: 'Mac-Genie',
     key: DOCS_CATEGORY_KEY['mac-genie'],
-    group: DOCS_CATEGORY_GROUP.VisualEffects,
+    group: DOCS_CATEGORY_GROUP.AppleUI,
     new: true,
     tags: [
       'Mac-Genie',
@@ -36,7 +36,7 @@ export const DocsNavigationCategories: DocsNavigationCategory[] = [
     href: '/components/liquid-glass',
     name: 'Liquid-Glass',
     key: DOCS_CATEGORY_KEY['liquid-glass'],
-    group: DOCS_CATEGORY_GROUP.VisualEffects,
+    group: DOCS_CATEGORY_GROUP.AppleUI,
     tags: [
       'Liquid-Glass',
       'liquid glass',
@@ -156,7 +156,7 @@ export const DocsNavigationCategories: DocsNavigationCategory[] = [
     href: '/components/blur-vignette',
     name: 'Blur Vignette',
     key: DOCS_CATEGORY_KEY['blur-vignette'],
-    group: DOCS_CATEGORY_GROUP.VisualEffects,
+    group: DOCS_CATEGORY_GROUP.AppleUI,
     tags: [
       'blur-sm',
       'vignette',

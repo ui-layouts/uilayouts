@@ -1,4 +1,5 @@
 export const DOCS_CATEGORY_GROUP = {
+  AppleUI: 'Apple UI',
   Layout: 'Layout',
   Navigation: 'Navigation',
   Disclosure: 'Disclosure',
