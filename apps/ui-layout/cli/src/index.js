@@ -10,8 +10,8 @@ import estree from 'prettier/plugins/estree';
 import { format } from 'prettier/standalone';
 import ts from 'typescript';
 
-const registryPath = `https://raw.githubusercontent.com/ui-layouts/ui-layouts/main/apps/ui-layout/registry-cli.json`;
-const basePath = `https://raw.githubusercontent.com/ui-layouts/ui-layouts/main/apps/ui-layout`;
+const registryPath = `https://raw.githubusercontent.com/ui-layouts/uilayouts/main/apps/ui-layout/registry-cli.json`;
+const basePath = `https://raw.githubusercontent.com/ui-layouts/uilayouts/main/apps/ui-layout`;
 
 // CLI args
 const [command, componentName] = process.argv.slice(2);
@@ -80,7 +80,8 @@ async function convertTsxToJsx(code) {
   });
 }
 
-async function downloadFileFromGitHub(filePath) {
+async function downloadFileFromGitHub(file) {
+  const filePath = file.path;
   const rawUrl = `${basePath}/${filePath.replace(/^\.\//, '')}`;
   const res = await fetch(rawUrl);
   if (!res.ok) throw new Error(`Failed to download ${filePath}`);
@@ -93,7 +94,13 @@ async function downloadFileFromGitHub(filePath) {
     ? path.join(process.cwd(), 'components', 'ui-layouts', 'styles')
     : path.join(process.cwd(), 'components', 'ui-layouts');
 
-  const targetPath = path.join(targetDir, fileName);
+  const targetPath = file.target
+    ? path.resolve(process.cwd(), file.target)
+    : path.join(targetDir, fileName);
+  const relativeTarget = path.relative(process.cwd(), targetPath);
+  if (relativeTarget === '..' || relativeTarget.startsWith(`..${path.sep}`) || path.isAbsolute(relativeTarget)) {
+    throw new Error(`File target must stay inside the project: ${file.target}`);
+  }
 
   // Convert .tsx to .jsx if JS mode and it's a .tsx file
   if (!isCss && language === 'js' && fileName.endsWith('.tsx')) {
@@ -103,7 +110,7 @@ async function downloadFileFromGitHub(filePath) {
     await fs.promises.writeFile(newPath, jsx.trim(), 'utf8');
     console.log(colors.cyan(`📦 Saved: ${newPath}`));
   } else {
-    await fs.promises.mkdir(targetDir, { recursive: true });
+    await fs.promises.mkdir(path.dirname(targetPath), { recursive: true });
     await fs.promises.writeFile(targetPath, content, 'utf8');
     console.log(colors.cyan(`📦 Saved: ${targetPath}`));
   }
@@ -155,7 +162,7 @@ try {
   }
 
   for (const file of match.files) {
-    await downloadFileFromGitHub(file.path);
+    await downloadFileFromGitHub(file);
   }
 
   s.stop(colors.green(`✅ ${componentName} downloaded successfully!`));

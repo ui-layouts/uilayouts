@@ -4,6 +4,167 @@
   "homepage": "https://www.ui-layouts.com",
   "items": [
     {
+      "name": "iphone-duo-demo",
+      "type": "registry:component",
+      "title": "Scroll-controlled Duo",
+      "description": "A folding iPhone Duo with the original wallpaper, projected screen content, and progressive blur.",
+      "dependencies": [
+        "three@0.186.0",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "devDependencies": [
+        "@types/three@0.183.1"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/iphone-duo.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "./public/iphone-duo/NOTICE.txt",
+          "type": "registry:file",
+          "target": "public/iphone-duo/NOTICE.txt"
+        },
+        {
+          "path": "./scripts/prepare-iphone-duo-assets.py",
+          "type": "registry:file",
+          "target": "scripts/prepare-iphone-duo-assets.py"
+        },
+        {
+          "path": "./registry/components/iphone-duo/iphone-duo-demo.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./public/iphone-duo/posters/wallpaper-open.svg",
+          "type": "registry:file",
+          "target": "public/iphone-duo/posters/wallpaper-open.svg"
+        },
+        {
+          "path": "./public/iphone-duo/posters/wallpaper-closed.svg",
+          "type": "registry:file",
+          "target": "public/iphone-duo/posters/wallpaper-closed.svg"
+        },
+        {
+          "path": "./public/iphone-duo/posters/launcher-open.svg",
+          "type": "registry:file",
+          "target": "public/iphone-duo/posters/launcher-open.svg"
+        },
+        {
+          "path": "./public/iphone-duo/posters/launcher-closed.svg",
+          "type": "registry:file",
+          "target": "public/iphone-duo/posters/launcher-closed.svg"
+        }
+      ]
+    },
+    {
+      "name": "iphone-duo-slider",
+      "type": "registry:component",
+      "title": "Slider-controlled Duo",
+      "description": "A folding iPhone Duo with the original wallpaper, projected screen content, and progressive blur.",
+      "dependencies": [
+        "three@0.186.0",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "devDependencies": [
+        "@types/three@0.183.1"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/iphone-duo.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "./public/iphone-duo/NOTICE.txt",
+          "type": "registry:file",
+          "target": "public/iphone-duo/NOTICE.txt"
+        },
+        {
+          "path": "./scripts/prepare-iphone-duo-assets.py",
+          "type": "registry:file",
+          "target": "scripts/prepare-iphone-duo-assets.py"
+        },
+        {
+          "path": "./registry/components/iphone-duo/iphone-duo-slider.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./public/iphone-duo/posters/wallpaper-open.svg",
+          "type": "registry:file",
+          "target": "public/iphone-duo/posters/wallpaper-open.svg"
+        },
+        {
+          "path": "./public/iphone-duo/posters/wallpaper-closed.svg",
+          "type": "registry:file",
+          "target": "public/iphone-duo/posters/wallpaper-closed.svg"
+        },
+        {
+          "path": "./public/iphone-duo/posters/launcher-open.svg",
+          "type": "registry:file",
+          "target": "public/iphone-duo/posters/launcher-open.svg"
+        },
+        {
+          "path": "./public/iphone-duo/posters/launcher-closed.svg",
+          "type": "registry:file",
+          "target": "public/iphone-duo/posters/launcher-closed.svg"
+        }
+      ]
+    },
+    {
+      "name": "iphone-duo",
+      "type": "registry:component",
+      "title": "iPhone Duo",
+      "description": "A folding iPhone Duo with the original wallpaper, projected screen content, and progressive blur.",
+      "dependencies": [
+        "three@0.186.0",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "devDependencies": [
+        "@types/three@0.183.1"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/iphone-duo.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "./public/iphone-duo/NOTICE.txt",
+          "type": "registry:file",
+          "target": "public/iphone-duo/NOTICE.txt"
+        },
+        {
+          "path": "./scripts/prepare-iphone-duo-assets.py",
+          "type": "registry:file",
+          "target": "scripts/prepare-iphone-duo-assets.py"
+        },
+        {
+          "path": "./public/iphone-duo/posters/wallpaper-open.svg",
+          "type": "registry:file",
+          "target": "public/iphone-duo/posters/wallpaper-open.svg"
+        },
+        {
+          "path": "./public/iphone-duo/posters/wallpaper-closed.svg",
+          "type": "registry:file",
+          "target": "public/iphone-duo/posters/wallpaper-closed.svg"
+        },
+        {
+          "path": "./public/iphone-duo/posters/launcher-open.svg",
+          "type": "registry:file",
+          "target": "public/iphone-duo/posters/launcher-open.svg"
+        },
+        {
+          "path": "./public/iphone-duo/posters/launcher-closed.svg",
+          "type": "registry:file",
+          "target": "public/iphone-duo/posters/launcher-closed.svg"
+        }
+      ]
+    },
+    {
       "name": "btn-bg-shine",
       "type": "registry:component",
       "devDependencies": [],
