@@ -3,12 +3,12 @@
 import ImageMouseTrail from '@/components/ui/mousetrail';
 
 const images = [
-  'https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=480&q=85',
-  'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=480&q=85',
-  'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=480&q=85',
-  'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=480&q=85',
-  'https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=480&q=85',
-  'https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=480&q=85',
+  'https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=600&q=85',
+  'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=600&q=85',
+  'https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&w=600&q=85',
+  'https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=600&q=85',
+  'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=600&q=85',
+  'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=600&q=85',
 ];
 
 export default function BounceMousetrail() {
@@ -17,21 +17,40 @@ export default function BounceMousetrail() {
       items={images}
       variant='bounce'
       fadeAnimation
-      threshold={70}
-      maxNumberOfImages={10}
-      duration={1500}
-      imgClass='h-40 w-28 rounded-md shadow-xl sm:h-52 sm:w-40'
-      className='h-[560px] bg-[#e6eddb] text-[#243a29]'
+      threshold={90}
+      maxNumberOfImages={8}
+      duration={1600}
+      imgClass='h-44 w-32 rounded-xl border-[4px] border-white/90 shadow-[0_18px_45px_-12px_#9b5c6055] sm:h-56 sm:w-40'
+      className='h-[600px] bg-[#f3e5e0] text-[#713f46] bg-[radial-gradient(ellipse_at_50%_40%,#fff9e8_0%,transparent_55%),radial-gradient(ellipse_at_0%_100%,#e6b3ac_0%,transparent_65%),radial-gradient(ellipse_at_100%_0%,#dbd9c4_0%,transparent_60%)]'
     >
-      <div className='pointer-events-none px-6 text-center'>
-        <p className='mb-6 text-xs uppercase tracking-[0.3em] opacity-60'>Image trail / 03</p>
-        <h2 className='max-w-xl text-5xl font-medium leading-[1.05] tracking-tight sm:text-7xl'>
-          Good things pop up.
-        </h2>
-        <p className='mt-6 text-sm opacity-60'>Make room for a little unexpected.</p>
-        <p className='mt-16 text-xs uppercase tracking-[0.2em] opacity-50'>
-          Move your pointer · Drag on touch
-        </p>
+      <div className='pointer-events-none flex h-[600px] flex-col justify-between p-7 sm:p-10'>
+        <div className='flex items-center justify-between border-b border-current/15 pb-4 text-[10px] uppercase tracking-[0.2em]'>
+          <span>Ordinary magic</span>
+          <span className='opacity-50'>03 / Play a little</span>
+        </div>
+        <div className='text-center'>
+          <p className='mb-5 text-[10px] uppercase tracking-[0.35em] opacity-65'>
+            For the joy of the unexpected
+          </p>
+          <h2 className='font-serif text-7xl font-normal italic leading-[0.85] tracking-[-0.07em] sm:text-9xl'>
+            Oh,
+            <br />
+            hello.
+          </h2>
+          <p className='mt-6 text-xs opacity-65'>A little surprise. A lovely little moment.</p>
+        </div>
+        <div className='flex items-end justify-between border-t border-current/15 pt-4 text-[10px] uppercase tracking-[0.18em] opacity-60'>
+          <span>
+            Collected moments,
+            <br />
+            made to move.
+          </span>
+          <span className='text-right'>
+            Move to explore
+            <br />
+            Drag on touch ↗
+          </span>
+        </div>
       </div>
     </ImageMouseTrail>
   );

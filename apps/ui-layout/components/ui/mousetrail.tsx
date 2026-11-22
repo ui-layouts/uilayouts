@@ -228,7 +228,7 @@ export default function ImageMouseTrail({
     <div
       ref={containerRef}
       className={cn(
-        'relative isolate grid h-[600px] w-full place-content-center overflow-hidden rounded-lg bg-muted text-foreground',
+        'relative isolate grid h-[600px] w-full place-items-center overflow-hidden rounded-lg bg-muted text-foreground',
         className
       )}
     >
@@ -252,7 +252,7 @@ export default function ImageMouseTrail({
           />
         ))}
       </div>
-      <div className='relative z-10'>{children}</div>
+      <div className='relative z-10 w-full'>{children}</div>
     </div>
   );
 }
