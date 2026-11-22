@@ -50,7 +50,7 @@ export interface IPhoneDuoProps {
 
 type Screen = {
   material: THREE.MeshBasicMaterial;
-  defaultTextures: Record<'wallpaper' | 'launcher', THREE.CanvasTexture>;
+  defaultTextures: Partial<Record<'wallpaper' | 'launcher', THREE.CanvasTexture>>;
   frame: { value: THREE.Vector4 };
   gradient: { value: THREE.Vector2 };
   pixel: { value: THREE.Vector2 };
@@ -65,14 +65,13 @@ type Controller = {
 const clampAngle = (angle: number) =>
   Number.isFinite(angle) ? Math.max(0, Math.min(180, angle)) : 180;
 
-async function loadDefaultUIs(assetPath: string) {
-  const names = [
-    'wallpaper-inner.avif',
-    'clock-inner.avif',
-    'clock-outer.avif',
-    'launcher-inner.png',
-    'launcher-outer.png',
-  ];
+type UITheme = 'wallpaper' | 'launcher';
+
+async function loadDefaultUIs(assetPath: string, theme: UITheme = 'wallpaper') {
+  const names =
+    theme === 'wallpaper'
+      ? ['wallpaper-inner.avif', 'clock-inner.avif', 'clock-outer.avif']
+      : ['launcher-inner.png', 'launcher-outer.png'];
   const images = Object.fromEntries(
     await Promise.all(
       names.map(async (name) => {
@@ -84,43 +83,36 @@ async function loadDefaultUIs(assetPath: string) {
       })
     )
   );
-  const themes = { wallpaper: {}, launcher: {} } as Record<
-    'wallpaper' | 'launcher',
-    Record<'inner' | 'outer', HTMLCanvasElement>
-  >;
-  for (const theme of ['wallpaper', 'launcher'] as const) {
-    for (const kind of ['inner', 'outer'] as const) {
-      const canvas = document.createElement('canvas');
-      canvas.width = kind === 'inner' ? 1600 : 774;
-      canvas.height = 1125;
-      const context = canvas.getContext('2d');
-      if (!context) throw new Error('Canvas 2D is unavailable.');
-      if (theme === 'wallpaper') {
-        context.drawImage(images['wallpaper-inner.avif'], canvas.width - 1600, 0, 1600, 1125);
-        context.drawImage(images[`clock-${kind}.avif`], 0, 0, canvas.width, canvas.height);
-      } else {
-        const crop = kind === 'inner' ? [22, 22, 1072, 754] : [28, 16, 510, 742];
-        context.drawImage(
-          images[`launcher-${kind}.png`],
-          crop[0],
-          crop[1],
-          crop[2],
-          crop[3],
-          0,
-          0,
-          canvas.width,
-          canvas.height
-        );
-      }
-      themes[theme][kind] = canvas;
+  const canvases = {} as Record<'inner' | 'outer', HTMLCanvasElement>;
+  for (const kind of ['inner', 'outer'] as const) {
+    const canvas = document.createElement('canvas');
+    canvas.width = kind === 'inner' ? 1600 : 774;
+    canvas.height = 1125;
+    const context = canvas.getContext('2d');
+    if (!context) throw new Error('Canvas 2D is unavailable.');
+    if (theme === 'wallpaper') {
+      context.drawImage(images['wallpaper-inner.avif'], canvas.width - 1600, 0, 1600, 1125);
+      context.drawImage(images[`clock-${kind}.avif`], 0, 0, canvas.width, canvas.height);
+    } else {
+      const crop = kind === 'inner' ? [22, 22, 1072, 754] : [28, 16, 510, 742];
+      context.drawImage(
+        images[`launcher-${kind}.png`],
+        ...(crop as [number, number, number, number]),
+        0,
+        0,
+        canvas.width,
+        canvas.height
+      );
     }
+    canvases[kind] = canvas;
   }
-  return themes;
+  return canvases;
 }
 
 type DuoAssets = {
   model: THREE.Group;
   uis: Awaited<ReturnType<typeof loadDefaultUIs>>;
+  loadLauncher: () => Promise<Awaited<ReturnType<typeof loadDefaultUIs>>>;
   textures: Set<THREE.Texture>;
 };
 
@@ -155,29 +147,49 @@ function acquireAssets(base: string) {
   let entry = assetCache.get(base);
   if (!entry) {
     // Start both requests together. A failed source is removed so Retry can fetch it again.
-    const promise = Promise.allSettled([
-      new USDLoader().loadAsync(`${base}/iPhone_Duo_Render.usdc`),
-      loadDefaultUIs(base),
-    ]).then(([modelResult, uiResult]) => {
-      if (modelResult.status === 'rejected') throw modelResult.reason;
-      const model = modelResult.value;
-      const textures = new Set<THREE.Texture>();
-      model.traverse((object) => {
-        if (!(object instanceof THREE.Mesh)) return;
-        for (const material of Array.isArray(object.material)
-          ? object.material
-          : [object.material]) {
-          for (const value of Object.values(material)) {
-            if (value instanceof THREE.Texture) textures.add(value);
+    let failed = false;
+    let loadedModel: Pick<DuoAssets, 'model' | 'textures'> | undefined;
+    let launcher: Promise<Awaited<ReturnType<typeof loadDefaultUIs>>> | undefined;
+    const modelPromise = new USDLoader()
+      .loadAsync(`${base}/iPhone_Duo_Render.usdc`)
+      .then((model) => {
+        const textures = new Set<THREE.Texture>();
+        model.traverse((object) => {
+          if (!(object instanceof THREE.Mesh)) return;
+          for (const material of Array.isArray(object.material)
+            ? object.material
+            : [object.material]) {
+            for (const value of Object.values(material)) {
+              if (value instanceof THREE.Texture) textures.add(value);
+            }
           }
-        }
+        });
+        const source = { model, textures };
+        if (failed) disposeAssets(source);
+        else loadedModel = source;
+        return source;
       });
-      if (uiResult.status === 'rejected') {
-        disposeAssets({ model, textures });
-        throw uiResult.reason;
-      }
-      return { model, textures, uis: uiResult.value };
-    });
+    const promise = Promise.all([modelPromise, loadDefaultUIs(base)])
+      .then(([source, uis]) => ({
+        ...source,
+        uis,
+        loadLauncher() {
+          if (!launcher)
+            launcher = loadDefaultUIs(base, 'launcher').catch((error) => {
+              launcher = undefined;
+              throw error;
+            });
+          return launcher;
+        },
+      }))
+      .catch((error) => {
+        failed = true;
+        if (loadedModel) {
+          disposeAssets(loadedModel);
+          loadedModel = undefined;
+        }
+        throw error;
+      });
     entry = { promise, users: 0 };
     assetCache.set(base, entry);
     const created = entry;
@@ -353,6 +365,8 @@ export function IPhoneDuo({
     let renderer: THREE.WebGLRenderer | undefined;
     let controls: OrbitControls | undefined;
     let observer: ResizeObserver | undefined;
+    let visibilityObserver: IntersectionObserver | undefined;
+    let isVisible = true;
     let environmentTarget: THREE.WebGLRenderTarget | undefined;
     const geometries = new Set<THREE.BufferGeometry>();
     const materials = new Set<THREE.Material>();
@@ -379,6 +393,7 @@ export function IPhoneDuo({
     const release = () => {
       renderer?.setAnimationLoop(null);
       observer?.disconnect();
+      visibilityObserver?.disconnect();
       controls?.dispose();
       for (const geometry of geometries) geometry.dispose();
       for (const material of materials) material.dispose();
@@ -442,13 +457,11 @@ export function IPhoneDuo({
         const screens = {} as Record<'inner' | 'outer', Screen>;
         for (const kind of ['inner', 'outer'] as const) {
           const defaultTextures = {} as Screen['defaultTextures'];
-          for (const theme of ['wallpaper', 'launcher'] as const) {
-            const texture = new THREE.CanvasTexture(defaultUIs[theme][kind]);
-            texture.colorSpace = THREE.SRGBColorSpace;
-            texture.anisotropy = renderer.capabilities.getMaxAnisotropy();
-            textures.add(texture);
-            defaultTextures[theme] = texture;
-          }
+          const texture = new THREE.CanvasTexture(defaultUIs[kind]);
+          texture.colorSpace = THREE.SRGBColorSpace;
+          texture.anisotropy = renderer.capabilities.getMaxAnisotropy();
+          textures.add(texture);
+          defaultTextures.wallpaper = texture;
           const material = new THREE.MeshBasicMaterial({
             map: defaultTextures.wallpaper,
             toneMapped: false,
@@ -461,7 +474,7 @@ export function IPhoneDuo({
             gradient: {
               value: new THREE.Vector2(kind === 'inner' ? 0.5 : 0, kind === 'inner' ? 0 : 1),
             },
-            pixel: { value: new THREE.Vector2(1 / defaultUIs.wallpaper[kind].width, 1 / 1125) },
+            pixel: { value: new THREE.Vector2(1 / defaultUIs[kind].width, 1 / 1125) },
           };
         }
         model.scale.multiplyScalar(100);
@@ -552,6 +565,7 @@ export function IPhoneDuo({
         let customTexture: THREE.CanvasTexture | undefined;
         let contentVersion = 0;
         let appliedContent: { theme: 'wallpaper' | 'launcher'; source?: string } | undefined;
+        let pendingContent: typeof appliedContent;
         let targetAngle = angleRef.current;
         let displayedAngle = targetAngle;
         const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -569,63 +583,82 @@ export function IPhoneDuo({
             if (renderer) renderer.domElement.style.touchAction = value ? 'none' : 'pan-y';
           },
           async setContent(theme, source) {
-            if (appliedContent?.theme === theme && appliedContent.source === source) return;
+            if (pendingContent?.theme === theme && pendingContent.source === source) return;
             const version = ++contentVersion;
-            for (const kind of ['inner', 'outer'] as const) {
-              const screen = screens[kind];
-              const texture = screen.defaultTextures[theme];
-              screen.material.map = texture;
-              screen.pixel.value.set(1 / texture.image.width, 1 / texture.image.height);
-              screen.frame.value.copy(kind === 'inner' ? innerUIFrame : outerUIFrame);
-              screen.gradient.value.set(kind === 'inner' ? 0.5 : 0, kind === 'inner' ? 0 : 1);
-            }
             setError('');
-            if (!source) {
-              appliedContent = { theme, source };
-              if (customTexture) {
-                customTexture.dispose();
-                textures.delete(customTexture);
-                customTexture = undefined;
-              }
-              return;
-            }
+            if (appliedContent?.theme === theme && appliedContent.source === source) return;
+            appliedContent = undefined;
+            pendingContent = { theme, source };
             try {
-              const image = new Image();
-              image.crossOrigin = 'anonymous';
-              image.src = source;
-              await image.decode();
-              if (disposed || version !== contentVersion) return;
-              const canvas = document.createElement('canvas');
-              canvas.width = 1600;
-              canvas.height = 1125;
-              const context = canvas.getContext('2d');
-              if (!context) throw new Error('Canvas 2D is unavailable.');
-              context.fillStyle = '#101418';
-              context.fillRect(0, 0, 1600, 1125);
-              const scale = Math.min(1600 / image.width, 1125 / image.height);
-              const width = image.width * scale,
-                height = image.height * scale;
-              context.drawImage(image, (1600 - width) / 2, (1125 - height) / 2, width, height);
-              if (customTexture) {
-                customTexture.dispose();
-                textures.delete(customTexture);
-              }
-              customTexture = new THREE.CanvasTexture(canvas);
-              customTexture.colorSpace = THREE.SRGBColorSpace;
-              customTexture.anisotropy = renderer?.capabilities.getMaxAnisotropy() ?? 1;
-              textures.add(customTexture);
-              for (const kind of ['inner', 'outer'] as const) {
-                const screen = screens[kind];
-                screen.material.map = customTexture;
-                screen.pixel.value.set(1 / 1600, 1 / 1125);
-                screen.frame.value.copy(innerUIFrame);
-                screen.gradient.value.set(0.5, kind === 'inner' ? 0 : 1);
+              if (!source) {
+                const uis = theme === 'wallpaper' ? defaultUIs : await assets.loadLauncher();
+                if (disposed || version !== contentVersion) return;
+                for (const kind of ['inner', 'outer'] as const) {
+                  const screen = screens[kind];
+                  let texture = screen.defaultTextures[theme];
+                  if (!texture) {
+                    texture = new THREE.CanvasTexture(uis[kind]);
+                    texture.colorSpace = THREE.SRGBColorSpace;
+                    texture.anisotropy = renderer?.capabilities.getMaxAnisotropy() ?? 1;
+                    textures.add(texture);
+                    screen.defaultTextures[theme] = texture;
+                  }
+                  screen.material.map = texture;
+                  screen.pixel.value.set(1 / texture.image.width, 1 / texture.image.height);
+                  screen.frame.value.copy(kind === 'inner' ? innerUIFrame : outerUIFrame);
+                  screen.gradient.value.set(kind === 'inner' ? 0.5 : 0, kind === 'inner' ? 0 : 1);
+                }
+                if (customTexture) {
+                  customTexture.dispose();
+                  textures.delete(customTexture);
+                  customTexture = undefined;
+                }
+              } else {
+                // Keep the current maps until the replacement has decoded successfully.
+                const image = new Image();
+                image.crossOrigin = 'anonymous';
+                image.src = source;
+                await image.decode();
+                if (disposed || version !== contentVersion) return;
+                const canvas = document.createElement('canvas');
+                canvas.width = 1600;
+                canvas.height = 1125;
+                const context = canvas.getContext('2d');
+                if (!context) throw new Error('Canvas 2D is unavailable.');
+                context.fillStyle = '#101418';
+                context.fillRect(0, 0, 1600, 1125);
+                const scale = Math.min(1600 / image.width, 1125 / image.height);
+                const width = image.width * scale,
+                  height = image.height * scale;
+                context.drawImage(image, (1600 - width) / 2, (1125 - height) / 2, width, height);
+                const replacement = new THREE.CanvasTexture(canvas);
+                replacement.colorSpace = THREE.SRGBColorSpace;
+                replacement.anisotropy = renderer?.capabilities.getMaxAnisotropy() ?? 1;
+                textures.add(replacement);
+                const previous = customTexture;
+                for (const kind of ['inner', 'outer'] as const) {
+                  const screen = screens[kind];
+                  screen.material.map = replacement;
+                  screen.pixel.value.set(1 / 1600, 1 / 1125);
+                  screen.frame.value.copy(innerUIFrame);
+                  screen.gradient.value.set(0.5, kind === 'inner' ? 0 : 1);
+                }
+                customTexture = replacement;
+                if (previous) {
+                  previous.dispose();
+                  textures.delete(previous);
+                }
               }
               appliedContent = { theme, source };
-              setError('');
             } catch {
               if (!disposed && version === contentVersion)
-                setError('Unable to load the screen image. Check its URL and CORS permissions.');
+                setError(
+                  source
+                    ? 'Unable to load the screen image. Check its URL and CORS permissions.'
+                    : 'Unable to load the screen preset. Try again.'
+                );
+            } finally {
+              if (version === contentVersion) pendingContent = undefined;
             }
           },
         };
@@ -641,9 +674,13 @@ export function IPhoneDuo({
         };
         observer = new ResizeObserver(resize);
         observer.observe(viewport);
+        visibilityObserver = new IntersectionObserver(([entry]) => {
+          isVisible = entry.isIntersecting;
+        });
+        visibilityObserver.observe(viewport);
         resize();
         controllerRef.current.setInteractive(contentRef.current.interactive);
-        await controllerRef.current.setContent(
+        void controllerRef.current.setContent(
           contentRef.current.screen,
           contentRef.current.imageSrc
         );
@@ -661,7 +698,7 @@ export function IPhoneDuo({
           const delta =
             lastFrameTime === undefined ? 0 : Math.min((time - lastFrameTime) / 1000, 0.05);
           lastFrameTime = time;
-          if (document.hidden) return;
+          if (document.hidden || !isVisible) return;
           // Dampen wheel/trackpad steps and fast slider input with one shared fold value.
           // The geometry, blur and shading therefore settle together in either direction.
           displayedAngle = reducedMotion.matches
@@ -700,6 +737,7 @@ export function IPhoneDuo({
     >
       <div
         ref={viewportRef}
+        aria-hidden={status !== 'ready'}
         className='absolute inset-0'
         style={{ opacity: status === 'ready' ? 1 : 0 }}
       />
@@ -729,15 +767,16 @@ export function IPhoneDuo({
           className='absolute inset-x-4 top-4 z-20 rounded-xl border bg-background/95 p-4 text-center text-sm text-foreground'
         >
           <p>{error}</p>
-          {status === 'error' && (
-            <button
-              type='button'
-              className='mt-2 rounded-md border px-3 py-2 focus-visible:outline-2 focus-visible:outline-offset-2'
-              onClick={() => setAttempt((value) => value + 1)}
-            >
-              Try again
-            </button>
-          )}
+          <button
+            type='button'
+            className='mt-2 rounded-md border px-3 py-2 focus-visible:outline-2 focus-visible:outline-offset-2'
+            onClick={() => {
+              if (status === 'error') setAttempt((value) => value + 1);
+              else void controllerRef.current?.setContent(screen, imageSrc);
+            }}
+          >
+            Try again
+          </button>
         </div>
       )}
     </div>

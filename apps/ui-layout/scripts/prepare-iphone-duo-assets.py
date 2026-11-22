@@ -27,11 +27,29 @@
 
 import argparse
 from pathlib import Path
+from tempfile import NamedTemporaryFile
 from shutil import copyfile
 from urllib.request import urlretrieve
 from zipfile import ZipFile
 
 from pxr import Sdf, Usd
+
+
+def write_atomic(target, writer):
+    """Publish completed downloads/copies only; interrupted writes remain retryable."""
+    with NamedTemporaryFile(dir=target.parent, suffix=".part", delete=False) as temporary:
+        partial = Path(temporary.name)
+    try:
+        writer(partial)
+        partial.replace(target)
+    finally:
+        partial.unlink(missing_ok=True)
+
+
+def download(url, target):
+    if not url.startswith("https://"):
+        raise ValueError("Asset downloads require HTTPS")
+    write_atomic(target, lambda partial: urlretrieve(url, partial))
 
 
 parser = argparse.ArgumentParser(description=__doc__)
@@ -50,7 +68,7 @@ model = assets / "iPhone_Duo_Star_White.usdz"
 model_url = "https://www.apple.com/105/media/us/iphone-duo/2026/9305e4b9-72d9-4c05-9381-b572adadd5e5/ar/iPhone_Duo_e-sim_Star-White_Variant.usdz"
 if not model.exists():
     print("Downloading the Apple reference model...", flush=True)
-    urlretrieve(model_url, model)
+    download(model_url, model)
 
 with ZipFile(model) as archive:
     for name in archive.namelist():
@@ -82,7 +100,7 @@ ui_sources = {
 }
 for filename, url in ui_sources.items():
     print(f"Downloading {filename}...", flush=True)
-    urlretrieve(url, ui / filename)
+    download(url, ui / filename)
 
 # Shadcn installs these posters directly. Standalone script users fetch the same
 # small, attributed first-frame images instead of generating WebGL assets locally.
@@ -97,10 +115,11 @@ for theme in ("wallpaper", "launcher"):
             continue
         local = poster_sources / filename
         if local.exists():
-            copyfile(local, target)
+            write_atomic(target, lambda partial: copyfile(local, partial))
         else:
-            urlretrieve(
-                "https://raw.githubusercontent.com/ui-layouts/uilayouts/main/"
+            download(
+                # These posters match the bundled component artwork, independent of main.
+                "https://raw.githubusercontent.com/ui-layouts/uilayouts/5015532c1d6b91a148fe19e87c814a857c8f81f4/"
                 f"apps/ui-layout/public/iphone-duo/posters/{filename}",
                 target,
             )

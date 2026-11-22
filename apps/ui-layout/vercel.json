@@ -1,4 +1,4 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "uv run --no-project --python 3.12 --with usd-core==26.8 python scripts/prepare-iphone-duo-assets.py && pnpm build"
+  "buildCommand": "python3 -m pip install --quiet --target /tmp/iphone-duo-build-tools uv==0.9.6 && PYTHONPATH=/tmp/iphone-duo-build-tools python3 -m uv run --no-project --python 3.12 --with usd-core==26.8 python scripts/prepare-iphone-duo-assets.py && pnpm build"
 }
