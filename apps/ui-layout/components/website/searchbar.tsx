@@ -1,7 +1,7 @@
 'use client';
 
 import { ScrollArea } from '@/components/website/ui//scroll-area';
-import { DocsNavigationCategories } from '@/configs/docs';
+import { groupedDocsNavigationCategories } from '@/lib/grouped-docs';
 import { cn } from '@/lib/utils';
 import { Command } from 'cmdk';
 import {
@@ -55,17 +55,7 @@ export function SearchDialog({
   const [searchOpen, setSearchOpen] = React.useState(false);
   const [search, setSearch] = React.useState('');
 
-  const groupedItems = Object.entries(
-    DocsNavigationCategories.reduce(
-      (acc, item) => {
-        const group = item.group || 'Others';
-        if (!acc[group]) acc[group] = [];
-        acc[group].push(item);
-        return acc;
-      },
-      {} as Record<string, typeof DocsNavigationCategories>
-    )
-  );
+  const groupedItems = Object.entries(groupedDocsNavigationCategories);
 
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {

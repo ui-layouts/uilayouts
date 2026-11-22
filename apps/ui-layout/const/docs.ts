@@ -1,5 +1,6 @@
 export const DOCS_CATEGORY_GROUP = {
   AppleUI: 'Apple UI',
+  VisualEffects: 'Visual Effects',
   Layout: 'Layout',
   Navigation: 'Navigation',
   Disclosure: 'Disclosure',
@@ -8,7 +9,6 @@ export const DOCS_CATEGORY_GROUP = {
   DataDisplay: 'Cards & Highlights',
   MediaGalleries: 'Media & Galleries',
   AnimationMotion: 'Animation & Motion',
-  VisualEffects: 'Visual Effects',
   Visual3D: '3D & Visuals',
   Code: 'Code',
   Utilities: 'Utilities',
