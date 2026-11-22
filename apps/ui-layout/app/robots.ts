@@ -1,16 +1,11 @@
 import type { MetadataRoute } from 'next';
+import { siteConfig } from '@/lib/utils';
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: [
-      {
-        userAgent: '*',
-        allow: ['/'],
-        disallow: [],
-        crawlDelay: 1,
-      },
-    ],
-    sitemap: 'https://www.ui-layouts.com/sitemap.xml',
-    host: 'https://www.ui-layouts.com',
+    // Utility pages use noindex metadata; keep them crawlable so robots can read it.
+    rules: [{ userAgent: '*', allow: '/' }],
+    sitemap: `${siteConfig.url}/sitemap.xml`,
+    host: siteConfig.url,
   };
 }

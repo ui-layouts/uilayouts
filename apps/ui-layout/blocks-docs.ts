@@ -94,7 +94,8 @@ export const blocksDesign = [
     id: 'hero-section',
     name: 'Hero Section',
     url: '/blocks/hero-section',
-    des: 'Beautiful hero layouts to start your landing page.',
+    des:
+      'Build the top of your landing page with React and Tailwind CSS hero sections for SaaS, ecommerce, finance, and apps. Preview each layout and copy its code.',
     imgclass: 'bg-linear-to-t from-blue-600 dark:to-blue-800 to-blue-200',
     textClass: 'text-white',
     tags: ['hero', 'landing', 'above-the-fold'],
@@ -315,7 +316,8 @@ export const blocksDesign = [
     id: 'feature-section',
     name: 'Feature Section',
     url: '/blocks/feature-section',
-    des: 'Beautiful Feature layouts to start your landing page',
+    des:
+      'Show what your product does with React and Tailwind CSS feature sections, including bento grids, service lists, and layouts that pair visuals with copy.',
     imgclass: 'bg-linear-to-t from-green-400 dark:to-green-800 to-green-100',
     textClass: 'text-primary',
     imgSrc: FeatureSectionImg,
@@ -484,7 +486,8 @@ export const blocksDesign = [
     id: 'about-section',
     name: 'About Section',
     url: '/blocks/about-section',
-    des: 'Beautiful About layouts to start your landing page.',
+    des:
+      'Tell your story with React and Tailwind CSS about sections for agencies, portfolios, and businesses. Explore layouts for your mission, values, and experience.',
     imgclass: 'bg-linear-to-t from-purple-500 dark:to-purple-800 to-purple-200',
     textClass: 'text-primary',
     imgSrc: AboutSectionImg,
@@ -727,7 +730,8 @@ export const blocksDesign = [
     name: 'Team Section',
     url: '/blocks/team-section',
     imgclass: 'bg-linear-to-t from-indigo-800 dark:to-indigo-900 to-indigo-100',
-    des: 'Beautiful FAQ layouts to start your landing page.',
+    des:
+      'Introduce your team with React and Tailwind CSS layouts for staff photos, bios, and social links. Preview each team section and copy the source to adapt it.',
     textClass: 'text-primary',
     imgSrc: TeamSectionImg,
     tags: ['team', 'team section', 'team'],
@@ -910,7 +914,8 @@ export const blocksDesign = [
     id: 'stats-section',
     name: 'Stats Section',
     url: '/blocks/stats-section',
-    des: 'Beautiful Stats layouts to start your landing page.',
+    des:
+      'Present product metrics, milestones, and company numbers with React and Tailwind CSS stats sections. Compare compact banners, cards, and larger grids.',
     textClass: 'text-primary',
     imgclass: 'bg-linear-to-t from-red-500 dark:to-orange-500 to-orange-100',
     imgSrc: StatsSectionImg,
@@ -1055,7 +1060,8 @@ export const blocksDesign = [
     id: 'testimonial-section',
     name: 'Testimonial Section',
     url: '/blocks/testimonial-section',
-    des: 'Beautiful Testimonial layouts to start your landing page.',
+    des:
+      'Showcase customer feedback with React and Tailwind CSS testimonial blocks, including carousels, quote cards, and layouts styled like a conversation.',
     textClass: 'text-primary',
     imgclass: 'bg-linear-to-t from-neutral-300 to-neutral-100',
     imgSrc: TestimonialSectionImg,
@@ -1200,7 +1206,8 @@ export const blocksDesign = [
     id: 'experience-section',
     name: 'Experience Section',
     url: '/blocks/experience-section',
-    des: 'Beautiful Experience layouts to start your landing page.',
+    des:
+      'Present your work history, projects, and client experience with React and Tailwind CSS portfolio sections. Preview each example and copy the source code.',
     imgclass: 'bg-linear-to-t from-rose-400 dark:to-yellow-400 to-orange-300',
     textClass: 'text-primary',
     imgSrc: ExperienceSectionImg,
@@ -1307,7 +1314,8 @@ export const blocksDesign = [
     id: 'pricing-section',
     name: 'Pricing Section',
     url: '/blocks/pricing-section',
-    des: 'Beautiful Pricing layouts to start your landing page.',
+    des:
+      'Compare subscription tiers, product bundles, and plan details with React and Tailwind CSS pricing sections. Preview each layout and copy the code.',
     imgclass: 'bg-linear-to-tr from-yellow-400 dark:to-yellow-400 via-blue-200 to-blue-500',
     textClass: 'text-primary',
     imgSrc: PricingSectionImg,
@@ -1433,7 +1441,8 @@ export const blocksDesign = [
     id: 'faq-section',
     name: 'FAQ Section',
     url: '/blocks/faq-section',
-    des: 'Beautiful FAQ layouts to start your landing page.',
+    des:
+      'Answer common customer questions with React and Tailwind CSS FAQ blocks. Browse accordion, tabbed, and card layouts with interactive previews and source code.',
     textClass: 'text-primary',
     imgclass: 'bg-linear-to-br from-blue-600 dark:to-blue-800 to-blue-200',
     imgSrc: FaqSectionImg,
@@ -1559,7 +1568,8 @@ export const blocksDesign = [
     id: 'footer-section',
     name: 'Footer Section',
     url: '/blocks/footer-section',
-    des: 'Beautiful Footer layouts to start your landing page.',
+    des:
+      'Finish your site with React and Tailwind CSS footer blocks for navigation, contact details, and branding. Compare minimal, multi-column, and bento layouts.',
     imgclass: 'bg-linear-to-tr from-neutral-800 to-neutral-200',
     textClass: 'text-primary',
     imgSrc: FooterSectionImg,

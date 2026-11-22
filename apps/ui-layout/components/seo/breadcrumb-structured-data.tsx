@@ -1,3 +1,5 @@
+import { serializeJsonLd } from '@/lib/seo';
+
 interface BreadcrumbItem {
   name: string;
   url: string;
@@ -23,7 +25,7 @@ export function BreadcrumbStructuredData({ items }: BreadcrumbStructuredDataProp
     <script
       type='application/ld+json'
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(breadcrumbData, null, 2),
+        __html: serializeJsonLd(breadcrumbData),
       }}
     />
   );

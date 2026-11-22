@@ -50,7 +50,7 @@ const allProjects = [
   {
     id: 2,
     projectsName: 'blocks',
-    link: 'https://ui-layouts.com/blocks',
+    link: '/blocks',
     componentSrc: () => (
       <>
         <svg

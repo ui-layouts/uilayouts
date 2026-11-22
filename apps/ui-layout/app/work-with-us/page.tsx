@@ -10,7 +10,7 @@ export const metadata = {
   },
   title: 'Work With Us | UI Layouts',
   description:
-    'We’re open-source, but now we’re taking on custom projects. Partner with UI Layouts Pro to build bespoke websites, premium UI designs, and tailored digital solutions — crafted with Tailwind CSS and React.',
+    'Work with UI Layouts on custom React and Tailwind CSS websites, UI components, and digital experiences. Explore our design and frontend development services.',
   keywords: [
     'UI Layouts Pro work with us',
     'hire UI developers',

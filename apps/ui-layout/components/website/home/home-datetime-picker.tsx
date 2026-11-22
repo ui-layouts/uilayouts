@@ -13,7 +13,7 @@ export default function HomeDateTimePicker() {
 
   return (
     <div className='p-4 w-[95%] mx-auto '>
-      <h1 className='font-medium  px-1 py-1'>DateTime Input </h1>
+      <h2 className='font-medium  px-1 py-1'>DateTime Input </h2>
       <SmartDatetimeInput
         value={selectedDate}
         onValueChange={handleDateChange}

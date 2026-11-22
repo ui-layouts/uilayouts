@@ -1,6 +1,5 @@
 import preview from '@/assets/preview/Preview';
 import { BreadcrumbStructuredData } from '@/components/seo/breadcrumb-structured-data';
-import { FaqStructuredData } from '@/components/seo/faq-structured-data';
 import { absoluteUrl, cn } from '@/lib/utils';
 import * as AspectRatio from '@radix-ui/react-aspect-ratio';
 import Image from 'next/image';
@@ -492,7 +491,7 @@ export const metadata = {
     canonical: '/components',
   },
   description:
-    'A collection of 60+ beautifully designed, accessible, and customizable UI components built with React, Next.js, and TailwindCSS. Copy and paste into your apps to build modern interfaces faster. 100% open source.',
+    'Browse open-source React, Next.js, and Tailwind CSS components. Preview interactions, copy the source, and customize animations, forms, layouts, and effects.',
   keywords: [
     'React components library',
     'Next.js UI components',
@@ -547,22 +546,6 @@ export const metadata = {
 };
 
 export default function Home() {
-  const componentFaqs = [
-    {
-      question: 'How do I use UI Layouts components?',
-      answer:
-        'Open any component page, copy the code snippet, and paste it into your React or Next.js project.',
-    },
-    {
-      question: 'Are these components mobile responsive?',
-      answer:
-        'Yes. Components are designed for responsive usage and can be customized with Tailwind utility classes.',
-    },
-    {
-      question: 'Can I use UI Layouts components in commercial apps?',
-      answer: 'Yes. UI Layouts components are open source and can be used in commercial projects.',
-    },
-  ];
 
   return (
     <>
@@ -572,7 +555,6 @@ export default function Home() {
           { name: 'Components', url: absoluteUrl('/components') },
         ]}
       />
-      <FaqStructuredData items={componentFaqs} />
       <section aria-labelledby='components-title' className='lg:pt-8 pt-16 pl-10 pb-5'>
         <header>
           <h1
