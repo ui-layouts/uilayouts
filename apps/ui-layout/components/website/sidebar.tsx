@@ -16,7 +16,7 @@ import {
 import { useTheme } from 'next-themes';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import React, { useEffect, useRef, useState } from 'react';
+import { type ReactNode, useEffect, useRef, useState } from 'react';
 
 export const basePath = [
   {
@@ -57,6 +57,14 @@ export const basePath = [
   },
 ];
 
+export function DocsNavIcon({ children }: { children: ReactNode }) {
+  return (
+    <span aria-hidden='true' className='grid size-7 shrink-0 place-items-center [&_svg]:size-[18px]'>
+      {children}
+    </span>
+  );
+}
+
 function DocsSidebar() {
   const pathname = usePathname();
 
@@ -73,19 +81,14 @@ function DocsSidebar() {
                   <Link
                     href={link.href}
                     onClick={() => addVisitedPage(link.href, link.name)}
-                    className={`flex gap-2 group font-medium items-center py-1 transition-all ${
+                    aria-current={link.href === pathname ? 'page' : undefined}
+                    className={`flex items-center gap-2 py-1 font-medium transition-colors ${
                       link.href === pathname
                         ? 'text-foreground font-semibold'
                         : 'text-muted-foreground hover:text-foreground'
                     }`}
                   >
-                    {React.cloneElement(link?.icon, {
-                      className: `${
-                        link.href === pathname
-                          ? 'bg-muted text-muted-foreground'
-                          : 'bg-muted text-muted-foreground group-hover:bg-accent group-hover:text-accent-foreground'
-                      } h-7 w-7 border transition-all rounded-md p-1`,
-                    })}
+                    <DocsNavIcon>{link.icon}</DocsNavIcon>
                     {link.name}
                   </Link>
                 </li>

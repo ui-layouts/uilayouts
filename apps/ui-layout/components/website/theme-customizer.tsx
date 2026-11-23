@@ -97,23 +97,11 @@ export function ThemeCustomizer({ className }: { className?: string }) {
         clsBtnClassname='top-1 right-1'
       >
         <ResponsiveModalContent>
-          <div className='flex items-center justify-between gap-2 border-b px-4 py-3 pr-12'>
-            <div>
-              <p className='text-sm font-semibold'>Customize theme</p>
-              <p className='text-xs text-muted-foreground'>Pick a tweakcn preset</p>
-            </div>
-            {presetName !== DEFAULT_THEME_PRESET && (
-              <button
-                type='button'
-                onClick={() => setPresetName(DEFAULT_THEME_PRESET)}
-                className='inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground'
-              >
-                <RotateCcw className='h-3 w-3' />
-                Reset
-              </button>
-            )}
+          <div className='border-b px-4 py-3 pr-16'>
+            <p className='text-sm font-semibold'>Customize theme</p>
+            <p className='text-xs text-muted-foreground'>Pick a tweakcn preset</p>
           </div>
-          <ScrollArea className='h-[360px]'>
+          <ScrollArea className='h-[min(360px,calc(100dvh-12rem))]'>
             <ul className='flex flex-col gap-1 p-2'>
               {themePresets.map((preset) => {
                 const isActive = preset.name === presetName;
@@ -122,9 +110,12 @@ export function ThemeCustomizer({ className }: { className?: string }) {
                     <button
                       type='button'
                       onClick={() => setPresetName(preset.name)}
+                      aria-pressed={isActive}
                       className={cn(
-                        'flex w-full items-center gap-3 rounded-md border border-transparent px-3 py-2 text-sm transition-colors hover:bg-accent hover:text-accent-foreground',
-                        isActive && 'border-border bg-accent text-accent-foreground'
+                        'flex w-full cursor-pointer items-center gap-3 rounded-md border px-3 py-2 text-sm transition-colors focus-visible:outline-2 focus-visible:outline-ring',
+                        isActive
+                          ? 'border-border bg-accent text-accent-foreground'
+                          : 'border-transparent hover:bg-foreground/5'
                       )}
                     >
                       <span className='flex shrink-0 -space-x-1.5'>
@@ -144,16 +135,27 @@ export function ThemeCustomizer({ className }: { className?: string }) {
               })}
             </ul>
           </ScrollArea>
-          <div className='border-t px-4 py-2 text-xs text-muted-foreground'>
-            Presets powered by{' '}
-            <a
-              href='https://tweakcn.com'
-              target='_blank'
-              rel='noreferrer noopener'
-              className='underline underline-offset-2 hover:text-foreground'
+          <div className='flex flex-wrap items-center justify-between gap-x-3 gap-y-1 border-t px-4 py-2'>
+            <p className='text-xs text-muted-foreground'>
+              Presets powered by{' '}
+              <a
+                href='https://tweakcn.com'
+                target='_blank'
+                rel='noreferrer noopener'
+                className='underline underline-offset-2 hover:text-foreground'
+              >
+                tweakcn
+              </a>
+            </p>
+            <button
+              type='button'
+              onClick={() => setPresetName(DEFAULT_THEME_PRESET)}
+              disabled={presetName === DEFAULT_THEME_PRESET}
+              className='inline-flex min-h-8 shrink-0 cursor-pointer items-center gap-1.5 rounded-md border px-2.5 text-xs font-medium text-foreground hover:bg-foreground/5 focus-visible:outline-2 focus-visible:outline-ring disabled:cursor-default disabled:text-muted-foreground disabled:hover:bg-transparent'
             >
-              tweakcn
-            </a>
+              <RotateCcw aria-hidden='true' className='size-3.5' />
+              Reset
+            </button>
           </div>
         </ResponsiveModalContent>
       </ResponsiveModal>
