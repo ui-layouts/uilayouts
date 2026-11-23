@@ -3015,6 +3015,24 @@ export const AllComponents: IAllComponents[] = [
 
   {
     category: DOCS_CATEGORY_KEY['image-mousetrail'],
+    componentName: COMPONENT_KEYS.IMAGE_MOUSETRAIL_EXPLORER,
+    href: '/components/image-mousetrail',
+    title: 'Image Trail Explorer',
+    slug: 'image-mousetrail-explorer',
+    description: 'Browse 24 image trail effects, including frame-by-frame and Canvas adaptations.',
+    filesArray: [
+      { name: 'trail-explorer.tsx', filesrc: require('../registry/components/mousetrail/trail-explorer.tsx?raw') },
+      { name: 'trail-stamp-effects.ts', filesrc: require('../registry/components/mousetrail/trail-stamp-effects.ts?raw') },
+      { name: 'trail-canvas.tsx', filesrc: require('../registry/components/mousetrail/trail-canvas.tsx?raw') },
+      { name: 'trail-canvas-draw.ts', filesrc: require('../registry/components/mousetrail/trail-canvas-draw.ts?raw') },
+    ],
+    tags: ['mouse-trail', 'image-trail', 'motion-trail', 'canvas', 'explorer'],
+    componentSrc: React.lazy(() => import('@/registry/components/mousetrail/trail-explorer')),
+    iframeSrc: 'live-components/image-mousetrail-explorer',
+  },
+
+  {
+    category: DOCS_CATEGORY_KEY['image-mousetrail'],
     componentName: COMPONENT_KEYS.IMAGE_MOUSETRAIL_MOMENTUM,
     href: '/components/image-mousetrail',
     title: 'Momentum Image Trail',

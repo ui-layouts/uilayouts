@@ -35,25 +35,15 @@ export const metadata = {
   ],
 };
 
-Three ways to turn pointer movement into an image trail. Move across a preview, or drag on a touch screen. Images are decorative and never intercept links or selection. The previews allow dragging in any direction; page scrolling remains available outside them.
+Move your pointer or drag across the preview to reveal photos. Choose a trail in **Explore examples**, or cycle through them with the arrow buttons.
 
-## Smooth Follow
+## Explore image trails
 
-Images ease into place and gently fade away. Use it for portfolios, editorial headers, and image collections.
+<ComponentCodePreview name='image-mousetrail-explorer' jsonName='image-mousetrail-explorer.json' hasReTrigger isFitheight />
 
-<ComponentCodePreview name='image-mousetrail-default' jsonName='mousetrail.json' hasReTrigger isFitheight />
+The explorer has 24 options: three UI Layouts originals, five [Image Trail Effects](https://github.com/codrops/ImageTrailEffects) demos (1, 2, 3, 5, and 6), and all 16 [Motion Trail Animations](https://github.com/codrops/MotionTrailAnimations) demos. The Codrops link below each variant opens the corresponding reference.
 
-## Momentum
-
-Images pick up the direction of your gesture, rotate, and drift away. A more expressive option for creative landing pages.
-
-<ComponentCodePreview name='image-mousetrail-momentum' hasReTrigger isFitheight />
-
-## Pop & Bounce
-
-Each image pops past its natural size, settles, then rebounds before shrinking away. Useful for playful product and campaign pages.
-
-<ComponentCodePreview name='image-mousetrail-bounce' hasReTrigger isFitheight />
+Tile Apart, Strata, and Tail use Canvas 2D. Silk, Liquid, Dust, Gooey, and Swirl use Canvas 2D versions of the reference WebGL effects. These reproduce the visual behaviors with image meshes, fragments, and connected drops. Liquid and Swirl approximate fluid motion without a physics simulation.
 
 ## Installation
 
@@ -77,6 +67,14 @@ Each image pops past its natural size, settles, then rebounds before shrinking a
     <CodeSnippets name="mousetrail" />
   </TabsContent>
 </Tabs>
+
+To install the full explorer and its supporting files:
+
+```bash
+npx shadcn@latest add 'https://www.ui-layouts.com/r/image-mousetrail-explorer.json'
+```
+
+Import the explorer from `@/components/trail-explorer/trail-explorer`.
 
 ## Usage
 
@@ -106,6 +104,7 @@ No animation library or extra CSS is required. By default, `touchAction="pan-y"`
 | --- | --- | --- | --- |
 | items | string[] | Required | Image URLs. An empty list renders the children without a trail. |
 | variant | 'follow' / 'momentum' / 'bounce' | 'follow' | Animation style. Momentum and bounce always disappear. |
+| effect | ImageTrailEffect | — | Custom keyframes for advanced trails. Overrides variant and fadeAnimation when set. |
 | children | ReactNode | — | Content displayed above the decorative trail. |
 | className | string | — | Container sizing and colors. |
 | imgClass | string | 'w-40 h-48' | Image size, crop, border, and shadow classes. |
@@ -118,4 +117,4 @@ No animation library or extra CSS is required. By default, `touchAction="pan-y"`
 
 ## Inspiration
 
-Inspired by the movement and image sequencing in Codrops’ [Image Trail Effects](https://github.com/codrops/ImageTrailEffects) and [Motion Trail Animations](https://github.com/codrops/MotionTrailAnimations). This React implementation uses the browser’s Web Animations API.
+Inspired by the movement and image sequencing in Codrops’ [Image Trail Effects](https://github.com/codrops/ImageTrailEffects) and [Motion Trail Animations](https://github.com/codrops/MotionTrailAnimations). The explorer uses the Web Animations API and Canvas 2D, with its own layouts and Unsplash photo sets.

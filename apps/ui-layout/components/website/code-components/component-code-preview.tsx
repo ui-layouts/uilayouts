@@ -143,7 +143,7 @@ export default async function ComponentCodePreview({
                 />
               ) : (
                 <Tabs defaultValue={finalFiles[0].name} className='w-full'>
-                  <TabsList>
+                  <TabsList className='max-w-full justify-start overflow-x-auto'>
                     {finalFiles.map((file) => (
                       <TabsTrigger key={file.name} value={file.name}>
                         {file.name}

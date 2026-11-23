@@ -5,6 +5,19 @@ import { type ReactNode, useEffect, useMemo, useRef } from 'react';
 
 export type ImageTrailVariant = 'follow' | 'momentum' | 'bounce';
 
+export type ImageTrailEffect = {
+  keyframes: (sample: {
+    delta: Point;
+    position: Point;
+    width: number;
+    height: number;
+    speed: number;
+    index: number;
+  }) => Keyframe[];
+  anchor?: 'center';
+  persist?: boolean;
+};
+
 export interface ImageMouseTrailProps {
   items: string[];
   children?: ReactNode;
@@ -17,6 +30,7 @@ export interface ImageMouseTrailProps {
   maxNumberOfImages?: number;
   fadeAnimation?: boolean;
   variant?: ImageTrailVariant;
+  effect?: ImageTrailEffect;
   /** Lifetime in milliseconds for fading trails. */
   duration?: number;
   /** pan-y preserves vertical page scrolling; none enables unrestricted dragging. */
@@ -36,6 +50,7 @@ export default function ImageMouseTrail({
   maxNumberOfImages = 5,
   fadeAnimation = false,
   variant = 'follow',
+  effect,
   duration = 1200,
   touchAction = 'pan-y',
 }: ImageMouseTrailProps) {
@@ -75,12 +90,16 @@ export default function ImageMouseTrail({
     let index = 0;
     let sequence = 0;
     let order: HTMLImageElement[] = [];
+    let lastMove: (Point & { time: number }) | null = null;
+    let speed = 0;
+    const fading = effect ? !effect.persist : fadeAnimation || variant !== 'follow';
     const lifetime = Math.max(400, finite(duration, 1200));
 
     const clear = () => {
       cancelAnimationFrame(frame);
       frame = 0;
-      pending = last = null;
+      pending = last = lastMove = null;
+      speed = 0;
       animations.forEach((animation) => animation.cancel());
       animations.clear();
       images.forEach((image) => {
@@ -95,8 +114,10 @@ export default function ImageMouseTrail({
       const image = images[index++ % images.length];
       animations.get(image)?.cancel();
       image.src = available[sequence++ % available.length];
-      image.style.left = `${at.x}px`;
-      image.style.top = `${at.y}px`;
+      const width = container.clientWidth;
+      const height = container.clientHeight;
+      image.style.left = `${effect?.anchor === 'center' ? width / 2 : at.x}px`;
+      image.style.top = `${effect?.anchor === 'center' ? height / 2 : at.y}px`;
       // Rebase a bounded stack instead of wrapping z-index underneath older images.
       order = order.filter((item) => item !== image);
       order.push(image);
@@ -108,13 +129,21 @@ export default function ImageMouseTrail({
       const dx = Math.max(-100, Math.min(100, delta.x));
       const dy = Math.max(-100, Math.min(100, delta.y));
       let keyframes: Keyframe[];
-      const fading = fadeAnimation || variant !== 'follow';
       if (reducedMotion.matches) {
         keyframes = [
           { opacity: 0, transform: transform() },
           { opacity: 1, transform: transform(), offset: 0.2 },
           { opacity: fading ? 0 : 1, transform: transform() },
         ];
+      } else if (effect) {
+        keyframes = effect.keyframes({
+          delta: { x: dx, y: dy },
+          position: at,
+          width,
+          height,
+          speed,
+          index,
+        });
       } else if (variant === 'bounce') {
         keyframes = [
           { opacity: 0, transform: transform(0, 0, 0.15), offset: 0 },
@@ -142,7 +171,9 @@ export default function ImageMouseTrail({
         ];
       }
       // Ease each segment without compressing the hold and rebound phases.
-      for (const keyframe of keyframes) keyframe.easing = 'cubic-bezier(0.22, 1, 0.36, 1)';
+      for (const keyframe of keyframes) {
+        keyframe.easing ??= 'cubic-bezier(0.22, 1, 0.36, 1)';
+      }
       const animation = image.animate(keyframes, {
         duration: lifetime,
         fill: 'forwards',
@@ -195,7 +226,15 @@ export default function ImageMouseTrail({
       if (!rect.width || !rect.height) return;
       const x = ((event.clientX - rect.left) * container.clientWidth) / rect.width;
       const y = ((event.clientY - rect.top) * container.clientHeight) / rect.height;
-      if (x < 0 || y < 0 || x > container.clientWidth || y > container.clientHeight) return;
+      if (x < 0 || y < 0 || x > container.clientWidth || y > container.clientHeight) {
+        leave(event);
+        return;
+      }
+      if (effect && lastMove) {
+        const elapsed = Math.max(1, event.timeStamp - lastMove.time);
+        speed = Math.min(4, Math.hypot(x - lastMove.x, y - lastMove.y) / elapsed);
+      }
+      lastMove = { x, y, time: event.timeStamp };
       pending = { x, y };
       if (!frame) frame = requestAnimationFrame(render);
     };
@@ -206,9 +245,10 @@ export default function ImageMouseTrail({
       if (!event.isPrimary) return;
       cancelAnimationFrame(frame);
       frame = 0;
-      pending = last = null;
+      pending = last = lastMove = null;
+      speed = 0;
       // Let an in-flight bounce/fade complete its exit after the pointer leaves.
-      if (!fadeAnimation && variant === 'follow') clear();
+      if (!fading && !effect) clear();
     };
     container.addEventListener('pointermove', move, { passive: true });
     container.addEventListener('pointerleave', leave);
@@ -231,7 +271,7 @@ export default function ImageMouseTrail({
       window.removeEventListener('resize', clear);
       reducedMotion.removeEventListener('change', clear);
     };
-  }, [sources, poolSize, distance, threshold, fadeAnimation, variant, duration]);
+  }, [sources, poolSize, distance, threshold, fadeAnimation, variant, effect, duration]);
 
   return (
     <div

@@ -227,6 +227,7 @@ export const COMPONENT_KEYS = {
   NUMBER_FLOW_TRADING: 'number-flow-trading',
   MOTION_NUMBER_SLIDER: 'motion-number-slider',
   MOTION_NUMBER_UPVOTES: 'motion-number-upvotes',
+  IMAGE_MOUSETRAIL_EXPLORER: 'image-mousetrail-explorer',
   IMAGE_MOUSETRAIL_BOUNCE: 'image-mousetrail-bounce',
   IMAGE_MOUSETRAIL_MOMENTUM: 'image-mousetrail-momentum',
   IMAGE_MOUSETRAIL_DEFAULT: 'image-mousetrail-default',
