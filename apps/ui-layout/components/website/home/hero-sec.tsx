@@ -1,11 +1,8 @@
 'use client';
+import { Blocks, Component, Verified } from 'lucide-react';
+import Image from 'next/image';
 import { GapPattern } from '@/components/ui/gap-pattern';
 import { Marquee } from '@/components/ui/marquee';
-import { cn } from '@/lib/utils';
-import { ArrowRight, Blocks, Component, LayoutPanelTop, Verified } from 'lucide-react';
-import Image from 'next/image';
-import Link from 'next/link';
-import React from 'react';
 import AllBlocks from './all-blocks';
 import AllComponents from './all-components';
 import Contributors from './contributor';
@@ -204,9 +201,7 @@ const ReviewCard = ({
         </div>
         <div className='ml-auto'>{platformIcon}</div>
       </div>
-      <p className='text-sm leading-relaxed text-muted-foreground line-clamp-3'>
-        {body}
-      </p>
+      <p className='text-sm leading-relaxed text-muted-foreground line-clamp-3'>{body}</p>
     </a>
   );
 };
@@ -528,14 +523,14 @@ function HeroSec({ blocksData }: { blocksData: any[] }) {
               </a>
               <a
                 href='/components'
-                className='flex items-center gap-2 w-fit sm:text-xl text-sm shadow-lg shadow-border text-primary border bg-card sm:px-4 px-2 py-3'
+                className='flex items-center gap-2 w-fit sm:text-xl text-sm shadow-lg shadow-border text-foreground border bg-card sm:px-4 px-2 py-3'
               >
                 <Component className='sm:w-6 sm:h-6 h-5 w-5' /> Browse Component
               </a>
             </div>
             <div className='flex w-fit mx-auto sm:items-center justify-center mt-5 sm:translate-x-8'>
               <div className='flex w-fit sm:translate-x-0 translate-x-8'>
-                {profiles.map((profile, index) => (
+                {profiles.map((profile, _index) => (
                   <a
                     key={profile.href}
                     href={profile.href}

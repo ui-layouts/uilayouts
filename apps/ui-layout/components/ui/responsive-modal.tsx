@@ -1,11 +1,18 @@
 'use client';
 
-import { cn } from '@/lib/utils';
 import { X } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
-import React, { createContext, type ReactNode, useContext, useEffect, useState } from 'react';
+import React, {
+  createContext,
+  type ReactNode,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import { createPortal } from 'react-dom';
 import { Drawer as VaulDrawer } from 'vaul';
+import { cn } from '@/lib/utils';
 
 interface DrawerContextProps {
   open: boolean;
@@ -40,6 +47,8 @@ export function ResponsiveModal({
   const [internalOpen, setInternalOpen] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const previouslyFocusedRef = useRef<HTMLElement | null>(null);
 
   const open = controlledOpen !== undefined ? controlledOpen : internalOpen;
   const setOpen = controlledSetOpen || setInternalOpen;
@@ -55,6 +64,23 @@ export function ResponsiveModal({
     mediaQuery.addEventListener('change', handleMediaChange);
     return () => mediaQuery.removeEventListener('change', handleMediaChange);
   }, []);
+
+  useEffect(() => {
+    if (!open) return;
+
+    previouslyFocusedRef.current = document.activeElement as HTMLElement | null;
+    const frame = requestAnimationFrame(() => closeButtonRef.current?.focus());
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setOpen(false);
+    };
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      cancelAnimationFrame(frame);
+      document.removeEventListener('keydown', handleKeyDown);
+      previouslyFocusedRef.current?.focus();
+    };
+  }, [open, setOpen]);
 
   const trigger = React.Children.toArray(children).find(
     (child: any) => child.type === ResponsiveModalTrigger
@@ -74,6 +100,7 @@ export function ResponsiveModal({
                 exit={{ opacity: 0 }}
                 className='fixed inset-0 z-50 flex items-center justify-center bg-background/50 backdrop-blur-xs cursor-zoom-out'
                 onClick={() => setOpen(false)}
+                role='presentation'
               >
                 <motion.div
                   initial={{ scale: 0.9, opacity: 0 }}
@@ -81,12 +108,17 @@ export function ResponsiveModal({
                   exit={{ scale: 0.9, opacity: 0 }}
                   transition={{ type: 'spring', duration: 0.5 }}
                   onClick={(e) => e.stopPropagation()}
+                  role='dialog'
+                  aria-modal='true'
+                  aria-label='Dialog'
                   className={cn(
                     'relative w-full max-w-md border bg-card rounded-lg cursor-default',
                     classname
                   )}
                 >
                   <button
+                    ref={closeButtonRef}
+                    type='button'
                     className={cn(
                       'absolute top-2 right-2 bg-primary text-background p-2 border z-1 rounded-md',
                       clsBtnClassname
@@ -157,5 +189,9 @@ export function ResponsiveModalTrigger({ children, asChild = false }: Responsive
     } as any);
   }
 
-  return <div onClick={() => setOpen(true)}>{children}</div>;
+  return (
+    <button type='button' onClick={() => setOpen(true)}>
+      {children}
+    </button>
+  );
 }

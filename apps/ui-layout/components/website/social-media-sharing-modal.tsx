@@ -1,20 +1,21 @@
 // @ts-nocheck
 'use client';
-import { Github, Heart, Linkedin, Share2, Twitter, X } from 'lucide-react';
-import React, { useEffect, useState } from 'react';
+import { Heart, X } from 'lucide-react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 const SocialShareModal = () => {
   const [showModal, setShowModal] = useState(false);
-  const [showCount, setShowCount] = useState(0);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     // Check different interaction types
     const hasShared = localStorage.getItem('ui-layouts-share-modal-shared');
     const lastClosedDate = localStorage.getItem('ui-layouts-share-modal-closed-date');
     const modalShowCount = Number.parseInt(
-      localStorage.getItem('ui-layouts-share-modal-count') || '0'
+      localStorage.getItem('ui-layouts-share-modal-count') || '0',
+      10
     );
-    const currentDate = new Date().getTime();
+    const currentDate = Date.now();
 
     // If user has shared before, never show again
     if (hasShared) {
@@ -29,7 +30,7 @@ const SocialShareModal = () => {
       shouldShow = true;
     } else {
       // Check if 2 days have passed since last close
-      const lastClosed = Number.parseInt(lastClosedDate);
+      const lastClosed = Number.parseInt(lastClosedDate, 10);
       const twoDaysInMs = 1 * 24 * 60 * 60 * 1000; // 2 days
 
       if (currentDate - lastClosed >= twoDaysInMs) {
@@ -38,7 +39,6 @@ const SocialShareModal = () => {
     }
 
     if (shouldShow) {
-      setShowCount(modalShowCount);
       const timer = setTimeout(() => {
         setShowModal(true);
         // Increment show count
@@ -49,12 +49,25 @@ const SocialShareModal = () => {
     }
   }, []);
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setShowModal(false);
-    localStorage.setItem('ui-layouts-share-modal-closed-date', new Date().getTime().toString());
-  };
+    localStorage.setItem('ui-layouts-share-modal-closed-date', Date.now().toString());
+  }, []);
 
-  const handleShare = (platform: string) => {
+  useEffect(() => {
+    if (!showModal) return;
+    const frame = requestAnimationFrame(() => closeButtonRef.current?.focus());
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') handleClose();
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      cancelAnimationFrame(frame);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [showModal, handleClose]);
+
+  const handleShare = () => {
     const targetUrl = 'https://pro.ui-layouts.com/dashboard/rewards';
 
     localStorage.setItem('ui-layouts-share-modal-shared', 'true');
@@ -70,13 +83,18 @@ const SocialShareModal = () => {
     <>
       <div
         className='fixed inset-0 bg-black bg-opacity-60 z-50 flex items-center justify-center p-4 animate-fadeIn'
-        onClick={handleClose}
+        onMouseDown={(event) => {
+          if (event.target === event.currentTarget) handleClose();
+        }}
+        role='dialog'
+        aria-modal='true'
+        aria-labelledby='share-modal-title'
+        aria-describedby='share-modal-description'
       >
-        <div
-          className='bg-white dark:bg-neutral-900 border dark:border-orange-600 rounded-2xl shadow-2xl max-w-md w-full mx-4 relative transform transition-all animate-slideUp'
-          onClick={(e) => e.stopPropagation()}
-        >
+        <div className='bg-white dark:bg-neutral-900 border dark:border-orange-600 rounded-2xl shadow-2xl max-w-md w-full mx-4 relative transform transition-all animate-slideUp'>
           <button
+            ref={closeButtonRef}
+            type='button'
             onClick={handleClose}
             className='absolute top-4 right-4 p-2 bg-orange-500 text-white hover:bg-orange-600 transition-colors rounded-lg z-10'
             aria-label='Close modal'
@@ -89,10 +107,15 @@ const SocialShareModal = () => {
               <Heart className='w-8 h-8 fill-white text-white' />
             </div>
 
-            <h2 className='text-2xl font-medium text-primary mb-2'>Get All the blocks Free</h2>
+            <h2 id='share-modal-title' className='text-2xl font-medium text-foreground mb-2'>
+              Get All the blocks Free
+            </h2>
 
             {/* Description */}
-            <p className='text-primary/60 mb-6 leading-relaxed text-sm'>
+            <p
+              id='share-modal-description'
+              className='text-muted-foreground mb-6 leading-relaxed text-sm'
+            >
               Unlock premium blocks by sharing UI Layouts. Post on your favorite platforms, get
               verified, and enjoy Pro blocks without a subscription.
             </p>
@@ -145,6 +168,7 @@ const SocialShareModal = () => {
               Maybe later
             </button> */}
             <button
+              type='button'
               onClick={handleShare}
               className='bg-orange-500 p-3 rounded-lg text-white hover:bg-orange-600 transition-colors shadow-lg shadow-orange-500'
             >
