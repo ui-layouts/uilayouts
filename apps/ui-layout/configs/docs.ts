@@ -9,6 +9,12 @@ export const DocsNavigationCategories: DocsNavigationCategory[] = [
   { href: '/components/image-effect-infinite-gallery', name: 'Infinite Gallery', key: 'image-effect-infinite-gallery', group: DOCS_CATEGORY_GROUP.MediaGalleries, new: true, tags: ['image', 'webgl', 'interactive'] },
   { href: '/components/image-effect-physics-cloth', name: 'Physics Cloth', key: 'image-effect-physics-cloth', group: DOCS_CATEGORY_GROUP.MediaGalleries, new: true, tags: ['image', 'webgl', 'interactive'] },
   { href: '/components/image-effect-webgl-carousel', name: 'WebGL Carousel', key: 'image-effect-webgl-carousel', group: DOCS_CATEGORY_GROUP.MediaGalleries, new: true, tags: ['image', 'webgl', 'interactive'] },
+  { href: '/components/image-effect-discography', name: 'Discography', key: 'image-effect-discography', group: DOCS_CATEGORY_GROUP.MediaGalleries, new: true, tags: ['image', 'css', 'interactive'] },
+  { href: '/components/image-effect-sticky-grid-scroll', name: 'Sticky Grid Scroll', key: 'image-effect-sticky-grid-scroll', group: DOCS_CATEGORY_GROUP.MediaGalleries, new: true, tags: ['image', 'scroll', 'interactive'] },
+  { href: '/components/image-effect-horizontal-parallax', name: 'Horizontal Parallax', key: 'image-effect-horizontal-parallax', group: DOCS_CATEGORY_GROUP.MediaGalleries, new: true, tags: ['image', 'scroll', 'interactive'] },
+  { href: '/components/image-effect-glass-mark', name: 'Glass Mark', key: 'image-effect-glass-mark', group: DOCS_CATEGORY_GROUP.MediaGalleries, new: true, tags: ['image', 'glass', 'interactive'] },
+  { href: '/components/image-effect-glass-photo-controls', name: 'Glass Photo Controls', key: 'image-effect-glass-photo-controls', group: DOCS_CATEGORY_GROUP.MediaGalleries, new: true, tags: ['image', 'webgpu', 'interactive'] },
+  { href: '/components/image-effect-crt-editorial', name: 'CRT Editorial', key: 'image-effect-crt-editorial', group: DOCS_CATEGORY_GROUP.MediaGalleries, new: true, tags: ['image', 'webgl', 'interactive'] },
   { href: '/components/image-effect-bulge', name: 'Bulge', key: 'image-effect-bulge', group: DOCS_CATEGORY_GROUP.MediaGalleries, new: true, tags: ['image', 'webgl', 'interactive'] },
   { href: '/components/image-effect-emerging-images', name: 'Emerging Images', key: 'image-effect-emerging-images', group: DOCS_CATEGORY_GROUP.MediaGalleries, new: true, tags: ['image', 'webgl', 'interactive'] },
   { href: '/components/image-effect-sdf-lens-blur', name: 'SDF Lens Blur', key: 'image-effect-sdf-lens-blur', group: DOCS_CATEGORY_GROUP.MediaGalleries, new: true, tags: ['image', 'webgl', 'interactive'] },
@@ -20,7 +26,7 @@ export const DocsNavigationCategories: DocsNavigationCategory[] = [
   { href: '/components/image-effect-shader-ripple', name: 'Shader Ripple', key: 'image-effect-shader-ripple', group: DOCS_CATEGORY_GROUP.MediaGalleries, new: true, tags: ['image', 'webgl', 'interactive'] },
   { href: '/components/image-effect-dom-cloth', name: 'DOM Cloth', key: 'image-effect-dom-cloth', group: DOCS_CATEGORY_GROUP.MediaGalleries, new: true, tags: ['image', 'webgl', 'interactive'] },
   { href: '/components/image-effect-phantom-grid', name: 'Phantom Grid', key: 'image-effect-phantom-grid', group: DOCS_CATEGORY_GROUP.MediaGalleries, new: true, tags: ['image', 'webgl', 'interactive'] },
-  { href: '/components/image-effect-depth-gallery', name: 'Depth Gallery', key: 'image-effect-depth-gallery', group: DOCS_CATEGORY_GROUP.MediaGalleries, new: true, tags: ['image', 'webgl', 'interactive'] },
+  { href: '/components/image-effect-depth-gallery', name: 'Depth Gallery', key: 'image-effect-depth-gallery', group: DOCS_CATEGORY_GROUP.MediaGalleries, new: true, tags: ['image', 'canvas', 'interactive'] },
   { href: '/components/image-effect-square-lens', name: 'Square Lens', key: 'image-effect-square-lens', group: DOCS_CATEGORY_GROUP.MediaGalleries, new: true, tags: ['image', 'webgl', 'interactive'] },
   { href: '/components/image-effect-curve-gallery', name: 'Curve Gallery', key: 'image-effect-curve-gallery', group: DOCS_CATEGORY_GROUP.MediaGalleries, new: true, tags: ['image', 'webgl', 'interactive'] },
   { href: '/components/image-effect-liquid-glass-grid', name: 'Liquid Glass Grid', key: 'image-effect-liquid-glass-grid', group: DOCS_CATEGORY_GROUP.MediaGalleries, new: true, tags: ['image', 'webgl', 'interactive'] },
@@ -1076,10 +1082,6 @@ export const AllComponents: IAllComponents[] = [
     tags: ['image', 'webgl', 'interactive'],
     componentSrc: React.lazy(() => import('@/registry/components/image-effects/image-effect-motion-hover')),
     filesrc: require('../components/ui/image-effect-motion-hover.tsx?raw'),
-    filesArray: [
-      { name: 'image-effect-motion-hover.tsx', filesrc: require('../components/ui/image-effect-motion-hover.tsx?raw') },
-
-    ],
     iframeSrc: 'live-components/image-effect-motion-hover',
   },
   {
@@ -1092,10 +1094,6 @@ export const AllComponents: IAllComponents[] = [
     tags: ['image', 'webgl', 'interactive'],
     componentSrc: React.lazy(() => import('@/registry/components/image-effects/image-effect-gooey-hover')),
     filesrc: require('../components/ui/image-effect-gooey-hover.tsx?raw'),
-    filesArray: [
-      { name: 'image-effect-gooey-hover.tsx', filesrc: require('../components/ui/image-effect-gooey-hover.tsx?raw') },
-      { name: 'gooey-hover.js', filesrc: require('../components/ui/image-effects/definitions/gooey-hover.js?raw') },
-    ],
     iframeSrc: 'live-components/image-effect-gooey-hover',
   },
   {
@@ -1108,10 +1106,6 @@ export const AllComponents: IAllComponents[] = [
     tags: ['image', 'webgl', 'interactive'],
     componentSrc: React.lazy(() => import('@/registry/components/image-effects/image-effect-circular-gallery')),
     filesrc: require('../components/ui/image-effect-circular-gallery.tsx?raw'),
-    filesArray: [
-      { name: 'image-effect-circular-gallery.tsx', filesrc: require('../components/ui/image-effect-circular-gallery.tsx?raw') },
-      { name: 'circular-gallery.js', filesrc: require('../components/ui/image-effects/definitions/circular-gallery.js?raw') },
-    ],
     iframeSrc: 'live-components/image-effect-circular-gallery',
   },
   {
@@ -1124,10 +1118,6 @@ export const AllComponents: IAllComponents[] = [
     tags: ['image', 'webgl', 'interactive'],
     componentSrc: React.lazy(() => import('@/registry/components/image-effects/image-effect-infinite-gallery')),
     filesrc: require('../components/ui/image-effect-infinite-gallery.tsx?raw'),
-    filesArray: [
-      { name: 'image-effect-infinite-gallery.tsx', filesrc: require('../components/ui/image-effect-infinite-gallery.tsx?raw') },
-      { name: 'infinite-gallery.js', filesrc: require('../components/ui/image-effects/definitions/infinite-gallery.js?raw') },
-    ],
     iframeSrc: 'live-components/image-effect-infinite-gallery',
   },
   {
@@ -1140,10 +1130,6 @@ export const AllComponents: IAllComponents[] = [
     tags: ['image', 'webgl', 'interactive'],
     componentSrc: React.lazy(() => import('@/registry/components/image-effects/image-effect-physics-cloth')),
     filesrc: require('../components/ui/image-effect-physics-cloth.tsx?raw'),
-    filesArray: [
-      { name: 'image-effect-physics-cloth.tsx', filesrc: require('../components/ui/image-effect-physics-cloth.tsx?raw') },
-      { name: 'physics-cloth.js', filesrc: require('../components/ui/image-effects/definitions/physics-cloth.js?raw') },
-    ],
     iframeSrc: 'live-components/image-effect-physics-cloth',
   },
   {
@@ -1156,11 +1142,79 @@ export const AllComponents: IAllComponents[] = [
     tags: ['image', 'webgl', 'interactive'],
     componentSrc: React.lazy(() => import('@/registry/components/image-effects/image-effect-webgl-carousel')),
     filesrc: require('../components/ui/image-effect-webgl-carousel.tsx?raw'),
-    filesArray: [
-      { name: 'image-effect-webgl-carousel.tsx', filesrc: require('../components/ui/image-effect-webgl-carousel.tsx?raw') },
-
-    ],
     iframeSrc: 'live-components/image-effect-webgl-carousel',
+  },
+  {
+    category: 'image-effect-discography',
+    componentName: 'image-effect-discography',
+    title: 'Discography',
+    slug: 'image-effect-discography',
+    href: '/components/image-effect-discography',
+    description: 'Browse a shelf of jewel cases, open the cover, turn the booklet pages and play an audio preview.',
+    tags: ['image', 'css', 'interactive'],
+    componentSrc: React.lazy(() => import('@/registry/components/image-effects/image-effect-discography')),
+    filesrc: require('../components/ui/image-effect-discography.tsx?raw'),
+    iframeSrc: 'live-components/image-effect-discography',
+  },
+  {
+    category: 'image-effect-sticky-grid-scroll',
+    componentName: 'image-effect-sticky-grid-scroll',
+    title: 'Sticky Grid Scroll',
+    slug: 'image-effect-sticky-grid-scroll',
+    href: '/components/image-effect-sticky-grid-scroll',
+    description: 'Scroll through alternating columns of photographs into a pinned image that expands to fill the frame.',
+    tags: ['image', 'scroll', 'interactive'],
+    componentSrc: React.lazy(() => import('@/registry/components/image-effects/image-effect-sticky-grid-scroll')),
+    filesrc: require('../components/ui/image-effect-sticky-grid-scroll.tsx?raw'),
+    iframeSrc: 'live-components/image-effect-sticky-grid-scroll',
+  },
+  {
+    category: 'image-effect-horizontal-parallax',
+    componentName: 'image-effect-horizontal-parallax',
+    title: 'Horizontal Parallax',
+    slug: 'image-effect-horizontal-parallax',
+    href: '/components/image-effect-horizontal-parallax',
+    description: 'A horizontal strip of framed photographs pans each image as it crosses the viewport.',
+    tags: ['image', 'scroll', 'interactive'],
+    componentSrc: React.lazy(() => import('@/registry/components/image-effects/image-effect-horizontal-parallax')),
+    filesrc: require('../components/ui/image-effect-horizontal-parallax.tsx?raw'),
+    iframeSrc: 'live-components/image-effect-horizontal-parallax',
+  },
+  {
+    category: 'image-effect-glass-mark',
+    componentName: 'image-effect-glass-mark',
+    title: 'Glass Mark',
+    slug: 'image-effect-glass-mark',
+    href: '/components/image-effect-glass-mark',
+    description: 'Refract a workspace monogram or transparent logo through a beveled glass icon.',
+    tags: ['image', 'glass', 'interactive'],
+    componentSrc: React.lazy(() => import('@/registry/components/image-effects/image-effect-glass-mark')),
+    filesrc: require('../components/ui/image-effect-glass-mark.tsx?raw'),
+    iframeSrc: 'live-components/image-effect-glass-mark',
+  },
+  {
+    category: 'image-effect-glass-photo-controls',
+    componentName: 'image-effect-glass-photo-controls',
+    title: 'Glass Photo Controls',
+    slug: 'image-effect-glass-photo-controls',
+    href: '/components/image-effect-glass-photo-controls',
+    description: 'Browse a photo collection with a glass pager that bends the photograph under its edges.',
+    tags: ['image', 'webgpu', 'interactive'],
+    componentSrc: React.lazy(() => import('@/registry/components/image-effects/image-effect-glass-photo-controls')),
+    filesrc: require('../components/ui/image-effect-glass-photo-controls.tsx?raw'),
+    iframeSrc: 'live-components/image-effect-glass-photo-controls',
+  },
+  {
+    category: 'image-effect-crt-editorial',
+    componentName: 'image-effect-crt-editorial',
+    title: 'CRT Editorial',
+    slug: 'image-effect-crt-editorial',
+    href: '/components/image-effect-crt-editorial',
+    description: 'Scroll through an editorial photo sequence rendered with a cathode-ray-tube effect.',
+    tags: ['image', 'webgl', 'interactive'],
+    componentSrc: React.lazy(() => import('@/registry/components/image-effects/image-effect-crt-editorial')),
+    filesrc: require('../components/ui/image-effect-crt-editorial.tsx?raw'),
+    iframeSrc: 'live-components/image-effect-crt-editorial',
   },
   {
     category: 'image-effect-bulge',
@@ -1172,10 +1226,6 @@ export const AllComponents: IAllComponents[] = [
     tags: ['image', 'webgl', 'interactive'],
     componentSrc: React.lazy(() => import('@/registry/components/image-effects/image-effect-bulge')),
     filesrc: require('../components/ui/image-effect-bulge.tsx?raw'),
-    filesArray: [
-      { name: 'image-effect-bulge.tsx', filesrc: require('../components/ui/image-effect-bulge.tsx?raw') },
-      { name: 'bulge.js', filesrc: require('../components/ui/image-effects/definitions/bulge.js?raw') },
-    ],
     iframeSrc: 'live-components/image-effect-bulge',
   },
   {
@@ -1188,10 +1238,6 @@ export const AllComponents: IAllComponents[] = [
     tags: ['image', 'webgl', 'interactive'],
     componentSrc: React.lazy(() => import('@/registry/components/image-effects/image-effect-emerging-images')),
     filesrc: require('../components/ui/image-effect-emerging-images.tsx?raw'),
-    filesArray: [
-      { name: 'image-effect-emerging-images.tsx', filesrc: require('../components/ui/image-effect-emerging-images.tsx?raw') },
-      { name: 'emerging-images.js', filesrc: require('../components/ui/image-effects/definitions/emerging-images.js?raw') },
-    ],
     iframeSrc: 'live-components/image-effect-emerging-images',
   },
   {
@@ -1204,10 +1250,6 @@ export const AllComponents: IAllComponents[] = [
     tags: ['image', 'webgl', 'interactive'],
     componentSrc: React.lazy(() => import('@/registry/components/image-effects/image-effect-sdf-lens-blur')),
     filesrc: require('../components/ui/image-effect-sdf-lens-blur.tsx?raw'),
-    filesArray: [
-      { name: 'image-effect-sdf-lens-blur.tsx', filesrc: require('../components/ui/image-effect-sdf-lens-blur.tsx?raw') },
-      { name: 'sdf-lens-blur.js', filesrc: require('../components/ui/image-effects/definitions/sdf-lens-blur.js?raw') },
-    ],
     iframeSrc: 'live-components/image-effect-sdf-lens-blur',
   },
   {
@@ -1220,10 +1262,6 @@ export const AllComponents: IAllComponents[] = [
     tags: ['image', 'webgl', 'interactive'],
     componentSrc: React.lazy(() => import('@/registry/components/image-effects/image-effect-progressive-blur')),
     filesrc: require('../components/ui/image-effect-progressive-blur.tsx?raw'),
-    filesArray: [
-      { name: 'image-effect-progressive-blur.tsx', filesrc: require('../components/ui/image-effect-progressive-blur.tsx?raw') },
-      { name: 'progressive-blur.js', filesrc: require('../components/ui/image-effects/definitions/progressive-blur.js?raw') },
-    ],
     iframeSrc: 'live-components/image-effect-progressive-blur',
   },
   {
@@ -1236,10 +1274,6 @@ export const AllComponents: IAllComponents[] = [
     tags: ['image', 'webgl', 'interactive'],
     componentSrc: React.lazy(() => import('@/registry/components/image-effects/image-effect-object-fit')),
     filesrc: require('../components/ui/image-effect-object-fit.tsx?raw'),
-    filesArray: [
-      { name: 'image-effect-object-fit.tsx', filesrc: require('../components/ui/image-effect-object-fit.tsx?raw') },
-      { name: 'object-fit.js', filesrc: require('../components/ui/image-effects/definitions/object-fit.js?raw') },
-    ],
     iframeSrc: 'live-components/image-effect-object-fit',
   },
   {
@@ -1252,10 +1286,6 @@ export const AllComponents: IAllComponents[] = [
     tags: ['image', 'webgl', 'interactive'],
     componentSrc: React.lazy(() => import('@/registry/components/image-effects/image-effect-scroll-grain')),
     filesrc: require('../components/ui/image-effect-scroll-grain.tsx?raw'),
-    filesArray: [
-      { name: 'image-effect-scroll-grain.tsx', filesrc: require('../components/ui/image-effect-scroll-grain.tsx?raw') },
-      { name: 'scroll-grain.js', filesrc: require('../components/ui/image-effects/definitions/scroll-grain.js?raw') },
-    ],
     iframeSrc: 'live-components/image-effect-scroll-grain',
   },
   {
@@ -1268,10 +1298,6 @@ export const AllComponents: IAllComponents[] = [
     tags: ['image', 'webgl', 'interactive'],
     componentSrc: React.lazy(() => import('@/registry/components/image-effects/image-effect-rotating-gallery')),
     filesrc: require('../components/ui/image-effect-rotating-gallery.tsx?raw'),
-    filesArray: [
-      { name: 'image-effect-rotating-gallery.tsx', filesrc: require('../components/ui/image-effect-rotating-gallery.tsx?raw') },
-      { name: 'rotating-gallery.js', filesrc: require('../components/ui/image-effects/definitions/rotating-gallery.js?raw') },
-    ],
     iframeSrc: 'live-components/image-effect-rotating-gallery',
   },
   {
@@ -1284,10 +1310,6 @@ export const AllComponents: IAllComponents[] = [
     tags: ['image', 'webgl', 'interactive'],
     componentSrc: React.lazy(() => import('@/registry/components/image-effects/image-effect-interactive-grid')),
     filesrc: require('../components/ui/image-effect-interactive-grid.tsx?raw'),
-    filesArray: [
-      { name: 'image-effect-interactive-grid.tsx', filesrc: require('../components/ui/image-effect-interactive-grid.tsx?raw') },
-      { name: 'interactive-grid.js', filesrc: require('../components/ui/image-effects/definitions/interactive-grid.js?raw') },
-    ],
     iframeSrc: 'live-components/image-effect-interactive-grid',
   },
   {
@@ -1300,10 +1322,6 @@ export const AllComponents: IAllComponents[] = [
     tags: ['image', 'webgl', 'interactive'],
     componentSrc: React.lazy(() => import('@/registry/components/image-effects/image-effect-shader-ripple')),
     filesrc: require('../components/ui/image-effect-shader-ripple.tsx?raw'),
-    filesArray: [
-      { name: 'image-effect-shader-ripple.tsx', filesrc: require('../components/ui/image-effect-shader-ripple.tsx?raw') },
-      { name: 'shader-ripple.js', filesrc: require('../components/ui/image-effects/definitions/shader-ripple.js?raw') },
-    ],
     iframeSrc: 'live-components/image-effect-shader-ripple',
   },
   {
@@ -1316,10 +1334,6 @@ export const AllComponents: IAllComponents[] = [
     tags: ['image', 'webgl', 'interactive'],
     componentSrc: React.lazy(() => import('@/registry/components/image-effects/image-effect-dom-cloth')),
     filesrc: require('../components/ui/image-effect-dom-cloth.tsx?raw'),
-    filesArray: [
-      { name: 'image-effect-dom-cloth.tsx', filesrc: require('../components/ui/image-effect-dom-cloth.tsx?raw') },
-
-    ],
     iframeSrc: 'live-components/image-effect-dom-cloth',
   },
   {
@@ -1332,10 +1346,6 @@ export const AllComponents: IAllComponents[] = [
     tags: ['image', 'webgl', 'interactive'],
     componentSrc: React.lazy(() => import('@/registry/components/image-effects/image-effect-phantom-grid')),
     filesrc: require('../components/ui/image-effect-phantom-grid.tsx?raw'),
-    filesArray: [
-      { name: 'image-effect-phantom-grid.tsx', filesrc: require('../components/ui/image-effect-phantom-grid.tsx?raw') },
-      { name: 'phantom-grid.js', filesrc: require('../components/ui/image-effects/definitions/phantom-grid.js?raw') },
-    ],
     iframeSrc: 'live-components/image-effect-phantom-grid',
   },
   {
@@ -1345,13 +1355,9 @@ export const AllComponents: IAllComponents[] = [
     slug: 'image-effect-depth-gallery',
     href: '/components/image-effect-depth-gallery',
     description: 'Images move toward the viewer through layers of atmospheric color.',
-    tags: ['image', 'webgl', 'interactive'],
+    tags: ['image', 'canvas', 'interactive'],
     componentSrc: React.lazy(() => import('@/registry/components/image-effects/image-effect-depth-gallery')),
     filesrc: require('../components/ui/image-effect-depth-gallery.tsx?raw'),
-    filesArray: [
-      { name: 'image-effect-depth-gallery.tsx', filesrc: require('../components/ui/image-effect-depth-gallery.tsx?raw') },
-      { name: 'depth-gallery.js', filesrc: require('../components/ui/image-effects/definitions/depth-gallery.js?raw') },
-    ],
     iframeSrc: 'live-components/image-effect-depth-gallery',
   },
   {
@@ -1364,10 +1370,6 @@ export const AllComponents: IAllComponents[] = [
     tags: ['image', 'webgl', 'interactive'],
     componentSrc: React.lazy(() => import('@/registry/components/image-effects/image-effect-square-lens')),
     filesrc: require('../components/ui/image-effect-square-lens.tsx?raw'),
-    filesArray: [
-      { name: 'image-effect-square-lens.tsx', filesrc: require('../components/ui/image-effect-square-lens.tsx?raw') },
-      { name: 'square-lens.js', filesrc: require('../components/ui/image-effects/definitions/square-lens.js?raw') },
-    ],
     iframeSrc: 'live-components/image-effect-square-lens',
   },
   {
@@ -1380,10 +1382,6 @@ export const AllComponents: IAllComponents[] = [
     tags: ['image', 'webgl', 'interactive'],
     componentSrc: React.lazy(() => import('@/registry/components/image-effects/image-effect-curve-gallery')),
     filesrc: require('../components/ui/image-effect-curve-gallery.tsx?raw'),
-    filesArray: [
-      { name: 'image-effect-curve-gallery.tsx', filesrc: require('../components/ui/image-effect-curve-gallery.tsx?raw') },
-      { name: 'curve-gallery.js', filesrc: require('../components/ui/image-effects/definitions/curve-gallery.js?raw') },
-    ],
     iframeSrc: 'live-components/image-effect-curve-gallery',
   },
   {
@@ -1396,10 +1394,6 @@ export const AllComponents: IAllComponents[] = [
     tags: ['image', 'webgl', 'interactive'],
     componentSrc: React.lazy(() => import('@/registry/components/image-effects/image-effect-liquid-glass-grid')),
     filesrc: require('../components/ui/image-effect-liquid-glass-grid.tsx?raw'),
-    filesArray: [
-      { name: 'image-effect-liquid-glass-grid.tsx', filesrc: require('../components/ui/image-effect-liquid-glass-grid.tsx?raw') },
-      { name: 'liquid-glass-grid.js', filesrc: require('../components/ui/image-effects/definitions/liquid-glass-grid.js?raw') },
-    ],
     iframeSrc: 'live-components/image-effect-liquid-glass-grid',
   },
   {
@@ -1412,10 +1406,6 @@ export const AllComponents: IAllComponents[] = [
     tags: ['image', 'webgl', 'interactive'],
     componentSrc: React.lazy(() => import('@/registry/components/image-effects/image-effect-image-tube')),
     filesrc: require('../components/ui/image-effect-image-tube.tsx?raw'),
-    filesArray: [
-      { name: 'image-effect-image-tube.tsx', filesrc: require('../components/ui/image-effect-image-tube.tsx?raw') },
-      { name: 'image-tube.js', filesrc: require('../components/ui/image-effects/definitions/image-tube.js?raw') },
-    ],
     iframeSrc: 'live-components/image-effect-image-tube',
   },
   {
@@ -1428,10 +1418,6 @@ export const AllComponents: IAllComponents[] = [
     tags: ['image', 'webgl', 'interactive'],
     componentSrc: React.lazy(() => import('@/registry/components/image-effects/image-effect-infinite-canvas')),
     filesrc: require('../components/ui/image-effect-infinite-canvas.tsx?raw'),
-    filesArray: [
-      { name: 'image-effect-infinite-canvas.tsx', filesrc: require('../components/ui/image-effect-infinite-canvas.tsx?raw') },
-      { name: 'infinite-canvas.js', filesrc: require('../components/ui/image-effects/definitions/infinite-canvas.js?raw') },
-    ],
     iframeSrc: 'live-components/image-effect-infinite-canvas',
   },
   {
@@ -1444,10 +1430,6 @@ export const AllComponents: IAllComponents[] = [
     tags: ['image', 'webgl', 'interactive'],
     componentSrc: React.lazy(() => import('@/registry/components/image-effects/image-effect-cinematic-scroll')),
     filesrc: require('../components/ui/image-effect-cinematic-scroll.tsx?raw'),
-    filesArray: [
-      { name: 'image-effect-cinematic-scroll.tsx', filesrc: require('../components/ui/image-effect-cinematic-scroll.tsx?raw') },
-      { name: 'cinematic-scroll.js', filesrc: require('../components/ui/image-effects/definitions/cinematic-scroll.js?raw') },
-    ],
     iframeSrc: 'live-components/image-effect-cinematic-scroll',
   },
   {
@@ -1460,10 +1442,6 @@ export const AllComponents: IAllComponents[] = [
     tags: ['image', 'webgl', 'interactive'],
     componentSrc: React.lazy(() => import('@/registry/components/image-effects/image-effect-kinetic-images')),
     filesrc: require('../components/ui/image-effect-kinetic-images.tsx?raw'),
-    filesArray: [
-      { name: 'image-effect-kinetic-images.tsx', filesrc: require('../components/ui/image-effect-kinetic-images.tsx?raw') },
-      { name: 'kinetic-images.js', filesrc: require('../components/ui/image-effects/definitions/kinetic-images.js?raw') },
-    ],
     iframeSrc: 'live-components/image-effect-kinetic-images',
   },
   {
@@ -1476,10 +1454,6 @@ export const AllComponents: IAllComponents[] = [
     tags: ['image', 'webgl', 'interactive'],
     componentSrc: React.lazy(() => import('@/registry/components/image-effects/image-effect-unwoven')),
     filesrc: require('../components/ui/image-effect-unwoven.tsx?raw'),
-    filesArray: [
-      { name: 'image-effect-unwoven.tsx', filesrc: require('../components/ui/image-effect-unwoven.tsx?raw') },
-      { name: 'unwoven.js', filesrc: require('../components/ui/image-effects/definitions/unwoven.js?raw') },
-    ],
     iframeSrc: 'live-components/image-effect-unwoven',
   },
   {
@@ -1492,10 +1466,6 @@ export const AllComponents: IAllComponents[] = [
     tags: ['image', 'webgl', 'interactive'],
     componentSrc: React.lazy(() => import('@/registry/components/image-effects/image-effect-experimental-carousel')),
     filesrc: require('../components/ui/image-effect-experimental-carousel.tsx?raw'),
-    filesArray: [
-      { name: 'image-effect-experimental-carousel.tsx', filesrc: require('../components/ui/image-effect-experimental-carousel.tsx?raw') },
-      { name: 'experimental-carousel.js', filesrc: require('../components/ui/image-effects/definitions/experimental-carousel.js?raw') },
-    ],
     iframeSrc: 'live-components/image-effect-experimental-carousel',
   },
   {

@@ -1,0 +1,29 @@
+export const metadata = {
+  title: 'CRT Editorial',
+  description: 'Scroll through an editorial photo sequence rendered with a cathode-ray-tube effect.',
+  keywords: ['React', 'WebGL', 'image animation', 'CRT Editorial'],
+};
+
+Scroll through an editorial photo sequence rendered with a cathode-ray-tube effect.
+
+<ComponentCodePreview name='image-effect-crt-editorial' jsonName='image-effect-crt-editorial' hasReTrigger isFitheight />
+
+## Installation
+
+```bash
+npx shadcn@latest add https://www.ui-layouts.com/r/image-effect-crt-editorial.json
+```
+
+## Usage
+
+```tsx
+import { CrtEditorial } from '@/components/ui/image-effect-crt-editorial';
+
+export default function Example() {
+  return <CrtEditorial captions={['Coast', 'Ridge']} images={['/photos/first.jpg', '/photos/second.jpg']} />;
+}
+```
+
+Scroll inside the component to move through the images. Set the optional time prop in seconds to drive the sequence from an external timeline. The secondsPerImage prop sets the duration of each photograph. Captions follow the order of the images.
+
+[Original reference](https://codepen.io/fand/pen/YPXBwVd)

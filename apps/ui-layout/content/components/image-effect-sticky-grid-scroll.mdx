@@ -1,0 +1,29 @@
+export const metadata = {
+  title: 'Sticky Grid Scroll',
+  description: 'Scroll through alternating columns of photographs into a pinned image that expands to fill the frame.',
+  keywords: ['React', 'interactive', 'Sticky Grid Scroll'],
+};
+
+Scroll through alternating columns of photographs into a pinned image that expands to fill the frame.
+
+<ComponentCodePreview name='image-effect-sticky-grid-scroll' jsonName='image-effect-sticky-grid-scroll' hasReTrigger isFitheight />
+
+## Installation
+
+```bash
+npx shadcn@latest add https://www.ui-layouts.com/r/image-effect-sticky-grid-scroll.json
+```
+
+## Usage
+
+```tsx
+import { StickyGridScroll } from '@/components/ui/image-effect-sticky-grid-scroll';
+
+export default function Example() {
+  return <StickyGridScroll images={['/photos/first.jpg', '/photos/second.jpg', '/photos/third.jpg']} title='Field notes' />;
+}
+```
+
+Scroll inside the component. Supply a title and description to change the text accompanying the expanded image.
+
+[Original reference](https://github.com/theoplawinski/codrops-sticky-grid-scroll)

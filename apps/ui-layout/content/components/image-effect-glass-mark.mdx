@@ -1,0 +1,29 @@
+export const metadata = {
+  title: 'Glass Mark',
+  description: 'Refract a workspace monogram or transparent logo through a beveled glass icon.',
+  keywords: ['React', 'interactive', 'Glass Mark'],
+};
+
+Refract a workspace monogram or transparent logo through a beveled glass icon.
+
+<ComponentCodePreview name='image-effect-glass-mark' jsonName='image-effect-glass-mark' hasReTrigger isFitheight />
+
+## Installation
+
+```bash
+npx shadcn@latest add https://www.ui-layouts.com/r/image-effect-glass-mark.json
+```
+
+## Usage
+
+```tsx
+import { GlassMark } from '@/components/ui/image-effect-glass-mark';
+
+export default function Example() {
+  return <GlassMark mark='✳' size={214} label='Studio workspace' />;
+}
+```
+
+Use the mark prop for a short monogram or symbol. To shape the glass from an image, pass a transparent logo URL to src.
+
+[Original reference](https://github.com/phileeppov/glass)

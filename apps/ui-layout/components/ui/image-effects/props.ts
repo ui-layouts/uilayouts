@@ -1,5 +1,4 @@
 import type { CSSProperties } from 'react';
-
 export interface ImageEffectProps {
   images: readonly string[];
   className?: string;

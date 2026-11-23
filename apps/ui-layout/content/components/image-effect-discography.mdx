@@ -1,0 +1,29 @@
+export const metadata = {
+  title: 'Discography',
+  description: 'Browse a shelf of jewel cases, open the cover, turn the booklet pages and play an audio preview.',
+  keywords: ['React', 'interactive', 'Discography'],
+};
+
+Browse a shelf of jewel cases, open the cover, turn the booklet pages and play an audio preview.
+
+<ComponentCodePreview name='image-effect-discography' jsonName='image-effect-discography' hasReTrigger isFitheight />
+
+## Installation
+
+```bash
+npx shadcn@latest add https://www.ui-layouts.com/r/image-effect-discography.json
+```
+
+## Usage
+
+```tsx
+import { Discography } from '@/components/ui/image-effect-discography';
+
+export default function Example() {
+  return <Discography images={['/albums/front.jpg']} labels={['Side A']} backs={['/albums/back.jpg']} booklets={[['/albums/page-1.jpg', '/albums/page-2.jpg']]} previews={['/albums/preview.mp3']} />;
+}
+```
+
+Use the arrow keys, drag across the cases, or scroll to select a release. Open the case to inspect its artwork. Press Escape to close it.
+
+[Original reference](https://github.com/dmtrbrl/discography)
