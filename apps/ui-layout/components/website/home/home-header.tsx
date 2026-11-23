@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import type { ReactNode } from 'react';
 import MobileHeader from '../mobile-header';
-import { isCurrentSection, NavigationIcon } from '../navigation-icon';
+import { isCurrentSection } from '../navigation-icon';
 import { ThemeCustomizer } from '../theme-customizer';
 import ThemeSwitch from '../theme-switch';
 import HomeGitHubButton from './github-repo-button';
@@ -27,9 +27,9 @@ function HeaderNavLink({
       href={href}
       aria-current={pathname === href ? 'page' : undefined}
       data-active={isCurrentSection(pathname, href) ? true : undefined}
-      className='group relative flex items-center gap-1.5 rounded-lg px-1.5 py-2 font-semibold text-foreground transition-colors hover:bg-foreground/5 focus-visible:bg-foreground/5 data-[active=true]:bg-foreground/5'
+      className='flex items-center gap-1.5 rounded-lg px-1.5 py-2 font-semibold text-foreground transition-colors hover:bg-theme-highlight hover:text-white focus-visible:bg-theme-highlight focus-visible:text-white data-[active=true]:bg-theme-highlight data-[active=true]:text-white'
     >
-      <NavigationIcon>{icon}</NavigationIcon>
+      <span aria-hidden='true' className='shrink-0 [&_svg]:size-6'>{icon}</span>
       {children}
     </Link>
   );

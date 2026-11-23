@@ -507,7 +507,7 @@ function HeroSec({ blocksData }: { blocksData: any[] }) {
               <br />
               <span className=''>& Blocks for</span>
               <span className='bg-card ml-2 mt-3 relative  w-fit leading-[100%] inline-block px-1.5 py-0.5 border before:absolute before:top-0 before:left-0 before:w-full before:h-full before:content-[""] before:opacity-[0.09] before:z-10 before:pointer-events-none before:bg-[url("/noise.gif")]'>
-                <span className='font-semibold text-card-foreground underline decoration-primary/60 decoration-[0.08em] underline-offset-[0.13em]'>
+                <span className='font-semibold text-card-foreground'>
                   Developer
                 </span>
               </span>{' '}
