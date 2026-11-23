@@ -1,10 +1,10 @@
 export const metadata = {
   title: 'Cinematic Scroll',
-  description: 'A sequence of camera shots circles an image-covered cylinder.',
+  description: 'A moving camera frames image planes at successive depths.',
   keywords: ['React', 'Three.js', 'image animation', 'Cinematic Scroll'],
 };
 
-A sequence of camera shots circles an image-covered cylinder.
+A moving camera frames image planes at successive depths.
 
 <ComponentCodePreview name='slideshow-cinematic-scroll' jsonName='slideshow-cinematic-scroll' hasReTrigger isFitheight />
 
@@ -26,5 +26,5 @@ export default function Example() {
 
 Pass image URLs in display order. Set `time` in seconds to seek to a frame, or omit it for autoplay. Set `pointer={[0.5, 0.5]}` to position the pointer at the center. Your own slider can drive either value.
 
-The timeline moves the viewpoint between wide and close shots around an image-covered cylinder. Set `time` from scroll progress to control the shot sequence.
+The source tutorial coordinates camera shots around a rotating cylinder. This image-gallery adaptation moves the camera and its look-at target independently to frame each photograph. Set `time` from scroll progress to move between shots.
 [Original reference](https://tympanus.net/codrops/2025/11/19/how-to-build-cinematic-3d-scroll-experiences-with-gsap/)

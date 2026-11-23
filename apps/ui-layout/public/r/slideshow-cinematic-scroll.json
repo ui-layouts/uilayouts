@@ -3,7 +3,7 @@
   "name": "slideshow-cinematic-scroll",
   "type": "registry:component",
   "title": "Cinematic Scroll",
-  "description": "A sequence of camera shots circles an image-covered cylinder.",
+  "description": "A moving camera frames image planes at successive depths.",
   "dependencies": [],
   "registryDependencies": [
     "https://www.ui-layouts.com/r/slideshow-runtime.json"

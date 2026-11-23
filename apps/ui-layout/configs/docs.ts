@@ -1348,7 +1348,7 @@ export const AllComponents: IAllComponents[] = [
     title: 'Cinematic Scroll',
     slug: 'slideshow-cinematic-scroll',
     href: '/components/slideshow-cinematic-scroll',
-    description: 'A sequence of camera shots circles an image-covered cylinder.',
+    description: 'A moving camera frames image planes at successive depths.',
     tags: ['image', 'webgl', 'slideshow'],
     componentSrc: React.lazy(() => import('@/registry/components/slideshow/slideshow-cinematic-scroll')),
     filesrc: require('../components/ui/slideshow-cinematic-scroll.tsx?raw'),
