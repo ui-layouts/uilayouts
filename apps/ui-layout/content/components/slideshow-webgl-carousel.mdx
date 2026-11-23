@@ -1,0 +1,30 @@
+export const metadata = {
+  title: 'WebGL Carousel',
+  description: 'A perspective carousel curves adjacent images away from the center.',
+  keywords: ['React', 'Three.js', 'image animation', 'WebGL Carousel'],
+};
+
+A perspective carousel curves adjacent images away from the center.
+
+<ComponentCodePreview name='slideshow-webgl-carousel' jsonName='slideshow-webgl-carousel' hasReTrigger isFitheight />
+
+## Installation
+
+```bash
+npx shadcn@latest add https://www.ui-layouts.com/r/slideshow-webgl-carousel.json
+```
+
+## Usage
+
+```tsx
+import { WebGLCarousel } from '@/components/ui/slideshow-webgl-carousel';
+
+export default function Example() {
+  return <WebGLCarousel images={['/photos/first.jpg', '/photos/second.jpg']} />;
+}
+```
+
+Pass image URLs in display order. Set `time` in seconds to seek to a frame, or omit it for autoplay. Set `pointer={[0.5, 0.5]}` to position the pointer at the center. Your own slider can drive either value.
+
+
+[Original reference](https://github.com/supahfunk/webgl-carousel/tree/d6f72f2c194dda9d1777bccfe52928825393652f)

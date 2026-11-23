@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "slideshow-gooey-hover",
+  "type": "registry:component",
+  "title": "Gooey Hover",
+  "description": "A liquid edge spreads from the pointer to reveal a second photograph.",
+  "dependencies": [],
+  "registryDependencies": [
+    "https://www.ui-layouts.com/r/slideshow-runtime.json"
+  ],
+  "files": [
+    {
+      "path": "./components/ui/slideshow-gooey-hover.tsx",
+      "type": "registry:file",
+      "target": "components/ui/slideshow-gooey-hover.tsx",
+      "content": "'use client';\n\nimport { GooeyHover as Scene } from './slideshow/index.js';\nimport type { SlideshowProps } from './slideshow/props';\n\nexport function GooeyHover(props: SlideshowProps) {\n  return <Scene {...props} />;\n}\n"
+    }
+  ]
+}

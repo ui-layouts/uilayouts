@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "slideshow-interactive-grid",
+  "type": "registry:component",
+  "title": "Interactive Grid",
+  "description": "A tiled image wall lifts individual panels toward the pointer.",
+  "dependencies": [],
+  "registryDependencies": [
+    "https://www.ui-layouts.com/r/slideshow-runtime.json"
+  ],
+  "files": [
+    {
+      "path": "./components/ui/slideshow-interactive-grid.tsx",
+      "type": "registry:file",
+      "target": "components/ui/slideshow-interactive-grid.tsx",
+      "content": "'use client';\n\nimport { InteractiveGrid as Scene } from './slideshow/index.js';\nimport type { SlideshowProps } from './slideshow/props';\n\nexport function InteractiveGrid(props: SlideshowProps) {\n  return <Scene {...props} />;\n}\n"
+    }
+  ]
+}

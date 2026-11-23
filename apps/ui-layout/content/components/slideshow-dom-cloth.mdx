@@ -1,0 +1,30 @@
+export const metadata = {
+  title: 'DOM Cloth',
+  description: 'Fabric-like posters ripple as they travel through a carousel.',
+  keywords: ['React', 'Three.js', 'image animation', 'DOM Cloth'],
+};
+
+Fabric-like posters ripple as they travel through a carousel.
+
+<ComponentCodePreview name='slideshow-dom-cloth' jsonName='slideshow-dom-cloth' hasReTrigger isFitheight />
+
+## Installation
+
+```bash
+npx shadcn@latest add https://www.ui-layouts.com/r/slideshow-dom-cloth.json
+```
+
+## Usage
+
+```tsx
+import { DomCloth } from '@/components/ui/slideshow-dom-cloth';
+
+export default function Example() {
+  return <DomCloth images={['/photos/first.jpg', '/photos/second.jpg']} />;
+}
+```
+
+Pass image URLs in display order. Set `time` in seconds to seek to a frame, or omit it for autoplay. Set `pointer={[0.5, 0.5]}` to position the pointer at the center. Your own slider can drive either value.
+
+
+[Original reference](https://github.com/twotwentytwo-studio/domgl-cloth/tree/bd8ea5f7e0d66d96ef48e6687fed223e0846eba7)

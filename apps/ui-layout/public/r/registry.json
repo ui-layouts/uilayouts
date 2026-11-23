@@ -4,6 +4,527 @@
   "homepage": "https://www.ui-layouts.com",
   "items": [
     {
+      "name": "slideshow-runtime",
+      "type": "registry:component",
+      "title": "Slideshow runtime",
+      "description": "Shared WebGL renderer, animation clock and shader programs.",
+      "dependencies": [
+        "three@0.186.0"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/slideshow/NOTICE.txt",
+          "type": "registry:file",
+          "target": "components/ui/slideshow/NOTICE.txt"
+        },
+        {
+          "path": "./components/ui/slideshow/article-effects.js",
+          "type": "registry:file",
+          "target": "components/ui/slideshow/article-effects.js"
+        },
+        {
+          "path": "./components/ui/slideshow/cloth.js",
+          "type": "registry:file",
+          "target": "components/ui/slideshow/cloth.js"
+        },
+        {
+          "path": "./components/ui/slideshow/effects.js",
+          "type": "registry:file",
+          "target": "components/ui/slideshow/effects.js"
+        },
+        {
+          "path": "./components/ui/slideshow/face.js",
+          "type": "registry:file",
+          "target": "components/ui/slideshow/face.js"
+        },
+        {
+          "path": "./components/ui/slideshow/index.js",
+          "type": "registry:file",
+          "target": "components/ui/slideshow/index.js"
+        },
+        {
+          "path": "./components/ui/slideshow/ported.js",
+          "type": "registry:file",
+          "target": "components/ui/slideshow/ported.js"
+        },
+        {
+          "path": "./components/ui/slideshow/props.ts",
+          "type": "registry:file",
+          "target": "components/ui/slideshow/props.ts"
+        },
+        {
+          "path": "./components/ui/slideshow/ribbons.js",
+          "type": "registry:file",
+          "target": "components/ui/slideshow/ribbons.js"
+        },
+        {
+          "path": "./components/ui/slideshow/scene.js",
+          "type": "registry:file",
+          "target": "components/ui/slideshow/scene.js"
+        }
+      ]
+    },
+    {
+      "name": "slideshow-motion-hover",
+      "type": "registry:component",
+      "title": "Motion Hover",
+      "description": "A floating image bends and separates into color channels as the pointer travels.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://www.ui-layouts.com/r/slideshow-runtime.json"
+      ],
+      "files": [
+        {
+          "path": "./components/ui/slideshow-motion-hover.tsx",
+          "type": "registry:file",
+          "target": "components/ui/slideshow-motion-hover.tsx"
+        }
+      ]
+    },
+    {
+      "name": "slideshow-gooey-hover",
+      "type": "registry:component",
+      "title": "Gooey Hover",
+      "description": "A liquid edge spreads from the pointer to reveal a second photograph.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://www.ui-layouts.com/r/slideshow-runtime.json"
+      ],
+      "files": [
+        {
+          "path": "./components/ui/slideshow-gooey-hover.tsx",
+          "type": "registry:file",
+          "target": "components/ui/slideshow-gooey-hover.tsx"
+        }
+      ]
+    },
+    {
+      "name": "slideshow-circular-gallery",
+      "type": "registry:component",
+      "title": "Circular Gallery",
+      "description": "Image cards follow a circular arc as they pass across the viewport.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://www.ui-layouts.com/r/slideshow-runtime.json"
+      ],
+      "files": [
+        {
+          "path": "./components/ui/slideshow-circular-gallery.tsx",
+          "type": "registry:file",
+          "target": "components/ui/slideshow-circular-gallery.tsx"
+        }
+      ]
+    },
+    {
+      "name": "slideshow-infinite-gallery",
+      "type": "registry:component",
+      "title": "Infinite Gallery",
+      "description": "A continuous vertical gallery bends as photographs approach the center.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://www.ui-layouts.com/r/slideshow-runtime.json"
+      ],
+      "files": [
+        {
+          "path": "./components/ui/slideshow-infinite-gallery.tsx",
+          "type": "registry:file",
+          "target": "components/ui/slideshow-infinite-gallery.tsx"
+        }
+      ]
+    },
+    {
+      "name": "slideshow-physics-cloth",
+      "type": "registry:component",
+      "title": "Physics Cloth",
+      "description": "A pinned fabric image responds to gravity and a changing wind field.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://www.ui-layouts.com/r/slideshow-runtime.json"
+      ],
+      "files": [
+        {
+          "path": "./components/ui/slideshow-physics-cloth.tsx",
+          "type": "registry:file",
+          "target": "components/ui/slideshow-physics-cloth.tsx"
+        }
+      ]
+    },
+    {
+      "name": "slideshow-webgl-carousel",
+      "type": "registry:component",
+      "title": "WebGL Carousel",
+      "description": "A perspective carousel curves adjacent images away from the center.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://www.ui-layouts.com/r/slideshow-runtime.json"
+      ],
+      "files": [
+        {
+          "path": "./components/ui/slideshow-webgl-carousel.tsx",
+          "type": "registry:file",
+          "target": "components/ui/slideshow-webgl-carousel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "slideshow-bulge",
+      "type": "registry:component",
+      "title": "Bulge",
+      "description": "A movable lens pushes the image outward under the pointer.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://www.ui-layouts.com/r/slideshow-runtime.json"
+      ],
+      "files": [
+        {
+          "path": "./components/ui/slideshow-bulge.tsx",
+          "type": "registry:file",
+          "target": "components/ui/slideshow-bulge.tsx"
+        }
+      ]
+    },
+    {
+      "name": "slideshow-emerging-images",
+      "type": "registry:component",
+      "title": "Emerging Images",
+      "description": "Horizontal fragments emerge and align into the next image.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://www.ui-layouts.com/r/slideshow-runtime.json"
+      ],
+      "files": [
+        {
+          "path": "./components/ui/slideshow-emerging-images.tsx",
+          "type": "registry:file",
+          "target": "components/ui/slideshow-emerging-images.tsx"
+        }
+      ]
+    },
+    {
+      "name": "slideshow-sdf-lens-blur",
+      "type": "registry:component",
+      "title": "SDF Lens Blur",
+      "description": "A shaped focus window moves across a softened image.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://www.ui-layouts.com/r/slideshow-runtime.json"
+      ],
+      "files": [
+        {
+          "path": "./components/ui/slideshow-sdf-lens-blur.tsx",
+          "type": "registry:file",
+          "target": "components/ui/slideshow-sdf-lens-blur.tsx"
+        }
+      ]
+    },
+    {
+      "name": "slideshow-progressive-blur",
+      "type": "registry:component",
+      "title": "Progressive Blur",
+      "description": "A vertical blur gradient rolls across the image.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://www.ui-layouts.com/r/slideshow-runtime.json"
+      ],
+      "files": [
+        {
+          "path": "./components/ui/slideshow-progressive-blur.tsx",
+          "type": "registry:file",
+          "target": "components/ui/slideshow-progressive-blur.tsx"
+        }
+      ]
+    },
+    {
+      "name": "slideshow-object-fit",
+      "type": "registry:component",
+      "title": "Object Fit",
+      "description": "An image covers its plane while pointer movement shifts its crop within the remaining margins.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://www.ui-layouts.com/r/slideshow-runtime.json"
+      ],
+      "files": [
+        {
+          "path": "./components/ui/slideshow-object-fit.tsx",
+          "type": "registry:file",
+          "target": "components/ui/slideshow-object-fit.tsx"
+        }
+      ]
+    },
+    {
+      "name": "slideshow-scroll-grain",
+      "type": "registry:component",
+      "title": "Scroll Grain",
+      "description": "Scroll through distorted images with a fine animated grain.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://www.ui-layouts.com/r/slideshow-runtime.json"
+      ],
+      "files": [
+        {
+          "path": "./components/ui/slideshow-scroll-grain.tsx",
+          "type": "registry:file",
+          "target": "components/ui/slideshow-scroll-grain.tsx"
+        }
+      ]
+    },
+    {
+      "name": "slideshow-rotating-gallery",
+      "type": "registry:component",
+      "title": "Rotating Gallery",
+      "description": "Each card twists along its vertical axis while crossing the gallery.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://www.ui-layouts.com/r/slideshow-runtime.json"
+      ],
+      "files": [
+        {
+          "path": "./components/ui/slideshow-rotating-gallery.tsx",
+          "type": "registry:file",
+          "target": "components/ui/slideshow-rotating-gallery.tsx"
+        }
+      ]
+    },
+    {
+      "name": "slideshow-interactive-grid",
+      "type": "registry:component",
+      "title": "Interactive Grid",
+      "description": "A tiled image wall lifts individual panels toward the pointer.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://www.ui-layouts.com/r/slideshow-runtime.json"
+      ],
+      "files": [
+        {
+          "path": "./components/ui/slideshow-interactive-grid.tsx",
+          "type": "registry:file",
+          "target": "components/ui/slideshow-interactive-grid.tsx"
+        }
+      ]
+    },
+    {
+      "name": "slideshow-shader-ripple",
+      "type": "registry:component",
+      "title": "Shader Ripple",
+      "description": "Concentric waves distort the image and reveal the next texture.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://www.ui-layouts.com/r/slideshow-runtime.json"
+      ],
+      "files": [
+        {
+          "path": "./components/ui/slideshow-shader-ripple.tsx",
+          "type": "registry:file",
+          "target": "components/ui/slideshow-shader-ripple.tsx"
+        }
+      ]
+    },
+    {
+      "name": "slideshow-dom-cloth",
+      "type": "registry:component",
+      "title": "DOM Cloth",
+      "description": "Fabric-like posters ripple as they travel through a carousel.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://www.ui-layouts.com/r/slideshow-runtime.json"
+      ],
+      "files": [
+        {
+          "path": "./components/ui/slideshow-dom-cloth.tsx",
+          "type": "registry:file",
+          "target": "components/ui/slideshow-dom-cloth.tsx"
+        }
+      ]
+    },
+    {
+      "name": "slideshow-phantom-grid",
+      "type": "registry:component",
+      "title": "Phantom Grid",
+      "description": "A floating image grid and a point-cloud face respond to pointer movement.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://www.ui-layouts.com/r/slideshow-runtime.json"
+      ],
+      "files": [
+        {
+          "path": "./components/ui/slideshow-phantom-grid.tsx",
+          "type": "registry:file",
+          "target": "components/ui/slideshow-phantom-grid.tsx"
+        }
+      ]
+    },
+    {
+      "name": "slideshow-depth-gallery",
+      "type": "registry:component",
+      "title": "Depth Gallery",
+      "description": "Images move toward the viewer through layers of atmospheric color.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://www.ui-layouts.com/r/slideshow-runtime.json"
+      ],
+      "files": [
+        {
+          "path": "./components/ui/slideshow-depth-gallery.tsx",
+          "type": "registry:file",
+          "target": "components/ui/slideshow-depth-gallery.tsx"
+        }
+      ]
+    },
+    {
+      "name": "slideshow-square-lens",
+      "type": "registry:component",
+      "title": "Square Lens",
+      "description": "A square lens reveals a second texture with color separation and refraction.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://www.ui-layouts.com/r/slideshow-runtime.json"
+      ],
+      "files": [
+        {
+          "path": "./components/ui/slideshow-square-lens.tsx",
+          "type": "registry:file",
+          "target": "components/ui/slideshow-square-lens.tsx"
+        }
+      ]
+    },
+    {
+      "name": "slideshow-curve-gallery",
+      "type": "registry:component",
+      "title": "Curve Gallery",
+      "description": "The gallery follows a curved path through a sequence of photographs.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://www.ui-layouts.com/r/slideshow-runtime.json"
+      ],
+      "files": [
+        {
+          "path": "./components/ui/slideshow-curve-gallery.tsx",
+          "type": "registry:file",
+          "target": "components/ui/slideshow-curve-gallery.tsx"
+        }
+      ]
+    },
+    {
+      "name": "slideshow-liquid-glass-grid",
+      "type": "registry:component",
+      "title": "Liquid Glass Grid",
+      "description": "Beveled image tiles wrap around a spherical grid with edge refraction.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://www.ui-layouts.com/r/slideshow-runtime.json"
+      ],
+      "files": [
+        {
+          "path": "./components/ui/slideshow-liquid-glass-grid.tsx",
+          "type": "registry:file",
+          "target": "components/ui/slideshow-liquid-glass-grid.tsx"
+        }
+      ]
+    },
+    {
+      "name": "slideshow-image-tube",
+      "type": "registry:component",
+      "title": "Image Tube",
+      "description": "Images spiral into a looping three-dimensional tube.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://www.ui-layouts.com/r/slideshow-runtime.json"
+      ],
+      "files": [
+        {
+          "path": "./components/ui/slideshow-image-tube.tsx",
+          "type": "registry:file",
+          "target": "components/ui/slideshow-image-tube.tsx"
+        }
+      ]
+    },
+    {
+      "name": "slideshow-infinite-canvas",
+      "type": "registry:component",
+      "title": "Infinite Canvas",
+      "description": "A repeating field of images shifts with pointer parallax.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://www.ui-layouts.com/r/slideshow-runtime.json"
+      ],
+      "files": [
+        {
+          "path": "./components/ui/slideshow-infinite-canvas.tsx",
+          "type": "registry:file",
+          "target": "components/ui/slideshow-infinite-canvas.tsx"
+        }
+      ]
+    },
+    {
+      "name": "slideshow-cinematic-scroll",
+      "type": "registry:component",
+      "title": "Cinematic Scroll",
+      "description": "A sequence of camera shots circles an image-covered cylinder.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://www.ui-layouts.com/r/slideshow-runtime.json"
+      ],
+      "files": [
+        {
+          "path": "./components/ui/slideshow-cinematic-scroll.tsx",
+          "type": "registry:file",
+          "target": "components/ui/slideshow-cinematic-scroll.tsx"
+        }
+      ]
+    },
+    {
+      "name": "slideshow-kinetic-images",
+      "type": "registry:component",
+      "title": "Kinetic Images",
+      "description": "A moving image surface twists through space.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://www.ui-layouts.com/r/slideshow-runtime.json"
+      ],
+      "files": [
+        {
+          "path": "./components/ui/slideshow-kinetic-images.tsx",
+          "type": "registry:file",
+          "target": "components/ui/slideshow-kinetic-images.tsx"
+        }
+      ]
+    },
+    {
+      "name": "slideshow-unwoven",
+      "type": "registry:component",
+      "title": "Unwoven",
+      "description": "The image breaks into loose horizontal threads toward the edges.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://www.ui-layouts.com/r/slideshow-runtime.json"
+      ],
+      "files": [
+        {
+          "path": "./components/ui/slideshow-unwoven.tsx",
+          "type": "registry:file",
+          "target": "components/ui/slideshow-unwoven.tsx"
+        }
+      ]
+    },
+    {
+      "name": "slideshow-experimental-carousel",
+      "type": "registry:component",
+      "title": "Experimental Carousel",
+      "description": "A looping carousel sends a wave through its image planes.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://www.ui-layouts.com/r/slideshow-runtime.json"
+      ],
+      "files": [
+        {
+          "path": "./components/ui/slideshow-experimental-carousel.tsx",
+          "type": "registry:file",
+          "target": "components/ui/slideshow-experimental-carousel.tsx"
+        }
+      ]
+    },
+    {
       "name": "iphone-duo-demo",
       "type": "registry:component",
       "title": "Scroll-controlled Duo",

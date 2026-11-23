@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "slideshow-phantom-grid",
+  "type": "registry:component",
+  "title": "Phantom Grid",
+  "description": "A floating image grid and a point-cloud face respond to pointer movement.",
+  "dependencies": [],
+  "registryDependencies": [
+    "https://www.ui-layouts.com/r/slideshow-runtime.json"
+  ],
+  "files": [
+    {
+      "path": "./components/ui/slideshow-phantom-grid.tsx",
+      "type": "registry:file",
+      "target": "components/ui/slideshow-phantom-grid.tsx",
+      "content": "'use client';\n\nimport { PhantomGrid as Scene } from './slideshow/index.js';\nimport type { SlideshowProps } from './slideshow/props';\n\nexport function PhantomGrid(props: SlideshowProps & { depthMaps?: readonly string[] }) {\n  return <Scene {...props} />;\n}\n"
+    }
+  ]
+}

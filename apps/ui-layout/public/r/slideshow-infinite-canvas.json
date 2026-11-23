@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "slideshow-infinite-canvas",
+  "type": "registry:component",
+  "title": "Infinite Canvas",
+  "description": "A repeating field of images shifts with pointer parallax.",
+  "dependencies": [],
+  "registryDependencies": [
+    "https://www.ui-layouts.com/r/slideshow-runtime.json"
+  ],
+  "files": [
+    {
+      "path": "./components/ui/slideshow-infinite-canvas.tsx",
+      "type": "registry:file",
+      "target": "components/ui/slideshow-infinite-canvas.tsx",
+      "content": "'use client';\n\nimport { InfiniteCanvas as Scene } from './slideshow/index.js';\nimport type { SlideshowProps } from './slideshow/props';\n\nexport function InfiniteCanvas(props: SlideshowProps) {\n  return <Scene {...props} />;\n}\n"
+    }
+  ]
+}

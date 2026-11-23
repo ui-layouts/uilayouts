@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "slideshow-experimental-carousel",
+  "type": "registry:component",
+  "title": "Experimental Carousel",
+  "description": "A looping carousel sends a wave through its image planes.",
+  "dependencies": [],
+  "registryDependencies": [
+    "https://www.ui-layouts.com/r/slideshow-runtime.json"
+  ],
+  "files": [
+    {
+      "path": "./components/ui/slideshow-experimental-carousel.tsx",
+      "type": "registry:file",
+      "target": "components/ui/slideshow-experimental-carousel.tsx",
+      "content": "'use client';\n\nimport { ExperimentalCarousel as Scene } from './slideshow/index.js';\nimport type { SlideshowProps } from './slideshow/props';\n\nexport function ExperimentalCarousel(props: SlideshowProps) {\n  return <Scene {...props} />;\n}\n"
+    }
+  ]
+}

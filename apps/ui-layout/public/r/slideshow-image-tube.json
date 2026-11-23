@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "slideshow-image-tube",
+  "type": "registry:component",
+  "title": "Image Tube",
+  "description": "Images spiral into a looping three-dimensional tube.",
+  "dependencies": [],
+  "registryDependencies": [
+    "https://www.ui-layouts.com/r/slideshow-runtime.json"
+  ],
+  "files": [
+    {
+      "path": "./components/ui/slideshow-image-tube.tsx",
+      "type": "registry:file",
+      "target": "components/ui/slideshow-image-tube.tsx",
+      "content": "'use client';\n\nimport { ImageTube as Scene } from './slideshow/index.js';\nimport type { SlideshowProps } from './slideshow/props';\n\nexport function ImageTube(props: SlideshowProps) {\n  return <Scene {...props} />;\n}\n"
+    }
+  ]
+}

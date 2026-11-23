@@ -1,0 +1,30 @@
+export const metadata = {
+  title: 'Curve Gallery',
+  description: 'The gallery follows a curved path through a sequence of photographs.',
+  keywords: ['React', 'Three.js', 'image animation', 'Curve Gallery'],
+};
+
+The gallery follows a curved path through a sequence of photographs.
+
+<ComponentCodePreview name='slideshow-curve-gallery' jsonName='slideshow-curve-gallery' hasReTrigger isFitheight />
+
+## Installation
+
+```bash
+npx shadcn@latest add https://www.ui-layouts.com/r/slideshow-curve-gallery.json
+```
+
+## Usage
+
+```tsx
+import { CurveGallery } from '@/components/ui/slideshow-curve-gallery';
+
+export default function Example() {
+  return <CurveGallery images={['/photos/first.jpg', '/photos/second.jpg']} />;
+}
+```
+
+Pass image URLs in display order. Set `time` in seconds to seek to a frame, or omit it for autoplay. Set `pointer={[0.5, 0.5]}` to position the pointer at the center. Your own slider can drive either value.
+
+
+[Original reference](https://github.com/gaspoorf/curve-gallery/tree/51ac2f562b0af38624da939c7b4e39ba4e6e5b08)

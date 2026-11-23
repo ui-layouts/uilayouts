@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "slideshow-unwoven",
+  "type": "registry:component",
+  "title": "Unwoven",
+  "description": "The image breaks into loose horizontal threads toward the edges.",
+  "dependencies": [],
+  "registryDependencies": [
+    "https://www.ui-layouts.com/r/slideshow-runtime.json"
+  ],
+  "files": [
+    {
+      "path": "./components/ui/slideshow-unwoven.tsx",
+      "type": "registry:file",
+      "target": "components/ui/slideshow-unwoven.tsx",
+      "content": "'use client';\n\nimport { Unwoven as Scene } from './slideshow/index.js';\nimport type { SlideshowProps } from './slideshow/props';\n\nexport function Unwoven(props: SlideshowProps) {\n  return <Scene {...props} />;\n}\n"
+    }
+  ]
+}

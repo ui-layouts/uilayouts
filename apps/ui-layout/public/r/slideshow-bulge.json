@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "slideshow-bulge",
+  "type": "registry:component",
+  "title": "Bulge",
+  "description": "A movable lens pushes the image outward under the pointer.",
+  "dependencies": [],
+  "registryDependencies": [
+    "https://www.ui-layouts.com/r/slideshow-runtime.json"
+  ],
+  "files": [
+    {
+      "path": "./components/ui/slideshow-bulge.tsx",
+      "type": "registry:file",
+      "target": "components/ui/slideshow-bulge.tsx",
+      "content": "'use client';\n\nimport { Bulge as Scene } from './slideshow/index.js';\nimport type { SlideshowProps } from './slideshow/props';\n\nexport function Bulge(props: SlideshowProps) {\n  return <Scene {...props} />;\n}\n"
+    }
+  ]
+}

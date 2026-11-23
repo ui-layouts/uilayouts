@@ -1,0 +1,30 @@
+export const metadata = {
+  title: 'Square Lens',
+  description: 'A square lens reveals a second texture with color separation and refraction.',
+  keywords: ['React', 'Three.js', 'image animation', 'Square Lens'],
+};
+
+A square lens reveals a second texture with color separation and refraction.
+
+<ComponentCodePreview name='slideshow-square-lens' jsonName='slideshow-square-lens' hasReTrigger isFitheight />
+
+## Installation
+
+```bash
+npx shadcn@latest add https://www.ui-layouts.com/r/slideshow-square-lens.json
+```
+
+## Usage
+
+```tsx
+import { SquareLens } from '@/components/ui/slideshow-square-lens';
+
+export default function Example() {
+  return <SquareLens images={['/photos/first.jpg', '/photos/second.jpg']} />;
+}
+```
+
+Pass image URLs in display order. Set `time` in seconds to seek to a frame, or omit it for autoplay. Set `pointer={[0.5, 0.5]}` to position the pointer at the center. Your own slider can drive either value.
+
+
+[Original reference](https://github.com/tomoyukinakata/mouse-following-square-lens-effect/tree/423680b1322f7d984a5a9c2834fe7eaa3e697c84)

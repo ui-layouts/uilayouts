@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "slideshow-rotating-gallery",
+  "type": "registry:component",
+  "title": "Rotating Gallery",
+  "description": "Each card twists along its vertical axis while crossing the gallery.",
+  "dependencies": [],
+  "registryDependencies": [
+    "https://www.ui-layouts.com/r/slideshow-runtime.json"
+  ],
+  "files": [
+    {
+      "path": "./components/ui/slideshow-rotating-gallery.tsx",
+      "type": "registry:file",
+      "target": "components/ui/slideshow-rotating-gallery.tsx",
+      "content": "'use client';\n\nimport { RotatingGallery as Scene } from './slideshow/index.js';\nimport type { SlideshowProps } from './slideshow/props';\n\nexport function RotatingGallery(props: SlideshowProps) {\n  return <Scene {...props} />;\n}\n"
+    }
+  ]
+}

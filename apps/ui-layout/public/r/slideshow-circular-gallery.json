@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "slideshow-circular-gallery",
+  "type": "registry:component",
+  "title": "Circular Gallery",
+  "description": "Image cards follow a circular arc as they pass across the viewport.",
+  "dependencies": [],
+  "registryDependencies": [
+    "https://www.ui-layouts.com/r/slideshow-runtime.json"
+  ],
+  "files": [
+    {
+      "path": "./components/ui/slideshow-circular-gallery.tsx",
+      "type": "registry:file",
+      "target": "components/ui/slideshow-circular-gallery.tsx",
+      "content": "'use client';\n\nimport { CircularGallery as Scene } from './slideshow/index.js';\nimport type { SlideshowProps } from './slideshow/props';\n\nexport function CircularGallery(props: SlideshowProps) {\n  return <Scene {...props} />;\n}\n"
+    }
+  ]
+}

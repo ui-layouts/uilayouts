@@ -1,0 +1,30 @@
+export const metadata = {
+  title: 'Physics Cloth',
+  description: 'A pinned fabric image responds to gravity and a changing wind field.',
+  keywords: ['React', 'Three.js', 'image animation', 'Physics Cloth'],
+};
+
+A pinned fabric image responds to gravity and a changing wind field.
+
+<ComponentCodePreview name='slideshow-physics-cloth' jsonName='slideshow-physics-cloth' hasReTrigger isFitheight />
+
+## Installation
+
+```bash
+npx shadcn@latest add https://www.ui-layouts.com/r/slideshow-physics-cloth.json
+```
+
+## Usage
+
+```tsx
+import { PhysicsCloth } from '@/components/ui/slideshow-physics-cloth';
+
+export default function Example() {
+  return <PhysicsCloth images={['/photos/first.jpg', '/photos/second.jpg']} />;
+}
+```
+
+Pass image URLs in display order. Set `time` in seconds to seek to a frame, or omit it for autoplay. Set `pointer={[0.5, 0.5]}` to position the pointer at the center. Your own slider can drive either value.
+
+
+[Original reference](https://github.com/Aqro/Physics-slideshow-threejs-cannonjs/tree/9f934d42075033bd0b00e187bc89528b01866066)

@@ -1,0 +1,30 @@
+export const metadata = {
+  title: 'Unwoven',
+  description: 'The image breaks into loose horizontal threads toward the edges.',
+  keywords: ['React', 'Three.js', 'image animation', 'Unwoven'],
+};
+
+The image breaks into loose horizontal threads toward the edges.
+
+<ComponentCodePreview name='slideshow-unwoven' jsonName='slideshow-unwoven' hasReTrigger isFitheight />
+
+## Installation
+
+```bash
+npx shadcn@latest add https://www.ui-layouts.com/r/slideshow-unwoven.json
+```
+
+## Usage
+
+```tsx
+import { Unwoven } from '@/components/ui/slideshow-unwoven';
+
+export default function Example() {
+  return <Unwoven images={['/photos/first.jpg', '/photos/second.jpg']} />;
+}
+```
+
+Pass image URLs in display order. Set `time` in seconds to seek to a frame, or omit it for autoplay. Set `pointer={[0.5, 0.5]}` to position the pointer at the center. Your own slider can drive either value.
+
+
+[Original reference](https://github.com/clementgrellier/unwoven/tree/32c4bfcd623058d92095ffbafe44a1fad6a6d4c1)

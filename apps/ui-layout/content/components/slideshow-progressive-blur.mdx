@@ -1,0 +1,30 @@
+export const metadata = {
+  title: 'Progressive Blur',
+  description: 'A vertical blur gradient rolls across the image.',
+  keywords: ['React', 'Three.js', 'image animation', 'Progressive Blur'],
+};
+
+A vertical blur gradient rolls across the image.
+
+<ComponentCodePreview name='slideshow-progressive-blur' jsonName='slideshow-progressive-blur' hasReTrigger isFitheight />
+
+## Installation
+
+```bash
+npx shadcn@latest add https://www.ui-layouts.com/r/slideshow-progressive-blur.json
+```
+
+## Usage
+
+```tsx
+import { ProgressiveBlur } from '@/components/ui/slideshow-progressive-blur';
+
+export default function Example() {
+  return <ProgressiveBlur images={['/photos/first.jpg', '/photos/second.jpg']} />;
+}
+```
+
+Pass image URLs in display order. Set `time` in seconds to seek to a frame, or omit it for autoplay. Set `pointer={[0.5, 0.5]}` to position the pointer at the center. Your own slider can drive either value.
+
+
+[Original reference](https://github.com/JorgeCapillo/webgl-progressive-blur/tree/90e712c747081f22ded2f6dcebe554d24149ae5b)

@@ -1,0 +1,30 @@
+export const metadata = {
+  title: 'Emerging Images',
+  description: 'Horizontal fragments emerge and align into the next image.',
+  keywords: ['React', 'Three.js', 'image animation', 'Emerging Images'],
+};
+
+Horizontal fragments emerge and align into the next image.
+
+<ComponentCodePreview name='slideshow-emerging-images' jsonName='slideshow-emerging-images' hasReTrigger isFitheight />
+
+## Installation
+
+```bash
+npx shadcn@latest add https://www.ui-layouts.com/r/slideshow-emerging-images.json
+```
+
+## Usage
+
+```tsx
+import { EmergingImages } from '@/components/ui/slideshow-emerging-images';
+
+export default function Example() {
+  return <EmergingImages images={['/photos/first.jpg', '/photos/second.jpg']} />;
+}
+```
+
+Pass image URLs in display order. Set `time` in seconds to seek to a frame, or omit it for autoplay. Set `pointer={[0.5, 0.5]}` to position the pointer at the center. Your own slider can drive either value.
+
+
+[Original reference](https://github.com/akella/CodropsEmergingImages/tree/e866c0287be4e1e3eb7a2bcfadf93ff731440f35)

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "slideshow-dom-cloth",
+  "type": "registry:component",
+  "title": "DOM Cloth",
+  "description": "Fabric-like posters ripple as they travel through a carousel.",
+  "dependencies": [],
+  "registryDependencies": [
+    "https://www.ui-layouts.com/r/slideshow-runtime.json"
+  ],
+  "files": [
+    {
+      "path": "./components/ui/slideshow-dom-cloth.tsx",
+      "type": "registry:file",
+      "target": "components/ui/slideshow-dom-cloth.tsx",
+      "content": "'use client';\n\nimport { DomCloth as Scene } from './slideshow/index.js';\nimport type { SlideshowProps } from './slideshow/props';\n\nexport function DomCloth(props: SlideshowProps) {\n  return <Scene {...props} />;\n}\n"
+    }
+  ]
+}

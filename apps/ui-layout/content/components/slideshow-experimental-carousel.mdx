@@ -1,0 +1,30 @@
+export const metadata = {
+  title: 'Experimental Carousel',
+  description: 'A looping carousel sends a wave through its image planes.',
+  keywords: ['React', 'Three.js', 'image animation', 'Experimental Carousel'],
+};
+
+A looping carousel sends a wave through its image planes.
+
+<ComponentCodePreview name='slideshow-experimental-carousel' jsonName='slideshow-experimental-carousel' hasReTrigger isFitheight />
+
+## Installation
+
+```bash
+npx shadcn@latest add https://www.ui-layouts.com/r/slideshow-experimental-carousel.json
+```
+
+## Usage
+
+```tsx
+import { ExperimentalCarousel } from '@/components/ui/slideshow-experimental-carousel';
+
+export default function Example() {
+  return <ExperimentalCarousel images={['/photos/first.jpg', '/photos/second.jpg']} />;
+}
+```
+
+Pass image URLs in display order. Set `time` in seconds to seek to a frame, or omit it for autoplay. Set `pointer={[0.5, 0.5]}` to position the pointer at the center. Your own slider can drive either value.
+
+
+[Original reference](https://github.com/colindmg/r3f-experimental-carousel/tree/4cd418877366f54835bb35c29bc9e9ea7e85eadd)

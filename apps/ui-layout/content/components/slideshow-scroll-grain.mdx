@@ -1,0 +1,30 @@
+export const metadata = {
+  title: 'Scroll Grain',
+  description: 'Scroll through distorted images with a fine animated grain.',
+  keywords: ['React', 'Three.js', 'image animation', 'Scroll Grain'],
+};
+
+Scroll through distorted images with a fine animated grain.
+
+<ComponentCodePreview name='slideshow-scroll-grain' jsonName='slideshow-scroll-grain' hasReTrigger isFitheight />
+
+## Installation
+
+```bash
+npx shadcn@latest add https://www.ui-layouts.com/r/slideshow-scroll-grain.json
+```
+
+## Usage
+
+```tsx
+import { ScrollGrain } from '@/components/ui/slideshow-scroll-grain';
+
+export default function Example() {
+  return <ScrollGrain images={['/photos/first.jpg', '/photos/second.jpg']} />;
+}
+```
+
+Pass image URLs in display order. Set `time` in seconds to seek to a frame, or omit it for autoplay. Set `pointer={[0.5, 0.5]}` to position the pointer at the center. Your own slider can drive either value.
+
+
+[Original reference](https://github.com/jankohlbach/codrops-shader-on-scroll/tree/8120ad43def74a1243761a3f5f064cc1262afc2a)

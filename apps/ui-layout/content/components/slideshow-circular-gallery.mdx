@@ -1,0 +1,30 @@
+export const metadata = {
+  title: 'Circular Gallery',
+  description: 'Image cards follow a circular arc as they pass across the viewport.',
+  keywords: ['React', 'Three.js', 'image animation', 'Circular Gallery'],
+};
+
+Image cards follow a circular arc as they pass across the viewport.
+
+<ComponentCodePreview name='slideshow-circular-gallery' jsonName='slideshow-circular-gallery' hasReTrigger isFitheight />
+
+## Installation
+
+```bash
+npx shadcn@latest add https://www.ui-layouts.com/r/slideshow-circular-gallery.json
+```
+
+## Usage
+
+```tsx
+import { CircularGallery } from '@/components/ui/slideshow-circular-gallery';
+
+export default function Example() {
+  return <CircularGallery images={['/photos/first.jpg', '/photos/second.jpg']} />;
+}
+```
+
+Pass image URLs in display order. Set `time` in seconds to seek to a frame, or omit it for autoplay. Set `pointer={[0.5, 0.5]}` to position the pointer at the center. Your own slider can drive either value.
+
+
+[Original reference](https://github.com/bizarro/infinite-circular-webgl-gallery/tree/3db485819df63550f9872b0ca5e6961a9fe517e4)

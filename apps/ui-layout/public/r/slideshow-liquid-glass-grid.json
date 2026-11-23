@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "slideshow-liquid-glass-grid",
+  "type": "registry:component",
+  "title": "Liquid Glass Grid",
+  "description": "Beveled image tiles wrap around a spherical grid with edge refraction.",
+  "dependencies": [],
+  "registryDependencies": [
+    "https://www.ui-layouts.com/r/slideshow-runtime.json"
+  ],
+  "files": [
+    {
+      "path": "./components/ui/slideshow-liquid-glass-grid.tsx",
+      "type": "registry:file",
+      "target": "components/ui/slideshow-liquid-glass-grid.tsx",
+      "content": "'use client';\n\nimport { LiquidGlassGrid as Scene } from './slideshow/index.js';\nimport type { SlideshowProps } from './slideshow/props';\n\nexport function LiquidGlassGrid(props: SlideshowProps) {\n  return <Scene {...props} />;\n}\n"
+    }
+  ]
+}
