@@ -97,9 +97,8 @@ export function ThemeCustomizer({ className }: { className?: string }) {
         clsBtnClassname='top-1 right-1'
       >
         <ResponsiveModalContent>
-          <div className='border-b px-4 py-3 pr-16'>
+          <div className='flex min-h-14 items-center border-b px-4 pr-16'>
             <p className='text-sm font-semibold'>Customize theme</p>
-            <p className='text-xs text-muted-foreground'>Pick a tweakcn preset</p>
           </div>
           <ScrollArea className='h-[min(360px,calc(100dvh-12rem))]'>
             <ul className='flex flex-col gap-1 p-2'>
@@ -135,18 +134,7 @@ export function ThemeCustomizer({ className }: { className?: string }) {
               })}
             </ul>
           </ScrollArea>
-          <div className='flex flex-wrap items-center justify-between gap-x-3 gap-y-1 border-t px-4 py-2'>
-            <p className='text-xs text-muted-foreground'>
-              Presets powered by{' '}
-              <a
-                href='https://tweakcn.com'
-                target='_blank'
-                rel='noreferrer noopener'
-                className='underline underline-offset-2 hover:text-foreground'
-              >
-                tweakcn
-              </a>
-            </p>
+          <div className='flex justify-end border-t px-4 py-2'>
             <button
               type='button'
               onClick={() => setPresetName(DEFAULT_THEME_PRESET)}

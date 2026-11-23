@@ -59,7 +59,10 @@ export const basePath = [
 
 export function DocsNavIcon({ children }: { children: ReactNode }) {
   return (
-    <span aria-hidden='true' className='grid size-7 shrink-0 place-items-center [&_svg]:size-[18px]'>
+    <span
+      aria-hidden='true'
+      className='grid size-7 shrink-0 place-items-center rounded-md bg-foreground/5 ring-1 ring-foreground/10 ring-inset transition-colors group-hover:bg-foreground/10 group-focus-visible:bg-foreground/10 group-aria-[current=page]:bg-foreground/10 [&_svg]:size-[18px]'
+    >
       {children}
     </span>
   );
@@ -82,7 +85,7 @@ function DocsSidebar() {
                     href={link.href}
                     onClick={() => addVisitedPage(link.href, link.name)}
                     aria-current={link.href === pathname ? 'page' : undefined}
-                    className={`flex items-center gap-2 py-1 font-medium transition-colors ${
+                    className={`group flex items-center gap-2 py-1 font-medium transition-colors ${
                       link.href === pathname
                         ? 'text-foreground font-semibold'
                         : 'text-muted-foreground hover:text-foreground'

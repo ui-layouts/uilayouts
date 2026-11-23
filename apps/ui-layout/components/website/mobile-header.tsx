@@ -76,7 +76,7 @@ function MobileHeader({ classname }: { classname?: string }) {
                     href={link.href}
                     onClick={() => setSidebarOpen(false)}
                     aria-current={link.href === pathname ? 'page' : undefined}
-                    className={`flex items-center gap-2 py-1 font-medium transition-colors ${
+                    className={`group flex items-center gap-2 py-1 font-medium transition-colors ${
                       link.href === pathname
                         ? 'text-foreground font-semibold'
                         : 'text-muted-foreground hover:text-foreground'
@@ -109,7 +109,7 @@ function MobileHeader({ classname }: { classname?: string }) {
                   <a
                     href={item.url}
                     target='_blank'
-                    className='flex items-center gap-2 py-1 font-medium text-muted-foreground transition-colors hover:text-foreground'
+                    className='group flex items-center gap-2 py-1 font-medium text-muted-foreground transition-colors hover:text-foreground'
                     rel='noreferrer noopener'
                   >
                     <DocsNavIcon>{item.icon}</DocsNavIcon>
@@ -121,7 +121,7 @@ function MobileHeader({ classname }: { classname?: string }) {
             <a
               href='https://discord.gg/4bySmj75'
               target='_blank'
-              className='pb-2 flex gap-2 items-center'
+              className='group flex items-center gap-2 pb-2'
               rel='noreferrer noopener'
             >
               <DocsNavIcon>
