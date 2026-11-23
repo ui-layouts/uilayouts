@@ -61,7 +61,7 @@ export function DocsNavIcon({ children }: { children: ReactNode }) {
   return (
     <span
       aria-hidden='true'
-      className='grid size-7 shrink-0 place-items-center rounded-md bg-foreground/5 ring-1 ring-foreground/10 ring-inset transition-colors group-hover:bg-foreground/10 group-focus-visible:bg-foreground/10 group-aria-[current=page]:bg-foreground/10 [&_svg]:size-[18px]'
+      className='grid size-7 shrink-0 place-items-center rounded-md bg-foreground/5 ring-1 ring-foreground/10 ring-inset transition-colors group-hover:bg-sidebar-primary group-hover:text-sidebar-primary-foreground group-focus-visible:bg-sidebar-primary group-focus-visible:text-sidebar-primary-foreground group-aria-[current=page]:bg-sidebar-primary group-aria-[current=page]:text-sidebar-primary-foreground [&_svg]:size-[18px]'
     >
       {children}
     </span>
