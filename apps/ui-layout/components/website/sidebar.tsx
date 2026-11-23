@@ -16,7 +16,8 @@ import {
 import { useTheme } from 'next-themes';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { type ReactNode, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { isCurrentSection, NavigationIcon } from './navigation-icon';
 
 export const basePath = [
   {
@@ -57,17 +58,6 @@ export const basePath = [
   },
 ];
 
-export function DocsNavIcon({ children }: { children: ReactNode }) {
-  return (
-    <span
-      aria-hidden='true'
-      className='grid size-7 shrink-0 place-items-center rounded-md bg-foreground/5 ring-1 ring-foreground/10 ring-inset transition-colors group-hover:bg-sidebar-primary group-hover:text-sidebar-primary-foreground group-focus-visible:bg-sidebar-primary group-focus-visible:text-sidebar-primary-foreground group-aria-[current=page]:bg-sidebar-primary group-aria-[current=page]:text-sidebar-primary-foreground [&_svg]:size-[18px]'
-    >
-      {children}
-    </span>
-  );
-}
-
 function DocsSidebar() {
   const pathname = usePathname();
 
@@ -85,13 +75,14 @@ function DocsSidebar() {
                     href={link.href}
                     onClick={() => addVisitedPage(link.href, link.name)}
                     aria-current={link.href === pathname ? 'page' : undefined}
+                    data-active={isCurrentSection(pathname, link.href) ? true : undefined}
                     className={`group flex items-center gap-2 py-1 font-medium transition-colors ${
-                      link.href === pathname
+                      isCurrentSection(pathname, link.href)
                         ? 'text-foreground font-semibold'
                         : 'text-muted-foreground hover:text-foreground'
                     }`}
                   >
-                    <DocsNavIcon>{link.icon}</DocsNavIcon>
+                    <NavigationIcon>{link.icon}</NavigationIcon>
                     {link.name}
                   </Link>
                 </li>

@@ -61,6 +61,12 @@
   }
 }
 
+/* Keep the preset hue while making white navigation glyphs readable. */
+@utility bg-theme-highlight {
+  background-color: color-mix(in srgb, var(--sidebar-primary) 44%, black);
+  background-color: oklch(from var(--sidebar-primary) min(l, 0.53) c h);
+}
+
 @theme {
   --color-border: var(--border);
   --color-input: var(--input);

@@ -4,12 +4,36 @@ import { cn } from '@/lib/utils';
 import { Blocks, Component } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import React from 'react';
+import type { ReactNode } from 'react';
 import MobileHeader from '../mobile-header';
+import { isCurrentSection, NavigationIcon } from '../navigation-icon';
 import { ThemeCustomizer } from '../theme-customizer';
 import ThemeSwitch from '../theme-switch';
-import { PlasticButton } from '../ui/plastic-button';
 import HomeGitHubButton from './github-repo-button';
+
+function HeaderNavLink({
+  href,
+  pathname,
+  icon,
+  children,
+}: {
+  href: string;
+  pathname: string;
+  icon: ReactNode;
+  children: ReactNode;
+}) {
+  return (
+    <Link
+      href={href}
+      aria-current={pathname === href ? 'page' : undefined}
+      data-active={isCurrentSection(pathname, href) ? true : undefined}
+      className='group relative flex items-center gap-1.5 rounded-lg px-1.5 py-2 font-semibold text-foreground transition-colors hover:bg-foreground/5 focus-visible:bg-foreground/5 data-[active=true]:bg-foreground/5'
+    >
+      <NavigationIcon>{icon}</NavigationIcon>
+      {children}
+    </Link>
+  );
+}
 
 function HomeHeader({
   className,
@@ -59,60 +83,36 @@ function HomeHeader({
               <path d='M271.328 22.7168V14.7492H287.328V22.7168H279.328V30.6844H263.328V22.7168H271.328ZM287.328 38.652H279.328V30.6844H287.328V38.652ZM279.328 38.652V46.6196H263.328V38.652H279.328Z' />{' '}
             </svg>
           </Link>
-          <a
-            href='/components'
-            className={cn(
-              'gap-1 group text-foreground font-semibold items-center p-2 relative rounded-lg flex',
-              pathName === '/components' && 'bg-muted'
-            )}
-          >
-            <Component
-              className={cn(
-                'w-6 h-6 stroke-current',
-                pathName === '/components' && 'stroke-current'
+          <nav aria-label='Main navigation' className='flex items-center gap-1'>
+            <HeaderNavLink href='/components' pathname={pathName} icon={<Component />}>
+              Components
+            </HeaderNavLink>
+            <HeaderNavLink href='/blocks' pathname={pathName} icon={<Blocks />}>
+              Blocks
+            </HeaderNavLink>
+            <HeaderNavLink
+              href='/mcp'
+              pathname={pathName}
+              icon={(
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  viewBox='0 0 24 24'
+                  width='24'
+                  height='24'
+                  fill='none'
+                  strokeWidth='1.2'
+                  className='stroke-current'
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                >
+                  <path d='M3.49994 11.7501L11.6717 3.57855C12.7762 2.47398 14.5672 2.47398 15.6717 3.57855C16.7762 4.68312 16.7762 6.47398 15.6717 7.57855M15.6717 7.57855L9.49994 13.7501M15.6717 7.57855C16.7762 6.47398 18.5672 6.47398 19.6717 7.57855C20.7762 8.68312 20.7762 10.474 19.6717 11.5785L12.7072 18.543C12.3167 18.9335 12.3167 19.5667 12.7072 19.9572L13.9999 21.2499' />
+                  <path d='M17.4999 9.74921L11.3282 15.921C10.2237 17.0255 8.43272 17.0255 7.32822 15.921C6.22373 14.8164 6.22373 13.0255 7.32822 11.921L13.4999 5.74939' />
+                </svg>
               )}
-            />
-            Components
-          </a>
-          <a
-            href='/blocks'
-            className={cn(
-              'flex gap-1 group text-foreground font-semibold items-center p-2 relative rounded-lg',
-              pathName === '/blocks' && 'bg-muted'
-            )}
-          >
-            <span className='absolute italic -top-1 -right-4 text-xs text-muted-foreground'>(New)</span>
-            <Blocks
-              className={cn('w-6 h-6 stroke-current', pathName === '/blocks' && 'stroke-current')}
-            />
-            Blocks
-          </a>
-          <a
-            href='/mcp'
-            className={cn(
-              'flex gap-1 group transition-all font-semibold items-center p-2  pr-4 relative rounded-lg text-foreground',
-              pathName === '/mcp' && 'bg-background'
-            )}
-          >
-            {/* <span className='absolute italic -top-1 -right-4 text-xs'>
-              (New)
-            </span> */}
-            <svg
-              xmlns='http://www.w3.org/2000/svg'
-              viewBox='0 0 24 24'
-              width='24'
-              height='24'
-              fill='none'
-              strokeWidth='1.2'
-              className={cn('w-6 h-6 stroke-current', pathName === '/mcp' && 'stroke-current')}
-              strokeLinecap='round'
-              strokeLinejoin='round'
             >
-              <path d='M3.49994 11.7501L11.6717 3.57855C12.7762 2.47398 14.5672 2.47398 15.6717 3.57855C16.7762 4.68312 16.7762 6.47398 15.6717 7.57855M15.6717 7.57855L9.49994 13.7501M15.6717 7.57855C16.7762 6.47398 18.5672 6.47398 19.6717 7.57855C20.7762 8.68312 20.7762 10.474 19.6717 11.5785L12.7072 18.543C12.3167 18.9335 12.3167 19.5667 12.7072 19.9572L13.9999 21.2499' />
-              <path d='M17.4999 9.74921L11.3282 15.921C10.2237 17.0255 8.43272 17.0255 7.32822 15.921C6.22373 14.8164 6.22373 13.0255 7.32822 11.921L13.4999 5.74939' />
-            </svg>
-            MCP
-          </a>
+              MCP
+            </HeaderNavLink>
+          </nav>
         </div>
 
         <div className='flex items-center gap-2'>
