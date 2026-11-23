@@ -41,7 +41,7 @@ Move your pointer or drag across the preview to reveal photos. Choose a trail in
 
 <ComponentCodePreview name='image-mousetrail-explorer' jsonName='image-mousetrail-explorer.json' typescriptOnly hasReTrigger isFitheight />
 
-The explorer has 24 options: three UI Layouts originals, five [Image Trail Effects](https://github.com/codrops/ImageTrailEffects) demos (1, 2, 3, 5, and 6), and all 16 [Motion Trail Animations](https://github.com/codrops/MotionTrailAnimations) demos. The Codrops link below each variant opens the corresponding reference.
+The explorer has 25 options: three UI Layouts originals, five [Image Trail Effects](https://github.com/codrops/ImageTrailEffects) demos (1, 2, 3, 5, and 6), all 16 [Motion Trail Animations](https://github.com/codrops/MotionTrailAnimations) demos, and [Cursor Trailer by Nemanja Kočović](https://codepen.io/thingbynemanja/full/ogjaaNE). Cursor Trailer drops tilted photos that spring into view and shrink in place.
 
 Tile Apart and Strata use Canvas 2D. Tail, Silk, Liquid, Dust, Gooey, and Swirl adapt the reference WebGL effects to Canvas 2D. These reproduce the visual behaviors with image meshes, fragments, and connected drops. Liquid and Swirl approximate fluid motion without a physics simulation.
 
@@ -122,6 +122,7 @@ No animation library or extra CSS is required. By default, `touchAction="pan-y"`
 | className | string | — | Container sizing and colors. |
 | imgClass | string | 'w-40 h-48' | Image size, crop, border, and shadow classes. |
 | threshold | number | — | Distance between images in container CSS pixels. Minimum 8. Overrides distance. |
+| minInterval | number | 0 | Minimum milliseconds between images. A positive value places one image at the current pointer after both the distance and time thresholds are met. |
 | distance | number | 20 | Legacy density: container width divided by this value. Higher values emit more images. |
 | maxNumberOfImages | number | 5 | Image pool size, clamped to 1–30. Reuses the oldest slot. |
 | fadeAnimation | boolean | false | Fade follow images on idle. Otherwise they remain until replaced or the pointer leaves. |

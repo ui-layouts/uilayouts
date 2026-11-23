@@ -21,13 +21,20 @@ type StampId = keyof typeof stampEffects;
 
 type Example =
   | { id: OriginalId; title: string; description: string; group: 'originals' }
-  | { id: StampId; title: string; description: string; group: 'image' | 'motion'; demo: number }
-  | { id: CanvasEffect; title: string; description: string; group: 'motion'; demo: number };
+  | { id: 'cursor-trailer'; title: string; description: string; group: 'codepen' }
+  | {
+      id: Exclude<StampId, 'cursor-trailer'> | CanvasEffect;
+      title: string;
+      description: string;
+      group: 'image' | 'motion';
+      demo: number;
+    };
 
 const groups = {
   originals: 'UI Layouts',
   image: 'Image Trail Effects',
   motion: 'Motion Trail Animations',
+  codepen: 'CodePen',
 };
 
 const examples: Example[] = [
@@ -196,6 +203,12 @@ const examples: Example[] = [
     group: 'motion',
     demo: 16,
   },
+  {
+    id: 'cursor-trailer',
+    title: 'Cursor Trailer',
+    description: 'Tilted photos spring into view and shrink in place.',
+    group: 'codepen',
+  },
 ];
 
 const photoUrl = (id: string) =>
@@ -221,6 +234,13 @@ const landscapes = [
   '1501785888041-af3ef285b470',
 ].map(photoUrl);
 
+const cursorPhotos = [
+  '1518005020951-eccb494ad742',
+  '1518837695005-2083093ee35b',
+  '1501785888041-af3ef285b470',
+  '1616486338812-3dadae4b4ace',
+].map(photoUrl);
+
 const paleStage =
   'bg-[#e8dfd0] text-[#42382e] bg-[radial-gradient(ellipse_at_20%_8%,#f8f3e9,transparent_62%)]';
 const darkStage =
@@ -239,6 +259,24 @@ function ExampleStage({ example }: { example: Example }) {
   if (example.group === 'originals') {
     const Original = originals[example.id];
     return <Original />;
+  }
+
+  if (example.group === 'codepen') {
+    return (
+      <ImageMouseTrail
+        items={cursorPhotos}
+        effect={stampEffects[example.id]}
+        threshold={100}
+        minInterval={70}
+        maxNumberOfImages={18}
+        duration={1200}
+        touchAction='none'
+        imgClass='mt-10 h-48 w-32 rounded-sm shadow-xl sm:mt-[75px] sm:h-[300px] sm:w-[200px]'
+        className='h-[clamp(300px,55vw,520px)] bg-[#eeedf5] text-[#332d43] bg-[radial-gradient(ellipse_at_18%_12%,#fffaf4,transparent_70%)]'
+      >
+        {hint}
+      </ImageMouseTrail>
+    );
   }
 
   if (isStamp(example.id)) {
@@ -295,16 +333,29 @@ function ExampleStage({ example }: { example: Example }) {
   );
 }
 
-function sourceUrl({ group, demo }: Exclude<Example, { group: 'originals' }>) {
+function exampleSource(example: Example) {
+  if (example.group === 'originals') return;
+  if (example.group === 'codepen') {
+    return {
+      href: 'https://codepen.io/thingbynemanja/full/ogjaaNE',
+      label: 'CodePen by Nemanja Kočović',
+    };
+  }
+
+  const { group, demo } = example;
   const collection =
     group === 'image' ? 'ImageTrailEffects/blob/master' : 'MotionTrailAnimations/blob/main';
-  return `https://github.com/codrops/${collection}/index${demo === 1 ? '' : demo}.html`;
+  return {
+    href: `https://github.com/codrops/${collection}/index${demo === 1 ? '' : demo}.html`,
+    label: `Codrops demo ${demo}`,
+  };
 }
 
 export default function MousetrailExplorer() {
   const id = useId();
   const [index, setIndex] = useState(0);
   const example = examples[index];
+  const source = exampleSource(example);
   const canvasAdaptation = example.group === 'motion' && !isStamp(example.id);
 
   function step(amount: number) {
@@ -384,14 +435,14 @@ export default function MousetrailExplorer() {
           {example.title}. {example.description}
           {canvasAdaptation && ' Canvas adaptation.'}
         </p>
-        {example.group !== 'originals' && (
+        {source && (
           <a
-            href={sourceUrl(example)}
+            href={source.href}
             target='_blank'
             rel='noreferrer'
             className='underline underline-offset-4'
           >
-            Codrops demo {example.demo}
+            {source.label}
           </a>
         )}
       </div>

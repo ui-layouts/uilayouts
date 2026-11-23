@@ -27,6 +27,8 @@ export interface ImageMouseTrailProps {
   distance?: number;
   /** Distance in local CSS pixels between images. Overrides distance. */
   threshold?: number;
+  /** Minimum milliseconds between stamps. A positive value stamps only at the pointer. */
+  minInterval?: number;
   maxNumberOfImages?: number;
   fadeAnimation?: boolean;
   variant?: ImageTrailVariant;
@@ -47,6 +49,7 @@ export default function ImageMouseTrail({
   imgClass = 'w-40 h-48',
   distance = 20,
   threshold,
+  minInterval = 0,
   maxNumberOfImages = 5,
   fadeAnimation = false,
   variant = 'follow',
@@ -87,6 +90,7 @@ export default function ImageMouseTrail({
     let frame = 0;
     let pending: Point | null = null;
     let last: Point | null = null;
+    let lastEmission = -Infinity;
     let index = 0;
     let sequence = 0;
     let order: HTMLImageElement[] = [];
@@ -94,11 +98,13 @@ export default function ImageMouseTrail({
     let speed = 0;
     const fading = effect ? !effect.persist : fadeAnimation || variant !== 'follow';
     const lifetime = Math.max(400, finite(duration, 1200));
+    const interval = Math.max(0, finite(minInterval, 0));
 
     const clear = () => {
       cancelAnimationFrame(frame);
       frame = 0;
       pending = last = lastMove = null;
+      lastEmission = -Infinity;
       speed = 0;
       animations.forEach((animation) => animation.cancel());
       animations.clear();
@@ -190,26 +196,30 @@ export default function ImageMouseTrail({
       return true;
     };
 
-    const render = () => {
+    const render = (time: number) => {
       frame = 0;
       if (!pending) return;
       const target = pending;
       pending = null;
-      if (!last) {
-        if (emit(target, { x: 0, y: 0 })) last = target;
-        else pending = target;
-        return;
-      }
-      const dx = target.x - last.x;
-      const dy = target.y - last.y;
+      if (time - lastEmission < interval) return;
+      const start = last ?? target;
+      const dx = target.x - start.x;
+      const dy = target.y - start.y;
       const length = Math.hypot(dx, dy);
       const spacing = Math.max(
         8,
         finite(threshold ?? container.clientWidth / Math.max(1, finite(distance, 20)), 40)
       );
+      if (!last || interval > 0) {
+        if (last && length < spacing) return;
+        if (emit(target, { x: dx, y: dy })) {
+          last = target;
+          lastEmission = time;
+        } else pending = target;
+        return;
+      }
       // Fill gaps along fast movements, but bound work after a large pointer jump.
       const steps = Math.min(poolSize, Math.floor(length / spacing));
-      const start = last;
       for (let i = 1; i <= steps; i++) {
         const fraction = steps === poolSize ? i / steps : (i * spacing) / length;
         const point = { x: start.x + dx * fraction, y: start.y + dy * fraction };
@@ -271,7 +281,7 @@ export default function ImageMouseTrail({
       window.removeEventListener('resize', clear);
       reducedMotion.removeEventListener('change', clear);
     };
-  }, [sources, poolSize, distance, threshold, fadeAnimation, variant, effect, duration]);
+  }, [sources, poolSize, distance, threshold, minInterval, fadeAnimation, variant, effect, duration]);
 
   return (
     <div

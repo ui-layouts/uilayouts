@@ -5453,7 +5453,7 @@
       "name": "image-mousetrail-explorer",
       "type": "registry:component",
       "title": "Image Trail Explorer",
-      "description": "Explore 24 pointer-driven image trails with React and Canvas.",
+      "description": "Explore 25 pointer-driven image trails with React and Canvas.",
       "dependencies": ["tailwind-merge"],
       "devDependencies": [],
       "registryDependencies": [],
