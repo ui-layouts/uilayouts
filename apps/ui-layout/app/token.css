@@ -11,7 +11,7 @@
     --secondary: oklch(0.97 0 0);
     --secondary-foreground: oklch(0.205 0 0);
     --muted: oklch(0.97 0 0);
-    --muted-foreground: oklch(0.556 0 0);
+    --muted-foreground: oklch(0.543 0 0);
     --accent: oklch(0.97 0 0);
     --accent-foreground: oklch(0.205 0 0);
     --destructive: oklch(0.577 0.245 27.325);
@@ -59,6 +59,12 @@
     --sidebar-ring: oklch(0.5461 0.2152 262.8809);
     --code-background: oklch(0.24 0 0);
   }
+}
+
+/* Keep the preset hue while making white navigation glyphs readable. */
+@utility bg-theme-highlight {
+  background-color: color-mix(in srgb, var(--sidebar-primary) 44%, black);
+  background-color: oklch(from var(--sidebar-primary) min(l, 0.53) c h);
 }
 
 @theme {
