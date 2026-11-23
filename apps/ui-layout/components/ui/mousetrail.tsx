@@ -1,7 +1,7 @@
 'use client';
 
-import { cn } from '@/lib/utils';
 import { type ReactNode, useEffect, useMemo, useRef } from 'react';
+import { twMerge } from 'tailwind-merge';
 
 export type ImageTrailVariant = 'follow' | 'momentum' | 'bounce';
 
@@ -277,7 +277,7 @@ export default function ImageMouseTrail({
     <div
       ref={containerRef}
       style={{ touchAction }}
-      className={cn(
+      className={twMerge(
         'relative isolate grid h-[600px] w-full place-items-center overflow-hidden rounded-lg bg-muted text-foreground',
         className
       )}
@@ -295,7 +295,7 @@ export default function ImageMouseTrail({
             src={items[index % items.length]}
             alt=''
             draggable={false}
-            className={cn(
+            className={twMerge(
               'pointer-events-none absolute left-0 top-0 object-cover opacity-0 will-change-transform',
               imgClass
             )}

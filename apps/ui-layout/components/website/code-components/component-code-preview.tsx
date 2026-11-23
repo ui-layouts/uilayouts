@@ -19,6 +19,7 @@ type TComponentCodePreview = {
   isFit?: boolean;
   isNotCopy?: boolean;
   jsonName?: string;
+  typescriptOnly?: boolean;
 };
 export type TCurrComponentProps = {
   componentName: string;
@@ -44,7 +45,7 @@ const getCliCommand = (jsonName?: string) => {
     return null;
   }
 
-  return `npx shadcn@latest add https://ui-layouts.com/r/${normalizedName}`;
+  return `npx shadcn@latest add https://www.ui-layouts.com/r/${normalizedName}.json`;
 };
 
 export default async function ComponentCodePreview({
@@ -56,6 +57,7 @@ export default async function ComponentCodePreview({
   isNotCopy = false,
   isFitheight = false,
   isFit = false,
+  typescriptOnly = false,
 }: TComponentCodePreview) {
   const codeBlocks = normalizeCodeChildren(children);
 
@@ -128,7 +130,9 @@ export default async function ComponentCodePreview({
         </TabsContent>
 
         <TabsContent className='mt-14' value={`${name}code`}>
-          {!currComponent.filesArray?.length && <PreCode codeblock={codeContent} classname='p-0' />}
+          {!currComponent.filesArray?.length && (
+            <PreCode codeblock={codeContent} classname='p-0' typescriptOnly={typescriptOnly} />
+          )}
 
           {!!currComponent.filesArray?.length && (
             <TabsContent className='mt-14' value={`${name}code`}>
@@ -140,6 +144,7 @@ export default async function ComponentCodePreview({
                     meta: finalFiles[0].meta,
                   }}
                   classname='p-0'
+                  typescriptOnly={typescriptOnly}
                 />
               ) : (
                 <Tabs defaultValue={finalFiles[0].name} className='w-full'>
@@ -160,6 +165,7 @@ export default async function ComponentCodePreview({
                           meta: file.meta,
                         }}
                         classname='p-0'
+                        typescriptOnly={typescriptOnly}
                       />
                     </TabsContent>
                   ))}

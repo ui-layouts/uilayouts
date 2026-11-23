@@ -3021,10 +3021,38 @@ export const AllComponents: IAllComponents[] = [
     slug: 'image-mousetrail-explorer',
     description: 'Browse 24 image trail effects, including frame-by-frame and Canvas adaptations.',
     filesArray: [
-      { name: 'trail-explorer.tsx', filesrc: require('../registry/components/mousetrail/trail-explorer.tsx?raw') },
-      { name: 'trail-stamp-effects.ts', filesrc: require('../registry/components/mousetrail/trail-stamp-effects.ts?raw') },
-      { name: 'trail-canvas.tsx', filesrc: require('../registry/components/mousetrail/trail-canvas.tsx?raw') },
-      { name: 'trail-canvas-draw.ts', filesrc: require('../registry/components/mousetrail/trail-canvas-draw.ts?raw') },
+      {
+        name: 'trail-explorer.tsx',
+        filesrc: require('../registry/components/mousetrail/trail-explorer.tsx?raw'),
+      },
+      {
+        name: 'mousetrail.tsx',
+        filesrc: require('../components/ui/mousetrail.tsx?raw'),
+      },
+      {
+        name: 'trail-stamp-effects.ts',
+        filesrc: require('../registry/components/mousetrail/trail-stamp-effects.ts?raw'),
+      },
+      {
+        name: 'trail-canvas.tsx',
+        filesrc: require('../registry/components/mousetrail/trail-canvas.tsx?raw'),
+      },
+      {
+        name: 'trail-canvas-draw.ts',
+        filesrc: require('../registry/components/mousetrail/trail-canvas-draw.ts?raw'),
+      },
+      {
+        name: 'default-mousetrail.tsx',
+        filesrc: require('../registry/components/mousetrail/default-mousetrail.tsx?raw'),
+      },
+      {
+        name: 'momentum-mousetrail.tsx',
+        filesrc: require('../registry/components/mousetrail/momentum-mousetrail.tsx?raw'),
+      },
+      {
+        name: 'bounce-mousetrail.tsx',
+        filesrc: require('../registry/components/mousetrail/bounce-mousetrail.tsx?raw'),
+      },
     ],
     tags: ['mouse-trail', 'image-trail', 'motion-trail', 'canvas', 'explorer'],
     componentSrc: React.lazy(() => import('@/registry/components/mousetrail/trail-explorer')),

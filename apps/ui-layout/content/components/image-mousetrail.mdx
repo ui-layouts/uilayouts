@@ -39,11 +39,11 @@ Move your pointer or drag across the preview to reveal photos. Choose a trail in
 
 ## Explore image trails
 
-<ComponentCodePreview name='image-mousetrail-explorer' jsonName='image-mousetrail-explorer.json' hasReTrigger isFitheight />
+<ComponentCodePreview name='image-mousetrail-explorer' jsonName='image-mousetrail-explorer.json' typescriptOnly hasReTrigger isFitheight />
 
 The explorer has 24 options: three UI Layouts originals, five [Image Trail Effects](https://github.com/codrops/ImageTrailEffects) demos (1, 2, 3, 5, and 6), and all 16 [Motion Trail Animations](https://github.com/codrops/MotionTrailAnimations) demos. The Codrops link below each variant opens the corresponding reference.
 
-Tile Apart, Strata, and Tail use Canvas 2D. Silk, Liquid, Dust, Gooey, and Swirl use Canvas 2D versions of the reference WebGL effects. These reproduce the visual behaviors with image meshes, fragments, and connected drops. Liquid and Swirl approximate fluid motion without a physics simulation.
+Tile Apart and Strata use Canvas 2D. Tail, Silk, Liquid, Dust, Gooey, and Swirl adapt the reference WebGL effects to Canvas 2D. These reproduce the visual behaviors with image meshes, fragments, and connected drops. Liquid and Swirl approximate fluid motion without a physics simulation.
 
 ## Installation
 
@@ -62,24 +62,38 @@ Tile Apart, Strata, and Tail use Canvas 2D. Silk, Liquid, Dust, Gooey, and Swirl
       npx shadcn@latest add 'https://www.ui-layouts.com/r/mousetrail.json'
       ```
     </CodeTabsMdx>
+    If the UI Layouts CLI prompts for a language, choose **TypeScript (.tsx)**.
   </TabsContent>
   <TabsContent value="manual" manualType>
-    <CodeSnippets name="mousetrail" />
+    Install the class utility used by the component, then copy the source into `components/ui/mousetrail.tsx`.
+
+```bash
+npm install tailwind-merge
+```
+
+<CodeSnippets name="mousetrail" typescriptOnly />
   </TabsContent>
 </Tabs>
 
-To install the full explorer and its supporting files:
+The trail is a React component written in TypeScript. The examples use Tailwind CSS 4 for styling. Use the `@/` alias for your source directory, or adjust the imports to match your project. The themed controls use the standard shadcn background, foreground, and muted color tokens.
+
+To install the full explorer and its supporting TypeScript files:
 
 ```bash
 npx shadcn@latest add 'https://www.ui-layouts.com/r/image-mousetrail-explorer.json'
 ```
 
-Import the explorer from `@/components/trail-explorer/trail-explorer`.
+<PreCode typescriptOnly codeblock={{ lang: 'tsx', meta: '', value: `import ImageTrailExplorer from '@/components/trail-explorer/trail-explorer';
+
+export default function App() {
+  return <ImageTrailExplorer />;
+}` }} />
+
+In a Next.js App Router page, you can import the explorer directly. Its source already declares the client boundary.
 
 ## Usage
 
-```tsx
-import ImageMouseTrail from '@/components/ui/mousetrail';
+<PreCode typescriptOnly codeblock={{ lang: 'tsx', meta: '', value: `import ImageMouseTrail from '@/components/ui/mousetrail';
 
 export default function Gallery() {
   return (
@@ -93,8 +107,7 @@ export default function Gallery() {
       <h2>Good things pop up.</h2>
     </ImageMouseTrail>
   );
-}
-```
+}` }} />
 
 No animation library or extra CSS is required. By default, `touchAction="pan-y"` keeps vertical page scrolling available and supports horizontal trail gestures. Set `touchAction="none"` for unrestricted dragging inside the component, as in these previews. Each instance owns a bounded image pool and cancels its animations when it unmounts. Failed images are skipped. Fading images finish their exit when the pointer leaves; persistent images clear on leave. Cancelling a touch gesture, resizing, or switching windows clears the trail. Reduced-motion preferences replace movement and scaling with a simple fade.
 

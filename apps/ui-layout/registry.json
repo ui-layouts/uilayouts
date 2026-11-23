@@ -1653,7 +1653,7 @@
       "name": "mousetrail",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [],
+      "dependencies": ["tailwind-merge"],
       "registryDependencies": [],
       "files": [
         {
@@ -1666,7 +1666,7 @@
       "name": "image-mousetrail-default",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [],
+      "dependencies": ["tailwind-merge"],
       "registryDependencies": [],
       "files": [
         {
@@ -1683,7 +1683,7 @@
       "name": "image-mousetrail-small",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [],
+      "dependencies": ["tailwind-merge"],
       "registryDependencies": [],
       "files": [
         {
@@ -1700,7 +1700,7 @@
       "name": "image-mousetrail-disappear",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [],
+      "dependencies": ["tailwind-merge"],
       "registryDependencies": [],
       "files": [
         {
@@ -1717,7 +1717,7 @@
       "name": "image-mousetrail-without-component",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [],
+      "dependencies": ["tailwind-merge"],
       "registryDependencies": [],
       "files": [
         {
@@ -5418,7 +5418,7 @@
     {
       "name": "image-mousetrail-momentum",
       "type": "registry:component",
-      "dependencies": [],
+      "dependencies": ["tailwind-merge"],
       "devDependencies": [],
       "registryDependencies": [],
       "files": [
@@ -5435,7 +5435,7 @@
     {
       "name": "image-mousetrail-bounce",
       "type": "registry:component",
-      "dependencies": [],
+      "dependencies": ["tailwind-merge"],
       "devDependencies": [],
       "registryDependencies": [],
       "files": [
@@ -5454,7 +5454,7 @@
       "type": "registry:component",
       "title": "Image Trail Explorer",
       "description": "Explore 24 pointer-driven image trails with React and Canvas.",
-      "dependencies": [],
+      "dependencies": ["tailwind-merge"],
       "devDependencies": [],
       "registryDependencies": [],
       "files": [
