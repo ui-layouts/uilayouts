@@ -4,74 +4,31 @@
   "homepage": "https://www.ui-layouts.com",
   "items": [
     {
-      "name": "slideshow-motion-hover",
+      "name": "image-effect-motion-hover",
       "type": "registry:component",
       "title": "Motion Hover",
       "description": "A floating image bends and separates into color channels as the pointer travels.",
       "dependencies": [
-        "three@0.186.0"
+        "three@0.186.0",
+        "@types/three@0.183.1"
       ],
       "registryDependencies": [],
       "files": [
         {
-          "path": "./components/ui/slideshow-motion-hover.tsx",
+          "path": "./components/ui/image-effect-motion-hover.tsx",
           "type": "registry:file",
-          "target": "components/ui/slideshow-motion-hover.tsx"
+          "target": "components/ui/image-effect-motion-hover.tsx"
         },
         {
-          "path": "./components/ui/slideshow/NOTICE.txt",
+          "path": "./components/ui/image-effects/props.ts",
           "type": "registry:file",
-          "target": "components/ui/slideshow/NOTICE.txt"
-        },
-        {
-          "path": "./components/ui/slideshow/article-effects.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/article-effects.js"
-        },
-        {
-          "path": "./components/ui/slideshow/cloth.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/cloth.js"
-        },
-        {
-          "path": "./components/ui/slideshow/effects.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/effects.js"
-        },
-        {
-          "path": "./components/ui/slideshow/face.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/face.js"
-        },
-        {
-          "path": "./components/ui/slideshow/index.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/index.js"
-        },
-        {
-          "path": "./components/ui/slideshow/ported.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/ported.js"
-        },
-        {
-          "path": "./components/ui/slideshow/props.ts",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/props.ts"
-        },
-        {
-          "path": "./components/ui/slideshow/ribbons.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/ribbons.js"
-        },
-        {
-          "path": "./components/ui/slideshow/scene.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/scene.js"
+          "target": "components/ui/image-effects/props.ts"
         }
-      ]
+      ],
+      "devDependencies": []
     },
     {
-      "name": "slideshow-gooey-hover",
+      "name": "image-effect-gooey-hover",
       "type": "registry:component",
       "title": "Gooey Hover",
       "description": "A liquid edge spreads from the pointer to reveal a second photograph.",
@@ -81,64 +38,59 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "./components/ui/slideshow-gooey-hover.tsx",
+          "path": "./components/ui/image-effect-gooey-hover.tsx",
           "type": "registry:file",
-          "target": "components/ui/slideshow-gooey-hover.tsx"
+          "target": "components/ui/image-effect-gooey-hover.tsx"
         },
         {
-          "path": "./components/ui/slideshow/NOTICE.txt",
+          "path": "./components/ui/image-effects/definitions/gooey-hover.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/NOTICE.txt"
+          "target": "components/ui/image-effects/definitions/gooey-hover.js"
         },
         {
-          "path": "./components/ui/slideshow/article-effects.js",
+          "path": "./components/ui/image-effects/NOTICE.txt",
           "type": "registry:file",
-          "target": "components/ui/slideshow/article-effects.js"
+          "target": "components/ui/image-effects/NOTICE.txt"
         },
         {
-          "path": "./components/ui/slideshow/cloth.js",
+          "path": "./components/ui/image-effects/cloth.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/cloth.js"
+          "target": "components/ui/image-effects/cloth.js"
         },
         {
-          "path": "./components/ui/slideshow/effects.js",
+          "path": "./components/ui/image-effects/create-image-effect.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/effects.js"
+          "target": "components/ui/image-effects/create-image-effect.js"
         },
         {
-          "path": "./components/ui/slideshow/face.js",
+          "path": "./components/ui/image-effects/face.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/face.js"
+          "target": "components/ui/image-effects/face.js"
         },
         {
-          "path": "./components/ui/slideshow/index.js",
+          "path": "./components/ui/image-effects/layouts.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/index.js"
+          "target": "components/ui/image-effects/layouts.js"
         },
         {
-          "path": "./components/ui/slideshow/ported.js",
+          "path": "./components/ui/image-effects/props.ts",
           "type": "registry:file",
-          "target": "components/ui/slideshow/ported.js"
+          "target": "components/ui/image-effects/props.ts"
         },
         {
-          "path": "./components/ui/slideshow/props.ts",
+          "path": "./components/ui/image-effects/ribbons.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/props.ts"
+          "target": "components/ui/image-effects/ribbons.js"
         },
         {
-          "path": "./components/ui/slideshow/ribbons.js",
+          "path": "./components/ui/image-effects/scene.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/ribbons.js"
-        },
-        {
-          "path": "./components/ui/slideshow/scene.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/scene.js"
+          "target": "components/ui/image-effects/scene.js"
         }
       ]
     },
     {
-      "name": "slideshow-circular-gallery",
+      "name": "image-effect-circular-gallery",
       "type": "registry:component",
       "title": "Circular Gallery",
       "description": "Image cards follow a circular arc as they pass across the viewport.",
@@ -148,64 +100,59 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "./components/ui/slideshow-circular-gallery.tsx",
+          "path": "./components/ui/image-effect-circular-gallery.tsx",
           "type": "registry:file",
-          "target": "components/ui/slideshow-circular-gallery.tsx"
+          "target": "components/ui/image-effect-circular-gallery.tsx"
         },
         {
-          "path": "./components/ui/slideshow/NOTICE.txt",
+          "path": "./components/ui/image-effects/definitions/circular-gallery.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/NOTICE.txt"
+          "target": "components/ui/image-effects/definitions/circular-gallery.js"
         },
         {
-          "path": "./components/ui/slideshow/article-effects.js",
+          "path": "./components/ui/image-effects/NOTICE.txt",
           "type": "registry:file",
-          "target": "components/ui/slideshow/article-effects.js"
+          "target": "components/ui/image-effects/NOTICE.txt"
         },
         {
-          "path": "./components/ui/slideshow/cloth.js",
+          "path": "./components/ui/image-effects/cloth.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/cloth.js"
+          "target": "components/ui/image-effects/cloth.js"
         },
         {
-          "path": "./components/ui/slideshow/effects.js",
+          "path": "./components/ui/image-effects/create-image-effect.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/effects.js"
+          "target": "components/ui/image-effects/create-image-effect.js"
         },
         {
-          "path": "./components/ui/slideshow/face.js",
+          "path": "./components/ui/image-effects/face.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/face.js"
+          "target": "components/ui/image-effects/face.js"
         },
         {
-          "path": "./components/ui/slideshow/index.js",
+          "path": "./components/ui/image-effects/layouts.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/index.js"
+          "target": "components/ui/image-effects/layouts.js"
         },
         {
-          "path": "./components/ui/slideshow/ported.js",
+          "path": "./components/ui/image-effects/props.ts",
           "type": "registry:file",
-          "target": "components/ui/slideshow/ported.js"
+          "target": "components/ui/image-effects/props.ts"
         },
         {
-          "path": "./components/ui/slideshow/props.ts",
+          "path": "./components/ui/image-effects/ribbons.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/props.ts"
+          "target": "components/ui/image-effects/ribbons.js"
         },
         {
-          "path": "./components/ui/slideshow/ribbons.js",
+          "path": "./components/ui/image-effects/scene.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/ribbons.js"
-        },
-        {
-          "path": "./components/ui/slideshow/scene.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/scene.js"
+          "target": "components/ui/image-effects/scene.js"
         }
       ]
     },
     {
-      "name": "slideshow-infinite-gallery",
+      "name": "image-effect-infinite-gallery",
       "type": "registry:component",
       "title": "Infinite Gallery",
       "description": "A continuous vertical gallery bends as photographs approach the center.",
@@ -215,64 +162,59 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "./components/ui/slideshow-infinite-gallery.tsx",
+          "path": "./components/ui/image-effect-infinite-gallery.tsx",
           "type": "registry:file",
-          "target": "components/ui/slideshow-infinite-gallery.tsx"
+          "target": "components/ui/image-effect-infinite-gallery.tsx"
         },
         {
-          "path": "./components/ui/slideshow/NOTICE.txt",
+          "path": "./components/ui/image-effects/definitions/infinite-gallery.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/NOTICE.txt"
+          "target": "components/ui/image-effects/definitions/infinite-gallery.js"
         },
         {
-          "path": "./components/ui/slideshow/article-effects.js",
+          "path": "./components/ui/image-effects/NOTICE.txt",
           "type": "registry:file",
-          "target": "components/ui/slideshow/article-effects.js"
+          "target": "components/ui/image-effects/NOTICE.txt"
         },
         {
-          "path": "./components/ui/slideshow/cloth.js",
+          "path": "./components/ui/image-effects/cloth.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/cloth.js"
+          "target": "components/ui/image-effects/cloth.js"
         },
         {
-          "path": "./components/ui/slideshow/effects.js",
+          "path": "./components/ui/image-effects/create-image-effect.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/effects.js"
+          "target": "components/ui/image-effects/create-image-effect.js"
         },
         {
-          "path": "./components/ui/slideshow/face.js",
+          "path": "./components/ui/image-effects/face.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/face.js"
+          "target": "components/ui/image-effects/face.js"
         },
         {
-          "path": "./components/ui/slideshow/index.js",
+          "path": "./components/ui/image-effects/layouts.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/index.js"
+          "target": "components/ui/image-effects/layouts.js"
         },
         {
-          "path": "./components/ui/slideshow/ported.js",
+          "path": "./components/ui/image-effects/props.ts",
           "type": "registry:file",
-          "target": "components/ui/slideshow/ported.js"
+          "target": "components/ui/image-effects/props.ts"
         },
         {
-          "path": "./components/ui/slideshow/props.ts",
+          "path": "./components/ui/image-effects/ribbons.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/props.ts"
+          "target": "components/ui/image-effects/ribbons.js"
         },
         {
-          "path": "./components/ui/slideshow/ribbons.js",
+          "path": "./components/ui/image-effects/scene.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/ribbons.js"
-        },
-        {
-          "path": "./components/ui/slideshow/scene.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/scene.js"
+          "target": "components/ui/image-effects/scene.js"
         }
       ]
     },
     {
-      "name": "slideshow-physics-cloth",
+      "name": "image-effect-physics-cloth",
       "type": "registry:component",
       "title": "Physics Cloth",
       "description": "A pinned fabric image responds to gravity and a changing wind field.",
@@ -282,131 +224,83 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "./components/ui/slideshow-physics-cloth.tsx",
+          "path": "./components/ui/image-effect-physics-cloth.tsx",
           "type": "registry:file",
-          "target": "components/ui/slideshow-physics-cloth.tsx"
+          "target": "components/ui/image-effect-physics-cloth.tsx"
         },
         {
-          "path": "./components/ui/slideshow/NOTICE.txt",
+          "path": "./components/ui/image-effects/definitions/physics-cloth.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/NOTICE.txt"
+          "target": "components/ui/image-effects/definitions/physics-cloth.js"
         },
         {
-          "path": "./components/ui/slideshow/article-effects.js",
+          "path": "./components/ui/image-effects/NOTICE.txt",
           "type": "registry:file",
-          "target": "components/ui/slideshow/article-effects.js"
+          "target": "components/ui/image-effects/NOTICE.txt"
         },
         {
-          "path": "./components/ui/slideshow/cloth.js",
+          "path": "./components/ui/image-effects/cloth.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/cloth.js"
+          "target": "components/ui/image-effects/cloth.js"
         },
         {
-          "path": "./components/ui/slideshow/effects.js",
+          "path": "./components/ui/image-effects/create-image-effect.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/effects.js"
+          "target": "components/ui/image-effects/create-image-effect.js"
         },
         {
-          "path": "./components/ui/slideshow/face.js",
+          "path": "./components/ui/image-effects/face.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/face.js"
+          "target": "components/ui/image-effects/face.js"
         },
         {
-          "path": "./components/ui/slideshow/index.js",
+          "path": "./components/ui/image-effects/layouts.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/index.js"
+          "target": "components/ui/image-effects/layouts.js"
         },
         {
-          "path": "./components/ui/slideshow/ported.js",
+          "path": "./components/ui/image-effects/props.ts",
           "type": "registry:file",
-          "target": "components/ui/slideshow/ported.js"
+          "target": "components/ui/image-effects/props.ts"
         },
         {
-          "path": "./components/ui/slideshow/props.ts",
+          "path": "./components/ui/image-effects/ribbons.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/props.ts"
+          "target": "components/ui/image-effects/ribbons.js"
         },
         {
-          "path": "./components/ui/slideshow/ribbons.js",
+          "path": "./components/ui/image-effects/scene.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/ribbons.js"
-        },
-        {
-          "path": "./components/ui/slideshow/scene.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/scene.js"
+          "target": "components/ui/image-effects/scene.js"
         }
       ]
     },
     {
-      "name": "slideshow-webgl-carousel",
+      "name": "image-effect-webgl-carousel",
       "type": "registry:component",
       "title": "WebGL Carousel",
       "description": "A perspective carousel curves adjacent images away from the center.",
       "dependencies": [
-        "three@0.186.0"
+        "three@0.186.0",
+        "@types/three@0.183.1"
       ],
       "registryDependencies": [],
       "files": [
         {
-          "path": "./components/ui/slideshow-webgl-carousel.tsx",
+          "path": "./components/ui/image-effect-webgl-carousel.tsx",
           "type": "registry:file",
-          "target": "components/ui/slideshow-webgl-carousel.tsx"
+          "target": "components/ui/image-effect-webgl-carousel.tsx"
         },
         {
-          "path": "./components/ui/slideshow/NOTICE.txt",
+          "path": "./components/ui/image-effects/props.ts",
           "type": "registry:file",
-          "target": "components/ui/slideshow/NOTICE.txt"
-        },
-        {
-          "path": "./components/ui/slideshow/article-effects.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/article-effects.js"
-        },
-        {
-          "path": "./components/ui/slideshow/cloth.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/cloth.js"
-        },
-        {
-          "path": "./components/ui/slideshow/effects.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/effects.js"
-        },
-        {
-          "path": "./components/ui/slideshow/face.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/face.js"
-        },
-        {
-          "path": "./components/ui/slideshow/index.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/index.js"
-        },
-        {
-          "path": "./components/ui/slideshow/ported.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/ported.js"
-        },
-        {
-          "path": "./components/ui/slideshow/props.ts",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/props.ts"
-        },
-        {
-          "path": "./components/ui/slideshow/ribbons.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/ribbons.js"
-        },
-        {
-          "path": "./components/ui/slideshow/scene.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/scene.js"
+          "target": "components/ui/image-effects/props.ts"
         }
-      ]
+      ],
+      "devDependencies": []
     },
     {
-      "name": "slideshow-bulge",
+      "name": "image-effect-bulge",
       "type": "registry:component",
       "title": "Bulge",
       "description": "A movable lens pushes the image outward under the pointer.",
@@ -416,64 +310,59 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "./components/ui/slideshow-bulge.tsx",
+          "path": "./components/ui/image-effect-bulge.tsx",
           "type": "registry:file",
-          "target": "components/ui/slideshow-bulge.tsx"
+          "target": "components/ui/image-effect-bulge.tsx"
         },
         {
-          "path": "./components/ui/slideshow/NOTICE.txt",
+          "path": "./components/ui/image-effects/definitions/bulge.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/NOTICE.txt"
+          "target": "components/ui/image-effects/definitions/bulge.js"
         },
         {
-          "path": "./components/ui/slideshow/article-effects.js",
+          "path": "./components/ui/image-effects/NOTICE.txt",
           "type": "registry:file",
-          "target": "components/ui/slideshow/article-effects.js"
+          "target": "components/ui/image-effects/NOTICE.txt"
         },
         {
-          "path": "./components/ui/slideshow/cloth.js",
+          "path": "./components/ui/image-effects/cloth.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/cloth.js"
+          "target": "components/ui/image-effects/cloth.js"
         },
         {
-          "path": "./components/ui/slideshow/effects.js",
+          "path": "./components/ui/image-effects/create-image-effect.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/effects.js"
+          "target": "components/ui/image-effects/create-image-effect.js"
         },
         {
-          "path": "./components/ui/slideshow/face.js",
+          "path": "./components/ui/image-effects/face.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/face.js"
+          "target": "components/ui/image-effects/face.js"
         },
         {
-          "path": "./components/ui/slideshow/index.js",
+          "path": "./components/ui/image-effects/layouts.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/index.js"
+          "target": "components/ui/image-effects/layouts.js"
         },
         {
-          "path": "./components/ui/slideshow/ported.js",
+          "path": "./components/ui/image-effects/props.ts",
           "type": "registry:file",
-          "target": "components/ui/slideshow/ported.js"
+          "target": "components/ui/image-effects/props.ts"
         },
         {
-          "path": "./components/ui/slideshow/props.ts",
+          "path": "./components/ui/image-effects/ribbons.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/props.ts"
+          "target": "components/ui/image-effects/ribbons.js"
         },
         {
-          "path": "./components/ui/slideshow/ribbons.js",
+          "path": "./components/ui/image-effects/scene.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/ribbons.js"
-        },
-        {
-          "path": "./components/ui/slideshow/scene.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/scene.js"
+          "target": "components/ui/image-effects/scene.js"
         }
       ]
     },
     {
-      "name": "slideshow-emerging-images",
+      "name": "image-effect-emerging-images",
       "type": "registry:component",
       "title": "Emerging Images",
       "description": "Horizontal fragments emerge and align into the next image.",
@@ -483,131 +372,83 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "./components/ui/slideshow-emerging-images.tsx",
+          "path": "./components/ui/image-effect-emerging-images.tsx",
           "type": "registry:file",
-          "target": "components/ui/slideshow-emerging-images.tsx"
+          "target": "components/ui/image-effect-emerging-images.tsx"
         },
         {
-          "path": "./components/ui/slideshow/NOTICE.txt",
+          "path": "./components/ui/image-effects/definitions/emerging-images.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/NOTICE.txt"
+          "target": "components/ui/image-effects/definitions/emerging-images.js"
         },
         {
-          "path": "./components/ui/slideshow/article-effects.js",
+          "path": "./components/ui/image-effects/NOTICE.txt",
           "type": "registry:file",
-          "target": "components/ui/slideshow/article-effects.js"
+          "target": "components/ui/image-effects/NOTICE.txt"
         },
         {
-          "path": "./components/ui/slideshow/cloth.js",
+          "path": "./components/ui/image-effects/cloth.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/cloth.js"
+          "target": "components/ui/image-effects/cloth.js"
         },
         {
-          "path": "./components/ui/slideshow/effects.js",
+          "path": "./components/ui/image-effects/create-image-effect.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/effects.js"
+          "target": "components/ui/image-effects/create-image-effect.js"
         },
         {
-          "path": "./components/ui/slideshow/face.js",
+          "path": "./components/ui/image-effects/face.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/face.js"
+          "target": "components/ui/image-effects/face.js"
         },
         {
-          "path": "./components/ui/slideshow/index.js",
+          "path": "./components/ui/image-effects/layouts.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/index.js"
+          "target": "components/ui/image-effects/layouts.js"
         },
         {
-          "path": "./components/ui/slideshow/ported.js",
+          "path": "./components/ui/image-effects/props.ts",
           "type": "registry:file",
-          "target": "components/ui/slideshow/ported.js"
+          "target": "components/ui/image-effects/props.ts"
         },
         {
-          "path": "./components/ui/slideshow/props.ts",
+          "path": "./components/ui/image-effects/ribbons.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/props.ts"
+          "target": "components/ui/image-effects/ribbons.js"
         },
         {
-          "path": "./components/ui/slideshow/ribbons.js",
+          "path": "./components/ui/image-effects/scene.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/ribbons.js"
-        },
-        {
-          "path": "./components/ui/slideshow/scene.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/scene.js"
+          "target": "components/ui/image-effects/scene.js"
         }
       ]
     },
     {
-      "name": "slideshow-sdf-lens-blur",
+      "name": "image-effect-sdf-lens-blur",
       "type": "registry:component",
       "title": "SDF Lens Blur",
-      "description": "A shaped focus window moves across a softened image.",
+      "description": "The pointer softens the edges of four monochrome distance-field shapes.",
       "dependencies": [
-        "three@0.186.0"
+        "three@0.186.0",
+        "@types/three@0.183.1"
       ],
       "registryDependencies": [],
       "files": [
         {
-          "path": "./components/ui/slideshow-sdf-lens-blur.tsx",
+          "path": "./components/ui/image-effect-sdf-lens-blur.tsx",
           "type": "registry:file",
-          "target": "components/ui/slideshow-sdf-lens-blur.tsx"
+          "target": "components/ui/image-effect-sdf-lens-blur.tsx"
         },
         {
-          "path": "./components/ui/slideshow/NOTICE.txt",
+          "path": "./components/ui/image-effects/definitions/sdf-lens-blur.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/NOTICE.txt"
-        },
-        {
-          "path": "./components/ui/slideshow/article-effects.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/article-effects.js"
-        },
-        {
-          "path": "./components/ui/slideshow/cloth.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/cloth.js"
-        },
-        {
-          "path": "./components/ui/slideshow/effects.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/effects.js"
-        },
-        {
-          "path": "./components/ui/slideshow/face.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/face.js"
-        },
-        {
-          "path": "./components/ui/slideshow/index.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/index.js"
-        },
-        {
-          "path": "./components/ui/slideshow/ported.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/ported.js"
-        },
-        {
-          "path": "./components/ui/slideshow/props.ts",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/props.ts"
-        },
-        {
-          "path": "./components/ui/slideshow/ribbons.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/ribbons.js"
-        },
-        {
-          "path": "./components/ui/slideshow/scene.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/scene.js"
+          "target": "components/ui/image-effects/definitions/sdf-lens-blur.js"
         }
-      ]
+      ],
+      "devDependencies": []
     },
     {
-      "name": "slideshow-progressive-blur",
+      "name": "image-effect-progressive-blur",
       "type": "registry:component",
       "title": "Progressive Blur",
       "description": "A vertical blur gradient rolls across the image.",
@@ -617,64 +458,59 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "./components/ui/slideshow-progressive-blur.tsx",
+          "path": "./components/ui/image-effect-progressive-blur.tsx",
           "type": "registry:file",
-          "target": "components/ui/slideshow-progressive-blur.tsx"
+          "target": "components/ui/image-effect-progressive-blur.tsx"
         },
         {
-          "path": "./components/ui/slideshow/NOTICE.txt",
+          "path": "./components/ui/image-effects/definitions/progressive-blur.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/NOTICE.txt"
+          "target": "components/ui/image-effects/definitions/progressive-blur.js"
         },
         {
-          "path": "./components/ui/slideshow/article-effects.js",
+          "path": "./components/ui/image-effects/NOTICE.txt",
           "type": "registry:file",
-          "target": "components/ui/slideshow/article-effects.js"
+          "target": "components/ui/image-effects/NOTICE.txt"
         },
         {
-          "path": "./components/ui/slideshow/cloth.js",
+          "path": "./components/ui/image-effects/cloth.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/cloth.js"
+          "target": "components/ui/image-effects/cloth.js"
         },
         {
-          "path": "./components/ui/slideshow/effects.js",
+          "path": "./components/ui/image-effects/create-image-effect.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/effects.js"
+          "target": "components/ui/image-effects/create-image-effect.js"
         },
         {
-          "path": "./components/ui/slideshow/face.js",
+          "path": "./components/ui/image-effects/face.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/face.js"
+          "target": "components/ui/image-effects/face.js"
         },
         {
-          "path": "./components/ui/slideshow/index.js",
+          "path": "./components/ui/image-effects/layouts.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/index.js"
+          "target": "components/ui/image-effects/layouts.js"
         },
         {
-          "path": "./components/ui/slideshow/ported.js",
+          "path": "./components/ui/image-effects/props.ts",
           "type": "registry:file",
-          "target": "components/ui/slideshow/ported.js"
+          "target": "components/ui/image-effects/props.ts"
         },
         {
-          "path": "./components/ui/slideshow/props.ts",
+          "path": "./components/ui/image-effects/ribbons.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/props.ts"
+          "target": "components/ui/image-effects/ribbons.js"
         },
         {
-          "path": "./components/ui/slideshow/ribbons.js",
+          "path": "./components/ui/image-effects/scene.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/ribbons.js"
-        },
-        {
-          "path": "./components/ui/slideshow/scene.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/scene.js"
+          "target": "components/ui/image-effects/scene.js"
         }
       ]
     },
     {
-      "name": "slideshow-object-fit",
+      "name": "image-effect-object-fit",
       "type": "registry:component",
       "title": "Object Fit",
       "description": "An image covers its plane while pointer movement shifts its crop within the remaining margins.",
@@ -684,64 +520,59 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "./components/ui/slideshow-object-fit.tsx",
+          "path": "./components/ui/image-effect-object-fit.tsx",
           "type": "registry:file",
-          "target": "components/ui/slideshow-object-fit.tsx"
+          "target": "components/ui/image-effect-object-fit.tsx"
         },
         {
-          "path": "./components/ui/slideshow/NOTICE.txt",
+          "path": "./components/ui/image-effects/definitions/object-fit.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/NOTICE.txt"
+          "target": "components/ui/image-effects/definitions/object-fit.js"
         },
         {
-          "path": "./components/ui/slideshow/article-effects.js",
+          "path": "./components/ui/image-effects/NOTICE.txt",
           "type": "registry:file",
-          "target": "components/ui/slideshow/article-effects.js"
+          "target": "components/ui/image-effects/NOTICE.txt"
         },
         {
-          "path": "./components/ui/slideshow/cloth.js",
+          "path": "./components/ui/image-effects/cloth.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/cloth.js"
+          "target": "components/ui/image-effects/cloth.js"
         },
         {
-          "path": "./components/ui/slideshow/effects.js",
+          "path": "./components/ui/image-effects/create-image-effect.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/effects.js"
+          "target": "components/ui/image-effects/create-image-effect.js"
         },
         {
-          "path": "./components/ui/slideshow/face.js",
+          "path": "./components/ui/image-effects/face.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/face.js"
+          "target": "components/ui/image-effects/face.js"
         },
         {
-          "path": "./components/ui/slideshow/index.js",
+          "path": "./components/ui/image-effects/layouts.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/index.js"
+          "target": "components/ui/image-effects/layouts.js"
         },
         {
-          "path": "./components/ui/slideshow/ported.js",
+          "path": "./components/ui/image-effects/props.ts",
           "type": "registry:file",
-          "target": "components/ui/slideshow/ported.js"
+          "target": "components/ui/image-effects/props.ts"
         },
         {
-          "path": "./components/ui/slideshow/props.ts",
+          "path": "./components/ui/image-effects/ribbons.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/props.ts"
+          "target": "components/ui/image-effects/ribbons.js"
         },
         {
-          "path": "./components/ui/slideshow/ribbons.js",
+          "path": "./components/ui/image-effects/scene.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/ribbons.js"
-        },
-        {
-          "path": "./components/ui/slideshow/scene.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/scene.js"
+          "target": "components/ui/image-effects/scene.js"
         }
       ]
     },
     {
-      "name": "slideshow-scroll-grain",
+      "name": "image-effect-scroll-grain",
       "type": "registry:component",
       "title": "Scroll Grain",
       "description": "Scroll through distorted images with a fine animated grain.",
@@ -751,64 +582,59 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "./components/ui/slideshow-scroll-grain.tsx",
+          "path": "./components/ui/image-effect-scroll-grain.tsx",
           "type": "registry:file",
-          "target": "components/ui/slideshow-scroll-grain.tsx"
+          "target": "components/ui/image-effect-scroll-grain.tsx"
         },
         {
-          "path": "./components/ui/slideshow/NOTICE.txt",
+          "path": "./components/ui/image-effects/definitions/scroll-grain.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/NOTICE.txt"
+          "target": "components/ui/image-effects/definitions/scroll-grain.js"
         },
         {
-          "path": "./components/ui/slideshow/article-effects.js",
+          "path": "./components/ui/image-effects/NOTICE.txt",
           "type": "registry:file",
-          "target": "components/ui/slideshow/article-effects.js"
+          "target": "components/ui/image-effects/NOTICE.txt"
         },
         {
-          "path": "./components/ui/slideshow/cloth.js",
+          "path": "./components/ui/image-effects/cloth.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/cloth.js"
+          "target": "components/ui/image-effects/cloth.js"
         },
         {
-          "path": "./components/ui/slideshow/effects.js",
+          "path": "./components/ui/image-effects/create-image-effect.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/effects.js"
+          "target": "components/ui/image-effects/create-image-effect.js"
         },
         {
-          "path": "./components/ui/slideshow/face.js",
+          "path": "./components/ui/image-effects/face.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/face.js"
+          "target": "components/ui/image-effects/face.js"
         },
         {
-          "path": "./components/ui/slideshow/index.js",
+          "path": "./components/ui/image-effects/layouts.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/index.js"
+          "target": "components/ui/image-effects/layouts.js"
         },
         {
-          "path": "./components/ui/slideshow/ported.js",
+          "path": "./components/ui/image-effects/props.ts",
           "type": "registry:file",
-          "target": "components/ui/slideshow/ported.js"
+          "target": "components/ui/image-effects/props.ts"
         },
         {
-          "path": "./components/ui/slideshow/props.ts",
+          "path": "./components/ui/image-effects/ribbons.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/props.ts"
+          "target": "components/ui/image-effects/ribbons.js"
         },
         {
-          "path": "./components/ui/slideshow/ribbons.js",
+          "path": "./components/ui/image-effects/scene.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/ribbons.js"
-        },
-        {
-          "path": "./components/ui/slideshow/scene.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/scene.js"
+          "target": "components/ui/image-effects/scene.js"
         }
       ]
     },
     {
-      "name": "slideshow-rotating-gallery",
+      "name": "image-effect-rotating-gallery",
       "type": "registry:component",
       "title": "Rotating Gallery",
       "description": "Each card twists along its vertical axis while crossing the gallery.",
@@ -818,64 +644,59 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "./components/ui/slideshow-rotating-gallery.tsx",
+          "path": "./components/ui/image-effect-rotating-gallery.tsx",
           "type": "registry:file",
-          "target": "components/ui/slideshow-rotating-gallery.tsx"
+          "target": "components/ui/image-effect-rotating-gallery.tsx"
         },
         {
-          "path": "./components/ui/slideshow/NOTICE.txt",
+          "path": "./components/ui/image-effects/definitions/rotating-gallery.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/NOTICE.txt"
+          "target": "components/ui/image-effects/definitions/rotating-gallery.js"
         },
         {
-          "path": "./components/ui/slideshow/article-effects.js",
+          "path": "./components/ui/image-effects/NOTICE.txt",
           "type": "registry:file",
-          "target": "components/ui/slideshow/article-effects.js"
+          "target": "components/ui/image-effects/NOTICE.txt"
         },
         {
-          "path": "./components/ui/slideshow/cloth.js",
+          "path": "./components/ui/image-effects/cloth.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/cloth.js"
+          "target": "components/ui/image-effects/cloth.js"
         },
         {
-          "path": "./components/ui/slideshow/effects.js",
+          "path": "./components/ui/image-effects/create-image-effect.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/effects.js"
+          "target": "components/ui/image-effects/create-image-effect.js"
         },
         {
-          "path": "./components/ui/slideshow/face.js",
+          "path": "./components/ui/image-effects/face.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/face.js"
+          "target": "components/ui/image-effects/face.js"
         },
         {
-          "path": "./components/ui/slideshow/index.js",
+          "path": "./components/ui/image-effects/layouts.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/index.js"
+          "target": "components/ui/image-effects/layouts.js"
         },
         {
-          "path": "./components/ui/slideshow/ported.js",
+          "path": "./components/ui/image-effects/props.ts",
           "type": "registry:file",
-          "target": "components/ui/slideshow/ported.js"
+          "target": "components/ui/image-effects/props.ts"
         },
         {
-          "path": "./components/ui/slideshow/props.ts",
+          "path": "./components/ui/image-effects/ribbons.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/props.ts"
+          "target": "components/ui/image-effects/ribbons.js"
         },
         {
-          "path": "./components/ui/slideshow/ribbons.js",
+          "path": "./components/ui/image-effects/scene.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/ribbons.js"
-        },
-        {
-          "path": "./components/ui/slideshow/scene.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/scene.js"
+          "target": "components/ui/image-effects/scene.js"
         }
       ]
     },
     {
-      "name": "slideshow-interactive-grid",
+      "name": "image-effect-interactive-grid",
       "type": "registry:component",
       "title": "Interactive Grid",
       "description": "A tiled image wall lifts individual panels toward the pointer.",
@@ -885,64 +706,59 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "./components/ui/slideshow-interactive-grid.tsx",
+          "path": "./components/ui/image-effect-interactive-grid.tsx",
           "type": "registry:file",
-          "target": "components/ui/slideshow-interactive-grid.tsx"
+          "target": "components/ui/image-effect-interactive-grid.tsx"
         },
         {
-          "path": "./components/ui/slideshow/NOTICE.txt",
+          "path": "./components/ui/image-effects/definitions/interactive-grid.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/NOTICE.txt"
+          "target": "components/ui/image-effects/definitions/interactive-grid.js"
         },
         {
-          "path": "./components/ui/slideshow/article-effects.js",
+          "path": "./components/ui/image-effects/NOTICE.txt",
           "type": "registry:file",
-          "target": "components/ui/slideshow/article-effects.js"
+          "target": "components/ui/image-effects/NOTICE.txt"
         },
         {
-          "path": "./components/ui/slideshow/cloth.js",
+          "path": "./components/ui/image-effects/cloth.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/cloth.js"
+          "target": "components/ui/image-effects/cloth.js"
         },
         {
-          "path": "./components/ui/slideshow/effects.js",
+          "path": "./components/ui/image-effects/create-image-effect.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/effects.js"
+          "target": "components/ui/image-effects/create-image-effect.js"
         },
         {
-          "path": "./components/ui/slideshow/face.js",
+          "path": "./components/ui/image-effects/face.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/face.js"
+          "target": "components/ui/image-effects/face.js"
         },
         {
-          "path": "./components/ui/slideshow/index.js",
+          "path": "./components/ui/image-effects/layouts.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/index.js"
+          "target": "components/ui/image-effects/layouts.js"
         },
         {
-          "path": "./components/ui/slideshow/ported.js",
+          "path": "./components/ui/image-effects/props.ts",
           "type": "registry:file",
-          "target": "components/ui/slideshow/ported.js"
+          "target": "components/ui/image-effects/props.ts"
         },
         {
-          "path": "./components/ui/slideshow/props.ts",
+          "path": "./components/ui/image-effects/ribbons.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/props.ts"
+          "target": "components/ui/image-effects/ribbons.js"
         },
         {
-          "path": "./components/ui/slideshow/ribbons.js",
+          "path": "./components/ui/image-effects/scene.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/ribbons.js"
-        },
-        {
-          "path": "./components/ui/slideshow/scene.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/scene.js"
+          "target": "components/ui/image-effects/scene.js"
         }
       ]
     },
     {
-      "name": "slideshow-shader-ripple",
+      "name": "image-effect-shader-ripple",
       "type": "registry:component",
       "title": "Shader Ripple",
       "description": "Concentric waves distort the image and reveal the next texture.",
@@ -952,131 +768,83 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "./components/ui/slideshow-shader-ripple.tsx",
+          "path": "./components/ui/image-effect-shader-ripple.tsx",
           "type": "registry:file",
-          "target": "components/ui/slideshow-shader-ripple.tsx"
+          "target": "components/ui/image-effect-shader-ripple.tsx"
         },
         {
-          "path": "./components/ui/slideshow/NOTICE.txt",
+          "path": "./components/ui/image-effects/definitions/shader-ripple.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/NOTICE.txt"
+          "target": "components/ui/image-effects/definitions/shader-ripple.js"
         },
         {
-          "path": "./components/ui/slideshow/article-effects.js",
+          "path": "./components/ui/image-effects/NOTICE.txt",
           "type": "registry:file",
-          "target": "components/ui/slideshow/article-effects.js"
+          "target": "components/ui/image-effects/NOTICE.txt"
         },
         {
-          "path": "./components/ui/slideshow/cloth.js",
+          "path": "./components/ui/image-effects/cloth.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/cloth.js"
+          "target": "components/ui/image-effects/cloth.js"
         },
         {
-          "path": "./components/ui/slideshow/effects.js",
+          "path": "./components/ui/image-effects/create-image-effect.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/effects.js"
+          "target": "components/ui/image-effects/create-image-effect.js"
         },
         {
-          "path": "./components/ui/slideshow/face.js",
+          "path": "./components/ui/image-effects/face.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/face.js"
+          "target": "components/ui/image-effects/face.js"
         },
         {
-          "path": "./components/ui/slideshow/index.js",
+          "path": "./components/ui/image-effects/layouts.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/index.js"
+          "target": "components/ui/image-effects/layouts.js"
         },
         {
-          "path": "./components/ui/slideshow/ported.js",
+          "path": "./components/ui/image-effects/props.ts",
           "type": "registry:file",
-          "target": "components/ui/slideshow/ported.js"
+          "target": "components/ui/image-effects/props.ts"
         },
         {
-          "path": "./components/ui/slideshow/props.ts",
+          "path": "./components/ui/image-effects/ribbons.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/props.ts"
+          "target": "components/ui/image-effects/ribbons.js"
         },
         {
-          "path": "./components/ui/slideshow/ribbons.js",
+          "path": "./components/ui/image-effects/scene.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/ribbons.js"
-        },
-        {
-          "path": "./components/ui/slideshow/scene.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/scene.js"
+          "target": "components/ui/image-effects/scene.js"
         }
       ]
     },
     {
-      "name": "slideshow-dom-cloth",
+      "name": "image-effect-dom-cloth",
       "type": "registry:component",
       "title": "DOM Cloth",
       "description": "Fabric-like posters ripple as they travel through a carousel.",
       "dependencies": [
-        "three@0.186.0"
+        "three@0.186.0",
+        "@types/three@0.183.1"
       ],
       "registryDependencies": [],
       "files": [
         {
-          "path": "./components/ui/slideshow-dom-cloth.tsx",
+          "path": "./components/ui/image-effect-dom-cloth.tsx",
           "type": "registry:file",
-          "target": "components/ui/slideshow-dom-cloth.tsx"
+          "target": "components/ui/image-effect-dom-cloth.tsx"
         },
         {
-          "path": "./components/ui/slideshow/NOTICE.txt",
+          "path": "./components/ui/image-effects/props.ts",
           "type": "registry:file",
-          "target": "components/ui/slideshow/NOTICE.txt"
-        },
-        {
-          "path": "./components/ui/slideshow/article-effects.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/article-effects.js"
-        },
-        {
-          "path": "./components/ui/slideshow/cloth.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/cloth.js"
-        },
-        {
-          "path": "./components/ui/slideshow/effects.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/effects.js"
-        },
-        {
-          "path": "./components/ui/slideshow/face.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/face.js"
-        },
-        {
-          "path": "./components/ui/slideshow/index.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/index.js"
-        },
-        {
-          "path": "./components/ui/slideshow/ported.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/ported.js"
-        },
-        {
-          "path": "./components/ui/slideshow/props.ts",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/props.ts"
-        },
-        {
-          "path": "./components/ui/slideshow/ribbons.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/ribbons.js"
-        },
-        {
-          "path": "./components/ui/slideshow/scene.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/scene.js"
+          "target": "components/ui/image-effects/props.ts"
         }
-      ]
+      ],
+      "devDependencies": []
     },
     {
-      "name": "slideshow-phantom-grid",
+      "name": "image-effect-phantom-grid",
       "type": "registry:component",
       "title": "Phantom Grid",
       "description": "A floating image grid and a point-cloud face respond to pointer movement.",
@@ -1086,64 +854,59 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "./components/ui/slideshow-phantom-grid.tsx",
+          "path": "./components/ui/image-effect-phantom-grid.tsx",
           "type": "registry:file",
-          "target": "components/ui/slideshow-phantom-grid.tsx"
+          "target": "components/ui/image-effect-phantom-grid.tsx"
         },
         {
-          "path": "./components/ui/slideshow/NOTICE.txt",
+          "path": "./components/ui/image-effects/definitions/phantom-grid.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/NOTICE.txt"
+          "target": "components/ui/image-effects/definitions/phantom-grid.js"
         },
         {
-          "path": "./components/ui/slideshow/article-effects.js",
+          "path": "./components/ui/image-effects/NOTICE.txt",
           "type": "registry:file",
-          "target": "components/ui/slideshow/article-effects.js"
+          "target": "components/ui/image-effects/NOTICE.txt"
         },
         {
-          "path": "./components/ui/slideshow/cloth.js",
+          "path": "./components/ui/image-effects/cloth.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/cloth.js"
+          "target": "components/ui/image-effects/cloth.js"
         },
         {
-          "path": "./components/ui/slideshow/effects.js",
+          "path": "./components/ui/image-effects/create-image-effect.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/effects.js"
+          "target": "components/ui/image-effects/create-image-effect.js"
         },
         {
-          "path": "./components/ui/slideshow/face.js",
+          "path": "./components/ui/image-effects/face.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/face.js"
+          "target": "components/ui/image-effects/face.js"
         },
         {
-          "path": "./components/ui/slideshow/index.js",
+          "path": "./components/ui/image-effects/layouts.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/index.js"
+          "target": "components/ui/image-effects/layouts.js"
         },
         {
-          "path": "./components/ui/slideshow/ported.js",
+          "path": "./components/ui/image-effects/props.ts",
           "type": "registry:file",
-          "target": "components/ui/slideshow/ported.js"
+          "target": "components/ui/image-effects/props.ts"
         },
         {
-          "path": "./components/ui/slideshow/props.ts",
+          "path": "./components/ui/image-effects/ribbons.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/props.ts"
+          "target": "components/ui/image-effects/ribbons.js"
         },
         {
-          "path": "./components/ui/slideshow/ribbons.js",
+          "path": "./components/ui/image-effects/scene.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/ribbons.js"
-        },
-        {
-          "path": "./components/ui/slideshow/scene.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/scene.js"
+          "target": "components/ui/image-effects/scene.js"
         }
       ]
     },
     {
-      "name": "slideshow-depth-gallery",
+      "name": "image-effect-depth-gallery",
       "type": "registry:component",
       "title": "Depth Gallery",
       "description": "Images move toward the viewer through layers of atmospheric color.",
@@ -1153,64 +916,59 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "./components/ui/slideshow-depth-gallery.tsx",
+          "path": "./components/ui/image-effect-depth-gallery.tsx",
           "type": "registry:file",
-          "target": "components/ui/slideshow-depth-gallery.tsx"
+          "target": "components/ui/image-effect-depth-gallery.tsx"
         },
         {
-          "path": "./components/ui/slideshow/NOTICE.txt",
+          "path": "./components/ui/image-effects/definitions/depth-gallery.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/NOTICE.txt"
+          "target": "components/ui/image-effects/definitions/depth-gallery.js"
         },
         {
-          "path": "./components/ui/slideshow/article-effects.js",
+          "path": "./components/ui/image-effects/NOTICE.txt",
           "type": "registry:file",
-          "target": "components/ui/slideshow/article-effects.js"
+          "target": "components/ui/image-effects/NOTICE.txt"
         },
         {
-          "path": "./components/ui/slideshow/cloth.js",
+          "path": "./components/ui/image-effects/cloth.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/cloth.js"
+          "target": "components/ui/image-effects/cloth.js"
         },
         {
-          "path": "./components/ui/slideshow/effects.js",
+          "path": "./components/ui/image-effects/create-image-effect.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/effects.js"
+          "target": "components/ui/image-effects/create-image-effect.js"
         },
         {
-          "path": "./components/ui/slideshow/face.js",
+          "path": "./components/ui/image-effects/face.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/face.js"
+          "target": "components/ui/image-effects/face.js"
         },
         {
-          "path": "./components/ui/slideshow/index.js",
+          "path": "./components/ui/image-effects/layouts.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/index.js"
+          "target": "components/ui/image-effects/layouts.js"
         },
         {
-          "path": "./components/ui/slideshow/ported.js",
+          "path": "./components/ui/image-effects/props.ts",
           "type": "registry:file",
-          "target": "components/ui/slideshow/ported.js"
+          "target": "components/ui/image-effects/props.ts"
         },
         {
-          "path": "./components/ui/slideshow/props.ts",
+          "path": "./components/ui/image-effects/ribbons.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/props.ts"
+          "target": "components/ui/image-effects/ribbons.js"
         },
         {
-          "path": "./components/ui/slideshow/ribbons.js",
+          "path": "./components/ui/image-effects/scene.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/ribbons.js"
-        },
-        {
-          "path": "./components/ui/slideshow/scene.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/scene.js"
+          "target": "components/ui/image-effects/scene.js"
         }
       ]
     },
     {
-      "name": "slideshow-square-lens",
+      "name": "image-effect-square-lens",
       "type": "registry:component",
       "title": "Square Lens",
       "description": "A square lens reveals a second texture with color separation and refraction.",
@@ -1220,64 +978,59 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "./components/ui/slideshow-square-lens.tsx",
+          "path": "./components/ui/image-effect-square-lens.tsx",
           "type": "registry:file",
-          "target": "components/ui/slideshow-square-lens.tsx"
+          "target": "components/ui/image-effect-square-lens.tsx"
         },
         {
-          "path": "./components/ui/slideshow/NOTICE.txt",
+          "path": "./components/ui/image-effects/definitions/square-lens.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/NOTICE.txt"
+          "target": "components/ui/image-effects/definitions/square-lens.js"
         },
         {
-          "path": "./components/ui/slideshow/article-effects.js",
+          "path": "./components/ui/image-effects/NOTICE.txt",
           "type": "registry:file",
-          "target": "components/ui/slideshow/article-effects.js"
+          "target": "components/ui/image-effects/NOTICE.txt"
         },
         {
-          "path": "./components/ui/slideshow/cloth.js",
+          "path": "./components/ui/image-effects/cloth.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/cloth.js"
+          "target": "components/ui/image-effects/cloth.js"
         },
         {
-          "path": "./components/ui/slideshow/effects.js",
+          "path": "./components/ui/image-effects/create-image-effect.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/effects.js"
+          "target": "components/ui/image-effects/create-image-effect.js"
         },
         {
-          "path": "./components/ui/slideshow/face.js",
+          "path": "./components/ui/image-effects/face.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/face.js"
+          "target": "components/ui/image-effects/face.js"
         },
         {
-          "path": "./components/ui/slideshow/index.js",
+          "path": "./components/ui/image-effects/layouts.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/index.js"
+          "target": "components/ui/image-effects/layouts.js"
         },
         {
-          "path": "./components/ui/slideshow/ported.js",
+          "path": "./components/ui/image-effects/props.ts",
           "type": "registry:file",
-          "target": "components/ui/slideshow/ported.js"
+          "target": "components/ui/image-effects/props.ts"
         },
         {
-          "path": "./components/ui/slideshow/props.ts",
+          "path": "./components/ui/image-effects/ribbons.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/props.ts"
+          "target": "components/ui/image-effects/ribbons.js"
         },
         {
-          "path": "./components/ui/slideshow/ribbons.js",
+          "path": "./components/ui/image-effects/scene.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/ribbons.js"
-        },
-        {
-          "path": "./components/ui/slideshow/scene.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/scene.js"
+          "target": "components/ui/image-effects/scene.js"
         }
       ]
     },
     {
-      "name": "slideshow-curve-gallery",
+      "name": "image-effect-curve-gallery",
       "type": "registry:component",
       "title": "Curve Gallery",
       "description": "The gallery follows a curved path through a sequence of photographs.",
@@ -1287,64 +1040,59 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "./components/ui/slideshow-curve-gallery.tsx",
+          "path": "./components/ui/image-effect-curve-gallery.tsx",
           "type": "registry:file",
-          "target": "components/ui/slideshow-curve-gallery.tsx"
+          "target": "components/ui/image-effect-curve-gallery.tsx"
         },
         {
-          "path": "./components/ui/slideshow/NOTICE.txt",
+          "path": "./components/ui/image-effects/definitions/curve-gallery.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/NOTICE.txt"
+          "target": "components/ui/image-effects/definitions/curve-gallery.js"
         },
         {
-          "path": "./components/ui/slideshow/article-effects.js",
+          "path": "./components/ui/image-effects/NOTICE.txt",
           "type": "registry:file",
-          "target": "components/ui/slideshow/article-effects.js"
+          "target": "components/ui/image-effects/NOTICE.txt"
         },
         {
-          "path": "./components/ui/slideshow/cloth.js",
+          "path": "./components/ui/image-effects/cloth.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/cloth.js"
+          "target": "components/ui/image-effects/cloth.js"
         },
         {
-          "path": "./components/ui/slideshow/effects.js",
+          "path": "./components/ui/image-effects/create-image-effect.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/effects.js"
+          "target": "components/ui/image-effects/create-image-effect.js"
         },
         {
-          "path": "./components/ui/slideshow/face.js",
+          "path": "./components/ui/image-effects/face.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/face.js"
+          "target": "components/ui/image-effects/face.js"
         },
         {
-          "path": "./components/ui/slideshow/index.js",
+          "path": "./components/ui/image-effects/layouts.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/index.js"
+          "target": "components/ui/image-effects/layouts.js"
         },
         {
-          "path": "./components/ui/slideshow/ported.js",
+          "path": "./components/ui/image-effects/props.ts",
           "type": "registry:file",
-          "target": "components/ui/slideshow/ported.js"
+          "target": "components/ui/image-effects/props.ts"
         },
         {
-          "path": "./components/ui/slideshow/props.ts",
+          "path": "./components/ui/image-effects/ribbons.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/props.ts"
+          "target": "components/ui/image-effects/ribbons.js"
         },
         {
-          "path": "./components/ui/slideshow/ribbons.js",
+          "path": "./components/ui/image-effects/scene.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/ribbons.js"
-        },
-        {
-          "path": "./components/ui/slideshow/scene.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/scene.js"
+          "target": "components/ui/image-effects/scene.js"
         }
       ]
     },
     {
-      "name": "slideshow-liquid-glass-grid",
+      "name": "image-effect-liquid-glass-grid",
       "type": "registry:component",
       "title": "Liquid Glass Grid",
       "description": "Beveled image tiles wrap around a spherical grid with edge refraction.",
@@ -1354,64 +1102,64 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "./components/ui/slideshow-liquid-glass-grid.tsx",
+          "path": "./components/ui/image-effect-liquid-glass-grid.tsx",
           "type": "registry:file",
-          "target": "components/ui/slideshow-liquid-glass-grid.tsx"
+          "target": "components/ui/image-effect-liquid-glass-grid.tsx"
         },
         {
-          "path": "./components/ui/slideshow/NOTICE.txt",
+          "path": "./components/ui/image-effects/definitions/liquid-glass-grid.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/NOTICE.txt"
+          "target": "components/ui/image-effects/definitions/liquid-glass-grid.js"
         },
         {
-          "path": "./components/ui/slideshow/article-effects.js",
+          "path": "./components/ui/image-effects/glass-surface.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/article-effects.js"
+          "target": "components/ui/image-effects/glass-surface.js"
         },
         {
-          "path": "./components/ui/slideshow/cloth.js",
+          "path": "./components/ui/image-effects/NOTICE.txt",
           "type": "registry:file",
-          "target": "components/ui/slideshow/cloth.js"
+          "target": "components/ui/image-effects/NOTICE.txt"
         },
         {
-          "path": "./components/ui/slideshow/effects.js",
+          "path": "./components/ui/image-effects/cloth.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/effects.js"
+          "target": "components/ui/image-effects/cloth.js"
         },
         {
-          "path": "./components/ui/slideshow/face.js",
+          "path": "./components/ui/image-effects/create-image-effect.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/face.js"
+          "target": "components/ui/image-effects/create-image-effect.js"
         },
         {
-          "path": "./components/ui/slideshow/index.js",
+          "path": "./components/ui/image-effects/face.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/index.js"
+          "target": "components/ui/image-effects/face.js"
         },
         {
-          "path": "./components/ui/slideshow/ported.js",
+          "path": "./components/ui/image-effects/layouts.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/ported.js"
+          "target": "components/ui/image-effects/layouts.js"
         },
         {
-          "path": "./components/ui/slideshow/props.ts",
+          "path": "./components/ui/image-effects/props.ts",
           "type": "registry:file",
-          "target": "components/ui/slideshow/props.ts"
+          "target": "components/ui/image-effects/props.ts"
         },
         {
-          "path": "./components/ui/slideshow/ribbons.js",
+          "path": "./components/ui/image-effects/ribbons.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/ribbons.js"
+          "target": "components/ui/image-effects/ribbons.js"
         },
         {
-          "path": "./components/ui/slideshow/scene.js",
+          "path": "./components/ui/image-effects/scene.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/scene.js"
+          "target": "components/ui/image-effects/scene.js"
         }
       ]
     },
     {
-      "name": "slideshow-image-tube",
+      "name": "image-effect-image-tube",
       "type": "registry:component",
       "title": "Image Tube",
       "description": "Images spiral into a looping three-dimensional tube.",
@@ -1421,64 +1169,59 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "./components/ui/slideshow-image-tube.tsx",
+          "path": "./components/ui/image-effect-image-tube.tsx",
           "type": "registry:file",
-          "target": "components/ui/slideshow-image-tube.tsx"
+          "target": "components/ui/image-effect-image-tube.tsx"
         },
         {
-          "path": "./components/ui/slideshow/NOTICE.txt",
+          "path": "./components/ui/image-effects/definitions/image-tube.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/NOTICE.txt"
+          "target": "components/ui/image-effects/definitions/image-tube.js"
         },
         {
-          "path": "./components/ui/slideshow/article-effects.js",
+          "path": "./components/ui/image-effects/NOTICE.txt",
           "type": "registry:file",
-          "target": "components/ui/slideshow/article-effects.js"
+          "target": "components/ui/image-effects/NOTICE.txt"
         },
         {
-          "path": "./components/ui/slideshow/cloth.js",
+          "path": "./components/ui/image-effects/cloth.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/cloth.js"
+          "target": "components/ui/image-effects/cloth.js"
         },
         {
-          "path": "./components/ui/slideshow/effects.js",
+          "path": "./components/ui/image-effects/create-image-effect.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/effects.js"
+          "target": "components/ui/image-effects/create-image-effect.js"
         },
         {
-          "path": "./components/ui/slideshow/face.js",
+          "path": "./components/ui/image-effects/face.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/face.js"
+          "target": "components/ui/image-effects/face.js"
         },
         {
-          "path": "./components/ui/slideshow/index.js",
+          "path": "./components/ui/image-effects/layouts.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/index.js"
+          "target": "components/ui/image-effects/layouts.js"
         },
         {
-          "path": "./components/ui/slideshow/ported.js",
+          "path": "./components/ui/image-effects/props.ts",
           "type": "registry:file",
-          "target": "components/ui/slideshow/ported.js"
+          "target": "components/ui/image-effects/props.ts"
         },
         {
-          "path": "./components/ui/slideshow/props.ts",
+          "path": "./components/ui/image-effects/ribbons.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/props.ts"
+          "target": "components/ui/image-effects/ribbons.js"
         },
         {
-          "path": "./components/ui/slideshow/ribbons.js",
+          "path": "./components/ui/image-effects/scene.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/ribbons.js"
-        },
-        {
-          "path": "./components/ui/slideshow/scene.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/scene.js"
+          "target": "components/ui/image-effects/scene.js"
         }
       ]
     },
     {
-      "name": "slideshow-infinite-canvas",
+      "name": "image-effect-infinite-canvas",
       "type": "registry:component",
       "title": "Infinite Canvas",
       "description": "A repeating field of images shifts with pointer parallax.",
@@ -1488,131 +1231,83 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "./components/ui/slideshow-infinite-canvas.tsx",
+          "path": "./components/ui/image-effect-infinite-canvas.tsx",
           "type": "registry:file",
-          "target": "components/ui/slideshow-infinite-canvas.tsx"
+          "target": "components/ui/image-effect-infinite-canvas.tsx"
         },
         {
-          "path": "./components/ui/slideshow/NOTICE.txt",
+          "path": "./components/ui/image-effects/definitions/infinite-canvas.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/NOTICE.txt"
+          "target": "components/ui/image-effects/definitions/infinite-canvas.js"
         },
         {
-          "path": "./components/ui/slideshow/article-effects.js",
+          "path": "./components/ui/image-effects/NOTICE.txt",
           "type": "registry:file",
-          "target": "components/ui/slideshow/article-effects.js"
+          "target": "components/ui/image-effects/NOTICE.txt"
         },
         {
-          "path": "./components/ui/slideshow/cloth.js",
+          "path": "./components/ui/image-effects/cloth.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/cloth.js"
+          "target": "components/ui/image-effects/cloth.js"
         },
         {
-          "path": "./components/ui/slideshow/effects.js",
+          "path": "./components/ui/image-effects/create-image-effect.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/effects.js"
+          "target": "components/ui/image-effects/create-image-effect.js"
         },
         {
-          "path": "./components/ui/slideshow/face.js",
+          "path": "./components/ui/image-effects/face.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/face.js"
+          "target": "components/ui/image-effects/face.js"
         },
         {
-          "path": "./components/ui/slideshow/index.js",
+          "path": "./components/ui/image-effects/layouts.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/index.js"
+          "target": "components/ui/image-effects/layouts.js"
         },
         {
-          "path": "./components/ui/slideshow/ported.js",
+          "path": "./components/ui/image-effects/props.ts",
           "type": "registry:file",
-          "target": "components/ui/slideshow/ported.js"
+          "target": "components/ui/image-effects/props.ts"
         },
         {
-          "path": "./components/ui/slideshow/props.ts",
+          "path": "./components/ui/image-effects/ribbons.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/props.ts"
+          "target": "components/ui/image-effects/ribbons.js"
         },
         {
-          "path": "./components/ui/slideshow/ribbons.js",
+          "path": "./components/ui/image-effects/scene.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/ribbons.js"
-        },
-        {
-          "path": "./components/ui/slideshow/scene.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/scene.js"
+          "target": "components/ui/image-effects/scene.js"
         }
       ]
     },
     {
-      "name": "slideshow-cinematic-scroll",
+      "name": "image-effect-cinematic-scroll",
       "type": "registry:component",
       "title": "Cinematic Scroll",
-      "description": "A moving camera frames image planes at successive depths.",
+      "description": "Scroll through camera perspectives around a textured cyberpunk skyscraper.",
       "dependencies": [
-        "three@0.186.0"
+        "three@0.186.0",
+        "@types/three@0.183.1"
       ],
       "registryDependencies": [],
       "files": [
         {
-          "path": "./components/ui/slideshow-cinematic-scroll.tsx",
+          "path": "./components/ui/image-effect-cinematic-scroll.tsx",
           "type": "registry:file",
-          "target": "components/ui/slideshow-cinematic-scroll.tsx"
+          "target": "components/ui/image-effect-cinematic-scroll.tsx"
         },
         {
-          "path": "./components/ui/slideshow/NOTICE.txt",
+          "path": "./components/ui/image-effects/definitions/cinematic-scroll.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/NOTICE.txt"
-        },
-        {
-          "path": "./components/ui/slideshow/article-effects.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/article-effects.js"
-        },
-        {
-          "path": "./components/ui/slideshow/cloth.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/cloth.js"
-        },
-        {
-          "path": "./components/ui/slideshow/effects.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/effects.js"
-        },
-        {
-          "path": "./components/ui/slideshow/face.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/face.js"
-        },
-        {
-          "path": "./components/ui/slideshow/index.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/index.js"
-        },
-        {
-          "path": "./components/ui/slideshow/ported.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/ported.js"
-        },
-        {
-          "path": "./components/ui/slideshow/props.ts",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/props.ts"
-        },
-        {
-          "path": "./components/ui/slideshow/ribbons.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/ribbons.js"
-        },
-        {
-          "path": "./components/ui/slideshow/scene.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/scene.js"
+          "target": "components/ui/image-effects/definitions/cinematic-scroll.js"
         }
-      ]
+      ],
+      "devDependencies": []
     },
     {
-      "name": "slideshow-kinetic-images",
+      "name": "image-effect-kinetic-images",
       "type": "registry:component",
       "title": "Kinetic Images",
       "description": "A moving image surface twists through space.",
@@ -1622,64 +1317,59 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "./components/ui/slideshow-kinetic-images.tsx",
+          "path": "./components/ui/image-effect-kinetic-images.tsx",
           "type": "registry:file",
-          "target": "components/ui/slideshow-kinetic-images.tsx"
+          "target": "components/ui/image-effect-kinetic-images.tsx"
         },
         {
-          "path": "./components/ui/slideshow/NOTICE.txt",
+          "path": "./components/ui/image-effects/definitions/kinetic-images.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/NOTICE.txt"
+          "target": "components/ui/image-effects/definitions/kinetic-images.js"
         },
         {
-          "path": "./components/ui/slideshow/article-effects.js",
+          "path": "./components/ui/image-effects/NOTICE.txt",
           "type": "registry:file",
-          "target": "components/ui/slideshow/article-effects.js"
+          "target": "components/ui/image-effects/NOTICE.txt"
         },
         {
-          "path": "./components/ui/slideshow/cloth.js",
+          "path": "./components/ui/image-effects/cloth.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/cloth.js"
+          "target": "components/ui/image-effects/cloth.js"
         },
         {
-          "path": "./components/ui/slideshow/effects.js",
+          "path": "./components/ui/image-effects/create-image-effect.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/effects.js"
+          "target": "components/ui/image-effects/create-image-effect.js"
         },
         {
-          "path": "./components/ui/slideshow/face.js",
+          "path": "./components/ui/image-effects/face.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/face.js"
+          "target": "components/ui/image-effects/face.js"
         },
         {
-          "path": "./components/ui/slideshow/index.js",
+          "path": "./components/ui/image-effects/layouts.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/index.js"
+          "target": "components/ui/image-effects/layouts.js"
         },
         {
-          "path": "./components/ui/slideshow/ported.js",
+          "path": "./components/ui/image-effects/props.ts",
           "type": "registry:file",
-          "target": "components/ui/slideshow/ported.js"
+          "target": "components/ui/image-effects/props.ts"
         },
         {
-          "path": "./components/ui/slideshow/props.ts",
+          "path": "./components/ui/image-effects/ribbons.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/props.ts"
+          "target": "components/ui/image-effects/ribbons.js"
         },
         {
-          "path": "./components/ui/slideshow/ribbons.js",
+          "path": "./components/ui/image-effects/scene.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/ribbons.js"
-        },
-        {
-          "path": "./components/ui/slideshow/scene.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/scene.js"
+          "target": "components/ui/image-effects/scene.js"
         }
       ]
     },
     {
-      "name": "slideshow-unwoven",
+      "name": "image-effect-unwoven",
       "type": "registry:component",
       "title": "Unwoven",
       "description": "The image breaks into loose horizontal threads toward the edges.",
@@ -1689,64 +1379,59 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "./components/ui/slideshow-unwoven.tsx",
+          "path": "./components/ui/image-effect-unwoven.tsx",
           "type": "registry:file",
-          "target": "components/ui/slideshow-unwoven.tsx"
+          "target": "components/ui/image-effect-unwoven.tsx"
         },
         {
-          "path": "./components/ui/slideshow/NOTICE.txt",
+          "path": "./components/ui/image-effects/definitions/unwoven.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/NOTICE.txt"
+          "target": "components/ui/image-effects/definitions/unwoven.js"
         },
         {
-          "path": "./components/ui/slideshow/article-effects.js",
+          "path": "./components/ui/image-effects/NOTICE.txt",
           "type": "registry:file",
-          "target": "components/ui/slideshow/article-effects.js"
+          "target": "components/ui/image-effects/NOTICE.txt"
         },
         {
-          "path": "./components/ui/slideshow/cloth.js",
+          "path": "./components/ui/image-effects/cloth.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/cloth.js"
+          "target": "components/ui/image-effects/cloth.js"
         },
         {
-          "path": "./components/ui/slideshow/effects.js",
+          "path": "./components/ui/image-effects/create-image-effect.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/effects.js"
+          "target": "components/ui/image-effects/create-image-effect.js"
         },
         {
-          "path": "./components/ui/slideshow/face.js",
+          "path": "./components/ui/image-effects/face.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/face.js"
+          "target": "components/ui/image-effects/face.js"
         },
         {
-          "path": "./components/ui/slideshow/index.js",
+          "path": "./components/ui/image-effects/layouts.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/index.js"
+          "target": "components/ui/image-effects/layouts.js"
         },
         {
-          "path": "./components/ui/slideshow/ported.js",
+          "path": "./components/ui/image-effects/props.ts",
           "type": "registry:file",
-          "target": "components/ui/slideshow/ported.js"
+          "target": "components/ui/image-effects/props.ts"
         },
         {
-          "path": "./components/ui/slideshow/props.ts",
+          "path": "./components/ui/image-effects/ribbons.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/props.ts"
+          "target": "components/ui/image-effects/ribbons.js"
         },
         {
-          "path": "./components/ui/slideshow/ribbons.js",
+          "path": "./components/ui/image-effects/scene.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/ribbons.js"
-        },
-        {
-          "path": "./components/ui/slideshow/scene.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/scene.js"
+          "target": "components/ui/image-effects/scene.js"
         }
       ]
     },
     {
-      "name": "slideshow-experimental-carousel",
+      "name": "image-effect-experimental-carousel",
       "type": "registry:component",
       "title": "Experimental Carousel",
       "description": "A looping carousel sends a wave through its image planes.",
@@ -1756,59 +1441,54 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "./components/ui/slideshow-experimental-carousel.tsx",
+          "path": "./components/ui/image-effect-experimental-carousel.tsx",
           "type": "registry:file",
-          "target": "components/ui/slideshow-experimental-carousel.tsx"
+          "target": "components/ui/image-effect-experimental-carousel.tsx"
         },
         {
-          "path": "./components/ui/slideshow/NOTICE.txt",
+          "path": "./components/ui/image-effects/definitions/experimental-carousel.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/NOTICE.txt"
+          "target": "components/ui/image-effects/definitions/experimental-carousel.js"
         },
         {
-          "path": "./components/ui/slideshow/article-effects.js",
+          "path": "./components/ui/image-effects/NOTICE.txt",
           "type": "registry:file",
-          "target": "components/ui/slideshow/article-effects.js"
+          "target": "components/ui/image-effects/NOTICE.txt"
         },
         {
-          "path": "./components/ui/slideshow/cloth.js",
+          "path": "./components/ui/image-effects/cloth.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/cloth.js"
+          "target": "components/ui/image-effects/cloth.js"
         },
         {
-          "path": "./components/ui/slideshow/effects.js",
+          "path": "./components/ui/image-effects/create-image-effect.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/effects.js"
+          "target": "components/ui/image-effects/create-image-effect.js"
         },
         {
-          "path": "./components/ui/slideshow/face.js",
+          "path": "./components/ui/image-effects/face.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/face.js"
+          "target": "components/ui/image-effects/face.js"
         },
         {
-          "path": "./components/ui/slideshow/index.js",
+          "path": "./components/ui/image-effects/layouts.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/index.js"
+          "target": "components/ui/image-effects/layouts.js"
         },
         {
-          "path": "./components/ui/slideshow/ported.js",
+          "path": "./components/ui/image-effects/props.ts",
           "type": "registry:file",
-          "target": "components/ui/slideshow/ported.js"
+          "target": "components/ui/image-effects/props.ts"
         },
         {
-          "path": "./components/ui/slideshow/props.ts",
+          "path": "./components/ui/image-effects/ribbons.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/props.ts"
+          "target": "components/ui/image-effects/ribbons.js"
         },
         {
-          "path": "./components/ui/slideshow/ribbons.js",
+          "path": "./components/ui/image-effects/scene.js",
           "type": "registry:file",
-          "target": "components/ui/slideshow/ribbons.js"
-        },
-        {
-          "path": "./components/ui/slideshow/scene.js",
-          "type": "registry:file",
-          "target": "components/ui/slideshow/scene.js"
+          "target": "components/ui/image-effects/scene.js"
         }
       ]
     },

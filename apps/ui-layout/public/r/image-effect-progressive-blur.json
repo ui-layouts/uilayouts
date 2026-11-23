@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "image-effect-progressive-blur",
+  "type": "registry:component",
+  "title": "Progressive Blur",
+  "description": "A vertical blur gradient rolls across the image.",
+  "dependencies": [],
+  "registryDependencies": [
+    "https://www.ui-layouts.com/r/image-effect-runtime.json"
+  ],
+  "files": [
+    {
+      "path": "./components/ui/image-effect-progressive-blur.tsx",
+      "type": "registry:file",
+      "target": "components/ui/image-effect-progressive-blur.tsx",
+      "content": "'use client';\n\nimport type { ComponentType } from 'react';\nimport { createImageEffect } from './image-effects/create-image-effect.js';\nimport definition from './image-effects/definitions/progressive-blur.js';\nimport type { ImageEffectProps } from './image-effects/props';\n\nexport const ProgressiveBlur: ComponentType<ImageEffectProps> = createImageEffect('ProgressiveBlur', definition);\n"
+    },
+    {
+      "path": "./components/ui/image-effects/definitions/progressive-blur.js",
+      "type": "registry:file",
+      "target": "components/ui/image-effects/definitions/progressive-blur.js",
+      "content": "import { full, single } from '../layouts.js';\n\nexport default single(full, `\n    float edge=smoothstep(.18,.51,abs(uv.y-.5));\n    color=blur(q,.048*edge);\n    color.rgb-=.023*edge*hash(gl_FragCoord.xy+floor(t*24.));\n  `);\n"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "image-effect-interactive-grid",
+  "type": "registry:component",
+  "title": "Interactive Grid",
+  "description": "A tiled image wall lifts individual panels toward the pointer.",
+  "dependencies": [],
+  "registryDependencies": [
+    "https://www.ui-layouts.com/r/image-effect-runtime.json"
+  ],
+  "files": [
+    {
+      "path": "./components/ui/image-effect-interactive-grid.tsx",
+      "type": "registry:file",
+      "target": "components/ui/image-effect-interactive-grid.tsx",
+      "content": "'use client';\n\nimport type { ComponentType } from 'react';\nimport { createImageEffect } from './image-effects/create-image-effect.js';\nimport definition from './image-effects/definitions/interactive-grid.js';\nimport type { ImageEffectProps } from './image-effects/props';\n\nexport const InteractiveGrid: ComponentType<ImageEffectProps> = createImageEffect('InteractiveGrid', definition);\n"
+    },
+    {
+      "path": "./components/ui/image-effects/definitions/interactive-grid.js",
+      "type": "registry:file",
+      "target": "components/ui/image-effects/definitions/interactive-grid.js",
+      "content": "import { grid, gallery } from '../layouts.js';\n\nexport default {\n  ...(gallery(\n    (s) => {\n      const g = grid(s);\n      const dx = g.x - (s.mx - 0.5) * s.aspect,\n        dy = g.y - (s.my - 0.5);\n      return { ...g, z: 0.16 * Math.exp(-5 * (dx * dx + dy * dy)), focus: Math.min(1,2*Math.hypot(dx,dy)) };\n    },\n    \"\",\n    \"color.rgb=mix(color.rgb,vec3(dot(color.rgb,vec3(.2126,.7152,.0722))),focus);\",\n    35,\n  )),\n  pan: true,\n};\n"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+export const metadata = {
+  title: 'Rotating Gallery',
+  description: 'Each card twists along its vertical axis while crossing the gallery.',
+  keywords: ['React', 'Three.js', 'image animation', 'Rotating Gallery'],
+};
+
+Each card twists along its vertical axis while crossing the gallery.
+
+<ComponentCodePreview name='image-effect-rotating-gallery' jsonName='image-effect-rotating-gallery' hasReTrigger isFitheight />
+
+## Installation
+
+```bash
+npx shadcn@latest add https://www.ui-layouts.com/r/image-effect-rotating-gallery.json
+```
+
+## Usage
+
+```tsx
+import { RotatingGallery } from '@/components/ui/image-effect-rotating-gallery';
+
+export default function Example() {
+  return <RotatingGallery images={['/photos/first.jpg', '/photos/second.jpg']} />;
+}
+```
+
+Drag or scroll within the gallery to explore. Focus the canvas and use the arrow keys for keyboard navigation.
+
+
+[Live reference](https://tympanus.net/Tutorials/RotatingSlideshow/) · [Original reference](https://github.com/oluwadareseyi/webgl-rotating-image-gallery/tree/60048f1ba8c2a05471cdf5e3981c86befc033cc7)

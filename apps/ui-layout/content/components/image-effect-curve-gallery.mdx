@@ -1,0 +1,30 @@
+export const metadata = {
+  title: 'Curve Gallery',
+  description: 'The gallery follows a curved path through a sequence of photographs.',
+  keywords: ['React', 'Three.js', 'image animation', 'Curve Gallery'],
+};
+
+The gallery follows a curved path through a sequence of photographs.
+
+<ComponentCodePreview name='image-effect-curve-gallery' jsonName='image-effect-curve-gallery' hasReTrigger isFitheight />
+
+## Installation
+
+```bash
+npx shadcn@latest add https://www.ui-layouts.com/r/image-effect-curve-gallery.json
+```
+
+## Usage
+
+```tsx
+import { CurveGallery } from '@/components/ui/image-effect-curve-gallery';
+
+export default function Example() {
+  return <CurveGallery images={['/photos/first.jpg', '/photos/second.jpg']} />;
+}
+```
+
+Choose one of five paths exported from Blender. Pass `path={3}`, for example, to use the third camera trajectory. Drag or scroll within the gallery to explore. Focus the canvas and use the arrow keys for keyboard navigation.
+
+
+[Live reference](https://tympanus.net/Tutorials/CurveGallery/) · [Original reference](https://github.com/gaspoorf/curve-gallery/tree/51ac2f562b0af38624da939c7b4e39ba4e6e5b08)

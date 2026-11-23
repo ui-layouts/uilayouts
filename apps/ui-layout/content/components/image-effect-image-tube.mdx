@@ -1,0 +1,30 @@
+export const metadata = {
+  title: 'Image Tube',
+  description: 'Images spiral into a looping three-dimensional tube.',
+  keywords: ['React', 'Three.js', 'image animation', 'Image Tube'],
+};
+
+Images spiral into a looping three-dimensional tube.
+
+<ComponentCodePreview name='image-effect-image-tube' jsonName='image-effect-image-tube' hasReTrigger isFitheight />
+
+## Installation
+
+```bash
+npx shadcn@latest add https://www.ui-layouts.com/r/image-effect-image-tube.json
+```
+
+## Usage
+
+```tsx
+import { ImageTube } from '@/components/ui/image-effect-image-tube';
+
+export default function Example() {
+  return <ImageTube images={['/photos/first.jpg', '/photos/second.jpg']} />;
+}
+```
+
+Drag or scroll within the gallery to explore. Focus the canvas and use the arrow keys for keyboard navigation.
+
+
+[Live reference](https://tympanus.net/Tutorials/3DImageTubeR3F/) · [Original reference](https://github.com/matdn/helmet/tree/74a99abf8fa1f12bb23ceb4522251093ba2a03a9)

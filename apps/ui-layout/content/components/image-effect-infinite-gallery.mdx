@@ -1,0 +1,30 @@
+export const metadata = {
+  title: 'Infinite Gallery',
+  description: 'A continuous vertical gallery bends as photographs approach the center.',
+  keywords: ['React', 'Three.js', 'image animation', 'Infinite Gallery'],
+};
+
+A continuous vertical gallery bends as photographs approach the center.
+
+<ComponentCodePreview name='image-effect-infinite-gallery' jsonName='image-effect-infinite-gallery' hasReTrigger isFitheight />
+
+## Installation
+
+```bash
+npx shadcn@latest add https://www.ui-layouts.com/r/image-effect-infinite-gallery.json
+```
+
+## Usage
+
+```tsx
+import { InfiniteGallery } from '@/components/ui/image-effect-infinite-gallery';
+
+export default function Example() {
+  return <InfiniteGallery images={['/photos/first.jpg', '/photos/second.jpg']} />;
+}
+```
+
+Drag or scroll within the gallery to explore. Focus the canvas and use the arrow keys for keyboard navigation.
+
+
+[Original reference](https://github.com/bizarro/infinite-webl-gallery/tree/7cb03cc6ee9c0de34a364ef2f74444d00c8f7643)

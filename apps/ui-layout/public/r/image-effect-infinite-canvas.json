@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "image-effect-infinite-canvas",
+  "type": "registry:component",
+  "title": "Infinite Canvas",
+  "description": "A repeating field of images shifts with pointer parallax.",
+  "dependencies": [],
+  "registryDependencies": [
+    "https://www.ui-layouts.com/r/image-effect-runtime.json"
+  ],
+  "files": [
+    {
+      "path": "./components/ui/image-effect-infinite-canvas.tsx",
+      "type": "registry:file",
+      "target": "components/ui/image-effect-infinite-canvas.tsx",
+      "content": "'use client';\n\nimport type { ComponentType } from 'react';\nimport { createImageEffect } from './image-effects/create-image-effect.js';\nimport definition from './image-effects/definitions/infinite-canvas.js';\nimport type { ImageEffectProps } from './image-effects/props';\n\nexport const InfiniteCanvas: ComponentType<ImageEffectProps> = createImageEffect('InfiniteCanvas', definition);\n"
+    },
+    {
+      "path": "./components/ui/image-effects/definitions/infinite-canvas.js",
+      "type": "registry:file",
+      "target": "components/ui/image-effects/definitions/infinite-canvas.js",
+      "content": "import { grid, gallery } from '../layouts.js';\n\nexport default {\n  ...(gallery(\n    (s) => {\n      const g = grid(s);\n      return {\n        ...g,\n        x: g.x + (s.mx - 0.5) * 0.4,\n        y: g.y + (s.my - 0.5) * 0.55,\n        z: 0.1 * Math.sin(s.index * 13),\n      };\n    },\n    \"\",\n    \"\",\n    35,\n  )),\n  pan: true,\n};\n"
+    }
+  ]
+}

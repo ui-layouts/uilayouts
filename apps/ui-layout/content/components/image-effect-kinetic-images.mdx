@@ -1,0 +1,30 @@
+export const metadata = {
+  title: 'Kinetic Images',
+  description: 'A moving image surface twists through space.',
+  keywords: ['React', 'Three.js', 'image animation', 'Kinetic Images'],
+};
+
+A moving image surface twists through space.
+
+<ComponentCodePreview name='image-effect-kinetic-images' jsonName='image-effect-kinetic-images' hasReTrigger isFitheight />
+
+## Installation
+
+```bash
+npx shadcn@latest add https://www.ui-layouts.com/r/image-effect-kinetic-images.json
+```
+
+## Usage
+
+```tsx
+import { KineticImages } from '@/components/ui/image-effect-kinetic-images';
+
+export default function Example() {
+  return <KineticImages images={['/photos/first.jpg', '/photos/second.jpg']} />;
+}
+```
+
+Drag or scroll within the gallery to explore. Focus the canvas and use the arrow keys for keyboard navigation.
+
+
+[Original reference](https://github.com/DGFX/codrops-kinetic-images/tree/965dda362a8f9e5d522ed675493897200d273e49)

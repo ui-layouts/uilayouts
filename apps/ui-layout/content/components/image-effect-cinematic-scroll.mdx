@@ -1,0 +1,31 @@
+export const metadata = {
+  title: 'Cinematic Scroll',
+  description: 'Scroll through camera perspectives around a textured cyberpunk skyscraper.',
+  keywords: ['React', 'Three.js', 'image animation', 'Cinematic Scroll'],
+};
+
+Scroll through camera perspectives around a textured cyberpunk skyscraper.
+
+<ComponentCodePreview name='image-effect-cinematic-scroll' jsonName='image-effect-cinematic-scroll' hasReTrigger isFitheight />
+
+## Installation
+
+```bash
+npx shadcn@latest add https://www.ui-layouts.com/r/image-effect-cinematic-scroll.json
+```
+
+## Usage
+
+```tsx
+import { CinematicScroll } from '@/components/ui/image-effect-cinematic-scroll';
+
+export default function Example() {
+  return <CinematicScroll />;
+}
+```
+
+Scroll inside the component to move through the camera sequence. The default scene loads the original model. Set `modelUrl` to supply a compatible GLB.
+
+Camera sequence by [JosephASG](https://github.com/JosephASG/codrops-cinematic-scroll-animations). [Cyberpunk Skyscraper by Artemis](https://sketchfab.com/3d-models/cyberpunk-skyscraper-e7c9ef989822425e9a0e09c37b79170f) is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+
+[Original reference](https://tympanus.net/codrops/2025/11/19/how-to-build-cinematic-3d-scroll-experiences-with-gsap/)

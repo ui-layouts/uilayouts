@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "image-effect-emerging-images",
+  "type": "registry:component",
+  "title": "Emerging Images",
+  "description": "Horizontal fragments emerge and align into the next image.",
+  "dependencies": [],
+  "registryDependencies": [
+    "https://www.ui-layouts.com/r/image-effect-runtime.json"
+  ],
+  "files": [
+    {
+      "path": "./components/ui/image-effect-emerging-images.tsx",
+      "type": "registry:file",
+      "target": "components/ui/image-effect-emerging-images.tsx",
+      "content": "'use client';\n\nimport type { ComponentType } from 'react';\nimport { createImageEffect } from './image-effects/create-image-effect.js';\nimport definition from './image-effects/definitions/emerging-images.js';\nimport type { ImageEffectProps } from './image-effects/props';\n\nexport const EmergingImages: ComponentType<ImageEffectProps> = createImageEffect('EmergingImages', definition);\n"
+    },
+    {
+      "path": "./components/ui/image-effects/definitions/emerging-images.js",
+      "type": "registry:file",
+      "target": "components/ui/image-effects/definitions/emerging-images.js",
+      "content": "import { full, single } from '../layouts.js';\n\nexport default {\n  ...(single(full, `\n    vec2 cell=floor(uv*vec2(120.,120./ratio));\n    float pattern=hash(cell);\n    float front=phase*1.7-(1.-uv.y);\n    float ink=smoothstep(0.,.42,front+pattern*.24-.24);\n    float photo=smoothstep(.16,.58,front+pattern*.24-.24);\n    color=mix(color,mix(vec4(1.,.22,.025,1.),sampleB(q),photo),ink);\n  `)),\n  hoverPhase: true,\n};\n"
+    }
+  ]
+}

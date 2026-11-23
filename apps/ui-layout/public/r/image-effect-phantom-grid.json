@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "image-effect-phantom-grid",
+  "type": "registry:component",
+  "title": "Phantom Grid",
+  "description": "A floating image grid and a point-cloud face respond to pointer movement.",
+  "dependencies": [],
+  "registryDependencies": [
+    "https://www.ui-layouts.com/r/image-effect-runtime.json"
+  ],
+  "files": [
+    {
+      "path": "./components/ui/image-effect-phantom-grid.tsx",
+      "type": "registry:file",
+      "target": "components/ui/image-effect-phantom-grid.tsx",
+      "content": "'use client';\n\nimport type { ComponentType } from 'react';\nimport { createImageEffect } from './image-effects/create-image-effect.js';\nimport definition from './image-effects/definitions/phantom-grid.js';\nimport type { ImageEffectProps } from './image-effects/props';\n\nexport const PhantomGrid: ComponentType<ImageEffectProps & { variant?: 'grid' | 'portrait'; depthMaps?: readonly (string | null)[] }> = createImageEffect('PhantomGrid', definition);\n"
+    },
+    {
+      "path": "./components/ui/image-effects/definitions/phantom-grid.js",
+      "type": "registry:file",
+      "target": "components/ui/image-effects/definitions/phantom-grid.js",
+      "content": "\n\nexport default {\n  count: 63, portrait: true, pan: true,\n  layout({ slot, phase, travel, verticalPhase, verticalBase, mx, my, aspect }) {\n    const x = ((slot % 9) - 4 - phase) * .42 - (mx - .5) * .09;\n    const y = (Math.floor(slot / 9) - 3 - verticalPhase) * .31 - (my - .5) * .08;\n    const dx = x - (mx - .5) * aspect, dy = y - (my - .5);\n    const influence = Math.exp(-9 * (dx * dx + dy * dy));\n    return { textureIndex: Math.floor(travel) + slot + verticalBase * 9, x: x + dx * influence * .5, y: y + dy * influence * .5,\n      z: -.2 + .12 * influence, w: .39, h: .285, ry: dx * influence, rx: -dy * influence };\n  },\n};\n"
+    }
+  ]
+}

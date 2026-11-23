@@ -1,0 +1,32 @@
+export const metadata = {
+  title: 'Liquid Glass Grid',
+  description: 'Beveled image tiles wrap around a spherical grid with edge refraction.',
+  keywords: ['React', 'Three.js', 'image animation', 'Liquid Glass Grid'],
+};
+
+Beveled image tiles wrap around a spherical grid with edge refraction.
+
+<ComponentCodePreview name='image-effect-liquid-glass-grid' jsonName='image-effect-liquid-glass-grid' hasReTrigger isFitheight />
+
+## Installation
+
+```bash
+npx shadcn@latest add https://www.ui-layouts.com/r/image-effect-liquid-glass-grid.json
+```
+
+## Usage
+
+```tsx
+import { LiquidGlassGrid } from '@/components/ui/image-effect-liquid-glass-grid';
+
+export default function Example() {
+  return <LiquidGlassGrid images={['/photos/meadow.jpg', '/photos/alpine.jpg']}
+    videos={['/films/meadow.mp4', null]}
+    labels={['Meadow study', 'Alpine ridge']} />;
+}
+```
+
+Drag in either axis to move across the spherical grid. Tiles flex under drag and settle when released. Add `labels` or muted looping `videos` at matching image indices. The image is the poster while video loads.
+
+The cards sit on a staggered spherical surface. A rounded distance field shapes each bevel and offsets the image sampling coordinates across the rim. This WebGL version accepts still images.
+[Live reference](https://infinite-jelly-glass.shader.se/) · [Original reference](https://tympanus.net/codrops/2026/09/08/building-an-infinite-liquid-glass-grid-with-three-js-webgpu-and-tsl/)

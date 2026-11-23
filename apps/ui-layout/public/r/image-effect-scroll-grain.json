@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "image-effect-scroll-grain",
+  "type": "registry:component",
+  "title": "Scroll Grain",
+  "description": "Scroll through distorted images with a fine animated grain.",
+  "dependencies": [],
+  "registryDependencies": [
+    "https://www.ui-layouts.com/r/image-effect-runtime.json"
+  ],
+  "files": [
+    {
+      "path": "./components/ui/image-effect-scroll-grain.tsx",
+      "type": "registry:file",
+      "target": "components/ui/image-effect-scroll-grain.tsx",
+      "content": "'use client';\n\nimport type { ComponentType } from 'react';\nimport { createImageEffect } from './image-effects/create-image-effect.js';\nimport definition from './image-effects/definitions/scroll-grain.js';\nimport type { ImageEffectProps } from './image-effects/props';\n\nexport const ScrollGrain: ComponentType<ImageEffectProps> = createImageEffect('ScrollGrain', definition);\n"
+    },
+    {
+      "path": "./components/ui/image-effects/definitions/scroll-grain.js",
+      "type": "registry:file",
+      "target": "components/ui/image-effects/definitions/scroll-grain.js",
+      "content": "import { gallery } from '../layouts.js';\n\nexport default {\n  ...(gallery(\n    (s) => ({ y: s.offset*.88, w:1.12, h:.82 }),\n    \"p.y+=sin(uv.x*3.14159)*clamp(speed,-5.,5.)*.018;\",\n    `float circle=1.-length((uv-mouse)*vec2(1.,1./ratio))*15.;\n     float grain=hash(gl_FragCoord.xy+floor(t*20.))-.5;\n     q+=vec2(circle*grain*.005)*min(1.,.14+abs(speed)*.32);\n     color=sampleA(q);`,\n  )),\n  vertical: true,\n};\n"
+    }
+  ]
+}

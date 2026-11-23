@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "image-effect-rotating-gallery",
+  "type": "registry:component",
+  "title": "Rotating Gallery",
+  "description": "Each card twists along its vertical axis while crossing the gallery.",
+  "dependencies": [],
+  "registryDependencies": [
+    "https://www.ui-layouts.com/r/image-effect-runtime.json"
+  ],
+  "files": [
+    {
+      "path": "./components/ui/image-effect-rotating-gallery.tsx",
+      "type": "registry:file",
+      "target": "components/ui/image-effect-rotating-gallery.tsx",
+      "content": "'use client';\n\nimport type { ComponentType } from 'react';\nimport { createImageEffect } from './image-effects/create-image-effect.js';\nimport definition from './image-effects/definitions/rotating-gallery.js';\nimport type { ImageEffectProps } from './image-effects/props';\n\nexport const RotatingGallery: ComponentType<ImageEffectProps> = createImageEffect('RotatingGallery', definition);\n"
+    },
+    {
+      "path": "./components/ui/image-effects/definitions/rotating-gallery.js",
+      "type": "registry:file",
+      "target": "components/ui/image-effects/definitions/rotating-gallery.js",
+      "content": "import { strip, gallery } from '../layouts.js';\n\nexport default gallery(strip, `\n    float local=clamp((phase-.22*uv.y)/.78,0.,1.);\n    float eased=local<.5?16.*pow(local,5.):1.-.5*pow(2.-2.*local,5.);\n    float angle=(floor(travel)+eased)*3.14159265;\n    p.xz=mat2(cos(angle),-sin(angle),sin(angle),cos(angle))*p.xz;\n  `);\n"
+    }
+  ]
+}

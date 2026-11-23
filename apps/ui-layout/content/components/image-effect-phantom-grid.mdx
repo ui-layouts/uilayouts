@@ -1,0 +1,30 @@
+export const metadata = {
+  title: 'Phantom Grid',
+  description: 'A floating image grid and a point-cloud face respond to pointer movement.',
+  keywords: ['React', 'Three.js', 'image animation', 'Phantom Grid'],
+};
+
+A floating image grid and a point-cloud face respond to pointer movement.
+
+<ComponentCodePreview name='image-effect-phantom-grid' jsonName='image-effect-phantom-grid' hasReTrigger isFitheight />
+
+## Installation
+
+```bash
+npx shadcn@latest add https://www.ui-layouts.com/r/image-effect-phantom-grid.json
+```
+
+## Usage
+
+```tsx
+import { PhantomGrid } from '@/components/ui/image-effect-phantom-grid';
+
+export default function Example() {
+  return <PhantomGrid images={['/photos/first.jpg', '/photos/second.jpg']} />;
+}
+```
+
+Drag across the grid to explore the photographs. Select Portrait to switch to a point-cloud view. Pass `variant="portrait"` to start in that view.
+
+Pass an optional `depthMaps` array aligned with `images` to supply depth for each portrait. Dark pixels sit farther from the viewer and light pixels sit closer. The fallback uses a procedural face surface.
+[Original reference](https://tympanus.net/codrops/2025/06/30/invisible-forces-the-making-of-phantom-lands-interactive-grid-and-3d-face-particle-system/)

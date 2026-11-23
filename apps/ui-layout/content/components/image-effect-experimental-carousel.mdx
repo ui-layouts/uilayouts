@@ -1,0 +1,30 @@
+export const metadata = {
+  title: 'Experimental Carousel',
+  description: 'A looping carousel sends a wave through its image planes.',
+  keywords: ['React', 'Three.js', 'image animation', 'Experimental Carousel'],
+};
+
+A looping carousel sends a wave through its image planes.
+
+<ComponentCodePreview name='image-effect-experimental-carousel' jsonName='image-effect-experimental-carousel' hasReTrigger isFitheight />
+
+## Installation
+
+```bash
+npx shadcn@latest add https://www.ui-layouts.com/r/image-effect-experimental-carousel.json
+```
+
+## Usage
+
+```tsx
+import { ExperimentalCarousel } from '@/components/ui/image-effect-experimental-carousel';
+
+export default function Example() {
+  return <ExperimentalCarousel images={['/photos/first.jpg', '/photos/second.jpg']} />;
+}
+```
+
+Drag or scroll within the gallery to explore. Focus the canvas and use the arrow keys for keyboard navigation.
+
+
+[Live reference](https://tympanus.net/Tutorials/R3FExperimentalCarousels) · [Original reference](https://github.com/colindmg/r3f-experimental-carousel/tree/4cd418877366f54835bb35c29bc9e9ea7e85eadd)

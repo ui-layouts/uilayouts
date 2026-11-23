@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "image-effect-bulge",
+  "type": "registry:component",
+  "title": "Bulge",
+  "description": "A movable lens pushes the image outward under the pointer.",
+  "dependencies": [],
+  "registryDependencies": [
+    "https://www.ui-layouts.com/r/image-effect-runtime.json"
+  ],
+  "files": [
+    {
+      "path": "./components/ui/image-effect-bulge.tsx",
+      "type": "registry:file",
+      "target": "components/ui/image-effect-bulge.tsx",
+      "content": "'use client';\n\nimport type { ComponentType } from 'react';\nimport { createImageEffect } from './image-effects/create-image-effect.js';\nimport definition from './image-effects/definitions/bulge.js';\nimport type { ImageEffectProps } from './image-effects/props';\n\nexport const Bulge: ComponentType<ImageEffectProps> = createImageEffect('Bulge', definition);\n"
+    },
+    {
+      "path": "./components/ui/image-effects/definitions/bulge.js",
+      "type": "registry:file",
+      "target": "components/ui/image-effects/definitions/bulge.js",
+      "content": "import { full, single } from '../layouts.js';\n\nconst bulgeFunctions = `\nvec2 bulge(vec2 uv, vec2 center) {\n\n  uv -= center; // center to mouse\n\n  float dist = length(uv) / .34; // amount of distortion based on mouse pos\n  float distPow = pow(dist, 4.); // exponential as you ar far from the mouse\n  float strengthAmount = .72 / (1.0 + distPow); // strenght\n\n  uv *= (1. - .68) + .68 * strengthAmount; // use .68 to smoothly reset/add effect\n\n  uv += center; // reset pos\n\n  return uv;\n}\n`;\n\nexport default {\n  ...({\n    ...single(full, \"color=sampleA(bulge(q,mouse));\"),\n    functions: bulgeFunctions,\n  }),\n  hoverBlend: true,\n};\n"
+    }
+  ]
+}

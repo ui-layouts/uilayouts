@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "image-effect-object-fit",
+  "type": "registry:component",
+  "title": "Object Fit",
+  "description": "An image covers its plane while pointer movement shifts its crop within the remaining margins.",
+  "dependencies": [],
+  "registryDependencies": [
+    "https://www.ui-layouts.com/r/image-effect-runtime.json"
+  ],
+  "files": [
+    {
+      "path": "./components/ui/image-effect-object-fit.tsx",
+      "type": "registry:file",
+      "target": "components/ui/image-effect-object-fit.tsx",
+      "content": "'use client';\n\nimport type { ComponentType } from 'react';\nimport { createImageEffect } from './image-effects/create-image-effect.js';\nimport definition from './image-effects/definitions/object-fit.js';\nimport type { ImageEffectProps } from './image-effects/props';\n\nexport const ObjectFit: ComponentType<ImageEffectProps> = createImageEffect('ObjectFit', definition);\n"
+    },
+    {
+      "path": "./components/ui/image-effects/definitions/object-fit.js",
+      "type": "registry:file",
+      "target": "components/ui/image-effects/definitions/object-fit.js",
+      "content": "\n\nexport default {\n  count: 1,\n  layout: ({ aspect }) => ({ w: aspect, h: 1 }),\n  // Interpolate the remaining crop margin like CSS object-position.\n  fragment: `\n    vec2 scale = min(vec2(ratio / ratioA, ratioA / ratio), 1.);\n    color = texture2D(mapA, uv * scale + (1. - scale) * mouse);\n  `,\n};\n"
+    }
+  ]
+}

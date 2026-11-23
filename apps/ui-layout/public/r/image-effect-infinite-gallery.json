@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "image-effect-infinite-gallery",
+  "type": "registry:component",
+  "title": "Infinite Gallery",
+  "description": "A continuous vertical gallery bends as photographs approach the center.",
+  "dependencies": [],
+  "registryDependencies": [
+    "https://www.ui-layouts.com/r/image-effect-runtime.json"
+  ],
+  "files": [
+    {
+      "path": "./components/ui/image-effect-infinite-gallery.tsx",
+      "type": "registry:file",
+      "target": "components/ui/image-effect-infinite-gallery.tsx",
+      "content": "'use client';\n\nimport type { ComponentType } from 'react';\nimport { createImageEffect } from './image-effects/create-image-effect.js';\nimport definition from './image-effects/definitions/infinite-gallery.js';\nimport type { ImageEffectProps } from './image-effects/props';\n\nexport const InfiniteGallery: ComponentType<ImageEffectProps> = createImageEffect('InfiniteGallery', definition);\n"
+    },
+    {
+      "path": "./components/ui/image-effects/definitions/infinite-gallery.js",
+      "type": "registry:file",
+      "target": "components/ui/image-effects/definitions/infinite-gallery.js",
+      "content": "import { gallery } from '../layouts.js';\n\nexport default {\n  ...(gallery(\n    (s) => ({\n      x: Math.sin(s.offset) * 0.24,\n      y: s.offset * 0.73,\n      w: 0.95,\n      h: 0.66,\n    }),\n    \"p.z-=.14*sin((offset+p.y)*3.14159+1.5708);\",\n  )),\n  vertical: true,\n};\n"
+    }
+  ]
+}

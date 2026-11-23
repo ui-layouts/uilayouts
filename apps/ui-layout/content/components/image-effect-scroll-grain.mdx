@@ -1,0 +1,30 @@
+export const metadata = {
+  title: 'Scroll Grain',
+  description: 'Scroll through distorted images with a fine animated grain.',
+  keywords: ['React', 'Three.js', 'image animation', 'Scroll Grain'],
+};
+
+Scroll through distorted images with a fine animated grain.
+
+<ComponentCodePreview name='image-effect-scroll-grain' jsonName='image-effect-scroll-grain' hasReTrigger isFitheight />
+
+## Installation
+
+```bash
+npx shadcn@latest add https://www.ui-layouts.com/r/image-effect-scroll-grain.json
+```
+
+## Usage
+
+```tsx
+import { ScrollGrain } from '@/components/ui/image-effect-scroll-grain';
+
+export default function Example() {
+  return <ScrollGrain images={['/photos/first.jpg', '/photos/second.jpg']} />;
+}
+```
+
+Drag or scroll within the gallery to explore. Focus the canvas and use the arrow keys for keyboard navigation.
+
+
+[Live reference](https://tympanus.net/Tutorials/ShaderOnScroll/) · [Original reference](https://github.com/jankohlbach/codrops-shader-on-scroll/tree/8120ad43def74a1243761a3f5f064cc1262afc2a)

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "image-effect-kinetic-images",
+  "type": "registry:component",
+  "title": "Kinetic Images",
+  "description": "A moving image surface twists through space.",
+  "dependencies": [],
+  "registryDependencies": [
+    "https://www.ui-layouts.com/r/image-effect-runtime.json"
+  ],
+  "files": [
+    {
+      "path": "./components/ui/image-effect-kinetic-images.tsx",
+      "type": "registry:file",
+      "target": "components/ui/image-effect-kinetic-images.tsx",
+      "content": "'use client';\n\nimport type { ComponentType } from 'react';\nimport { createImageEffect } from './image-effects/create-image-effect.js';\nimport definition from './image-effects/definitions/kinetic-images.js';\nimport type { ImageEffectProps } from './image-effects/props';\n\nexport const KineticImages: ComponentType<ImageEffectProps> = createImageEffect('KineticImages', definition);\n"
+    },
+    {
+      "path": "./components/ui/image-effects/definitions/kinetic-images.js",
+      "type": "registry:file",
+      "target": "components/ui/image-effects/definitions/kinetic-images.js",
+      "content": "import { gallery } from '../layouts.js';\n\nexport default {\n    ...gallery(({slot,travel})=>{\n      const row=Math.floor(slot/10)-2;\n      const angle=(slot%10)*Math.PI/5 + travel*.6 + row*Math.PI/2;\n      const x=.52*Math.sin(angle), y=row*.29;\n      return {x:x*Math.cos(.15)+y*Math.sin(.15),y:y*Math.cos(.15)-x*Math.sin(.15),\n        z:.52*(Math.cos(angle)-1),ry:angle,rz:-.15,w:.328,h:.235,textureIndex:slot};\n    }, \"float arc=p.x*.628; p.x=sin(arc)/.628; p.z+=.52*(cos(arc)-1.);\",\n      \"\",50), background:\"#e9e5db\",\n  };\n"
+    }
+  ]
+}

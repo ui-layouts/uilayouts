@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "image-effect-image-tube",
+  "type": "registry:component",
+  "title": "Image Tube",
+  "description": "Images spiral into a looping three-dimensional tube.",
+  "dependencies": [],
+  "registryDependencies": [
+    "https://www.ui-layouts.com/r/image-effect-runtime.json"
+  ],
+  "files": [
+    {
+      "path": "./components/ui/image-effect-image-tube.tsx",
+      "type": "registry:file",
+      "target": "components/ui/image-effect-image-tube.tsx",
+      "content": "'use client';\n\nimport type { ComponentType } from 'react';\nimport { createImageEffect } from './image-effects/create-image-effect.js';\nimport definition from './image-effects/definitions/image-tube.js';\nimport type { ImageEffectProps } from './image-effects/props';\n\nexport const ImageTube: ComponentType<ImageEffectProps> = createImageEffect('ImageTube', definition);\n"
+    },
+    {
+      "path": "./components/ui/image-effects/definitions/image-tube.js",
+      "type": "registry:file",
+      "target": "components/ui/image-effects/definitions/image-tube.js",
+      "content": "import { gallery } from '../layouts.js';\n\nexport default {\n  ...({\n    ...gallery(({slot,travel})=>{\n      const row=Math.floor(slot/14), lap=Math.floor(travel);\n      const absoluteRow=row+lap, phase=travel-lap;\n      const angle=((slot%14)+(absoluteRow%2)*.5)*Math.PI/7+travel*(.30+.09*Math.cos(absoluteRow));\n      return {x:.69*Math.sin(angle),z:.69*(Math.cos(angle)-1),\n        y:(row-2-phase)*.38,ry:angle,w:.11,h:.16,textureIndex:absoluteRow*14+slot%14};\n    },\"\",\"\",84),background:\"#ecebe8\",\n  }),\n  vertical: true,\n};\n"
+    }
+  ]
+}

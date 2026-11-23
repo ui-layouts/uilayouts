@@ -116,7 +116,7 @@ const nextConfig = {
       type: 'asset/source',
     });
     config.module.rules.push({
-      test: /\.tsx?$/,
+      test: /\.[jt]sx?$/,
       resourceQuery: /raw/,
       use: 'raw-loader',
     });
