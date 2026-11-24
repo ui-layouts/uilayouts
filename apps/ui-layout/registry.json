@@ -4,6 +4,21 @@
   "homepage": "https://www.ui-layouts.com",
   "items": [
     {
+      "name": "image-effect-sprite-morph",
+      "type": "registry:component",
+      "title": "Sprite Morph",
+      "description": "Morph between illustrated specimens while preserving the silhouette and color of each image.",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/image-effect-sprite-morph.tsx",
+          "type": "registry:file",
+          "target": "components/ui/image-effect-sprite-morph.tsx"
+        }
+      ]
+    },
+    {
       "name": "image-effect-crt-editorial",
       "type": "registry:component",
       "title": "CRT Editorial",

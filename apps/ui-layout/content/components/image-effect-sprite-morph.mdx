@@ -1,0 +1,43 @@
+export const metadata = {
+  title: 'Sprite Morph',
+  description: 'Morph between illustrated specimens while preserving the silhouette and color of each image.',
+  keywords: ['React', 'sprite', 'morph', 'animation'],
+};
+
+Morph between illustrated specimens while preserving the silhouette and color of each image.
+
+<ComponentCodePreview name='image-effect-sprite-morph' jsonName='image-effect-sprite-morph' hasReTrigger isFitheight />
+
+## Installation
+
+```bash
+npx shadcn@latest add https://www.ui-layouts.com/r/image-effect-sprite-morph.json
+```
+
+## Usage
+
+```tsx
+import { SpriteMorph } from '@/components/ui/image-effect-sprite-morph';
+
+export default function SpecimenCollection() {
+  return (
+    <SpriteMorph
+      images={['/specimens/moth.png', '/specimens/beetle.svg', '/specimens/dragonfly.png']}
+      labels={['Moth', 'Beetle', 'Dragonfly']}
+      secondsPerImage={3}
+    />
+  );
+}
+```
+
+Select a numbered button to morph into that specimen. The example uses transparent artwork. Images on a flat background also work.
+
+| Prop | Description |
+| --- | --- |
+| `images` | The specimen images in display order. |
+| `labels` | Names used for the captions and selection buttons. |
+| `atlases` | Optional transition sheets, one per image-to-next-image pair, including the last image back to the first. Each sheet contains 24 frames arranged left to right in six columns and four rows. Without a sheet, the component generates a scanline warp from the two source images. |
+| `time` | Elapsed seconds from an external clock. Supplying this prop selects the frame directly. |
+| `secondsPerImage` | Duration of each image and its transition in controlled playback. Defaults to 2.5 seconds. |
+
+[Codrops article](https://tympanus.net/codrops/2024/12/09/creating-the-morphing-effect-of-the-luma-dream-machine-website/) · [Original reference](https://github.com/J0SUKE/morphing-2d-demo)
