@@ -164,9 +164,9 @@ function createOpticsRenderer() {
     uniform vec2 pane, resolution, scene, offset, imageSize, finger;
     uniform float radius, bevelWidth, strength, pressure, frost;
 
-    vec3 samplePhoto(vec2 p) {
+    vec4 samplePhoto(vec2 p) {
       vec2 fitted = imageSize * max(scene.x/imageSize.x, scene.y/imageSize.y);
-      return texture2D(photo, (offset + p - .5*scene)/fitted + .5).rgb;
+      return texture2D(photo, (offset + p - .5*scene)/fitted + .5);
     }
     void main() {
       vec2 point = vec2(gl_FragCoord.x, resolution.y-gl_FragCoord.y)*pane/resolution;
@@ -187,11 +187,12 @@ function createOpticsRenderer() {
       vec2 transmit = .5*pane + local*(1.-(.04+.025*well)*strength)
         - strength*(outward*ray*bevelWidth*1.11 + delta*well*.14);
       vec2 spread = outward*bevel*1.4*strength;
-      vec3 rgb = vec3(samplePhoto(transmit-spread).r,samplePhoto(transmit).g,samplePhoto(transmit+spread).b);
+      vec4 center = samplePhoto(transmit);
+      vec3 rgb = vec3(samplePhoto(transmit-spread).r,center.g,samplePhoto(transmit+spread).b);
       if (frost > .01) {
         vec2 f = vec2(frost,0.);
         rgb = rgb*.28 + .18*(samplePhoto(transmit+f)+samplePhoto(transmit-f)
-          +samplePhoto(transmit+f.yx)+samplePhoto(transmit-f.yx));
+          +samplePhoto(transmit+f.yx)+samplePhoto(transmit-f.yx)).rgb;
       }
 
       // Liquid Glass Grid: reflect the overhead panel around the continuously curved normal.
@@ -205,10 +206,11 @@ function createOpticsRenderer() {
       float rimDistance = (depth-1.2)/1.25;
       float edge = exp(-rimDistance*rimDistance);
       // Environment reflections carry color from the same photograph around the meniscus.
-      vec3 environment = samplePhoto(point+reflected.xy*min(pane.x,pane.y)*.55);
+      vec3 environment = samplePhoto(point+reflected.xy*min(pane.x,pane.y)*.55).rgb;
       rgb = mix(rgb*(.89+.06*bevel)+.025, environment, fresnel*.72);
       rgb += edge*(.13+.62*sheen) + panel*bevel*.45;
-      gl_FragColor = vec4(rgb,smoothstep(-.6,.6,depth));
+      float opacity = max(center.a, clamp(edge + panel*bevel, 0., 1.));
+      gl_FragColor = vec4(rgb,opacity*smoothstep(-.6,.6,depth));
     }`;
 
   const program = gl.createProgram();
@@ -361,8 +363,8 @@ export function LiquidGlass({
             gl.texImage2D(
               gl.TEXTURE_2D,
               0,
-              gl.RGB,
-              gl.RGB,
+              gl.RGBA,
+              gl.RGBA,
               gl.UNSIGNED_BYTE,
               img
             );
@@ -503,9 +505,10 @@ export function LiquidGlass({
               0,
               ih - 1
             );
-            out.data[4 * i + c] = src[4 * (sy * iw + sx) + c];
+            const source = 4 * (sy * iw + sx);
+            out.data[4 * i + c] = src[source + c];
+            if (c === 1) out.data[4 * i + 3] = src[source + 3];
           }
-          out.data[4 * i + 3] = 255;
         }
       ctx.putImageData(out, 0, 0);
       setSampled(true);

@@ -3,7 +3,7 @@
   "name": "image-effect-sprite-morph",
   "type": "registry:component",
   "title": "Sprite Morph",
-  "description": "Scrub through the monarch butterfly lifecycle with frame-by-frame sprite animation.",
+  "description": "Scrub through five ages of the same face using photographic sprite frames.",
   "dependencies": [],
   "registryDependencies": [],
   "files": [

@@ -160,7 +160,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     ${spaceGrotesk.variable}
     ${dmSans.variable}
     ${manrope.variable}
-    font-poppins
+    ${dmSans.className}
   `}
       >
         <Analytics />

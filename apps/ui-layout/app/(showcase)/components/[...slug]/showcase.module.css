@@ -12,7 +12,7 @@
   grid-template-rows: auto minmax(0, 1fr);
   justify-items: center;
   gap: clamp(8px, 2vh, 22px);
-  padding-block: clamp(12px, 3svh, 32px) min(152px, 30svh);
+  padding-block: clamp(12px, 3svh, 32px) max(68px, env(safe-area-inset-bottom));
 }
 .brand {
   display: block;
@@ -32,7 +32,7 @@
 }
 .details {
   padding-inline: clamp(16px, 4vw, 72px);
-  padding-block: clamp(48px, 8vh, 100px) 124px;
+  padding-block: clamp(12px, 2vh, 24px) 100px;
 }
 .details h1 {
   font-weight: 600;
@@ -42,7 +42,7 @@
 }
 .details :where(p, li) { max-inline-size: 78ch; }
 .description {
-  margin: 1rem 0 2.5rem;
+  margin: 0 0 1.2rem;
   line-height: 1.65;
   color: var(--muted-foreground);
 }
@@ -62,38 +62,7 @@
 .stage[data-demo='image-effect-motion-hover'] .frame {
   width: min(100%, 110svh);
 }
-.cue {
-  position: absolute;
-  inset: auto clamp(14px, 2vw, 28px) 76px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  border-block-start: 1px solid #dedede;
-  padding-block-start: 13px;
-  font-family: Arial, sans-serif;
-}
-.cue strong {
-  font-size: clamp(17px, 1.6vw, 23px);
-  line-height: 1.2;
-  letter-spacing: -.045em;
-}
-.cue a {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding-block: 8px;
-  color: #242424;
-  font-size: 14px;
-  white-space: nowrap;
-}
-.cue span { color: #2454ff; font-size: 19px; }
-@media (max-width: 640px) {
-  .cue { bottom: 64px; }
-  .cue a { font-size: 13px; }
-}
-
-/* Share the reading edge across the specimen, its scroll cue and its notes. */
+/* Share the reading edge across the specimen and its notes. */
 .page:has(.stage[data-demo='image-effect-sprite-morph']) {
   --study-gutter: clamp(16px, 3vw, 48px);
   --study-width: min(calc(100% - 2 * var(--study-gutter)), 1280px);
@@ -104,13 +73,12 @@
   margin-inline: auto;
   padding-inline: 0;
 }
-.stage[data-demo='image-effect-sprite-morph'] .cue {
-  width: var(--study-width);
-  inset-inline: 0;
-  margin-inline: auto;
-}
-
 .stage { padding-top: clamp(68px, 8vh, 88px); grid-template-rows: minmax(0, 1fr); }
-.cue { inset-inline: max(3vw, calc((100% - 1280px) / 2)); }
 .details h1 { scroll-margin-top: 85px; }
 .details { max-width: 1380px; margin-inline: auto; }
+
+.page { font-family: var(--font-dmSans), system-ui, sans-serif; }
+.details { scroll-margin-top: 72px; }
+@media (min-width: 1440px) {
+  :global(body:has([data-docked])) .page { margin-inline-start: 280px; }
+}

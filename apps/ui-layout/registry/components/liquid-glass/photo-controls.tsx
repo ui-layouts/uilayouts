@@ -58,10 +58,9 @@ export default function PhotoControls() {
       style={{
         position: 'relative',
         width: '100%',
-        aspectRatio: '3 / 2',
+        height: '100svh',
         margin: 0,
         overflow: 'hidden',
-        background: '#151515',
       }}
     >
       <img

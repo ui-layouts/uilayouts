@@ -9,11 +9,11 @@ import {
   Expand,
   FolderCode,
   PanelLeft,
-  X,
 } from 'lucide-react';
 import Link from 'next/link';
 import { Fragment } from 'react';
 import { basePath } from './sidebar';
+import { SearchDialog } from './searchbar';
 import { useEffect, useRef, useState } from 'react';
 import type { DocsNavigationCategory } from '@/types/docs';
 import { Bun, NPM, Pnpm, Yarn } from './icons';
@@ -40,6 +40,21 @@ type Manager = keyof typeof managers;
 
 function NavigationDrawer({ slug, navigation }: Pick<ShowcaseToolbarProps, 'slug' | 'navigation'>) {
   const [open, setOpen] = useState(false);
+  const [wide, setWide] = useState(false);
+  useEffect(() => {
+    const viewport = matchMedia('(min-width: 1440px)');
+    const sync = () => {
+      setWide(viewport.matches);
+      setOpen(viewport.matches && sessionStorage.getItem('showcase-sidebar') === 'open');
+    };
+    sync();
+    viewport.addEventListener('change', sync);
+    return () => viewport.removeEventListener('change', sync);
+  }, []);
+  function changeOpen(value: boolean) {
+    setOpen(value);
+    if (wide) sessionStorage.setItem('showcase-sidebar', value ? 'open' : 'closed');
+  }
   const [catalog, setCatalog] = useState<Record<
     string,
     DocsNavigationCategory[]
@@ -65,30 +80,32 @@ function NavigationDrawer({ slug, navigation }: Pick<ShowcaseToolbarProps, 'slug
   return (
     <Dialog.Root
       open={open}
-      onOpenChange={(value) => {
-        setOpen(value);
-      }}
+      modal={!wide}
+      onOpenChange={changeOpen}
     >
       <Dialog.Trigger asChild>
         <button
           type='button'
           className={styles.launcher}
-          aria-label='Open component navigation'
-          title='Browse components'
+          aria-label={open ? 'Close component navigation' : 'Open component navigation'}
+          title={open ? 'Close navigation' : 'Open navigation'}
         >
           <PanelLeft size={22} strokeWidth={1.55} />
         </button>
       </Dialog.Trigger>
       <Dialog.Portal>
-        <Dialog.Overlay className={styles.overlay} />
-        <Dialog.Content className={styles.drawer} aria-describedby={undefined}>
+        {!wide && <Dialog.Overlay className={styles.overlay} />}
+        <Dialog.Content className={styles.drawer} aria-describedby={undefined}
+          data-docked={wide || undefined}
+          onInteractOutside={event => { if (wide) event.preventDefault(); }}>
           <header className={styles.drawerHeader}>
-            <Dialog.Title><Link href="/components"><img src="/showcase-wordmark.svg" alt="UI Layouts" width={144} /></Link></Dialog.Title>
-            <Dialog.Close asChild>
-              <button type='button' aria-label='Close component navigation'>
-                <X size={18} />
+            {!wide && <Dialog.Close asChild>
+              <button type="button" className={styles.launcher} aria-label="Close component navigation" aria-expanded={open} title="Close navigation">
+                <PanelLeft size={22} strokeWidth={1.55} />
               </button>
-            </Dialog.Close>
+            </Dialog.Close>}
+            <Dialog.Title><Link href="/components"><img src="/showcase-wordmark.svg" alt="UI Layouts" width={144} /></Link></Dialog.Title>
+
           </header>
           <nav className={styles.links} aria-label='Component navigation'>
             {basePath.map(link => <Link key={link.href} href={link.href} className={styles.sectionLink}>{link.icon}{link.name}</Link>)}
@@ -103,13 +120,13 @@ function NavigationDrawer({ slug, navigation }: Pick<ShowcaseToolbarProps, 'slug
                       item.href === '/components/' + slug ? 'page' : undefined
                     }
                     onClick={() => {
-                      setOpen(false);
+                      if (!wide) setOpen(false);
                     }}
                   >
                     {item.name}
                   </Link>
                   {item.href === '/components/' + slug && navigation.examples.length > 1 && <div className={styles.tree}>
-                    {navigation.examples.map((example, index) => <button key={example.name} type="button" aria-current={index === navigation.index ? 'page' : undefined} onClick={() => { navigation.select(index); setOpen(false); }}>{example.label}</button>)}
+                    {navigation.examples.map((example, index) => <button key={example.name} type="button" aria-current={index === navigation.index ? 'page' : undefined} onClick={() => { navigation.select(index); if (!wide) setOpen(false); }}>{example.label}</button>)}
                   </div>}</Fragment>
                 ))}
               </section>
@@ -170,7 +187,11 @@ function ReadingProgress({ slug }: { slug: string }) {
       aria-valuemax={100}
       aria-valuenow={progress}
     >
-      {progress}%<span aria-hidden style={{ width: progress + '%' }} />
+      {progress}%
+      <svg aria-hidden="true" viewBox="0 0 42 38" preserveAspectRatio="none">
+        <path d="M9 37 H33 Q41 37 41 29 V9 Q41 1 33 1 H9 Q1 1 1 9 V29 Q1 37 9 37 Z"
+          pathLength="100" strokeDasharray="100" strokeDashoffset={100 - progress} />
+      </svg>
     </div>
   );
 }
@@ -218,7 +239,7 @@ export function ShowcaseToolbar({
         : [
             'Integrate the ' +
               title +
-              ' example from UI Layouts into my project. Preserve its interactions and adapt it to the existing layout.',
+              ' example from UI Layouts into my project. Include the complete selected example and its reusable component implementation. Preserve the interactions and adapt the layout to my project.',
             'Documentation: https://www.ui-layouts.com/components/' + slug +
               (navigation.index ? '?example=' + encodeURIComponent(name) : ''),
             github && 'Source: ' + github,
@@ -248,6 +269,7 @@ export function ShowcaseToolbar({
         </>}
       </div>
       <div className={styles.center}>
+        <SearchDialog searchBar classname={styles.searchTrigger} />
         <div className={styles.install}>
           {installUrl && (
             <label className={styles.manager} title='Select package manager'>

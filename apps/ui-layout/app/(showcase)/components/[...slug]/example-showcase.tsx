@@ -40,14 +40,13 @@ export default function ExampleShowcase({ slug, title, examples, children }: {
     <ClientPreCode raw={current.usageCode} html={current.usageHtml} />
   </section>;
   return <>
-    <a className={styles.skip} href="#component-title">Skip to documentation</a>
+    <a className={styles.skip} href="#component-details">Skip to documentation</a>
     <section className={styles.stage} data-demo={current.name} aria-label={name + ' preview'}>
       <iframe key={current.name} data-showcase-preview scrolling="no" className={styles.frame} src={current.expandUrl} title={name + ' interactive preview'} />
-      <nav className={styles.cue} aria-label="Component details"><strong>{name}</strong><a href="#component-title">Scroll for details <span aria-hidden>↓</span></a></nav>
     </section>
     <ShowcaseToolbar slug={slug} title={name} {...current} navigation={{ index, examples, select }} />
-    {index === 0 ? children : <article className={styles.details} aria-labelledby="component-title">
-      <p>{title}</p><h1 id="component-title" tabIndex={-1}>{current.label}</h1>
+    {index === 0 ? children : <article id="component-details" tabIndex={-1} className={styles.details} aria-labelledby="component-title">
+      <h1 id="component-title">{name}</h1>
       <p className={styles.description}>{current.description}</p>
       {usage}
     </article>}

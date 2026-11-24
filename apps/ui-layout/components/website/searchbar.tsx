@@ -98,6 +98,12 @@ export function SearchDialog({
   return (
     <>
       <button
+        type="button"
+        aria-label="Search components"
+        aria-haspopup="dialog"
+        aria-expanded={searchOpen}
+        aria-keyshortcuts="Meta+K Control+K"
+        title="Search components (⌘/Ctrl+K)"
         className={cn(
           'relative inline-flex w-full items-center justify-start gap-2 whitespace-nowrap rounded-lg border bg-muted px-4 py-2 text-sm font-normal text-muted-foreground shadow-none transition-colors hover:border-accent hover:text-accent-foreground focus-visible:outline-hidden focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 sm:pr-12',
           classname

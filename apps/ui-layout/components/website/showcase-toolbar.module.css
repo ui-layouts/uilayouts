@@ -87,7 +87,7 @@
   gap: 5px;
   height: 31px;
   border-radius: 5px;
-  border: 1px solid color-mix(in srgb, var(--foreground, #151515) 9%, transparent);
+  border: 0;
 }
 .manager {
   position: relative;
@@ -134,13 +134,8 @@
   padding-inline: 4px;
   font-variant-numeric: tabular-nums;
 }
-.progress span {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 2px;
-  background: currentColor;
-}
+.progress svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.progress path { fill: none; stroke: currentColor; stroke-width: 2; vector-effect: non-scaling-stroke; }
 .actions {
   flex: none;
 }
@@ -200,13 +195,11 @@
   font-size: 18px;
   font-weight: 650;
 }
-.drawerHeader button {
-  display: grid;
-  width: 36px;
-  height: 36px;
-  place-items: center;
-  border-radius: 7px;
+.drawer:not([data-docked]) .drawerHeader {
+  min-height: 48px;
+  padding-left: calc(max(10px, 3vw) + 44px);
 }
+.drawerHeader .launcher { left: max(10px, 3vw); }
 .search {
   gap: 8px;
   padding: 8px 10px;
@@ -340,4 +333,30 @@
   .pager button { width: 28px; }
   .center { flex: 0 1 auto; }
   .command { max-width: 18vw; }
+}
+
+.drawer { font-family: var(--font-dmSans), system-ui, sans-serif; }
+@media (min-width: 1440px) {
+  .drawer[data-docked] { width: 280px; background: var(--background); box-shadow: none; border-right: 1px solid var(--border); }
+  :global(body:has([data-docked])) .toolbar {
+    --edge: max(3vw, calc((100% - 280px - 1280px) / 2));
+    inset-inline-start: calc(280px + var(--edge));
+  }
+  :global(body:has([data-docked])) .launcher { left: calc(280px + var(--edge)); }
+}
+
+.center .searchTrigger {
+  width: 34px;
+  height: 37px;
+  flex: none;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  border-radius: 9px;
+  background: var(--background);
+}
+.searchTrigger svg { width: 17px; height: 17px; }
+@media (max-width: 500px) {
+  .center .searchTrigger { width: 29px; }
+  .command { max-width: min(18vw, calc(100vw - 298px)); }
 }

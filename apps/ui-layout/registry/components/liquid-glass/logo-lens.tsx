@@ -15,7 +15,6 @@ export default function LogoLens() {
         aspectRatio: '780 / 440',
         overflow: 'hidden',
         isolation: 'isolate',
-        background: '#fafafa',
       }}
     >
       <img

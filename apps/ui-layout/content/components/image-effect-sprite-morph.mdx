@@ -1,10 +1,9 @@
 export const metadata = {
   title: 'Sprite Morph',
-  description: 'Scrub through the monarch butterfly lifecycle with frame-by-frame sprite animation.',
+  description: 'Scrub through five ages of the same face using photographic sprite frames.',
   keywords: ['React', 'sprite', 'morph', 'animation'],
 };
 
-Scrub through the monarch butterfly lifecycle with frame-by-frame sprite animation.
 
 <ComponentCodePreview name='image-effect-sprite-morph' jsonName='image-effect-sprite-morph' hasReTrigger isFitheight />
 
@@ -23,25 +22,25 @@ import { SpriteMorph } from '@/components/ui/image-effect-sprite-morph';
 
 import { useState } from 'react';
 
-const base = 'https://www.ui-layouts.com/image-effects/monarch/';
-const stages = ['egg', 'larva', 'chrysalis', 'emergence', 'adult'];
+const base = 'https://www.ui-layouts.com/image-effects/ages/';
+const stages = ['baby', 'teen', 'adult', 'old', 'elder'];
 const images = stages.map(name => base + name + '.webp');
 const atlases = stages.slice(0, -1).map((name, i) => base + name + '-' + stages[i + 1] + '.webp');
 
-export default function MonarchStudy() {
+export default function PortraitStudy() {
   const [frame, setFrame] = useState(0);
   return (
     <>
       <SpriteMorph images={images} atlases={atlases} labels={stages}
         time={frame / 23} secondsPerImage={1} />
-      <input aria-label="Butterfly lifecycle" type="range" min={0} max={92}
+      <input aria-label="Portrait age timeline" type="range" min={0} max={(stages.length - 1) * 23}
         value={frame} onChange={e => setFrame(e.currentTarget.valueAsNumber)} />
     </>
   );
 }
 ```
 
-Drag the slider or use the arrow keys to move one frame at a time. Four transition sheets share their endpoint frames, giving the study 93 distinct positions from egg to adult.
+Drag the slider or use the arrow keys to move one frame at a time. Four photographic transition sheets share endpoint frames, giving the study 93 positions from baby to elder.
 
 | Prop | Description |
 | --- | --- |

@@ -14,15 +14,13 @@ export default function LandscapeIcons() {
         position: 'relative',
         isolation: 'isolate',
         width: '100%',
-        height: 'clamp(245px,48vw,395px)',
+        height: '100svh',
         containerType: 'inline-size',
-        borderRadius: 14,
         overflow: 'hidden',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         gap: 'clamp(14px,8%,65px)',
-        background: '#9dbac1',
       }}
     >
       <style>{`[data-lens-finish="frosted"] canvas { filter: blur(5px); transform: scale(1.10); }`}</style>

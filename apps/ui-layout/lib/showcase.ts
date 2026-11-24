@@ -104,6 +104,19 @@ function describeExample(slug: string, markdown: string, item: Example) {
   add(item.componentName + '.tsx', item.filesrc);
   if (!item.sourcePath && !item.filesrc && !item.filesArray?.length)
     add(sourcePath, markdown);
+  // Some examples import the reusable component without listing it in their registry files.
+  for (const content of files.keys()) {
+    for (const match of content.matchAll(/from\s+['"]@\/(components\/ui\/[\w/-]+)['"]/g)) {
+      for (const extension of ['.tsx', '.ts']) {
+        const relative = match[1] + extension;
+        const absolute = path.join(process.cwd(), relative);
+        if (fs.existsSync(absolute)) {
+          add(relative, fs.readFileSync(absolute, 'utf8'));
+          break;
+        }
+      }
+    }
+  }
   const [usageCode, usagePath] = files.entries().next().value ?? ['', sourcePath];
   return {
     description: item.description,

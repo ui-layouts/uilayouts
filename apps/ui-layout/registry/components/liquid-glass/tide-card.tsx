@@ -14,12 +14,11 @@ export default function TideCard() {
         position: 'relative',
         isolation: 'isolate',
         width: '100%',
-        height: 'clamp(280px, 42vw, 415px)',
+        height: '100svh',
         overflow: 'hidden',
         margin: 0,
         display: 'grid',
         placeItems: 'center',
-        background: '#153638',
       }}
     >
       <img

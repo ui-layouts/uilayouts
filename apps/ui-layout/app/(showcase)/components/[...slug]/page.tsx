@@ -123,19 +123,20 @@ export default async function DocPage(props: {
         ]}
       />
       <ExampleShowcase key={slug} slug={slug} title={title} examples={examples}>
-      <article className={styles.details} aria-labelledby='component-title'>
+      <article id="component-details" tabIndex={-1} className={styles.details} aria-labelledby='component-title'>
         {!showcase && <Link href='/components'>← Components</Link>}
-        <h1 id='component-title' tabIndex={-1}>
-          {title}
-        </h1>
+        <h1 id='component-title'>{title}</h1>
         <p className={styles.description}>{description}</p>
         <div className='prose prose-zinc dark:prose-invert max-w-none prose-table:block prose-table:overflow-x-auto'>
-          <Content components={showcase ? {
+          <Content components={{
+            h1: (props: React.HTMLAttributes<HTMLHeadingElement>) => <h2 {...props} />,
+            ...(showcase ? {
             ShowcaseExampleSection: () => null,
             ComponentCodePreview: () => null,
             BoxComponentPreview: () => null,
             IframeComponentPrieview: () => null,
-          } : undefined} />
+          } : {}),
+          }} />
         </div>
         {showcase && <section className={documentation.source} aria-label="Example source">
           <h2 className="mb-3 text-xl font-semibold">Example source</h2>
