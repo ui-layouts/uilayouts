@@ -58,13 +58,6 @@ const examples: Example[] = [
     demo: 2,
   },
   {
-    id: 'motion-velocity',
-    title: 'Velocity',
-    description: 'Move slowly for soft monochrome, or quickly for large, sharp color.',
-    group: 'motion',
-    demo: 6,
-  },
-  {
     id: 'motion-gooey',
     title: 'Gooey',
     description: 'Rounded drops swell into photos and connect where they meet.',
@@ -74,7 +67,7 @@ const examples: Example[] = [
   {
     id: 'cursor-trailer',
     title: 'Cursor Trailer',
-    description: 'Tilted photos spring into view and shrink in place.',
+    description: 'Space-themed 3D stickers spring into view and shrink in place.',
     group: 'codepen',
   },
 ];
@@ -102,12 +95,17 @@ const landscapes = [
   '1501785888041-af3ef285b470',
 ].map(photoUrl);
 
-const cursorPhotos = [
-  '1518005020951-eccb494ad742',
-  '1518837695005-2083093ee35b',
-  '1501785888041-af3ef285b470',
-  '1616486338812-3dadae4b4ace',
-].map(photoUrl);
+// Fluent Emoji artwork © Microsoft Corporation, MIT licensed.
+// https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE
+const stickerRoot =
+  'https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@1ffb34c752ecf5d402f04cfb4b392c77f57c54bc/assets';
+const cursorStickers = [
+  'Ringed%20planet/3D/ringed_planet_3d.png',
+  'Flying%20saucer/3D/flying_saucer_3d.png',
+  'Rocket/3D/rocket_3d.png',
+  'Alien/3D/alien_3d.png',
+  'Glowing%20star/3D/glowing_star_3d.png',
+].map((path) => `${stickerRoot}/${path}`);
 
 const paleStage =
   'bg-[#e8dfd0] text-[#42382e] bg-[radial-gradient(ellipse_at_20%_8%,#f8f3e9,transparent_62%)]';
@@ -123,17 +121,22 @@ function ExampleStage({ example }: { example: Example }) {
   if (example.group === 'codepen') {
     return (
       <ImageMouseTrail
-        items={cursorPhotos}
+        items={cursorStickers}
         effect={stampEffects[example.id]}
         threshold={100}
         minInterval={70}
         maxNumberOfImages={18}
         duration={1200}
         touchAction='none'
-        imgClass='mt-10 h-48 w-32 rounded-sm shadow-xl sm:mt-[75px] sm:h-[300px] sm:w-[200px]'
-        className='h-[clamp(300px,55vw,520px)] bg-[#eeedf5] text-[#332d43] bg-[radial-gradient(ellipse_at_18%_12%,#fffaf4,transparent_70%)]'
+        imgClass='size-[clamp(84px,22cqw,154px)] object-contain drop-shadow-[0_12px_18px_#08052280]'
+        className='@container h-[clamp(300px,55vw,520px)] bg-[#120e28] text-[#faf4ff] bg-[radial-gradient(ellipse_at_50%_55%,#38286b,transparent_75%),radial-gradient(circle,#ffffff24_1px,transparent_1.1px)] [background-size:100%_100%,22px_22px]'
       >
-        {hint}
+        <div className='pointer-events-none px-4 text-center'>
+          <h2 className='font-serif text-[clamp(2.5rem,13cqw,7.5rem)] font-bold leading-[0.85] tracking-[-0.07em] drop-shadow-[0_3px_12px_#170e30]'>
+            Out of <span className='block font-normal italic text-[#e8f8a5]'>this world.</span>
+          </h2>
+          <p className='mt-6 text-sm font-medium text-[#e4dcff]'>Move or drag to leave a trail</p>
+        </div>
       </ImageMouseTrail>
     );
   }

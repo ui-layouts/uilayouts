@@ -68,15 +68,4 @@ export const stampEffects = {
       frame(1, 0, 0, 0, 0.2, 0, { clipPath: 'inset(0%)', filter: 'brightness(1)' }),
     ],
   },
-  'motion-velocity': {
-    keyframes: (sample) => {
-      const strength = Math.min(1, sample.speed / 2);
-      const filter = `grayscale(${1 - strength}) brightness(${0.65 + strength * 0.65}) blur(${(1 - strength) * 8}px)`;
-      return [
-        approach(sample, 0.12, { filter }),
-        frame(0.5, 1, 0, 0, 0.48 + strength * 1.05, 0, { filter }),
-        frame(1, 0, 0, 0, 0.2, 0, { filter }),
-      ];
-    },
-  },
 } satisfies Record<string, ImageTrailEffect>;

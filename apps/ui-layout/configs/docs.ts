@@ -3019,7 +3019,7 @@ export const AllComponents: IAllComponents[] = [
     href: '/components/image-mousetrail',
     title: 'Image Trail Explorer',
     slug: 'image-mousetrail-explorer',
-    description: 'Browse 8 interactive image trail effects for React.',
+    description: 'Browse 7 interactive image trail effects for React.',
     filesArray: [
       {
         name: 'trail-explorer.tsx',
