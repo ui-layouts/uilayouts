@@ -18,7 +18,7 @@ export default function BoxComponentPreview({ name, isCard }: { name: string; is
             bg-transparent
             relative grid place-content-center`}
       >
-        <div className='not-prose'>
+        <div data-demo-surface className='not-prose'>
           <Suspense fallback={<div>Loading preview...</div>}>
             <preview.componentSrc />
           </Suspense>

@@ -152,6 +152,8 @@ export default async function DocPage(props: {
               />
             </Link>
             <iframe
+              data-showcase-preview
+              scrolling="no"
               className={styles.frame}
               src={showcase.expandUrl}
               title={title + ' interactive preview'}

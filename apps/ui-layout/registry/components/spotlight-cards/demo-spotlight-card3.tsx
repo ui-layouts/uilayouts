@@ -36,7 +36,7 @@ export default function DemoSpotlightCard3() {
   // console.log(overlayColor)
 
   return (
-    <div className='relative bg-black sm:p-8 p-2 rounded-md'>
+    <div className='relative sm:p-8 p-2 rounded-md'>
       <div
         onMouseMove={handleMouemove}
         onMouseEnter={() => setIsHovered(true)}

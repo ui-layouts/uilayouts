@@ -7,9 +7,9 @@ const images = ['montmartre', 'bir-hakeim', 'republique'].map(
 );
 
 export default function Demo(){
-  return <figure className="m-0 w-full bg-white text-neutral-950">
+  return <figure className="m-0 w-full text-neutral-950">
     <style>{`@font-face{font-family:MotionLeMurmure;src:url('/image-effects/motion-hover/le-murmure.otf') format('opentype');font-display:swap}.motion-paris{--motion-hover-font:MotionLeMurmure,Impact,sans-serif}`}</style>
-    <MotionHover className="motion-paris" background="#fff" images={images} labels={['Montmartre','Bir-Hakem','République']}
+    <MotionHover className="motion-paris" background="transparent" images={images} labels={['Montmartre','Bir-Hakem','République']}
       captions={['Cemetery, Paris','Bridge, Paris','People, Paris']} />
   </figure>;
 }

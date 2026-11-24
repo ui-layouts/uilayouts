@@ -28,6 +28,8 @@ const descriptions = [
 export default function Demo() {
   return (
     <OnScrollFilter
+      style={{ background: 'transparent', color: '#181818', scrollbarColor: '#aaa transparent' }}
+      className='[&_.osf-copy]:text-neutral-600!'
       images={images}
       labels={labels}
       descriptions={descriptions}

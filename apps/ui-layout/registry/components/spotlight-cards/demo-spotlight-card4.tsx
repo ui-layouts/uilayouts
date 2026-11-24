@@ -35,7 +35,7 @@ export default function DemoSpotlightCard4() {
   };
 
   return (
-    <div className='relative bg-black sm:p-8 px-4 rounded-md'>
+    <div className='relative sm:p-8 px-4 rounded-md'>
       <div
         onMouseMove={handleMouemove}
         onMouseEnter={() => setIsHovered(true)}

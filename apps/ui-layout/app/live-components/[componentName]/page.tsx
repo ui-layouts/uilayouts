@@ -1,3 +1,5 @@
+import ShowcaseFit from '@/components/website/showcase-fit';
+import '../live-preview.css';
 import { AllComponents } from '@/configs/docs';
 import { notFound } from 'next/navigation';
 import React, { Suspense } from 'react';
@@ -28,20 +30,12 @@ export default async function SectionPage(props: { params: Promise<{ componentNa
   const ComponentPreview = component.componentSrc;
 
   return (
-    <section
-      className={`${
-        isFramerScrolling ? '' : 'flex justify-center items-center h-full'
-      } min-h-screen bg-white text-neutral-950`}
-    >
-      <div className='w-full min-w-0 px-4'>
-        <Suspense
-          fallback={
-            <div className='min-h-screen w-full bg-white' />
-          }
-        >
+    <section className="live-demo-stage">
+      <ShowcaseFit documentScroll={isFramerScrolling}>
+        <Suspense fallback={null}>
           <ComponentPreview />
         </Suspense>
-      </div>
+      </ShowcaseFit>
     </section>
   );
 }

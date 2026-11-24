@@ -227,6 +227,8 @@ export default function ComponentPreview({
               >
                 <div className='h-full not-prose mx-auto' style={{ width: width }}>
                   <iframe
+                    data-showcase-preview
+                    scrolling='no'
                     src={previewUrl}
                     className='h-full w-full'
                     style={{ maxWidth: '100%' }}
@@ -249,6 +251,8 @@ export default function ComponentPreview({
               <div className='h-full not-prose mx-auto' style={{ width: width }}>
                 <>
                   <iframe
+                    data-showcase-preview
+                    scrolling='no'
                     src={previewUrl}
                     className='h-full w-full'
                     style={{ maxWidth: '100%' }}
@@ -264,13 +268,10 @@ export default function ComponentPreview({
       ) : (
         <>
           <div
+            data-demo-surface
             className={cn(
               `w-full rounded-lg flex flex-col justify-center items-center bg-transparent overflow-hidden`,
-              isFitheight
-                ? 'h-fit lg:p-6 p-2'
-                : isFit
-                  ? 'h-fit p-0'
-                  : '2xl:h-[600px] xl:h-[550px] h-fit overflow-auto lg:p-6 p-2'
+              isFit && !isFitheight ? 'h-fit p-0' : 'h-fit lg:p-6 p-2'
             )}
           >
             {ComponentPreview ? (

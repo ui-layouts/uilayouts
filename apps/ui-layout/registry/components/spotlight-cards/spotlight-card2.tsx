@@ -6,7 +6,7 @@ import React from 'react';
 export default function SpotlightCard2() {
   return (
     <>
-      <div className='relative bg-black sm:p-8 px-4 rounded-md'>
+      <div className='relative sm:p-8 px-4 rounded-md'>
         <Spotlight className='sm:w-96 w-full' ProximitySpotlight={false}>
           <SpotLightItem>
             <div className='relative text-center z-10 px-0 py-16 rounded-lg w-full bg-cover bg-black h-full mx-auto'>

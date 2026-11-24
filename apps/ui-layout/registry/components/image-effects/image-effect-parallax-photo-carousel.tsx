@@ -2,7 +2,7 @@
 import { ParallaxPhotoCarousel } from "@/components/ui/image-effect-parallax-photo-carousel";
 export default function Demo() {
   return (
-    <ParallaxPhotoCarousel
+    <ParallaxPhotoCarousel style={{ background: 'transparent' }}
       images={[
         "coast",
         "ridge",

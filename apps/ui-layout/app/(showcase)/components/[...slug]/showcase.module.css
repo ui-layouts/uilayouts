@@ -1,15 +1,64 @@
-.page { background: var(--background); color: var(--foreground); min-height: 100svh; }
-.stage { isolation: isolate; position: relative; height: 100svh; display: grid; place-items: center; padding: clamp(72px,10svh,112px) 4vw clamp(72px,10svh,112px); }
-.brand { position: absolute; top: clamp(18px,3.4svh,42px); left: 50%; transform: translateX(-50%); }
-.brand img { display: block; width: clamp(136px,16.3vw,320px); height: auto; }
-.frame { width: min(86vw, 1380px); height: 100%; border: 0; background: transparent; }
-.stage[data-demo='image-effect-motion-hover'] .frame { width: min(82vw,134svh); }
-.details { width: min(100% - 40px, 54rem); margin-inline: auto; padding-block: clamp(48px,8vh,100px) 124px; }
-.details h1 { font-weight: 600; letter-spacing: -.045em; font-size: clamp(2rem,5vw,3.8rem); line-height: 1.06; }
-.description { margin: 1rem 0 2.5rem; line-height: 1.65; color: var(--muted-foreground); }
-.skip { position: fixed; top: 8px; left: 8px; transform: translateY(-200%); z-index: 60; padding: 8px; background: var(--background); }
-.skip:focus { transform: none; }
-@media (max-width: 640px) {
-  .stage { padding-inline: 0; }
-  .frame,.stage[data-demo='image-effect-motion-hover'] .frame { width: 100%; }
+.page {
+  --showcase-width: min(960px, calc(100% - 2 * clamp(12px, 3vw, 40px)));
+  min-height: 100svh;
+  background: var(--background);
+  color: var(--foreground);
+}
+.stage,
+.details {
+  width: var(--showcase-width);
+  margin-inline: auto;
+}
+.stage {
+  isolation: isolate;
+  position: relative;
+  height: 100vh;
+  height: 100svh;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  justify-items: center;
+  gap: clamp(8px, 2vh, 22px);
+  padding-block: clamp(12px, 3svh, 32px) clamp(60px, 8svh, 88px);
+}
+.brand {
+  display: block;
+}
+.brand img {
+  display: block;
+  width: clamp(124px, 16vw, 228px);
+  height: auto;
+}
+.frame {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  border: 0;
+  background: transparent;
+}
+.details {
+  padding-block: clamp(48px, 8vh, 100px) 124px;
+}
+.details h1 {
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  font-size: clamp(2rem, 5vw, 3.8rem);
+  line-height: 1.06;
+}
+.description {
+  margin: 1rem 0 2.5rem;
+  line-height: 1.65;
+  color: var(--muted-foreground);
+}
+.skip {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  transform: translateY(-200%);
+  z-index: 60;
+  padding: 8px;
+  background: var(--background);
+}
+.skip:focus {
+  transform: none;
 }

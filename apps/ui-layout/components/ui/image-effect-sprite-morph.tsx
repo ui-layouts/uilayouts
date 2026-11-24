@@ -86,7 +86,7 @@ export function SpriteMorph({
       const index = count === 1 ? 0 : Math.round(progress * 23);
       const first = load(sources[from]),
         second = load(sources[next]),
-        sheet = count > 1 ? load(sheets[from]) : undefined;
+        sheet = index > 0 && index < 23 ? load(sheets[from]) : undefined;
       const w = el!.width,
         h = el!.height;
       const context = ctx!;
@@ -243,11 +243,12 @@ export function SpriteMorph({
         margin: 0,
         width: "100%",
         aspectRatio: "4/3",
-        minHeight: 220,
+        maxWidth: "min(100%, 128svh)",
+        marginInline: "auto",
         position: "relative",
         display: "grid",
         gridTemplateRows: "1fr auto",
-        background: "#f2efe6",
+        background: "transparent",
         color: "#292f26",
         ...style,
       }}
@@ -259,9 +260,9 @@ export function SpriteMorph({
             alt=""
             style={{
               position: "absolute",
-              inset: 0,
-              width: "100%",
-              height: "100%",
+              inset: "5%",
+              width: "90%",
+              height: "90%",
               objectFit: "contain",
             }}
           />

@@ -1,0 +1,27 @@
+.live-demo-stage {
+  min-height: 100svh;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  background: transparent;
+}
+.live-demo-content {
+  width: min(100%, 960px);
+  min-width: 0;
+  transform-origin: center;
+}
+.live-demo-stage[data-fitted] {
+  height: 100svh;
+  min-height: 0;
+  grid-template: minmax(0, 1fr) / minmax(0, 1fr);
+  overflow: clip;
+}
+/* A scroll-based effect can still respond to touch, wheel, or keyboard within the artwork. */
+.live-demo-stage[data-fitted] .live-demo-content,
+.live-demo-stage[data-fitted] .live-demo-content * {
+  scrollbar-width: none;
+}
+html:has(.live-demo-stage[data-fitted]) {
+  scrollbar-gutter: auto;
+  scrollbar-width: none;
+}

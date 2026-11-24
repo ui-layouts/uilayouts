@@ -1,7 +1,9 @@
 .toolbar {
   position: fixed;
   z-index: 45;
-  inset-inline: max(20px, env(safe-area-inset-left)) max(20px, env(safe-area-inset-right));
+  inset-inline: 0;
+  width: var(--showcase-width);
+  margin-inline: auto;
   bottom: max(16px, env(safe-area-inset-bottom));
   display: flex;
   align-items: flex-end;
@@ -263,7 +265,6 @@
 }
 @media (max-width: 680px) {
   .toolbar {
-    inset-inline: max(8px, env(safe-area-inset-left)) max(8px, env(safe-area-inset-right));
     gap: 5px;
     bottom: max(8px, env(safe-area-inset-bottom));
   }

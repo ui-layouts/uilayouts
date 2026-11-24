@@ -5,7 +5,7 @@ import React from 'react';
 
 export default function SpotlightCard4() {
   return (
-    <div className='relative bg-black sm:p-8 px-4 rounded-md'>
+    <div className='relative sm:p-8 px-4 rounded-md'>
       <Spotlight className='sm:w-120 w-full mx-auto' ProximitySpotlight={true}>
         <SpotLightItem>
           <div className="relative text-center z-10 sm:px-8 px-4 py-6 rounded-lg w-fit  bg-[url('https://res.cloudinary.com/dzl9yxixg/image/upload/sub-grid_hnhyvi.png')] bg-cover   bg-black h-full mx-auto">

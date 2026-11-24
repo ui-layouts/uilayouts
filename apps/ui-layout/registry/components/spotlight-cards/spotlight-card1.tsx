@@ -41,12 +41,12 @@ export default function SpotlightCard1() {
   ];
   return (
     <>
-      <div className='relative bg-black sm:p-8 p-4 rounded-md'>
+      <div className='relative sm:p-8 p-4 rounded-md'>
         <Spotlight className='grid gap-2 grid-flow-col grid-cols-4'>
           {boxes?.map((box, index) => {
             return (
               <SpotLightItem className={box.className} key={box.className}>
-                <div className='relative z-10 rounded-lg  bg-linear-to-b from-[#0c0c0c] to-[#252525] w-full h-full mx-auto'>
+                <div className='relative z-10 rounded-lg text-white bg-linear-to-b from-[#0c0c0c] to-[#252525] w-full h-full mx-auto'>
                   <div className='rounded-lg grid place-content-center relative max-h-full h-full 2xl:p-3 p-0  w-full'>
                     <div
                       className={`absolute rounded-lg top-0 left-0 h-full w-full -z-10 bg-center bg-cover`}

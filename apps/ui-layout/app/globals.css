@@ -572,3 +572,8 @@ html.dark .shiki span {
   initial-value: 0deg;
   syntax: '<angle>';
 }
+
+/* Neutral staging panels in older demos (including Marquee and Animated Beam). */
+[data-demo-surface] > :is(div, section, figure).relative.overflow-hidden:is(.bg-muted, .bg-secondary) {
+  background-color: transparent;
+}

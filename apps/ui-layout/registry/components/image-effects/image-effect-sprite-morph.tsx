@@ -3,15 +3,15 @@ import { SpriteMorph } from '@/components/ui/image-effect-sprite-morph';
 
 const directory = '/image-effects/ages/';
 const names = ['baby', 'teen', 'adult', 'old', 'elder'];
-const images = names.map((name) => directory + name + '.webp');
+const photo = (name: string) => directory + name + '.webp?v=portrait-750-1';
+const images = names.map(photo);
 const atlases = names.map(
-  (name, i) => directory + name + '-' + names[(i + 1) % names.length] + '.webp'
+  (name, i) => photo(name + '-' + names[(i + 1) % names.length])
 );
 
 export default function Demo() {
   return (
     <SpriteMorph
-      style={{ background: '#fff', color: '#191919' }}
       label='Five ages of one face'
       labels={['Baby', 'Teen', 'Adult', 'Old', 'Elder']}
       images={images}
