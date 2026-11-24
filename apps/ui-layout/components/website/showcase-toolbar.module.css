@@ -325,3 +325,19 @@
   .launcher { justify-self: start; }
   .actions { justify-self: end; }
 }
+
+.toolbar { --edge: max(10px, 3vw, calc((100% - 1280px) / 2)); inset-inline: var(--edge); }
+.launcher { position: fixed; top: 24px; left: var(--edge); }
+.pager { display: flex; justify-self: start; gap: 2px; }
+.pager button { display: grid; place-items: center; width: 38px; height: 40px; border: 2px solid var(--border); border-radius: 9px; background: var(--background); }
+.tree { margin-left: 16px; padding-left: 8px; border-left: 1px solid var(--border); }
+.tree button { display: block; text-align: left; width: 100%; padding: 5px 8px; font-size: 14px; }
+.tree button[aria-current] { background: var(--muted); font-weight: 600; border-radius: 5px; }
+.links .sectionLink { display: flex; align-items: center; gap: 8px; padding-block: 4px; }
+.sectionLink svg { width: 25px; height: 25px; padding: 4px; border: 1px solid var(--border); border-radius: 5px; }
+@media (max-width: 500px) {
+  .toolbar { inset-inline: 5px; gap: 3px; }
+  .pager button { width: 28px; }
+  .center { flex: 0 1 auto; }
+  .command { max-width: 18vw; }
+}

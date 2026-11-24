@@ -23,10 +23,11 @@ type Example = Pick<
   jsonName?: string;
 };
 
-function getFeaturedExample(
+function getExamples(
   slug: string,
   markdown: string
-): Example | undefined {
+): Example[] {
+  const examples: Example[] = [];
   const tags = markdown.matchAll(
     /<(?:ComponentCodePreview|IframeComponentPrieview|BoxComponentPreview)\b([^>]*?)>/g
   );
@@ -40,27 +41,34 @@ function getFeaturedExample(
       'live-components/' + item.componentName,
       item.iframelink
     );
-    if (expandUrl)
-      return {
+    if (expandUrl && !examples.some(example => example.componentName === item.componentName))
+      examples.push({
         ...item,
         expandUrl,
         jsonName: attributes.match(/\bjsonName\s*=\s*['"]([^'"]+)['"]/)?.[1],
-      };
+      });
   }
+  if (examples.length) return examples;
   // MDX-native components can supply a standalone demo without a client registry entry.
   const sourcePath = 'app/live-components/' + slug + '/page.mdx';
   if (fs.existsSync(path.join(process.cwd(), sourcePath))) {
-    return {
+    return [{
       componentName: slug,
       sourcePath,
       expandUrl: '/live-components/' + slug,
-    };
+    }];
   }
+  return [];
 }
 
 export function getShowcase(slug: string, markdown: string) {
-  const item = getFeaturedExample(slug, markdown);
-  if (!item) return null;
+  return getExamples(slug, markdown).map((item, index) => ({
+    ...describeExample(slug, markdown, item),
+    label: index === 0 ? 'Overview' : item.componentName.replace(slug + '-', '').replace(/-/g, ' ').replace(/\b\w/g, letter => letter.toUpperCase()),
+  }));
+}
+
+function describeExample(slug: string, markdown: string, item: Example) {
   const installName = getInstallName([
     item.jsonName,
     slug,

@@ -109,3 +109,8 @@
   inset-inline: 0;
   margin-inline: auto;
 }
+
+.stage { padding-top: clamp(68px, 8vh, 88px); grid-template-rows: minmax(0, 1fr); }
+.cue { inset-inline: max(3vw, calc((100% - 1280px) / 2)); }
+.details h1 { scroll-margin-top: 85px; }
+.details { max-width: 1380px; margin-inline: auto; }

@@ -4,14 +4,16 @@ import * as Dialog from '@radix-ui/react-dialog';
 import {
   Check,
   ChevronsUpDown,
+  ChevronLeft, ChevronRight,
   Copy,
   Expand,
   FolderCode,
   PanelLeft,
-  Search,
   X,
 } from 'lucide-react';
 import Link from 'next/link';
+import { Fragment } from 'react';
+import { basePath } from './sidebar';
 import { useEffect, useRef, useState } from 'react';
 import type { DocsNavigationCategory } from '@/types/docs';
 import { Bun, NPM, Pnpm, Yarn } from './icons';
@@ -25,6 +27,7 @@ export interface ShowcaseToolbarProps {
   installUrl: string;
   sourceCode: string;
   expandUrl: string;
+  navigation: { index: number; examples: { name: string; label: string }[]; select: (index: number) => void };
 }
 
 const managers = {
@@ -35,9 +38,8 @@ const managers = {
 };
 type Manager = keyof typeof managers;
 
-function NavigationDrawer({ slug }: { slug: string }) {
+function NavigationDrawer({ slug, navigation }: Pick<ShowcaseToolbarProps, 'slug' | 'navigation'>) {
   const [open, setOpen] = useState(false);
-  const [query, setQuery] = useState('');
   const [catalog, setCatalog] = useState<Record<
     string,
     DocsNavigationCategory[]
@@ -59,23 +61,12 @@ function NavigationDrawer({ slug }: { slug: string }) {
       active = false;
     };
   }, [open, catalog]);
-  const filter = query.trim().toLowerCase();
-  const groups = Object.entries(catalog ?? {})
-    .map(([label, items]) => ({
-      label,
-      items: items.filter((item) =>
-        [item.name, label, ...item.tags].some((part) =>
-          part.toLowerCase().includes(filter)
-        )
-      ),
-    }))
-    .filter((group) => group.items.length);
+  const groups = Object.entries(catalog ?? {}).map(([label, items]) => ({ label, items }));
   return (
     <Dialog.Root
       open={open}
       onOpenChange={(value) => {
         setOpen(value);
-        if (!value) setQuery('');
       }}
     >
       <Dialog.Trigger asChild>
@@ -92,30 +83,20 @@ function NavigationDrawer({ slug }: { slug: string }) {
         <Dialog.Overlay className={styles.overlay} />
         <Dialog.Content className={styles.drawer} aria-describedby={undefined}>
           <header className={styles.drawerHeader}>
-            <Dialog.Title>Components</Dialog.Title>
+            <Dialog.Title><Link href="/components"><img src="/showcase-wordmark.svg" alt="UI Layouts" width={144} /></Link></Dialog.Title>
             <Dialog.Close asChild>
               <button type='button' aria-label='Close component navigation'>
                 <X size={18} />
               </button>
             </Dialog.Close>
           </header>
-          <label className={styles.search}>
-            <Search size={16} aria-hidden />
-            <input
-              type='search'
-              aria-label='Find a component'
-              placeholder='Find a component'
-              value={query}
-              onChange={(event) => setQuery(event.target.value)}
-            />
-          </label>
           <nav className={styles.links} aria-label='Component navigation'>
+            {basePath.map(link => <Link key={link.href} href={link.href} className={styles.sectionLink}>{link.icon}{link.name}</Link>)}
             {groups.map(({ label, items }) => (
               <section key={label}>
                 <h3>{label}</h3>
                 {items.map((item) => (
-                  <Link
-                    key={item.href}
+                  <Fragment key={item.href}><Link
                     href={item.href}
                     prefetch={false}
                     aria-current={
@@ -123,11 +104,13 @@ function NavigationDrawer({ slug }: { slug: string }) {
                     }
                     onClick={() => {
                       setOpen(false);
-                      setQuery('');
                     }}
                   >
                     {item.name}
                   </Link>
+                  {item.href === '/components/' + slug && navigation.examples.length > 1 && <div className={styles.tree}>
+                    {navigation.examples.map((example, index) => <button key={example.name} type="button" aria-current={index === navigation.index ? 'page' : undefined} onClick={() => { navigation.select(index); setOpen(false); }}>{example.label}</button>)}
+                  </div>}</Fragment>
                 ))}
               </section>
             ))}
@@ -200,6 +183,7 @@ export function ShowcaseToolbar({
   installUrl,
   sourceCode,
   expandUrl,
+  navigation,
 }: ShowcaseToolbarProps) {
   const [manager, setManager] = useState<Manager>('npm');
   const [feedback, setFeedback] = useState<{
@@ -255,7 +239,13 @@ export function ShowcaseToolbar({
     feedback?.action === action && feedback.success;
   return (
     <div className={styles.toolbar} aria-label='Component tools' role='group'>
-      <NavigationDrawer slug={slug} />
+      <NavigationDrawer slug={slug} navigation={navigation} />
+      <div className={styles.pager}>
+        {navigation.examples.length > 1 && <>
+          <button type="button" aria-label="Previous example" title="Previous example" disabled={navigation.index === 0} onClick={() => navigation.select(navigation.index - 1)}><ChevronLeft size={18} aria-hidden /></button>
+          <button type="button" aria-label="Next example" title="Next example" disabled={navigation.index === navigation.examples.length - 1} onClick={() => navigation.select(navigation.index + 1)}><ChevronRight size={18} aria-hidden /></button>
+        </>}
+      </div>
       <div className={styles.center}>
         <div className={styles.install}>
           {installUrl && (

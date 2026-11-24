@@ -5,7 +5,7 @@ import ComponentCodePreview from '@/components/website/code-components/component
 import IframeComponentPreview from '@/components/website/code-components/iframe-component-preview';
 import type { ComponentProps } from 'react';
 import { ComponentPagination } from '@/components/website/code-components/pagination';
-import ShowcaseToolbar from '@/components/website/showcase-toolbar';
+import ExampleShowcase from './example-showcase';
 import { getShowcase } from '@/lib/showcase';
 import Link from 'next/link';
 import styles from './showcase.module.css';
@@ -96,7 +96,8 @@ export default async function DocPage(props: {
 
   const { default: Content } = doc.content;
 
-  const showcase = getShowcase(slug, doc.markdown);
+  const examples = getShowcase(slug, doc.markdown);
+  const showcase = examples[0];
   const { title, description } = doc.content.metadata;
   const featuredSource = showcase && (
     <details className='my-4'>
@@ -129,43 +130,7 @@ export default async function DocPage(props: {
           },
         ]}
       />
-      {showcase && (
-        <>
-          <a className={styles.skip} href='#component-title'>
-            Skip to documentation
-          </a>
-          <section
-            className={styles.stage}
-            aria-label={title + ' preview'}
-            data-demo={showcase.name}
-          >
-            <Link
-              className={styles.brand}
-              href='/components'
-              aria-label='UI Layouts component library'
-            >
-              <img
-                src='/showcase-wordmark.svg'
-                alt='UI Layouts'
-                width={288}
-                height={63}
-              />
-            </Link>
-            <iframe
-              data-showcase-preview
-              scrolling="no"
-              className={styles.frame}
-              src={showcase.expandUrl}
-              title={title + ' interactive preview'}
-            />
-            <nav className={styles.cue} aria-label='Component details'>
-              <strong>{title}</strong>
-              <a href='#component-title'>Scroll for details <span aria-hidden='true'>↓</span></a>
-            </nav>
-          </section>
-          <ShowcaseToolbar slug={slug} title={title} {...showcase} />
-        </>
-      )}
+      <ExampleShowcase key={slug} slug={slug} title={title} examples={examples}>
       <article className={styles.details} aria-labelledby='component-title'>
         {!showcase && <Link href='/components'>← Components</Link>}
         <h1 id='component-title' tabIndex={-1}>
@@ -206,6 +171,7 @@ export default async function DocPage(props: {
         </div>
         <ComponentPagination doc={doc} />
       </article>
+      </ExampleShowcase>
     </main>
   );
 }
