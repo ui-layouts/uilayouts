@@ -31,6 +31,8 @@ export function SpriteMorph({
   const surface = useRef<HTMLCanvasElement>(null);
   const framePosition = useRef(0),
     animation = useRef(0);
+  const request = useRef(0);
+  const prepare = useRef<(start: number, end: number) => Promise<unknown>>(async () => {});
   const repaint = useRef<() => void>(() => {});
   const [selection, setSelection] = useState(0);
   const [painted, setPainted] = useState(false);
@@ -43,7 +45,8 @@ export function SpriteMorph({
   const clock = controlled ? wrap(time! / duration, Math.max(1, count)) : 0;
   const step = Math.floor(clock),
     fraction = clock - step;
-  const cursor = step + Math.max(0, Math.min(1, (fraction - 0.3) / 0.7));
+  const transition = Math.min(1, duration);
+  const cursor = step + Math.max(0, 1 - ((1 - fraction) * duration) / transition);
   const selected = count
     ? wrap(controlled ? Math.round(cursor) : selection, count)
     : 0;
@@ -108,14 +111,17 @@ export function SpriteMorph({
           sh * scale,
         );
       }
-      if (ready(sheet) && sheet.naturalWidth >= 6 && sheet.naturalHeight >= 4) {
-        const sw = sheet.naturalWidth / 6,
-          sh = sheet.naturalHeight / 4;
-        contain(sheet, (index % 6) * sw, Math.floor(index / 6) * sh, sw, sh);
-      } else if (index === 0 && ready(first)) {
+      if (index === 0 && ready(first)) {
         contain(first);
       } else if (index === 23 && ready(second)) {
         contain(second);
+      } else if (ready(sheet) && sheet.naturalWidth >= 6 && sheet.naturalHeight >= 4) {
+        const sw = sheet.naturalWidth / 6,
+          sh = sheet.naturalHeight / 4;
+        contain(sheet, (index % 6) * sw, Math.floor(index / 6) * sh, sw, sh);
+      } else if (sheet && !sheet.complete && (ready(first) || ready(second))) {
+        const nearest = progress < 0.5 ? first : second;
+        contain(ready(nearest) ? nearest : ready(first) ? first : second!);
       } else if (ready(first) && ready(second)) {
         // When only endpoint photos are supplied, deform corresponding horizontal
         // bands toward a common waist, then release into the next silhouette.
@@ -159,6 +165,15 @@ export function SpriteMorph({
       }
       setPainted(true);
     }
+    // Warm only the atlas pairs on the chosen path. Settled portraits stay visible while decoding.
+    prepare.current = (start, end) => {
+      const pending: Promise<void>[] = [];
+      for (let k = Math.floor(Math.min(start, end)); k < Math.ceil(Math.max(start, end)); k++) {
+        const sheet = load(sheets[wrap(k, count)]);
+        if (sheet) pending.push(sheet.decode());
+      }
+      return Promise.allSettled(pending);
+    };
     repaint.current = paint;
     function resize() {
       const ratio = Math.min(window.devicePixelRatio || 1, 2),
@@ -174,6 +189,8 @@ export function SpriteMorph({
     sources.forEach(load);
     return () => {
       alive = false;
+      request.current++;
+      prepare.current = async () => {};
       observer.disconnect();
       cancelAnimationFrame(animation.current);
       repaint.current = () => {};
@@ -184,14 +201,16 @@ export function SpriteMorph({
   }, [sourceKey, count]);
   useEffect(() => {
     if (controlled) {
+      request.current++;
       cancelAnimationFrame(animation.current);
       framePosition.current = cursor;
       repaint.current();
     }
   }, [controlled, cursor, sourceKey]);
-  function choose(i: number) {
+  async function choose(i: number) {
     if (controlled || count < 2) return;
     cancelAnimationFrame(animation.current);
+    const ticket = ++request.current;
     const start = framePosition.current;
     let delta = wrap(i - start, count);
     if (delta > count / 2) delta -= count;
@@ -204,11 +223,12 @@ export function SpriteMorph({
       repaint.current();
       return;
     }
-    const epoch = performance.now(),
-      length = Math.min(1250, 750 * Math.max(0.55, Math.abs(delta)));
+    await prepare.current(start, start + delta);
+    if (ticket !== request.current) return;
+    const epoch = performance.now();
     function tick(now: number) {
-      const t = Math.min(1, (now - epoch) / length);
-      framePosition.current = start + delta * t * t * (3 - 2 * t);
+      const t = Math.min(1, (now - epoch) / 1000);
+      framePosition.current = start + delta * t;
       repaint.current();
       if (t < 1) animation.current = requestAnimationFrame(tick);
     }

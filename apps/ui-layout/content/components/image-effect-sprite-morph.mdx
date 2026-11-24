@@ -36,7 +36,7 @@ export default function PortraitStudy() {
 }
 ```
 
-Select a numbered button to move between five ages of the same face. The preview uses original AI-generated portraits and 24-frame transition sheets, including a transition from elder back to baby. Use your own image URLs and sheets to change the subject.
+Select a numbered button to move between five ages of the same face in profile. Each selection travels the shorter path around the five portraits in one second. The 24-frame sheets stagger the movement of facial features across the profile, including the return from elder to baby. Use your own image URLs and sheets to change the subject.
 
 | Prop | Description |
 | --- | --- |
@@ -44,6 +44,6 @@ Select a numbered button to move between five ages of the same face. The preview
 | `labels` | Names used for the captions and selection buttons. |
 | `atlases` | Optional transition sheets, one per image-to-next-image pair, including the last image back to the first. Each sheet contains 24 frames arranged left to right in six columns and four rows. Without a sheet, the component generates a scanline warp from the two source images. |
 | `time` | Elapsed seconds from an external clock. Supplying this prop selects the frame directly. |
-| `secondsPerImage` | Duration of each image and its transition in controlled playback. Defaults to 2.5 seconds. |
+| `secondsPerImage` | Duration of each stage in controlled playback. Defaults to 2.5 seconds. The transition occupies the final second, or the whole stage for durations below one second. |
 
 [Codrops article](https://tympanus.net/codrops/2024/12/09/creating-the-morphing-effect-of-the-luma-dream-machine-website/) · [Original reference](https://github.com/J0SUKE/morphing-2d-demo)
