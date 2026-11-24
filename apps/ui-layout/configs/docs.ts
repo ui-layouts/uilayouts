@@ -3019,7 +3019,7 @@ export const AllComponents: IAllComponents[] = [
     href: '/components/image-mousetrail',
     title: 'Image Trail Explorer',
     slug: 'image-mousetrail-explorer',
-    description: 'Browse 25 image trail effects, including frame-by-frame and Canvas adaptations.',
+    description: 'Browse 8 interactive image trail effects for React.',
     filesArray: [
       {
         name: 'trail-explorer.tsx',
@@ -3041,48 +3041,10 @@ export const AllComponents: IAllComponents[] = [
         name: 'trail-canvas-draw.ts',
         filesrc: require('../registry/components/mousetrail/trail-canvas-draw.ts?raw'),
       },
-      {
-        name: 'default-mousetrail.tsx',
-        filesrc: require('../registry/components/mousetrail/default-mousetrail.tsx?raw'),
-      },
-      {
-        name: 'momentum-mousetrail.tsx',
-        filesrc: require('../registry/components/mousetrail/momentum-mousetrail.tsx?raw'),
-      },
-      {
-        name: 'bounce-mousetrail.tsx',
-        filesrc: require('../registry/components/mousetrail/bounce-mousetrail.tsx?raw'),
-      },
     ],
     tags: ['mouse-trail', 'image-trail', 'motion-trail', 'canvas', 'explorer'],
     componentSrc: React.lazy(() => import('@/registry/components/mousetrail/trail-explorer')),
     iframeSrc: 'live-components/image-mousetrail-explorer',
-  },
-
-  {
-    category: DOCS_CATEGORY_KEY['image-mousetrail'],
-    componentName: COMPONENT_KEYS.IMAGE_MOUSETRAIL_MOMENTUM,
-    href: '/components/image-mousetrail',
-    title: 'Momentum Image Trail',
-    slug: 'image-mousetrail-momentum',
-    description: 'Direction-aware image trail with drifting momentum',
-    filesrc: require('../registry/components/mousetrail/momentum-mousetrail.tsx?raw'),
-    tags: ['mouse-trail', 'momentum', 'animation'],
-    componentSrc: React.lazy(() => import('@/registry/components/mousetrail/momentum-mousetrail')),
-    iframeSrc: 'live-components/image-mousetrail-momentum',
-  },
-
-  {
-    category: DOCS_CATEGORY_KEY['image-mousetrail'],
-    componentName: COMPONENT_KEYS.IMAGE_MOUSETRAIL_BOUNCE,
-    href: '/components/image-mousetrail',
-    title: 'Bounce Image Trail',
-    slug: 'image-mousetrail-bounce',
-    description: 'Springy pop-in and bounce-out image trail',
-    filesrc: require('../registry/components/mousetrail/bounce-mousetrail.tsx?raw'),
-    tags: ['mouse-trail', 'bounce', 'animation'],
-    componentSrc: React.lazy(() => import('@/registry/components/mousetrail/bounce-mousetrail')),
-    iframeSrc: 'live-components/image-mousetrail-bounce',
   },
 
   {

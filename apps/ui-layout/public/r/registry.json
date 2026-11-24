@@ -5416,44 +5416,10 @@
       ]
     },
     {
-      "name": "image-mousetrail-momentum",
-      "type": "registry:component",
-      "dependencies": ["tailwind-merge"],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [
-        {
-          "path": "./components/ui/mousetrail.tsx",
-          "type": "registry:component"
-        },
-        {
-          "path": "./registry/components/mousetrail/momentum-mousetrail.tsx",
-          "type": "registry:component"
-        }
-      ]
-    },
-    {
-      "name": "image-mousetrail-bounce",
-      "type": "registry:component",
-      "dependencies": ["tailwind-merge"],
-      "devDependencies": [],
-      "registryDependencies": [],
-      "files": [
-        {
-          "path": "./components/ui/mousetrail.tsx",
-          "type": "registry:component"
-        },
-        {
-          "path": "./registry/components/mousetrail/bounce-mousetrail.tsx",
-          "type": "registry:component"
-        }
-      ]
-    },
-    {
       "name": "image-mousetrail-explorer",
       "type": "registry:component",
       "title": "Image Trail Explorer",
-      "description": "Explore 25 pointer-driven image trails with React and Canvas.",
+      "description": "Explore 8 pointer-driven image trails with React and Canvas.",
       "dependencies": ["tailwind-merge"],
       "devDependencies": [],
       "registryDependencies": [],
@@ -5481,21 +5447,6 @@
           "path": "./registry/components/mousetrail/trail-canvas-draw.ts",
           "type": "registry:component",
           "target": "components/trail-explorer/trail-canvas-draw.ts"
-        },
-        {
-          "path": "./registry/components/mousetrail/default-mousetrail.tsx",
-          "type": "registry:component",
-          "target": "components/trail-explorer/default-mousetrail.tsx"
-        },
-        {
-          "path": "./registry/components/mousetrail/momentum-mousetrail.tsx",
-          "type": "registry:component",
-          "target": "components/trail-explorer/momentum-mousetrail.tsx"
-        },
-        {
-          "path": "./registry/components/mousetrail/bounce-mousetrail.tsx",
-          "type": "registry:component",
-          "target": "components/trail-explorer/bounce-mousetrail.tsx"
         }
       ]
     }

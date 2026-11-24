@@ -2,60 +2,26 @@
 
 import { lazy, Suspense, useId, useState } from 'react';
 import ImageMouseTrail from '@/components/ui/mousetrail';
-import type { CanvasEffect } from './trail-canvas-draw';
 import { stampEffects } from './trail-stamp-effects';
 
-const SmoothFollow = lazy(() => import('./default-mousetrail'));
-const Momentum = lazy(() => import('./momentum-mousetrail'));
-const Bounce = lazy(() => import('./bounce-mousetrail'));
 const TrailCanvas = lazy(() => import('./trail-canvas'));
 
-const originals = {
-  follow: SmoothFollow,
-  momentum: Momentum,
-  bounce: Bounce,
-};
-
-type OriginalId = keyof typeof originals;
-type StampId = keyof typeof stampEffects;
-
-type Example =
-  | { id: OriginalId; title: string; description: string; group: 'originals' }
-  | { id: 'cursor-trailer'; title: string; description: string; group: 'codepen' }
+type Example = { title: string; description: string } & (
+  | { id: 'cursor-trailer'; group: 'codepen' }
   | {
-      id: Exclude<StampId, 'cursor-trailer'> | CanvasEffect;
-      title: string;
-      description: string;
+      id: Exclude<keyof typeof stampEffects, 'cursor-trailer'> | 'motion-gooey';
       group: 'image' | 'motion';
       demo: number;
-    };
+    }
+);
 
 const groups = {
-  originals: 'UI Layouts',
   image: 'Image Trail Effects',
   motion: 'Motion Trail Animations',
   codepen: 'CodePen',
 };
 
 const examples: Example[] = [
-  {
-    id: 'follow',
-    title: 'Smooth Follow',
-    description: 'Images ease into place and gently fade away.',
-    group: 'originals',
-  },
-  {
-    id: 'momentum',
-    title: 'Momentum',
-    description: 'Each photo rotates and drifts with the gesture.',
-    group: 'originals',
-  },
-  {
-    id: 'bounce',
-    title: 'Pop & Bounce',
-    description: 'Photos pop in, settle, and bounce out.',
-    group: 'originals',
-  },
   {
     id: 'image-shrink',
     title: 'Shrink Away',
@@ -78,20 +44,6 @@ const examples: Example[] = [
     demo: 3,
   },
   {
-    id: 'image-stretch',
-    title: 'Stretch & Fall',
-    description: 'Photos stretch vertically before falling away.',
-    group: 'image',
-    demo: 5,
-  },
-  {
-    id: 'image-slide',
-    title: 'Sliding Gallery',
-    description: 'Move left or right to slide the next picture onto the stage.',
-    group: 'image',
-    demo: 6,
-  },
-  {
     id: 'motion-classic',
     title: 'Classic',
     description: 'Photos glide from behind the pointer and shrink as they exit.',
@@ -106,27 +58,6 @@ const examples: Example[] = [
     demo: 2,
   },
   {
-    id: 'motion-exiting',
-    title: 'Exiting',
-    description: 'Photos gather at the pointer and fly upward.',
-    group: 'motion',
-    demo: 3,
-  },
-  {
-    id: 'motion-flow',
-    title: 'Flow Follow',
-    description: 'Brighter at higher speeds, photos continue along your gesture.',
-    group: 'motion',
-    demo: 4,
-  },
-  {
-    id: 'motion-spin',
-    title: 'Spintrail',
-    description: 'Photos spin into the direction of your movement.',
-    group: 'motion',
-    demo: 5,
-  },
-  {
     id: 'motion-velocity',
     title: 'Velocity',
     description: 'Move slowly for soft monochrome, or quickly for large, sharp color.',
@@ -134,74 +65,11 @@ const examples: Example[] = [
     demo: 6,
   },
   {
-    id: 'motion-persistence',
-    title: 'Persistence',
-    description: 'A recent set of differently sized photos stays on the stage.',
-    group: 'motion',
-    demo: 7,
-  },
-  {
-    id: 'motion-tile',
-    title: 'Tile Apart',
-    description: 'A picture breaks into tiles that drift in different directions.',
-    group: 'motion',
-    demo: 8,
-  },
-  {
-    id: 'motion-perspective',
-    title: 'Perspective',
-    description: 'Photos tilt in 3D based on where they appear on the stage.',
-    group: 'motion',
-    demo: 9,
-  },
-  {
-    id: 'motion-strata',
-    title: 'Strata',
-    description: 'Staggered strips slide and ripple along the direction of travel.',
-    group: 'motion',
-    demo: 10,
-  },
-  {
-    id: 'motion-tail',
-    title: 'Tail',
-    description: 'A chain of photos follows your path and folds in when you stop.',
-    group: 'motion',
-    demo: 11,
-  },
-  {
-    id: 'motion-silk',
-    title: 'Silk',
-    description: 'Photos curl like cloth and glide past the pointer.',
-    group: 'motion',
-    demo: 12,
-  },
-  {
-    id: 'motion-liquid',
-    title: 'Liquid',
-    description: 'The pointer distorts nearby photos as if stirring water.',
-    group: 'motion',
-    demo: 13,
-  },
-  {
-    id: 'motion-dust',
-    title: 'Dust',
-    description: 'Grains gather into a photo, then scatter with your gesture.',
-    group: 'motion',
-    demo: 14,
-  },
-  {
     id: 'motion-gooey',
     title: 'Gooey',
     description: 'Rounded drops swell into photos and connect where they meet.',
     group: 'motion',
     demo: 15,
-  },
-  {
-    id: 'motion-swirl',
-    title: 'Swirl',
-    description: 'Each photo twists into a vortex as it travels.',
-    group: 'motion',
-    demo: 16,
   },
   {
     id: 'cursor-trailer',
@@ -251,16 +119,7 @@ const hint = (
   </p>
 );
 
-function isStamp(id: StampId | CanvasEffect): id is StampId {
-  return Object.hasOwn(stampEffects, id);
-}
-
 function ExampleStage({ example }: { example: Example }) {
-  if (example.group === 'originals') {
-    const Original = originals[example.id];
-    return <Original />;
-  }
-
   if (example.group === 'codepen') {
     return (
       <ImageMouseTrail
@@ -279,39 +138,12 @@ function ExampleStage({ example }: { example: Example }) {
     );
   }
 
-  if (isStamp(example.id)) {
-    if (example.id === 'image-slide') {
-      return (
-        <div className='relative isolate overflow-hidden rounded-lg bg-[#242b26]'>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={stillLife[0]}
-            alt=''
-            className='pointer-events-none absolute inset-0 size-full object-cover'
-          />
-          <ImageMouseTrail
-            items={stillLife}
-            effect={stampEffects[example.id]}
-            threshold={100}
-            maxNumberOfImages={4}
-            duration={740}
-            touchAction='none'
-            imgClass='size-full'
-            className='h-[clamp(300px,55vw,520px)] bg-transparent text-white'
-          >
-            <p className='pointer-events-none mx-auto w-fit rounded-md bg-black/65 px-3 py-2 text-sm font-medium'>
-              Move sideways to change the picture
-            </p>
-          </ImageMouseTrail>
-        </div>
-      );
-    }
-
+  if (example.id !== 'motion-gooey') {
     return (
       <ImageMouseTrail
         items={example.group === 'image' ? stillLife : landscapes}
         effect={stampEffects[example.id]}
-        threshold={example.id === 'motion-persistence' ? 56 : 64}
+        threshold={64}
         maxNumberOfImages={11}
         duration={example.id === 'motion-classic' ? 800 : 1420}
         touchAction='none'
@@ -328,13 +160,12 @@ function ExampleStage({ example }: { example: Example }) {
       className={`relative isolate grid h-[clamp(300px,55vw,520px)] touch-none place-items-center overflow-hidden rounded-lg ${darkStage}`}
     >
       {hint}
-      <TrailCanvas effect={example.id} images={landscapes} />
+      <TrailCanvas images={landscapes} />
     </div>
   );
 }
 
 function exampleSource(example: Example) {
-  if (example.group === 'originals') return;
   if (example.group === 'codepen') {
     return {
       href: 'https://codepen.io/thingbynemanja/full/ogjaaNE',
@@ -356,7 +187,6 @@ export default function MousetrailExplorer() {
   const [index, setIndex] = useState(0);
   const example = examples[index];
   const source = exampleSource(example);
-  const canvasAdaptation = example.group === 'motion' && !isStamp(example.id);
 
   function step(amount: number) {
     setIndex((value) => (value + amount + examples.length) % examples.length);
@@ -433,18 +263,16 @@ export default function MousetrailExplorer() {
       <div className='flex flex-wrap items-baseline justify-between gap-2 text-sm text-muted-foreground'>
         <p aria-live='polite'>
           {example.title}. {example.description}
-          {canvasAdaptation && ' Canvas adaptation.'}
+          {example.id === 'motion-gooey' && ' Canvas adaptation.'}
         </p>
-        {source && (
-          <a
-            href={source.href}
-            target='_blank'
-            rel='noreferrer'
-            className='underline underline-offset-4'
-          >
-            {source.label}
-          </a>
-        )}
+        <a
+          href={source.href}
+          target='_blank'
+          rel='noreferrer'
+          className='underline underline-offset-4'
+        >
+          {source.label}
+        </a>
       </div>
     </section>
   );

@@ -41,9 +41,9 @@ Move your pointer or drag across the preview to reveal photos. Choose a trail in
 
 <ComponentCodePreview name='image-mousetrail-explorer' jsonName='image-mousetrail-explorer.json' typescriptOnly hasReTrigger isFitheight />
 
-The explorer has 25 options: three UI Layouts originals, five [Image Trail Effects](https://github.com/codrops/ImageTrailEffects) demos (1, 2, 3, 5, and 6), all 16 [Motion Trail Animations](https://github.com/codrops/MotionTrailAnimations) demos, and [Cursor Trailer by Nemanja Kočović](https://codepen.io/thingbynemanja/full/ogjaaNE). Cursor Trailer drops tilted photos that spring into view and shrink in place.
+The explorer has eight options. Shrink Away, Bloom Out, and Gravity Drop adapt [Image Trail Effects](https://github.com/codrops/ImageTrailEffects). Classic, Innerscape, Velocity, and Gooey adapt [Motion Trail Animations](https://github.com/codrops/MotionTrailAnimations). [Cursor Trailer by Nemanja Kočović](https://codepen.io/thingbynemanja/full/ogjaaNE) drops tilted photos that spring into view and shrink in place.
 
-Tile Apart and Strata use Canvas 2D. Tail, Silk, Liquid, Dust, Gooey, and Swirl adapt the reference WebGL effects to Canvas 2D. These reproduce the visual behaviors with image meshes, fragments, and connected drops. Liquid and Swirl approximate fluid motion without a physics simulation.
+Gooey uses Canvas 2D to draw the photos and the connections between them.
 
 ## Installation
 
@@ -99,12 +99,12 @@ export default function Gallery() {
   return (
     <ImageMouseTrail
       items={['/photos/coast.jpg', '/photos/mountain.jpg', '/photos/forest.jpg']}
-      variant="bounce"
+      fadeAnimation
       threshold={70}
       maxNumberOfImages={10}
       duration={1500}
     >
-      <h2>Good things pop up.</h2>
+      <h2>Move to reveal the gallery.</h2>
     </ImageMouseTrail>
   );
 }` }} />

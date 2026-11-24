@@ -228,8 +228,6 @@ export const COMPONENT_KEYS = {
   MOTION_NUMBER_SLIDER: 'motion-number-slider',
   MOTION_NUMBER_UPVOTES: 'motion-number-upvotes',
   IMAGE_MOUSETRAIL_EXPLORER: 'image-mousetrail-explorer',
-  IMAGE_MOUSETRAIL_BOUNCE: 'image-mousetrail-bounce',
-  IMAGE_MOUSETRAIL_MOMENTUM: 'image-mousetrail-momentum',
   IMAGE_MOUSETRAIL_DEFAULT: 'image-mousetrail-default',
   IMAGE_MOUSETRAIL_SMALL: 'image-mousetrail-small',
   IMAGE_MOUSETRAIL_DISAPPEAR: 'image-mousetrail-disappear',
