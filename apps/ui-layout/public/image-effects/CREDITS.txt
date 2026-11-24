@@ -45,3 +45,8 @@ https://github.com/codrops/OnScrollFilter/tree/3271b3fac95df7bd224da0c6a5860e484
 
 tide-study.webp — original AI-generated aerial shoreline for the Liquid Glass Tide card example.
 meadow-stream.webp — original AI-generated stream and meadow for the Liquid Glass landscape icons.
+
+Photo Controls architecture series — photographs from Unsplash, cropped for the gallery.
+pager-01.webp — Maxime Lebrun, orange spiral staircase. https://unsplash.com/photos/6g3Akg708E0
+pager-02.webp — Lena Polishko, blue stairwell at La Muralla Roja. https://unsplash.com/photos/CxhvzHcMczE
+pager-03.webp — Lena Polishko, pink terraces and rooftop pool at La Muralla Roja. https://unsplash.com/photos/MBNHqQzpm40
