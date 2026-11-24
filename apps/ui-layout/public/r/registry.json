@@ -4,10 +4,42 @@
   "homepage": "https://www.ui-layouts.com",
   "items": [
     {
+      "name": "gooey-delete",
+      "type": "registry:component",
+      "title": "Gooey Delete",
+      "description": "A delete button expands into an undo control with a liquid connection and a detached status indicator.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/gooey-delete.tsx",
+          "type": "registry:file",
+          "target": "components/ui/gooey-delete.tsx"
+        }
+      ]
+    },
+    {
+      "name": "image-effect-swinging-grid",
+      "type": "registry:component",
+      "title": "Swinging Grid",
+      "description": "Scroll through four columns of images that swing progressively farther to the right.",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/image-effect-swinging-grid.tsx",
+          "type": "registry:file",
+          "target": "components/ui/image-effect-swinging-grid.tsx"
+        }
+      ]
+    },
+    {
       "name": "image-effect-sprite-morph",
       "type": "registry:component",
       "title": "Sprite Morph",
-      "description": "Morph between illustrated specimens while preserving the silhouette and color of each image.",
+      "description": "Morph between portraits using 24-frame transition sheets or a warp generated from two images.",
       "dependencies": [],
       "registryDependencies": [],
       "files": [

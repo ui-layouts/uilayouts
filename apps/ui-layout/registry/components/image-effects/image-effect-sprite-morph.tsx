@@ -1,18 +1,21 @@
-"use client";
-import { SpriteMorph } from "@/components/ui/image-effect-sprite-morph";
+'use client';
+import { SpriteMorph } from '@/components/ui/image-effect-sprite-morph';
 
-const root = "/image-effects/specimens/";
+const directory = '/image-effects/portraits/';
+const names = ['daylight', 'blue-hour', 'after-dark'];
+const images = names.map((name) => directory + name + '.webp');
+const atlases = names.map(
+  (name, i) => directory + name + '-' + names[(i + 1) % names.length] + '.webp'
+);
+
 export default function Demo() {
   return (
     <SpriteMorph
-      label="Insect specimen study"
-      labels={["Silk moth", "Jewel beetle", "Dragonfly"]}
-      images={["moth", "beetle", "dragonfly"].map(
-        (name) => root + name + ".svg",
-      )}
-      atlases={["moth-beetle", "beetle-dragonfly", "dragonfly-moth"].map(
-        (pair) => root + pair + ".webp",
-      )}
+      style={{ background: '#111318', color: '#f1f0ed' }}
+      label='Portrait lighting study'
+      labels={['Daylight', 'Blue hour', 'Chrome']}
+      images={images}
+      atlases={atlases}
     />
   );
 }

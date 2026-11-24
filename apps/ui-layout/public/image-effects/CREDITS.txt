@@ -12,3 +12,30 @@ valley: https://images.unsplash.com/photo-1470770841072-f978cf4d019e
 Meadow study: https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4 (CC0). Preview and poster derived from the same clip.
 
 The individual preview modules also load the original example images directly from each creator’s pinned repository revision. See the reference on the corresponding documentation page.
+
+Swinging Grid: contact sheet assembled from the 32 images in variation 03 of Codrops’ OnScrollColumnsRows. Upstream credits Midjourney for the artwork.
+https://github.com/codrops/OnScrollColumnsRows
+
+MIT License
+
+Copyright (c) 2009 - 2026 [Codrops](https://tympanus.net/codrops)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+Sprite Morph: original AI-generated portraits created for this demo, with custom landmark-based transition sheets for the daylight, blue-hour and chrome treatments.

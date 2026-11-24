@@ -1,10 +1,10 @@
 export const metadata = {
   title: 'Sprite Morph',
-  description: 'Morph between illustrated specimens while preserving the silhouette and color of each image.',
+  description: 'Morph between portraits using 24-frame transition sheets or a warp generated from two images.',
   keywords: ['React', 'sprite', 'morph', 'animation'],
 };
 
-Morph between illustrated specimens while preserving the silhouette and color of each image.
+Morph between portraits using 24-frame transition sheets or a warp generated from two images.
 
 <ComponentCodePreview name='image-effect-sprite-morph' jsonName='image-effect-sprite-morph' hasReTrigger isFitheight />
 
@@ -19,22 +19,23 @@ npx shadcn@latest add https://www.ui-layouts.com/r/image-effect-sprite-morph.jso
 ```tsx
 import { SpriteMorph } from '@/components/ui/image-effect-sprite-morph';
 
-export default function SpecimenCollection() {
+export default function PortraitStudy() {
   return (
     <SpriteMorph
-      images={['/specimens/moth.png', '/specimens/beetle.svg', '/specimens/dragonfly.png']}
-      labels={['Moth', 'Beetle', 'Dragonfly']}
+      images={['/portraits/daylight.webp', '/portraits/blue-hour.webp', '/portraits/after-dark.webp']}
+      atlases={['/portraits/daylight-blue-hour.webp', '/portraits/blue-hour-after-dark.webp', '/portraits/after-dark-daylight.webp']}
+      labels={['Daylight', 'Blue hour', 'Chrome']}
       secondsPerImage={3}
     />
   );
 }
 ```
 
-Select a numbered button to morph into that specimen. The example uses transparent artwork. Images on a flat background also work.
+Select a numbered button to move between daylight, blue-hour and chrome portraits. The preview uses original AI-generated artwork and custom landmark-based transition sheets. You can also supply your own photography or transparent artwork.
 
 | Prop | Description |
 | --- | --- |
-| `images` | The specimen images in display order. |
+| `images` | The images in display order. |
 | `labels` | Names used for the captions and selection buttons. |
 | `atlases` | Optional transition sheets, one per image-to-next-image pair, including the last image back to the first. Each sheet contains 24 frames arranged left to right in six columns and four rows. Without a sheet, the component generates a scanline warp from the two source images. |
 | `time` | Elapsed seconds from an external clock. Supplying this prop selects the frame directly. |

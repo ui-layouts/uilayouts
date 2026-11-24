@@ -1,0 +1,38 @@
+export const metadata = {
+  title: 'Swinging Grid',
+  description: 'Scroll through four columns of images that swing progressively farther to the right.',
+  keywords: ['React', 'scroll animation', 'photo grid', 'perspective'],
+};
+
+Scroll through four columns of images that swing progressively farther to the right.
+
+<ComponentCodePreview name='image-effect-swinging-grid' jsonName='image-effect-swinging-grid' hasReTrigger isFitheight />
+
+## Installation
+
+```bash
+npx shadcn@latest add https://www.ui-layouts.com/r/image-effect-swinging-grid.json
+```
+
+## Usage
+
+```tsx
+import { SwingingGrid } from '@/components/ui/image-effect-swinging-grid';
+
+export default function PhotoCollection() {
+  return (
+    <SwingingGrid
+      images={['/photos/ridge.jpg', '/photos/forest.jpg', '/photos/coast.jpg']}
+      label='Field studies'
+    />
+  );
+}
+```
+
+Scroll inside the gallery. Each tile rotates around a distant pivot as it crosses the viewport. The four columns rotate by up to 2°, 4°, 6°, and 8° respectively.
+
+Supply individual image URLs or use the optional `sheet` prop for a single four-column, eight-row contact sheet. To drive the effect from a timeline, pass elapsed seconds to `time` and set the pacing with `secondsPerImage`.
+
+The preview uses artwork from Codrops’ original third variation, which credits Midjourney for the images.
+
+[Original demo, variation 03](https://tympanus.net/Development/OnScrollColumnsRows/index3.html) · [Codrops source](https://github.com/codrops/OnScrollColumnsRows)

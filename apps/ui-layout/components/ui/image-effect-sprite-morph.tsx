@@ -26,7 +26,7 @@ export function SpriteMorph({
   secondsPerImage = 2.5,
   className,
   style,
-  label = "Specimen study",
+  label = "Image morph",
 }: SpriteMorphProps) {
   const surface = useRef<HTMLCanvasElement>(null);
   const framePosition = useRef(0),

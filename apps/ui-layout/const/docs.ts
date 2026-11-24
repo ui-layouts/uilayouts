@@ -15,6 +15,8 @@ export const DOCS_CATEGORY_GROUP = {
 } as const;
 
 export const DOCS_CATEGORY_KEY = {
+  'gooey-delete': 'gooey-delete',
+  'image-effect-swinging-grid': 'image-effect-swinging-grid',
   'image-effect-sprite-morph': 'image-effect-sprite-morph',
   'image-effect-crt-editorial': 'image-effect-crt-editorial',
   'image-effect-glass-photo-controls': 'image-effect-glass-photo-controls',
