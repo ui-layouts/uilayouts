@@ -2,9 +2,11 @@
 
 import { useEffect, useState, type ReactNode } from 'react';
 import ShowcaseToolbar, { type ShowcaseToolbarProps } from '@/components/website/showcase-toolbar';
+import { ClientPreCode } from '@/components/website/code-components/client-pre-code';
 import styles from './showcase.module.css';
+import documentation from './example-documentation.module.css';
 
-type Example = Omit<ShowcaseToolbarProps, 'slug' | 'title' | 'navigation'> & { label: string };
+type Example = Omit<ShowcaseToolbarProps, 'slug' | 'title' | 'navigation'> & { label: string; usageFile: string; usageCode: string; usageHtml: string; description?: string };
 
 export default function ExampleShowcase({ slug, title, examples, children }: {
   slug: string; title: string; examples: Example[]; children: ReactNode;
@@ -32,6 +34,11 @@ export default function ExampleShowcase({ slug, title, examples, children }: {
     window.scrollTo({ top: 0, behavior: 'instant' });
   }
   const name = examples.length > 1 ? title + ' / ' + current.label : title;
+  const usage = <section className={documentation.source} aria-label="Example source">
+    <h2 className="mb-3 text-xl font-semibold">Example source</h2>
+    <div className={documentation.filename}>{current.usageFile}</div>
+    <ClientPreCode raw={current.usageCode} html={current.usageHtml} />
+  </section>;
   return <>
     <a className={styles.skip} href="#component-title">Skip to documentation</a>
     <section className={styles.stage} data-demo={current.name} aria-label={name + ' preview'}>
@@ -41,8 +48,8 @@ export default function ExampleShowcase({ slug, title, examples, children }: {
     <ShowcaseToolbar slug={slug} title={name} {...current} navigation={{ index, examples, select }} />
     {index === 0 ? children : <article className={styles.details} aria-labelledby="component-title">
       <p>{title}</p><h1 id="component-title" tabIndex={-1}>{current.label}</h1>
-      <h2 className="mt-8 mb-3 text-xl font-semibold">Usage</h2>
-      <pre className="overflow-x-auto rounded-md bg-muted p-5" tabIndex={0}><code>{current.sourceCode}</code></pre>
+      <p className={styles.description}>{current.description}</p>
+      {usage}
     </article>}
   </>;
 }

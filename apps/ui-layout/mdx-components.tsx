@@ -12,6 +12,7 @@ import { Link } from './components/website/constant';
 import { cn } from './lib/utils';
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
+    ShowcaseExampleSection: ({ children }) => <>{children}</>,
     Tabs: ({ className, ...props }: React.ComponentProps<typeof Tabs>) => (
       <Tabs className={cn('', className)} {...props} />
     ),

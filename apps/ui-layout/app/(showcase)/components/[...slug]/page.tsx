@@ -1,14 +1,13 @@
 import { BreadcrumbStructuredData } from '@/components/seo/breadcrumb-structured-data';
 import { StructuredData } from '@/components/seo/structured-data';
-import BoxComponentPreview from '@/components/website/code-components/box-preview';
-import ComponentCodePreview from '@/components/website/code-components/component-code-preview';
-import IframeComponentPreview from '@/components/website/code-components/iframe-component-preview';
-import type { ComponentProps } from 'react';
+import { ClientPreCode } from '@/components/website/code-components/client-pre-code';
+import { highlightCode } from '@/lib/shiki-highlighter';
 import { ComponentPagination } from '@/components/website/code-components/pagination';
 import ExampleShowcase from './example-showcase';
 import { getShowcase } from '@/lib/showcase';
 import Link from 'next/link';
 import styles from './showcase.module.css';
+import documentation from './example-documentation.module.css';
 import { getAllDocs, getDocBySlug } from '@/lib/docs';
 import { absoluteUrl } from '@/lib/utils';
 import type { Metadata } from 'next';
@@ -96,21 +95,14 @@ export default async function DocPage(props: {
 
   const { default: Content } = doc.content;
 
-  const examples = getShowcase(slug, doc.markdown);
+  const examples = await Promise.all(getShowcase(slug, doc.markdown).map(async example => ({
+    ...example,
+    usageHtml: await highlightCode(example.usageCode, example.usageFile.split('.').pop()),
+  })));
   const showcase = examples[0];
   const { title, description } = doc.content.metadata;
-  const featuredSource = showcase && (
-    <details className='my-4'>
-      <summary className='cursor-pointer font-medium'>
-        View example source
-      </summary>
-      <pre tabIndex={0}>
-        <code>{showcase.sourceCode}</code>
-      </pre>
-    </details>
-  );
   return (
-    <main className={styles.page}>
+    <main className={styles.page + ' ' + documentation.page}>
       <StructuredData
         type='component'
         componentData={{
@@ -138,37 +130,18 @@ export default async function DocPage(props: {
         </h1>
         <p className={styles.description}>{description}</p>
         <div className='prose prose-zinc dark:prose-invert max-w-none prose-table:block prose-table:overflow-x-auto'>
-          <Content
-            components={{
-              ComponentCodePreview: (
-                props: ComponentProps<typeof ComponentCodePreview>
-              ) =>
-                props.name === showcase?.name ? (
-                  featuredSource
-                ) : (
-                  <ComponentCodePreview {...props} />
-                ),
-              BoxComponentPreview: (
-                props: ComponentProps<typeof BoxComponentPreview>
-              ) =>
-                props.name === showcase?.name ? (
-                  featuredSource
-                ) : (
-                  <BoxComponentPreview {...props} />
-                ),
-              IframeComponentPrieview: (
-                props: ComponentProps<typeof IframeComponentPreview> & {
-                  name: string;
-                }
-              ) =>
-                props.name === showcase?.name ? (
-                  featuredSource
-                ) : (
-                  <IframeComponentPreview {...props} />
-                ),
-            }}
-          />
+          <Content components={showcase ? {
+            ShowcaseExampleSection: () => null,
+            ComponentCodePreview: () => null,
+            BoxComponentPreview: () => null,
+            IframeComponentPrieview: () => null,
+          } : undefined} />
         </div>
+        {showcase && <section className={documentation.source} aria-label="Example source">
+          <h2 className="mb-3 text-xl font-semibold">Example source</h2>
+          <div className={documentation.filename}>{showcase.usageFile}</div>
+          <ClientPreCode raw={showcase.usageCode} html={showcase.usageHtml} />
+        </section>}
         <ComponentPagination doc={doc} />
       </article>
       </ExampleShowcase>

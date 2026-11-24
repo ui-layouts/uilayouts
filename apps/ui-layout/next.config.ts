@@ -6,26 +6,36 @@ import remarkGfm from 'remark-gfm';
 
 const __dirname = process.cwd();
 
-// Keep an authored Examples section together, including its nested headings and source tabs.
-function examplesFirst() {
+// Keep gallery sections available to standalone documentation. The showcase
+// supplies its own example navigation, so it can omit their headings and notes.
+function exampleSections() {
   return (tree: Root, file: { path?: string }) => {
     if (!file.path?.replaceAll('\\', '/').includes('/content/components/')) return;
     const nodes = tree.children;
-    const start = nodes.findIndex(node => node.type === 'heading' && node.depth === 2
-      && node.children.some(child => child.type === 'text' && /^examples?$/i.test(child.value.trim())));
-    if (start < 0) return;
-    const firstSection = nodes.findIndex(node => node.type === 'heading' && node.depth === 2);
-    if (firstSection === start) return;
-    const next = nodes.slice(start + 1).findIndex(node => node.type === 'heading' && node.depth <= 2);
-    const examples = nodes.splice(start, next < 0 ? nodes.length - start : next + 1);
-    nodes.splice(firstSection, 0, ...examples);
+    for (let i = 0; i < nodes.length; i++) {
+      const heading = nodes[i];
+      if (heading.type !== 'heading') continue;
+      const text = heading.children.map(child => child.type === 'text' ? child.value : '').join('').trim();
+      const next = nodes.slice(i + 1).findIndex(node => node.type === 'heading' && node.depth <= heading.depth);
+      const count = next < 0 ? nodes.length - i : next + 1;
+      const section = nodes.slice(i, i + count);
+      const hasPreview = section.some(node => 'name' in node &&
+        ['ComponentCodePreview', 'IframeComponentPrieview', 'BoxComponentPreview'].includes(String(node.name)));
+      if (!hasPreview || /^(installation|usage|props|api|overview|introduction)$/i.test(text)) continue;
+      nodes.splice(i, count, {
+        type: 'mdxJsxFlowElement',
+        name: 'ShowcaseExampleSection',
+        attributes: [],
+        children: section,
+      });
+    }
   };
 }
 
 const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [remarkGfm, examplesFirst],
+    remarkPlugins: [remarkGfm, exampleSections],
     rehypePlugins: [rehypeSlug],
     jsx: true,
   },

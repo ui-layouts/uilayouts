@@ -17,7 +17,7 @@ function getInstallName(candidates: (string | undefined)[]) {
 
 type Example = Pick<
   IAllComponents,
-  'componentName' | 'sourcePath' | 'filesrc' | 'filesArray'
+  'componentName' | 'description' | 'sourcePath' | 'filesrc' | 'filesArray'
 > & {
   expandUrl: string;
   jsonName?: string;
@@ -44,6 +44,7 @@ function getExamples(
     if (expandUrl && !examples.some(example => example.componentName === item.componentName))
       examples.push({
         ...item,
+        description: attributes.match(/\bdata-description\s*=\s*['"]([^'"]+)['"]/)?.[1] ?? item.description,
         expandUrl,
         jsonName: attributes.match(/\bjsonName\s*=\s*['"]([^'"]+)['"]/)?.[1],
       });
@@ -54,6 +55,7 @@ function getExamples(
   if (fs.existsSync(path.join(process.cwd(), sourcePath))) {
     return [{
       componentName: slug,
+      description: '',
       sourcePath,
       expandUrl: '/live-components/' + slug,
     }];
@@ -102,7 +104,11 @@ function describeExample(slug: string, markdown: string, item: Example) {
   add(item.componentName + '.tsx', item.filesrc);
   if (!item.sourcePath && !item.filesrc && !item.filesArray?.length)
     add(sourcePath, markdown);
+  const [usageCode, usagePath] = files.entries().next().value ?? ['', sourcePath];
   return {
+    description: item.description,
+    usageCode,
+    usageFile: path.basename(usagePath),
     name: item.componentName,
     expandUrl: item.expandUrl,
     sourceCode: Array.from(

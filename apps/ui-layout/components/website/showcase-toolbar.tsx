@@ -219,7 +219,8 @@ export function ShowcaseToolbar({
             'Integrate the ' +
               title +
               ' example from UI Layouts into my project. Preserve its interactions and adapt it to the existing layout.',
-            'Documentation: https://www.ui-layouts.com/components/' + slug,
+            'Documentation: https://www.ui-layouts.com/components/' + slug +
+              (navigation.index ? '?example=' + encodeURIComponent(name) : ''),
             github && 'Source: ' + github,
             command && 'Install: ' + command,
             sourceCode && 'Implementation:\n\n' + sourceCode,

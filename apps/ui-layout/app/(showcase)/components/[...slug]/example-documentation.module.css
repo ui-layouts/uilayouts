@@ -1,0 +1,6 @@
+.page { --content-width: min(94%, 1280px); }
+.page iframe[data-showcase-preview] { max-width: var(--content-width); }
+.page article[aria-labelledby="component-title"] { width: var(--content-width); max-width: 1280px; padding-inline: 0; }
+.source { margin-block: 2rem; min-width: 0; }
+.filename { font: 500 13px/1.4 ui-monospace, monospace; background: var(--muted); padding: 10px 16px; border: 1px solid var(--border); border-bottom: 0; border-radius: 8px 8px 0 0; }
+.source pre { overflow: auto; max-height: 34rem; padding: 18px; font: 13px/1.7 ui-monospace, monospace; tab-size: 2; }
