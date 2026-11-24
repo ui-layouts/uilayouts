@@ -1245,7 +1245,7 @@ export const AllComponents: IAllComponents[] = [
     title: 'Sprite Morph',
     slug: 'image-effect-sprite-morph',
     href: '/components/image-effect-sprite-morph',
-    description: 'Morph between portraits using 24-frame transition sheets or a warp generated from two images.',
+    description: 'Scrub through the monarch butterfly lifecycle with frame-by-frame sprite animation.',
     tags: ['image', 'animation', 'interactive'],
     sourcePath: 'registry/components/image-effects/image-effect-sprite-morph.tsx',
     componentSrc: React.lazy(() => import('@/registry/components/image-effects/image-effect-sprite-morph')),

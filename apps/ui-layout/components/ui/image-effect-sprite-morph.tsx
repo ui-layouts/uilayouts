@@ -12,6 +12,8 @@ export interface SpriteMorphProps {
   className?: string;
   style?: CSSProperties;
   label?: string;
+  /** Hide the built-in caption when an external control supplies the stage label. */
+  showCaption?: boolean;
 }
 
 function wrap(value: number, count: number) {
@@ -27,6 +29,7 @@ export function SpriteMorph({
   className,
   style,
   label = "Image morph",
+  showCaption = true,
 }: SpriteMorphProps) {
   const surface = useRef<HTMLCanvasElement>(null);
   const framePosition = useRef(0),
@@ -246,7 +249,7 @@ export function SpriteMorph({
         maxHeight: "100svh",
         position: "relative",
         display: "grid",
-        gridTemplateRows: "1fr auto",
+        gridTemplateRows: showCaption ? "1fr auto" : "1fr",
         background: "transparent",
         color: "#292f26",
         ...style,
@@ -278,7 +281,7 @@ export function SpriteMorph({
           }}
         />
       </div>
-      <figcaption
+      {showCaption && <figcaption
         style={{
           display: "flex",
           alignItems: "center",
@@ -333,7 +336,7 @@ export function SpriteMorph({
             ))}
           </div>
         )}
-      </figcaption>
+      </figcaption>}
     </figure>
   );
 }

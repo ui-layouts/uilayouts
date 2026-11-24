@@ -92,3 +92,20 @@
   .cue { bottom: 64px; }
   .cue a { font-size: 13px; }
 }
+
+/* Share the reading edge across the specimen, its scroll cue and its notes. */
+.page:has(.stage[data-demo='image-effect-sprite-morph']) {
+  --study-gutter: clamp(16px, 3vw, 48px);
+  --study-width: min(calc(100% - 2 * var(--study-gutter)), 1280px);
+}
+.stage[data-demo='image-effect-sprite-morph'] .frame,
+.page:has(.stage[data-demo='image-effect-sprite-morph']) .details {
+  width: var(--study-width);
+  margin-inline: auto;
+  padding-inline: 0;
+}
+.stage[data-demo='image-effect-sprite-morph'] .cue {
+  width: var(--study-width);
+  inset-inline: 0;
+  margin-inline: auto;
+}

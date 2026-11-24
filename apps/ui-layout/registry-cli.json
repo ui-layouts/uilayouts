@@ -69,7 +69,7 @@
       "name": "image-effect-sprite-morph",
       "type": "registry:component",
       "title": "Sprite Morph",
-      "description": "Morph between portraits using 24-frame transition sheets or a warp generated from two images.",
+      "description": "Scrub through the monarch butterfly lifecycle with frame-by-frame sprite animation.",
       "dependencies": [],
       "registryDependencies": [],
       "files": [
