@@ -2747,74 +2747,91 @@
       ]
     },
     {
-      "name": "liquid-glass-weather",
+      "name": "glassformism",
       "type": "registry:component",
       "devDependencies": [],
       "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
-          "path": "./registry/components/liquid-glass/weather-liquid.tsx",
-          "type": "registry:component"
-        },
-        {
-          "path": "./components/ui/liquid-glass.tsx",
+          "path": "./components/ui/glassformism.tsx",
           "type": "registry:file",
-          "target": "components/ui/liquid-glass.tsx"
+          "target": "components/ui/glassformism.tsx"
         }
       ]
     },
     {
-      "name": "liquid-glass-mobile-icons",
+      "name": "glassformism-weather",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": ["motion"],
+      "dependencies": ["motion",
+        "lucide-react"],
       "registryDependencies": [],
       "files": [
         {
-          "path": "./registry/components/liquid-glass/mobile-icons-liquid.tsx",
+          "path": "./registry/components/glassformism/weather-liquid.tsx",
           "type": "registry:component"
         },
         {
-          "path": "./components/ui/liquid-glass.tsx",
+          "path": "./components/ui/glassformism.tsx",
           "type": "registry:file",
-          "target": "components/ui/liquid-glass.tsx"
+          "target": "components/ui/glassformism.tsx"
         }
       ]
     },
     {
-      "name": "liquid-glass-notification",
+      "name": "glassformism-mobile-icons",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": ["motion"],
+      "dependencies": ["motion",
+        "lucide-react"],
       "registryDependencies": [],
       "files": [
         {
-          "path": "./registry/components/liquid-glass/notification.tsx",
+          "path": "./registry/components/glassformism/mobile-icons-liquid.tsx",
           "type": "registry:component"
         },
         {
-          "path": "./components/ui/liquid-glass.tsx",
+          "path": "./components/ui/glassformism.tsx",
           "type": "registry:file",
-          "target": "components/ui/liquid-glass.tsx"
+          "target": "components/ui/glassformism.tsx"
         }
       ]
     },
     {
-      "name": "liquid-glass-sidebar-menu",
+      "name": "glassformism-notification",
       "type": "registry:component",
       "devDependencies": [],
       "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
-          "path": "./registry/components/liquid-glass/sidebar-menu.tsx",
+          "path": "./registry/components/glassformism/notification.tsx",
           "type": "registry:component"
         },
         {
-          "path": "./components/ui/liquid-glass.tsx",
+          "path": "./components/ui/glassformism.tsx",
           "type": "registry:file",
-          "target": "components/ui/liquid-glass.tsx"
+          "target": "components/ui/glassformism.tsx"
+        }
+      ]
+    },
+    {
+      "name": "glassformism-sidebar-menu",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion",
+        "lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/glassformism/sidebar-menu.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/glassformism.tsx",
+          "type": "registry:file",
+          "target": "components/ui/glassformism.tsx"
         }
       ]
     },

@@ -1,4 +1,4 @@
-import { LiquidGlassCard } from '@/components/ui/liquid-glass';
+import { Glassformism } from '@/components/ui/glassformism';
 import Image from 'next/image';
 
 const NotificationLiquid = () => {
@@ -11,7 +11,7 @@ const NotificationLiquid = () => {
             'url("https://images.unsplash.com/photo-1534259070436-a95806b8621a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") center / cover no-repeat',
         }}
       >
-        <LiquidGlassCard
+        <Glassformism
           shadowIntensity='md'
           blurIntensity='lg'
           borderRadius='18px'
@@ -50,8 +50,8 @@ const NotificationLiquid = () => {
             height={400}
             className='rounded-xl w-[92%] mx-auto h-full z-20'
           />
-        </LiquidGlassCard>
-        <LiquidGlassCard
+        </Glassformism>
+        <Glassformism
           width='410px'
           height='90px'
           shadowIntensity='md'
@@ -105,7 +105,7 @@ const NotificationLiquid = () => {
             </div>
             <div className='shrink-0 ml-4 text-sm text-muted-foreground self-start pt-1'>12:34</div>
           </div>
-        </LiquidGlassCard>
+        </Glassformism>
       </div>
     </>
   );

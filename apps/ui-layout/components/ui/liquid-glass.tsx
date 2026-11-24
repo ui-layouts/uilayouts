@@ -50,8 +50,8 @@ const clamp = (n: number, a: number, b: number) => Math.max(a, Math.min(b, n));
 
 /** The normal of a rounded-rectangle signed distance field feeds Snell's law.
  * The same displacement field drives live DOM backdrops and the image sampler.
- * The bevel and dispersion follow the optical approach in jeantimex/glass-effect-webgpu
- * and the rounded profile in phileeppov/glass.
+ * Glass Photo Controls supplies the 1.48 IOR and interior magnification.
+ * Liquid Glass Grid supplies the directional reflection and Fresnel profile.
  */
 function displacement(
   width: number,
@@ -67,11 +67,19 @@ function displacement(
   map.width = w;
   map.height = h;
   const ctx = map.getContext('2d')!;
+  const reflection = document.createElement('canvas');
+  reflection.width = w;
+  reflection.height = h;
+  const reflectionCtx = reflection.getContext('2d')!;
+  const highlights = reflectionCtx.createImageData(w, h);
   const pixels = ctx.createImageData(w, h),
     offsets = new Float32Array(w * h * 2);
   const r = clamp(radius, 1, Math.min(width, height) / 2);
   const rim = Math.max(1.5, Math.min(width, height) * bevel);
-  const extent = Math.max(1, rim * 2.4 * refraction);
+  const extent = Math.max(
+    1,
+    (rim * 2.4 + Math.max(width, height) * 0.025) * refraction
+  );
   for (let y = 0; y < h; y++)
     for (let x = 0; x < w; x++) {
       const px = ((x + 0.5) / w) * width - width / 2,
@@ -87,12 +95,31 @@ function displacement(
       const curve = clamp(1 - inside / rim, 0, 1);
       const incident = Math.asin(clamp(curve, 0, 0.997));
       const bend =
-        Math.tan(incident - Math.asin(Math.sin(incident) / 1.49)) *
+        Math.tan(incident - Math.asin(Math.sin(incident) / 1.48)) *
         rim *
         refraction;
       const i = y * w + x;
-      const dx = -nx * bend,
-        dy = -ny * bend;
+      const dx = -nx * bend - px * 0.04 * refraction,
+        dy = -ny * bend - py * 0.04 * refraction;
+      // Reflect an overhead softbox about the bevel normal, as in the grid shader.
+      const nz = Math.sqrt(Math.max(0, 1 - curve * curve));
+      const alignment =
+        -0.65 * (2 * nz * nx * curve) -
+        0.5 * (2 * nz * ny * curve) +
+        0.57 * (2 * nz * nz - 1);
+      const panel = clamp((alignment - 0.82) / 0.15, 0, 1);
+      const fresnel = 0.045 + 0.955 * (1 - nz) ** 5;
+      highlights.data.set(
+        [
+          244,
+          249,
+          255,
+          255 *
+            curve *
+            (0.52 * fresnel + 0.42 * panel * panel * (3 - 2 * panel)),
+        ],
+        4 * i
+      );
       offsets[2 * i] = dx;
       offsets[2 * i + 1] = dy;
       pixels.data[4 * i] = clamp(128 + (127 * dx) / extent, 0, 255);
@@ -101,7 +128,15 @@ function displacement(
       pixels.data[4 * i + 3] = 255;
     }
   ctx.putImageData(pixels, 0, 0);
-  return { map: map.toDataURL(), offsets, w, h, scale: 2 * extent };
+  reflectionCtx.putImageData(highlights, 0, 0);
+  return {
+    reflection: reflection.toDataURL(),
+    map: map.toDataURL(),
+    offsets,
+    w,
+    h,
+    scale: 2 * extent,
+  };
 }
 
 export function LiquidGlass({
@@ -130,9 +165,11 @@ export function LiquidGlass({
   const [expanded, setExpanded] = useState(false),
     [sampled, setSampled] = useState(false);
   const uid = 'liquid-' + useId().replace(/[^a-zA-Z0-9_-]/g, '');
-  const [field, setField] = useState<{ url: string; scale: number } | null>(
-    null
-  );
+  const [field, setField] = useState<{
+    url: string;
+    reflection: string;
+    scale: number;
+  } | null>(null);
   const reduced = useReducedMotion();
   const frostPx = clamp(
     frost ??
@@ -203,7 +240,7 @@ export function LiquidGlass({
             px = box.left + ((x + 0.5) * box.width) / w,
             py = box.top + ((y + 0.5) * box.height) / h;
           for (let c = 0; c < 3; c++) {
-            const spread = 1 + (1 - c) * 0.025;
+            const spread = 1 + (1 - c) * 0.06;
             const sx = clamp(
               Math.round((px + offsets[2 * i] * spread - ox) / scale),
               0,
@@ -238,7 +275,11 @@ export function LiquidGlass({
         clamp(bevel, 0.01, 0.49),
         clamp(refraction, 0, 3)
       );
-      setField({ url: optics.map, scale: optics.scale });
+      setField({
+        url: optics.map,
+        reflection: optics.reflection,
+        scale: optics.scale,
+      });
       queue();
     }
     refresh.current = queue;
@@ -382,10 +423,10 @@ export function LiquidGlass({
         style={{
           ...layer,
           zIndex: -1,
-          background:
-            'linear-gradient(135deg,rgba(255,255,255,.11),transparent 37%,transparent 73%,rgba(255,255,255,.06))',
+          backgroundImage: field ? `url("${field.reflection}")` : undefined,
+          backgroundSize: '100% 100%',
           boxShadow: rim
-            ? `inset 0 0 0 1px rgba(27,38,39,${rim * 0.19}), inset 1px 1.8px 1.4px rgba(255,255,255,${0.45 + rim * 0.4}),inset -1px -1.6px 1.5px rgba(255,255,255,${0.25 + rim * 0.54}),inset 0 4px 5px rgba(255,255,255,${rim * 0.27}),inset 0 -4px 5px rgba(23,31,28,${rim * 0.22})`
+            ? `inset 0 0 0 1px rgba(27,38,39,${rim * 0.19}), inset 1px 1.8px 1.4px rgba(255,255,255,${0.45 + rim * 0.4}),inset -1px -1.6px 1.5px rgba(255,255,255,${0.25 + rim * 0.54}),inset 0 -1px 2px rgba(23,31,28,${rim * 0.16})`
             : undefined,
         }}
       />

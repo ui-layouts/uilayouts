@@ -31,6 +31,10 @@ const nextConfig = {
 
   async redirects() {
     return [
+      { source: '/live-components/liquid-glass-sidebar-menu', destination: '/live-components/glassformism-sidebar-menu', permanent: true },
+      { source: '/live-components/liquid-glass-mobile-icons', destination: '/live-components/glassformism-mobile-icons', permanent: true },
+      { source: '/live-components/liquid-glass-weather', destination: '/live-components/glassformism-weather', permanent: true },
+      { source: '/live-components/liquid-glass-notification', destination: '/live-components/glassformism-notification', permanent: true },
       { source: '/components/image-effect-glass-mark', destination: '/components/liquid-glass', permanent: true },
       { source: '/live-components/image-effect-glass-mark', destination: '/live-components/liquid-glass-landscape-icons', permanent: true },
       { source: '/components/image-effect-glass-photo-controls', destination: '/components/liquid-glass', permanent: true },

@@ -1,0 +1,50 @@
+export const metadata = {
+  title: 'Glassformism',
+  description: 'A frosted glass card with adjustable blur, inset highlights, elastic dragging and expandable dimensions.',
+  keywords: ['glassformism', 'glassmorphism', 'frosted glass', 'backdrop blur'],
+};
+
+## Sidebar menu
+
+<ComponentCodePreview name='glassformism-sidebar-menu' jsonName='glassformism-sidebar-menu' isFitheight />
+
+## Installation
+
+```bash
+npx shadcn@latest add https://www.ui-layouts.com/r/glassformism.json
+```
+
+## Usage
+
+```tsx
+import { Glassformism } from '@/components/ui/glassformism';
+
+export function FrostedCard() {
+  return (
+    <Glassformism width="280px" borderRadius="24px" blurIntensity="md">
+      <div className="relative z-30 p-6">Weather in Berlin</div>
+    </Glassformism>
+  );
+}
+```
+
+| Prop | Purpose |
+| --- | --- |
+| `blurIntensity` | Select the backdrop blur from `sm`, `md`, `lg` or `xl`. Defaults to `xl`. |
+| `borderRadius` | Set the corner radius. Defaults to `32px`. |
+| `glowIntensity`, `shadowIntensity` | Set the outer glow and inset highlight from `none` through `2xl`. |
+| `draggable` | Enable elastic drag. Defaults to `true`. |
+| `expandable` | Toggle between the resting and expanded dimensions on click. Defaults to `false`. |
+| `width`, `height`, `expandedWidth`, `expandedHeight` | Set CSS dimensions for each state. |
+
+## Weather
+
+<ComponentCodePreview name='glassformism-weather' jsonName='glassformism-weather' isFitheight />
+
+## Mobile icons
+
+<ComponentCodePreview name='glassformism-mobile-icons' jsonName='glassformism-mobile-icons' isFitheight />
+
+## Notification
+
+<ComponentCodePreview name='glassformism-notification' jsonName='glassformism-notification' isFitheight />

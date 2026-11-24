@@ -1,5 +1,5 @@
 import { Marquee } from '@/components/ui/marquee';
-import SidebarMenu from '@/registry/components/liquid-glass/sidebar-menu';
+import SidebarMenu from '@/registry/components/glassformism/sidebar-menu';
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -21,7 +21,7 @@ import NewItemsLoading from './new-items-loading';
 const homeComponents = [
   {
     id: 111,
-    link: '/components/liquid-glass',
+    link: '/components/glassformism',
     componentSrc: <SidebarMenu className='py-20 p-4' />,
     className: 'lg:col-span-4 sm:col-span-5 col-span-14  row-span-4',
   },

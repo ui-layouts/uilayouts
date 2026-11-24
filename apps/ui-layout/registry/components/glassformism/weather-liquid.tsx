@@ -1,4 +1,4 @@
-import { LiquidGlassCard } from '@/components/ui/liquid-glass';
+import { Glassformism } from '@/components/ui/glassformism';
 import { Cloud, CloudRain, CloudSun, CloudSunRain, MapPin, Sun } from 'lucide-react';
 
 const WeatherLiquid = () => {
@@ -13,7 +13,7 @@ const WeatherLiquid = () => {
       >
         <div className='grid w-full max-w-xl grid-cols-2 gap-4 mx-auto'>
           {/* Hourly Forecast Card */}
-          <LiquidGlassCard
+          <Glassformism
             shadowIntensity='xs'
             borderRadius='8px'
             glowIntensity='none'
@@ -51,10 +51,10 @@ const WeatherLiquid = () => {
                 <span>+14°</span>
               </div>
             </div>
-          </LiquidGlassCard>
+          </Glassformism>
 
           {/* Current Weather Card */}
-          <LiquidGlassCard
+          <Glassformism
             shadowIntensity='xs'
             borderRadius='8px'
             glowIntensity='none'
@@ -64,10 +64,10 @@ const WeatherLiquid = () => {
               <div className='text-6xl font-semibold'>+18°C</div>
               <div className='text-lg'>Cloudy +18°/+5°</div>
             </div>
-          </LiquidGlassCard>
+          </Glassformism>
 
           {/* Time and Location Card */}
-          <LiquidGlassCard
+          <Glassformism
             shadowIntensity='xs'
             borderRadius='8px'
             glowIntensity='none'
@@ -81,10 +81,10 @@ const WeatherLiquid = () => {
                 Tbilisi
               </button>
             </div>
-          </LiquidGlassCard>
+          </Glassformism>
 
           {/* Daily Forecast Card */}
-          <LiquidGlassCard
+          <Glassformism
             shadowIntensity='xs'
             borderRadius='8px'
             glowIntensity='none'
@@ -127,7 +127,7 @@ const WeatherLiquid = () => {
                 <span className='text-lg'>+16°/+5°</span>
               </div>
             </div>
-          </LiquidGlassCard>
+          </Glassformism>
         </div>
       </div>
     </>
