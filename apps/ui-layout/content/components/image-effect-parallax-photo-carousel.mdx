@@ -1,0 +1,31 @@
+export const metadata = {
+  title: 'Parallax Photo Carousel',
+  description: 'Rotate an inward-facing ring of photographs while each photograph pans inside its panel.',
+  keywords: ['React', 'photography', 'Parallax Photo Carousel'],
+};
+
+Rotate an inward-facing ring of photographs while each photograph pans inside its panel.
+
+<ComponentCodePreview name='image-effect-parallax-photo-carousel' jsonName='image-effect-parallax-photo-carousel' hasReTrigger isFitheight />
+
+## Installation
+
+```bash
+npx shadcn@latest add https://www.ui-layouts.com/r/image-effect-parallax-photo-carousel.json
+```
+
+## Usage
+
+```tsx
+import { ParallaxPhotoCarousel } from '@/components/ui/image-effect-parallax-photo-carousel';
+
+export default function Gallery() {
+  return <ParallaxPhotoCarousel images={['/photos/coast.jpg', '/photos/ridge.jpg']} labels={['Coast', 'Ridge']} />;
+}
+```
+
+Drag or swipe horizontally to turn the ring, or focus the gallery and use the left and right arrow keys. Hover a panel to bring it into focus. Collections with fewer than ten images repeat around the ring.
+
+For timeline playback, supply `time` in seconds and set the pace with `secondsPerImage`. You can also set `className`, `style` and the accessible region `label`.
+
+[Original reference](https://codepen.io/creativeocean/pen/mdROBXx)

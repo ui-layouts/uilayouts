@@ -4,6 +4,36 @@
   "homepage": "https://www.ui-layouts.com",
   "items": [
     {
+      "name": "image-effect-parallax-photo-carousel",
+      "type": "registry:component",
+      "title": "Parallax Photo Carousel",
+      "description": "Rotate an inward-facing ring of photographs while each photograph pans inside its panel.",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/image-effect-parallax-photo-carousel.tsx",
+          "type": "registry:file",
+          "target": "components/ui/image-effect-parallax-photo-carousel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "image-effect-on-scroll-filter",
+      "type": "registry:component",
+      "title": "On-Scroll Filter",
+      "description": "Reveal photographs through seven noise-distorted SVG masks as their titles move from the center into the page layout.",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/image-effect-on-scroll-filter.tsx",
+          "type": "registry:file",
+          "target": "components/ui/image-effect-on-scroll-filter.tsx"
+        }
+      ]
+    },
+    {
       "name": "gooey-delete",
       "type": "registry:component",
       "title": "Gooey Delete",

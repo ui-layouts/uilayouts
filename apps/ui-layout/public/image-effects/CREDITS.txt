@@ -39,3 +39,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 Sprite Morph: original AI-generated portraits created for this demo, with custom landmark-based transition sheets for the daylight, blue-hour and chrome treatments.
+
+On-Scroll Filter: the seven images under on-scroll-filter/ are WebP adaptations of Codrops' OnScrollFilter demo artwork (Midjourney). The MIT notice in the component accompanies this adaptation.
+https://github.com/codrops/OnScrollFilter/tree/3271b3fac95df7bd224da0c6a5860e48441f17ad

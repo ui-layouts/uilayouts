@@ -15,6 +15,8 @@ export const DOCS_CATEGORY_GROUP = {
 } as const;
 
 export const DOCS_CATEGORY_KEY = {
+  'image-effect-parallax-photo-carousel': 'image-effect-parallax-photo-carousel',
+  'image-effect-on-scroll-filter': 'image-effect-on-scroll-filter',
   'gooey-delete': 'gooey-delete',
   'image-effect-swinging-grid': 'image-effect-swinging-grid',
   'image-effect-sprite-morph': 'image-effect-sprite-morph',
