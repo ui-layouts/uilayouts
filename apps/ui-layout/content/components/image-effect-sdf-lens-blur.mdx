@@ -1,0 +1,30 @@
+export const metadata = {
+  title: 'SDF Lens Blur',
+  description: 'The pointer softens the edges of four monochrome distance-field shapes.',
+  keywords: ['React', 'Three.js', 'image animation', 'SDF Lens Blur'],
+};
+
+The pointer softens the edges of four monochrome distance-field shapes.
+
+<ComponentCodePreview name='image-effect-sdf-lens-blur' jsonName='image-effect-sdf-lens-blur' hasReTrigger isFitheight />
+
+## Installation
+
+```bash
+npx shadcn@latest add https://www.ui-layouts.com/r/image-effect-sdf-lens-blur.json
+```
+
+## Usage
+
+```tsx
+import { SdfLensBlur } from '@/components/ui/image-effect-sdf-lens-blur';
+
+export default function Example() {
+  return <SdfLensBlur variation={0} />;
+}
+```
+
+Choose any of the four shader variations using the buttons in the preview. Supply an integer between 0 and 3 as `variation`. The shader draws its shapes procedurally.
+
+
+[Live reference](https://tympanus.net/Tutorials/SDFLensBlur/) · [Original reference](https://github.com/guilanier/codrops-sdf-lensblur/tree/963065fff2b7a0b58617bb1ebf84f930758a539a)

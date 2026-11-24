@@ -1,0 +1,31 @@
+export const metadata = {
+  title: 'On-Scroll Filter',
+  description: 'Reveal photographs through seven noise-distorted SVG masks as their titles move from the center into the page layout.',
+  keywords: ['React', 'photography', 'On-Scroll Filter'],
+};
+
+Reveal photographs through seven noise-distorted SVG masks as their titles move from the center into the page layout.
+
+<ComponentCodePreview name='image-effect-on-scroll-filter' jsonName='image-effect-on-scroll-filter' hasReTrigger isFitheight />
+
+## Installation
+
+```bash
+npx shadcn@latest add https://www.ui-layouts.com/r/image-effect-on-scroll-filter.json
+```
+
+## Usage
+
+```tsx
+import { OnScrollFilter } from '@/components/ui/image-effect-on-scroll-filter';
+
+export default function Gallery() {
+  return <OnScrollFilter images={['/photos/coast.jpg', '/photos/ridge.jpg']} labels={['Foot Print', 'Storm Born']} />;
+}
+```
+
+Scroll or use the arrow and page keys in the focused gallery. The third treatment opens a curved slit. The other six expand circular masks with different noise, dilation and blur settings. The labels split into two groups for the title animation. Supply descriptions for optional captions.
+
+For timeline playback, supply `time` in seconds and set the pace with `secondsPerImage`. You can also set `className`, `style` and the accessible region `label`.
+
+[Original reference](https://github.com/codrops/OnScrollFilter/) · [Live Codrops demo](https://tympanus.net/Development/OnScrollFilter/) · [Codrops article](https://tympanus.net/codrops/?p=72802)

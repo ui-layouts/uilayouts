@@ -1,0 +1,30 @@
+export const metadata = {
+  title: 'WebGL Carousel',
+  description: 'A perspective carousel curves adjacent images away from the center.',
+  keywords: ['React', 'Three.js', 'image animation', 'WebGL Carousel'],
+};
+
+A perspective carousel curves adjacent images away from the center.
+
+<ComponentCodePreview name='image-effect-webgl-carousel' jsonName='image-effect-webgl-carousel' hasReTrigger isFitheight />
+
+## Installation
+
+```bash
+npx shadcn@latest add https://www.ui-layouts.com/r/image-effect-webgl-carousel.json
+```
+
+## Usage
+
+```tsx
+import { WebGLCarousel } from '@/components/ui/image-effect-webgl-carousel';
+
+export default function Example() {
+  return <WebGLCarousel images={['/photos/first.jpg', '/photos/second.jpg']} />;
+}
+```
+
+Drag or scroll to navigate the stepped strip. Hover to enlarge a card and click it to expand the photograph. Focus the canvas and use the arrow keys for keyboard navigation.
+
+
+[Original reference](https://github.com/supahfunk/webgl-carousel/tree/d6f72f2c194dda9d1777bccfe52928825393652f)

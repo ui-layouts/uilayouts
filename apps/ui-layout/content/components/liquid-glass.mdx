@@ -1,102 +1,78 @@
 export const metadata = {
-  title: "Liquid Glass",
-  description: "A modern liquid glass component with glassmorphism effects featuring frosted glass aesthetics, backdrop blur, transparency, and smooth animations. Perfect for creating contemporary glass-like UI elements with CSS and JavaScript.",
-  keywords: [
-    "Liquid glass component",
-    "Glassmorphism effect",
-    "Glass UI component",
-    "Frosted glass effect",
-    "Backdrop blur-sm component",
-    "Glass morphism design",
-    "Transparent glass UI",
-    "Modern glass effect",
-    "CSS glass component",
-    "Figma Glassmorphism Effect",
-    "Apple Vision Pro Glassmorphism Effect",
-    "Glass card component",
-    "Blurred glass effect",
-    "Glass overlay component",
-    "Liquid glass design",
-    "Glass aesthetic UI",
-    "Translucent component",
-    "Glass panel effect",
-    "Modern UI glass",
-    "Glass background effect",
-    "CSS backdrop filter",
-    "Glass surface component",
-    "Frosted UI element",
-    "Glass texture effect",
-    "Liquid interface design",
-    "Glass material design",
-    "Transparent overlay",
-    "Glass blur-sm effect",
-    "Modern glassmorphism",
-    "CSS glass filter",
-    "Glass animation effect",
-    "Contemporary glass UI"
-  ],
+  title: 'Liquid Glass',
+  description: 'A refractive glass surface for a logo lens, a tide card, landscape icons and photo controls.',
+  keywords: ['liquid glass', 'refraction', 'logo lens', 'React', 'photo controls'],
 };
 
-<ComponentCodePreview name='liquid-glass-sidebar-menu' jsonName='liquid-glass-sidebar-menu.json' isFitheight/>
+Liquid Glass bends the content behind its rounded edges. Drag a lens across a logo or photograph to see the edge shift the backdrop.
+
+## Logo lens
+
+<ComponentCodePreview name='liquid-glass-logo-lens' jsonName='liquid-glass' isFitheight />
+
+Drag the lens across the UI Layouts wordmark to see its edges shift beneath the glass. With the lens focused, use the arrow keys to move it and Home to reset it.
+
+## Tide card
+
+<ComponentCodePreview name='liquid-glass-tide-card' jsonName='liquid-glass' isFitheight />
+
+Drag the tide card over the water, then release it to return it to its starting position.
+
+## Landscape icons
+
+<ComponentCodePreview name='liquid-glass-landscape-icons' jsonName='liquid-glass' isFitheight />
+
+Drag either Home icon across the landscape. The clear lens keeps the photograph sharp, while the frosted lens softens the details. Both spring back when released.
+
+## Photo controls
+
+<ComponentCodePreview name='liquid-glass-photo-controls' jsonName='liquid-glass' isFitheight />
+
+Drag the pager across the photograph and release it to spring back. Tap a chevron to change photos, or focus the pager and use the left and right arrow keys.
 
 ## Installation
 
-<Tabs defaultValue="cli">
-  <TabsList className='border-b w-full bg-muted justify-start h-12 mt-4'>
-    <TabsTrigger value="cli" className="data-[state=active]:bg-card gap-1 data-[state=active]:border">CLI</TabsTrigger>
-    <TabsTrigger value="manual" className="data-[state=active]:bg-card gap-1 data-[state=active]:border">Manual</TabsTrigger>
-  </TabsList>
-  <TabsContent value="cli">
-   <CodeTabsMdx>
-      ```bash
-      npx uilayouts@latest add liquid-glass
-      ```
-
-      ```bash
-      npx shadcn@latest add 'https://www.ui-layouts.com/r/liquid-glass.json'
-      ```
-   </CodeTabsMdx>
-  </TabsContent>
-<TabsContent value="manual" manualType>
-
 ```bash
-npm install motion
+npx shadcn@latest add https://www.ui-layouts.com/r/liquid-glass.json
 ```
 
-<CodeSnippets name="liquid-glass" />
+## Usage
 
-</TabsContent>
-</Tabs>
+```tsx
+'use client';
+import { useRef } from 'react';
+import { LiquidGlass } from '@/components/ui/liquid-glass';
 
+export function PhotoPager({ src, next }: { src: string; next: () => void }) {
+  const photo = useRef<HTMLImageElement>(null);
+  return (
+    <figure style={{ position: 'relative', width: '100%', aspectRatio: '3 / 2', margin: 0 }}>
+      <img ref={photo} src={src} alt="Landscape"
+        style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+      <div style={{ position: 'absolute', bottom: '8%', left: '50%', transform: 'translateX(-50%)' }}>
+        <LiquidGlass backdropImage={photo} borderRadius="999px" frost={0} bevel={0.22} refraction={1.4}>
+          <button onClick={next} style={{ padding: '12px 24px', color: 'white', background: 'transparent' }}>
+            Next photo
+          </button>
+        </LiquidGlass>
+      </div>
+    </figure>
+  );
+}
+```
 
-## Props
+| Prop | Purpose |
+| --- | --- |
+| `borderRadius` | Shape of the glass surface, such as `"50%"` for a circle or `"999px"` for a pill. |
+| `refraction` | Strength of the optical displacement, from 0 to 3. Defaults to 1.15. |
+| `bevel` | Width of the curved rim relative to the shorter side. Defaults to 0.16. |
+| `frost` | Blur radius in CSS pixels. Use zero for clear glass. |
+| `backdropImage` | Optional ref to an underlying centered, cover-fit image. This enables a pixel-sampled lens across browsers. The image must be same-origin or permit canvas access. |
+| `width`, `height`, `className`, `style` | Size and placement of the surface. |
+| `dragWithin` | Pass a ref to the scene to keep the draggable lens inside it. |
+| `draggable`, `expandable` | Enable elastic dragging or click-to-expand sizing with `expandedWidth` and `expandedHeight`. |
+| `glowIntensity`, `shadowIntensity`, `blurIntensity` | Outer shadow, rim highlights and preset blur levels. An explicit `frost` takes precedence over the blur preset. |
 
-| Prop            | Type      | Default | Description                                                                 |
-| --------------- | --------- | ------- | --------------------------------------------------------------------------- |
-| children        | ReactNode | -       | The content to be wrapped inside the liquid glass card                     |
-| className       | string    | ''      | Additional CSS classes to apply to the card wrapper                        |
-| draggable       | boolean   | false   | Enable drag functionality with elastic bounce-back animation              |
-| expandable      | boolean   | false   | Enable click-to-expand functionality with smooth size transitions         |
-| width           | string    | -       | Initial/collapsed width (e.g., '200px', '100%', 'auto')                   |
-| height          | string    | -       | Initial/collapsed height (e.g., '120px', 'auto')                          |
-| expandedWidth   | string    | -       | Width when expanded (falls back to width or 'auto' if not provided)       |
-| expandedHeight  | string    | -       | Height when expanded (falls back to height or 'auto' if not provided)     |
-| blurIntensity   | string    | 'sm'    | Backdrop blur strength: 'sm', 'md', 'lg', 'xl'                           |
-| borderRadius    | string    | '32px'  | Custom border radius for the glass card                                   |
-| glowIntensity   | string    | 'sm'    | Outer glow effect: 'none', 'xs', 'sm', 'md', 'lg', 'xl', '2xl'           |
-| shadowIntensity | string    | 'md'    | Inner shadow depth: 'none', 'xs', 'sm', 'md', 'lg', 'xl', '2xl'          |
-| ...props        | object    | -       | Any additional props are passed through to the root element 
+With `backdropImage`, the WebGL shader samples the photograph under the control and bends its colors along the curved rim. Pressing the control distorts the image near the pointer. A Canvas 2D renderer supplies image refraction when WebGL is unavailable. Without an accessible image, the component uses the browser’s backdrop filter.
 
-## Example
-
-### Weather 
-
-<ComponentCodePreview name='liquid-glass-weather' jsonName='liquid-glass-weather.json' isFitheight/>
-
-### Mobile Icons 
-
-<ComponentCodePreview name='liquid-glass-mobile-icons' jsonName='liquid-glass-mobile-icons.json' isFitheight/>
-
-### Notification
-
-<ComponentCodePreview name='liquid-glass-notification' jsonName='liquid-glass-notification.json' isFitheight/>
+[Glass icon study](https://github.com/phileeppov/glass) · [WebGPU refraction study](https://github.com/jeantimex/glass-effect-webgpu)

@@ -1,0 +1,30 @@
+export const metadata = {
+  title: 'Motion Hover',
+  description: 'A floating image bends and separates into color channels as the pointer travels.',
+  keywords: ['React', 'Three.js', 'image animation', 'Motion Hover'],
+};
+
+A floating image bends and separates into color channels as the pointer travels.
+
+<ComponentCodePreview name='image-effect-motion-hover' jsonName='image-effect-motion-hover' hasReTrigger isFitheight />
+
+## Installation
+
+```bash
+npx shadcn@latest add https://www.ui-layouts.com/r/image-effect-motion-hover.json
+```
+
+## Usage
+
+```tsx
+import { MotionHover } from '@/components/ui/image-effect-motion-hover';
+
+export default function Example() {
+  return <MotionHover images={['/photos/first.jpg', '/photos/second.jpg']} labels={['First study', 'Second study']} captions={['Portrait', 'Landscape']} />;
+}
+```
+
+Hover or focus a title to reveal its photograph. Moving the pointer bends the image and separates its color channels until the image catches up. Set `labels` and `captions` to supply the index copy.
+
+
+[Original reference](https://github.com/clementroche/motion-hover-effects/tree/b9aaa953b3dd7a64186240f06e41a155d8bb419e)

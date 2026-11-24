@@ -1,0 +1,38 @@
+export const metadata = {
+  title: 'Gooey Delete',
+  description: 'A delete button expands into an undo control with a liquid connection and a detached status indicator.',
+  keywords: ['React', 'delete', 'undo', 'motion', 'button'],
+};
+
+Delete an item and restore it from the same button. The black pill expands and a checkmark separates from it through an SVG blur and alpha threshold.
+
+<ComponentCodePreview name='gooey-delete' jsonName='gooey-delete' hasReTrigger isFitheight />
+
+## Installation
+
+```bash
+npx shadcn@latest add https://www.ui-layouts.com/r/gooey-delete.json
+```
+
+## Usage
+
+```tsx
+'use client';
+
+import { useState } from 'react';
+import { GooeyDelete } from '@/components/ui/gooey-delete';
+
+export default function Draft() {
+  const [deleted, setDeleted] = useState(false);
+  return (
+    <div>
+      {!deleted && <p>Field notes</p>}
+      <GooeyDelete itemLabel='Field notes' deleted={deleted} onDeletedChange={setDeleted} />
+    </div>
+  );
+}
+```
+
+The `itemLabel` identifies the item to screen readers. Use `deleted` and `onDeletedChange` to connect the button to application state. For a self-managed control, supply `defaultDeleted` instead. Enter and Space activate the focused button. Reduced-motion preferences shorten the transition.
+
+[Codrops article](https://tympanus.net/codrops/2024/11/18/how-to-create-a-gooey-search-interaction-with-framer-motion-and-react/) · [Original search interaction](https://github.com/oguzhantufenk/gooey-search)

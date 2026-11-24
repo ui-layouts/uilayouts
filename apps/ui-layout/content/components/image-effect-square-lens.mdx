@@ -1,0 +1,30 @@
+export const metadata = {
+  title: 'Square Lens',
+  description: 'A square lens reveals a second texture with color separation and refraction.',
+  keywords: ['React', 'Three.js', 'image animation', 'Square Lens'],
+};
+
+A square lens reveals a second texture with color separation and refraction.
+
+<ComponentCodePreview name='image-effect-square-lens' jsonName='image-effect-square-lens' hasReTrigger isFitheight />
+
+## Installation
+
+```bash
+npx shadcn@latest add https://www.ui-layouts.com/r/image-effect-square-lens.json
+```
+
+## Usage
+
+```tsx
+import { SquareLens } from '@/components/ui/image-effect-square-lens';
+
+export default function Example() {
+  return <SquareLens images={['/photos/first.jpg', '/photos/second.jpg']} />;
+}
+```
+
+Move the pointer over the photograph to activate the effect. The photograph stays in place when the pointer leaves.
+
+
+[Live reference](https://tympanus.net/Tutorials/MouseFollowingSquareLensEffect/) · [Original reference](https://github.com/tomoyukinakata/mouse-following-square-lens-effect/tree/423680b1322f7d984a5a9c2834fe7eaa3e697c84)

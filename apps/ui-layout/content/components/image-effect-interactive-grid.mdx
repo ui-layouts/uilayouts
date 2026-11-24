@@ -1,0 +1,30 @@
+export const metadata = {
+  title: 'Interactive Grid',
+  description: 'A tiled image wall lifts individual panels toward the pointer.',
+  keywords: ['React', 'Three.js', 'image animation', 'Interactive Grid'],
+};
+
+A tiled image wall lifts individual panels toward the pointer.
+
+<ComponentCodePreview name='image-effect-interactive-grid' jsonName='image-effect-interactive-grid' hasReTrigger isFitheight />
+
+## Installation
+
+```bash
+npx shadcn@latest add https://www.ui-layouts.com/r/image-effect-interactive-grid.json
+```
+
+## Usage
+
+```tsx
+import { InteractiveGrid } from '@/components/ui/image-effect-interactive-grid';
+
+export default function Example() {
+  return <InteractiveGrid images={['/photos/first.jpg', '/photos/second.jpg']} />;
+}
+```
+
+Drag the canvas in either axis, use a trackpad, or focus the canvas and press the arrow keys.
+
+
+[Original reference](https://github.com/samueljarry/codrops-tutorial-grid/tree/c610d025497a159b754bf3dd40a309d3a0e934b5)

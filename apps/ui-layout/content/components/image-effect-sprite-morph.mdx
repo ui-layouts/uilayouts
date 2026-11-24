@@ -1,0 +1,49 @@
+export const metadata = {
+  title: 'Sprite Morph',
+  description: 'Morph between portraits using 24-frame transition sheets or a warp generated from two images.',
+  keywords: ['React', 'sprite', 'morph', 'animation'],
+};
+
+Morph between portraits using 24-frame transition sheets or a warp generated from two images.
+
+<ComponentCodePreview name='image-effect-sprite-morph' jsonName='image-effect-sprite-morph' hasReTrigger isFitheight />
+
+## Installation
+
+```bash
+npx shadcn@latest add https://www.ui-layouts.com/r/image-effect-sprite-morph.json
+```
+
+## Usage
+
+```tsx
+import { SpriteMorph } from '@/components/ui/image-effect-sprite-morph';
+
+const ages = ['baby', 'teen', 'adult', 'old', 'elder'];
+const photo = (name: string) => `/image-effects/ages/${name}.webp`;
+
+export default function PortraitStudy() {
+  return (
+    <SpriteMorph
+      images={ages.map(photo)}
+      atlases={ages.map((age, i) => photo(age + '-' + ages[(i + 1) % ages.length]))}
+      labels={['Baby', 'Teen', 'Adult', 'Old', 'Elder']}
+      label='Five ages of one face'
+      style={{ background: '#fff', color: '#191919' }}
+      secondsPerImage={3}
+    />
+  );
+}
+```
+
+Select a numbered button to move between five ages of the same face in profile. Each selection travels the shorter path around the five portraits in one second. The 24-frame sheets stagger the movement of facial features across the profile, including the return from elder to baby. Use your own image URLs and sheets to change the subject.
+
+| Prop | Description |
+| --- | --- |
+| `images` | The images in display order. |
+| `labels` | Names used for the captions and selection buttons. |
+| `atlases` | Optional transition sheets, one per image-to-next-image pair, including the last image back to the first. Each sheet contains 24 frames arranged left to right in six columns and four rows. Without a sheet, the component generates a scanline warp from the two source images. |
+| `time` | Elapsed seconds from an external clock. Supplying this prop selects the frame directly. |
+| `secondsPerImage` | Duration of each stage in controlled playback. Defaults to 2.5 seconds. The transition occupies the final second, or the whole stage for durations below one second. |
+
+[Codrops article](https://tympanus.net/codrops/2024/12/09/creating-the-morphing-effect-of-the-luma-dream-machine-website/) · [Original reference](https://github.com/J0SUKE/morphing-2d-demo)

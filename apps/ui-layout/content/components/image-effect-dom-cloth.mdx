@@ -1,0 +1,30 @@
+export const metadata = {
+  title: 'DOM Cloth',
+  description: 'Fabric-like posters ripple as they travel through a carousel.',
+  keywords: ['React', 'Three.js', 'image animation', 'DOM Cloth'],
+};
+
+Fabric-like posters ripple as they travel through a carousel.
+
+<ComponentCodePreview name='image-effect-dom-cloth' jsonName='image-effect-dom-cloth' hasReTrigger isFitheight />
+
+## Installation
+
+```bash
+npx shadcn@latest add https://www.ui-layouts.com/r/image-effect-dom-cloth.json
+```
+
+## Usage
+
+```tsx
+import { DomCloth } from '@/components/ui/image-effect-dom-cloth';
+
+export default function Example() {
+  return <DomCloth images={['/photos/first.jpg', '/photos/second.jpg']} />;
+}
+```
+
+Drag or scroll within the gallery to explore. Focus the canvas and use the arrow keys for keyboard navigation.
+
+
+[Live reference](https://domgl-cloth.jesperlandberg.com) · [Original reference](https://github.com/twotwentytwo-studio/domgl-cloth/tree/bd8ea5f7e0d66d96ef48e6687fed223e0846eba7)

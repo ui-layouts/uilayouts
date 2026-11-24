@@ -1,0 +1,30 @@
+export const metadata = {
+  title: 'Emerging Images',
+  description: 'Horizontal fragments emerge and align into the next image.',
+  keywords: ['React', 'Three.js', 'image animation', 'Emerging Images'],
+};
+
+Horizontal fragments emerge and align into the next image.
+
+<ComponentCodePreview name='image-effect-emerging-images' jsonName='image-effect-emerging-images' hasReTrigger isFitheight />
+
+## Installation
+
+```bash
+npx shadcn@latest add https://www.ui-layouts.com/r/image-effect-emerging-images.json
+```
+
+## Usage
+
+```tsx
+import { EmergingImages } from '@/components/ui/image-effect-emerging-images';
+
+export default function Example() {
+  return <EmergingImages images={['/photos/first.jpg', '/photos/second.jpg']} />;
+}
+```
+
+Move the pointer over the photograph to activate the effect. The photograph stays in place when the pointer leaves.
+
+
+[Original reference](https://github.com/akella/CodropsEmergingImages/tree/e866c0287be4e1e3eb7a2bcfadf93ff731440f35)

@@ -1,0 +1,30 @@
+export const metadata = {
+  title: 'Physics Cloth',
+  description: 'A pinned fabric image responds to gravity and a changing wind field.',
+  keywords: ['React', 'Three.js', 'image animation', 'Physics Cloth'],
+};
+
+A pinned fabric image responds to gravity and a changing wind field.
+
+<ComponentCodePreview name='image-effect-physics-cloth' jsonName='image-effect-physics-cloth' hasReTrigger isFitheight />
+
+## Installation
+
+```bash
+npx shadcn@latest add https://www.ui-layouts.com/r/image-effect-physics-cloth.json
+```
+
+## Usage
+
+```tsx
+import { PhysicsCloth } from '@/components/ui/image-effect-physics-cloth';
+
+export default function Example() {
+  return <PhysicsCloth images={['/photos/first.jpg', '/photos/second.jpg']} />;
+}
+```
+
+Click the cloth to change the photograph. The pinned surface responds continuously to wind.
+
+
+[Original reference](https://github.com/Aqro/Physics-slideshow-threejs-cannonjs/tree/9f934d42075033bd0b00e187bc89528b01866066)

@@ -1,4 +1,4 @@
-import { LiquidGlassCard } from '@/components/ui/liquid-glass';
+import { Glassformism } from '@/components/ui/glassformism';
 import {
   Bell,
   Camera,
@@ -23,32 +23,32 @@ const MobileIcons = () => {
         }}
       >
         <div className='grid grid-cols-4 gap-4 p-6 rounded-3xl '>
-          <LiquidGlassCard className='w-16 h-16 rounded-ful '>
+          <Glassformism className='w-16 h-16 rounded-ful '>
             <div className='relative z-30 flex items-center justify-center text-white text-2xl w-full h-full '>
               <RotateCcw className='w-8 h-8' />
               <span className='sr-only'>Rotation Lock</span>
             </div>
-          </LiquidGlassCard>
-          <LiquidGlassCard className='w-16 h-16 rounded-full '>
+          </Glassformism>
+          <Glassformism className='w-16 h-16 rounded-full '>
             <div className='relative z-30 flex items-center justify-center text-white text-2xl w-full h-full '>
               <Bell className='w-8 h-8' />
               <span className='sr-only'>Notifications</span>
             </div>
-          </LiquidGlassCard>
-          <LiquidGlassCard className='w-16 h-40 rounded-full  flex items-center justify-center text-white text-2xl row-span-2 '>
+          </Glassformism>
+          <Glassformism className='w-16 h-40 rounded-full  flex items-center justify-center text-white text-2xl row-span-2 '>
             <div className='relative z-30 flex items-center justify-center text-white text-2xl w-full h-full '>
               <Sun className='w-8 h-8' />
               <span className='sr-only'>Brightness</span>
             </div>
-          </LiquidGlassCard>
-          <LiquidGlassCard className='w-16 h-40 rounded-full  flex items-center justify-center text-white text-2xl row-span-2 '>
+          </Glassformism>
+          <Glassformism className='w-16 h-40 rounded-full  flex items-center justify-center text-white text-2xl row-span-2 '>
             <div className='relative z-30 flex items-center justify-center text-white text-2xl w-full h-full '>
               <VolumeX className='w-8 h-8' />
               <span className='sr-only'>Mute Volume</span>
             </div>
-          </LiquidGlassCard>
+          </Glassformism>
 
-          <LiquidGlassCard className='col-span-2 h-16 rounded-full flex items-center justify-center px-4 gap-2 text-white text-lg'>
+          <Glassformism className='col-span-2 h-16 rounded-full flex items-center justify-center px-4 gap-2 text-white text-lg'>
             <div className='relative z-30 flex items-center gap-2'>
               <div className='w-10 h-10 rounded-full flex items-center justify-center shrink-0'>
                 <Moon className='w-6 h-6' />
@@ -57,32 +57,32 @@ const MobileIcons = () => {
               <ChevronsUpDown className='w-5 h-5 ml-auto' />
               <span className='sr-only'>Focus Mode</span>
             </div>
-          </LiquidGlassCard>
+          </Glassformism>
 
-          <LiquidGlassCard className='w-16 h-16 rounded-full  '>
+          <Glassformism className='w-16 h-16 rounded-full  '>
             <div className='relative z-30 flex items-center justify-center text-white text-2xl w-full h-full '>
               <Flashlight className='w-8 h-8' />
               <span className='sr-only'>Flashlight</span>
             </div>
-          </LiquidGlassCard>
-          <LiquidGlassCard className='w-16 h-16 rounded-full  '>
+          </Glassformism>
+          <Glassformism className='w-16 h-16 rounded-full  '>
             <div className='relative z-30 flex items-center justify-center text-white text-2xl w-full h-full '>
               <Timer className='w-8 h-8' />
               <span className='sr-only'>Timer</span>
             </div>
-          </LiquidGlassCard>
-          <LiquidGlassCard className='w-16 h-16 rounded-full  '>
+          </Glassformism>
+          <Glassformism className='w-16 h-16 rounded-full  '>
             <div className='relative z-30 flex items-center justify-center text-white text-2xl w-full h-full '>
               <Camera className='w-8 h-8' />
               <span className='sr-only'>Camera</span>
             </div>
-          </LiquidGlassCard>
-          <LiquidGlassCard className='w-16 h-16 rounded-full  '>
+          </Glassformism>
+          <Glassformism className='w-16 h-16 rounded-full  '>
             <div className='relative z-30 flex items-center justify-center text-white text-2xl w-full h-full '>
               <CircleDot className='w-8 h-8' />
               <span className='sr-only'>Record Screen</span>
             </div>
-          </LiquidGlassCard>
+          </Glassformism>
         </div>
       </div>
     </>

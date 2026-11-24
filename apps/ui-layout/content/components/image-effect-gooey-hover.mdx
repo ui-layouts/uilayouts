@@ -1,0 +1,30 @@
+export const metadata = {
+  title: 'Gooey Hover',
+  description: 'A liquid edge spreads from the pointer to reveal a second photograph.',
+  keywords: ['React', 'Three.js', 'image animation', 'Gooey Hover'],
+};
+
+A liquid edge spreads from the pointer to reveal a second photograph.
+
+<ComponentCodePreview name='image-effect-gooey-hover' jsonName='image-effect-gooey-hover' hasReTrigger isFitheight />
+
+## Installation
+
+```bash
+npx shadcn@latest add https://www.ui-layouts.com/r/image-effect-gooey-hover.json
+```
+
+## Usage
+
+```tsx
+import { GooeyHover } from '@/components/ui/image-effect-gooey-hover';
+
+export default function Example() {
+  return <GooeyHover images={['/photos/first.jpg', '/photos/second.jpg']} />;
+}
+```
+
+Move the pointer over the photograph to activate the effect. Click to open the detail state and click again to close it. With the tile focused, Enter or Space also toggles it.
+
+
+[Original reference](https://github.com/Aqro/gooey-hover-codrops/tree/a00f90715347eb3cd28e6820fb8007d6649f8160)

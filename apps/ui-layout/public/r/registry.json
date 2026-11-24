@@ -4,6 +4,678 @@
   "homepage": "https://www.ui-layouts.com",
   "items": [
     {
+      "name": "image-effect-parallax-photo-carousel",
+      "type": "registry:component",
+      "title": "Parallax Photo Carousel",
+      "description": "Rotate an inward-facing ring of photographs while each photograph pans inside its panel.",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/image-effect-parallax-photo-carousel.tsx",
+          "type": "registry:file",
+          "target": "components/ui/image-effect-parallax-photo-carousel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "image-effect-on-scroll-filter",
+      "type": "registry:component",
+      "title": "On-Scroll Filter",
+      "description": "Reveal photographs through seven noise-distorted SVG masks as their titles move from the center into the page layout.",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/image-effect-on-scroll-filter.tsx",
+          "type": "registry:file",
+          "target": "components/ui/image-effect-on-scroll-filter.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gooey-delete",
+      "type": "registry:component",
+      "title": "Gooey Delete",
+      "description": "A delete button expands into an undo control with a liquid connection and a detached status indicator.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/gooey-delete.tsx",
+          "type": "registry:file",
+          "target": "components/ui/gooey-delete.tsx"
+        }
+      ]
+    },
+    {
+      "name": "image-effect-swinging-grid",
+      "type": "registry:component",
+      "title": "Swinging Grid",
+      "description": "Scroll through four columns of images that swing progressively farther to the right.",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/image-effect-swinging-grid.tsx",
+          "type": "registry:file",
+          "target": "components/ui/image-effect-swinging-grid.tsx"
+        }
+      ]
+    },
+    {
+      "name": "image-effect-sprite-morph",
+      "type": "registry:component",
+      "title": "Sprite Morph",
+      "description": "Morph between portraits using 24-frame transition sheets or a warp generated from two images.",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/image-effect-sprite-morph.tsx",
+          "type": "registry:file",
+          "target": "components/ui/image-effect-sprite-morph.tsx"
+        }
+      ]
+    },
+    {
+      "name": "image-effect-crt-editorial",
+      "type": "registry:component",
+      "title": "CRT Editorial",
+      "description": "Scroll through an editorial photo sequence rendered with a cathode-ray-tube effect.",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/image-effect-crt-editorial.tsx",
+          "type": "registry:file",
+          "target": "components/ui/image-effect-crt-editorial.tsx"
+        }
+      ]
+    },
+    {
+      "name": "image-effect-motion-hover",
+      "type": "registry:component",
+      "title": "Motion Hover",
+      "description": "A floating image bends and separates into color channels as the pointer travels.",
+      "dependencies": [
+        "three@0.186.0"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/image-effect-motion-hover.tsx",
+          "type": "registry:file",
+          "target": "components/ui/image-effect-motion-hover.tsx"
+        }
+      ],
+      "devDependencies": [
+        "@types/three@0.183.1"
+      ]
+    },
+    {
+      "name": "image-effect-gooey-hover",
+      "type": "registry:component",
+      "title": "Gooey Hover",
+      "description": "A liquid edge spreads from the pointer to reveal a second photograph.",
+      "dependencies": [
+        "three@0.186.0"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/image-effect-gooey-hover.tsx",
+          "type": "registry:file",
+          "target": "components/ui/image-effect-gooey-hover.tsx"
+        }
+      ],
+      "devDependencies": [
+        "@types/three@0.183.1"
+      ]
+    },
+    {
+      "name": "image-effect-circular-gallery",
+      "type": "registry:component",
+      "title": "Circular Gallery",
+      "description": "Image cards follow a circular arc as they pass across the viewport.",
+      "dependencies": [
+        "three@0.186.0"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/image-effect-circular-gallery.tsx",
+          "type": "registry:file",
+          "target": "components/ui/image-effect-circular-gallery.tsx"
+        }
+      ],
+      "devDependencies": [
+        "@types/three@0.183.1"
+      ]
+    },
+    {
+      "name": "image-effect-infinite-gallery",
+      "type": "registry:component",
+      "title": "Infinite Gallery",
+      "description": "A continuous vertical gallery bends as photographs approach the center.",
+      "dependencies": [
+        "three@0.186.0"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/image-effect-infinite-gallery.tsx",
+          "type": "registry:file",
+          "target": "components/ui/image-effect-infinite-gallery.tsx"
+        }
+      ],
+      "devDependencies": [
+        "@types/three@0.183.1"
+      ]
+    },
+    {
+      "name": "image-effect-physics-cloth",
+      "type": "registry:component",
+      "title": "Physics Cloth",
+      "description": "A pinned fabric image responds to gravity and a changing wind field.",
+      "dependencies": [
+        "three@0.186.0"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/image-effect-physics-cloth.tsx",
+          "type": "registry:file",
+          "target": "components/ui/image-effect-physics-cloth.tsx"
+        }
+      ],
+      "devDependencies": [
+        "@types/three@0.183.1"
+      ]
+    },
+    {
+      "name": "image-effect-webgl-carousel",
+      "type": "registry:component",
+      "title": "WebGL Carousel",
+      "description": "A perspective carousel curves adjacent images away from the center.",
+      "dependencies": [
+        "three@0.186.0"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/image-effect-webgl-carousel.tsx",
+          "type": "registry:file",
+          "target": "components/ui/image-effect-webgl-carousel.tsx"
+        }
+      ],
+      "devDependencies": [
+        "@types/three@0.183.1"
+      ]
+    },
+    {
+      "name": "image-effect-bulge",
+      "type": "registry:component",
+      "title": "Bulge",
+      "description": "A movable lens pushes the image outward under the pointer.",
+      "dependencies": [
+        "three@0.186.0"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/image-effect-bulge.tsx",
+          "type": "registry:file",
+          "target": "components/ui/image-effect-bulge.tsx"
+        }
+      ],
+      "devDependencies": [
+        "@types/three@0.183.1"
+      ]
+    },
+    {
+      "name": "image-effect-emerging-images",
+      "type": "registry:component",
+      "title": "Emerging Images",
+      "description": "Horizontal fragments emerge and align into the next image.",
+      "dependencies": [
+        "three@0.186.0"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/image-effect-emerging-images.tsx",
+          "type": "registry:file",
+          "target": "components/ui/image-effect-emerging-images.tsx"
+        }
+      ],
+      "devDependencies": [
+        "@types/three@0.183.1"
+      ]
+    },
+    {
+      "name": "image-effect-sdf-lens-blur",
+      "type": "registry:component",
+      "title": "SDF Lens Blur",
+      "description": "The pointer softens the edges of four monochrome distance-field shapes.",
+      "dependencies": [
+        "three@0.186.0"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/image-effect-sdf-lens-blur.tsx",
+          "type": "registry:file",
+          "target": "components/ui/image-effect-sdf-lens-blur.tsx"
+        }
+      ],
+      "devDependencies": [
+        "@types/three@0.183.1"
+      ]
+    },
+    {
+      "name": "image-effect-progressive-blur",
+      "type": "registry:component",
+      "title": "Progressive Blur",
+      "description": "A vertical blur gradient rolls across the image.",
+      "dependencies": [
+        "three@0.186.0"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/image-effect-progressive-blur.tsx",
+          "type": "registry:file",
+          "target": "components/ui/image-effect-progressive-blur.tsx"
+        }
+      ],
+      "devDependencies": [
+        "@types/three@0.183.1"
+      ]
+    },
+    {
+      "name": "image-effect-object-fit",
+      "type": "registry:component",
+      "title": "Object Fit",
+      "description": "An image covers its plane while pointer movement shifts its crop within the remaining margins.",
+      "dependencies": [
+        "three@0.186.0"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/image-effect-object-fit.tsx",
+          "type": "registry:file",
+          "target": "components/ui/image-effect-object-fit.tsx"
+        }
+      ],
+      "devDependencies": [
+        "@types/three@0.183.1"
+      ]
+    },
+    {
+      "name": "image-effect-scroll-grain",
+      "type": "registry:component",
+      "title": "Scroll Grain",
+      "description": "Scroll through distorted images with a fine animated grain.",
+      "dependencies": [
+        "three@0.186.0"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/image-effect-scroll-grain.tsx",
+          "type": "registry:file",
+          "target": "components/ui/image-effect-scroll-grain.tsx"
+        }
+      ],
+      "devDependencies": [
+        "@types/three@0.183.1"
+      ]
+    },
+    {
+      "name": "image-effect-rotating-gallery",
+      "type": "registry:component",
+      "title": "Rotating Gallery",
+      "description": "Each card twists along its vertical axis while crossing the gallery.",
+      "dependencies": [
+        "three@0.186.0"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/image-effect-rotating-gallery.tsx",
+          "type": "registry:file",
+          "target": "components/ui/image-effect-rotating-gallery.tsx"
+        }
+      ],
+      "devDependencies": [
+        "@types/three@0.183.1"
+      ]
+    },
+    {
+      "name": "image-effect-interactive-grid",
+      "type": "registry:component",
+      "title": "Interactive Grid",
+      "description": "A tiled image wall lifts individual panels toward the pointer.",
+      "dependencies": [
+        "three@0.186.0"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/image-effect-interactive-grid.tsx",
+          "type": "registry:file",
+          "target": "components/ui/image-effect-interactive-grid.tsx"
+        }
+      ],
+      "devDependencies": [
+        "@types/three@0.183.1"
+      ]
+    },
+    {
+      "name": "image-effect-shader-ripple",
+      "type": "registry:component",
+      "title": "Shader Ripple",
+      "description": "Concentric waves distort the image and reveal the next texture.",
+      "dependencies": [
+        "three@0.186.0"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/image-effect-shader-ripple.tsx",
+          "type": "registry:file",
+          "target": "components/ui/image-effect-shader-ripple.tsx"
+        }
+      ],
+      "devDependencies": [
+        "@types/three@0.183.1"
+      ]
+    },
+    {
+      "name": "image-effect-dom-cloth",
+      "type": "registry:component",
+      "title": "DOM Cloth",
+      "description": "Fabric-like posters ripple as they travel through a carousel.",
+      "dependencies": [
+        "three@0.186.0"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/image-effect-dom-cloth.tsx",
+          "type": "registry:file",
+          "target": "components/ui/image-effect-dom-cloth.tsx"
+        }
+      ],
+      "devDependencies": [
+        "@types/three@0.183.1"
+      ]
+    },
+    {
+      "name": "image-effect-phantom-grid",
+      "type": "registry:component",
+      "title": "Phantom Grid",
+      "description": "A floating image grid and a point-cloud face respond to pointer movement.",
+      "dependencies": [
+        "three@0.186.0"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/image-effect-phantom-grid.tsx",
+          "type": "registry:file",
+          "target": "components/ui/image-effect-phantom-grid.tsx"
+        }
+      ],
+      "devDependencies": [
+        "@types/three@0.183.1"
+      ]
+    },
+    {
+      "name": "image-effect-depth-gallery",
+      "type": "registry:component",
+      "title": "Depth Gallery",
+      "description": "Images move toward the viewer through layers of atmospheric color.",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/image-effect-depth-gallery.tsx",
+          "type": "registry:file",
+          "target": "components/ui/image-effect-depth-gallery.tsx"
+        }
+      ]
+    },
+    {
+      "name": "image-effect-square-lens",
+      "type": "registry:component",
+      "title": "Square Lens",
+      "description": "A square lens reveals a second texture with color separation and refraction.",
+      "dependencies": [
+        "three@0.186.0"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/image-effect-square-lens.tsx",
+          "type": "registry:file",
+          "target": "components/ui/image-effect-square-lens.tsx"
+        }
+      ],
+      "devDependencies": [
+        "@types/three@0.183.1"
+      ]
+    },
+    {
+      "name": "image-effect-curve-gallery",
+      "type": "registry:component",
+      "title": "Curve Gallery",
+      "description": "The gallery follows a curved path through a sequence of photographs.",
+      "dependencies": [
+        "three@0.186.0"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/image-effect-curve-gallery.tsx",
+          "type": "registry:file",
+          "target": "components/ui/image-effect-curve-gallery.tsx"
+        }
+      ],
+      "devDependencies": [
+        "@types/three@0.183.1"
+      ]
+    },
+    {
+      "name": "image-effect-liquid-glass-grid",
+      "type": "registry:component",
+      "title": "Liquid Glass Grid",
+      "description": "Beveled image tiles wrap around a spherical grid with edge refraction.",
+      "dependencies": [
+        "three@0.186.0"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/image-effect-liquid-glass-grid.tsx",
+          "type": "registry:file",
+          "target": "components/ui/image-effect-liquid-glass-grid.tsx"
+        }
+      ],
+      "devDependencies": [
+        "@types/three@0.183.1"
+      ]
+    },
+    {
+      "name": "image-effect-image-tube",
+      "type": "registry:component",
+      "title": "Image Tube",
+      "description": "Images spiral into a looping three-dimensional tube.",
+      "dependencies": [
+        "three@0.186.0"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/image-effect-image-tube.tsx",
+          "type": "registry:file",
+          "target": "components/ui/image-effect-image-tube.tsx"
+        }
+      ],
+      "devDependencies": [
+        "@types/three@0.183.1"
+      ]
+    },
+    {
+      "name": "image-effect-infinite-canvas",
+      "type": "registry:component",
+      "title": "Infinite Canvas",
+      "description": "A repeating field of images shifts with pointer parallax.",
+      "dependencies": [
+        "three@0.186.0"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/image-effect-infinite-canvas.tsx",
+          "type": "registry:file",
+          "target": "components/ui/image-effect-infinite-canvas.tsx"
+        }
+      ],
+      "devDependencies": [
+        "@types/three@0.183.1"
+      ]
+    },
+    {
+      "name": "image-effect-cinematic-scroll",
+      "type": "registry:component",
+      "title": "Cinematic Scroll",
+      "description": "Scroll through camera perspectives around a textured cyberpunk skyscraper.",
+      "dependencies": [
+        "three@0.186.0"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/image-effect-cinematic-scroll.tsx",
+          "type": "registry:file",
+          "target": "components/ui/image-effect-cinematic-scroll.tsx"
+        }
+      ],
+      "devDependencies": [
+        "@types/three@0.183.1"
+      ]
+    },
+    {
+      "name": "image-effect-kinetic-images",
+      "type": "registry:component",
+      "title": "Kinetic Images",
+      "description": "A moving image surface twists through space.",
+      "dependencies": [
+        "three@0.186.0"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/image-effect-kinetic-images.tsx",
+          "type": "registry:file",
+          "target": "components/ui/image-effect-kinetic-images.tsx"
+        }
+      ],
+      "devDependencies": [
+        "@types/three@0.183.1"
+      ]
+    },
+    {
+      "name": "image-effect-unwoven",
+      "type": "registry:component",
+      "title": "Unwoven",
+      "description": "The image breaks into loose horizontal threads toward the edges.",
+      "dependencies": [
+        "three@0.186.0"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/image-effect-unwoven.tsx",
+          "type": "registry:file",
+          "target": "components/ui/image-effect-unwoven.tsx"
+        }
+      ],
+      "devDependencies": [
+        "@types/three@0.183.1"
+      ]
+    },
+    {
+      "name": "image-effect-experimental-carousel",
+      "type": "registry:component",
+      "title": "Experimental Carousel",
+      "description": "A looping carousel sends a wave through its image planes.",
+      "dependencies": [
+        "three@0.186.0"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/image-effect-experimental-carousel.tsx",
+          "type": "registry:file",
+          "target": "components/ui/image-effect-experimental-carousel.tsx"
+        }
+      ],
+      "devDependencies": [
+        "@types/three@0.183.1"
+      ]
+    },
+    {
+      "name": "image-effect-discography",
+      "type": "registry:component",
+      "title": "Discography",
+      "description": "Browse a shelf of jewel cases, open the cover, turn the booklet pages and play an audio preview.",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/image-effect-discography.tsx",
+          "type": "registry:file",
+          "target": "components/ui/image-effect-discography.tsx"
+        }
+      ]
+    },
+    {
+      "name": "image-effect-sticky-grid-scroll",
+      "type": "registry:component",
+      "title": "Sticky Grid Scroll",
+      "description": "Scroll through alternating columns of photographs into a pinned image that expands to fill the frame.",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/image-effect-sticky-grid-scroll.tsx",
+          "type": "registry:file",
+          "target": "components/ui/image-effect-sticky-grid-scroll.tsx"
+        }
+      ]
+    },
+    {
+      "name": "image-effect-horizontal-parallax",
+      "type": "registry:component",
+      "title": "Horizontal Parallax",
+      "description": "A horizontal strip of framed photographs pans each image as it crosses the viewport.",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/image-effect-horizontal-parallax.tsx",
+          "type": "registry:file",
+          "target": "components/ui/image-effect-horizontal-parallax.tsx"
+        }
+      ]
+    },
+    {
       "name": "iphone-duo-demo",
       "type": "registry:component",
       "title": "Scroll-controlled Duo",
@@ -2069,75 +2741,97 @@
       "files": [
         {
           "path": "./components/ui/liquid-glass.tsx",
-          "type": "registry:component"
+          "type": "registry:file",
+          "target": "components/ui/liquid-glass.tsx"
         }
       ]
     },
     {
-      "name": "liquid-glass-weather",
+      "name": "glassformism",
       "type": "registry:component",
       "devDependencies": [],
       "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
-          "path": "./registry/components/liquid-glass/weather-liquid.tsx",
-          "type": "registry:component"
-        },
-        {
-          "path": "./components/ui/liquid-glass.tsx",
-          "type": "registry:component"
+          "path": "./components/ui/glassformism.tsx",
+          "type": "registry:file",
+          "target": "components/ui/glassformism.tsx"
         }
       ]
     },
     {
-      "name": "liquid-glass-mobile-icons",
+      "name": "glassformism-weather",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion",
+        "lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/glassformism/weather-liquid.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/glassformism.tsx",
+          "type": "registry:file",
+          "target": "components/ui/glassformism.tsx"
+        }
+      ]
+    },
+    {
+      "name": "glassformism-mobile-icons",
+      "type": "registry:component",
+      "devDependencies": [],
+      "dependencies": ["motion",
+        "lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./registry/components/glassformism/mobile-icons-liquid.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/glassformism.tsx",
+          "type": "registry:file",
+          "target": "components/ui/glassformism.tsx"
+        }
+      ]
+    },
+    {
+      "name": "glassformism-notification",
       "type": "registry:component",
       "devDependencies": [],
       "dependencies": ["motion"],
       "registryDependencies": [],
       "files": [
         {
-          "path": "./registry/components/liquid-glass/mobile-icons-liquid.tsx",
+          "path": "./registry/components/glassformism/notification.tsx",
           "type": "registry:component"
         },
         {
-          "path": "./components/ui/liquid-glass.tsx",
-          "type": "registry:component"
+          "path": "./components/ui/glassformism.tsx",
+          "type": "registry:file",
+          "target": "components/ui/glassformism.tsx"
         }
       ]
     },
     {
-      "name": "liquid-glass-notification",
+      "name": "glassformism-sidebar-menu",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": ["motion"],
+      "dependencies": ["motion",
+        "lucide-react"],
       "registryDependencies": [],
       "files": [
         {
-          "path": "./registry/components/liquid-glass/notification.tsx",
+          "path": "./registry/components/glassformism/sidebar-menu.tsx",
           "type": "registry:component"
         },
         {
-          "path": "./components/ui/liquid-glass.tsx",
-          "type": "registry:component"
-        }
-      ]
-    },
-    {
-      "name": "liquid-glass-sidebar-menu",
-      "type": "registry:component",
-      "devDependencies": [],
-      "dependencies": ["motion"],
-      "registryDependencies": [],
-      "files": [
-        {
-          "path": "./registry/components/liquid-glass/sidebar-menu.tsx",
-          "type": "registry:component"
-        },
-        {
-          "path": "./components/ui/liquid-glass.tsx",
-          "type": "registry:component"
+          "path": "./components/ui/glassformism.tsx",
+          "type": "registry:file",
+          "target": "components/ui/glassformism.tsx"
         }
       ]
     },

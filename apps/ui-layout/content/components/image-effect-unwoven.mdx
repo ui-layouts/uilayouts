@@ -1,0 +1,30 @@
+export const metadata = {
+  title: 'Unwoven',
+  description: 'The image breaks into loose horizontal threads toward the edges.',
+  keywords: ['React', 'Three.js', 'image animation', 'Unwoven'],
+};
+
+The image breaks into loose horizontal threads toward the edges.
+
+<ComponentCodePreview name='image-effect-unwoven' jsonName='image-effect-unwoven' hasReTrigger isFitheight />
+
+## Installation
+
+```bash
+npx shadcn@latest add https://www.ui-layouts.com/r/image-effect-unwoven.json
+```
+
+## Usage
+
+```tsx
+import { Unwoven } from '@/components/ui/image-effect-unwoven';
+
+export default function Example() {
+  return <Unwoven images={['/photos/first.jpg', '/photos/second.jpg']} />;
+}
+```
+
+Drag or scroll within the gallery to explore. Focus the canvas and use the arrow keys for keyboard navigation.
+
+
+[Live reference](https://unwoven.clementgrellier.fr) · [Original reference](https://github.com/clementgrellier/unwoven/tree/32c4bfcd623058d92095ffbafe44a1fad6a6d4c1)

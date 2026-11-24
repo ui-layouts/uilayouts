@@ -1,0 +1,30 @@
+export const metadata = {
+  title: 'Bulge',
+  description: 'A movable lens pushes the image outward under the pointer.',
+  keywords: ['React', 'Three.js', 'image animation', 'Bulge'],
+};
+
+A movable lens pushes the image outward under the pointer.
+
+<ComponentCodePreview name='image-effect-bulge' jsonName='image-effect-bulge' hasReTrigger isFitheight />
+
+## Installation
+
+```bash
+npx shadcn@latest add https://www.ui-layouts.com/r/image-effect-bulge.json
+```
+
+## Usage
+
+```tsx
+import { Bulge } from '@/components/ui/image-effect-bulge';
+
+export default function Example() {
+  return <Bulge images={['/photos/first.jpg', '/photos/second.jpg']} />;
+}
+```
+
+Move the pointer over the photograph to activate the effect. The photograph stays in place when the pointer leaves.
+
+
+[Original reference](https://github.com/Robpayot/webgl-distortion-bulge-effect/tree/f5fd2420f989d5e25a14b53ba04d380f262076bc)

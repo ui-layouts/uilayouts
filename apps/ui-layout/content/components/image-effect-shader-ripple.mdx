@@ -1,0 +1,30 @@
+export const metadata = {
+  title: 'Shader Ripple',
+  description: 'Concentric waves distort the image and reveal the next texture.',
+  keywords: ['React', 'Three.js', 'image animation', 'Shader Ripple'],
+};
+
+Concentric waves distort the image and reveal the next texture.
+
+<ComponentCodePreview name='image-effect-shader-ripple' jsonName='image-effect-shader-ripple' hasReTrigger isFitheight />
+
+## Installation
+
+```bash
+npx shadcn@latest add https://www.ui-layouts.com/r/image-effect-shader-ripple.json
+```
+
+## Usage
+
+```tsx
+import { ShaderRipple } from '@/components/ui/image-effect-shader-ripple';
+
+export default function Example() {
+  return <ShaderRipple images={['/photos/first.jpg', '/photos/second.jpg']} />;
+}
+```
+
+Move the pointer over the photograph to activate the effect. The photograph stays in place when the pointer leaves.
+
+
+[Live reference](https://tympanus.net/Tutorials/ShaderAnimationGSAP/) · [Original reference](https://github.com/biazo/codrops-animate-shaders-with-gsap/tree/bdd17aa4cf4b1464f4bcf526a863ed8dd46d394d)

@@ -1,0 +1,52 @@
+Portrait: Grace Hopper, public-domain US Navy photograph, distributed in Matplotlib sample data.
+
+Photographs used in the interactive examples
+
+ridge: https://images.unsplash.com/photo-1464822759023-fed622ff2c3b
+forest: https://images.unsplash.com/photo-1448375240586-882707db888b
+coast: https://images.unsplash.com/photo-1475924156734-496f6cac6ec1
+dunes: https://images.unsplash.com/photo-1509316785289-025f5b846b35
+lake: https://images.unsplash.com/photo-1501785888041-af3ef285b470
+valley: https://images.unsplash.com/photo-1470770841072-f978cf4d019e
+
+Meadow study: https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4 (CC0). Preview and poster derived from the same clip.
+
+The individual preview modules also load the original example images directly from each creator’s pinned repository revision. See the reference on the corresponding documentation page.
+
+Swinging Grid: contact sheet assembled from the 32 images in variation 03 of Codrops’ OnScrollColumnsRows. Upstream credits Midjourney for the artwork.
+https://github.com/codrops/OnScrollColumnsRows
+
+MIT License
+
+Copyright (c) 2009 - 2026 [Codrops](https://tympanus.net/codrops)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+Sprite Morph: original AI-generated side-profile portraits of one face at five ages, with directional transition sheets for each adjacent pair and the return from elder to baby.
+
+On-Scroll Filter: the seven images under on-scroll-filter/ are WebP adaptations of Codrops' OnScrollFilter demo artwork (Midjourney). The MIT notice in the component accompanies this adaptation.
+https://github.com/codrops/OnScrollFilter/tree/3271b3fac95df7bd224da0c6a5860e48441f17ad
+
+tide-study.webp — original AI-generated aerial shoreline for the Liquid Glass Tide card example.
+meadow-stream.webp — original AI-generated stream and meadow for the Liquid Glass landscape icons.
+
+Photo Controls architecture series — photographs from Unsplash, cropped for the gallery.
+pager-01.webp — Maxime Lebrun, orange spiral staircase. https://unsplash.com/photos/6g3Akg708E0
+pager-02.webp — Lena Polishko, blue stairwell at La Muralla Roja. https://unsplash.com/photos/CxhvzHcMczE
+pager-03.webp — Lena Polishko, pink terraces and rooftop pool at La Muralla Roja. https://unsplash.com/photos/MBNHqQzpm40
