@@ -19,10 +19,8 @@ export default async function SectionPage(props: { params: Promise<{ componentNa
 
   if (!componentName) notFound();
 
-  const component =
-    AllComponents.find(
-      (c: any) => c?.slug === componentName || c?.componentName === componentName
-    ) ?? null;
+  const component = AllComponents.find(entry => entry.componentName === componentName)
+    ?? AllComponents.find(entry => entry.slug === componentName);
 
   if (!component || !component.componentSrc) notFound();
 
@@ -33,12 +31,12 @@ export default async function SectionPage(props: { params: Promise<{ componentNa
     <section
       className={`${
         isFramerScrolling ? '' : 'flex justify-center items-center h-full'
-      } min-h-screen rounded-md bg-muted`}
+      } min-h-screen bg-white text-neutral-950`}
     >
-      <div className='px-4 w-full'>
+      <div className='w-full min-w-0 px-4'>
         <Suspense
           fallback={
-            <div className='bg-neutral-200 dark:bg-neutral-900 w-full min-h-screen animate-pulse' />
+            <div className='min-h-screen w-full bg-white' />
           }
         >
           <ComponentPreview />

@@ -1,14 +1,31 @@
 import path from 'path';
+import type { Root } from 'mdast';
 import createMDX from '@next/mdx';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 
 const __dirname = process.cwd();
 
+// Keep an authored Examples section together, including its nested headings and source tabs.
+function examplesFirst() {
+  return (tree: Root, file: { path?: string }) => {
+    if (!file.path?.replaceAll('\\', '/').includes('/content/components/')) return;
+    const nodes = tree.children;
+    const start = nodes.findIndex(node => node.type === 'heading' && node.depth === 2
+      && node.children.some(child => child.type === 'text' && /^examples?$/i.test(child.value.trim())));
+    if (start < 0) return;
+    const firstSection = nodes.findIndex(node => node.type === 'heading' && node.depth === 2);
+    if (firstSection === start) return;
+    const next = nodes.slice(start + 1).findIndex(node => node.type === 'heading' && node.depth <= 2);
+    const examples = nodes.splice(start, next < 0 ? nodes.length - start : next + 1);
+    nodes.splice(firstSection, 0, ...examples);
+  };
+}
+
 const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [remarkGfm],
+    remarkPlugins: [remarkGfm, examplesFirst],
     rehypePlugins: [rehypeSlug],
     jsx: true,
   },

@@ -221,7 +221,7 @@ export default function ComponentPreview({
             <>
               <div
                 className={cn(
-                  `lg:h-[600px] sm:h-[500px] h-[400px] w-full rounded-lg bg-muted border dark:border-neutral-800 overflow-hidden pt-16 p-0`,
+                  `lg:h-[600px] sm:h-[500px] h-[400px] w-full bg-transparent overflow-hidden pt-16 p-0`,
                   className
                 )}
               >
@@ -242,7 +242,7 @@ export default function ComponentPreview({
               className={cn(
                 `${
                   isFitheight ? 'h-fit py-4' : 'lg:h-[600px] sm:h-[500px] h-[400px]'
-                }  w-full rounded-lg bg-muted border dark:border-neutral-800 overflow-hidden p-0`,
+                }  w-full bg-transparent overflow-hidden p-0`,
                 className
               )}
             >
@@ -265,7 +265,7 @@ export default function ComponentPreview({
         <>
           <div
             className={cn(
-              `w-full rounded-lg flex flex-col justify-center items-center bg-muted border dark:border-neutral-800 overflow-hidden`,
+              `w-full rounded-lg flex flex-col justify-center items-center bg-transparent overflow-hidden`,
               isFitheight
                 ? 'h-fit lg:p-6 p-2'
                 : isFit

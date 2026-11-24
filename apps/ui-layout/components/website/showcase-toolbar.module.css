@@ -1,0 +1,322 @@
+.toolbar {
+  position: fixed;
+  z-index: 45;
+  inset-inline: max(20px, env(safe-area-inset-left)) max(20px, env(safe-area-inset-right));
+  bottom: max(16px, env(safe-area-inset-bottom));
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  pointer-events: none;
+  color: var(--foreground, #171717);
+  font:
+    500 13px / 1.15 var(--font-dmSans, Arial),
+    sans-serif;
+}
+.toolbar > * {
+  pointer-events: auto;
+}
+.launcher,
+.center,
+.actions {
+  background: color-mix(in srgb, var(--foreground, #151515) 16%, var(--background, white));
+  box-shadow: 0 1px 2px #0000000f;
+  border-radius: 12px;
+}
+.toolbar button,
+.toolbar a,
+.drawer button {
+  -webkit-tap-highlight-color: transparent;
+}
+.toolbar button,
+.toolbar a {
+  color: inherit;
+}
+.toolbar button,
+.drawer button {
+  cursor: pointer;
+}
+.toolbar button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.toolbar button:focus-visible,
+.toolbar a:focus-visible,
+.manager:focus-within,
+.drawer :focus-visible {
+  outline: 2px solid #4164ff;
+  outline-offset: 2px;
+}
+.launcher {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 43px;
+  height: 43px;
+  border: 3px solid color-mix(in srgb, var(--foreground, #151515) 12%, var(--background, white));
+  background: var(--background, white);
+}
+.center,
+.actions,
+.install {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+.center,
+.actions {
+  gap: 3px;
+  padding: 3px;
+}
+.install,
+.progress,
+.toolbar .prompt,
+.toolbar .icon {
+  background: var(--background, white);
+  border-radius: 9px;
+}
+.install {
+  gap: 2px;
+  padding: 3px;
+}
+.manager,
+.command {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  height: 31px;
+  border-radius: 5px;
+  border: 1px solid color-mix(in srgb, var(--foreground, #151515) 9%, transparent);
+}
+.manager {
+  position: relative;
+  flex: none;
+  padding-inline: 6px;
+}
+.manager select {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  opacity: 0;
+}
+.manager option {
+  color: #171717;
+  background: white;
+}
+.command {
+  min-width: 0;
+  max-width: min(32vw, 340px);
+  gap: 7px;
+  background: var(--background, white);
+  padding: 0 7px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.command > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.command svg,
+.manager svg {
+  flex: none;
+}
+.progress {
+  position: relative;
+  display: grid;
+  place-items: center;
+  align-self: stretch;
+  overflow: hidden;
+  min-width: 41px;
+  padding-inline: 4px;
+  font-variant-numeric: tabular-nums;
+}
+.progress span {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: currentColor;
+}
+.actions {
+  flex: none;
+}
+.prompt,
+.icon {
+  height: 37px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  text-decoration: none;
+}
+.prompt {
+  gap: 7px;
+  padding-inline: 9px;
+  white-space: nowrap;
+}
+.icon {
+  width: 37px;
+}
+.toolbar .command:hover,
+.toolbar .prompt:hover,
+.toolbar .icon:hover,
+.launcher:hover {
+  background: var(--muted, #f4f4f4);
+}
+.overlay {
+  position: fixed;
+  z-index: 90;
+  inset: 0;
+  background: #12121240;
+}
+.drawer {
+  position: fixed;
+  z-index: 91;
+  inset: 0 auto 0 0;
+  display: flex;
+  flex-direction: column;
+  width: min(344px, calc(100vw - 26px));
+  padding: max(18px, env(safe-area-inset-top)) 16px max(12px, env(safe-area-inset-bottom));
+  color: var(--foreground, #171717);
+  background: var(--background, white);
+  box-shadow: 4px 0 30px #0002;
+}
+.drawerHeader,
+.search {
+  display: flex;
+  align-items: center;
+}
+.drawerHeader {
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+.drawerHeader h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 650;
+}
+.drawerHeader button {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border-radius: 7px;
+}
+.search {
+  gap: 8px;
+  padding: 8px 10px;
+  background: var(--muted, #f4f4f4);
+  border: 1px solid var(--border, #ddd);
+  border-radius: 8px;
+}
+.search input {
+  min-width: 0;
+  flex: 1;
+  background: transparent;
+  font-size: 14px;
+}
+.links {
+  flex: 1;
+  margin-top: 10px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.links h3 {
+  margin: 18px 8px 5px;
+  font-size: 12px;
+  font-weight: 650;
+  color: var(--muted-foreground, #606060);
+}
+.links a {
+  display: block;
+  padding: 7px 9px;
+  border-radius: 6px;
+  color: inherit;
+  font-size: 14px;
+  text-decoration: none;
+}
+.links a:hover,
+.links a[aria-current="page"] {
+  background: var(--muted, #f4f4f4);
+}
+.links a[aria-current="page"] {
+  font-weight: 650;
+}
+.links p {
+  margin: 14px 8px;
+  font-size: 14px;
+}
+.error {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 8px);
+  padding: 7px 10px;
+  border-radius: 6px;
+  color: var(--foreground, #171717);
+  background: var(--background, white);
+  box-shadow: 0 1px 8px #0002;
+}
+@media (max-width: 680px) {
+  .toolbar {
+    inset-inline: max(8px, env(safe-area-inset-left)) max(8px, env(safe-area-inset-right));
+    gap: 5px;
+    bottom: max(8px, env(safe-area-inset-bottom));
+  }
+  .prompt {
+    padding: 0;
+    width: 37px;
+  }
+  .prompt span,
+  .prefix {
+    display: none;
+  }
+  .command {
+    max-width: 33vw;
+  }
+}
+@media (max-width: 390px) {
+  .toolbar {
+    gap: 4px;
+  }
+  .center,
+  .actions {
+    gap: 2px;
+    padding: 2px;
+  }
+  .command {
+    max-width: 24vw;
+  }
+  .manager {
+    padding-inline: 3px;
+    gap: 1px;
+  }
+  .progress {
+    min-width: 33px;
+  }
+  .launcher {
+    width: 37px;
+    height: 40px;
+  }
+  .icon,
+  .prompt {
+    width: 32px;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .drawer[data-state="open"] {
+    animation: enter 0.18s ease-out;
+  }
+  @keyframes enter {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+}

@@ -23,6 +23,7 @@ export async function getDocBySlug(slug: string) {
   return {
     slug: realSlug,
     frontmatter: data,
+    markdown: content,
     content: mdxContent,
     toc,
   };

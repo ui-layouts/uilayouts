@@ -50,3 +50,6 @@ Photo Controls architecture series — photographs from Unsplash, cropped for th
 pager-01.webp — Maxime Lebrun, orange spiral staircase. https://unsplash.com/photos/6g3Akg708E0
 pager-02.webp — Lena Polishko, blue stairwell at La Muralla Roja. https://unsplash.com/photos/CxhvzHcMczE
 pager-03.webp — Lena Polishko, pink terraces and rooftop pool at La Muralla Roja. https://unsplash.com/photos/MBNHqQzpm40
+
+Motion Hover: Paris photographs from Unsplash, selected for the original demo by Niccolò Miranda and Clément Roche. Le Murmure is credited to Jérémy Landes and Alex Slobzheninov. The bundled font includes its SIL Open Font License in motion-hover/OFL.txt.
+https://github.com/clementroche/motion-hover-effects/tree/b9aaa953b3dd7a64186240f06e41a155d8bb419e

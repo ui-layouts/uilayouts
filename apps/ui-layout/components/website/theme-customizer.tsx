@@ -38,7 +38,7 @@ function applyThemeVars(presetName: string, mode: 'light' | 'dark') {
 }
 
 export function ThemePresetProvider({ children }: { children: React.ReactNode }) {
-  const { resolvedTheme } = useTheme();
+  const { resolvedTheme, forcedTheme } = useTheme();
   const [presetName, setPresetNameState] = React.useState(DEFAULT_THEME_PRESET);
   const [mounted, setMounted] = React.useState(false);
 
@@ -50,8 +50,8 @@ export function ThemePresetProvider({ children }: { children: React.ReactNode })
 
   React.useEffect(() => {
     if (!mounted || !resolvedTheme) return;
-    applyThemeVars(presetName, resolvedTheme === 'dark' ? 'dark' : 'light');
-  }, [presetName, resolvedTheme, mounted]);
+    applyThemeVars(forcedTheme ? DEFAULT_THEME_PRESET : presetName, resolvedTheme === 'dark' ? 'dark' : 'light');
+  }, [presetName, resolvedTheme, forcedTheme, mounted]);
 
   const setPresetName = React.useCallback((name: string) => {
     setPresetNameState(name);
