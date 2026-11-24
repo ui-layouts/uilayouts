@@ -1,15 +1,6 @@
 'use client';
-import { useState, type CSSProperties } from 'react';
-import {
-  Plane,
-  Wifi,
-  Bluetooth,
-  Radio,
-  Sun,
-  Volume2,
-  VolumeX,
-  Moon,
-} from 'lucide-react';
+import { useRef, useState, type CSSProperties } from 'react';
+import { Plane, Wifi, Bluetooth, Radio, Sun, Volume2, VolumeX, Moon } from 'lucide-react';
 import { LiquidGlass } from '@/components/ui/liquid-glass';
 
 const tile: CSSProperties = {
@@ -17,13 +8,14 @@ const tile: CSSProperties = {
   display: 'grid',
   placeItems: 'center',
   color: 'white',
-  background: 'rgba(29,39,65,.20)',
+  background: 'rgba(29,39,65,.09)',
 };
 export default function ControlCenter() {
   const [radios, setRadios] = useState([false, true, true, true]),
     [brightness, setBrightness] = useState(70),
     [volume, setVolume] = useState(48),
     [focus, setFocus] = useState(false);
+  const photo = useRef<HTMLImageElement>(null);
   return (
     <section
       aria-label='Control Center'
@@ -39,16 +31,17 @@ export default function ControlCenter() {
         background: '#263c54',
       }}
     >
-      <div
-        aria-hidden='true'
+      <img
+        ref={photo}
+        alt=''
+        src='/image-effects/valley.webp'
         style={{
           position: 'absolute',
-          inset: -12,
+          inset: 0,
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
           zIndex: -1,
-          background:
-            'linear-gradient(175deg,#0f477c99,transparent 62%),url(/image-effects/valley.webp) center/cover',
-          filter: 'blur(4px)',
-          opacity: 0.48 + (0.52 * brightness) / 100,
         }}
       />
       <div
@@ -61,7 +54,8 @@ export default function ControlCenter() {
         }}
       >
         <LiquidGlass
-          frost={6}
+          backdropImage={photo}
+          frost={0.6}
           style={{ ...tile, gridTemplateColumns: '1fr 1fr', gap: 5 }}
           borderRadius='27px'
         >
@@ -69,13 +63,9 @@ export default function ControlCenter() {
             <button
               type='button'
               key={i}
-              aria-label={
-                ['Airplane mode', 'Wi-Fi', 'Bluetooth', 'Cellular data'][i]
-              }
+              aria-label={['Airplane mode', 'Wi-Fi', 'Bluetooth', 'Cellular data'][i]}
               aria-pressed={radios[i]}
-              onClick={() =>
-                setRadios((a) => a.map((v, j) => (i === j ? !v : v)))
-              }
+              onClick={() => setRadios((a) => a.map((v, j) => (i === j ? !v : v)))}
               style={{
                 zIndex: 2,
                 width: 39,
@@ -85,11 +75,7 @@ export default function ControlCenter() {
                 border: 0,
                 borderRadius: '50%',
                 color: 'white',
-                background: radios[i]
-                  ? i === 3
-                    ? '#36bd64'
-                    : '#1679ed'
-                  : '#ffffff37',
+                background: radios[i] ? (i === 3 ? '#36bd64' : '#1679ed') : '#ffffff37',
                 cursor: 'pointer',
               }}
             >
@@ -103,7 +89,8 @@ export default function ControlCenter() {
           return (
             <LiquidGlass
               key={name}
-              frost={5}
+              backdropImage={photo}
+              frost={0.6}
               borderRadius='28px'
               style={{ ...tile, gridRow: 'span 2', overflow: 'hidden' }}
             >
@@ -113,7 +100,7 @@ export default function ControlCenter() {
                   position: 'absolute',
                   zIndex: 2,
                   inset: `${100 - val}% 0 0`,
-                  background: 'rgba(250,250,255,.89)',
+                  background: 'rgba(250,250,255,.66)',
                   pointerEvents: 'none',
                 }}
               />
@@ -133,9 +120,7 @@ export default function ControlCenter() {
                 min={0}
                 max={100}
                 value={val}
-                onChange={(e) =>
-                  (i === 0 ? setBrightness : setVolume)(Number(e.target.value))
-                }
+                onChange={(e) => (i === 0 ? setBrightness : setVolume)(Number(e.target.value))}
                 style={{
                   position: 'absolute',
                   inset: 0,
@@ -153,7 +138,8 @@ export default function ControlCenter() {
           );
         })}
         <LiquidGlass
-          frost={5}
+          backdropImage={photo}
+          frost={0.6}
           borderRadius='25px'
           style={{ ...tile, padding: 0 }}
         >
@@ -182,6 +168,17 @@ export default function ControlCenter() {
           </button>
         </LiquidGlass>
       </div>
+      <div
+        aria-hidden
+        style={{
+          pointerEvents: 'none',
+          position: 'absolute',
+          inset: 0,
+          borderRadius: 'inherit',
+          background: 'black',
+          opacity: 0.32 * (1 - brightness / 100),
+        }}
+      />
     </section>
   );
 }

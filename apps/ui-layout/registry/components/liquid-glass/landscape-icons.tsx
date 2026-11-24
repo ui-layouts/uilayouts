@@ -34,7 +34,7 @@ export default function LandscapeIcons() {
           objectFit: 'cover',
         }}
       />
-      {[0, 3.8].map((frost, i) => (
+      {[0, 1.9].map((frost, i) => (
         <LiquidGlass
           key={frost}
           backdropImage={photo}

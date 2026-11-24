@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Search, ChevronDown } from 'lucide-react';
 import { LiquidGlass } from '@/components/ui/liquid-glass';
 
@@ -13,9 +13,8 @@ const photos = [
 export default function GlassInputs() {
   const [query, setQuery] = useState(''),
     [selected, setSelected] = useState('coast');
-  const matches = photos.filter(([name]) =>
-    name.toLowerCase().includes(query.toLowerCase())
-  );
+  const photo = useRef<HTMLImageElement>(null);
+  const matches = photos.filter(([name]) => name.toLowerCase().includes(query.toLowerCase()));
   return (
     <div
       style={{
@@ -25,14 +24,35 @@ export default function GlassInputs() {
         borderRadius: 14,
         display: 'grid',
         placeItems: 'center',
-        background: `linear-gradient(#18232d30,#111c2244),url("/image-effects/${selected}.webp") center/cover`,
+        position: 'relative',
+        isolation: 'isolate',
+        overflow: 'hidden',
       }}
     >
+      <img
+        ref={photo}
+        alt=''
+        src={`/image-effects/${selected}.webp`}
+        style={{
+          position: 'absolute',
+          inset: 0,
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          zIndex: -1,
+        }}
+      />
       <div style={{ width: 'min(100%,280px)', display: 'grid', gap: 12 }}>
         <LiquidGlass
-          frost={6}
+          backdropImage={photo}
+          frost={0.6}
           borderRadius='24px'
-          style={{ height: 48, color: '#fff', background: '#16272966' }}
+          style={{
+            height: 48,
+            color: '#fff',
+            background: '#16272930',
+            textShadow: '0 1px 3px #18222b',
+          }}
         >
           <Search
             size={18}
@@ -56,14 +76,21 @@ export default function GlassInputs() {
               padding: '0 16px 0 43px',
               font: '500 15px system-ui',
               color: 'white',
+              textShadow: '0 1px 3px #18222b',
               background: 'transparent',
             }}
           />
         </LiquidGlass>
         <LiquidGlass
-          frost={4}
+          backdropImage={photo}
+          frost={0.6}
           borderRadius='24px'
-          style={{ height: 48, color: '#17252c', background: '#f7f8f4a8' }}
+          style={{
+            height: 48,
+            color: 'white',
+            background: '#16272930',
+            textShadow: '0 1px 3px #18222b',
+          }}
         >
           <select
             aria-label='Landscape'
@@ -80,18 +107,17 @@ export default function GlassInputs() {
               borderRadius: 'inherit',
               appearance: 'none',
               color: 'inherit',
+              textShadow: '0 1px 3px #18222b',
               background: 'transparent',
               cursor: 'pointer',
               font: '600 15px system-ui',
             }}
           >
             {!matches.some(([, id]) => id === selected) && (
-              <option value=''>
-                {matches.length ? 'Choose a landscape' : 'No matches'}
-              </option>
+              <option value=''>{matches.length ? 'Choose a landscape' : 'No matches'}</option>
             )}
             {matches.map(([name, id]) => (
-              <option key={id} value={id}>
+              <option key={id} value={id} style={{ color: '#17252c', textShadow: 'none' }}>
                 {name}
               </option>
             ))}

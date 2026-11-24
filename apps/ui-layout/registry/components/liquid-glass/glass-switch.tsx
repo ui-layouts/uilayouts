@@ -105,7 +105,7 @@ export default function GlassSwitch() {
           borderRadius='50%'
           bevel={0.19}
           refraction={0.93}
-          frost={0.2}
+          frost={0}
           shadowIntensity='sm'
           glowIntensity='none'
           initial={false}
@@ -130,8 +130,8 @@ export default function GlassSwitch() {
               borderRadius: 'inherit',
               background:
                 drag === null
-                  ? 'rgba(255,255,255,.94)'
-                  : 'rgba(255,255,255,.33)',
+                  ? 'rgba(255,255,255,.19)'
+                  : 'rgba(255,255,255,.06)',
               boxShadow: 'inset 0 1px 2px #fff',
               transition: reduced ? 'none' : 'background 120ms ease',
             }}

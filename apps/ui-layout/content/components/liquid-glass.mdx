@@ -6,6 +6,12 @@ export const metadata = {
 
 Liquid Glass bends the content behind its rounded edges. Use the same surface for a clear icon, a frosted menu or a switch moving over a colored track.
 
+## Photo controls
+
+<ComponentCodePreview name='liquid-glass-photo-controls' jsonName='liquid-glass' isFitheight />
+
+Press the glass pager to bend the landscape beneath your pointer. Use the arrows to browse the three photographs.
+
 ## Landscape icons
 
 <ComponentCodePreview name='liquid-glass-landscape-icons' jsonName='liquid-glass' isFitheight />
@@ -37,15 +43,24 @@ npx shadcn@latest add https://www.ui-layouts.com/r/liquid-glass.json
 ## Usage
 
 ```tsx
+'use client';
+import { useRef } from 'react';
 import { LiquidGlass } from '@/components/ui/liquid-glass';
 
-export function SettingsButton() {
+export function PhotoPager({ src, next }: { src: string; next: () => void }) {
+  const photo = useRef<HTMLImageElement>(null);
   return (
-    <LiquidGlass width="64px" height="64px" borderRadius="50%" frost={1}>
-      <button aria-label="Open settings" style={{ position: 'relative', zIndex: 2, width: '100%', height: '100%', background: 'transparent', border: 0 }}>
-        ⚙
-      </button>
-    </LiquidGlass>
+    <figure style={{ position: 'relative', width: '100%', aspectRatio: '3 / 2', margin: 0 }}>
+      <img ref={photo} src={src} alt="Landscape"
+        style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+      <div style={{ position: 'absolute', bottom: '8%', left: '50%', transform: 'translateX(-50%)' }}>
+        <LiquidGlass backdropImage={photo} borderRadius="999px" frost={0} bevel={0.22} refraction={1.4}>
+          <button onClick={next} style={{ padding: '12px 24px', color: 'white', background: 'transparent' }}>
+            Next photo
+          </button>
+        </LiquidGlass>
+      </div>
+    </figure>
   );
 }
 ```
@@ -61,6 +76,6 @@ export function SettingsButton() {
 | `draggable`, `expandable` | Enable elastic dragging or click-to-expand sizing with `expandedWidth` and `expandedHeight`. |
 | `glowIntensity`, `shadowIntensity`, `blurIntensity` | Outer shadow, rim highlights and preset blur levels. An explicit `frost` takes precedence over the blur preset. |
 
-Browsers with SVG backdrop filtering bend live page content. The optional image sampler provides the same refraction for photographic backgrounds independently of that support. The material retains blur and edge highlights on browsers with basic backdrop filtering.
+With `backdropImage`, the WebGL shader samples the photograph under the control and bends its colors along the curved rim. Pressing the control distorts the image near the pointer. A Canvas 2D renderer supplies image refraction when WebGL is unavailable. Without an accessible image, the component uses the browser’s backdrop filter.
 
 [Glass icon study](https://github.com/phileeppov/glass) · [WebGPU refraction study](https://github.com/jeantimex/glass-effect-webgpu)

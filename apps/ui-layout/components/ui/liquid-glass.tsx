@@ -139,6 +139,123 @@ function displacement(
   };
 }
 
+/** One shared drawing surface serves all mounted lenses, including a page of controls. */
+function createOpticsRenderer() {
+  const surface = document.createElement('canvas');
+  const gl = surface.getContext('webgl', {
+    alpha: true,
+    antialias: false,
+    premultipliedAlpha: false,
+  });
+  if (!gl) return null;
+
+  const vertex = `attribute vec2 corner;
+    void main() { gl_Position = vec4(corner, 0., 1.); }`;
+  const fragment = `
+    precision highp float;
+    uniform sampler2D photo;
+    uniform vec2 pane, resolution, scene, offset, imageSize, finger;
+    uniform float radius, bevelWidth, strength, pressure, frost;
+
+    vec3 samplePhoto(vec2 p) {
+      vec2 fitted = imageSize * max(scene.x/imageSize.x, scene.y/imageSize.y);
+      return texture2D(photo, (offset + p - .5*scene)/fitted + .5).rgb;
+    }
+    void main() {
+      vec2 point = vec2(gl_FragCoord.x, resolution.y-gl_FragCoord.y)*pane/resolution;
+      vec2 local = point - .5*pane;
+      vec2 q = abs(local) - .5*pane + radius;
+      vec2 outside = max(q,0.);
+      float lengthOutside = length(outside);
+      float depth = radius - lengthOutside - min(max(q.x,q.y),0.);
+      vec2 outward = sign(local) * (lengthOutside > .001 ? outside/lengthOutside :
+        (q.x > q.y ? vec2(1.,0.) : vec2(0.,1.)));
+      float bevel = clamp(1.-depth/bevelWidth,0.,.995);
+      float angle = asin(bevel);
+      float ray = tan(angle - asin(bevel/1.48));
+
+      // Glass Photo Controls: magnification, Snell refraction, pressure well and RGB spread.
+      vec2 delta = point - finger;
+      float well = exp(-dot(delta,delta)/max(540.,.11*pane.y*pane.y)) * pressure;
+      vec2 transmit = .5*pane + local*(1.-(.04+.025*well)*strength)
+        - strength*(outward*ray*bevelWidth*1.11 + delta*well*.14);
+      vec2 spread = outward*bevel*1.4*strength;
+      vec3 rgb = vec3(samplePhoto(transmit-spread).r,samplePhoto(transmit).g,samplePhoto(transmit+spread).b);
+      if (frost > .01) {
+        vec2 f = vec2(frost,0.);
+        rgb = rgb*.28 + .18*(samplePhoto(transmit+f)+samplePhoto(transmit-f)
+          +samplePhoto(transmit+f.yx)+samplePhoto(transmit-f.yx));
+      }
+
+      // Liquid Glass Grid: reflect the overhead panel around the continuously curved normal.
+      vec3 normal = normalize(vec3(outward*bevel - .22*well*delta/max(1.,bevelWidth),
+                                   sqrt(max(.001,1.-bevel*bevel))));
+      vec3 view = normalize(vec3(local/pane*.16,1.));
+      vec3 reflected = reflect(-view,normal);
+      float fresnel = .045+.955*pow(1.-max(0.,dot(normal,view)),5.);
+      float panel = smoothstep(.82,.97,dot(reflected,normalize(vec3(-.65,-.5,.57))));
+      float sheen = pow(abs(dot(outward,normalize(vec2(-.65,-.8)))),4.);
+      float rimDistance = (depth-1.2)/1.25;
+      float edge = exp(-rimDistance*rimDistance);
+      // Environment reflections carry color from the same photograph around the meniscus.
+      vec3 environment = samplePhoto(point+reflected.xy*min(pane.x,pane.y)*.55);
+      rgb = mix(rgb*(.89+.06*bevel)+.025, environment, fresnel*.72);
+      rgb += edge*(.13+.62*sheen) + panel*bevel*.45;
+      gl_FragColor = vec4(rgb,smoothstep(-.6,.6,depth));
+    }`;
+
+  const program = gl.createProgram();
+  if (!program) return null;
+  for (const [kind, code] of [
+    [gl.VERTEX_SHADER, vertex],
+    [gl.FRAGMENT_SHADER, fragment],
+  ] as const) {
+    const shader = gl.createShader(kind);
+    if (!shader) {
+      gl.deleteProgram(program);
+      return null;
+    }
+    gl.shaderSource(shader, code);
+    gl.compileShader(shader);
+    gl.attachShader(program, shader);
+    gl.deleteShader(shader);
+  }
+  gl.linkProgram(program);
+  if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+    gl.deleteProgram(program);
+    return null;
+  }
+  gl.useProgram(program);
+  const buffer = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+  gl.bufferData(
+    gl.ARRAY_BUFFER,
+    new Float32Array([-1, -1, 3, -1, -1, 3]),
+    gl.STATIC_DRAW
+  );
+  const corner = gl.getAttribLocation(program, 'corner');
+  gl.enableVertexAttribArray(corner);
+  gl.vertexAttribPointer(corner, 2, gl.FLOAT, false, 0, 0);
+  const uniform = Object.fromEntries(
+    [
+      'pane',
+      'resolution',
+      'scene',
+      'offset',
+      'imageSize',
+      'finger',
+      'radius',
+      'bevelWidth',
+      'strength',
+      'pressure',
+      'frost',
+    ].map((name) => [name, gl.getUniformLocation(program, name)])
+  );
+  return { gl, surface, uniform };
+}
+
+let sharedRenderer: ReturnType<typeof createOpticsRenderer> = null;
+
 export function LiquidGlass({
   children,
   width,
@@ -163,7 +280,8 @@ export function LiquidGlass({
   const host = useRef<HTMLDivElement>(null),
     lens = useRef<HTMLCanvasElement>(null);
   const [expanded, setExpanded] = useState(false),
-    [sampled, setSampled] = useState(false);
+    [sampled, setSampled] = useState(false),
+    [shaded, setShaded] = useState(false);
   const uid = 'liquid-' + useId().replace(/[^a-zA-Z0-9_-]/g, '');
   const [field, setField] = useState<{
     url: string;
@@ -173,7 +291,7 @@ export function LiquidGlass({
   const reduced = useReducedMotion();
   const frostPx = clamp(
     frost ??
-      (blurIntensity ? { sm: 1, md: 3, lg: 6, xl: 10 }[blurIntensity] : 0.45),
+      (blurIntensity ? { sm: 1, md: 3, lg: 6, xl: 10 }[blurIntensity] : 0),
     0,
     24
   );
@@ -187,9 +305,63 @@ export function LiquidGlass({
     let optics: ReturnType<typeof displacement> | undefined;
     let original: ImageData | undefined;
     const img = backdropImage?.current;
-    function readImage() {
+    // All photos on the page share a GL context. Each lens owns its source texture.
+    const renderer = img ? (sharedRenderer ??= createOpticsRenderer()) : null;
+    const texture = renderer?.gl.createTexture();
+    let uploaded = false,
+      radius = 0,
+      pressure = 0,
+      velocity = 0,
+      target = 0,
+      last = 0;
+    let fingerX = 0,
+      fingerY = 0;
+    const interaction: HTMLElement = node.closest('button') ?? node;
+    function touch(event: PointerEvent) {
+      if (!event.isPrimary) return;
+      const rect = node!.getBoundingClientRect();
+      fingerX = event.clientX - rect.left;
+      fingerY = event.clientY - rect.top;
+      if (event.type === 'pointerdown' && event.button === 0 && !reduced)
+        target = 1;
+      queue();
+    }
+    function release() {
+      if (target) {
+        target = 0;
+        queue();
+      }
+    }
+    function resetSource() {
+      uploaded = false;
       original = undefined;
+      queue();
+    }
+    function readImage() {
+      resetSource();
       if (img?.complete && img.naturalWidth > 0) {
+        if (renderer && texture && !renderer.gl.isContextLost()) {
+          const gl = renderer.gl;
+          try {
+            gl.bindTexture(gl.TEXTURE_2D, texture);
+            for (const axis of [gl.TEXTURE_WRAP_S, gl.TEXTURE_WRAP_T])
+              gl.texParameteri(gl.TEXTURE_2D, axis, gl.CLAMP_TO_EDGE);
+            for (const filter of [gl.TEXTURE_MIN_FILTER, gl.TEXTURE_MAG_FILTER])
+              gl.texParameteri(gl.TEXTURE_2D, filter, gl.LINEAR);
+            gl.texImage2D(
+              gl.TEXTURE_2D,
+              0,
+              gl.RGB,
+              gl.RGB,
+              gl.UNSIGNED_BYTE,
+              img
+            );
+            uploaded = gl.getError() === gl.NO_ERROR;
+          } catch {
+            /* A tainted source can still use the live DOM backdrop. */
+          }
+        }
+        if (uploaded) return;
         const scratch = document.createElement('canvas');
         const k = Math.min(
           1,
@@ -209,8 +381,61 @@ export function LiquidGlass({
       }
       queue();
     }
-    function paint() {
+    function paint(now: number) {
       task = 0;
+      const dt = Math.min((now - last) / 1000, 1 / 30);
+      last = now;
+      velocity += ((target - pressure) * 190 - velocity * 22) * dt;
+      pressure += velocity * dt;
+      if (Math.abs(target - pressure) + Math.abs(velocity) > 0.002) queue();
+      if (renderer && texture && uploaded && img && optics) {
+        const { gl, surface, uniform } = renderer;
+        const box = node!.getBoundingClientRect(),
+          bg = img.getBoundingClientRect();
+        const ctx = canvas!.getContext('2d');
+        if (!gl.isContextLost() && ctx && bg.width && box.width && box.height) {
+          const scale = Math.min(
+            devicePixelRatio || 1,
+            2,
+            1200 / Math.max(box.width, box.height)
+          );
+          const w = Math.max(1, Math.round(box.width * scale)),
+            h = Math.max(1, Math.round(box.height * scale));
+          if (surface.width !== w) surface.width = w;
+          if (surface.height !== h) surface.height = h;
+          gl.viewport(0, 0, w, h);
+          gl.bindTexture(gl.TEXTURE_2D, texture);
+          gl.uniform2f(uniform.pane, box.width, box.height);
+          gl.uniform2f(uniform.resolution, w, h);
+          gl.uniform2f(uniform.scene, bg.width, bg.height);
+          gl.uniform2f(uniform.offset, box.left - bg.left, box.top - bg.top);
+          gl.uniform2f(uniform.imageSize, img.naturalWidth, img.naturalHeight);
+          gl.uniform2f(uniform.finger, fingerX, fingerY);
+          gl.uniform1f(
+            uniform.radius,
+            Math.min(radius, box.width / 2, box.height / 2)
+          );
+          gl.uniform1f(
+            uniform.bevelWidth,
+            Math.max(
+              1.5,
+              Math.min(box.width, box.height) * clamp(bevel, 0.01, 0.49)
+            )
+          );
+          gl.uniform1f(uniform.strength, clamp(refraction, 0, 3));
+          gl.uniform1f(uniform.pressure, pressure);
+          gl.uniform1f(uniform.frost, frostPx);
+          gl.drawArrays(gl.TRIANGLES, 0, 3);
+          if (canvas!.width !== w) canvas!.width = w;
+          if (canvas!.height !== h) canvas!.height = h;
+          ctx.clearRect(0, 0, w, h);
+          ctx.drawImage(surface, 0, 0);
+          setShaded(true);
+          setSampled(true);
+          return;
+        }
+      }
+      setShaded(false);
       if (!optics || !img || !original) {
         setSampled(false);
         return;
@@ -239,15 +464,32 @@ export function LiquidGlass({
           const i = y * w + x,
             px = box.left + ((x + 0.5) * box.width) / w,
             py = box.top + ((y + 0.5) * box.height) / h;
+          const fingerDx = px - box.left - fingerX,
+            fingerDy = py - box.top - fingerY;
+          const well =
+            pressure *
+            Math.exp(
+              -(fingerDx * fingerDx + fingerDy * fingerDy) /
+                Math.max(540, 0.11 * box.height * box.height)
+            );
           for (let c = 0; c < 3; c++) {
             const spread = 1 + (1 - c) * 0.06;
             const sx = clamp(
-              Math.round((px + offsets[2 * i] * spread - ox) / scale),
+              Math.round(
+                (px + offsets[2 * i] * spread - fingerDx * well * 0.14 - ox) /
+                  scale
+              ),
               0,
               iw - 1
             );
             const sy = clamp(
-              Math.round((py + offsets[2 * i + 1] * spread - oy) / scale),
+              Math.round(
+                (py +
+                  offsets[2 * i + 1] * spread -
+                  fingerDy * well * 0.14 -
+                  oy) /
+                  scale
+              ),
               0,
               ih - 1
             );
@@ -268,6 +510,7 @@ export function LiquidGlass({
       const r = value.includes('%')
         ? (Math.min(box.width, box.height) * parseFloat(value)) / 100
         : parseFloat(value) || 0;
+      radius = r;
       optics = displacement(
         box.width,
         box.height,
@@ -288,16 +531,35 @@ export function LiquidGlass({
     if (img) resize.observe(img);
     img?.addEventListener('load', readImage);
     window.addEventListener('scroll', queue, { passive: true, capture: true });
+    function contextLost() {
+      if (sharedRenderer === renderer) sharedRenderer = null;
+      readImage();
+    }
+    renderer?.surface.addEventListener('webglcontextlost', contextLost);
+    interaction.addEventListener('pointerdown', touch);
+    interaction.addEventListener('pointermove', touch);
+    window.addEventListener('pointerup', release);
+    window.addEventListener('pointercancel', release);
+    window.addEventListener('blur', release);
+    img?.addEventListener('error', resetSource);
     readImage();
     measure();
     return () => {
       resize.disconnect();
+      renderer?.surface.removeEventListener('webglcontextlost', contextLost);
+      renderer?.gl.deleteTexture(texture ?? null);
+      interaction.removeEventListener('pointerdown', touch);
+      interaction.removeEventListener('pointermove', touch);
+      window.removeEventListener('pointerup', release);
+      window.removeEventListener('pointercancel', release);
+      window.removeEventListener('blur', release);
+      img?.removeEventListener('error', resetSource);
       img?.removeEventListener('load', readImage);
       window.removeEventListener('scroll', queue, true);
       cancelAnimationFrame(task);
       refresh.current = () => {};
     };
-  }, [backdropImage, borderRadius, bevel, refraction]);
+  }, [backdropImage, borderRadius, bevel, refraction, frostPx, reduced]);
 
   const rim = strength[shadowIntensity],
     shadow = strength[glowIntensity];
@@ -409,12 +671,13 @@ export function LiquidGlass({
       >
         <canvas
           ref={lens}
+          data-optics={shaded ? 'shader' : sampled ? 'raster' : 'backdrop'}
           style={{
             width: '100%',
             height: '100%',
             display: sampled ? 'block' : 'none',
-            filter: frostPx > 0 ? `blur(${frostPx}px)` : undefined,
-            transform: frostPx > 1 ? 'scale(1.08)' : undefined,
+            filter: !shaded && frostPx > 0 ? `blur(${frostPx}px)` : undefined,
+            transform: !shaded && frostPx > 1 ? 'scale(1.08)' : undefined,
           }}
         />
       </span>
@@ -423,6 +686,7 @@ export function LiquidGlass({
         style={{
           ...layer,
           zIndex: -1,
+          display: shaded ? 'none' : undefined,
           backgroundImage: field ? `url("${field.reflection}")` : undefined,
           backgroundSize: '100% 100%',
           boxShadow: rim

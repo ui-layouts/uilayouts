@@ -1535,6 +1535,22 @@ export const AllComponents: IAllComponents[] = [
   },
   {
     category: 'liquid-glass',
+    title: 'Photo controls',
+    slug: 'liquid-glass/photo-controls',
+    description: 'Photo controls built with Liquid Glass.',
+    href: '/components/liquid-glass',
+    componentName: 'liquid-glass-photo-controls',
+    filesrc: require('../components/ui/liquid-glass.tsx?raw'),
+    filesArray: [
+      { name: 'photo-controls.tsx', filesrc: require('../registry/components/liquid-glass/photo-controls.tsx?raw') },
+      { name: 'liquid-glass.tsx', filesrc: require('../components/ui/liquid-glass.tsx?raw') },
+    ],
+    iframeSrc: 'live-components/liquid-glass-photo-controls',
+    componentSrc: React.lazy(() => import('@/registry/components/liquid-glass/photo-controls')),
+    tags: ['liquid glass', 'controls'],
+  },
+  {
+    category: 'liquid-glass',
     title: 'Landscape icons',
     slug: 'liquid-glass/landscape-icons',
     description: 'Landscape icons built with Liquid Glass.',
