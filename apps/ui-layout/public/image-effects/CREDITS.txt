@@ -44,3 +44,4 @@ On-Scroll Filter: the seven images under on-scroll-filter/ are WebP adaptations 
 https://github.com/codrops/OnScrollFilter/tree/3271b3fac95df7bd224da0c6a5860e48441f17ad
 
 tide-study.webp — original AI-generated aerial shoreline for the Liquid Glass Tide card example.
+meadow-stream.webp — original AI-generated stream and meadow for the Liquid Glass landscape icons.

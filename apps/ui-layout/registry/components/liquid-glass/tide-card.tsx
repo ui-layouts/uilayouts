@@ -4,9 +4,11 @@ import { useRef } from 'react';
 import { LiquidGlass } from '@/components/ui/liquid-glass';
 
 export default function TideCard() {
+  const stage = useRef<HTMLElement>(null);
   const shore = useRef<HTMLImageElement>(null);
   return (
     <figure
+      ref={stage}
       aria-label='Tide study'
       style={{
         position: 'relative',
@@ -34,6 +36,12 @@ export default function TideCard() {
       />
       <LiquidGlass
         backdropImage={shore}
+        dragWithin={stage}
+        dragSnapToOrigin
+        dragTransition={{ bounceStiffness: 420, bounceDamping: 34 }}
+        role='group'
+        aria-label='Tide card'
+        title='Drag the card and release to return.'
         width='min(69%, 240px)'
         borderRadius='26px'
         bevel={0.12}

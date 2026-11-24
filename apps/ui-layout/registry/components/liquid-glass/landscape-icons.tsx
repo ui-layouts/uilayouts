@@ -15,18 +15,20 @@ export default function LandscapeIcons() {
         isolation: 'isolate',
         width: '100%',
         height: 'clamp(245px,48vw,395px)',
+        containerType: 'inline-size',
         borderRadius: 14,
         overflow: 'hidden',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        gap: 'clamp(14px,6vw,54px)',
+        gap: 'clamp(14px,8%,65px)',
         background: '#9dbac1',
       }}
     >
+      <style>{`[data-lens-finish="frosted"] canvas { filter: blur(5px); transform: scale(1.10); }`}</style>
       <img
         ref={photo}
-        src='/image-effects/ridge.webp'
+        src='/image-effects/meadow-stream.webp'
         alt=''
         style={{
           position: 'absolute',
@@ -36,33 +38,47 @@ export default function LandscapeIcons() {
           objectFit: 'cover',
         }}
       />
-      {[0, 1.9].map((frost, i) => (
+      {[0, 2.6].map((frost, i) => (
         <LiquidGlass
           key={frost}
           dragWithin={stage}
+          dragSnapToOrigin
+          dragTransition={{ bounceStiffness: 420, bounceDamping: 34 }}
+          data-lens-finish={i ? 'frosted' : 'clear'}
           role='group'
           aria-roledescription='movable lens'
-          title='Drag to move. Use arrow keys to nudge or Home to reset.'
+          title='Drag and release to return. Use arrow keys to nudge or Home to reset.'
           backdropImage={photo}
-          width='clamp(103px,20vw,156px)'
-          height='clamp(103px,20vw,156px)'
+          width='clamp(92px,34cqw,190px)'
+          height='clamp(92px,34cqw,190px)'
           borderRadius='50%'
-          bevel={0.23}
-          refraction={1.7}
+          bevel={0.17}
+          refraction={1.1}
           frost={frost}
-          shadowIntensity='xl'
+          style={{
+            flexShrink: 0,
+            boxShadow: '0 3px 5px #192b2429, 0 7px 14px #1328221c',
+          }}
+          shadowIntensity='md'
           glowIntensity='lg'
           aria-label={i ? 'Frosted Home icon' : 'Clear Home icon'}
         >
           <span
+            aria-hidden='true'
             style={{
               position: 'absolute',
               zIndex: 2,
+              borderRadius: 'inherit',
+              boxShadow:
+                'inset 0 1.5px 2px #ffffffce, inset 0 -2px 2px #ffffff7d, inset -2px -4px 5px #17251c39',
+              background: i
+                ? 'linear-gradient(155deg,#ffffff12 5%,transparent 40%,#09232155 90%)'
+                : undefined,
               inset: 0,
               display: 'grid',
               alignContent: 'center',
               justifyItems: 'center',
-              gap: 3,
+              gap: 5,
               color: '#fff',
               textShadow: '0 2px 9px #172b2355',
               font: '500 clamp(15px,3vw,21px)/1.2 system-ui',
@@ -70,7 +86,7 @@ export default function LandscapeIcons() {
           >
             <svg
               viewBox='0 0 32 32'
-              width='38%'
+              width='35%'
               fill='currentColor'
               aria-hidden='true'
             >
