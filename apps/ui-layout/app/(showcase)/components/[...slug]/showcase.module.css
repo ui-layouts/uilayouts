@@ -1,13 +1,7 @@
 .page {
-  --showcase-width: min(960px, calc(100% - 2 * clamp(12px, 3vw, 40px)));
   min-height: 100svh;
   background: var(--background);
   color: var(--foreground);
-}
-.stage,
-.details {
-  width: var(--showcase-width);
-  margin-inline: auto;
 }
 .stage {
   isolation: isolate;
@@ -18,7 +12,7 @@
   grid-template-rows: auto minmax(0, 1fr);
   justify-items: center;
   gap: clamp(8px, 2vh, 22px);
-  padding-block: clamp(12px, 3svh, 32px) clamp(60px, 8svh, 88px);
+  padding-block: clamp(12px, 3svh, 32px) min(152px, 30svh);
 }
 .brand {
   display: block;
@@ -37,6 +31,7 @@
   background: transparent;
 }
 .details {
+  padding-inline: clamp(16px, 4vw, 72px);
   padding-block: clamp(48px, 8vh, 100px) 124px;
 }
 .details h1 {
@@ -45,6 +40,7 @@
   font-size: clamp(2rem, 5vw, 3.8rem);
   line-height: 1.06;
 }
+.details :where(p, li) { max-inline-size: 78ch; }
 .description {
   margin: 1rem 0 2.5rem;
   line-height: 1.65;
@@ -61,4 +57,38 @@
 }
 .skip:focus {
   transform: none;
+}
+
+.stage[data-demo='image-effect-motion-hover'] .frame {
+  width: min(100%, 110svh);
+}
+.cue {
+  position: absolute;
+  inset: auto clamp(14px, 2vw, 28px) 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  border-block-start: 1px solid #dedede;
+  padding-block-start: 13px;
+  font-family: Arial, sans-serif;
+}
+.cue strong {
+  font-size: clamp(17px, 1.6vw, 23px);
+  line-height: 1.2;
+  letter-spacing: -.045em;
+}
+.cue a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding-block: 8px;
+  color: #242424;
+  font-size: 14px;
+  white-space: nowrap;
+}
+.cue span { color: #2454ff; font-size: 19px; }
+@media (max-width: 640px) {
+  .cue { bottom: 64px; }
+  .cue a { font-size: 13px; }
 }

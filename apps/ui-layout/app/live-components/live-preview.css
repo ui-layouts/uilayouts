@@ -6,7 +6,7 @@
   background: transparent;
 }
 .live-demo-content {
-  width: min(100%, 960px);
+  width: 100%;
   min-width: 0;
   transform-origin: center;
 }

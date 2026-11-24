@@ -1,9 +1,7 @@
 .toolbar {
   position: fixed;
   z-index: 45;
-  inset-inline: 0;
-  width: var(--showcase-width);
-  margin-inline: auto;
+  inset-inline: max(clamp(8px, 2vw, 28px), env(safe-area-inset-left)) max(clamp(8px, 2vw, 28px), env(safe-area-inset-right));
   bottom: max(16px, env(safe-area-inset-bottom));
   display: flex;
   align-items: flex-end;
@@ -320,4 +318,10 @@
       transform: translateX(0);
     }
   }
+}
+
+@media (min-width: 960px) {
+  .toolbar { display: grid; grid-template-columns: 1fr auto 1fr; }
+  .launcher { justify-self: start; }
+  .actions { justify-self: end; }
 }

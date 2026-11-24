@@ -158,6 +158,10 @@ export default async function DocPage(props: {
               src={showcase.expandUrl}
               title={title + ' interactive preview'}
             />
+            <nav className={styles.cue} aria-label='Component details'>
+              <strong>{title}</strong>
+              <a href='#component-title'>Scroll for details <span aria-hidden='true'>↓</span></a>
+            </nav>
           </section>
           <ShowcaseToolbar slug={slug} title={title} {...showcase} />
         </>
