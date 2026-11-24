@@ -42,3 +42,5 @@ Sprite Morph: original AI-generated side-profile portraits of one face at five a
 
 On-Scroll Filter: the seven images under on-scroll-filter/ are WebP adaptations of Codrops' OnScrollFilter demo artwork (Midjourney). The MIT notice in the component accompanies this adaptation.
 https://github.com/codrops/OnScrollFilter/tree/3271b3fac95df7bd224da0c6a5860e48441f17ad
+
+tide-study.webp — original AI-generated aerial shoreline for the Liquid Glass Tide card example.

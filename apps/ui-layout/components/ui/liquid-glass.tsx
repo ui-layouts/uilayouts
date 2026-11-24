@@ -1,6 +1,11 @@
 'use client';
 
-import { motion, useReducedMotion, type HTMLMotionProps } from 'motion/react';
+import {
+  motion,
+  useMotionValue,
+  useReducedMotion,
+  type HTMLMotionProps,
+} from 'motion/react';
 import {
   useEffect,
   useId,
@@ -29,6 +34,8 @@ export interface LiquidGlassProps extends Omit<
   /** Optional object-fit: cover photograph under the glass. Supplies exact image refraction across browsers. */
   backdropImage?: RefObject<HTMLImageElement | null>;
   draggable?: boolean;
+  /** Allow free positioning inside this element with a pointer, touch, or arrow keys. */
+  dragWithin?: RefObject<HTMLElement | null>;
   expandable?: boolean;
   expandedWidth?: string;
   expandedHeight?: string;
@@ -266,6 +273,7 @@ export function LiquidGlass({
   frost,
   backdropImage,
   draggable = false,
+  dragWithin,
   expandable = false,
   expandedWidth,
   expandedHeight,
@@ -289,6 +297,8 @@ export function LiquidGlass({
     scale: number;
   } | null>(null);
   const reduced = useReducedMotion();
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
   const frostPx = clamp(
     frost ??
       (blurIntensity ? { sm: 1, md: 3, lg: 6, xl: 10 }[blurIntensity] : 0),
@@ -577,6 +587,35 @@ export function LiquidGlass({
       {...props}
       ref={host}
       className={className}
+      tabIndex={props.tabIndex ?? (dragWithin ? 0 : undefined)}
+      onKeyDown={(event) => {
+        props.onKeyDown?.(event);
+        const bounds = dragWithin?.current?.getBoundingClientRect();
+        if (!bounds || event.defaultPrevented) return;
+        const rect = event.currentTarget.getBoundingClientRect();
+        const step = event.shiftKey ? 32 : 8;
+        const delta: Record<string, [number, number]> = {
+          ArrowLeft: [-step, 0],
+          ArrowRight: [step, 0],
+          ArrowUp: [0, -step],
+          ArrowDown: [0, step],
+        };
+        if (event.key === 'Home') {
+          x.set(0);
+          y.set(0);
+        } else if (delta[event.key]) {
+          const [dx, dy] = delta[event.key];
+          x.set(
+            x.get() +
+              clamp(dx, bounds.left - rect.left, bounds.right - rect.right)
+          );
+          y.set(
+            y.get() +
+              clamp(dy, bounds.top - rect.top, bounds.bottom - rect.bottom)
+          );
+        } else return;
+        event.preventDefault();
+      }}
       style={{
         position: 'relative',
         zIndex: 0,
@@ -587,6 +626,15 @@ export function LiquidGlass({
           ? `0 ${shadow * 8}px ${shadow * 23}px rgba(13,22,25,${shadow * 0.26})`
           : undefined,
         ...style,
+        ...(dragWithin
+          ? ({
+              x,
+              y,
+              touchAction: 'none',
+              userSelect: 'none',
+              cursor: 'grab',
+            } as const)
+          : {}),
       }}
       animate={
         expandable
@@ -603,11 +651,17 @@ export function LiquidGlass({
       transition={
         props.transition ?? { type: 'spring', stiffness: 330, damping: 30 }
       }
-      drag={draggable && !reduced}
+      drag={!!dragWithin || (draggable && !reduced)}
       dragConstraints={
-        draggable ? { left: 0, top: 0, right: 0, bottom: 0 } : undefined
+        dragWithin ??
+        (draggable ? { left: 0, top: 0, right: 0, bottom: 0 } : undefined)
       }
-      dragElastic={0.3}
+      dragElastic={dragWithin ? 0 : 0.3}
+      dragMomentum={dragWithin ? false : props.dragMomentum}
+      whileDrag={
+        props.whileDrag ??
+        (dragWithin ? { cursor: 'grabbing', zIndex: 4 } : undefined)
+      }
       onUpdate={(latest) => {
         refresh.current();
         props.onUpdate?.(latest);

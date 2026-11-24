@@ -3,9 +3,11 @@ import { useRef } from 'react';
 import { LiquidGlass } from '@/components/ui/liquid-glass';
 
 export default function LandscapeIcons() {
+  const stage = useRef<HTMLDivElement>(null);
   const photo = useRef<HTMLImageElement>(null);
   return (
     <div
+      ref={stage}
       role='group'
       aria-label='Clear and frosted Home icons'
       style={{
@@ -37,6 +39,10 @@ export default function LandscapeIcons() {
       {[0, 1.9].map((frost, i) => (
         <LiquidGlass
           key={frost}
+          dragWithin={stage}
+          role='group'
+          aria-roledescription='movable lens'
+          title='Drag to move. Use arrow keys to nudge or Home to reset.'
           backdropImage={photo}
           width='clamp(103px,20vw,156px)'
           height='clamp(103px,20vw,156px)'

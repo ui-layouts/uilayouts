@@ -6,17 +6,27 @@ export const metadata = {
 
 Liquid Glass bends the content behind its rounded edges. Use the same surface for a clear icon, a frosted menu or a switch moving over a colored track.
 
-## Photo controls
+## Logo lens
 
-<ComponentCodePreview name='liquid-glass-photo-controls' jsonName='liquid-glass' isFitheight />
+<ComponentCodePreview name='liquid-glass-logo-lens' jsonName='liquid-glass' isFitheight />
 
-Press the glass pager to bend the landscape beneath your pointer. Use the arrows to browse the three photographs.
+Drag the lens across the logo to see its edges shift beneath the glass. With the lens focused, use the arrow keys to move it and Home to reset it.
+
+## Tide card
+
+<ComponentCodePreview name='liquid-glass-tide-card' jsonName='liquid-glass' isFitheight />
 
 ## Landscape icons
 
 <ComponentCodePreview name='liquid-glass-landscape-icons' jsonName='liquid-glass' isFitheight />
 
-The two Home icons sample the same landscape. The left icon keeps the photograph sharp. The right adds frost.
+Drag either Home icon across the landscape. The clear lens keeps the photograph sharp, while the frosted lens softens the details.
+
+## Photo controls
+
+<ComponentCodePreview name='liquid-glass-photo-controls' jsonName='liquid-glass' isFitheight />
+
+Press the glass pager to bend the landscape beneath your pointer. Use the arrows to browse the three photographs.
 
 ## Switch
 
@@ -73,6 +83,7 @@ export function PhotoPager({ src, next }: { src: string; next: () => void }) {
 | `frost` | Blur radius in CSS pixels. Use zero for clear glass. |
 | `backdropImage` | Optional ref to an underlying centered, cover-fit image. This enables a pixel-sampled lens across browsers. The image must be same-origin or permit canvas access. |
 | `width`, `height`, `className`, `style` | Size and placement of the surface. |
+| `dragWithin` | Pass a ref to the scene to keep the draggable lens inside it. |
 | `draggable`, `expandable` | Enable elastic dragging or click-to-expand sizing with `expandedWidth` and `expandedHeight`. |
 | `glowIntensity`, `shadowIntensity`, `blurIntensity` | Outer shadow, rim highlights and preset blur levels. An explicit `frost` takes precedence over the blur preset. |
 
