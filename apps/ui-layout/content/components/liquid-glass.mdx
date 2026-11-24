@@ -1,102 +1,86 @@
 export const metadata = {
-  title: "Liquid Glass",
-  description: "A modern liquid glass component with glassmorphism effects featuring frosted glass aesthetics, backdrop blur, transparency, and smooth animations. Perfect for creating contemporary glass-like UI elements with CSS and JavaScript.",
-  keywords: [
-    "Liquid glass component",
-    "Glassmorphism effect",
-    "Glass UI component",
-    "Frosted glass effect",
-    "Backdrop blur-sm component",
-    "Glass morphism design",
-    "Transparent glass UI",
-    "Modern glass effect",
-    "CSS glass component",
-    "Figma Glassmorphism Effect",
-    "Apple Vision Pro Glassmorphism Effect",
-    "Glass card component",
-    "Blurred glass effect",
-    "Glass overlay component",
-    "Liquid glass design",
-    "Glass aesthetic UI",
-    "Translucent component",
-    "Glass panel effect",
-    "Modern UI glass",
-    "Glass background effect",
-    "CSS backdrop filter",
-    "Glass surface component",
-    "Frosted UI element",
-    "Glass texture effect",
-    "Liquid interface design",
-    "Glass material design",
-    "Transparent overlay",
-    "Glass blur-sm effect",
-    "Modern glassmorphism",
-    "CSS glass filter",
-    "Glass animation effect",
-    "Contemporary glass UI"
-  ],
+  title: 'Liquid Glass',
+  description: 'A reusable refractive glass surface for icons, switches, menus, inputs and Control Center controls.',
+  keywords: ['liquid glass', 'refraction', 'glass switch', 'React', 'Control Center'],
 };
 
-<ComponentCodePreview name='liquid-glass-sidebar-menu' jsonName='liquid-glass-sidebar-menu.json' isFitheight/>
+Liquid Glass bends the content behind its rounded edges. Use the same surface for a clear icon, a frosted menu or a switch moving over a colored track.
+
+## Landscape icons
+
+<ComponentCodePreview name='liquid-glass-landscape-icons' jsonName='liquid-glass' isFitheight />
+
+The two Home icons sample the same landscape. The left icon keeps the photograph sharp. The right adds frost.
+
+## Switch
+
+<ComponentCodePreview name='liquid-glass-switch' jsonName='liquid-glass' isFitheight />
+
+## Control Center
+
+<ComponentCodePreview name='liquid-glass-controls' jsonName='liquid-glass' isFitheight />
+
+Toggle a connection, change brightness or volume, or enable Focus.
+
+## Search and dropdown
+
+<ComponentCodePreview name='liquid-glass-inputs' jsonName='liquid-glass' isFitheight />
+
+Type to filter the landscape names, then select one to change the backdrop.
 
 ## Installation
 
-<Tabs defaultValue="cli">
-  <TabsList className='border-b w-full bg-muted justify-start h-12 mt-4'>
-    <TabsTrigger value="cli" className="data-[state=active]:bg-card gap-1 data-[state=active]:border">CLI</TabsTrigger>
-    <TabsTrigger value="manual" className="data-[state=active]:bg-card gap-1 data-[state=active]:border">Manual</TabsTrigger>
-  </TabsList>
-  <TabsContent value="cli">
-   <CodeTabsMdx>
-      ```bash
-      npx uilayouts@latest add liquid-glass
-      ```
-
-      ```bash
-      npx shadcn@latest add 'https://www.ui-layouts.com/r/liquid-glass.json'
-      ```
-   </CodeTabsMdx>
-  </TabsContent>
-<TabsContent value="manual" manualType>
-
 ```bash
-npm install motion
+npx shadcn@latest add https://www.ui-layouts.com/r/liquid-glass.json
 ```
 
-<CodeSnippets name="liquid-glass" />
+## Usage
 
-</TabsContent>
-</Tabs>
+```tsx
+import { LiquidGlass } from '@/components/ui/liquid-glass';
 
+export function SettingsButton() {
+  return (
+    <LiquidGlass width="64px" height="64px" borderRadius="50%" frost={1}>
+      <button aria-label="Open settings" style={{ position: 'relative', zIndex: 2, width: '100%', height: '100%', background: 'transparent', border: 0 }}>
+        ⚙
+      </button>
+    </LiquidGlass>
+  );
+}
+```
 
-## Props
+| Prop | Purpose |
+| --- | --- |
+| `borderRadius` | Shape of the glass surface, such as `"50%"` for a circle or `"999px"` for a pill. |
+| `refraction` | Strength of the optical displacement, from 0 to 3. Defaults to 1.15. |
+| `bevel` | Width of the curved rim relative to the shorter side. Defaults to 0.16. |
+| `frost` | Blur radius in CSS pixels. Use zero for clear glass. |
+| `backdropImage` | Optional ref to an underlying centered, cover-fit image. This enables a pixel-sampled lens across browsers. The image must be same-origin or permit canvas access. |
+| `width`, `height`, `className`, `style` | Size and placement of the surface. |
+| `draggable`, `expandable` | Enable elastic dragging or click-to-expand sizing with `expandedWidth` and `expandedHeight`. |
+| `glowIntensity`, `shadowIntensity`, `blurIntensity` | Outer shadow, rim highlights and preset blur levels. An explicit `frost` takes precedence over the blur preset. |
 
-| Prop            | Type      | Default | Description                                                                 |
-| --------------- | --------- | ------- | --------------------------------------------------------------------------- |
-| children        | ReactNode | -       | The content to be wrapped inside the liquid glass card                     |
-| className       | string    | ''      | Additional CSS classes to apply to the card wrapper                        |
-| draggable       | boolean   | false   | Enable drag functionality with elastic bounce-back animation              |
-| expandable      | boolean   | false   | Enable click-to-expand functionality with smooth size transitions         |
-| width           | string    | -       | Initial/collapsed width (e.g., '200px', '100%', 'auto')                   |
-| height          | string    | -       | Initial/collapsed height (e.g., '120px', 'auto')                          |
-| expandedWidth   | string    | -       | Width when expanded (falls back to width or 'auto' if not provided)       |
-| expandedHeight  | string    | -       | Height when expanded (falls back to height or 'auto' if not provided)     |
-| blurIntensity   | string    | 'sm'    | Backdrop blur strength: 'sm', 'md', 'lg', 'xl'                           |
-| borderRadius    | string    | '32px'  | Custom border radius for the glass card                                   |
-| glowIntensity   | string    | 'sm'    | Outer glow effect: 'none', 'xs', 'sm', 'md', 'lg', 'xl', '2xl'           |
-| shadowIntensity | string    | 'md'    | Inner shadow depth: 'none', 'xs', 'sm', 'md', 'lg', 'xl', '2xl'          |
-| ...props        | object    | -       | Any additional props are passed through to the root element 
+Browsers with SVG backdrop filtering bend live page content. The optional image sampler provides the same refraction for photographic backgrounds independently of that support. The material retains blur and edge highlights on browsers with basic backdrop filtering.
 
-## Example
+`LiquidGlassCard` retains the original card API and enables dragging by default.
 
-### Weather 
+## More examples
 
-<ComponentCodePreview name='liquid-glass-weather' jsonName='liquid-glass-weather.json' isFitheight/>
+### Sidebar
 
-### Mobile Icons 
+<ComponentCodePreview name='liquid-glass-sidebar-menu' jsonName='liquid-glass-sidebar-menu' isFitheight />
 
-<ComponentCodePreview name='liquid-glass-mobile-icons' jsonName='liquid-glass-mobile-icons.json' isFitheight/>
+### Weather
+
+<ComponentCodePreview name='liquid-glass-weather' jsonName='liquid-glass-weather' isFitheight />
+
+### Mobile icons
+
+<ComponentCodePreview name='liquid-glass-mobile-icons' jsonName='liquid-glass-mobile-icons' isFitheight />
 
 ### Notification
 
-<ComponentCodePreview name='liquid-glass-notification' jsonName='liquid-glass-notification.json' isFitheight/>
+<ComponentCodePreview name='liquid-glass-notification' jsonName='liquid-glass-notification' isFitheight />
+
+[Glass icon study](https://github.com/phileeppov/glass) · [WebGPU refraction study](https://github.com/jeantimex/glass-effect-webgpu)

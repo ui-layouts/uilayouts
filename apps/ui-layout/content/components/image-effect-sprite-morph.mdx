@@ -19,19 +19,24 @@ npx shadcn@latest add https://www.ui-layouts.com/r/image-effect-sprite-morph.jso
 ```tsx
 import { SpriteMorph } from '@/components/ui/image-effect-sprite-morph';
 
+const ages = ['baby', 'teen', 'adult', 'old', 'elder'];
+const photo = (name: string) => `/image-effects/ages/${name}.webp`;
+
 export default function PortraitStudy() {
   return (
     <SpriteMorph
-      images={['/portraits/daylight.webp', '/portraits/blue-hour.webp', '/portraits/after-dark.webp']}
-      atlases={['/portraits/daylight-blue-hour.webp', '/portraits/blue-hour-after-dark.webp', '/portraits/after-dark-daylight.webp']}
-      labels={['Daylight', 'Blue hour', 'Chrome']}
+      images={ages.map(photo)}
+      atlases={ages.map((age, i) => photo(age + '-' + ages[(i + 1) % ages.length]))}
+      labels={['Baby', 'Teen', 'Adult', 'Old', 'Elder']}
+      label='Five ages of one face'
+      style={{ background: '#fff', color: '#191919' }}
       secondsPerImage={3}
     />
   );
 }
 ```
 
-Select a numbered button to move between daylight, blue-hour and chrome portraits. The preview uses original AI-generated artwork and custom landmark-based transition sheets. You can also supply your own photography or transparent artwork.
+Select a numbered button to move between five ages of the same face. The preview uses original AI-generated portraits and 24-frame transition sheets, including a transition from elder back to baby. Use your own image URLs and sheets to change the subject.
 
 | Prop | Description |
 | --- | --- |

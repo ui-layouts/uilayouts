@@ -1,8 +1,8 @@
 'use client';
 import { SpriteMorph } from '@/components/ui/image-effect-sprite-morph';
 
-const directory = '/image-effects/portraits/';
-const names = ['daylight', 'blue-hour', 'after-dark'];
+const directory = '/image-effects/ages/';
+const names = ['baby', 'teen', 'adult', 'old', 'elder'];
 const images = names.map((name) => directory + name + '.webp');
 const atlases = names.map(
   (name, i) => directory + name + '-' + names[(i + 1) % names.length] + '.webp'
@@ -11,9 +11,9 @@ const atlases = names.map(
 export default function Demo() {
   return (
     <SpriteMorph
-      style={{ background: '#111318', color: '#f1f0ed' }}
-      label='Portrait lighting study'
-      labels={['Daylight', 'Blue hour', 'Chrome']}
+      style={{ background: '#fff', color: '#191919' }}
+      label='Five ages of one face'
+      labels={['Baby', 'Teen', 'Adult', 'Old', 'Elder']}
       images={images}
       atlases={atlases}
     />

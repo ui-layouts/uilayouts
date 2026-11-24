@@ -358,6 +358,8 @@ export function CrtEditorial({
         overflow: "hidden",
         background: "black",
         color: "white",
+        width: "100%",
+        minWidth: 0,
         aspectRatio: "4 / 3",
         ...style,
       }}

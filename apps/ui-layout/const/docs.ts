@@ -21,8 +21,6 @@ export const DOCS_CATEGORY_KEY = {
   'image-effect-swinging-grid': 'image-effect-swinging-grid',
   'image-effect-sprite-morph': 'image-effect-sprite-morph',
   'image-effect-crt-editorial': 'image-effect-crt-editorial',
-  'image-effect-glass-photo-controls': 'image-effect-glass-photo-controls',
-  'image-effect-glass-mark': 'image-effect-glass-mark',
   'image-effect-horizontal-parallax': 'image-effect-horizontal-parallax',
   'image-effect-sticky-grid-scroll': 'image-effect-sticky-grid-scroll',
   'image-effect-discography': 'image-effect-discography',

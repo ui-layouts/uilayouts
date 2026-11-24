@@ -676,39 +676,6 @@
       ]
     },
     {
-      "name": "image-effect-glass-mark",
-      "type": "registry:component",
-      "title": "Glass Mark",
-      "description": "Refract a workspace monogram or transparent logo through a beveled glass icon.",
-      "dependencies": [],
-      "registryDependencies": [],
-      "files": [
-        {
-          "path": "./components/ui/image-effect-glass-mark.tsx",
-          "type": "registry:file",
-          "target": "components/ui/image-effect-glass-mark.tsx"
-        }
-      ]
-    },
-    {
-      "name": "image-effect-glass-photo-controls",
-      "type": "registry:component",
-      "title": "Glass Photo Controls",
-      "description": "Browse a photo collection with a glass pager that bends the photograph under its edges.",
-      "dependencies": [],
-      "registryDependencies": [],
-      "files": [
-        {
-          "path": "./components/ui/image-effect-glass-photo-controls.tsx",
-          "type": "registry:file",
-          "target": "components/ui/image-effect-glass-photo-controls.tsx"
-        }
-      ],
-      "devDependencies": [
-        "@webgpu/types"
-      ]
-    },
-    {
       "name": "iphone-duo",
       "type": "registry:component",
       "title": "iPhone Duo",
@@ -1162,7 +1129,8 @@
       "files": [
         {
           "path": "./components/ui/liquid-glass.tsx",
-          "type": "registry:component"
+          "type": "registry:file",
+          "target": "components/ui/liquid-glass.tsx"
         }
       ]
     },
