@@ -1,3 +1,5 @@
+import { readNotes } from '@/lib/changelog.mjs';
+import { join } from 'node:path';
 import { cn } from '@/lib/utils';
 import { Component } from 'lucide-react';
 import { pageMetadata } from '@/lib/seo';
@@ -17,13 +19,14 @@ type ChangeDetail = {
 };
 
 type ChangeItem = {
+  id?: string;
   date: string;
   title: string;
   description: string;
   details: ChangeDetail[];
 };
 
-const changes: ChangeItem[] = [
+const previousChanges: ChangeItem[] = [
   {
     date: 'April 30, 2026',
     title: 'CLI and registry support expanded for components',
@@ -107,6 +110,8 @@ const changes: ChangeItem[] = [
 ];
 
 export default function ChangelogPage() {
+  const changes: ChangeItem[] = [...readNotes(join(process.cwd(), 'content/changelog')), ...previousChanges]
+    .sort((a, b) => Date.parse(b.date) - Date.parse(a.date));
   return (
     <section className='mx-auto w-full'>
       <article className='relative overflow-hidden p-10 py-12 border-b'>
@@ -134,8 +139,7 @@ export default function ChangelogPage() {
               Changelog
             </h1>
             <p className='md:w-140 sm:text-sm text-xs pt-2'>
-              We publish <strong>major updates only</strong> here, so the changelog stays concise
-              and helpful.
+              Follow new components, improvements, and fixes in UI Layouts.
             </p>
           </div>
         </div>
@@ -159,7 +163,7 @@ export default function ChangelogPage() {
         <div className='mt-8 space-y-6'>
           {changes.map((change) => (
             <article
-              key={change.title}
+              key={change.id ?? change.title}
               className='rounded-xl border bg-neutral-100 dark:bg-neutral-900 p-5'
             >
               <p className='text-lg uppercase tracking-wide text-muted-foreground'>{change.date}</p>
