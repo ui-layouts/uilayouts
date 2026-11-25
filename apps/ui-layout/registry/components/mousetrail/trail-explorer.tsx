@@ -1,6 +1,7 @@
 'use client';
 
 import { lazy, Suspense, useMemo } from 'react';
+import { twMerge } from 'tailwind-merge';
 import ImageMouseTrail from '@/components/ui/mousetrail';
 import { stampEffects } from './trail-stamp-effects';
 
@@ -149,14 +150,21 @@ function ExampleStage({
   );
 }
 
-export function LocalImageTrailPreview({ variant }: { variant?: ImageTrailPreviewVariant }) {
-  return <ImageTrailPreview variant={variant} stickerBaseUrl='/image-trail/clay' />;
+type ImageTrailPreviewProps = {
+  variant?: ImageTrailPreviewVariant;
+  stickerBaseUrl?: string;
+  className?: string;
+};
+
+export function LocalImageTrailPreview(props: Omit<ImageTrailPreviewProps, 'stickerBaseUrl'>) {
+  return <ImageTrailPreview {...props} stickerBaseUrl='/image-trail/clay' />;
 }
 
 export default function ImageTrailPreview({
   variant = 'motion-gooey',
   stickerBaseUrl = 'https://www.ui-layouts.com/image-trail/clay',
-}: { variant?: ImageTrailPreviewVariant; stickerBaseUrl?: string } = {}) {
+  className,
+}: ImageTrailPreviewProps = {}) {
   const stickers = useMemo(() => {
     const baseUrl = stickerBaseUrl.replace(/\/$/, '');
     const isTravel = variant === 'image-shrink';
@@ -166,7 +174,7 @@ export default function ImageTrailPreview({
   }, [stickerBaseUrl, variant]);
 
   return (
-    <div data-trail-example={variant} className='not-prose w-full'>
+    <div data-trail-example={variant} className={twMerge('not-prose w-full', className)}>
       <style>{trailFonts}</style>
       <Suspense
         fallback={
