@@ -108,8 +108,8 @@ function ReadingProgress({ slug }: { slug: string }) {
       aria-valuenow={progress}
     >
       {progress}%
-      <svg aria-hidden="true" viewBox="0 0 42 38" preserveAspectRatio="none">
-        <path d="M9 37 H33 Q41 37 41 29 V9 Q41 1 33 1 H9 Q1 1 1 9 V29 Q1 37 9 37 Z"
+      <svg aria-hidden="true">
+        <rect x="1" y="1"
           pathLength="100" strokeDasharray="100" strokeDashoffset={100 - progress} />
       </svg>
     </div>
