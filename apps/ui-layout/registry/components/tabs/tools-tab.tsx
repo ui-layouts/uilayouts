@@ -1,6 +1,6 @@
 // thanks to maximeheckel
 
-import { TabsBtn, TabsContent, TabsProvider } from '@/components/ui/tab';
+import { TabsBtn, TabsList, TabsContent, TabsProvider } from '@/components/ui/tab';
 import Image from 'next/image';
 import React, { useState } from 'react';
 
@@ -9,7 +9,7 @@ function Tab() {
     <div className='border bg-white/10 dark:bg-black/40 backdrop-blur-xs rounded-md p-4  relative'>
       <TabsProvider defaultValue={'design'}>
         <div className='flex justify-center mt-2'>
-          <div className='flex items-center w-fit dark:bg-[#1d2025] bg-muted p-1 text-foreground rounded-md border'>
+          <TabsList className='flex items-center w-fit dark:bg-[#1d2025] bg-muted p-1 text-foreground rounded-md border'>
             <TabsBtn value='design'>
               <span className='relative z-2 uppercase'>design</span>
             </TabsBtn>
@@ -22,7 +22,7 @@ function Tab() {
             <TabsBtn value='publish'>
               <span className='relative z-2 uppercase'>publish</span>
             </TabsBtn>
-          </div>
+          </TabsList>
         </div>
 
         <TabsContent value='design'>

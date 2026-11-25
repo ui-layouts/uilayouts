@@ -1,4 +1,6 @@
 'use client';
+import { Input as TextInput } from '@ui-sdk/react/input';
+import { Button as ActionButton } from '@ui-sdk/react/button';
 import { FramerModal, ModalContent } from '@/components/ui/dialog';
 import type React from 'react';
 import { useState } from 'react';
@@ -8,12 +10,12 @@ const DialogDefault: React.FC = () => {
 
   return (
     <div className=' h-full flex justify-center items-center'>
-      <button
+      <ActionButton type='submit'
         onClick={() => setModalOpen(true)}
         className='i h-12  rounded-md border-2 dark:border-[#656fe2] border-[#c0c6fc] dark:bg-[linear-gradient(110deg,#1e2a78,45%,#3749be,55%,#1e2a78)] bg-[linear-gradient(110deg,#3d5af1,45%,#5471ff,55%,#3d5af1)] bg-size-[200%_100%] dark:hover:border-white px-6 font-medium text-white dark:text-white transition-colors focus:outline-hidden focus:ring-2 dark:focus:ring-neutral-400 focus:ring-offset-2 focus:ring-offset-neutral-50'
       >
         Open Dialog
-      </button>
+      </ActionButton>
 
       <FramerModal open={modalOpen} setOpen={setModalOpen}>
         <ModalContent>
@@ -26,7 +28,7 @@ const DialogDefault: React.FC = () => {
           <div className='grid gap-4 py-4'>
             <div className='grid grid-cols-4 items-center gap-4'>
               <label className='text-sm font-medium leading-none text-right'>Name</label>
-              <input
+              <TextInput aria-label='Name'
                 className='flex h-9 w-full rounded-md border bg-transparent px-3 py-1 text-sm shadow-xs transition-colors placeholder:text-muted-foreground focus-visible:outline-hidden focus-visible:ring-1 disabled:cursor-not-allowed disabled:opacity-50 col-span-3'
                 id='name'
                 defaultValue='Pedro Duarte'
@@ -34,7 +36,7 @@ const DialogDefault: React.FC = () => {
             </div>
             <div className='grid grid-cols-4 items-center gap-4'>
               <label className='text-sm font-medium leading-none text-right'>Username</label>
-              <input
+              <TextInput aria-label='Username'
                 className='flex h-9 w-full rounded-md border bg-transparent px-3 py-1 text-sm shadow-xs transition-colors placeholder:text-muted-foreground focus-visible:outline-hidden focus-visible:ring-1 disabled:cursor-not-allowed disabled:opacity-50 col-span-3'
                 id='username'
                 defaultValue='@peduarte'
@@ -42,13 +44,13 @@ const DialogDefault: React.FC = () => {
             </div>
           </div>
           <div className='mt-4'>
-            <button
+            <ActionButton
               onClick={() => setModalOpen(false)}
               className='w-full p-3 bg-foreground text-background rounded-md'
               type='button'
             >
               Got it, thanks!
-            </button>
+            </ActionButton>
           </div>
         </ModalContent>
       </FramerModal>

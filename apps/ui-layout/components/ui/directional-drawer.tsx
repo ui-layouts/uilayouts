@@ -1,4 +1,5 @@
 'use client';
+import { Button as ActionButton } from '@ui-sdk/react/button';
 import { cn } from '@/lib/utils';
 import { X } from 'lucide-react';
 import React, { createContext, type ReactNode, useContext, useEffect, useState } from 'react';
@@ -143,12 +144,12 @@ export function DirectionalDrawer({
               }`}
             >
               {isDesktop ? (
-                <button
+                <ActionButton type='button' aria-label='Close drawer'
                   className='flex justify-end w-full absolute right-2 top-2'
                   onClick={() => setOpen(false)}
                 >
                   <X />
-                </button>
+                </ActionButton>
               ) : (
                 <div
                   className={`absolute ${directionClasses.handlePosition} mx-auto ${directionClasses.handleSize} shrink-0 rounded-full bg-muted-foreground my-4`}

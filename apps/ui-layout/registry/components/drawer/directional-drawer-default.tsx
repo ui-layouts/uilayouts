@@ -1,4 +1,5 @@
 'use client';
+import { Button as ActionButton } from '@ui-sdk/react/button';
 import {
   DirectionalDrawer,
   DrawerContent,
@@ -22,12 +23,11 @@ export default function DirectionalDrawerDefault() {
           />
           <DirectionalDrawer direction={'right'} outsideClose={true}>
             <DrawerTrigger>
-              <motion.button
-                whileTap={{ scale: 0.8 }}
+              <ActionButton aria-label='Edit profile image' render={<motion.button whileTap={{ scale: 0.8 }} />}
                 className='absolute right-2 bottom-2 p-4 bg-background rounded-lg shadow-black'
               >
                 <Edit />
-              </motion.button>
+              </ActionButton>
             </DrawerTrigger>
             <DrawerContent>
               <figure className='flex flex-col w-full h-full rounded-xl overflow-hidden'>
@@ -58,12 +58,12 @@ export default function DirectionalDrawerDefault() {
                   </div>
 
                   {/* Submit */}
-                  <button
+                  <ActionButton
                     type='submit'
                     className='w-full rounded-md bg-foreground text-background p-2 font-medium'
                   >
                     Save Changes
-                  </button>
+                  </ActionButton>
                 </div>
               </figure>
             </DrawerContent>

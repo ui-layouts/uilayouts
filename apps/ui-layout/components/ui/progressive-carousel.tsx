@@ -1,3 +1,4 @@
+import { Button as ActionButton } from '@ui-sdk/react/button';
 import { cn } from '@/lib/utils';
 import { AnimatePresence, motion } from 'motion/react';
 import React, {
@@ -177,7 +178,7 @@ export const SliderBtn: FC<SliderBtnProps> = ({ children, value, className, prog
   const { active, progress, handleButtonClick, vertical } = useProgressSliderContext();
 
   return (
-    <button
+    <ActionButton type='submit'
       className={cn(`relative ${active === value ? 'opacity-100' : 'opacity-50'}`, className)}
       onClick={() => handleButtonClick(value)}
     >
@@ -194,6 +195,6 @@ export const SliderBtn: FC<SliderBtnProps> = ({ children, value, className, prog
           }}
         />
       </div>
-    </button>
+    </ActionButton>
   );
 };

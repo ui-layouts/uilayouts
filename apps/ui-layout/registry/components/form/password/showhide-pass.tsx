@@ -1,4 +1,9 @@
 'use client';
+import {
+  PasswordInput as PasswordField,
+  PasswordInputControl,
+  PasswordInputToggle,
+} from '@ui-sdk/react/password-input';
 import { Eye, EyeOff } from 'lucide-react';
 import { useState } from 'react';
 
@@ -10,20 +15,19 @@ const PasswordInput = () => {
       <label htmlFor='pass' className='text-sm font-normal'>
         Password
       </label>
-      <div className='relative mt-1'>
-        <input
-          type={isVisible ? 'text' : 'password'}
+      <PasswordField visible={isVisible} onVisibleChange={setIsVisible} className='relative mt-1'>
+        <PasswordInputControl
           id='pass'
           placeholder='Password'
           className='bg-muted w-full outline-hidden focus-within:border-blue-700 rounded-md p-2  border-2 '
         />
-        <div
+        <PasswordInputToggle
+          aria-label='Show password'
           className='absolute top-3 right-4 text-2xl text-muted-foreground cursor-pointer'
-          onClick={() => setIsVisible((prev) => !prev)}
         >
           {isVisible ? <Eye size={22} /> : <EyeOff size={22} />}
-        </div>
-      </div>
+        </PasswordInputToggle>
+      </PasswordField>
     </div>
   );
 };

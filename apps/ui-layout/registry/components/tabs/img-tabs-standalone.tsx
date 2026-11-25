@@ -1,4 +1,5 @@
 'use client';
+import { Tabs, TabsList, TabsTab, TabsPanel } from '@ui-sdk/react/tabs';
 import { useMediaQuery } from '@/hooks/use-media-query';
 import { AnimatePresence, motion } from 'motion/react';
 import React, { useState } from 'react';
@@ -29,17 +30,19 @@ const tabs = [
   },
 ];
 function ImageTabsStandalone() {
-  const [activeIndex, setActiveIndex] = useState<number | null>(0);
-
-  const handleClick = async (index: number) => {
-    setActiveIndex(activeIndex === index ? index : index);
-  };
+  const [selected, setSelected] = useState(tabs[0].id);
+  const activeIndex = tabs.findIndex((tab) => tab.id === selected);
   const isDesktop = useMediaQuery('(min-width: 768px)');
 
   return (
     <>
-      <div className=' md:grid grid-cols-12 p-2 items-center justify-center w-full h-full'>
-        <div className='rounded-xs   col-span-5'>
+      <Tabs
+        orientation='vertical'
+        value={selected}
+        onValueChange={(next) => next !== null && setSelected(next)}
+        className=' md:grid grid-cols-12 p-2 items-center justify-center w-full h-full'
+      >
+        <TabsList aria-label='Image sections' className='rounded-xs   col-span-5'>
           {tabs.map((tab, index) => (
             <motion.div
               key={tab.id}
@@ -49,9 +52,11 @@ function ImageTabsStandalone() {
                   : 'bg-transparent border-2 dark:hover:border-[#656fe2]'
               }
             `}
-              onClick={() => handleClick(index)}
+              onClick={() => setSelected(tab.id)}
             >
-              <h3
+              <TabsTab
+                value={tab.id}
+                render={<h3 />}
                 className={`p-4 cursor-pointer transition-all font-semibold    text-foreground dark:hover:bg-[#1e2a78] hover:bg-[#F2F2F2] flex justify-between items-center ${
                   activeIndex === index
                     ? 'active  dark:bg-[#1e2a78] bg-[#F2F2F2] '
@@ -60,7 +65,7 @@ function ImageTabsStandalone() {
                `}
               >
                 {tab.title}
-              </h3>
+              </TabsTab>
               <AnimatePresence mode='sync'>
                 {activeIndex === index && (
                   <motion.div
@@ -73,18 +78,22 @@ function ImageTabsStandalone() {
                       delay: 0.14,
                     }}
                   >
-                    <p className={`dark:bg-white bg-[#F2F2F2] text-foreground p-3`}>{tab.description}</p>
-                    <img
-                      src={tab.imageUrl}
-                      alt={tab.title}
-                      className='mb-2 max-w-full h-full md:hidden block  rounded-md object-cover'
-                    />
+                    <TabsPanel value={tab.id} keepMounted hidden={false} className='contents'>
+                      <p className={`dark:bg-white bg-[#F2F2F2] text-foreground p-3`}>
+                        {tab.description}
+                      </p>
+                      <img
+                        src={tab.imageUrl}
+                        alt={tab.title}
+                        className='mb-2 max-w-full h-full md:hidden block  rounded-md object-cover'
+                      />
+                    </TabsPanel>
                   </motion.div>
                 )}
               </AnimatePresence>
             </motion.div>
           ))}
-        </div>
+        </TabsList>
         <>
           {isDesktop &&
             tabs.map((tab, index) => {
@@ -114,7 +123,7 @@ function ImageTabsStandalone() {
               );
             })}
         </>
-      </div>
+      </Tabs>
     </>
   );
 }

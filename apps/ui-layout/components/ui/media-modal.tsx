@@ -1,4 +1,5 @@
 'use client';
+import { Button as ActionButton } from '@ui-sdk/react/button';
 import { useMediaQuery } from '@/hooks/use-media-query';
 import { cn } from '@/lib/utils';
 import { XIcon } from 'lucide-react';
@@ -44,9 +45,10 @@ export function MediaModal({ imgSrc, videoSrc, className }: IMediaModal) {
     <>
       <MotionConfig transition={transition}>
         <>
-          <motion.div
+          <ActionButton
+            render={<motion.button layoutId={`dialog-${uniqueId}`} />}
+            aria-label='Open media'
             className='w-full h-full flex relative flex-col overflow-hidden border cursor-zoom-in bg-secondary hover:bg-muted'
-            layoutId={`dialog-${uniqueId}`}
             style={{
               borderRadius: '12px',
             }}
@@ -70,7 +72,7 @@ export function MediaModal({ imgSrc, videoSrc, className }: IMediaModal) {
                 </video>
               </motion.div>
             )}
-          </motion.div>
+          </ActionButton>
         </>
         <AnimatePresence initial={false} mode='popLayout'>
           {isMediaModalOpen && (
@@ -125,14 +127,14 @@ export function MediaModal({ imgSrc, videoSrc, className }: IMediaModal) {
                     </motion.div>
                   )}
                   {videoSrc && (
-                    <button
+                    <ActionButton
                       onClick={() => setIsMediaModalOpen(false)}
                       className='absolute right-6 top-6 p-3 text-foreground cursor-pointer bg-muted hover:bg-muted-foreground/30 rounded-xl'
                       type='button'
                       aria-label='Close dialog'
                     >
                       <XIcon size={24} />
-                    </button>
+                    </ActionButton>
                   )}
                 </motion.div>
               </motion.div>

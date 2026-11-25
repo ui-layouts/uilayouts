@@ -1,7 +1,9 @@
 'use client';
 
+import { Tabs, TabsTab } from '@ui-sdk/react/tabs';
+export { TabsList } from '@ui-sdk/react/tabs';
 import { cn } from '@/lib/utils';
-import { AnimatePresence, motion } from 'motion/react';
+import { AnimatePresence, LayoutGroup, motion } from 'motion/react';
 import React, {
   createContext,
   isValidElement,
@@ -14,6 +16,7 @@ import React, {
 
 // Improved TypeScript interfaces with more specific types
 interface TabContextType {
+  id: string;
   activeTab: string;
   setActiveTab: (value: string) => void;
   wobbly: boolean;
@@ -61,6 +64,7 @@ export const TabsProvider: React.FC<TabsProviderProps> = React.memo(
     // Use useCallback to memoize state setters
     const [activeTab, setActiveTab] = useState(defaultValue);
     const [prevIndex, setPrevIndex] = useState(0);
+    const id = React.useId();
 
     // Memoize tabs order to prevent unnecessary recalculations
     const tabsOrder = useMemo(() => {
@@ -69,11 +73,21 @@ export const TabsProvider: React.FC<TabsProviderProps> = React.memo(
         .map((child) => (child as React.ReactElement<any>).props.value);
     }, [children]);
 
+    const selectTab = useCallback(
+      (value: string | null) => {
+        if (value === null || value === activeTab) return;
+        setPrevIndex(tabsOrder.indexOf(activeTab));
+        setActiveTab(value);
+      },
+      [activeTab, tabsOrder]
+    );
+
     // Memoize context value to prevent unnecessary re-renders
     const contextValue = useMemo(
       () => ({
         activeTab,
-        setActiveTab,
+        id,
+        setActiveTab: selectTab,
         wobbly,
         hover,
         defaultValue,
@@ -81,30 +95,35 @@ export const TabsProvider: React.FC<TabsProviderProps> = React.memo(
         prevIndex,
         tabsOrder,
       }),
-      [activeTab, setActiveTab, wobbly, hover, defaultValue, prevIndex, tabsOrder]
+      [activeTab, id, selectTab, wobbly, hover, defaultValue, prevIndex, tabsOrder]
     );
 
-    return <TabContext.Provider value={contextValue}>{children}</TabContext.Provider>;
+    return (
+      <TabContext.Provider value={contextValue}>
+        <Tabs
+          className='contents'
+          value={activeTab}
+          onValueChange={selectTab}
+          activation={hover ? 'automatic' : 'manual'}
+        >
+          <LayoutGroup id={id}>{children}</LayoutGroup>
+        </Tabs>
+      </TabContext.Provider>
+    );
   }
 );
 
 // Memoized TabsBtn component
 export const TabsBtn: React.FC<TabsBtnProps> = React.memo(({ children, className, value }) => {
-  const { activeTab, setPrevIndex, setActiveTab, defaultValue, hover, wobbly, tabsOrder } =
-    useTabs();
-
-  // Use useCallback to memoize the click handler
-  const handleClick = useCallback(() => {
-    setPrevIndex(tabsOrder.indexOf(activeTab));
-    setActiveTab(value);
-  }, [setPrevIndex, tabsOrder, activeTab, setActiveTab, value]);
+  const { id, activeTab, setActiveTab, hover, wobbly } = useTabs();
 
   return (
-    <motion.div
+    <TabsTab
+      value={value}
+      id={`${id}-tab-${value}`}
+      aria-controls={`${id}-panel-${value}`}
       className={cn(`cursor-pointer 2xl:p-2 p-2 2xl:px-4 px-2 rounded-md relative`, className)}
-      onFocus={() => hover && handleClick()}
-      onMouseEnter={() => hover && handleClick()}
-      onClick={handleClick}
+      onMouseEnter={() => hover && setActiveTab(value)}
     >
       {children}
 
@@ -119,7 +138,7 @@ export const TabsBtn: React.FC<TabsBtnProps> = React.memo(({ children, className
                   delay: 0.2,
                 },
               }}
-              layoutId={defaultValue}
+              layoutId='indicator'
               className='absolute w-full h-full left-0 top-0 bg-card dark:bg-secondary rounded-md z-1'
             />
 
@@ -133,7 +152,7 @@ export const TabsBtn: React.FC<TabsBtnProps> = React.memo(({ children, className
                       delay: 0.04,
                     },
                   }}
-                  layoutId={defaultValue}
+                  layoutId='trail-front'
                   className='absolute w-full h-full left-0 top-0 bg-card rounded-md z-1 tab-shadow'
                 />
                 <motion.div
@@ -144,7 +163,7 @@ export const TabsBtn: React.FC<TabsBtnProps> = React.memo(({ children, className
                       delay: 0.2,
                     },
                   }}
-                  layoutId={`${defaultValue}b`}
+                  layoutId='trail-back'
                   className='absolute w-full h-full left-0 top-0 bg-card rounded-md z-1 tab-shadow'
                 />
               </>
@@ -152,14 +171,14 @@ export const TabsBtn: React.FC<TabsBtnProps> = React.memo(({ children, className
           </>
         )}
       </AnimatePresence>
-    </motion.div>
+    </TabsTab>
   );
 });
 
 // Memoized TabsContent component
 export const TabsContent: React.FC<TabsContentProps> = React.memo(
   ({ children, className, value, yValue }) => {
-    const { activeTab, tabsOrder, prevIndex } = useTabs();
+    const { id, activeTab, tabsOrder, prevIndex } = useTabs();
 
     // Memoize direction calculation
     const isForward = useMemo(
@@ -171,6 +190,10 @@ export const TabsContent: React.FC<TabsContentProps> = React.memo(
       <AnimatePresence mode='popLayout'>
         {activeTab === value && (
           <motion.div
+            role='tabpanel'
+            id={`${id}-panel-${value}`}
+            aria-labelledby={`${id}-tab-${value}`}
+            tabIndex={0}
             initial={{ opacity: 0, y: yValue ? (isForward ? 10 : -10) : 0 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: yValue ? (isForward ? -50 : 50) : 0 }}

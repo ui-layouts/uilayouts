@@ -1,4 +1,5 @@
 'use client';
+import { Button as ActionButton } from '@ui-sdk/react/button';
 import { transition } from '@/lib/utils';
 import { XIcon } from 'lucide-react';
 import { AnimatePresence, MotionConfig, motion } from 'motion/react';
@@ -150,14 +151,14 @@ export default function Dialog() {
                     </motion.div>
                   )}
 
-                  <button
+                  <ActionButton
                     onClick={() => setIsOpen(false)}
                     className='absolute right-6 top-6 p-3 text-muted-foreground cursor-pointer bg-muted hover:bg-muted/80 rounded-full'
                     type='button'
                     aria-label='Close dialog'
                   >
                     <XIcon size={24} />
-                  </button>
+                  </ActionButton>
                 </motion.div>
               </motion.div>
             </>

@@ -1,5 +1,6 @@
 'use client';
 
+import { Button as ActionButton } from '@ui-sdk/react/button';
 import { cn } from '@/lib/utils';
 import type { EmblaCarouselType, EmblaEventType, EmblaOptionsType } from 'embla-carousel';
 import useEmblaCarousel from 'embla-carousel-react';
@@ -365,20 +366,21 @@ Slider.displayName = 'Slider';
 export const SliderPrevButton = forwardRef<
   HTMLButtonElement,
   React.ButtonHTMLAttributes<HTMLButtonElement>
->(({ children, className, ...props }, ref) => {
+>(({ children, className, onClick, ...props }, ref) => {
   const { onPrevButtonClick, prevBtnDisabled } = useCarousel();
 
   return (
-    <button
+    <ActionButton
       ref={ref}
       type='button'
-      onClick={onPrevButtonClick}
+      aria-label='Previous slide'
+      onClick={onClick ? (event) => onClick(event as React.MouseEvent<HTMLButtonElement>) : onPrevButtonClick}
       disabled={prevBtnDisabled}
       className={cn('', className)}
       {...props}
     >
       {children}
-    </button>
+    </ActionButton>
   );
 });
 
@@ -387,20 +389,21 @@ SliderPrevButton.displayName = 'SliderPrevButton';
 export const SliderNextButton = forwardRef<
   HTMLButtonElement,
   React.ButtonHTMLAttributes<HTMLButtonElement>
->(({ children, className, ...props }, ref) => {
+>(({ children, className, onClick, ...props }, ref) => {
   const { onNextButtonClick, nextBtnDisabled } = useCarousel();
 
   return (
-    <button
+    <ActionButton
       ref={ref}
       type='button'
-      onClick={onNextButtonClick}
+      aria-label='Next slide'
+      onClick={onClick ? (event) => onClick(event as React.MouseEvent<HTMLButtonElement>) : onNextButtonClick}
       disabled={nextBtnDisabled}
       className={cn('', className)}
       {...props}
     >
       {children}
-    </button>
+    </ActionButton>
   );
 });
 
@@ -481,8 +484,9 @@ export const SliderDotButton = forwardRef<HTMLDivElement, SliderDotButtonProps>(
     return (
       <div ref={ref} className={cn('flex gap-2', className)} {...props}>
         {scrollSnaps.map((_, index) => (
-          <button
+          <ActionButton
             key={`${carouselId}-dot-${_}`}
+            aria-label={`Go to slide ${index + 1}`}
             type='button'
             onClick={() => onDotButtonClick(index)}
             className={cn(
@@ -515,7 +519,7 @@ export const SliderDotButton = forwardRef<HTMLDivElement, SliderDotButtonProps>(
                 />
               </AnimatePresence>
             )}
-          </button>
+          </ActionButton>
         ))}
       </div>
     );
@@ -530,15 +534,15 @@ interface CarouselIndicatorProps extends React.ButtonHTMLAttributes<HTMLButtonEl
 }
 
 export const CarouselIndicator = forwardRef<HTMLButtonElement, CarouselIndicatorProps>(
-  ({ className, index, ...props }, ref) => {
+  ({ className, index, onClick, ...props }, ref) => {
     const { selectedIndex, onDotButtonClick } = useCarousel();
     const isActive = selectedIndex === index;
 
     return (
-      <button
+      <ActionButton
         ref={ref}
         type='button'
-        onClick={() => onDotButtonClick(index)}
+        onClick={onClick ? (event) => onClick(event as React.MouseEvent<HTMLButtonElement>) : () => onDotButtonClick(index)}
         className={cn(
           'h-1.5 w-6 rounded-full transition-colors',
           isActive ? 'bg-primary' : 'bg-primary/50',
@@ -548,7 +552,7 @@ export const CarouselIndicator = forwardRef<HTMLButtonElement, CarouselIndicator
         {...props}
       >
         <span className='sr-only'>Slide {index + 1}</span>
-      </button>
+      </ActionButton>
     );
   }
 );

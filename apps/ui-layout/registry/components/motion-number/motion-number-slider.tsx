@@ -12,7 +12,8 @@ export default function MotionNumberSlider() {
           <DualRangeSlider
             label
             lableContenPos={'left'}
-            value={[widthPercentage]}
+            aria-label='Width'
+          value={[widthPercentage]}
             onValueChange={([widthPercentage]) =>
               widthPercentage != null && setWidthPercentage(widthPercentage)
             }

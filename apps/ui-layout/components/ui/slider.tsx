@@ -1,4 +1,6 @@
 'use client';
+import { slider } from '@ui-sdk/core/slider';
+import { usePart, usePrimitive } from '@ui-sdk/react/primitive';
 
 import { cn } from '@/lib/utils';
 import NumberFlow from '@number-flow/react';
@@ -16,27 +18,104 @@ const DualRangeSlider = React.forwardRef<
   React.ElementRef<typeof SliderPrimitive.Root>,
   DualRangeSliderProps
 >(({ className, label, labelPosition = 'top', lableContenPos = 'right', ...props }, ref) => {
-  const initialValue = Array.isArray(props.value) ? props.value : [props.min, props.max];
+  const [uncontrolled, setUncontrolled] = React.useState(
+    () => props.defaultValue ?? [props.min ?? 0]
+  );
+  const values = props.value ?? uncontrolled;
+  const change = (next: number[]) => {
+    if (props.value === undefined) setUncontrolled(next);
+    props.onValueChange?.(next);
+  };
+  const handle = usePrimitive(slider, {
+    value: values,
+    min: props.min,
+    max: props.max,
+    step: props.step,
+    orientation: props.orientation,
+    minStepsBetweenThumbs: props.minStepsBetweenThumbs,
+    disabled: props.disabled,
+    onValueChange: (next) => change(Array.isArray(next) ? next : [next]),
+  });
 
-  return (
-    <SliderPrimitive.Root
-      ref={ref}
-      className={cn('relative flex w-full touch-none select-none items-center', className)}
-      {...props}
-    >
-      <SliderPrimitive.Track className='relative h-6 w-full grow overflow-hidden bg-[linear-gradient(to_right,#e2e2e22c_1px,transparent_1px),linear-gradient(to_bottom,#9c9c9c2c_1px,transparent_1px)] bg-size-[4px_4px] bg-background rounded-md dark:bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)]'>
-        <SliderPrimitive.Range className='absolute h-full bg-primary' />
-      </SliderPrimitive.Track>
-      <>
-        {initialValue.map((value, index) => (
-          <React.Fragment key={`thumb-${index}`}>
-            <SliderPrimitive.Thumb className='relative grid h-6 w-3 cursor-grab place-content-center bg-primary shadow-sm focus-visible:outline-hidden focus-visible:ring-1 focus-visible:ring-ring'>
-              {label && labelPosition !== 'static' && (
+  // Keep Radix's thumb geometry, form inputs and pointer/keyboard commit behavior.
+  return usePart(
+    handle,
+    'root',
+    {},
+    {
+      render: (
+        <SliderPrimitive.Root
+          {...props}
+          ref={ref}
+          aria-label={props['aria-label'] ?? 'Range'}
+          className={cn('relative flex w-full touch-none select-none items-center', className)}
+          value={values}
+          onValueChange={change}
+        />
+      ),
+      children: (
+        <>
+          <SliderPrimitive.Track className='relative h-6 w-full grow overflow-hidden bg-[linear-gradient(to_right,#e2e2e22c_1px,transparent_1px),linear-gradient(to_bottom,#9c9c9c2c_1px,transparent_1px)] bg-size-[4px_4px] bg-background rounded-md dark:bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)]'>
+            <SliderPrimitive.Range className='absolute h-full bg-primary' />
+          </SliderPrimitive.Track>
+          <>
+            {values.map((value, index) => (
+              <React.Fragment key={`thumb-${index}`}>
+                <SliderPrimitive.Thumb className='relative grid h-6 w-3 cursor-grab place-content-center bg-primary shadow-sm focus-visible:outline-hidden focus-visible:ring-1 focus-visible:ring-ring'>
+                  {label && labelPosition !== 'static' && (
+                    <div
+                      className={cn(
+                        'absolute flex w-full justify-center items-start gap-0.5',
+                        labelPosition === 'top' && '-top-7',
+                        labelPosition === 'bottom' && 'top-4'
+                      )}
+                    >
+                      {lableContenPos === 'left' && (
+                        <>
+                          {typeof label === 'function' ? (
+                            <span className='inline-block  -translate-y-0.5'>{label(value)}</span>
+                          ) : (
+                            label && <span className='inline-block '>{label}</span>
+                          )}
+                        </>
+                      )}
+                      <NumberFlow
+                        willChange
+                        value={value}
+                        isolate
+                        opacityTiming={{
+                          duration: 250,
+                          easing: 'ease-out',
+                        }}
+                        transformTiming={{
+                          easing: `linear(0, 0.0033 0.8%, 0.0263 2.39%, 0.0896 4.77%, 0.4676 15.12%, 0.5688, 0.6553, 0.7274, 0.7862, 0.8336 31.04%, 0.8793, 0.9132 38.99%, 0.9421 43.77%, 0.9642 49.34%, 0.9796 55.71%, 0.9893 62.87%, 0.9952 71.62%, 0.9983 82.76%, 0.9996 99.47%)`,
+                          duration: 500,
+                        }}
+                      />
+                      {lableContenPos === 'right' && (
+                        <>
+                          {typeof label === 'function' ? (
+                            <span className='inline-block  -translate-y-1'>{label(value)}</span>
+                          ) : (
+                            label && <span className='inline-block '>{label}</span>
+                          )}
+                        </>
+                      )}
+                    </div>
+                  )}
+                  <GripVertical size={16} className='px-0.5 text-primary-foreground' />
+                </SliderPrimitive.Thumb>
+              </React.Fragment>
+            ))}
+          </>
+
+          {label && labelPosition === 'static' && (
+            <>
+              {values.map((value, index) => (
                 <div
+                  key={`${value}-${index}`}
                   className={cn(
-                    'absolute flex w-full justify-center items-start gap-0.5',
-                    labelPosition === 'top' && '-top-7',
-                    labelPosition === 'bottom' && 'top-4'
+                    'absolute -top-7 w-fit right-0 flex  justify-center items-start gap-0.5'
                   )}
                 >
                   {lableContenPos === 'left' && (
@@ -50,7 +129,6 @@ const DualRangeSlider = React.forwardRef<
                   )}
                   <NumberFlow
                     willChange
-                    // @ts-expect-error
                     value={value}
                     isolate
                     opacityTiming={{
@@ -72,59 +150,12 @@ const DualRangeSlider = React.forwardRef<
                     </>
                   )}
                 </div>
-              )}
-              <GripVertical size={16} className='px-0.5 text-primary-foreground' />
-            </SliderPrimitive.Thumb>
-          </React.Fragment>
-        ))}
-      </>
-
-      {label && labelPosition === 'static' && (
-        <>
-          {initialValue.map((value, index) => (
-            <div
-              key={`${value}-${index}`}
-              className={cn(
-                'absolute -top-7 w-fit right-0 flex  justify-center items-start gap-0.5'
-              )}
-            >
-              {lableContenPos === 'left' && (
-                <>
-                  {typeof label === 'function' ? (
-                    <span className='inline-block  -translate-y-0.5'>{label(value)}</span>
-                  ) : (
-                    label && <span className='inline-block '>{label}</span>
-                  )}
-                </>
-              )}
-              <NumberFlow
-                willChange
-                // @ts-expect-error
-                value={value}
-                isolate
-                opacityTiming={{
-                  duration: 250,
-                  easing: 'ease-out',
-                }}
-                transformTiming={{
-                  easing: `linear(0, 0.0033 0.8%, 0.0263 2.39%, 0.0896 4.77%, 0.4676 15.12%, 0.5688, 0.6553, 0.7274, 0.7862, 0.8336 31.04%, 0.8793, 0.9132 38.99%, 0.9421 43.77%, 0.9642 49.34%, 0.9796 55.71%, 0.9893 62.87%, 0.9952 71.62%, 0.9983 82.76%, 0.9996 99.47%)`,
-                  duration: 500,
-                }}
-              />
-              {lableContenPos === 'right' && (
-                <>
-                  {typeof label === 'function' ? (
-                    <span className='inline-block  -translate-y-1'>{label(value)}</span>
-                  ) : (
-                    label && <span className='inline-block '>{label}</span>
-                  )}
-                </>
-              )}
-            </div>
-          ))}
+              ))}
+            </>
+          )}
         </>
-      )}
-    </SliderPrimitive.Root>
+      ),
+    }
   );
 });
 DualRangeSlider.displayName = 'DualRangeSlider';

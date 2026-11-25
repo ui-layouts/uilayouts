@@ -1,7 +1,10 @@
 'use client';
+import { Button } from '@ui-sdk/react/button';
 import { useRef, useState } from 'react';
 
-const ButtonAnimatedGradient = () => {
+const ButtonAnimatedGradient = (
+  props: Pick<React.ComponentProps<typeof Button>, 'onClick' | 'disabled' | 'type' | 'aria-label'>
+) => {
   const divRef = useRef<HTMLButtonElement>(null);
   const [isFocused, setIsFocused] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -36,7 +39,8 @@ const ButtonAnimatedGradient = () => {
 
   return (
     <>
-      <button
+      <Button
+        {...props}
         ref={divRef}
         onMouseMove={handleMouseMove}
         onFocus={handleFocus}
@@ -53,7 +57,7 @@ const ButtonAnimatedGradient = () => {
           }}
         />
         <span className='relative z-20'>Click Me</span>
-      </button>
+      </Button>
     </>
   );
 };

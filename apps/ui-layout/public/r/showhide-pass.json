@@ -2,14 +2,16 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "showhide-pass",
   "dependencies": [
-    "lucide-react"
+    "lucide-react",
+    "@ui-sdk/react@0.1.0-beta.13",
+    "@ui-sdk/core@0.1.0-beta.13"
   ],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [
     {
       "path": "./registry/components/form/password/showhide-pass.tsx",
-      "content": "'use client';\nimport { Eye, EyeOff } from 'lucide-react';\nimport { useState } from 'react';\n\nconst PasswordInput = () => {\n  const [isVisible, setIsVisible] = useState(false);\n\n  return (\n    <div className='w-96 mx-auto py-14'>\n      <label htmlFor='pass' className='text-sm font-normal'>\n        Password\n      </label>\n      <div className='relative mt-1'>\n        <input\n          type={isVisible ? 'text' : 'password'}\n          id='pass'\n          placeholder='Password'\n          className='dark:bg-neutral-950 bg-neutral-50 w-full outline-hidden focus-within:border-blue-700 rounded-md p-2  border-2 '\n        />\n        <div\n          className='absolute top-3 right-4 text-2xl text-neutral-500 cursor-pointer'\n          onClick={() => setIsVisible((prev) => !prev)}\n        >\n          {isVisible ? <Eye size={22} /> : <EyeOff size={22} />}\n        </div>\n      </div>\n    </div>\n  );\n};\n\nexport default PasswordInput;\n",
+      "content": "'use client';\nimport {\n  PasswordInput as PasswordField,\n  PasswordInputControl,\n  PasswordInputToggle,\n} from '@ui-sdk/react/password-input';\nimport { Eye, EyeOff } from 'lucide-react';\nimport { useState } from 'react';\n\nconst PasswordInput = () => {\n  const [isVisible, setIsVisible] = useState(false);\n\n  return (\n    <div className='w-96 mx-auto py-14'>\n      <label htmlFor='pass' className='text-sm font-normal'>\n        Password\n      </label>\n      <PasswordField visible={isVisible} onVisibleChange={setIsVisible} className='relative mt-1'>\n        <PasswordInputControl\n          id='pass'\n          placeholder='Password'\n          className='bg-muted w-full outline-hidden focus-within:border-blue-700 rounded-md p-2  border-2 '\n        />\n        <PasswordInputToggle\n          aria-label='Show password'\n          className='absolute top-3 right-4 text-2xl text-muted-foreground cursor-pointer'\n        >\n          {isVisible ? <Eye size={22} /> : <EyeOff size={22} />}\n        </PasswordInputToggle>\n      </PasswordField>\n    </div>\n  );\n};\n\nexport default PasswordInput;\n",
       "type": "registry:component"
     }
   ],

@@ -1,5 +1,6 @@
 'use client';
 
+import { ColorPicker as SDKColorPicker } from '@ui-sdk/react/color-picker';
 import { Button } from '@/components/website/ui/button';
 import { Input } from '@/components/website/ui/input';
 import { Label } from '@/components/website/ui/label';
@@ -52,7 +53,13 @@ export function ColorPicker({
   }
 
   return (
-    <div className={cn('flex items-center gap-2', className)}>
+    <SDKColorPicker
+      value={color}
+      onValueChange={onChange}
+      format='hex'
+      aria-label={label}
+      className={cn('flex items-center gap-2', className)}
+    >
       <Label className='w-24'>{label}</Label>
       <Popover>
         <PopoverTrigger asChild>
@@ -105,6 +112,6 @@ export function ColorPicker({
           )}
         </PopoverContent>
       </Popover>
-    </div>
+    </SDKColorPicker>
   );
 }

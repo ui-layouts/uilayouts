@@ -1,4 +1,5 @@
 'use client';
+import { Button as ActionButton } from '@ui-sdk/react/button';
 import {
   ResponsiveModal,
   ResponsiveModalContent,
@@ -19,24 +20,23 @@ export default function MyDrawer() {
   return (
     <>
       {/* <div className='flex justify-between'>
-        <motion.button
+        <ActionButton render={<motion.button whileTap={{ scale: 0.9 }} />}
           onClick={() => setDrawerOpen(true)}
-          whileTap={{ scale: 0.9 }}
+
           className='inline-flex h-12 w-fit mx-auto animate-background-shine items-center justify-center rounded-md  border-2 dark:border-[#656fe2] border-[#c0c6fc] dark:bg-[linear-gradient(110deg,#1e2a78,45%,#3749be,55%,#1e2a78)] bg-[linear-gradient(110deg,#3d5af1,45%,#5471ff,55%,#3d5af1)] bg-size-[200%_100%] dark:hover:border-white px-6 font-medium text-white dark:text-white transition-colors focus:outline-hidden focus:ring-2 dark:focus:ring-neutral-400 focus:ring-offset-2 focus:ring-offset-neutral-50'
         >
           Open Dialog
-        </motion.button>
+        </ActionButton>
       </div> */}
       {/* <ResponsiveModal open={drawerOpen} setOpen={setDrawerOpen}> */}
       <div className='flex justify-center items-center'>
         <ResponsiveModal>
           <ResponsiveModalTrigger asChild>
-            <motion.button
-              whileTap={{ scale: 0.9 }}
+            <ActionButton render={<motion.button whileTap={{ scale: 0.9 }} />}
               className='inline-flex h-12 w-fit mx-auto animate-background-shine items-center justify-center rounded-md  border-2 dark:border-[#656fe2] border-[#c0c6fc] dark:bg-[linear-gradient(110deg,#1e2a78,45%,#3749be,55%,#1e2a78)] bg-[linear-gradient(110deg,#3d5af1,45%,#5471ff,55%,#3d5af1)] bg-size-[200%_100%] dark:hover:border-white px-6 font-medium text-white dark:text-white transition-colors focus:outline-hidden focus:ring-2 dark:focus:ring-neutral-400 focus:ring-offset-2 focus:ring-offset-neutral-50'
             >
               Open Dialog
-            </motion.button>
+            </ActionButton>
           </ResponsiveModalTrigger>
           <ResponsiveModalContent>
             <figure className='flex flex-col space-y-1.5 text-center  h-fit bg-muted md:p-4 p-6'>
@@ -57,13 +57,13 @@ export default function MyDrawer() {
                     id='formFile'
                   />
                 </div>
-                <button
+                <ActionButton
                   type='submit'
                   onClick={handleSubmit}
                   className='w-full rounded-xs bg-foreground p-2 text-background'
                 >
                   Submit
-                </button>
+                </ActionButton>
               </div>
             </figure>
           </ResponsiveModalContent>

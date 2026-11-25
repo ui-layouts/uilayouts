@@ -1,4 +1,5 @@
 'use client';
+import { Button as ActionButton } from '@ui-sdk/react/button';
 import { cn } from '@/lib/utils';
 import NumberFlow, { useCanAnimate } from '@number-flow/react';
 import { ArrowUp } from 'lucide-react';
@@ -65,7 +66,7 @@ export default function NumberFlowTrading() {
   return (
     <>
       <PriceWithDiff value={numbers[currentIndex]} diff={diffs[currentIndex]} />
-      <button
+      <ActionButton type='submit'
         onClick={handleCustomClick}
         className='flex h-11 mt-4 w-fit mx-auto items-center gap-2 rounded-full bg-card px-5 text-sm font-medium text-card-foreground transition duration-[.16s] ease-[cubic-bezier(.4,0,.2,1)] hover:brightness-125 active:scale-[98%] active:brightness-98 active:duration-25'
       >
@@ -78,7 +79,7 @@ export default function NumberFlowTrading() {
           ></path>
         </svg>
         Shuffle
-      </button>
+      </ActionButton>
     </>
   );
 }

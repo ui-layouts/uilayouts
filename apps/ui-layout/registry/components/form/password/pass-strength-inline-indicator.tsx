@@ -1,4 +1,9 @@
 'use client';
+import {
+  PasswordInput as PasswordField,
+  PasswordInputControl,
+  PasswordInputToggle,
+} from '@ui-sdk/react/password-input';
 // shaadcn hover card
 import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/website/ui/hover-card';
 import { Check, Eye, EyeOff, Info, X } from 'lucide-react';
@@ -101,12 +106,15 @@ const PasswordInput = () => {
             </HoverCardContent>
           </HoverCard>
         </div>
-        <div className='relative'>
-          <input
+        <PasswordField
+          value={password}
+          onValueChange={setPassword}
+          visible={isVisible}
+          onVisibleChange={setIsVisible}
+          className='relative'
+        >
+          <PasswordInputControl
             id='password'
-            type={isVisible ? 'text' : 'password'}
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
             placeholder='Password'
             aria-invalid={calculateStrength.score < 4}
             aria-describedby='password-strength'
@@ -114,15 +122,14 @@ const PasswordInput = () => {
               STRENGTH_CONFIG.colors[calculateStrength.score]
             } transition-all w-full p-2 border-2 rounded-md bg-muted outline-hidden`}
           />
-          <button
+          <PasswordInputToggle
             type='button'
-            onClick={() => setIsVisible((prev) => !prev)}
             aria-label={isVisible ? 'Hide password' : 'Show password'}
             className='absolute inset-y-0 right-0 outline-hidden flex items-center justify-center w-9 text-muted-foreground/80 hover:text-foreground  '
           >
             {isVisible ? <EyeOff size={16} /> : <Eye size={16} />}
-          </button>
-        </div>
+          </PasswordInputToggle>
+        </PasswordField>
       </form>
     </div>
   );

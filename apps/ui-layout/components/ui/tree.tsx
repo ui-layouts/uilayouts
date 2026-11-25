@@ -1,5 +1,6 @@
 'use client';
 
+import { Tree, TreeItem, TreeItemLabel } from '@ui-sdk/react/tree';
 import { cn } from '@/lib/utils';
 import { ChevronRight, File, Folder, FolderOpen } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
@@ -141,14 +142,28 @@ export const TreeProvider = ({
         animateExpand,
       }}
     >
-      <motion.div
-        animate={{ opacity: 1, y: 0 }}
+      <Tree
+        mode={selectable ? (multiSelect ? 'multiple' : 'single') : 'none'}
+        value={multiSelect ? currentSelectedIds : (currentSelectedIds[0] ?? null)}
+        expanded={Array.from(expandedIds)}
+        onExpandedChange={(next) => setExpandedIds(new Set(next))}
+        onValueChange={(next) => {
+          const selection = Array.isArray(next) ? next : next === null ? [] : [next];
+          if (!isControlled) setInternalSelectedIds(selection);
+          onSelectionChange?.(selection);
+        }}
+        aria-label='File tree'
+        render={
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
+          />
+        }
         className={cn('w-full', className)}
-        initial={{ opacity: 0, y: 10 }}
-        transition={{ duration: 0.3, ease: 'easeOut' }}
       >
         {children}
-      </motion.div>
+      </Tree>
     </TreeContext.Provider>
   );
 };
@@ -206,9 +221,14 @@ export const TreeNode = ({
         isFolder,
       }}
     >
-      <div className={cn('select-none', className)} {...props}>
+      <TreeItem
+        value={nodeId}
+        branch={isFolder || undefined}
+        render={<div {...props} />}
+        className={cn('select-none', className)}
+      >
         {children}
-      </div>
+      </TreeItem>
     </TreeNodeContext.Provider>
   );
 };
@@ -234,6 +254,7 @@ export const TreeNodeTrigger = ({
         className
       )}
       onClick={(e) => {
+        e.stopPropagation();
         toggleExpanded(nodeId);
 
         // 🔥 Prevent folder from clearing file selection
@@ -432,5 +453,8 @@ export const TreeIcon = ({ icon, hasChildren = false, className, ...props }: Tre
 export type TreeLabelProps = HTMLAttributes<HTMLSpanElement>;
 
 export const TreeLabel = ({ className, ...props }: TreeLabelProps) => (
-  <span className={cn('font flex-1 truncate text-sm text-primary/70', className)} {...props} />
+  <TreeItemLabel
+    render={<span {...props} />}
+    className={cn('font flex-1 truncate text-sm text-primary/70', className)}
+  />
 );
