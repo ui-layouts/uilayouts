@@ -6,7 +6,6 @@ import { stampEffects } from './trail-stamp-effects';
 
 const TrailCanvas = lazy(() => import('./trail-canvas'));
 
-type PhotoPreviewId = Exclude<keyof typeof stampEffects, 'cursor-trailer' | 'image-shrink'>;
 export type ImageTrailPreviewVariant = keyof typeof stampEffects | 'motion-gooey';
 
 const photos = [
@@ -19,7 +18,8 @@ const photos = [
   '1792081863451-1236a1248831',
 ].map((id) => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=480&q=80`);
 
-const photoTitles: Record<PhotoPreviewId, string> = {
+const trailTitles: Record<Exclude<keyof typeof stampEffects, 'cursor-trailer'>, string> = {
+  'image-shrink': 'Take the detour.',
   'image-bloom': 'Let color bloom.',
   'image-fall': 'Let it fall.',
   'motion-classic': 'Motion never stops.',
@@ -89,12 +89,6 @@ const trailFonts = `
 const displayTitle =
   'pointer-events-none px-4 text-center text-[clamp(2.75rem,8.5cqw,5.5rem)] leading-[0.95] font-normal [font-family:Trail_Instrument_Serif,Georgia,serif]';
 
-const hint = (
-  <p className='pointer-events-none text-center text-sm font-medium'>
-    Move or drag to reveal the trail
-  </p>
-);
-
 function ExampleStage({
   id,
   stickers,
@@ -138,13 +132,9 @@ function ExampleStage({
         }
         className='@container h-[clamp(300px,55vw,520px)] bg-white text-[#151510] [&>[aria-hidden=true]]:z-20'
       >
-        {shrink ? (
-          hint
-        ) : (
-          <h2 className='pointer-events-none text-balance px-4 text-center text-[clamp(2.75rem,11cqw,8rem)] leading-[0.9] font-bold tracking-[-0.08em] [font-family:Trail_Inter,Arial,sans-serif]'>
-            {photoTitles[id]}
-          </h2>
-        )}
+        <h2 className='pointer-events-none text-balance px-4 text-center text-[clamp(2.75rem,11cqw,8rem)] leading-[0.9] font-bold tracking-[-0.08em] [font-family:Trail_Inter,Arial,sans-serif]'>
+          {trailTitles[id]}
+        </h2>
       </ImageMouseTrail>
     );
   }

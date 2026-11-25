@@ -1038,13 +1038,13 @@ export type ComponentMeta = {
   tags: string[];
 };
 
-const cursorTrailerPreviews = [
-  { variant: 'image-shrink', name: 'shrink-away', title: 'Cursor Trailer – Shrink Away' },
-  { variant: 'image-bloom', name: 'bloom-out', title: 'Cursor Trailer – Bloom Out' },
-  { variant: 'image-fall', name: 'gravity-drop', title: 'Cursor Trailer – Gravity Drop' },
-  { variant: 'motion-classic', name: 'classic', title: 'Cursor Trailer – Classic' },
-  { variant: 'motion-innerscape', name: 'innerscape', title: 'Cursor Trailer – Innerscape' },
-  { variant: 'cursor-trailer', name: 'clay-stickers', title: 'Cursor Trailer – Clay Stickers' },
+const imageTrailPreviews = [
+  { variant: 'cursor-trailer', name: 'clay-stickers', title: 'Cursor Trailer' },
+  { variant: 'image-shrink', name: 'shrink-away', title: 'Shrink Away' },
+  { variant: 'image-bloom', name: 'bloom-out', title: 'Bloom Out' },
+  { variant: 'image-fall', name: 'gravity-drop', title: 'Gravity Drop' },
+  { variant: 'motion-classic', name: 'classic', title: 'Classic' },
+  { variant: 'motion-innerscape', name: 'innerscape', title: 'Innerscape' },
 ] as const;
 
 export const AllComponents: IAllComponents[] = [
@@ -3060,7 +3060,7 @@ export const AllComponents: IAllComponents[] = [
     iframeSrc: 'live-components/image-mousetrail-explorer',
   },
 
-  ...cursorTrailerPreviews.map(({ variant, name, title }) => {
+  ...imageTrailPreviews.map(({ variant, name, title }) => {
     const slug = `image-mousetrail-${name}`;
     return {
       category: DOCS_CATEGORY_KEY['image-mousetrail'],
