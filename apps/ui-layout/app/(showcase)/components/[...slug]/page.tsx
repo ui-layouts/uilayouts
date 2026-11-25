@@ -2,7 +2,7 @@ import { BreadcrumbStructuredData } from '@/components/seo/breadcrumb-structured
 import { StructuredData } from '@/components/seo/structured-data';
 import { ClientPreCode } from '@/components/website/code-components/client-pre-code';
 import { highlightCode } from '@/lib/shiki-highlighter';
-import { ComponentPagination } from '@/components/website/code-components/pagination';
+import { ComponentPagination, getAdjacentComponents } from '@/components/website/code-components/pagination';
 import ExampleShowcase from './example-showcase';
 import { getShowcase } from '@/lib/showcase';
 import Link from 'next/link';
@@ -122,7 +122,7 @@ export default async function DocPage(props: {
           },
         ]}
       />
-      <ExampleShowcase key={slug} slug={slug} title={title} examples={examples}>
+      <ExampleShowcase key={slug} slug={slug} title={title} examples={examples} neighbors={getAdjacentComponents(slug)}>
       <article id="component-details" tabIndex={-1} className={styles.details} aria-labelledby='component-title'>
         {!showcase && <Link href='/components'>← Components</Link>}
         <h1 id='component-title'>{title}</h1>

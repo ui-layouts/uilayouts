@@ -77,7 +77,7 @@
 .details h1 { scroll-margin-top: 85px; }
 .details { max-width: 1380px; margin-inline: auto; }
 
-.page { font-family: var(--font-dmSans), system-ui, sans-serif; }
+
 .details { scroll-margin-top: 72px; }
 @media (min-width: 1440px) {
   :global(body:has([data-docked])) .page { margin-inline-start: 280px; }

@@ -2,10 +2,10 @@ import { groupedDocsNavigationCategories } from '@/lib/grouped-docs';
 import { ChevronsLeft, ChevronsRight } from 'lucide-react';
 import Link from 'next/link';
 
-export function ComponentPagination({ doc }: any) {
+export function getAdjacentComponents(slug: string) {
   const flatDocsNavigationCategories = Object.values(groupedDocsNavigationCategories).flat();
   const currentIndex = flatDocsNavigationCategories.findIndex(
-    (comp) => comp.href === `/components/${doc.slug}`
+    (comp) => comp.href === `/components/${slug}`
   );
 
   // Get the previous component, if it exists
@@ -18,6 +18,11 @@ export function ComponentPagination({ doc }: any) {
       ? flatDocsNavigationCategories[currentIndex + 1]
       : null;
 
+  return { previousComponent, nextComponent };
+}
+
+export function ComponentPagination({ doc }: { doc: { slug: string } }) {
+  const { previousComponent, nextComponent } = getAdjacentComponents(doc.slug);
   return (
     <nav
       aria-label='Component pagination'

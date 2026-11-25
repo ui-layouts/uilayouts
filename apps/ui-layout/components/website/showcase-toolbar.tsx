@@ -4,7 +4,6 @@ import * as Dialog from '@radix-ui/react-dialog';
 import {
   Check,
   ChevronsUpDown,
-  ChevronLeft, ChevronRight,
   Copy,
   Expand,
   FolderCode,
@@ -27,6 +26,7 @@ export interface ShowcaseToolbarProps {
   installUrl: string;
   sourceCode: string;
   expandUrl: string;
+  pager: React.ReactNode;
   navigation: { index: number; examples: { name: string; label: string }[]; select: (index: number) => void };
 }
 
@@ -205,6 +205,7 @@ export function ShowcaseToolbar({
   sourceCode,
   expandUrl,
   navigation,
+  pager,
 }: ShowcaseToolbarProps) {
   const [manager, setManager] = useState<Manager>('npm');
   const [feedback, setFeedback] = useState<{
@@ -262,12 +263,7 @@ export function ShowcaseToolbar({
   return (
     <div className={styles.toolbar} aria-label='Component tools' role='group'>
       <NavigationDrawer slug={slug} navigation={navigation} />
-      <div className={styles.pager}>
-        {navigation.examples.length > 1 && <>
-          <button type="button" aria-label="Previous example" title="Previous example" disabled={navigation.index === 0} onClick={() => navigation.select(navigation.index - 1)}><ChevronLeft size={18} aria-hidden /></button>
-          <button type="button" aria-label="Next example" title="Next example" disabled={navigation.index === navigation.examples.length - 1} onClick={() => navigation.select(navigation.index + 1)}><ChevronRight size={18} aria-hidden /></button>
-        </>}
-      </div>
+      {pager}
       <div className={styles.center}>
         <SearchDialog searchBar classname={styles.searchTrigger} />
         <div className={styles.install}>

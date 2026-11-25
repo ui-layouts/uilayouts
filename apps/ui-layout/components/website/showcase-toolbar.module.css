@@ -9,9 +9,9 @@
   gap: 12px;
   pointer-events: none;
   color: var(--foreground, #171717);
-  font:
-    500 13px / 1.15 var(--font-dmSans, Arial),
-    sans-serif;
+  font-size: 13px;
+  line-height: 1.15;
+  font-weight: 500;
 }
 .toolbar > * {
   pointer-events: auto;
@@ -322,7 +322,7 @@
 .toolbar { --edge: max(10px, 3vw, calc((100% - 1280px) / 2)); inset-inline: var(--edge); }
 .launcher { position: fixed; top: 24px; left: var(--edge); }
 .pager { display: flex; justify-self: start; gap: 2px; }
-.pager button { display: grid; place-items: center; width: 38px; height: 40px; border: 2px solid var(--border); border-radius: 9px; background: var(--background); }
+.pager :is(a, button) { display: grid; place-items: center; width: 38px; height: 40px; border: 2px solid var(--border); border-radius: 9px; background: var(--background); }
 .tree { margin-left: 16px; padding-left: 8px; border-left: 1px solid var(--border); }
 .tree button { display: block; text-align: left; width: 100%; padding: 5px 8px; font-size: 14px; }
 .tree button[aria-current] { background: var(--muted); font-weight: 600; border-radius: 5px; }
@@ -330,12 +330,12 @@
 .sectionLink svg { width: 25px; height: 25px; padding: 4px; border: 1px solid var(--border); border-radius: 5px; }
 @media (max-width: 500px) {
   .toolbar { inset-inline: 5px; gap: 3px; }
-  .pager button { width: 28px; }
+  .pager :is(a, button) { width: 28px; }
   .center { flex: 0 1 auto; }
   .command { max-width: 18vw; }
 }
 
-.drawer { font-family: var(--font-dmSans), system-ui, sans-serif; }
+
 @media (min-width: 1440px) {
   .drawer[data-docked] { width: 280px; background: var(--background); box-shadow: none; border-right: 1px solid var(--border); }
   :global(body:has([data-docked])) .toolbar {
@@ -346,7 +346,9 @@
 }
 
 .center .searchTrigger {
-  width: 34px;
+  display: grid;
+  place-items: center;
+  width: 37px;
   height: 37px;
   flex: none;
   justify-content: center;
@@ -357,6 +359,6 @@
 }
 .searchTrigger svg { width: 17px; height: 17px; }
 @media (max-width: 500px) {
-  .center .searchTrigger { width: 29px; }
+
   .command { max-width: min(18vw, calc(100vw - 298px)); }
 }
