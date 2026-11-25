@@ -128,8 +128,7 @@ function AllComponents() {
     <>
       <section className='relative xl:p-10 pb-5 p-5 mb-5'>
         <h2
-          className='xl:text-5xl md:text-4xl lg:pb-0 pb-5 sm:text-3xl text-2xl font-medium text-center flex gap-2 items-start justify-center
-        '
+          className='mb-6 lg:mb-9 xl:text-5xl md:text-4xl sm:text-3xl text-2xl font-medium text-center flex gap-2 items-start justify-center'
         >
           <img
             src='https://fonts.gstatic.com/s/e/notoemoji/latest/1f525/512.gif'

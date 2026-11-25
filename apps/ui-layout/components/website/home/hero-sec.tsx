@@ -642,6 +642,8 @@ function HeroSec({ blocksData }: { blocksData: any[] }) {
             </div>
           </div>
           <GapPattern />
+          <AllComponents />
+          <GapPattern />
           <div className='grid grid-cols-3 relative'>
             {allProjects.map((project, index) => (
               <div key={project.id}>
@@ -685,8 +687,6 @@ function HeroSec({ blocksData }: { blocksData: any[] }) {
       </section>
 
       <AllBlocks blocksData={blocksData} />
-      <GapPattern />
-      <AllComponents />
       <GapPattern />
       <Contributors />
       <GapPattern />

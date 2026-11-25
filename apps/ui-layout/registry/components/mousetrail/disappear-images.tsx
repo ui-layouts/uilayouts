@@ -1,6 +1,4 @@
 'use client';
-import React from 'react';
-
 import ImageMouseTrail from '@/components/ui/mousetrail';
 
 const images = [
@@ -24,7 +22,7 @@ export default function DisappearImages() {
         imgClass='sm:w-40 w-28 sm:h-48 h-36'
         fadeAnimation={true}
       >
-        <article className='relative z-50 mix-blend-difference'>
+        <article className='mx-auto w-fit rounded-lg bg-background/90 px-5 py-4 text-foreground'>
           <h2 className='lg:text-4xl md:text-3xl text-xl text-center font-semibold '>
             ✨ Experience Interactive Designs with <br />
             Dynamic Mouse Trails

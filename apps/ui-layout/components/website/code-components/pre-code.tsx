@@ -11,20 +11,22 @@ export async function PreCode({
   classname,
   cssclass,
   metahide,
+  typescriptOnly = false,
 }: {
   codeblock: { value: string; lang: string; meta: string };
   classname?: string;
   cssclass?: string;
   metahide?: boolean;
+  typescriptOnly?: boolean;
 }) {
   const { value, lang } = codeblock;
   const checkNpm = value?.startsWith('npm');
-  const showCompilerTab = lang !== 'tsx';
+  const showCompilerTab = lang === 'tsx' && !typescriptOnly;
 
   // --- highlight TS/TSX with shiki
   const tsHtml = await highlightCode(value, lang);
 
-  if (showCompilerTab) {
+  if (!showCompilerTab) {
     return (
       <div className={cn('relative z-2', cssclass)}>
         {!metahide && codeblock.meta && (

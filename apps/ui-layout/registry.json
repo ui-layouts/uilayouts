@@ -1653,7 +1653,7 @@
       "name": "mousetrail",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [],
+      "dependencies": ["tailwind-merge"],
       "registryDependencies": [],
       "files": [
         {
@@ -1666,7 +1666,7 @@
       "name": "image-mousetrail-default",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [],
+      "dependencies": ["tailwind-merge"],
       "registryDependencies": [],
       "files": [
         {
@@ -1683,7 +1683,7 @@
       "name": "image-mousetrail-small",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [],
+      "dependencies": ["tailwind-merge"],
       "registryDependencies": [],
       "files": [
         {
@@ -1700,7 +1700,7 @@
       "name": "image-mousetrail-disappear",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [],
+      "dependencies": ["tailwind-merge"],
       "registryDependencies": [],
       "files": [
         {
@@ -1717,9 +1717,17 @@
       "name": "image-mousetrail-without-component",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [],
+      "dependencies": ["tailwind-merge"],
       "registryDependencies": [],
       "files": [
+        {
+          "path": "./components/ui/mousetrail.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./registry/components/mousetrail/default-mousetrail.tsx",
+          "type": "registry:component"
+        },
         {
           "path": "./registry/components/mousetrail/without-component-mousetrail.tsx",
           "type": "registry:component"
@@ -5404,6 +5412,41 @@
         {
           "path": "./components/ui/magnified-doc.tsx",
           "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "image-mousetrail-explorer",
+      "type": "registry:component",
+      "title": "Image Trail Previews",
+      "description": "Use seven standalone pointer-driven image trails with React and Canvas.",
+      "dependencies": ["tailwind-merge"],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "./components/ui/mousetrail.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "./registry/components/mousetrail/trail-explorer.tsx",
+          "type": "registry:component",
+          "target": "components/trail-explorer/trail-explorer.tsx"
+        },
+        {
+          "path": "./registry/components/mousetrail/trail-stamp-effects.ts",
+          "type": "registry:component",
+          "target": "components/trail-explorer/trail-stamp-effects.ts"
+        },
+        {
+          "path": "./registry/components/mousetrail/trail-canvas.tsx",
+          "type": "registry:component",
+          "target": "components/trail-explorer/trail-canvas.tsx"
+        },
+        {
+          "path": "./registry/components/mousetrail/trail-canvas-draw.ts",
+          "type": "registry:component",
+          "target": "components/trail-explorer/trail-canvas-draw.ts"
         }
       ]
     }

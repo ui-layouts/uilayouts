@@ -1038,6 +1038,15 @@ export type ComponentMeta = {
   tags: string[];
 };
 
+const imageTrailPreviews = [
+  { variant: 'cursor-trailer', name: 'clay-stickers', title: 'Cursor Trailer' },
+  { variant: 'image-shrink', name: 'shrink-away', title: 'Shrink Away' },
+  { variant: 'image-bloom', name: 'bloom-out', title: 'Bloom Out' },
+  { variant: 'image-fall', name: 'gravity-drop', title: 'Gravity Drop' },
+  { variant: 'motion-classic', name: 'classic', title: 'Classic' },
+  { variant: 'motion-innerscape', name: 'innerscape', title: 'Innerscape' },
+] as const;
+
 export const AllComponents: IAllComponents[] = [
   {
     category: DOCS_CATEGORY_KEY['iphone-duo'],
@@ -3012,6 +3021,68 @@ export const AllComponents: IAllComponents[] = [
     ),
     iframeSrc: 'live-components/motion-number-upvotes',
   },
+
+  {
+    category: DOCS_CATEGORY_KEY['image-mousetrail'],
+    componentName: COMPONENT_KEYS.IMAGE_MOUSETRAIL_EXPLORER,
+    href: '/components/image-mousetrail',
+    title: 'Gooey Sticker Trail',
+    slug: 'image-mousetrail-explorer',
+    description: 'Connect clay stickers as they follow your pointer.',
+    filesArray: [
+      {
+        name: 'trail-explorer.tsx',
+        filesrc: require('../registry/components/mousetrail/trail-explorer.tsx?raw'),
+      },
+      {
+        name: 'mousetrail.tsx',
+        filesrc: require('../components/ui/mousetrail.tsx?raw'),
+      },
+      {
+        name: 'trail-stamp-effects.ts',
+        filesrc: require('../registry/components/mousetrail/trail-stamp-effects.ts?raw'),
+      },
+      {
+        name: 'trail-canvas.tsx',
+        filesrc: require('../registry/components/mousetrail/trail-canvas.tsx?raw'),
+      },
+      {
+        name: 'trail-canvas-draw.ts',
+        filesrc: require('../registry/components/mousetrail/trail-canvas-draw.ts?raw'),
+      },
+    ],
+    tags: ['mouse-trail', 'image-trail', 'motion-trail', 'canvas', 'gooey'],
+    componentSrc: React.lazy(() =>
+      import('@/registry/components/mousetrail/trail-explorer').then((module) => ({
+        default: module.LocalImageTrailPreview,
+      }))
+    ),
+    iframeSrc: 'live-components/image-mousetrail-explorer',
+  },
+
+  ...imageTrailPreviews.map(({ variant, name, title }) => {
+    const slug = `image-mousetrail-${name}`;
+    return {
+      category: DOCS_CATEGORY_KEY['image-mousetrail'],
+      componentName: slug,
+      href: '/components/image-mousetrail',
+      title,
+      slug,
+      description: `${title} pointer animation for React.`,
+      tags: ['mouse-trail', 'image-trail', 'animation'],
+      filesrc: `import ImageTrailPreview from '@/components/trail-explorer/trail-explorer';
+
+export default function Example() {
+  return <ImageTrailPreview variant='${variant}' />;
+}`,
+      componentSrc: React.lazy(() =>
+        import('@/registry/components/mousetrail/trail-explorer').then(({ LocalImageTrailPreview }) => ({
+          default: () => React.createElement(LocalImageTrailPreview, { variant }),
+        }))
+      ),
+      iframeSrc: `live-components/${slug}`,
+    };
+  }),
 
   {
     category: DOCS_CATEGORY_KEY['image-mousetrail'],

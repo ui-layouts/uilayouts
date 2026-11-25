@@ -1,105 +1,318 @@
-// @ts-nocheck
 'use client';
-import { cn } from '@/lib/utils';
-import { type ReactNode, createRef, useRef } from 'react';
 
-interface ImageMouseTrailProps {
+import { type ReactNode, useEffect, useMemo, useRef } from 'react';
+import { twMerge } from 'tailwind-merge';
+
+export type ImageTrailVariant = 'follow' | 'momentum' | 'bounce';
+
+export type ImageTrailEffect = {
+  keyframes: (sample: {
+    delta: Point;
+    position: Point;
+    width: number;
+    height: number;
+    speed: number;
+    index: number;
+  }) => Keyframe[];
+  anchor?: 'center';
+  persist?: boolean;
+};
+
+export interface ImageMouseTrailProps {
   items: string[];
   children?: ReactNode;
   className?: string;
   imgClass?: string;
+  /** Legacy density control. Higher values emit more images. */
   distance?: number;
+  /** Distance in local CSS pixels between images. Overrides distance. */
+  threshold?: number;
+  /** Minimum milliseconds between stamps. A positive value stamps only at the pointer. */
+  minInterval?: number;
   maxNumberOfImages?: number;
   fadeAnimation?: boolean;
+  variant?: ImageTrailVariant;
+  effect?: ImageTrailEffect;
+  /** Lifetime in milliseconds for fading trails. */
+  duration?: number;
+  /** pan-y preserves vertical page scrolling; none enables unrestricted dragging. */
+  touchAction?: 'auto' | 'pan-y' | 'none';
 }
+
+type Point = { x: number; y: number };
+const finite = (value: number, fallback: number) => (Number.isFinite(value) ? value : fallback);
+
 export default function ImageMouseTrail({
   items,
   children,
   className,
-  maxNumberOfImages = 5,
   imgClass = 'w-40 h-48',
   distance = 20,
+  threshold,
+  minInterval = 0,
+  maxNumberOfImages = 5,
   fadeAnimation = false,
+  variant = 'follow',
+  effect,
+  duration = 1200,
+  touchAction = 'pan-y',
 }: ImageMouseTrailProps) {
-  const containerRef = useRef(null);
-  const refs = useRef(items.map(() => createRef<HTMLImageElement>()));
-  const currentZIndexRef = useRef(1);
+  // Equal URL lists should not restart the trail when a parent re-renders.
+  const sourceKey = JSON.stringify(items);
+  const sources = useMemo<string[]>(() => JSON.parse(sourceKey), [sourceKey]);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const layerRef = useRef<HTMLDivElement>(null);
+  const poolSize = items.length
+    ? Math.min(30, Math.max(1, Math.floor(finite(maxNumberOfImages, 5))))
+    : 0;
 
-  let globalIndex = 0;
-  let last = { x: 0, y: 0 };
+  useEffect(() => {
+    const container = containerRef.current;
+    const layer = layerRef.current;
+    if (!container || !layer || !poolSize) return;
+    const images = Array.from(layer.querySelectorAll('img'));
+    const animations = new Map<HTMLImageElement, Animation>();
+    const ready = new Set<string>();
+    let disposed = false;
+    // Warm the browser cache without blocking the page behind a loader.
+    const preload = [...new Set(sources)].map((src) => {
+      const image = new Image();
+      image.onload = () => {
+        if (disposed) return;
+        ready.add(src);
+        if (pending && !frame) frame = requestAnimationFrame(render);
+      };
+      image.src = src;
+      if (image.complete && image.naturalWidth > 0) ready.add(src);
+      return image;
+    });
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let frame = 0;
+    let pending: Point | null = null;
+    let last: Point | null = null;
+    let lastEmission = -Infinity;
+    let index = 0;
+    let sequence = 0;
+    let order: HTMLImageElement[] = [];
+    let lastMove: (Point & { time: number }) | null = null;
+    let speed = 0;
+    const fading = effect ? !effect.persist : fadeAnimation || variant !== 'follow';
+    const lifetime = Math.max(400, finite(duration, 1200));
+    const interval = Math.max(0, finite(minInterval, 0));
 
-  const activate = (image: HTMLImageElement, x: number, y: number) => {
-    const containerRect = containerRef.current?.getBoundingClientRect();
-    const relativeX = x - containerRect.left;
-    const relativeY = y - containerRect.top;
-    image.style.left = `${relativeX}px`;
-    image.style.top = `${relativeY}px`;
-    console.log(refs.current[refs.current?.length - 1]);
+    const clear = () => {
+      cancelAnimationFrame(frame);
+      frame = 0;
+      pending = last = lastMove = null;
+      lastEmission = -Infinity;
+      speed = 0;
+      animations.forEach((animation) => animation.cancel());
+      animations.clear();
+      images.forEach((image) => {
+        image.style.opacity = '0';
+      });
+      order = [];
+    };
 
-    if (currentZIndexRef.current > 40) {
-      currentZIndexRef.current = 1;
-    }
-    image.style.zIndex = String(currentZIndexRef.current);
-    currentZIndexRef.current++;
+    const emit = (at: Point, delta: Point) => {
+      const available = sources.filter((src) => ready.has(src));
+      if (!available.length) return false;
+      const image = images[index++ % images.length];
+      animations.get(image)?.cancel();
+      image.src = available[sequence++ % available.length];
+      const width = container.clientWidth;
+      const height = container.clientHeight;
+      image.style.left = `${effect?.anchor === 'center' ? width / 2 : at.x}px`;
+      image.style.top = `${effect?.anchor === 'center' ? height / 2 : at.y}px`;
+      // Rebase a bounded stack instead of wrapping z-index underneath older images.
+      order = order.filter((item) => item !== image);
+      order.push(image);
+      order.forEach((item, i) => {
+        item.style.zIndex = String(i + 1);
+      });
+      const transform = (x = 0, y = 0, scale = 1, rotation = 0) =>
+        `translate(-50%, -50%) translate(${x}px, ${y}px) rotate(${rotation}deg) scale(${scale})`;
+      const dx = Math.max(-100, Math.min(100, delta.x));
+      const dy = Math.max(-100, Math.min(100, delta.y));
+      let keyframes: Keyframe[];
+      if (reducedMotion.matches) {
+        keyframes = [
+          { opacity: 0, transform: transform() },
+          { opacity: 1, transform: transform(), offset: 0.2 },
+          { opacity: fading ? 0 : 1, transform: transform() },
+        ];
+      } else if (effect) {
+        keyframes = effect.keyframes({
+          delta: { x: dx, y: dy },
+          position: at,
+          width,
+          height,
+          speed,
+          index,
+        });
+      } else if (variant === 'bounce') {
+        keyframes = [
+          { opacity: 0, transform: transform(0, 0, 0.15), offset: 0 },
+          { opacity: 1, transform: transform(0, 0, 1.14), offset: 0.18 },
+          { opacity: 1, transform: transform(0, 0, 0.94), offset: 0.28 },
+          { opacity: 1, transform: transform(), offset: 0.38 },
+          { opacity: 1, transform: transform(), offset: 0.65 },
+          { opacity: 1, transform: transform(0, 0, 1.12), offset: 0.76 },
+          { opacity: 0, transform: transform(0, 0, 0), offset: 1 },
+        ];
+      } else if (variant === 'momentum') {
+        const angle = dx * 0.12;
+        keyframes = [
+          { opacity: 0, transform: transform(-dx * 0.35, -dy * 0.35, 0.75, -angle), offset: 0 },
+          { opacity: 1, transform: transform(0, 0, 1, angle), offset: 0.2 },
+          { opacity: 1, transform: transform(dx * 0.5, dy * 0.5, 1, angle), offset: 0.55 },
+          { opacity: 0, transform: transform(dx, dy + 35, 0.85, angle * 1.8), offset: 1 },
+        ];
+      } else {
+        keyframes = [
+          { opacity: 0, transform: transform(-dx * 0.5, -dy * 0.5, 0.8), offset: 0 },
+          { opacity: 1, transform: transform(), offset: 0.25 },
+          { opacity: 1, transform: transform(), offset: 0.6 },
+          { opacity: fading ? 0 : 1, transform: transform(0, 0, fading ? 0.85 : 1), offset: 1 },
+        ];
+      }
+      // Ease each segment without compressing the hold and rebound phases.
+      for (const keyframe of keyframes) {
+        keyframe.easing ??= 'cubic-bezier(0.22, 1, 0.36, 1)';
+      }
+      const animation = image.animate(keyframes, {
+        duration: lifetime,
+        fill: 'forwards',
+      });
+      animations.set(image, animation);
+      if (fading)
+        animation.onfinish = () => {
+          if (animations.get(image) !== animation) return;
+          image.style.opacity = '0';
+          animation.cancel();
+          animations.delete(image);
+          order = order.filter((item) => item !== image);
+        };
+      return true;
+    };
 
-    image.dataset.status = 'active';
-    if (fadeAnimation) {
-      setTimeout(() => {
-        image.dataset.status = 'inactive';
-      }, 1500);
-    }
-    last = { x, y };
-  };
-
-  const distanceFromLast = (x, y) => {
-    return Math.hypot(x - last.x, y - last.y);
-  };
-  const deactivate = (image) => {
-    image.dataset.status = 'inactive';
-  };
-
-  const handleOnMove = (e) => {
-    if (distanceFromLast(e.clientX, e.clientY) > window.innerWidth / distance) {
-      // console.log(e.clientX, e.clientY)
-
-      const lead = refs.current[globalIndex % refs.current.length].current;
-
-      const tail = refs.current[(globalIndex - maxNumberOfImages) % refs.current.length]?.current;
-
-      if (lead) activate(lead, e.clientX, e.clientY);
-      if (tail) deactivate(tail);
-      globalIndex++;
-    }
-  };
+    const render = (time: number) => {
+      frame = 0;
+      if (!pending) return;
+      const target = pending;
+      pending = null;
+      if (time - lastEmission < interval) return;
+      const start = last ?? target;
+      const dx = target.x - start.x;
+      const dy = target.y - start.y;
+      const length = Math.hypot(dx, dy);
+      const spacing = Math.max(
+        8,
+        finite(threshold ?? container.clientWidth / Math.max(1, finite(distance, 20)), 40)
+      );
+      if (!last || interval > 0) {
+        if (last && length < spacing) return;
+        if (emit(target, { x: dx, y: dy })) {
+          last = target;
+          lastEmission = time;
+        } else pending = target;
+        return;
+      }
+      // Fill gaps along fast movements, but bound work after a large pointer jump.
+      const steps = Math.min(poolSize, Math.floor(length / spacing));
+      for (let i = 1; i <= steps; i++) {
+        const fraction = steps === poolSize ? i / steps : (i * spacing) / length;
+        const point = { x: start.x + dx * fraction, y: start.y + dy * fraction };
+        if (emit(point, { x: dx / Math.max(1, steps), y: dy / Math.max(1, steps) })) last = point;
+        else {
+          pending = target;
+          break;
+        }
+      }
+    };
+    const move = (event: PointerEvent) => {
+      if (!event.isPrimary || (event.pointerType === 'touch' && !event.buttons)) return;
+      const rect = container.getBoundingClientRect();
+      if (!rect.width || !rect.height) return;
+      const x = ((event.clientX - rect.left) * container.clientWidth) / rect.width;
+      const y = ((event.clientY - rect.top) * container.clientHeight) / rect.height;
+      if (x < 0 || y < 0 || x > container.clientWidth || y > container.clientHeight) {
+        leave(event);
+        return;
+      }
+      if (effect && lastMove) {
+        const elapsed = Math.max(1, event.timeStamp - lastMove.time);
+        speed = Math.min(4, Math.hypot(x - lastMove.x, y - lastMove.y) / elapsed);
+      }
+      lastMove = { x, y, time: event.timeStamp };
+      pending = { x, y };
+      if (!frame) frame = requestAnimationFrame(render);
+    };
+    const end = (event: PointerEvent) => {
+      if (event.isPrimary) clear();
+    };
+    const leave = (event: PointerEvent) => {
+      if (!event.isPrimary) return;
+      cancelAnimationFrame(frame);
+      frame = 0;
+      pending = last = lastMove = null;
+      speed = 0;
+      // Let an in-flight bounce/fade complete its exit after the pointer leaves.
+      if (!fading && !effect) clear();
+    };
+    container.addEventListener('pointermove', move, { passive: true });
+    container.addEventListener('pointerleave', leave);
+    container.addEventListener('pointercancel', end);
+    container.addEventListener('pointerup', end);
+    window.addEventListener('blur', clear);
+    window.addEventListener('resize', clear);
+    reducedMotion.addEventListener('change', clear);
+    return () => {
+      disposed = true;
+      clear();
+      preload.forEach((image) => {
+        image.onload = null;
+      });
+      container.removeEventListener('pointermove', move);
+      container.removeEventListener('pointerleave', leave);
+      container.removeEventListener('pointercancel', end);
+      container.removeEventListener('pointerup', end);
+      window.removeEventListener('blur', clear);
+      window.removeEventListener('resize', clear);
+      reducedMotion.removeEventListener('change', clear);
+    };
+  }, [sources, poolSize, distance, threshold, minInterval, fadeAnimation, variant, effect, duration]);
 
   return (
-    <section
-      onMouseMove={handleOnMove}
-      onTouchMove={(e) => handleOnMove(e.touches[0])}
+    <div
       ref={containerRef}
-      className={cn(
-        'grid place-content-center h-[600px] w-full bg-[#e0dfdf] relative overflow-hidden rounded-lg',
+      style={{ touchAction }}
+      className={twMerge(
+        'relative isolate grid h-[600px] w-full place-items-center overflow-hidden rounded-lg bg-muted text-foreground',
         className
       )}
     >
-      {items.map((item, index) => (
-        <>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
+      <div
+        ref={layerRef}
+        aria-hidden='true'
+        className='pointer-events-none absolute inset-0 z-0 overflow-hidden'
+      >
+        {Array.from({ length: poolSize }, (_, index) => (
+          // Decorative images never capture the pointer or enter the accessibility tree.
+          // eslint-disable-next-line @next/next/no-img-element
           <img
-            key={item.src}
-            className={cn(
-              "object-cover  scale-0 opacity:0 data-[status='active']:scale-100  data-[status='active']:opacity-100 transition-transform data-[status='active']:duration-500 duration-300 data-[status='active']:ease-out-expo  absolute   -translate-y-[50%] -translate-x-[50%] ",
+            key={index}
+            src={items[index % items.length]}
+            alt=''
+            draggable={false}
+            className={twMerge(
+              'pointer-events-none absolute left-0 top-0 object-cover opacity-0 will-change-transform',
               imgClass
             )}
-            data-index={index}
-            data-status='inactive'
-            src={item}
-            alt={`image-${index}`}
-            ref={refs.current[index]}
           />
-        </>
-      ))}
-      {children}
-    </section>
+        ))}
+      </div>
+      <div className='relative z-10 w-full'>{children}</div>
+    </div>
   );
 }
