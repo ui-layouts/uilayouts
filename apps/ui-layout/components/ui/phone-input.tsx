@@ -1,17 +1,16 @@
 'use client';
 import { Button } from '@/components/website/ui/button';
 import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-} from '@/components/website/ui/command';
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/website/ui/popover';
-import { ScrollArea } from '@/components/website/ui/scroll-area';
+  Select,
+  SelectContent,
+  SelectEmpty,
+  SelectInput,
+  SelectItem,
+  SelectList,
+  SelectTrigger,
+} from '@ui-sdk/react/select';
 import { cn } from '@/lib/utils';
-import { CheckIcon, ChevronsUpDown } from 'lucide-react';
+import { Search, CheckIcon, ChevronsUpDown } from 'lucide-react';
 import * as React from 'react';
 import * as RPNInput from 'react-phone-number-input';
 import flags from 'react-phone-number-input/flags';
@@ -49,10 +48,7 @@ PhoneInput.displayName = 'PhoneInput';
 
 const InputComponent = React.forwardRef<HTMLInputElement, any>(({ className, ...props }, ref) => (
   <input
-    className={cn(
-      'rounded-e-lg rounded-s-none px-2 bg-card outline-hidden w-full ',
-      className
-    )}
+    className={cn('rounded-e-lg rounded-s-none px-2 bg-card outline-hidden w-full ', className)}
     {...props}
     ref={ref}
   />
@@ -69,64 +65,71 @@ type CountrySelectProps = {
 };
 
 const CountrySelect = ({ disabled, value, onChange, options }: CountrySelectProps) => {
-  const handleSelect = React.useCallback(
-    (country: RPNInput.Country) => {
-      onChange(country);
-    },
-    [onChange]
-  );
-
+  const countries = options.filter((option) => option.value);
   return (
-    <Popover>
-      <PopoverTrigger asChild>
-        <Button
-          type='button'
-          variant={'outline'}
-          className={cn('flex gap-1 rounded-e-none bg-card rounded-s-lg px-3')}
-          disabled={disabled}
-        >
-          <FlagComponent country={value} countryName={value} />
-          <ChevronsUpDown
-            className={cn('-mr-2 h-4 w-4 opacity-50', disabled ? 'hidden' : 'opacity-100')}
+    <Select
+      items={countries}
+      value={value}
+      disabled={disabled}
+      onValueChange={(country) => country && onChange(country)}
+    >
+      <SelectTrigger
+        aria-label='Country calling code'
+        render={
+          <Button
+            type='button'
+            variant='outline'
+            className='flex gap-1 rounded-e-none bg-card rounded-s-lg px-3'
           />
-        </Button>
-      </PopoverTrigger>
-      <PopoverContent className='w-[300px] p-0'>
-        <Command className='bg-background border'>
-          <CommandList>
-            <ScrollArea className='h-72'>
-              <CommandInput placeholder='Search country...' />
-              <CommandEmpty>No country found.</CommandEmpty>
-              <CommandGroup>
-                {options
-                  .filter((x) => x.value)
-                  .map((option) => (
-                    <CommandItem
-                      className='gap-2'
-                      key={option.value}
-                      onSelect={() => handleSelect(option.value)}
-                    >
-                      <FlagComponent country={option.value} countryName={option.label} />
-                      <span className='flex-1 text-sm'>{option.label}</span>
-                      {option.value && (
-                        <span className='text-foreground/50 text-sm'>
-                          {`+${RPNInput.getCountryCallingCode(option.value)}`}
-                        </span>
-                      )}
-                      <CheckIcon
-                        className={cn(
-                          'ml-auto h-4 w-4',
-                          option.value === value ? 'opacity-100' : 'opacity-0'
-                        )}
-                      />
-                    </CommandItem>
-                  ))}
-              </CommandGroup>
-            </ScrollArea>
-          </CommandList>
-        </Command>
-      </PopoverContent>
-    </Popover>
+        }
+      >
+        <FlagComponent country={value} countryName={value} />
+        <ChevronsUpDown
+          className={cn('-mr-2 h-4 w-4 opacity-50', disabled ? 'hidden' : 'opacity-100')}
+        />
+      </SelectTrigger>
+      <SelectContent
+        sideOffset={4}
+        alignItemWithTrigger={false}
+        className='z-50 rounded-md border bg-popover text-popover-foreground shadow-md outline-hidden w-[300px] p-0'
+      >
+        <div className='flex items-center border-b px-3'>
+          <Search aria-hidden className='mr-2 h-4 w-4 shrink-0 opacity-50' />
+          <SelectInput
+            aria-label='Search countries'
+            placeholder='Search country...'
+            className='h-10 w-full rounded-md bg-transparent py-3 text-sm outline-hidden placeholder:text-muted-foreground'
+          />
+        </div>
+        <SelectEmpty className='py-6 text-center text-sm'>No country found.</SelectEmpty>
+        <SelectList className='max-h-72 overflow-y-auto p-1'>
+          {(state) =>
+            (state.items as CountrySelectOption[]).map((option) => (
+              <SelectItem
+                key={option.value}
+                value={option.value}
+                label={option.label}
+                className='relative flex cursor-pointer select-none items-center rounded-xs px-2 py-1.5 text-sm outline-hidden data-highlighted:bg-neutral-200 dark:data-highlighted:bg-neutral-950 gap-2'
+              >
+                <FlagComponent country={option.value} countryName={option.label} />
+                <span className='flex-1 text-sm'>{option.label}</span>
+                {option.value && (
+                  <span className='text-foreground/50 text-sm'>
+                    {`+${RPNInput.getCountryCallingCode(option.value)}`}
+                  </span>
+                )}
+                <CheckIcon
+                  className={cn(
+                    'ml-auto h-4 w-4',
+                    option.value === value ? 'opacity-100' : 'opacity-0'
+                  )}
+                />
+              </SelectItem>
+            ))
+          }
+        </SelectList>
+      </SelectContent>
+    </Select>
   );
 };
 

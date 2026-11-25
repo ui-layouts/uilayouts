@@ -1,6 +1,6 @@
 // thanks to maximeheckel
 
-import { TabsBtn, TabsContent, TabsProvider } from '@/components/ui/tab';
+import { TabsBtn, TabsList, TabsContent, TabsProvider } from '@/components/ui/tab';
 import { Lock, Phone } from 'lucide-react';
 import Image from 'next/image';
 import React, { useState } from 'react';
@@ -10,14 +10,14 @@ function RegisterTab() {
     <>
       <TabsProvider defaultValue={'login'} wobbly={false}>
         <div className='flex justify-center mt-2'>
-          <div className='flex items-center w-fit dark:bg-[#1a1c20] bg-muted p-1 text-foreground rounded-md border'>
+          <TabsList className='flex items-center w-fit dark:bg-[#1a1c20] bg-muted p-1 text-foreground rounded-md border'>
             <TabsBtn value='login'>
               <span className='relative z-2 uppercase'>Login</span>
             </TabsBtn>
             <TabsBtn value='register'>
               <span className='relative z-2 uppercase'>Register</span>
             </TabsBtn>
-          </div>
+          </TabsList>
         </div>
 
         <TabsContent value='login'>

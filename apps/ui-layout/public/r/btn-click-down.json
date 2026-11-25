@@ -1,13 +1,16 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "btn-click-down",
-  "dependencies": [],
+  "dependencies": [
+    "@ui-sdk/react@0.1.0-beta.13",
+    "@ui-sdk/core@0.1.0-beta.13"
+  ],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [
     {
       "path": "./registry/components/button/btn-click-down.tsx",
-      "content": "'use client';\n\nconst ButtonClickDown = () => {\n  return (\n    <>\n      <button className='group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md   bg-linear-to-r dark:from-[#070e41] dark:to-[#263381] from-[#f6f7ff] to-[#f5f6ff] dark:border-[rgb(76_100_255)] border-2 border-[#263381] bg-transparent px-6 font-medium dark:text-white text-black transition-all duration-100 dark:[box-shadow:5px_5px_rgb(76_100_255)] [box-shadow:5px_5px_rgb(38_51_129)] active:translate-x-[3px] active:translate-y-[3px] active:[box-shadow:0px_0px_rgb(38_51_129)] dark:active:[box-shadow:0px_0px_rgb(76_100_255)]'>\n        Contact me\n      </button>\n    </>\n  );\n};\n\nexport default ButtonClickDown;\n",
+      "content": "'use client';\nimport { Button } from '@ui-sdk/react/button';\n\nconst ButtonClickDown = (\n  props: Pick<React.ComponentProps<typeof Button>, 'onClick' | 'disabled' | 'type' | 'aria-label'>\n) => {\n  return (\n    <>\n      <Button\n        {...props}\n        className='group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md   bg-linear-to-r dark:from-[#070e41] dark:to-[#263381] from-[#f6f7ff] to-[#f5f6ff] dark:border-[rgb(76_100_255)] border-2 border-[#263381] bg-transparent px-6 font-medium text-foreground transition-all duration-100 dark:[box-shadow:5px_5px_rgb(76_100_255)] [box-shadow:5px_5px_rgb(38_51_129)] active:translate-x-[3px] active:translate-y-[3px] active:[box-shadow:0px_0px_rgb(38_51_129)] dark:active:[box-shadow:0px_0px_rgb(76_100_255)]'\n      >\n        Contact me\n      </Button>\n    </>\n  );\n};\n\nexport default ButtonClickDown;\n",
       "type": "registry:component"
     }
   ],

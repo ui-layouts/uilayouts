@@ -1,5 +1,6 @@
 // @ts-nocheck
 'use client';
+import { Input as SDKInput } from '@ui-sdk/react/input';
 
 import { Button, buttonVariants } from '@/components/website/ui/button';
 import { Calendar, type CalendarProps } from '@/components/website/ui/calendar';
@@ -442,8 +443,8 @@ const NaturalLanguageInput = React.forwardRef<
   }, [value, showCalendar, showTimePicker]);
 
   const handleParse = React.useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      const parsedDateTime = parseDateTime(e.currentTarget.value);
+    (text: string) => {
+      const parsedDateTime = parseDateTime(text);
       if (parsedDateTime) {
         // If only showing time picker, preserve the current date
         if (!showCalendar && showTimePicker && value) {
@@ -477,21 +478,25 @@ const NaturalLanguageInput = React.forwardRef<
   const handleKeydown = React.useCallback(
     (e: React.KeyboardEvent<HTMLInputElement>) => {
       if (e.key === 'Enter') {
-        handleParse(e as any);
+        handleParse(e.currentTarget.value);
       }
     },
     [handleParse]
   );
 
   return (
-    <input
+    <SDKInput
       ref={ref}
       type='text'
+      aria-label={showCalendar ? (showTimePicker ? 'Date and time' : 'Date') : 'Time'}
       placeholder={_placeholder}
       value={inputValue}
-      onChange={(e) => setInputValue(e.currentTarget.value)}
+      onValueChange={(text, details) => {
+        setInputValue(text);
+        if (details.source === 'agent') handleParse(text);
+      }}
       onKeyDown={handleKeydown}
-      onBlur={handleParse}
+      onBlur={(event) => handleParse(event.currentTarget.value)}
       className={cn(
         'px-2 mr-0.5 bg-background flex-1 border-none h-8 rounded-sm',
         inputBase

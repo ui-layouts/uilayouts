@@ -10,6 +10,7 @@ export default function StaticRangeSlider() {
       <div className=' w-3/5 mx-auto py-20'>
         <DualRangeSlider
           label={() => <>℃</>}
+          aria-label='Temperature'
           value={[celPer]}
           labelPosition='static'
           onValueChange={([celPer]) => celPer != null && setCelPer(celPer)}

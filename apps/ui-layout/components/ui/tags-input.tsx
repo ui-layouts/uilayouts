@@ -1,4 +1,6 @@
 'use client';
+import { Button } from '@ui-sdk/react/button';
+import { Input } from '@ui-sdk/react/input';
 import { cn } from '@/lib/utils';
 import type React from 'react';
 import { useEffect, useRef, useState } from 'react';
@@ -83,14 +85,15 @@ export const TagsInput: React.FC<TagsInputProps> = ({
       {tags.map((tag, index) => (
         <div key={tag} className='relative'>
           {editTag && editingIndex === index ? (
-            <input
+            <Input
               ref={editInputRef}
               type='text'
               value={input}
-              onChange={(e) => setInput(e.target.value)}
+              onValueChange={setInput}
               onKeyDown={handleAddTag}
               onBlur={handleBlur}
               className='px-2 py-1 text-sm border bg-muted rounded-sm outline-hidden'
+              aria-label='Edit tag'
               placeholder='Edit tag...'
               style={{ width: `${input.length + 1 * 1.2}px` }}
             />
@@ -100,7 +103,9 @@ export const TagsInput: React.FC<TagsInputProps> = ({
               className='flex items-center gap-2 px-1 pl-2 py-1 text-sm font-medium text-white bg-blue-500 rounded-sm cursor-pointer hover:bg-blue-600'
             >
               {tag}
-              <button
+              <Button
+                type='button'
+                aria-label={`Remove ${tag}`}
                 onClick={(e) => {
                   e.stopPropagation();
                   handleRemoveTag(tag);
@@ -108,19 +113,21 @@ export const TagsInput: React.FC<TagsInputProps> = ({
                 className='text-primary px-1 focus:outline-hidden bg-card rounded-sm'
               >
                 &times;
-              </button>
+              </Button>
             </div>
           )}
         </div>
       ))}
-      <input
+      <Input
         type='text'
         value={input}
-        onChange={(e) => setInput(e.target.value)}
+        onValueChange={setInput}
         onKeyDown={handleAddTag}
         className={`grow px-2 py-1 text-sm border-none outline-hidden bg-background rounded-md ${
           editingIndex !== null ? 'opacity-0' : 'opacity-100'
         }`}
+        aria-label='Add a tag'
+        disabled={editingIndex !== null}
         placeholder='Add a tag...'
       />
     </div>

@@ -1,9 +1,15 @@
 'use client';
+import { Button } from '@ui-sdk/react/button';
 
-const ButtonCrossArrow = () => {
+const ButtonCrossArrow = (
+  props: Pick<React.ComponentProps<typeof Button>, 'onClick' | 'disabled' | 'type' | 'aria-label'>
+) => {
   return (
     <>
-      <button className='group relative flex h-12 w-[170px]  items-center justify-between border-2 dark:border-[#656fe2] border-[#394481] rounded-full  bg-linear-to-r dark:from-[#070e41] dark:to-[#263381] from-[#f7f8ff] to-[#ffffff] font-medium text-foreground'>
+      <Button
+        {...props}
+        className='group relative flex h-12 w-[170px]  items-center justify-between border-2 dark:border-[#656fe2] border-[#394481] rounded-full  bg-linear-to-r dark:from-[#070e41] dark:to-[#263381] from-[#f7f8ff] to-[#ffffff] font-medium text-foreground'
+      >
         <span className='pl-4'>Contact me</span>
         <div className='relative h-9 w-9 overflow-hidden  dark:bg-white bg-black rounded-full mr-1'>
           <div className='absolute top-[0.7em] left-[-0.1em] grid place-content-center transition-all w-full h-full duration-200 group-hover:-translate-y-5 group-hover:translate-x-4 '>
@@ -37,7 +43,7 @@ const ButtonCrossArrow = () => {
             </svg>
           </div>
         </div>
-      </button>
+      </Button>
     </>
   );
 };

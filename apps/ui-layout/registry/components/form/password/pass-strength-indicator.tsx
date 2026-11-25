@@ -1,4 +1,9 @@
 'use client';
+import {
+  PasswordInput as PasswordField,
+  PasswordInputControl,
+  PasswordInputToggle,
+} from '@ui-sdk/react/password-input';
 import { Check, Eye, EyeOff, X } from 'lucide-react';
 import React, { useMemo, useState } from 'react';
 
@@ -66,26 +71,28 @@ const PasswordInput = () => {
         <label htmlFor='password' className='block text-sm font-medium'>
           Password
         </label>
-        <div className='relative'>
-          <input
+        <PasswordField
+          value={password}
+          onValueChange={setPassword}
+          visible={isVisible}
+          onVisibleChange={setIsVisible}
+          className='relative'
+        >
+          <PasswordInputControl
             id='password'
-            type={isVisible ? 'text' : 'password'}
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
             placeholder='Password'
             aria-invalid={calculateStrength.score < 4}
             aria-describedby='password-strength'
             className='w-full p-2 border-2 rounded-md bg-muted outline-hidden focus-within:border-blue-700 transition'
           />
-          <button
+          <PasswordInputToggle
             type='button'
-            onClick={() => setIsVisible((prev) => !prev)}
             aria-label={isVisible ? 'Hide password' : 'Show password'}
             className='absolute inset-y-0 right-0 flex items-center justify-center w-9 text-muted-foreground/80 '
           >
             {isVisible ? <EyeOff size={16} /> : <Eye size={16} />}
-          </button>
-        </div>
+          </PasswordInputToggle>
+        </PasswordField>
       </form>
 
       <div

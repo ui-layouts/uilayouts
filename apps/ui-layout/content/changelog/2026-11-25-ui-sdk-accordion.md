@@ -1,3 +1,3 @@
-# Updated accordion interactions
+# UI SDK interactions for form controls and buttons
 
-The animated accordion uses UI SDK for its interaction and accessibility behavior while retaining its existing visual styling.
+Agents can inspect and operate the animated accordion, animated tabs, numeric steppers, range sliders, searchable selectors, tag and date fields, password fields, and animated buttons. Supported browsers can discover these controls through WebMCP. Installed components use the same UI SDK primitives as the previews.

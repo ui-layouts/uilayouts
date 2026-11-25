@@ -1,7 +1,7 @@
 // thanks to maximeheckel
 
 import preview from '@/assets/preview/Preview';
-import { TabsBtn, TabsContent, TabsProvider } from '@/components/ui/tab';
+import { TabsBtn, TabsList, TabsContent, TabsProvider } from '@/components/ui/tab';
 import Image from 'next/image';
 import React, { useState } from 'react';
 
@@ -10,7 +10,7 @@ function HomeTab() {
     <>
       <TabsProvider defaultValue={'accordion'} wobbly={true}>
         <div className='flex justify-center pt-4'>
-          <div className='flex items-center capitalize w-fit dark:bg-[#2d76fd] bg-neutral-300 p-1 dark:text-white text-black rounded-md border'>
+          <TabsList className='flex items-center capitalize w-fit dark:bg-[#2d76fd] bg-neutral-300 p-1 dark:text-white text-black rounded-md border'>
             <TabsBtn value='accordion' className='2xl:text-base text-xs'>
               <span className='relative z-2 '>Accordion</span>
             </TabsBtn>
@@ -20,7 +20,7 @@ function HomeTab() {
             <TabsBtn value='mousetrail' className='2xl:text-base text-xs'>
               <span className='relative z-2 '>Mouse Trail</span>
             </TabsBtn>
-          </div>
+          </TabsList>
         </div>
 
         <TabsContent value='accordion' yValue={false}>

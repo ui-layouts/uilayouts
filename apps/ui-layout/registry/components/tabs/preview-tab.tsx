@@ -1,5 +1,5 @@
 'use client';
-import { TabsBtn, TabsContent, TabsProvider } from '@/components/ui/tab';
+import { TabsBtn, TabsList, TabsContent, TabsProvider } from '@/components/ui/tab';
 import { AnimatePresence, motion } from 'motion/react';
 import Image from 'next/image';
 import React, { useState } from 'react';
@@ -56,7 +56,7 @@ function PreviewTab() {
           hover={checkEffect === 'hover' ? true : false}
         >
           <div className='flex justify-center mt-2'>
-            <div className='flex items-center w-fit dark:bg-[#1d2025] bg-muted p-1 text-foreground rounded-md border'>
+            <TabsList className='flex items-center w-fit dark:bg-[#1d2025] bg-muted p-1 text-foreground rounded-md border'>
               <TabsBtn value='design'>
                 <span className='relative z-2 uppercase sm:text-base text-xs'>design</span>
               </TabsBtn>
@@ -69,7 +69,7 @@ function PreviewTab() {
               <TabsBtn value='publish'>
                 <span className='relative z-2 uppercase sm:text-base text-xs'>publish</span>
               </TabsBtn>
-            </div>
+            </TabsList>
           </div>
           <TabsContent value='design'>
             <div className='w-full'>

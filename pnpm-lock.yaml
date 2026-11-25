@@ -508,10 +508,10 @@ importers:
 packages:
 
   '@ui-sdk/core@0.1.0-beta.13':
-    resolution: {tarball: https://registry.npmjs.org/@ui-sdk/core/-/core-0.1.0-beta.13.tgz}
+    resolution: {integrity: sha512-URjk9hqdc/cZKDtw6Gb9NqjY48U8l0EgoP4d5ghlooa3av+GrR0iSmsav133UU4oelcuKIO1ZPJ4j7gIPMr1Vg==}
 
   '@ui-sdk/react@0.1.0-beta.13':
-    resolution: {tarball: https://registry.npmjs.org/@ui-sdk/react/-/react-0.1.0-beta.13.tgz}
+    resolution: {integrity: sha512-Gz85tAcPJHwnv90WMIAtED3fDamqVD3F3FF3uKsA/TsL+KbaeHSgX1gGdIpNcnzkmDO8YZk9aZBKgCFgpaCcHA==}
     peerDependencies:
       '@ui-sdk/core': ^0.1.0-beta.13
       '@types/react': '>=19.2.10'

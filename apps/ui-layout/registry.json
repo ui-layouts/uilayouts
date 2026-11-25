@@ -168,7 +168,7 @@
       "name": "btn-bg-shine",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [],
+      "dependencies": ["@ui-sdk/react@0.1.0-beta.13", "@ui-sdk/core@0.1.0-beta.13"],
       "registryDependencies": [],
       "files": [
         {
@@ -181,7 +181,7 @@
       "name": "btn-animated-gradient",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [],
+      "dependencies": ["@ui-sdk/react@0.1.0-beta.13", "@ui-sdk/core@0.1.0-beta.13"],
       "registryDependencies": [],
       "files": [
         {
@@ -194,7 +194,7 @@
       "name": "button-active",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [],
+      "dependencies": ["@ui-sdk/react@0.1.0-beta.13", "@ui-sdk/core@0.1.0-beta.13"],
       "registryDependencies": [],
       "files": [
         {
@@ -207,7 +207,7 @@
       "name": "button-hover-right",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [],
+      "dependencies": ["@ui-sdk/react@0.1.0-beta.13", "@ui-sdk/core@0.1.0-beta.13"],
       "registryDependencies": [],
       "files": [
         {
@@ -221,7 +221,9 @@
       "type": "registry:component",
       "devDependencies": [],
       "dependencies": [
-        "lucide-react"
+        "lucide-react",
+        "@ui-sdk/react@0.1.0-beta.13",
+        "@ui-sdk/core@0.1.0-beta.13"
       ],
       "registryDependencies": [],
       "files": [
@@ -236,7 +238,9 @@
       "type": "registry:component",
       "devDependencies": [],
       "dependencies": [
-        "lucide-react"
+        "lucide-react",
+        "@ui-sdk/react@0.1.0-beta.13",
+        "@ui-sdk/core@0.1.0-beta.13"
       ],
       "registryDependencies": [],
       "files": [
@@ -250,7 +254,7 @@
       "name": "btn-click-down",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [],
+      "dependencies": ["@ui-sdk/react@0.1.0-beta.13", "@ui-sdk/core@0.1.0-beta.13"],
       "registryDependencies": [],
       "files": [
         {
@@ -263,7 +267,7 @@
       "name": "btn-hover-down",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [],
+      "dependencies": ["@ui-sdk/react@0.1.0-beta.13", "@ui-sdk/core@0.1.0-beta.13"],
       "registryDependencies": [],
       "files": [
         {
@@ -276,7 +280,7 @@
       "name": "btn-hover-multiple",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [],
+      "dependencies": ["@ui-sdk/react@0.1.0-beta.13", "@ui-sdk/core@0.1.0-beta.13"],
       "registryDependencies": [],
       "files": [
         {
@@ -289,7 +293,7 @@
       "name": "btn-hover-underline",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [],
+      "dependencies": ["@ui-sdk/react@0.1.0-beta.13", "@ui-sdk/core@0.1.0-beta.13"],
       "registryDependencies": [],
       "files": [
         {
@@ -302,7 +306,7 @@
       "name": "btn-hover-top-flip",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [],
+      "dependencies": ["@ui-sdk/react@0.1.0-beta.13", "@ui-sdk/core@0.1.0-beta.13"],
       "registryDependencies": [],
       "files": [
         {
@@ -315,7 +319,7 @@
       "name": "btn-hover-left-flip",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [],
+      "dependencies": ["@ui-sdk/react@0.1.0-beta.13", "@ui-sdk/core@0.1.0-beta.13"],
       "registryDependencies": [],
       "files": [
         {
@@ -328,7 +332,7 @@
       "name": "btn-hover-top-slowflip",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [],
+      "dependencies": ["@ui-sdk/react@0.1.0-beta.13", "@ui-sdk/core@0.1.0-beta.13"],
       "registryDependencies": [],
       "files": [
         {
@@ -341,7 +345,7 @@
       "name": "btn-text-change",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [],
+      "dependencies": ["@ui-sdk/react@0.1.0-beta.13", "@ui-sdk/core@0.1.0-beta.13"],
       "registryDependencies": [],
       "files": [
         {
@@ -354,7 +358,7 @@
       "name": "btn-cross-arrow",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [],
+      "dependencies": ["@ui-sdk/react@0.1.0-beta.13", "@ui-sdk/core@0.1.0-beta.13"],
       "registryDependencies": [],
       "files": [
         {
@@ -367,7 +371,7 @@
       "name": "btn-black-shadow",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [],
+      "dependencies": ["@ui-sdk/react@0.1.0-beta.13", "@ui-sdk/core@0.1.0-beta.13"],
       "registryDependencies": [],
       "files": [
         {
@@ -396,7 +400,9 @@
       "type": "registry:component",
       "devDependencies": [],
       "dependencies": [
-        "lucide-react"
+        "lucide-react",
+        "@ui-sdk/react@0.1.0-beta.13",
+        "@ui-sdk/core@0.1.0-beta.13"
       ],
       "registryDependencies": [],
       "files": [
@@ -410,7 +416,7 @@
       "name": "btn-rotating-gradient",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [],
+      "dependencies": ["@ui-sdk/react@0.1.0-beta.13", "@ui-sdk/core@0.1.0-beta.13"],
       "registryDependencies": [],
       "files": [
         {
@@ -483,7 +489,7 @@
       "name": "motion-number-input",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [],
+      "dependencies": ["@ui-sdk/react@0.1.0-beta.13", "@ui-sdk/core@0.1.0-beta.13"],
       "registryDependencies": [],
       "files": [
         {
@@ -497,7 +503,7 @@
       "type": "registry:component",
       "devDependencies": [],
       "dependencies": [],
-      "registryDependencies": [],
+      "registryDependencies": ["https://www.ui-layouts.com/r/slider.json"],
       "files": [
         {
           "path": "./registry/components/motion-number/motion-number-slider.tsx",
@@ -1549,7 +1555,9 @@
       "type": "registry:component",
       "devDependencies": [],
       "dependencies": [
-        "motion"
+        "motion",
+        "@ui-sdk/react@0.1.0-beta.13",
+        "@ui-sdk/core@0.1.0-beta.13"
       ],
       "registryDependencies": [],
       "files": [
@@ -1564,7 +1572,9 @@
       "type": "registry:component",
       "devDependencies": [],
       "dependencies": [
-        "motion"
+        "motion",
+        "@ui-sdk/react@0.1.0-beta.13",
+        "@ui-sdk/core@0.1.0-beta.13"
       ],
       "registryDependencies": [],
       "files": [
@@ -1583,7 +1593,9 @@
       "type": "registry:component",
       "devDependencies": [],
       "dependencies": [
-        "motion"
+        "motion",
+        "@ui-sdk/react@0.1.0-beta.13",
+        "@ui-sdk/core@0.1.0-beta.13"
       ],
       "registryDependencies": [],
       "files": [
@@ -1602,7 +1614,9 @@
       "type": "registry:component",
       "devDependencies": [],
       "dependencies": [
-        "motion"
+        "motion",
+        "@ui-sdk/react@0.1.0-beta.13",
+        "@ui-sdk/core@0.1.0-beta.13"
       ],
       "registryDependencies": [],
       "files": [
@@ -2470,7 +2484,9 @@
       "devDependencies": [],
       "dependencies": [
         "@ui-sdk/react@0.1.0-beta.13",
-        "@ui-sdk/core@0.1.0-beta.13"
+        "@ui-sdk/core@0.1.0-beta.13",
+        "lucide-react",
+        "motion"
       ],
       "registryDependencies": [],
       "files": [
@@ -2486,7 +2502,9 @@
       "devDependencies": [],
       "dependencies": [
         "@ui-sdk/react@0.1.0-beta.13",
-        "@ui-sdk/core@0.1.0-beta.13"
+        "@ui-sdk/core@0.1.0-beta.13",
+        "lucide-react",
+        "motion"
       ],
       "registryDependencies": [],
       "files": [
@@ -2506,7 +2524,9 @@
       "devDependencies": [],
       "dependencies": [
         "@ui-sdk/react@0.1.0-beta.13",
-        "@ui-sdk/core@0.1.0-beta.13"
+        "@ui-sdk/core@0.1.0-beta.13",
+        "lucide-react",
+        "motion"
       ],
       "registryDependencies": [],
       "files": [
@@ -2526,7 +2546,9 @@
       "devDependencies": [],
       "dependencies": [
         "@ui-sdk/react@0.1.0-beta.13",
-        "@ui-sdk/core@0.1.0-beta.13"
+        "@ui-sdk/core@0.1.0-beta.13",
+        "lucide-react",
+        "motion"
       ],
       "registryDependencies": [],
       "files": [
@@ -2546,7 +2568,9 @@
       "devDependencies": [],
       "dependencies": [
         "@ui-sdk/react@0.1.0-beta.13",
-        "@ui-sdk/core@0.1.0-beta.13"
+        "@ui-sdk/core@0.1.0-beta.13",
+        "lucide-react",
+        "motion"
       ],
       "registryDependencies": [],
       "files": [
@@ -2566,7 +2590,9 @@
       "devDependencies": [],
       "dependencies": [
         "@number-flow/react",
-        "@radix-ui/react-slider"
+        "@radix-ui/react-slider",
+        "@ui-sdk/react@0.1.0-beta.13",
+        "@ui-sdk/core@0.1.0-beta.13"
       ],
       "registryDependencies": [],
       "files": [
@@ -2581,7 +2607,7 @@
       "type": "registry:component",
       "devDependencies": [],
       "dependencies": [],
-      "registryDependencies": [],
+      "registryDependencies": ["https://www.ui-layouts.com/r/slider.json"],
       "files": [
         {
           "path": "./registry/components/form/slider/dual-range-slider.tsx",
@@ -2594,7 +2620,7 @@
       "type": "registry:component",
       "devDependencies": [],
       "dependencies": [],
-      "registryDependencies": [],
+      "registryDependencies": ["https://www.ui-layouts.com/r/slider.json"],
       "files": [
         {
           "path": "./registry/components/form/slider/position-range-slider.tsx",
@@ -2607,7 +2633,7 @@
       "type": "registry:component",
       "devDependencies": [],
       "dependencies": [],
-      "registryDependencies": [],
+      "registryDependencies": ["https://www.ui-layouts.com/r/slider.json"],
       "files": [
         {
           "path": "./registry/components/form/slider/static-range-slider.tsx",
@@ -2620,7 +2646,9 @@
       "type": "registry:component",
       "devDependencies": [],
       "dependencies": [
-        "lucide-react"
+        "lucide-react",
+        "@ui-sdk/react@0.1.0-beta.13",
+        "@ui-sdk/core@0.1.0-beta.13"
       ],
       "registryDependencies": [],
       "files": [
@@ -2635,7 +2663,9 @@
       "type": "registry:component",
       "devDependencies": [],
       "dependencies": [
-        "lucide-react"
+        "lucide-react",
+        "@ui-sdk/react@0.1.0-beta.13",
+        "@ui-sdk/core@0.1.0-beta.13"
       ],
       "registryDependencies": [],
       "files": [
@@ -2650,7 +2680,9 @@
       "type": "registry:component",
       "devDependencies": [],
       "dependencies": [
-        "lucide-react"
+        "lucide-react",
+        "@ui-sdk/react@0.1.0-beta.13",
+        "@ui-sdk/core@0.1.0-beta.13"
       ],
       "registryDependencies": [],
       "files": [
@@ -2665,7 +2697,9 @@
       "type": "registry:component",
       "devDependencies": [],
       "dependencies": [
-        "lucide-react"
+        "lucide-react",
+        "@ui-sdk/react@0.1.0-beta.13",
+        "@ui-sdk/core@0.1.0-beta.13"
       ],
       "registryDependencies": [],
       "files": [
@@ -2680,7 +2714,9 @@
       "type": "registry:component",
       "devDependencies": [],
       "dependencies": [
-        "lucide-react"
+        "lucide-react",
+        "@ui-sdk/react@0.1.0-beta.13",
+        "@ui-sdk/core@0.1.0-beta.13"
       ],
       "registryDependencies": [],
       "files": [
@@ -2695,7 +2731,9 @@
       "type": "registry:component",
       "devDependencies": [],
       "dependencies": [
-        "lucide-react"
+        "lucide-react",
+        "@ui-sdk/react@0.1.0-beta.13",
+        "@ui-sdk/core@0.1.0-beta.13"
       ],
       "registryDependencies": [],
       "files": [
@@ -2709,7 +2747,7 @@
       "name": "tags-input",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [],
+      "dependencies": ["@ui-sdk/react@0.1.0-beta.13", "@ui-sdk/core@0.1.0-beta.13"],
       "registryDependencies": [],
       "files": [
         {
@@ -2722,7 +2760,7 @@
       "name": "tags-input-components",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [],
+      "dependencies": ["@ui-sdk/react@0.1.0-beta.13", "@ui-sdk/core@0.1.0-beta.13"],
       "registryDependencies": [],
       "files": [
         {
@@ -2739,7 +2777,7 @@
       "name": "tags-input-no-edit",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [],
+      "dependencies": ["@ui-sdk/react@0.1.0-beta.13", "@ui-sdk/core@0.1.0-beta.13"],
       "registryDependencies": [],
       "files": [
         {
@@ -2759,7 +2797,9 @@
       "dependencies": [
         "lucide-react",
         "react-phone-number-input",
-        "zod"
+        "zod",
+        "@ui-sdk/react@0.1.0-beta.13",
+        "@ui-sdk/core@0.1.0-beta.13"
       ],
       "registryDependencies": [],
       "files": [
@@ -2796,7 +2836,11 @@
       "dependencies": [
         "lucide-react",
         "react-phone-number-input",
-        "zod"
+        "zod",
+        "@ui-sdk/react@0.1.0-beta.13",
+        "@ui-sdk/core@0.1.0-beta.13",
+        "@radix-ui/react-slot",
+        "class-variance-authority"
       ],
       "registryDependencies": [],
       "files": [
@@ -2807,18 +2851,6 @@
         {
           "path": "./components/website/ui/button.tsx",
           "type": "registry:component"
-        },
-        {
-          "path": "./components/website/ui/command.tsx",
-          "type": "registry:component"
-        },
-        {
-          "path": "./components/website/ui/popover.tsx",
-          "type": "registry:component"
-        },
-        {
-          "path": "./components/website/ui/scroll-area.tsx",
-          "type": "registry:component"
         }
       ]
     },
@@ -2828,7 +2860,9 @@
       "devDependencies": [],
       "dependencies": [
         "chrono-node@latest",
-        "react-day-picker@^8.9.1"
+        "react-day-picker@^8.9.1",
+        "@ui-sdk/react@0.1.0-beta.13",
+        "@ui-sdk/core@0.1.0-beta.13"
       ],
       "registryDependencies": [],
       "files": [
@@ -2860,7 +2894,9 @@
       "devDependencies": [],
       "dependencies": [
         "chrono-node@latest",
-        "react-day-picker@^8.9.1"
+        "react-day-picker@^8.9.1",
+        "@ui-sdk/react@0.1.0-beta.13",
+        "@ui-sdk/core@0.1.0-beta.13"
       ],
       "registryDependencies": [],
       "files": [
@@ -2896,7 +2932,9 @@
       "devDependencies": [],
       "dependencies": [
         "chrono-node@latest",
-        "react-day-picker@^8.9.1"
+        "react-day-picker@^8.9.1",
+        "@ui-sdk/react@0.1.0-beta.13",
+        "@ui-sdk/core@0.1.0-beta.13"
       ],
       "registryDependencies": [],
       "files": [
@@ -2932,7 +2970,9 @@
       "devDependencies": [],
       "dependencies": [
         "chrono-node@latest",
-        "react-day-picker@^8.9.1"
+        "react-day-picker@^8.9.1",
+        "@ui-sdk/react@0.1.0-beta.13",
+        "@ui-sdk/core@0.1.0-beta.13"
       ],
       "registryDependencies": [],
       "files": [
@@ -2967,7 +3007,11 @@
       "type": "registry:component",
       "devDependencies": [],
       "dependencies": [
-        "lucide-react"
+        "lucide-react",
+        "@ui-sdk/react@0.1.0-beta.13",
+        "@ui-sdk/core@0.1.0-beta.13",
+        "@radix-ui/react-slot",
+        "class-variance-authority"
       ],
       "registryDependencies": [],
       "files": [
@@ -2978,14 +3022,6 @@
         {
           "path": "./components/website/ui/button.tsx",
           "type": "registry:component"
-        },
-        {
-          "path": "./components/website/ui/popover.tsx",
-          "type": "registry:component"
-        },
-        {
-          "path": "./components/website/ui/command.tsx",
-          "type": "registry:component"
         }
       ]
     },
@@ -2994,7 +3030,9 @@
       "type": "registry:component",
       "devDependencies": [],
       "dependencies": [
-        "lucide-react"
+        "lucide-react",
+        "@ui-sdk/react@0.1.0-beta.13",
+        "@ui-sdk/core@0.1.0-beta.13"
       ],
       "registryDependencies": [],
       "files": [
@@ -5640,7 +5678,7 @@
       "name": "btn-hover14",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [],
+      "dependencies": ["@ui-sdk/react@0.1.0-beta.13", "@ui-sdk/core@0.1.0-beta.13"],
       "registryDependencies": [],
       "files": [
         {
@@ -5849,7 +5887,7 @@
       "type": "registry:component",
       "devDependencies": [],
       "dependencies": [],
-      "registryDependencies": [],
+      "registryDependencies": ["https://www.ui-layouts.com/r/tabs.json"],
       "files": [
         {
           "path": "./registry/components/tabs/tools-tab.tsx",

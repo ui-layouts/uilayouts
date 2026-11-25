@@ -11,6 +11,7 @@ export default function PositionRangeSlider() {
         <DualRangeSlider
           label={() => <>$</>}
           lableContenPos={'left'}
+          aria-label='Price range'
           value={values}
           onValueChange={setValues}
           min={0}
@@ -20,6 +21,7 @@ export default function PositionRangeSlider() {
 
         <DualRangeSlider
           label={() => <>℃</>}
+          aria-label='Temperature'
           value={[celPer]}
           labelPosition='bottom'
           onValueChange={([celPer]) => celPer != null && setCelPer(celPer)}

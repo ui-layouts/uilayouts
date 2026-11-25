@@ -3,7 +3,9 @@
   "name": "grid-layout-accordion",
   "dependencies": [
     "@ui-sdk/react@0.1.0-beta.13",
-    "@ui-sdk/core@0.1.0-beta.13"
+    "@ui-sdk/core@0.1.0-beta.13",
+    "lucide-react",
+    "motion"
   ],
   "devDependencies": [],
   "registryDependencies": [],

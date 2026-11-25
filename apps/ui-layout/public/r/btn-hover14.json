@@ -1,13 +1,16 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "btn-hover14",
-  "dependencies": [],
+  "dependencies": [
+    "@ui-sdk/react@0.1.0-beta.13",
+    "@ui-sdk/core@0.1.0-beta.13"
+  ],
   "devDependencies": [],
   "registryDependencies": [],
   "files": [
     {
       "path": "./registry/components/button/btn-hover14.tsx",
-      "content": "'use client';\n\nimport { ArrowRight } from 'lucide-react';\n\nconst ButtonHover14 = () => {\n  return (\n    <>\n      <button className='group cursor-pointer slide-anime px-5 py-3 rounded-full w-[180px] shadow bg-primary-base text-primary flex justify-between items-center font-semibold '>\n        Schedule Call{' '}\n        <div className='group-hover:translate-x-2 transition-all'>\n          <ArrowRight />\n        </div>\n      </button>\n    </>\n  );\n};\n\nexport default ButtonHover14;\n",
+      "content": "'use client';\nimport { Button } from '@ui-sdk/react/button';\n\nimport { ArrowRight } from 'lucide-react';\n\nconst ButtonHover14 = (\n  props: Pick<React.ComponentProps<typeof Button>, 'onClick' | 'disabled' | 'type' | 'aria-label'>\n) => {\n  return (\n    <>\n      <Button\n        {...props}\n        className='group cursor-pointer slide-anime px-5 py-3 rounded-full w-[180px] shadow bg-card text-primary flex justify-between items-center font-semibold '\n      >\n        Schedule Call{' '}\n        <div className='group-hover:translate-x-2 transition-all'>\n          <ArrowRight />\n        </div>\n      </Button>\n    </>\n  );\n};\n\nexport default ButtonHover14;\n",
       "type": "registry:component"
     }
   ],
