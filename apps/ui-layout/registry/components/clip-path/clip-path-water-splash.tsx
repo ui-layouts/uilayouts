@@ -77,7 +77,7 @@ function ClipPathWaterSplash() {
           </clipPath>
         </defs>
       </svg>
-      <section className='grid grid-cols-2 gap-8 bg-background border rounded-lg p-5'>
+      <section className='grid grid-cols-2 gap-2 sm:gap-5 lg:gap-8 mx-auto w-[calc(100%-1rem)] max-w-2xl'>
         <figure style={{ clipPath: 'url(#clip-splash1)' }}>
           <img
             src='https://images.unsplash.com/photo-1718807469077-fc37dbe0fd74?w=500&auto=format&fit=crop'

@@ -4,7 +4,7 @@ function CreativeImageMasking() {
   return (
     <>
       <section
-        className='relative'
+        className='relative mx-auto w-[calc(100%-1rem)] max-w-2xl'
         style={{
           aspectRatio: '1213/667',
           backgroundColor: 'tomato',

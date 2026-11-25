@@ -26,7 +26,7 @@ function ClipPathCorporate() {
         </defs>
       </svg>
 
-      <section className='grid grid-cols-3 gap-8 bg-background border rounded-lg p-5'>
+      <section className='grid grid-cols-3 gap-2 sm:gap-5 lg:gap-8 mx-auto w-[calc(100%-1rem)] max-w-2xl'>
         <figure style={{ clipPath: 'url(#clip-another1)' }}>
           <img
             src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&auto=format&fit=crop'

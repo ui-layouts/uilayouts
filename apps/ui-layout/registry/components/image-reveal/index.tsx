@@ -101,20 +101,18 @@ const ImageReveal2: React.FC = () => {
   }, []);
 
   return (
-    <div className='relative w-full' onMouseLeave={handleMouseLeave}>
+    <div className='relative mx-auto w-[calc(100%-1rem)] max-w-3xl' onMouseLeave={handleMouseLeave}>
       {images.map((image) => (
         <div
           key={image.id}
           className={`px-2 cursor-pointer relative sm:flex items-center border-b border-primary justify-between`}
           onMouseEnter={() => handleImageHover(image)}
         >
-          {!isDesktop && (
-            <img
-              src={image?.src}
-              className='sm:w-32 sm:h-20 w-full h-52 object-cover rounded-md'
-              alt='mobileImg'
-            />
-          )}
+          <img
+            src={image.src}
+            className='w-full h-[min(13svh,9rem)] rounded-md object-cover sm:h-20 sm:w-32 md:hidden'
+            alt=''
+          />
           <h2
             className={`newFont text-muted-foreground uppercase md:text-5xl sm:text-2xl text-xl sm:py-6 py-2 leading-[100%] relative ${
               activeImage?.id === image?.id

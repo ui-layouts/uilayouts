@@ -5,9 +5,9 @@ import React from 'react';
 
 export default function SpotlightCard3() {
   return (
-    <div className='relative sm:p-8 px-4 rounded-md'>
+    <div className='relative mx-auto w-[calc(100%-1rem)] max-w-sm py-4 rounded-md'>
       <Spotlight
-        className='sm:w-96 w-full mx-auto'
+        className='w-full mx-auto'
         ProximitySpotlight={false}
         HoverFocusSpotlight={true}
       >

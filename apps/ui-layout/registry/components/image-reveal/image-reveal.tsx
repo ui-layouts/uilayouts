@@ -70,7 +70,7 @@ function ImageReveal2() {
   };
 
   return (
-    <section ref={containerRef} onMouseMove={handleMove} className='relative w-4/5 mx-auto p-4'>
+    <section ref={containerRef} onMouseMove={handleMove} className='relative mx-auto w-[calc(100%-1rem)] max-w-3xl py-4'>
       {list.map((item) => (
         <div
           key={item.label}

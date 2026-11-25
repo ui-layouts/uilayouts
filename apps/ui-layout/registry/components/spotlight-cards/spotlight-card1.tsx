@@ -41,7 +41,7 @@ export default function SpotlightCard1() {
   ];
   return (
     <>
-      <div className='relative sm:p-8 p-4 rounded-md'>
+      <div className='relative mx-auto w-[calc(100%-1rem)] max-w-3xl py-4 rounded-md'>
         <Spotlight className='grid gap-2 grid-flow-col grid-cols-4'>
           {boxes?.map((box, index) => {
             return (
