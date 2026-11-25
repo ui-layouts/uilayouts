@@ -1,5 +1,6 @@
 'use client';
 
+import { Button as ActionButton } from '@ui-sdk/react/button';
 import { cn } from '@/lib/utils';
 import { Trash2 as RemoveIcon } from 'lucide-react';
 import {
@@ -289,7 +290,7 @@ export const FileUploaderItem = forwardRef<
       <div className='font-medium   leading-none tracking-tight flex items-center gap-1.5 h-full w-full'>
         {children}
       </div>
-      <button
+      <ActionButton
         type='button'
         className={cn(
           'absolute bg-primary rounded-sm text-background p-1',
@@ -299,7 +300,7 @@ export const FileUploaderItem = forwardRef<
       >
         <span className='sr-only'>remove item {index}</span>
         <RemoveIcon className='w-3 h-3 hover:stroke-destructive  duration-200 ease-in-out' />
-      </button>
+      </ActionButton>
     </div>
   );
 });

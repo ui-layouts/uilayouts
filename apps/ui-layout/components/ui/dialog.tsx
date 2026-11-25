@@ -1,4 +1,5 @@
 'use client';
+import { Button as ActionButton } from '@ui-sdk/react/button';
 import { X } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import React, { createContext, type ReactNode, useContext, useEffect, useState } from 'react';
@@ -68,9 +69,9 @@ export function FramerModal({
               onClick={(e) => e.stopPropagation()}
               className=' w-full max-w-md rounded-xl bg-white/5 p-6 backdrop-blur-2xl border'
             >
-              <button className='absolute top-2 right-2' onClick={() => setOpen(false)}>
+              <ActionButton type='button' aria-label='Close dialog' className='absolute top-2 right-2' onClick={() => setOpen(false)}>
                 <X />
-              </button>
+              </ActionButton>
               {children}
             </motion.div>
           </motion.div>

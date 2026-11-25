@@ -3,7 +3,7 @@
 import { Tabs, TabsTab } from '@ui-sdk/react/tabs';
 export { TabsList } from '@ui-sdk/react/tabs';
 import { cn } from '@/lib/utils';
-import { AnimatePresence, motion } from 'motion/react';
+import { AnimatePresence, LayoutGroup, motion } from 'motion/react';
 import React, {
   createContext,
   isValidElement,
@@ -106,7 +106,7 @@ export const TabsProvider: React.FC<TabsProviderProps> = React.memo(
           onValueChange={selectTab}
           activation={hover ? 'automatic' : 'manual'}
         >
-          {children}
+          <LayoutGroup id={id}>{children}</LayoutGroup>
         </Tabs>
       </TabContext.Provider>
     );
@@ -115,7 +115,7 @@ export const TabsProvider: React.FC<TabsProviderProps> = React.memo(
 
 // Memoized TabsBtn component
 export const TabsBtn: React.FC<TabsBtnProps> = React.memo(({ children, className, value }) => {
-  const { id, activeTab, setActiveTab, defaultValue, hover, wobbly } = useTabs();
+  const { id, activeTab, setActiveTab, hover, wobbly } = useTabs();
 
   return (
     <TabsTab
@@ -138,7 +138,7 @@ export const TabsBtn: React.FC<TabsBtnProps> = React.memo(({ children, className
                   delay: 0.2,
                 },
               }}
-              layoutId={defaultValue}
+              layoutId='indicator'
               className='absolute w-full h-full left-0 top-0 bg-card dark:bg-secondary rounded-md z-1'
             />
 
@@ -152,7 +152,7 @@ export const TabsBtn: React.FC<TabsBtnProps> = React.memo(({ children, className
                       delay: 0.04,
                     },
                   }}
-                  layoutId={defaultValue}
+                  layoutId='trail-front'
                   className='absolute w-full h-full left-0 top-0 bg-card rounded-md z-1 tab-shadow'
                 />
                 <motion.div
@@ -163,7 +163,7 @@ export const TabsBtn: React.FC<TabsBtnProps> = React.memo(({ children, className
                       delay: 0.2,
                     },
                   }}
-                  layoutId={`${defaultValue}b`}
+                  layoutId='trail-back'
                   className='absolute w-full h-full left-0 top-0 bg-card rounded-md z-1 tab-shadow'
                 />
               </>

@@ -1,5 +1,6 @@
 'use client';
 
+import { Button } from '@ui-sdk/react/button';
 import { cn } from '@/lib/utils';
 import { Check, CheckCheck, Copy } from 'lucide-react';
 import { useState } from 'react';
@@ -18,7 +19,7 @@ export function CopyButton({ code, classname }: { code: string; classname?: stri
 
   return (
     <>
-      <div
+      <Button type='button' aria-label='Copy code'
         className={cn(
           'absolute right-2 top-2 cursor-pointer dark:hover:shadow-[0px_1px_10px_5px_#3f7ef3] hover:shadow-[0px_1px_10px_5px_#9abaf7] dark:hover:border-blue-500 hover:border-blue-300  backdrop-blur-2xl bg-card rounded-md border-2',
           classname
@@ -39,7 +40,7 @@ export function CopyButton({ code, classname }: { code: string; classname?: stri
         >
           <CheckCheck className='h-4 w-4 text-foreground/80' />
         </div>
-      </div>
+      </Button>
     </>
   );
 }

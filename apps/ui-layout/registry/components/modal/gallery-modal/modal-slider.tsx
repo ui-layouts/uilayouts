@@ -1,6 +1,7 @@
 // @ts-nocheck
 'use client';
 
+import { Button as ActionButton } from '@ui-sdk/react/button';
 import { items } from '@/components/website/constant';
 import { X } from 'lucide-react';
 import { AnimatePresence, LayoutGroup, motion, useMotionValue } from 'motion/react';
@@ -97,12 +98,12 @@ export const SliderModal = ({ item, uniqueId, itemArr }: ImageModalProps) => {
               setIsOpen(false);
             }}
           >
-            <button
+            <ActionButton type='submit'
               className='absolute top-2 right-2 p-4 border dark:bg-black/80 text-white  bg-neutral-400/40 backdrop-blur-lg '
               onClick={() => setIsOpen(false)}
             >
               <X />
-            </button>
+            </ActionButton>
             <motion.div
               layoutId={uniqueId}
               className='rounded-md w-fit h-[80%] flex gap-2 items-center mx-auto cursor-auto '

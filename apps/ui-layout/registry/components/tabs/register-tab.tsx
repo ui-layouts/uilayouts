@@ -1,5 +1,7 @@
 // thanks to maximeheckel
 
+import { PasswordInput, PasswordInputControl } from '@ui-sdk/react/password-input';
+import { Input as TextInput } from '@ui-sdk/react/input';
 import { TabsBtn, TabsList, TabsContent, TabsProvider } from '@/components/ui/tab';
 import { Lock, Phone } from 'lucide-react';
 import Image from 'next/image';
@@ -107,16 +109,16 @@ function RegisterTab() {
               <span className='inline-block w-full border '></span>
             </div>
             <form className='space-y-2 py-1'>
-              <input
+              <TextInput aria-label='Email'
                 type='email'
                 placeholder='Enter your Eamil..'
                 className='w-full p-2 border focus:outline-hidden rounded-md dark:bg-input'
               />
-              <input
-                type='password'
+              <PasswordInput className='contents'><PasswordInputControl
+                aria-label='Password'
                 placeholder='Enter your password..'
                 className='w-full p-2 border focus:outline-hidden rounded-md dark:bg-input'
-              />
+              /></PasswordInput>
               <button
                 type='submit'
                 className='dark:bg-neutral-50 mt-2 bg-card flex gap-1 items-center justify-center p-3 text-center w-full dark:text-black text-white rounded-md font-medium'
@@ -150,7 +152,7 @@ function RegisterTab() {
             </div>
 
             <form className='space-y-2 py-1'>
-              <input
+              <TextInput aria-label='Username'
                 type='text'
                 placeholder='Enter your username'
                 className='w-full p-2 border focus:outline-hidden rounded-md dark:bg-input'
@@ -159,22 +161,22 @@ function RegisterTab() {
                 <div className='dark:bg-neutral-50 bg-black h-full p-2 dark:text-black text-white rounded-md'>
                   <Phone />
                 </div>
-                <input
+                <TextInput aria-label='Phone number'
                   type='tel'
                   placeholder='018XXXXXXXX'
                   className='w-full p-2 border focus:outline-hidden rounded-md dark:bg-input'
                 />
               </div>
-              <input
+              <TextInput aria-label='Email'
                 type='email'
                 placeholder='Enter your Eamil'
                 className='w-full p-2 border focus:outline-hidden rounded-md dark:bg-input'
               />
-              <input
-                type='password'
+              <PasswordInput className='contents'><PasswordInputControl
+                aria-label='Password'
                 placeholder='Enter your password'
                 className='w-full p-2 border focus:outline-hidden rounded-md dark:bg-input'
-              />
+              /></PasswordInput>
               <button
                 type='submit'
                 className='dark:bg-neutral-50 bg-card flex gap-1 items-center justify-center p-3 text-center w-full dark:text-black text-white rounded-md font-medium'

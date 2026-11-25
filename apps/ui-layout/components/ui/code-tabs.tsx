@@ -1,7 +1,7 @@
 // components/website/code-components/code-tabs.tsx
 'use client';
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/website/ui/tabs';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/website/code-components/code-tab-parts';
 import { cn } from '@/lib/utils';
 import { type ReactNode, useEffect, useState } from 'react';
 import { CopyButton } from '../website/code-components/copy-button';
@@ -78,7 +78,7 @@ export function CodeTabs({
                 <TabsTrigger
                   key={tab.id}
                   value={tab.id}
-                  className='data-[state=active]:bg-card gap-1 data-[state=active]:border'
+                  className='data-selected:bg-card gap-1 data-selected:border'
                 >
                   {tab.id === 'ui-layouts' ? (
                     <>
@@ -148,7 +148,7 @@ export function CodeTabs({
               <TabsTrigger
                 key={t.id}
                 value={t.id}
-                className='data-[state=active]:bg-card gap-1 data-[state=active]:border'
+                className='data-selected:bg-card gap-1 data-selected:border'
               >
                 {t.label}
               </TabsTrigger>

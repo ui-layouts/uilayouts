@@ -1,4 +1,5 @@
 'use client';
+import { Button as ActionButton } from '@ui-sdk/react/button';
 import {
   DirectionalDrawer,
   DrawerContent,
@@ -58,12 +59,12 @@ export default function DirectionalDrawerDefault() {
                   </div>
 
                   {/* Submit */}
-                  <button
+                  <ActionButton
                     type='submit'
                     className='w-full rounded-md bg-foreground text-background p-2 font-medium'
                   >
                     Save Changes
-                  </button>
+                  </ActionButton>
                 </div>
               </figure>
             </DrawerContent>

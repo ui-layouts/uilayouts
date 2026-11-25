@@ -1,4 +1,5 @@
 'use client';
+import { Button as ActionButton } from '@ui-sdk/react/button';
 import { Plus, X } from 'lucide-react';
 import { AnimatePresence, MotionConfig, type Transition, motion } from 'motion/react';
 import type React from 'react';
@@ -144,13 +145,13 @@ const LinearCardDialog: React.FC = () => {
                     {item.title}
                   </motion.h3>
                 </div>
-                <button
+                <ActionButton type='submit'
                   className='absolute bottom-2 right-2 p-2 bg-muted hover:bg-muted/80 rounded-xl transition-colors'
                   aria-label={`Open ${item.title}`}
                   tabIndex={-1}
                 >
                   <Plus className='w-4 h-4' />
-                </button>
+                </ActionButton>
               </div>
             </motion.div>
           ))}
@@ -220,14 +221,14 @@ const LinearCardDialog: React.FC = () => {
                       </div>
                     )}
                   </div>
-                  <button
+                  <ActionButton
                     onClick={handleCloseDialog}
                     className='absolute right-4 top-4 p-2 bg-black dark:bg-white rounded-lg text-primary-foreground border cursor-pointer transition-colors'
                     type='button'
                     aria-label={`Close ${currentItem.title} dialog`}
                   >
                     <X size={20} />
-                  </button>
+                  </ActionButton>
                 </motion.div>
               </motion.div>
             </AnimatePresence>,

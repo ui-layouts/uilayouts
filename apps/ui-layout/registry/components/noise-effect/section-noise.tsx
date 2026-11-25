@@ -1,4 +1,5 @@
 'use client';
+import { Slider } from '@ui-sdk/react/slider';
 import { type ChangeEvent, useCallback, useState } from 'react';
 
 const SectionNoise = () => {
@@ -11,18 +12,28 @@ const SectionNoise = () => {
     <>
       <section className='relative border rounded-lg w-full'>
         <div className='absolute top-4 right-4 z-10 flex justify-end pb-2'>
-          <label htmlFor='opacity-slider ' className='mr-2 inline-block'>
+          <label htmlFor='opacity-slider' className='mr-2 inline-block'>
             Noise Opacity:
           </label>
-          <input
-            id='opacity-slider'
-            type='range'
-            min='0'
-            max='1'
-            step='0.01'
+          <Slider
+            className='contents'
+            aria-label='Noise opacity'
+            min={0}
+            max={1}
+            step={0.01}
             value={opacity}
-            onChange={handleOpacityChange}
-          />
+            onValueChange={setOpacity}
+          >
+            <input
+              id='opacity-slider'
+              type='range'
+              min='0'
+              max='1'
+              step='0.01'
+              value={opacity}
+              onChange={handleOpacityChange}
+            />
+          </Slider>
           <span className='ml-2'>{opacity.toFixed(2)}</span>
         </div>
         <div

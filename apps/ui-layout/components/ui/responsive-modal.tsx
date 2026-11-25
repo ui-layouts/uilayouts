@@ -1,5 +1,6 @@
 'use client';
 
+import { Button as ActionButton } from '@ui-sdk/react/button';
 import { cn } from '@/lib/utils';
 import { X } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
@@ -86,7 +87,7 @@ export function ResponsiveModal({
                     classname
                   )}
                 >
-                  <button
+                  <ActionButton type='button'
                     className={cn(
                       'absolute top-2 right-2 bg-muted text-muted-foreground hover:bg-accent hover:text-accent-foreground p-2 border z-1 rounded-md',
                       clsBtnClassname
@@ -95,7 +96,7 @@ export function ResponsiveModal({
                     aria-label='Close'
                   >
                     <X />
-                  </button>
+                  </ActionButton>
                   {content}
                 </motion.div>
               </motion.div>

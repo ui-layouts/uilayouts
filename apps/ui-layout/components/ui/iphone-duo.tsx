@@ -1,5 +1,6 @@
 'use client';
 
+import { Button as ActionButton } from '@ui-sdk/react/button';
 import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
@@ -767,7 +768,7 @@ export function IPhoneDuo({
           className='absolute inset-x-4 top-4 z-20 rounded-xl border bg-background/95 p-4 text-center text-sm text-foreground'
         >
           <p>{error}</p>
-          <button
+          <ActionButton
             type='button'
             className='mt-2 rounded-md border px-3 py-2 focus-visible:outline-2 focus-visible:outline-offset-2'
             onClick={() => {
@@ -776,7 +777,7 @@ export function IPhoneDuo({
             }}
           >
             Try again
-          </button>
+          </ActionButton>
         </div>
       )}
     </div>

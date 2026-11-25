@@ -1,4 +1,5 @@
 'use client';
+import { Button as ActionButton } from '@ui-sdk/react/button';
 import { Button } from '@/components/website/ui/button';
 import {
   Select,
@@ -295,22 +296,22 @@ export const MultiSelect = React.forwardRef<HTMLButtonElement, MultiSelectProps>
           <div className='flex items-center justify-between'>
             {selectedValues.length > 0 && (
               <>
-                <button
+                <ActionButton
                   type='button'
                   onClick={handleClear}
                   className='flex flex-1 items-center px-2 py-1.5 text-sm justify-center cursor-pointer border-r'
                 >
                   Clear
-                </button>
+                </ActionButton>
               </>
             )}
-            <button
+            <ActionButton
               type='button'
               onClick={() => setIsPopoverOpen(false)}
               className='flex flex-1 items-center px-2 py-1.5 text-sm justify-center cursor-pointer max-w-full'
             >
               Close
-            </button>
+            </ActionButton>
           </div>
         </SelectContent>
       </Select>

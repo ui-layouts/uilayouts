@@ -1,4 +1,5 @@
 'use client';
+import { Input as TextInput } from '@ui-sdk/react/input';
 import { motion, useInView } from 'motion/react';
 // import useNewsLetter, { ClientData } from '@/lab/hooks/useNewsLetter'
 import Link from 'next/link';
@@ -101,7 +102,7 @@ const Footer = () => {
                     onSubmit={(e) => handleNewsLetterData(e)}
                     className='relative z-2 grid grid-cols-6  w-full h-full'
                   >
-                    <input
+                    <TextInput aria-label='Email'
                       type='email'
                       name='newsletter_email'
                       className='border-none bg-transparent  py-3 px-6  col-span-5'

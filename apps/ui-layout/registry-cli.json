@@ -12,7 +12,9 @@
         "three@0.186.0",
         "clsx",
         "tailwind-merge",
-        "@types/three@0.183.1"
+        "@types/three@0.183.1",
+        "@ui-sdk/react@0.1.0-beta.13",
+        "@ui-sdk/core@0.1.0-beta.13"
       ],
       "devDependencies": [],
       "registryDependencies": [],
@@ -304,11 +306,27 @@
       "name": "color-picker",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [],
+      "dependencies": ["@ui-sdk/react@0.1.0-beta.13", "@ui-sdk/core@0.1.0-beta.13", "lucide-react", "react-colorful", "sonner"],
       "registryDependencies": [],
       "files": [
         {
           "path": "./components/ui/color-picker.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/ui/button.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/ui/input.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/ui/label.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/ui/popover.tsx",
           "type": "registry:component"
         }
       ]
@@ -317,7 +335,7 @@
       "name": "noise-effect",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [],
+      "dependencies": ["@ui-sdk/react@0.1.0-beta.13", "@ui-sdk/core@0.1.0-beta.13"],
       "registryDependencies": [],
       "files": [
         {
@@ -629,7 +647,7 @@
       "name": "file-upload",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": ["react-dropzone", "sonner", "lucide-react"],
+      "dependencies": ["react-dropzone", "sonner", "lucide-react", "@ui-sdk/react@0.1.0-beta.13", "@ui-sdk/core@0.1.0-beta.13"],
       "registryDependencies": [],
       "files": [
         {
@@ -748,7 +766,7 @@
       "name": "progressive-carousel",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": ["motion"],
+      "dependencies": ["motion", "@ui-sdk/react@0.1.0-beta.13", "@ui-sdk/core@0.1.0-beta.13"],
       "registryDependencies": [],
       "files": [
         {
@@ -787,7 +805,7 @@
       "name": "dialog",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": ["motion", "lucide-react"],
+      "dependencies": ["motion", "lucide-react", "@ui-sdk/react@0.1.0-beta.13", "@ui-sdk/core@0.1.0-beta.13"],
       "registryDependencies": [],
       "files": [
         {
@@ -801,7 +819,7 @@
       "name": "media-modal",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": ["motion", "lucide-react"],
+      "dependencies": ["motion", "lucide-react", "@ui-sdk/react@0.1.0-beta.13", "@ui-sdk/core@0.1.0-beta.13"],
       "registryDependencies": [],
       "files": [
         {
@@ -879,11 +897,15 @@
       "name": "image-tabs",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": [],
+      "dependencies": ["@ui-sdk/react@0.1.0-beta.13", "@ui-sdk/core@0.1.0-beta.13", "motion"],
       "registryDependencies": [],
       "files": [
         {
           "path": "./components/ui/image-tabs.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./hooks/use-media-query.tsx",
           "type": "registry:component"
         }
       ]
@@ -892,7 +914,7 @@
       "name": "shiki-code",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": ["shiki"],
+      "dependencies": ["shiki", "@ui-sdk/react@0.1.0-beta.13", "@ui-sdk/core@0.1.0-beta.13", "lucide-react"],
       "registryDependencies": [],
       "files": [
         {
@@ -909,7 +931,7 @@
       "name": "tree-code-viewer",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": ["shiki"],
+      "dependencies": ["shiki", "@ui-sdk/react@0.1.0-beta.13", "@ui-sdk/core@0.1.0-beta.13", "lucide-react", "motion"],
       "registryDependencies": [],
       "files": [
         {
@@ -923,6 +945,14 @@
         {
           "path": "./components/website/code-components/copy-button.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/tree.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./lib/tree-structure.tsx",
+          "type": "registry:lib"
         }
       ]
     },
@@ -930,7 +960,7 @@
       "name": "code-tabs-mdx",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": ["shiki"],
+      "dependencies": ["shiki", "@ui-sdk/react@0.1.0-beta.13", "@ui-sdk/core@0.1.0-beta.13", "lucide-react"],
       "registryDependencies": [],
       "files": [
         {
@@ -943,6 +973,10 @@
         },
         {
           "path": "./components/website/code-components/copy-button.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "./components/website/code-components/code-tab-parts.tsx",
           "type": "registry:component"
         }
       ]
@@ -974,7 +1008,9 @@
         "embla-carousel-class-names",
         "embla-carousel-react",
         "embla-carousel-autoplay",
-        "motion"
+        "motion",
+        "@ui-sdk/react@0.1.0-beta.13",
+        "@ui-sdk/core@0.1.0-beta.13"
       ],
       "registryDependencies": [],
       "files": [
@@ -1045,7 +1081,7 @@
       "name": "dialog",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": ["motion", "lucide-react"],
+      "dependencies": ["motion", "lucide-react", "@ui-sdk/react@0.1.0-beta.13", "@ui-sdk/core@0.1.0-beta.13"],
       "registryDependencies": [],
       "files": [
         {
@@ -1058,7 +1094,7 @@
       "name": "responsive-modal",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": ["motion", "lucide-react"],
+      "dependencies": ["motion", "lucide-react", "@ui-sdk/react@0.1.0-beta.13", "@ui-sdk/core@0.1.0-beta.13"],
       "registryDependencies": [],
       "files": [
         {
@@ -1097,7 +1133,7 @@
       "name": "directional-drawer",
       "type": "registry:component",
       "devDependencies": [],
-      "dependencies": ["motion", "lucide-react"],
+      "dependencies": ["motion", "lucide-react", "@ui-sdk/react@0.1.0-beta.13", "@ui-sdk/core@0.1.0-beta.13"],
       "registryDependencies": [],
       "files": [
         {
@@ -1277,7 +1313,7 @@
       "name": "feature-flow",
       "type": "registry:block",
       "devDependencies": [],
-      "dependencies": ["motion"],
+      "dependencies": ["motion", "@ui-sdk/react@0.1.0-beta.13", "@ui-sdk/core@0.1.0-beta.13"],
       "registryDependencies": [],
       "files": [
         {

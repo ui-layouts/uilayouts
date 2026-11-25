@@ -1,4 +1,5 @@
 'use client';
+import { Tabs, TabsList, TabsTab, TabsPanel } from '@ui-sdk/react/tabs';
 import { useMediaQuery } from '@/hooks/use-media-query';
 import { cn } from '@/lib/utils';
 import { AnimatePresence, motion } from 'motion/react';
@@ -40,13 +41,24 @@ export function TabsProvider({
   const isDesktop = useMediaQuery('(min-width: 768px)');
   return (
     <TabsContext.Provider value={{ activeTab, setActiveTab, isDesktop }}>
-      <div className={cn('w-full h-full', className)}>{children}</div>
+      <Tabs
+        orientation='vertical'
+        value={activeTab}
+        onValueChange={(next) => next !== null && setActiveTab(next)}
+        className={cn('w-full h-full', className)}
+      >
+        {children}
+      </Tabs>
     </TabsContext.Provider>
   );
 }
 
 export function TabList({ children, className }: { children: ReactNode; className?: string }) {
-  return <div className={cn('rounded-xs h-fit', className)}>{children}</div>;
+  return (
+    <TabsList aria-label='Image sections' className={cn('rounded-xs h-fit', className)}>
+      {children}
+    </TabsList>
+  );
 }
 
 export function TabItem({ children, value }: { children: ReactNode; value: string }) {
@@ -69,13 +81,15 @@ export function TabItem({ children, value }: { children: ReactNode; value: strin
 export function TabHeader({ children, value }: { children: ReactNode; value: string }) {
   const { activeTab } = useTabs();
   return (
-    <h3
+    <TabsTab
+      value={value}
+      render={<h3 />}
       className={`p-4 md:text-base text-sm cursor-pointer transition-all font-semibold dark:text-white text-black dark:hover:bg-[#1e2a78] hover:bg-[#F2F2F2] dark:hover:text-white hover:text-black flex justify-between items-center ${
         activeTab === value ? 'active dark:bg-[#1e2a78] bg-[#F2F2F2]' : 'dark:bg-[#11112b] bg-white'
       }`}
     >
       {children}
-    </h3>
+    </TabsTab>
   );
 }
 
@@ -94,7 +108,9 @@ export function TabDes({ children, value }: { children: ReactNode; value: string
             delay: 0.14,
           }}
         >
-          {children}
+          <TabsPanel value={value} keepMounted className='contents' hidden={false}>
+            {children}
+          </TabsPanel>
         </motion.div>
       )}
     </AnimatePresence>

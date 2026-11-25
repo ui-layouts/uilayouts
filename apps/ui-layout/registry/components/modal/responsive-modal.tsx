@@ -1,4 +1,5 @@
 'use client';
+import { Button as ActionButton } from '@ui-sdk/react/button';
 import {
   ResponsiveModal,
   ResponsiveModalContent,
@@ -57,13 +58,13 @@ export default function MyDrawer() {
                     id='formFile'
                   />
                 </div>
-                <button
+                <ActionButton
                   type='submit'
                   onClick={handleSubmit}
                   className='w-full rounded-xs bg-foreground p-2 text-background'
                 >
                   Submit
-                </button>
+                </ActionButton>
               </div>
             </figure>
           </ResponsiveModalContent>

@@ -1,5 +1,6 @@
 'use client';
 
+import { Button as ActionButton } from '@ui-sdk/react/button';
 import { items, type GalleryItem } from '@/components/website/constant';
 import { Download, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { AnimatePresence, motion, useInView } from 'motion/react';
@@ -230,30 +231,30 @@ function Modal({ selected, setSelected }: ModalProps) {
         >
           <div className="flex items-center justify-between absolute top-2 right-2 gap-1 z-10">
             {hasPrev && (
-              <button
+              <ActionButton type='submit'
                 className="p-2 bg-black/30 hover:bg-black/50 text-white rounded-full transition-colors"
                 onClick={goPrev}
                 aria-label="Previous image"
               >
                 <ChevronLeft />
-              </button>
+              </ActionButton>
             )}
             {hasNext && (
-              <button
+              <ActionButton type='submit'
                 className="p-2 bg-black/30 hover:bg-black/50 text-white rounded-full transition-colors"
                 onClick={goNext}
                 aria-label="Next image"
               >
                 <ChevronRight />
-              </button>
+              </ActionButton>
             )}
-            <button
+            <ActionButton type='submit'
               className="p-2 mix-blend-multiply dark:mix-blend-normal dark:bg-black/30 dark:hover:bg-black/50 dark:text-white rounded-full transition-colors"
               onClick={handleClose}
               aria-label="Close modal"
             >
               <X />
-            </button>
+            </ActionButton>
           </div>
 
           <div className="relative p-2 h-[70vh] rounded-md overflow-hidden" ref={scrollRef}>

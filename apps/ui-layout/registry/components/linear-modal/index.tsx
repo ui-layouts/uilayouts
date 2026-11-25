@@ -1,3 +1,4 @@
+import { Button as ActionButton } from '@ui-sdk/react/button';
 import preview from '@/assets/preview/Preview';
 import {
   Dialog,
@@ -61,9 +62,9 @@ export default function LinearCard() {
                       {item.title}
                     </DialogTitle>
                   </div>
-                  <button className='absolute bottom-2 right-2 p-2 bg-muted hover:bg-muted/80 rounded-lg'>
+                  <ActionButton type='submit' className='absolute bottom-2 right-2 p-2 bg-muted hover:bg-muted/80 rounded-lg'>
                     <Plus className='w-6 h-6' />
-                  </button>
+                  </ActionButton>
                 </div>
               </DialogTrigger>
               <DialogContainer

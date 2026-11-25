@@ -1,5 +1,6 @@
 'use client';
 
+import { ColorPicker as SDKColorPicker } from '@ui-sdk/react/color-picker';
 import { Button } from '@/components/website/ui/button';
 import { Copy, Pipette } from 'lucide-react';
 import { useCallback, useEffect, useRef, useState } from 'react';
@@ -305,7 +306,7 @@ export function ColorPicker({ color, onChange, showEyedropper = true }: ColorPic
   }
 
   return (
-    <div className='w-full space-y-4 rounded-lg bg-primary-foreground p-4 text-primary'>
+    <SDKColorPicker value={color} onValueChange={onChange} format='hex' aria-label='Color' className='w-full space-y-4 rounded-lg bg-primary-foreground p-4 text-primary'>
       {/* Color panel */}
       <div
         ref={colorPanelRef}
@@ -394,7 +395,7 @@ export function ColorPicker({ color, onChange, showEyedropper = true }: ColorPic
           />
         </div>
       </div>
-    </div>
+    </SDKColorPicker>
   );
 }
 function RawsColorPicker() {

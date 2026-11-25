@@ -1,4 +1,4 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/website/ui/tabs';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/website/code-components/code-tab-parts';
 import { highlightCode } from '@/lib/shiki-highlighter';
 import { CopyButton } from './copy-button';
 
@@ -54,7 +54,7 @@ export default async function CodeTabsMdx({ children }: any) {
           <TabsTrigger
             key={tab.meta}
             value={tab.meta}
-            className='data-[state=active]:bg-card gap-1 data-[state=active]:border'
+            className='data-selected:bg-card gap-1 data-selected:border'
           >
             {tab.meta === 'ui-layouts' ? (
               <>

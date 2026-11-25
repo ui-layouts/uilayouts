@@ -1,3 +1,4 @@
+import { Button as ActionButton } from '@ui-sdk/react/button';
 import {
   Dialog,
   DialogClose,
@@ -58,9 +59,9 @@ export default function App() {
                   <div>
                     <DialogTitle className='text-xl '>{item.title}</DialogTitle>
                   </div>
-                  <button className='absolute bottom-2 right-2 p-2 bg-muted rounded-lg'>
+                  <ActionButton type='submit' className='absolute bottom-2 right-2 p-2 bg-muted rounded-lg'>
                     <Plus className='w-6 h-6' />
-                  </button>
+                  </ActionButton>
                 </div>
               </DialogTrigger>
               <DialogContainer className='grid place-items-center h-full'>

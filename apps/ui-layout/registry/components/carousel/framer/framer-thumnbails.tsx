@@ -1,5 +1,6 @@
 'use client';
 
+import { Button as ActionButton } from '@ui-sdk/react/button';
 import { animate, motion, useMotionValue, useSpring, useTransform } from 'motion/react';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 
@@ -187,7 +188,7 @@ function FramerCarouselThumbnails({
             ))}
           </motion.div>
 
-          <button
+          <ActionButton type='submit'
             disabled={!loop && index === 0}
             onClick={() => setActiveIndex(index - 1)}
             className={`absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-transform z-20 ${
@@ -200,9 +201,9 @@ function FramerCarouselThumbnails({
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-          </button>
+          </ActionButton>
 
-          <button
+          <ActionButton type='submit'
             disabled={!loop && index === items.length - 1}
             onClick={() => setActiveIndex(index + 1)}
             className={`absolute right-12 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-transform z-20 ${
@@ -215,9 +216,9 @@ function FramerCarouselThumbnails({
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
-          </button>
+          </ActionButton>
 
-          <button
+          <ActionButton type='submit'
             onClick={toggleFullscreen}
             className="absolute right-4 top-4 w-10 h-10 rounded-full bg-white/70 hover:bg-white flex items-center justify-center shadow-lg transition-colors z-20"
             aria-label={isFullscreen ? 'Exit fullscreen' : 'Enter fullscreen'}
@@ -233,7 +234,7 @@ function FramerCarouselThumbnails({
                 </>
               )}
             </svg>
-          </button>
+          </ActionButton>
 
           <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-20">
             {items.slice(0, Math.min(items.length, 9)).map((_, i) => (

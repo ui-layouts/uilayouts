@@ -1,4 +1,5 @@
 'use client';
+import { Button as ActionButton } from '@ui-sdk/react/button';
 import {
   DirectionalDrawer,
   DrawerContent,
@@ -40,12 +41,12 @@ export default function TopDirectionalDrawer() {
                     id='formFile'
                   />
                 </div>
-                <button
+                <ActionButton
                   type='submit'
                   className='w-full rounded-xs bg-foreground p-2 text-background'
                 >
                   Submit
-                </button>
+                </ActionButton>
               </div>
             </div>
           </figure>

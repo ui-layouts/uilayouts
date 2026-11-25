@@ -1,4 +1,5 @@
 'use client';
+import { Button as ActionButton } from '@ui-sdk/react/button';
 import { DrawerContent, HeaderDrawer } from '@/components/ui/responsive-header';
 import { useMediaQuery } from '@/hooks/use-media-query';
 import { MenuIcon, X } from 'lucide-react';
@@ -32,9 +33,9 @@ export default function ResponsiveHeader() {
           setOpen={setHeaderOpen}
           drawerBtn={() => {
             return (
-              <button>
+              <ActionButton type='submit'>
                 <MenuIcon />
-              </button>
+              </ActionButton>
             );
           }}
         >
@@ -47,12 +48,12 @@ export default function ResponsiveHeader() {
             <div className='container mx-auto  gap-4'>
               <div className='flex justify-between items-center border-b'>
                 {isDesktop && (
-                  <button
+                  <ActionButton type='submit'
                     className='flex justify-start p-2 mb-2 rounded-md bg-foreground text-background'
                     onClick={() => setHeaderOpen(false)}
                   >
                     <X />
-                  </button>
+                  </ActionButton>
                 )}
                 <h2 className='mx-auto text-2xl'>UI-LAYOUT</h2>
               </div>

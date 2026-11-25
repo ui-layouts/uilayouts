@@ -1,5 +1,6 @@
 'use client';
 
+import { Input as TextInput } from '@ui-sdk/react/input';
 import {
   FileInput,
   FileUploader,
@@ -82,7 +83,7 @@ const FileUploadDropzone = () => {
             </div>
           )}
         </FileUploader>
-        <input
+        <TextInput aria-label='Message'
           type='text'
           className='outline-hidden bg-muted w-full'
           placeholder='Your message here...'
