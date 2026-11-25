@@ -1,0 +1,22 @@
+.header { position: sticky; top: 0; z-index: 45; padding-block: max(16px, env(safe-area-inset-top)) 16px; background: var(--background); }
+.bar { width: min(94%, 1280px); margin-inline: auto; display: flex; align-items: center; gap: 12px; }
+.logo { width: clamp(104px, 14vw, 154px); height: auto; }
+.menu, .actions { padding: 5px; border-radius: 12px; background: color-mix(in srgb, var(--foreground) 6%, var(--background)); box-shadow: inset 0 1px 0 #ffffff4d, 0 0 0 1px color-mix(in srgb, var(--foreground) 7%, transparent), 0 2px 4px #0000000d; }
+.menu { display: grid; place-content: center; width: 47px; height: 47px; cursor: pointer; }
+.menu svg { box-sizing: content-box; padding: 8.5px; background: var(--background); border-radius: 7px; }
+.actions { margin-left: auto; display: flex; gap: 5px; align-items: center; }
+.bar .search, .github, .pro { display: inline-grid; place-content: center; position: relative; width: 37px; height: 37px; padding: 0; background: var(--background); border: 0; border-radius: 7px; }
+.github { overflow: hidden; background: #21196e; }
+.pro { width: auto; padding-inline: 9px; display: inline-flex; align-items: center; font-weight: 600; font-style: italic; }
+.pro sup { top: -.4em; }
+.overlay { position: fixed; inset: 0; background: #0002; z-index: 90; }
+.drawer { position: fixed; z-index: 91; inset: 12px auto 12px 12px; width: min(280px, calc(100% - 24px)); display: flex; flex-direction: column; overflow-y: auto; padding: 18px; background: var(--background); color: var(--foreground); border-radius: 16px; box-shadow: 0 8px 32px #0002; }
+.drawerHead, .settings { display: flex; align-items: center; justify-content: space-between; }
+.drawerHead { font-weight: 600; margin-bottom: 16px; }
+.drawerHead button, .settings button { min-height: 36px; min-width: 36px; display: grid; place-items: center; }
+.drawer nav a { display: block; padding: 8px 12px; border-radius: 6px; }
+.drawer nav a:hover, .drawer nav a[aria-current] { background: var(--muted); }
+.resources { display: flex; flex-wrap: wrap; gap: 12px; color: var(--muted-foreground); font-size: .85rem; margin-top: auto; padding-top: 16px; }
+.settings { padding-top: 16px; justify-content: flex-start; gap: 8px; }
+.bar :focus-visible, .drawer :focus-visible { outline: 2px solid #4164ff; outline-offset: 2px; }
+@media (max-width: 680px) { .header { padding-block: max(8px, env(safe-area-inset-top)) 8px; } .bar { gap: 8px; } }
