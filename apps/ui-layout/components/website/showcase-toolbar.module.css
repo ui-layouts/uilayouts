@@ -18,7 +18,7 @@
 .toolbar::before, .toolbar::after {
   content: '';
   position: absolute;
-  inset: -8px 0 calc(0px - var(--toolbar-bottom));
+  inset: -32px 0 calc(0px - var(--toolbar-bottom));
   z-index: -1;
   pointer-events: none;
 }
@@ -39,6 +39,7 @@
 .toolbar > * {
   pointer-events: auto;
 }
+.original,
 .launcher,
 .pager,
 .center,
@@ -78,8 +79,8 @@
   flex: none;
   display: grid;
   place-items: center;
-  width: 43px;
-  height: 43px;
+  width: calc(var(--nav-size) + 2 * var(--shell-inset));
+  height: calc(var(--nav-size) + 2 * var(--shell-inset));
   padding: var(--shell-inset);
   border: 0;
 }
@@ -177,7 +178,7 @@
 }
 .prompt,
 .icon {
-  height: 37px;
+  height: var(--nav-size);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -190,13 +191,14 @@
   white-space: nowrap;
 }
 .icon {
-  width: 37px;
+  width: var(--nav-size);
 }
 @media (hover: hover) {
   .toolbar :is(.command, .prompt, .icon, .searchTrigger, .manager):hover,
   .toolbar .pager :is(a, button:enabled):hover,
-  .launcher:hover > span {
-    background: color-mix(in srgb, var(--foreground) 5%, var(--background));
+  .launcher:hover > span,
+  .original:hover > span {
+    background: color-mix(in srgb, var(--foreground) 2.5%, var(--background));
   }
 }
 .overlay {
@@ -244,9 +246,9 @@
   }
   .prompt {
     padding: 0;
-    width: 37px;
+    width: var(--nav-size);
   }
-  .prompt span,
+  .prompt .copyLabel > span > span,
   .prefix {
     display: none;
   }
@@ -273,14 +275,8 @@
   .progress {
     min-width: 33px;
   }
-  .launcher {
-    width: 40px;
-    height: 40px;
-  }
-  .icon,
-  .prompt {
-    width: 32px;
-  }
+
+
 }
 @media (prefers-reduced-motion: no-preference) {
   .drawer[data-state="open"] { animation: sidebarIn 220ms ease-in-out both; }
@@ -304,13 +300,13 @@
 .toolbar { --edge: max(10px, 3vw, calc((100% - 1280px) / 2)); inset-inline: var(--edge); }
 .launcher { position: fixed; top: 24px; left: var(--edge); }
 .pager { display: flex; justify-self: start; flex: none; }
-.pager :is(a, button) { display: grid; place-items: center; width: 37px; height: 37px; border: 0; border-radius: var(--control-radius); background: var(--background); }
+.pager :is(a, button) { display: grid; place-items: center; width: var(--nav-size); height: var(--nav-size); border: 0; border-radius: var(--control-radius); background: var(--background); }
 .tree { margin-left: 16px; padding-left: 8px; border-left: 1px solid var(--border); }
 .tree button { display: block; text-align: left; width: 100%; padding: 5px 8px; font-size: 14px; }
 .tree button[aria-current] { background: var(--muted); font-weight: 600; border-radius: 5px; }
 @media (max-width: 500px) {
   .toolbar { inset-inline: 5px; gap: 3px; }
-  .pager :is(a, button) { width: 28px; }
+
   .center { flex: 0 1 auto; }
   .command { max-width: 18vw; }
 }
@@ -319,8 +315,8 @@
 .center .searchTrigger {
   display: grid;
   place-items: center;
-  width: 37px;
-  height: 37px;
+  width: var(--nav-size);
+  height: var(--nav-size);
   flex: none;
   justify-content: center;
   padding: 0;
@@ -332,4 +328,62 @@
 @media (max-width: 500px) {
 
   .command { max-width: min(18vw, calc(100vw - 298px)); }
+}
+
+
+.toolbar, .drawer { --nav-size: 37px; }
+@media (max-width: 500px) {
+  .toolbar, .drawer { --nav-size: 30px; }
+}
+.original {
+  position: fixed;
+  top: 24px;
+  right: var(--edge);
+  padding: var(--shell-inset);
+  text-decoration: none;
+}
+.original > span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: var(--nav-size);
+  padding-inline: 9px;
+  background: var(--background);
+  border-radius: var(--control-radius);
+}
+.copyLabel {
+  display: grid;
+  min-width: 0;
+  overflow: hidden;
+}
+.copyLabel > span {
+  grid-area: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 0;
+}
+.copyLabel > span > span {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.copyLabel svg { flex: none; }
+.copySuccess, .copyLabel[data-copied="true"] .copyDefault { opacity: 0; }
+.copyLabel[data-copied="true"] .copySuccess { opacity: 1; }
+@media (prefers-reduced-motion: no-preference) {
+  .copyLabel > span { transition: opacity 180ms ease-in-out, filter 180ms ease-in-out; }
+  .copySuccess, .copyLabel[data-copied="true"] .copyDefault { filter: blur(10px); }
+  .copyLabel[data-copied="true"] .copySuccess { filter: blur(0); }
+}
+@media (max-width: 500px) {
+  .manager, .command { height: calc(var(--nav-size) - 6px); }
+}
+@media (max-width: 374px) {
+  .toolbar { display: grid; grid-template-columns: 1fr auto; }
+  .center { grid-column: 1 / -1; grid-row: 1; justify-self: center; }
+  .pager, .actions { grid-row: 2; }
+  .actions { justify-self: end; }
+  .command { max-width: 44vw; }
 }

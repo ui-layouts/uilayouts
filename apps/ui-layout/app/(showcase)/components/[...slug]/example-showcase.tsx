@@ -68,9 +68,6 @@ export default function ExampleShowcase({ slug, title, examples, neighbors, chil
     <a className={styles.skip} href="#component-details">Skip to documentation</a>
     <section className={styles.stage} data-demo={current.name} aria-label={name + ' preview'}>
       <iframe key={current.name} data-showcase-preview scrolling="no" className={styles.frame} src={current.expandUrl} title={name + ' interactive preview'} />
-      <div aria-hidden="true" className={styles.edgeBlur}>
-        <i /><i /><i />
-      </div>
     </section>
     <ShowcaseToolbar slug={slug} title={name} {...current} navigation={{ index, examples, select }} pager={pager} />
     {index === 0 ? children : <article id="component-details" tabIndex={-1} className={styles.details} aria-labelledby="component-title">

@@ -25,3 +25,5 @@ html:has(.live-demo-stage[data-fitted]) {
   scrollbar-gutter: auto;
   scrollbar-width: none;
 }
+
+.live-demo-stage[data-fitted] [data-original-credit] { display: none; }

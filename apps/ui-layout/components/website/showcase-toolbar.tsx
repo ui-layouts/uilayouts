@@ -2,6 +2,7 @@
 
 import * as Dialog from '@radix-ui/react-dialog';
 import {
+  ArrowUpRight,
   Check,
   ChevronsUpDown,
   Copy,
@@ -24,6 +25,7 @@ export interface ShowcaseToolbarProps {
   installUrl: string;
   sourceCode: string;
   expandUrl: string;
+  originalUrl?: string;
   pager: React.ReactNode;
   navigation: { index: number; examples: { name: string; label: string }[]; select: (index: number) => void };
 }
@@ -116,6 +118,15 @@ function ReadingProgress({ slug }: { slug: string }) {
   );
 }
 
+function CopyLabel({ copied, children, size }: {
+  copied: boolean; children: React.ReactNode; size: number;
+}) {
+  return <span className={styles.copyLabel} data-copied={copied} aria-hidden="true">
+    <span className={styles.copyDefault}><span>{children}</span><Copy size={size} /></span>
+    <span className={styles.copySuccess}><span>Copied</span><Check size={size} /></span>
+  </span>;
+}
+
 export function ShowcaseToolbar({
   slug,
   name,
@@ -124,6 +135,7 @@ export function ShowcaseToolbar({
   installUrl,
   sourceCode,
   expandUrl,
+  originalUrl,
   navigation,
   pager,
 }: ShowcaseToolbarProps) {
@@ -183,6 +195,9 @@ export function ShowcaseToolbar({
   return (
     <div className={styles.toolbar} aria-label='Component tools' role='group'>
       <NavigationDrawer navigation={navigation} />
+      {originalUrl && <a className={styles.original} href={originalUrl} target="_blank" rel="noreferrer">
+        <span>View original <ArrowUpRight size={16} aria-hidden /></span>
+      </a>}
       {pager}
       <div className={styles.center}>
         <SearchDialog searchBar classname={styles.searchTrigger} />
@@ -214,19 +229,9 @@ export function ShowcaseToolbar({
             disabled={!command && !sourceCode}
             onClick={() => copy('command')}
           >
-            <span>
-              {copied('command') ? (
-                'Copied'
-              ) : installUrl ? (
-                <>
-                  <span className={styles.prefix}>@ui-layouts/</span>
-                  {installName}
-                </>
-              ) : (
-                'Copy source'
-              )}
-            </span>
-            {copied('command') ? <Check size={13} /> : <Copy size={13} />}
+            <CopyLabel copied={copied('command')} size={13}>
+              {installUrl ? <><span className={styles.prefix}>@ui-layouts/</span>{installName}</> : 'Copy source'}
+            </CopyLabel>
           </button>
         </div>
         <ReadingProgress slug={slug} />
@@ -239,8 +244,7 @@ export function ShowcaseToolbar({
           onClick={() => copy('prompt')}
           title='Copy prompt'
         >
-          <span>{copied('prompt') ? 'Copied' : 'Copy Prompt'}</span>
-          {copied('prompt') ? <Check size={16} /> : <Copy size={16} />}
+          <CopyLabel copied={copied('prompt')} size={16}>Copy Prompt</CopyLabel>
         </button>
         {github && (
           <a

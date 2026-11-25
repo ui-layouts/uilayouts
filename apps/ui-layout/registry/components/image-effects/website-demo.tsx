@@ -74,7 +74,7 @@ export function WebsiteDemo({ effect: Effect, kind, label, photographs, sourceUr
   return <figure className={'w-full p-3 sm:p-5 ' + figure}>
     <Effect background='#ffffff' images={media} label={label} {...glass} {...(kind === 'path' ? {path} : {})} {...(kind === 'portrait' ? { variant: portrait ? 'portrait' : 'grid' } : {})} style={{ aspectRatio:kind === 'hover' ? '3/2' : '16/10' }} />
     <figcaption className='flex flex-wrap items-center justify-between gap-2'>
-      <span className={legend}>{instructions} {sourceUrl && <a className='underline' href={sourceUrl}>Original study</a>}</span>
+      <span className={legend}>{instructions} {sourceUrl && <a data-original-credit className='underline' href={sourceUrl}>Original study</a>}</span>
       {kind === 'path' && <label className='flex items-center gap-2 text-xs'>Camera path
         <select value={path} onChange={e => setPath(Number(e.target.value))} className='rounded border bg-white p-1'>
           {[1,2,3,4,5].map(value => <option key={value} value={value}>{value}</option>)}

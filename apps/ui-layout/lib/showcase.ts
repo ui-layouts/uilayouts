@@ -21,6 +21,7 @@ type Example = Pick<
 > & {
   expandUrl: string;
   jsonName?: string;
+  originalUrl?: string;
 };
 
 function getExamples(
@@ -46,6 +47,7 @@ function getExamples(
         ...item,
         description: attributes.match(/\bdata-description\s*=\s*['"]([^'"]+)['"]/)?.[1] ?? item.description,
         expandUrl,
+        originalUrl: attributes.match(/\bdata-original-url\s*=\s*['"](https?:\/\/[^'"]+)['"]/)?.[1],
         jsonName: attributes.match(/\bjsonName\s*=\s*['"]([^'"]+)['"]/)?.[1],
       });
   }
@@ -122,6 +124,7 @@ function describeExample(slug: string, markdown: string, item: Example) {
     description: item.description,
     usageCode,
     usageFile: path.basename(usagePath),
+    originalUrl: item.originalUrl,
     name: item.componentName,
     expandUrl: item.expandUrl,
     sourceCode: Array.from(
