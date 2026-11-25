@@ -60,14 +60,14 @@ const examples: Example[] = [
   {
     id: 'motion-gooey',
     title: 'Gooey',
-    description: 'Rounded drops swell into photos and connect where they meet.',
+    description: 'Misty landscapes swell into rounded drops and connect where they meet.',
     group: 'motion',
     demo: 15,
   },
   {
     id: 'cursor-trailer',
     title: 'Cursor Trailer',
-    description: 'Space-themed 3D stickers spring into view and shrink in place.',
+    description: 'Move or drag to send clay stickers across the title.',
     group: 'codepen',
   },
 ];
@@ -95,17 +95,46 @@ const landscapes = [
   '1501785888041-af3ef285b470',
 ].map(photoUrl);
 
-// Fluent Emoji artwork © Microsoft Corporation, MIT licensed.
-// https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE
-const stickerRoot =
-  'https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@1ffb34c752ecf5d402f04cfb4b392c77f57c54bc/assets';
+const mistyLandscapes = [
+  '1756155160750-42354f02c1b7',
+  '1762041453576-fd48c174ece7',
+  '1756155146124-7011cd4fcd4f',
+  '1767486463574-6414a6d974dc',
+].map((id) => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=480&q=82`);
+
 const cursorStickers = [
-  'Ringed%20planet/3D/ringed_planet_3d.png',
-  'Flying%20saucer/3D/flying_saucer_3d.png',
-  'Rocket/3D/rocket_3d.png',
-  'Alien/3D/alien_3d.png',
-  'Glowing%20star/3D/glowing_star_3d.png',
-].map((path) => `${stickerRoot}/${path}`);
+  'alarm-clock',
+  'watering-can',
+  'fan',
+  'mailbox',
+  'key',
+  'backpack',
+  'umbrella',
+  'mug',
+  'toaster',
+  'armchair',
+  'flashlight',
+  'plant',
+];
+
+const instrumentSerif = `
+  @font-face {
+    font-family: 'Trail Instrument Serif';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('https://fonts.gstatic.com/s/instrumentserif/v5/jizBRFtNs2ka5fXjeivQ4LroWlx-6zUTjg.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Trail Instrument Serif';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url('https://fonts.gstatic.com/s/instrumentserif/v5/jizHRFtNs2ka5fXjeivQ4LroWlx-6zAjjH7M.woff2') format('woff2');
+  }
+`;
+const displayTitle =
+  'pointer-events-none px-4 text-center text-[clamp(2.75rem,8.5cqw,5.5rem)] leading-[0.95] font-normal [font-family:Trail_Instrument_Serif,Georgia,serif]';
 
 const paleStage =
   'bg-[#e8dfd0] text-[#42382e] bg-[radial-gradient(ellipse_at_20%_8%,#f8f3e9,transparent_62%)]';
@@ -117,26 +146,23 @@ const hint = (
   </p>
 );
 
-function ExampleStage({ example }: { example: Example }) {
+function ExampleStage({ example, stickerBaseUrl }: { example: Example; stickerBaseUrl: string }) {
   if (example.group === 'codepen') {
     return (
       <ImageMouseTrail
-        items={cursorStickers}
+        items={cursorStickers.map((name) => `${stickerBaseUrl}/${name}.webp`)}
         effect={stampEffects[example.id]}
-        threshold={100}
+        threshold={64}
         minInterval={70}
         maxNumberOfImages={18}
         duration={1200}
         touchAction='none'
-        imgClass='size-[clamp(84px,22cqw,154px)] object-contain drop-shadow-[0_12px_18px_#08052280]'
-        className='@container h-[clamp(300px,55vw,520px)] bg-[#120e28] text-[#faf4ff] bg-[radial-gradient(ellipse_at_50%_55%,#38286b,transparent_75%),radial-gradient(circle,#ffffff24_1px,transparent_1.1px)] [background-size:100%_100%,22px_22px]'
+        imgClass='size-[clamp(72px,12.5cqw,128px)] object-contain'
+        className='@container h-[clamp(300px,45vw,430px)] bg-[#fdfdfc] text-[#151510] [&>[aria-hidden=true]]:z-20'
       >
-        <div className='pointer-events-none px-4 text-center'>
-          <h2 className='font-serif text-[clamp(2.5rem,13cqw,7.5rem)] font-bold leading-[0.85] tracking-[-0.07em] drop-shadow-[0_3px_12px_#170e30]'>
-            Out of <span className='block font-normal italic text-[#e8f8a5]'>this world.</span>
-          </h2>
-          <p className='mt-6 text-sm font-medium text-[#e4dcff]'>Move or drag to leave a trail</p>
-        </div>
+        <h2 className={displayTitle}>
+          <em>Beyond the</em> Limit
+        </h2>
       </ImageMouseTrail>
     );
   }
@@ -159,11 +185,11 @@ function ExampleStage({ example }: { example: Example }) {
   }
 
   return (
-    <div
-      className={`relative isolate grid h-[clamp(300px,55vw,520px)] touch-none place-items-center overflow-hidden rounded-lg ${darkStage}`}
-    >
-      {hint}
-      <TrailCanvas images={landscapes} />
+    <div className='@container relative isolate grid h-[clamp(300px,45vw,430px)] touch-none place-items-center overflow-hidden rounded-lg bg-[#eff1eb] text-[#29362e]'>
+      <h2 className={displayTitle}>
+        Still <em>in motion.</em>
+      </h2>
+      <TrailCanvas images={mistyLandscapes} />
     </div>
   );
 }
@@ -185,7 +211,13 @@ function exampleSource(example: Example) {
   };
 }
 
-export default function MousetrailExplorer() {
+export function MousetrailExplorerPreview() {
+  return <MousetrailExplorer stickerBaseUrl='/image-trail/clay' />;
+}
+
+export default function MousetrailExplorer({
+  stickerBaseUrl = 'https://www.ui-layouts.com/image-trail/clay',
+}: { stickerBaseUrl?: string } = {}) {
   const id = useId();
   const [index, setIndex] = useState(0);
   const example = examples[index];
@@ -197,6 +229,7 @@ export default function MousetrailExplorer() {
 
   return (
     <section aria-label='Image trail explorer' className='not-prose grid w-full gap-3'>
+      <style>{instrumentSerif}</style>
       <div className='flex flex-wrap items-end justify-between gap-3'>
         <div className='grid min-w-0 flex-1 gap-1.5'>
           <label htmlFor={id} className='text-sm font-medium'>
@@ -260,7 +293,11 @@ export default function MousetrailExplorer() {
             </p>
           }
         >
-          <ExampleStage key={example.id} example={example} />
+          <ExampleStage
+            key={example.id}
+            example={example}
+            stickerBaseUrl={stickerBaseUrl.replace(/\/$/, '')}
+          />
         </Suspense>
       </div>
       <div className='flex flex-wrap items-baseline justify-between gap-2 text-sm text-muted-foreground'>

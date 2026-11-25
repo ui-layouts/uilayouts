@@ -3043,7 +3043,11 @@ export const AllComponents: IAllComponents[] = [
       },
     ],
     tags: ['mouse-trail', 'image-trail', 'motion-trail', 'canvas', 'explorer'],
-    componentSrc: React.lazy(() => import('@/registry/components/mousetrail/trail-explorer')),
+    componentSrc: React.lazy(() =>
+      import('@/registry/components/mousetrail/trail-explorer').then((module) => ({
+        default: module.MousetrailExplorerPreview,
+      }))
+    ),
     iframeSrc: 'live-components/image-mousetrail-explorer',
   },
 

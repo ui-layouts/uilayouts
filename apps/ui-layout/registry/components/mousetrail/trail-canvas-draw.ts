@@ -81,7 +81,7 @@ export function drawGooConnections(
     if (gap > reach || reach === 0) continue;
     ctx.save();
     ctx.globalAlpha = Math.min(a.opacity, b.opacity) * Math.sqrt(1 - gap / reach) * 0.7;
-    ctx.strokeStyle = '#a5a895';
+    ctx.strokeStyle = '#627362';
     ctx.lineCap = 'round';
     ctx.lineWidth = Math.min(a.scale, b.scale) * size.x * 0.63;
     ctx.beginPath();

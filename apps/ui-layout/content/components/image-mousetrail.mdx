@@ -41,9 +41,9 @@ Move your pointer or drag across the preview to reveal images. Choose a trail in
 
 <ComponentCodePreview name='image-mousetrail-explorer' jsonName='image-mousetrail-explorer.json' typescriptOnly hasReTrigger isFitheight />
 
-The explorer has seven options. Shrink Away, Bloom Out, and Gravity Drop adapt [Image Trail Effects](https://github.com/codrops/ImageTrailEffects). Classic, Innerscape, and Gooey adapt [Motion Trail Animations](https://github.com/codrops/MotionTrailAnimations). [Cursor Trailer by Nemanja Kočović](https://codepen.io/thingbynemanja/full/ogjaaNE) inspired the spring-in and shrink-out animation in the 3D sticker demo. The stickers are from [Microsoft Fluent Emoji](https://github.com/microsoft/fluentui-emoji) under the [MIT license](https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE).
+The explorer has seven options. Shrink Away, Bloom Out, and Gravity Drop adapt [Image Trail Effects](https://github.com/codrops/ImageTrailEffects). Classic, Innerscape, and Gooey adapt [Motion Trail Animations](https://github.com/codrops/MotionTrailAnimations). Cursor Trailer sends twelve clay stickers across “Beyond the Limit” in Instrument Serif. Its spring-in and shrink-out animation is based on [Nemanja Kočović’s CodePen](https://codepen.io/thingbynemanja/full/ogjaaNE).
 
-Gooey uses Canvas 2D to draw the photos and the connections between them.
+Gooey uses Canvas 2D to join misty landscape photos as they move across “Still in motion.” Photos by [Luca Bravo](https://unsplash.com/@lucabravo), [Nik Iurev](https://unsplash.com/photos/5yWhyvqHfvw), and [Kellen Riggin](https://unsplash.com/photos/trcUDfnPuaw).
 
 ## Installation
 
@@ -90,6 +90,8 @@ export default function App() {
 }` }} />
 
 In a Next.js App Router page, you can import the explorer directly. Its source already declares the client boundary.
+
+The explorer loads the clay WebP files from UI Layouts. To use your own copies, pass their folder URL as `stickerBaseUrl`.
 
 ## Usage
 
