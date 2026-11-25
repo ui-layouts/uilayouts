@@ -1,4 +1,11 @@
 .page {
+  --nav-size: 37px;
+  --shell-inset: 5px;
+  --toolbar-height: calc(var(--nav-size) + 2 * var(--shell-inset));
+  --toolbar-top: max(24px, env(safe-area-inset-top));
+  --toolbar-bottom: max(16px, env(safe-area-inset-bottom));
+  --bottom-controls: var(--toolbar-height);
+  --preview-gap: clamp(12px, 1.5vw, 20px);
   min-height: 100svh;
   background: var(--background);
   color: var(--foreground);
@@ -9,10 +16,10 @@
   height: 100vh;
   height: 100svh;
   display: grid;
-  grid-template-rows: auto minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
   justify-items: center;
-  gap: clamp(8px, 2vh, 22px);
-  padding-block: clamp(12px, 3svh, 32px) max(68px, env(safe-area-inset-bottom));
+  padding-block: calc(var(--toolbar-top) + var(--toolbar-height) + var(--preview-gap))
+    calc(var(--toolbar-bottom) + var(--bottom-controls) + var(--preview-gap));
 }
 .brand {
   display: block;
@@ -74,7 +81,15 @@
   margin-inline: auto;
   padding-inline: 0;
 }
-.stage { padding-top: clamp(68px, 8vh, 88px); grid-template-rows: minmax(0, 1fr); }
+@media (max-width: 680px) {
+  .page { --toolbar-bottom: max(8px, env(safe-area-inset-bottom)); }
+}
+@media (max-width: 500px) {
+  .page { --nav-size: 30px; }
+}
+@media (max-width: 374px) {
+  .page { --bottom-controls: calc(2 * var(--toolbar-height) + 3px); }
+}
 .details h1 { scroll-margin-top: 85px; }
 .details { max-width: 1380px; margin-inline: auto; }
 
@@ -83,7 +98,7 @@
 
 .frame {
   grid-area: 1 / 1;
-  border-radius: clamp(12px, 1.4vw, 20px);
+  border-radius: clamp(16px, 2.5vw, 32px);
   overflow: hidden;
 }
 .stage[data-demo='mac-genie'] { container-type: size; }

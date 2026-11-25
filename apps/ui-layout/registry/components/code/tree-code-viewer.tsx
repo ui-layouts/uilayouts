@@ -196,7 +196,7 @@ export default function TreeCodeViewerDemo() {
   }
 
   return (
-    <div className='p-6 w-full mx-auto bg-background rounded'>
+    <div className='p-6 w-full mx-auto rounded'>
       <TreeCodeViewer files={files} />
     </div>
   );
