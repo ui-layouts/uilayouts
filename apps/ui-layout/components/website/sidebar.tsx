@@ -59,11 +59,13 @@ export const basePath = [
 
 type SidebarProps = {
   floating?: boolean;
+  childSelected?: boolean;
+  onSelectDefault?: () => void;
   exampleTree?: React.ReactNode;
   onNavigate?: () => void;
 };
 
-function DocsSidebar({ floating = false, exampleTree, onNavigate }: SidebarProps) {
+function DocsSidebar({ floating = false, childSelected, onSelectDefault, exampleTree, onNavigate }: SidebarProps) {
   const pathname = usePathname();
 
   const { addVisitedPage } = useRecentPagesStore();
@@ -145,6 +147,8 @@ function DocsSidebar({ floating = false, exampleTree, onNavigate }: SidebarProps
               {Object.entries(groupedDocsNavigationCategories).map(([group, items], index) => (
                 <ItemsWithName
                   floating={floating}
+                  childSelected={childSelected}
+                  onSelectDefault={onSelectDefault}
                   exampleTree={exampleTree}
                   onNavigate={onNavigate}
                   group={group}
@@ -164,7 +168,7 @@ function DocsSidebar({ floating = false, exampleTree, onNavigate }: SidebarProps
 }
 
 export const ItemsWithName = ({
-  floating, exampleTree, onNavigate,
+  floating, childSelected, onSelectDefault, exampleTree, onNavigate,
   group,
   items,
   pathname,
@@ -238,12 +242,20 @@ export const ItemsWithName = ({
               itemRefs.current[index] = el;
             }}
             className={`2xl:text-base xl:text-base text-sm flex items-center gap-1 py-px pl-2 border-l transition-all ${
-              link.href === pathname
+              link.href === pathname && !childSelected
                 ? 'border-foreground text-foreground font-semibold'
                 : 'text-muted-foreground 2xl:font-normal font-medium border-border hover:border-foreground/60 hover:text-foreground'
             }`}
           >
-            <Link href={link.href} onClick={() => { addVisitedPage(link.href, link.name); onNavigate?.(); }}>
+            <Link href={link.href} aria-current={link.href === pathname && !childSelected ? 'page' : undefined}
+              onNavigate={event => {
+                if (link.href === pathname && onSelectDefault) {
+                  event.preventDefault();
+                  onSelectDefault();
+                }
+                addVisitedPage(link.href, link.name);
+                onNavigate?.();
+              }}>
               {link.name}
             </Link>
             {link?.updated && (

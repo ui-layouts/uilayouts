@@ -2,7 +2,7 @@ import { BreadcrumbStructuredData } from '@/components/seo/breadcrumb-structured
 import { StructuredData } from '@/components/seo/structured-data';
 import { ClientPreCode } from '@/components/website/code-components/client-pre-code';
 import { highlightCode } from '@/lib/shiki-highlighter';
-import { ComponentPagination, getAdjacentComponents } from '@/components/website/code-components/pagination';
+import { getAdjacentComponents } from '@/components/website/code-components/pagination';
 import ExampleShowcase from './example-showcase';
 import { getShowcase } from '@/lib/showcase';
 import Link from 'next/link';
@@ -95,7 +95,7 @@ export default async function DocPage(props: {
 
   const { default: Content } = doc.content;
 
-  const examples = await Promise.all(getShowcase(slug, doc.markdown).map(async example => ({
+  const examples = await Promise.all(getShowcase(slug, doc.markdown, doc.content.metadata.title).map(async example => ({
     ...example,
     usageHtml: await highlightCode(example.usageCode, example.usageFile.split('.').pop()),
   })));
@@ -143,7 +143,6 @@ export default async function DocPage(props: {
           <div className={documentation.filename}>{showcase.usageFile}</div>
           <ClientPreCode raw={showcase.usageCode} html={showcase.usageHtml} />
         </section>}
-        <ComponentPagination doc={doc} />
       </article>
       </ExampleShowcase>
     </main>

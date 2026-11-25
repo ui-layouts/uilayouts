@@ -53,9 +53,9 @@ function NavigationDrawer({ navigation }: Pick<ShowcaseToolbarProps, 'navigation
               <button type="button" className={styles.launcher} aria-label="Close component navigation">{toggle}</button>
             </Dialog.Close>
           </header>
-          <DocsSidebar floating onNavigate={() => setOpen(false)} exampleTree={navigation.examples.length > 1 && (
+          <DocsSidebar floating childSelected={navigation.index > 0} onSelectDefault={() => navigation.select(0)} onNavigate={() => setOpen(false)} exampleTree={navigation.examples.length > 1 && (
             <div className={styles.tree} aria-label="Examples" role="group">
-              {navigation.examples.map((example, index) => (
+              {navigation.examples.map((example, index) => index > 0 && (
                 <button key={example.name} type="button" aria-current={index === navigation.index ? 'page' : undefined}
                   onClick={() => { navigation.select(index); setOpen(false); }}>{example.label}</button>
               ))}

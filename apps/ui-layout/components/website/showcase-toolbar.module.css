@@ -2,7 +2,8 @@
   position: fixed;
   z-index: 45;
   inset-inline: max(clamp(8px, 2vw, 28px), env(safe-area-inset-left)) max(clamp(8px, 2vw, 28px), env(safe-area-inset-right));
-  bottom: max(16px, env(safe-area-inset-bottom));
+  --toolbar-bottom: max(16px, env(safe-area-inset-bottom));
+  bottom: var(--toolbar-bottom);
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
@@ -13,6 +14,28 @@
   line-height: 1.15;
   font-weight: 500;
 }
+/* Anchor the fade to the controls as their height changes. */
+.toolbar::before, .toolbar::after {
+  content: '';
+  position: absolute;
+  inset: -8px 0 calc(0px - var(--toolbar-bottom));
+  z-index: -1;
+  pointer-events: none;
+}
+.toolbar::before {
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  mask-image: linear-gradient(to bottom, transparent, black 68%);
+}
+.toolbar::after {
+  background: linear-gradient(to bottom, transparent 24%, var(--background));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  mask-image: linear-gradient(to bottom, transparent 12%, #0003 40%, #000b 72%, black 96%);
+}
+@media (prefers-reduced-transparency: reduce), (forced-colors: active) {
+  .toolbar::before, .toolbar::after { display: none; }
+}
 .toolbar > * {
   pointer-events: auto;
 }
@@ -20,8 +43,8 @@
 .pager,
 .center,
 .actions {
-  background: color-mix(in srgb, var(--foreground, #151515) 6%, var(--background, white));
-  box-shadow: 0 1px 2px #0000000f;
+  background: color-mix(in srgb, var(--foreground, #151515) 14%, var(--background, white));
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--foreground) 13%, transparent), 0 2px 6px #00000016;
   border-radius: 12px;
 }
 .toolbar button,
@@ -75,7 +98,7 @@
 .pager,
 .center,
 .actions {
-  gap: 3px;
+  gap: 5px;
   padding: 5px;
 }
 .install,
@@ -166,11 +189,13 @@
 .icon {
   width: 37px;
 }
-.toolbar .command:hover,
-.toolbar .prompt:hover,
-.toolbar .icon:hover,
-.launcher:hover {
-  background: var(--muted, #f4f4f4);
+@media (hover: hover) {
+  .toolbar :is(.command, .prompt, .icon, .searchTrigger, .manager):hover,
+  .toolbar .pager :is(a, button:enabled):hover,
+  .launcher:hover > span {
+    background: color-mix(in srgb, var(--foreground) 13%, var(--background));
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--foreground) 10%, transparent);
+  }
 }
 .overlay {
   position: fixed;
@@ -213,7 +238,7 @@
 @media (max-width: 680px) {
   .toolbar {
     gap: 5px;
-    bottom: max(8px, env(safe-area-inset-bottom));
+    --toolbar-bottom: max(8px, env(safe-area-inset-bottom));
   }
   .prompt {
     padding: 0;
@@ -234,7 +259,7 @@
   .pager,
   .center,
   .actions {
-    gap: 2px;
+    gap: 4px;
   }
   .command {
     max-width: 24vw;
@@ -256,16 +281,15 @@
   }
 }
 @media (prefers-reduced-motion: no-preference) {
-  .drawer[data-state="open"] {
-    animation: enter 0.18s ease-out;
+  .drawer[data-state="open"] { animation: sidebarIn 220ms cubic-bezier(.2,.75,.25,1) both; }
+  .drawer[data-state="closed"] { animation: sidebarOut 180ms ease-in both; }
+  @keyframes sidebarIn {
+    from { opacity: 0; filter: blur(6px); transform: translateX(-10%); }
+    to { opacity: 1; filter: blur(0); transform: translateX(0); }
   }
-  @keyframes enter {
-    from {
-      transform: translateX(-100%);
-    }
-    to {
-      transform: translateX(0);
-    }
+  @keyframes sidebarOut {
+    from { opacity: 1; filter: blur(0); transform: translateX(0); }
+    to { opacity: 0; filter: blur(6px); transform: translateX(-10%); }
   }
 }
 

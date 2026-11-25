@@ -25,6 +25,8 @@ export async function PreCode({
   const tsHtml = await highlightCode(value, lang);
 
   if (showCompilerTab) {
+    const singleLine = !value.trimEnd().includes('\n');
+    const copyPosition = singleLine ? 'top-1/2 -translate-y-1/2 bg-card' : 'top-2 bg-card';
     return (
       <div className={cn('relative z-2', cssclass)}>
         {!metahide && codeblock.meta && (
@@ -35,13 +37,13 @@ export async function PreCode({
 
         <div className='relative'>
           {checkNpm ? (
-            <CopyNpmCommandButton code={value} classname='top-2.5 bg-card' />
+            <CopyNpmCommandButton code={value} classname={copyPosition} />
           ) : (
-            <CopyButton code={value} classname='top-3.5 bg-card' />
+            <CopyButton code={value} classname={copyPosition} />
           )}
 
           <div
-            className='not-prose max-h-[550px] overflow-x-hidden rounded-md text-sm border p-0.1 dark:border-neutral-800'
+            className={cn('not-prose max-h-[550px] overflow-x-hidden rounded-md text-sm border dark:border-neutral-800', singleLine && 'bg-code-background pr-12')}
             dangerouslySetInnerHTML={{ __html: tsHtml }}
           />
         </div>

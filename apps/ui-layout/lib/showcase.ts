@@ -63,10 +63,10 @@ function getExamples(
   return [];
 }
 
-export function getShowcase(slug: string, markdown: string) {
+export function getShowcase(slug: string, markdown: string, title: string) {
   return getExamples(slug, markdown).map((item, index) => ({
     ...describeExample(slug, markdown, item),
-    label: index === 0 ? 'Overview' : item.componentName.replace(slug + '-', '').replace(/-/g, ' ').replace(/\b\w/g, letter => letter.toUpperCase()),
+    label: index === 0 ? title : item.componentName.replace(slug + '-', '').replace(/-/g, ' ').replace(/\b\w/g, letter => letter.toUpperCase()),
   }));
 }
 

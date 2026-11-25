@@ -18,28 +18,7 @@ export default function ExampleShowcase({ slug, title, examples, neighbors, chil
   const [index, setIndex] = useState(0);
   useEffect(() => {
     const sync = () => {
-      const pager = (
-    <nav className={toolbarStyles.pager} aria-label="Browse examples and components">
-      {[-1, 1].map(step => {
-        const previous = step < 0;
-        const direction = previous ? 'Previous' : 'Next';
-        const Icon = previous ? ChevronLeft : ChevronRight;
-        const icon = <Icon size={18} aria-hidden />;
-        const nextIndex = index + step;
-        if (examples[nextIndex]) {
-          const label = direction + ' example: ' + examples[nextIndex].label;
-          return <button key={step} type="button" aria-label={label} title={label} onClick={() => select(nextIndex)}>{icon}</button>;
-        }
-        const neighbor = previous ? neighbors.previousComponent : neighbors.nextComponent;
-        const label = direction + ' component' + (neighbor ? ': ' + neighbor.name : '');
-        return neighbor
-          ? <Link key={step} href={neighbor.href} aria-label={label} title={label}>{icon}</Link>
-          : <button key={step} type="button" disabled aria-label={label}>{icon}</button>;
-      })}
-    </nav>
-  );
-  if (!current) return <>{children}<div className={toolbarStyles.toolbar}>{pager}</div></>;
-  const name = new URLSearchParams(location.search).get('example');
+      const name = new URLSearchParams(location.search).get('example');
       setIndex(Math.max(0, examples.findIndex(example => example.name === name)));
     };
     sync();
@@ -79,7 +58,7 @@ export default function ExampleShowcase({ slug, title, examples, neighbors, chil
     </nav>
   );
   if (!current) return <>{children}<div className={toolbarStyles.toolbar}>{pager}</div></>;
-  const name = examples.length > 1 ? title + ' / ' + current.label : title;
+  const name = index === 0 ? title : title + ' / ' + current.label;
   const usage = <section className={documentation.source} aria-label="Example source">
     <h2 className="mb-3 text-xl font-semibold">Example source</h2>
     <div className={documentation.filename}>{current.usageFile}</div>
@@ -90,7 +69,7 @@ export default function ExampleShowcase({ slug, title, examples, neighbors, chil
     <section className={styles.stage} data-demo={current.name} aria-label={name + ' preview'}>
       <iframe key={current.name} data-showcase-preview scrolling="no" className={styles.frame} src={current.expandUrl} title={name + ' interactive preview'} />
       <div aria-hidden="true" className={styles.edgeBlur}>
-        <i /><i /><i /><i />
+        <i /><i /><i />
       </div>
     </section>
     <ShowcaseToolbar slug={slug} title={name} {...current} navigation={{ index, examples, select }} pager={pager} />

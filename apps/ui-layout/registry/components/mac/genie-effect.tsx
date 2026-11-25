@@ -1351,7 +1351,7 @@ export default function GenieEffect() {
   return (
     <div
       ref={containerRef}
-      className="relative w-full h-150 overflow-hidden select-none"
+      className="relative w-full aspect-video overflow-hidden select-none"
     >
       <img
         src="/macos.jpg"

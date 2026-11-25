@@ -81,7 +81,18 @@
 
 .details { scroll-margin-top: 72px; }
 
-.frame, .edgeBlur { grid-area: 1 / 1; }
+.frame, .edgeBlur {
+  grid-area: 1 / 1;
+  border-radius: clamp(12px, 1.4vw, 20px);
+  overflow: hidden;
+}
+.stage[data-demo='mac-genie'] { container-type: size; }
+.stage[data-demo='mac-genie'] :is(.frame, .edgeBlur) {
+  align-self: center;
+  width: min(var(--content-width), calc(100cqh * 16 / 9));
+  height: auto;
+  aspect-ratio: 16 / 9;
+}
 
 .edgeBlur {
   position: relative;
@@ -91,25 +102,29 @@
   max-width: var(--content-width);
   overflow: hidden;
   pointer-events: none;
-  --edge-width: clamp(12px, 2.4vw, 36px);
+  --edge-width: clamp(20px, 4vw, 64px);
 }
 .edgeBlur i {
   position: absolute;
   inset: 0;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  mask-image: linear-gradient(var(--inward), black, transparent);
+  --outer-blur: 9px;
+  background: color-mix(in srgb, var(--background) 38%, transparent);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  mask-image: linear-gradient(var(--inward), black 0%, #000b 42%, transparent);
+}
+.edgeBlur i::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: color-mix(in srgb, var(--background) 34%, transparent);
+  backdrop-filter: blur(var(--outer-blur));
+  -webkit-backdrop-filter: blur(var(--outer-blur));
+  mask-image: linear-gradient(var(--inward), black, transparent 68%);
 }
 .edgeBlur i:nth-child(1) { bottom: auto; height: var(--edge-width); --inward: to bottom; }
 .edgeBlur i:nth-child(2) { left: auto; width: var(--edge-width); --inward: to left; }
-.edgeBlur i:nth-child(3) {
-  top: auto;
-  height: clamp(22px, 5svh, 54px);
-  --inward: to top;
-  backdrop-filter: blur(9px);
-  -webkit-backdrop-filter: blur(9px);
-}
-.edgeBlur i:nth-child(4) { right: auto; width: var(--edge-width); --inward: to right; }
+.edgeBlur i:nth-child(3) { right: auto; width: var(--edge-width); --inward: to right; }
 @media (prefers-reduced-transparency: reduce), (forced-colors: active) {
   .edgeBlur { display: none; }
 }
