@@ -2,13 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import ImageMouseTrail from '@/components/ui/mousetrail';
-import {
-  cropPicture,
-  drawGooConnections,
-  drawStamp,
-  type TrailPicture,
-  type TrailStamp,
-} from './trail-canvas-draw';
+import { drawGooConnections, drawStamp, type TrailStamp } from './trail-canvas-draw';
 
 type Point = { x: number; y: number };
 const distance = (a: Point, b: Point) => Math.hypot(a.x - b.x, a.y - b.y);
@@ -17,7 +11,7 @@ const mix = (a: Point, b: Point, amount: number) => ({
   y: a.y + (b.y - a.y) * amount,
 });
 
-const lifetime = 1450;
+const lifetime = 1050;
 const spacing = 34;
 const limit = 10;
 
@@ -36,14 +30,14 @@ export default function TrailCanvas({ images }: { images: string[] }) {
     }
     const ctx = context;
 
-    const photos = new Map<string, TrailPicture>();
+    const loadedImages = new Map<string, HTMLImageElement>();
     const media = window.matchMedia('(prefers-reduced-motion: reduce)');
     let stamps: TrailStamp[] = [];
     let frame = 0;
     let width = 0;
     let height = 0;
     let dpr = 1;
-    let size = { x: 144, y: 180 };
+    let stickerSize = 0;
     let pointer: Point | null = null;
     let sampled: Point | null = null;
     let id = 0;
@@ -68,8 +62,7 @@ export default function TrailCanvas({ images }: { images: string[] }) {
       canvas.width = Math.max(1, Math.round(width * dpr));
       canvas.height = Math.max(1, Math.round(height * dpr));
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      const cardWidth = Math.min(166, Math.max(74, width * 0.2));
-      size = { x: cardWidth, y: cardWidth / 0.8 };
+      stickerSize = Math.min(128, Math.max(72, width * 0.15));
     };
 
     function queueFrame() {
@@ -79,7 +72,7 @@ export default function TrailCanvas({ images }: { images: string[] }) {
     function render(now: number) {
       frame = 0;
       const reduced = media.matches;
-      const available = [...photos.values()];
+      const available = [...loadedImages.values()];
       if (!available.length || !width || !height) return;
       ctx.clearRect(0, 0, width, height);
 
@@ -103,7 +96,7 @@ export default function TrailCanvas({ images }: { images: string[] }) {
         }
       }
 
-      const brush = { context: ctx, size, now };
+      const brush = { context: ctx, size: stickerSize, now };
       if (!reduced) drawGooConnections(brush, stamps, activeLifetime);
       stamps.forEach((stamp) => drawStamp(brush, stamp, activeLifetime, reduced));
       if (stamps.length) queueFrame();
@@ -113,7 +106,7 @@ export default function TrailCanvas({ images }: { images: string[] }) {
       const image = new Image();
       const ready = () => {
         if (!image.naturalWidth) return;
-        photos.set(src, cropPicture(image));
+        loadedImages.set(src, image);
         if (pointer) queueFrame();
       };
       image.onload = ready;
@@ -178,6 +171,7 @@ export default function TrailCanvas({ images }: { images: string[] }) {
         items={images}
         fadeAnimation
         touchAction='none'
+        imgClass='size-[clamp(72px,15cqw,128px)] object-contain'
         className='pointer-events-auto absolute inset-0 h-full bg-transparent'
       />
     );

@@ -30,9 +30,11 @@ export const stampEffects = {
     keyframes: () => {
       const tilt = Math.random() * 40 - 20;
       return [
-        frame(0, 1, 0, 0, 0, tilt, { easing: 'cubic-bezier(0.34, 1.7, 0.64, 1)' }),
-        frame(0.5, 1, 0, 0, 1, tilt, { easing: 'cubic-bezier(0.33, 0, 0.67, 0)' }),
-        frame(1, 1, 0, 0, 0, tilt),
+        frame(0, 0, 0, 0, 0.22, tilt, { easing: 'cubic-bezier(0.16, 1, 0.3, 1)' }),
+        frame(0.12, 1, 0, 0, 1.055, tilt),
+        frame(0.2, 1, 0, 0, 1, tilt),
+        frame(0.66, 1, 0, 0, 1, tilt, { easing: 'cubic-bezier(0.5, 0, 0.82, 0.55)' }),
+        frame(1, 0, 0, 0, 0, tilt),
       ];
     },
   },

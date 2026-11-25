@@ -1,6 +1,6 @@
 'use client';
 
-import { lazy, Suspense, useId, useState } from 'react';
+import { lazy, Suspense, useId, useMemo, useState } from 'react';
 import ImageMouseTrail from '@/components/ui/mousetrail';
 import { stampEffects } from './trail-stamp-effects';
 
@@ -60,7 +60,7 @@ const examples: Example[] = [
   {
     id: 'motion-gooey',
     title: 'Gooey',
-    description: 'Misty landscapes swell into rounded drops and connect where they meet.',
+    description: 'Clay stickers swell into view and connect as they pass each other.',
     group: 'motion',
     demo: 15,
   },
@@ -95,14 +95,7 @@ const landscapes = [
   '1501785888041-af3ef285b470',
 ].map(photoUrl);
 
-const mistyLandscapes = [
-  '1756155160750-42354f02c1b7',
-  '1762041453576-fd48c174ece7',
-  '1756155146124-7011cd4fcd4f',
-  '1767486463574-6414a6d974dc',
-].map((id) => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=480&q=82`);
-
-const cursorStickers = [
+const clayStickers = [
   'alarm-clock',
   'watering-can',
   'fan',
@@ -146,16 +139,16 @@ const hint = (
   </p>
 );
 
-function ExampleStage({ example, stickerBaseUrl }: { example: Example; stickerBaseUrl: string }) {
+function ExampleStage({ example, stickers }: { example: Example; stickers: string[] }) {
   if (example.group === 'codepen') {
     return (
       <ImageMouseTrail
-        items={cursorStickers.map((name) => `${stickerBaseUrl}/${name}.webp`)}
+        items={stickers}
         effect={stampEffects[example.id]}
-        threshold={64}
-        minInterval={70}
-        maxNumberOfImages={18}
-        duration={1200}
+        threshold={48}
+        minInterval={40}
+        maxNumberOfImages={20}
+        duration={760}
         touchAction='none'
         imgClass='size-[clamp(72px,12.5cqw,128px)] object-contain'
         className='@container h-[clamp(300px,45vw,430px)] bg-[#fdfdfc] text-[#151510] [&>[aria-hidden=true]]:z-20'
@@ -185,11 +178,11 @@ function ExampleStage({ example, stickerBaseUrl }: { example: Example; stickerBa
   }
 
   return (
-    <div className='@container relative isolate grid h-[clamp(300px,45vw,430px)] touch-none place-items-center overflow-hidden rounded-lg bg-[#eff1eb] text-[#29362e]'>
+    <div className='@container relative isolate grid h-[clamp(300px,45vw,430px)] touch-none place-items-center overflow-hidden rounded-lg bg-white text-[#151510]'>
       <h2 className={displayTitle}>
         Still <em>in motion.</em>
       </h2>
-      <TrailCanvas images={mistyLandscapes} />
+      <TrailCanvas images={stickers} />
     </div>
   );
 }
@@ -220,6 +213,10 @@ export default function MousetrailExplorer({
 }: { stickerBaseUrl?: string } = {}) {
   const id = useId();
   const [index, setIndex] = useState(0);
+  const stickers = useMemo(() => {
+    const baseUrl = stickerBaseUrl.replace(/\/$/, '');
+    return clayStickers.map((name) => `${baseUrl}/${name}.webp`);
+  }, [stickerBaseUrl]);
   const example = examples[index];
   const source = exampleSource(example);
 
@@ -293,11 +290,7 @@ export default function MousetrailExplorer({
             </p>
           }
         >
-          <ExampleStage
-            key={example.id}
-            example={example}
-            stickerBaseUrl={stickerBaseUrl.replace(/\/$/, '')}
-          />
+          <ExampleStage key={example.id} example={example} stickers={stickers} />
         </Suspense>
       </div>
       <div className='flex flex-wrap items-baseline justify-between gap-2 text-sm text-muted-foreground'>
