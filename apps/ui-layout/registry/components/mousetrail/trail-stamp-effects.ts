@@ -49,10 +49,12 @@ export const stampEffects = {
     ],
   },
   'image-fall': {
-    keyframes: (sample) => [
-      approach(sample),
-      frame(0.34, 1, 0, 0, 1, 0, { easing: fall }),
-      frame(1, 0, 0, sample.height * 0.52),
+    keyframes: ({ delta, height, position, index }) => [
+      approach({ delta }, 0.88),
+      frame(0.16),
+      // Hold before falling. The demo's minimum stamp interval exceeds this final segment.
+      frame(0.8, 1, 0, 0, 1, 0, { easing: fall }),
+      frame(1, 1, 0, height - position.y + 120, 0.94, index % 2 ? 12 : -12),
     ],
   },
   'motion-classic': {
