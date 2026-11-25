@@ -2469,8 +2469,8 @@
       "type": "registry:component",
       "devDependencies": [],
       "dependencies": [
-        "@ui-sdk/react",
-        "@ui-sdk/core"
+        "@ui-sdk/react@0.1.0-beta.13",
+        "@ui-sdk/core@0.1.0-beta.13"
       ],
       "registryDependencies": [],
       "files": [
@@ -2485,8 +2485,8 @@
       "type": "registry:component",
       "devDependencies": [],
       "dependencies": [
-        "@ui-sdk/react",
-        "@ui-sdk/core"
+        "@ui-sdk/react@0.1.0-beta.13",
+        "@ui-sdk/core@0.1.0-beta.13"
       ],
       "registryDependencies": [],
       "files": [
@@ -2505,8 +2505,8 @@
       "type": "registry:component",
       "devDependencies": [],
       "dependencies": [
-        "@ui-sdk/react",
-        "@ui-sdk/core"
+        "@ui-sdk/react@0.1.0-beta.13",
+        "@ui-sdk/core@0.1.0-beta.13"
       ],
       "registryDependencies": [],
       "files": [
@@ -2525,8 +2525,8 @@
       "type": "registry:component",
       "devDependencies": [],
       "dependencies": [
-        "@ui-sdk/react",
-        "@ui-sdk/core"
+        "@ui-sdk/react@0.1.0-beta.13",
+        "@ui-sdk/core@0.1.0-beta.13"
       ],
       "registryDependencies": [],
       "files": [
@@ -2545,8 +2545,8 @@
       "type": "registry:component",
       "devDependencies": [],
       "dependencies": [
-        "@ui-sdk/react",
-        "@ui-sdk/core"
+        "@ui-sdk/react@0.1.0-beta.13",
+        "@ui-sdk/core@0.1.0-beta.13"
       ],
       "registryDependencies": [],
       "files": [
