@@ -145,10 +145,9 @@ function ExampleStage({ example, stickers }: { example: Example; stickers: strin
       <ImageMouseTrail
         items={stickers}
         effect={stampEffects[example.id]}
-        threshold={48}
-        minInterval={40}
+        threshold={44}
         maxNumberOfImages={20}
-        duration={760}
+        duration={560}
         touchAction='none'
         imgClass='size-[clamp(72px,12.5cqw,128px)] object-contain'
         className='@container h-[clamp(300px,45vw,430px)] bg-[#fdfdfc] text-[#151510] [&>[aria-hidden=true]]:z-20'
