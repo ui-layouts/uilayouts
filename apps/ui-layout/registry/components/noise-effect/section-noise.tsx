@@ -11,31 +11,30 @@ const SectionNoise = () => {
   return (
     <>
       <section className='relative border rounded-lg w-full'>
-        <div className='absolute top-4 right-4 z-10 flex justify-end pb-2'>
+        <Slider
+          className='absolute top-4 right-4 z-10 flex justify-end pb-2'
+          aria-label='Noise opacity'
+          min={0}
+          max={1}
+          step={0.01}
+          value={opacity}
+          onValueChange={setOpacity}
+        >
           <label htmlFor='opacity-slider' className='mr-2 inline-block'>
             Noise Opacity:
           </label>
-          <Slider
-            className='contents'
-            aria-label='Noise opacity'
-            min={0}
-            max={1}
-            step={0.01}
+          <input
+            id='opacity-slider'
+            type='range'
+            min='0'
+            max='1'
+            step='0.01'
             value={opacity}
-            onValueChange={setOpacity}
-          >
-            <input
-              id='opacity-slider'
-              type='range'
-              min='0'
-              max='1'
-              step='0.01'
-              value={opacity}
-              onChange={handleOpacityChange}
-            />
-          </Slider>
+            onChange={handleOpacityChange}
+          />
+
           <span className='ml-2'>{opacity.toFixed(2)}</span>
-        </div>
+        </Slider>
         <div
           className="absolute top-0 left-0 w-full h-full content-[''] z-10 pointer-events-none bg-[url('/noise.gif')]"
           style={{ opacity: opacity }}
