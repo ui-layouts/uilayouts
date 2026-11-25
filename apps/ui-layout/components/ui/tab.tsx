@@ -1,7 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import { AnimatePresence, motion } from 'motion/react';
+import { AnimatePresence, LayoutGroup, motion } from 'motion/react';
 import React, {
   createContext,
   isValidElement,
@@ -58,6 +58,7 @@ interface TabsContentProps {
 
 export const TabsProvider: React.FC<TabsProviderProps> = React.memo(
   ({ children, defaultValue, wobbly = true, hover = false }) => {
+    const motionGroup = React.useId();
     // Use useCallback to memoize state setters
     const [activeTab, setActiveTab] = useState(defaultValue);
     const [prevIndex, setPrevIndex] = useState(0);
@@ -84,13 +85,17 @@ export const TabsProvider: React.FC<TabsProviderProps> = React.memo(
       [activeTab, setActiveTab, wobbly, hover, defaultValue, prevIndex, tabsOrder]
     );
 
-    return <TabContext.Provider value={contextValue}>{children}</TabContext.Provider>;
+    return (
+      <TabContext.Provider value={contextValue}>
+        <LayoutGroup id={motionGroup}>{children}</LayoutGroup>
+      </TabContext.Provider>
+    );
   }
 );
 
 // Memoized TabsBtn component
 export const TabsBtn: React.FC<TabsBtnProps> = React.memo(({ children, className, value }) => {
-  const { activeTab, setPrevIndex, setActiveTab, defaultValue, hover, wobbly, tabsOrder } =
+  const { activeTab, setPrevIndex, setActiveTab, hover, wobbly, tabsOrder } =
     useTabs();
 
   // Use useCallback to memoize the click handler
@@ -119,7 +124,7 @@ export const TabsBtn: React.FC<TabsBtnProps> = React.memo(({ children, className
                   delay: 0.2,
                 },
               }}
-              layoutId={defaultValue}
+              layoutId='indicator'
               className='absolute w-full h-full left-0 top-0 bg-card dark:bg-secondary rounded-md z-1'
             />
 
@@ -133,7 +138,7 @@ export const TabsBtn: React.FC<TabsBtnProps> = React.memo(({ children, className
                       delay: 0.04,
                     },
                   }}
-                  layoutId={defaultValue}
+                  layoutId='trail-front'
                   className='absolute w-full h-full left-0 top-0 bg-card rounded-md z-1 tab-shadow'
                 />
                 <motion.div
@@ -144,7 +149,7 @@ export const TabsBtn: React.FC<TabsBtnProps> = React.memo(({ children, className
                       delay: 0.2,
                     },
                   }}
-                  layoutId={`${defaultValue}b`}
+                  layoutId='trail-back'
                   className='absolute w-full h-full left-0 top-0 bg-card rounded-md z-1 tab-shadow'
                 />
               </>

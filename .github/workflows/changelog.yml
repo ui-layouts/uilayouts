@@ -1,0 +1,28 @@
+name: Changelog
+on:
+  pull_request:
+  merge_group:
+permissions:
+  contents: read
+jobs:
+  note:
+    name: Changelog note
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Check for a new Markdown note
+        env:
+          BASE: ${{ github.event.pull_request.base.sha || github.event.merge_group.base_sha }}
+          HEAD: ${{ github.event.pull_request.head.sha || github.event.merge_group.head_sha }}
+        run: |
+          notes=$(git diff --no-renames --diff-filter=A --name-only "$BASE...$HEAD" -- apps/ui-layout/content/changelog)
+          if ! grep -Eq '^apps/ui-layout/content/changelog/[^/]+\.md$' <<< "$notes"; then
+            echo "::error::Add a dated Markdown note as described in the pull request template."
+            exit 1
+          fi
+      - name: Validate changelog entries
+        working-directory: apps/ui-layout
+        run: node --input-type=module -e "import { readNotes } from './lib/changelog.mjs'; readNotes('content/changelog')"

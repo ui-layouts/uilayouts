@@ -1,3 +1,4 @@
+import { noIndexMetadata } from '@/lib/seo';
 import { blocksDesign } from '@/blocks-docs'; // Update path
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
@@ -19,17 +20,7 @@ export async function generateMetadata({
     title: `${blockData.name} | ${sectionData?.name} | UI Layouts`,
     description: blockData.des,
     keywords: blockData.tags || [],
-    alternates: {
-      canonical: `https://www.ui-layouts.com/blocks/${section}`,
-    },
-    robots: {
-      index: false,
-      follow: false,
-      googleBot: {
-        index: false,
-        follow: false,
-      },
-    },
+    ...noIndexMetadata,
   };
 }
 

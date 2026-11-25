@@ -1,7 +1,7 @@
 'use client';
 
 import { ScrollArea } from '@/components/website/ui//scroll-area';
-import { DocsNavigationCategories } from '@/configs/docs';
+import { groupedDocsNavigationCategories } from '@/lib/grouped-docs';
 import { cn } from '@/lib/utils';
 import { Command } from 'cmdk';
 import {
@@ -55,17 +55,7 @@ export function SearchDialog({
   const [searchOpen, setSearchOpen] = React.useState(false);
   const [search, setSearch] = React.useState('');
 
-  const groupedItems = Object.entries(
-    DocsNavigationCategories.reduce(
-      (acc, item) => {
-        const group = item.group || 'Others';
-        if (!acc[group]) acc[group] = [];
-        acc[group].push(item);
-        return acc;
-      },
-      {} as Record<string, typeof DocsNavigationCategories>
-    )
-  );
+  const groupedItems = Object.entries(groupedDocsNavigationCategories);
 
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
@@ -109,7 +99,7 @@ export function SearchDialog({
     <>
       <button
         className={cn(
-          'relative inline-flex w-full items-center justify-start gap-2 whitespace-nowrap rounded-lg border bg-muted px-4 py-2 text-sm font-normal text-muted-foreground shadow-none transition-colors hover:border-accent hover:text-accent-foreground focus-visible:outline-hidden focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 sm:pr-12',
+          'relative inline-flex w-full items-center justify-start gap-2 whitespace-nowrap rounded-lg border bg-card text-card-foreground px-4 py-2 text-sm font-normal shadow-none transition-colors hover:border-accent hover:bg-accent hover:text-accent-foreground focus-visible:outline-hidden focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 sm:pr-12',
           classname
         )}
         onClick={() => setSearchOpen(true)}
@@ -118,7 +108,7 @@ export function SearchDialog({
         {!searchBar && (
           <>
             <span className='hidden sm:inline-flex'>Search...</span>
-            <kbd className='pointer-events-none absolute right-[0.3rem] top-[0.3rem] hidden h-7 select-none items-center gap-1 rounded-sm border bg-primary-foreground px-1.5 font-mono text-[10px] font-medium opacity-100 xl:flex'>
+            <kbd className='pointer-events-none absolute right-[0.3rem] top-[0.3rem] hidden h-7 select-none items-center gap-1 rounded-sm border bg-background text-foreground px-1.5 font-mono text-[10px] font-medium opacity-100 xl:flex'>
               <span className='text-xs'>⌘</span>K
             </kbd>
           </>
@@ -156,7 +146,7 @@ export function SearchDialog({
                       viewBox='0 0 120 109'
                       fill='none'
                       xmlns='http://www.w3.org/2000/svg'
-                      className='h-5 w-4 fill-primary'
+                      className='h-5 w-4 fill-current'
                     >
                       <path d='M94.5068 0H112.907L72.7076 46.172L120 109H82.9692L53.9674 70.8942L20.7818 109H2.3693L45.3666 59.6147L0 0H37.9685L64.1848 34.8292L94.5068 0ZM88.0484 97.9318H98.2448L32.4288 10.4872H21.4882L88.0484 97.9318Z' />
                     </svg>{' '}
@@ -192,7 +182,7 @@ export function SearchDialog({
                           width='36'
                           height='40'
                           viewBox='0 0 36 40'
-                          className='w-5 h-5 fill-primary/90'
+                          className='w-5 h-5 fill-current'
                           xmlns='http://www.w3.org/2000/svg'
                         >
                           {' '}
@@ -242,7 +232,7 @@ export function SearchDialog({
               </ScrollArea>
             </Command.List>
           </Command>
-          <div className='bg-primary/10 h-10 flex flex-col justify-center rounded-b-md'>
+          <div className='bg-muted text-muted-foreground h-10 flex flex-col justify-center rounded-b-md'>
             <span className='text-xs flex items-center gap-2 p-2'>
               <CornerDownLeft size={14} />
               Go to Page

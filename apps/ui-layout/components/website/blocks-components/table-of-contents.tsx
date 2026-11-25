@@ -86,10 +86,10 @@ export function TableOfContents() {
       {headings?.length !== 0 && (
         <nav className='sticky top-0 left-[50%] -translate-x-[50%] w-fit z-50  flex justify-end'>
           <>
-            <div className='flex items-center gap-2 dark:bg-neutral-800 bg-neutral-200 pt-0 p-1 border-t-0 border relative h-12'>
+            <div className='flex items-center gap-2 bg-card text-card-foreground pt-0 p-1 border-t-0 border relative h-12'>
               <Link
                 href={pathname.startsWith('/blocks') ? '/blocks' : '/templates'}
-                className='bg-white dark:bg-black px-3 grid place-content-center h-full'
+                className='bg-background text-foreground px-3 grid place-content-center h-full'
               >
                 <MoveLeft />
               </Link>
@@ -108,7 +108,7 @@ export function TableOfContents() {
                     cx='70'
                     cy='70'
                     r='60'
-                    className='dark:stroke-primary/40 stroke-primary/20 backdrop-blur-xs'
+                    className='dark:stroke-foreground/40 stroke-foreground/20 backdrop-blur-xs'
                     strokeWidth='16'
                     fill='none'
                   />
@@ -116,7 +116,7 @@ export function TableOfContents() {
                     cx='70'
                     cy='70'
                     r='60'
-                    className='stroke-primary'
+                    className='stroke-foreground'
                     strokeWidth='16'
                     fill='none'
                     strokeDasharray='440'
@@ -137,7 +137,7 @@ export function TableOfContents() {
               <AnimatePresence>
                 {isExpanded && (
                   <motion.nav
-                    className='absolute top-16 rounded-md -left-16 w-72 dark:bg-neutral-800 bg-neutral-200 border'
+                    className='absolute top-16 rounded-md -left-16 w-72 bg-card text-card-foreground border'
                     initial={{
                       opacity: 0,
                       rotateX: -90,
@@ -154,10 +154,10 @@ export function TableOfContents() {
                           <button
                             onClick={() => scrollToHeading(heading.id)}
                             className={`
-                          w-full text-left 
-                          ${activeId === heading.id ? 'text-primary' : 'text-neutral-600 dark:text-neutral-400'}
-                          no-underline rounded-xs px-1 
-                          hover:text-primary 
+                          w-full text-left
+                          ${activeId === heading.id ? 'text-foreground' : 'text-muted-foreground'}
+                          no-underline rounded-xs px-1
+                          hover:text-foreground
                           shrink-0 flex cursor-pointer
                           font-semibold
                         `}

@@ -48,15 +48,9 @@ function NewItemsLoading() {
               <a
                 key={item.href}
                 href={item?.href}
-                className='inline-flex w-fit mx-auto items-center gap-1 rounded-full bg-primary border-4 border-primary/20 shadow-primary/40 py-0.5 pl-0.5 pr-3 text-xs '
+                className='inline-flex w-fit mx-auto items-center gap-1 rounded-full bg-theme-highlight px-2.5 py-1.5 text-xs text-white sm:text-base focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring'
               >
-                <div className='rounded-full bg-primary-foreground px-2 py-1 text-xs text-primary '>
-                  Update
-                </div>
-                <p className='text-primary-foreground sm:text-base text-xs inline-block'>
-                  ✨ Introducing
-                  <span className='px-1 font-semibold'>{item.title}</span>
-                </p>
+                <span>Introducing <strong>{item.title}</strong></span>
 
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
@@ -64,7 +58,7 @@ function NewItemsLoading() {
                   fill='currentColor'
                   aria-hidden='true'
                   data-slot='icon'
-                  className='h-3 w-3 text-primary-foreground'
+                  className='size-3 shrink-0'
                 >
                   <path
                     fillRule='evenodd'

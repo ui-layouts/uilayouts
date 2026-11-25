@@ -50,7 +50,7 @@ const allProjects = [
   {
     id: 2,
     projectsName: 'blocks',
-    link: 'https://ui-layouts.com/blocks',
+    link: '/blocks',
     componentSrc: () => (
       <>
         <svg
@@ -507,7 +507,7 @@ function HeroSec({ blocksData }: { blocksData: any[] }) {
               <br />
               <span className=''>& Blocks for</span>
               <span className='bg-card ml-2 mt-3 relative  w-fit leading-[100%] inline-block px-1.5 py-0.5 border before:absolute before:top-0 before:left-0 before:w-full before:h-full before:content-[""] before:opacity-[0.09] before:z-10 before:pointer-events-none before:bg-[url("/noise.gif")]'>
-                <span className='bg-linear-to-t from-primary/70 to-primary bg-clip-text text-transparent font-semibold pr-1'>
+                <span className='font-semibold text-card-foreground'>
                   Developer
                 </span>
               </span>{' '}
@@ -520,15 +520,13 @@ function HeroSec({ blocksData }: { blocksData: any[] }) {
             <div className='flex gap-2 justify-center items-center'>
               <a
                 href='https://pro.ui-layouts.com/blocks'
-                className='flex items-center gap-2 w-fit sm:text-xl text-sm
-                shadow-[inset_3px_4px_5px_0px_rgba(183,183,183,0.5),inset_-2px_-2px_5px_0px_rgba(255,255,255,0.5)]
-                text-primary-foreground bg-linear-to-b from-primary to-primary/85 sm:px-4 px-2 py-3'
+                className='flex w-fit items-center gap-2 bg-theme-highlight px-2 py-3 text-sm text-white hover:ring-2 hover:ring-primary/40 sm:px-4 sm:text-xl'
               >
                 <Blocks className='sm:w-6 sm:h-6 h-5 w-5' /> Premium Blocks
               </a>
               <a
                 href='/components'
-                className='flex items-center gap-2 w-fit sm:text-xl text-sm shadow-lg shadow-border text-primary border bg-card sm:px-4 px-2 py-3'
+                className='flex items-center gap-2 w-fit sm:text-xl text-sm shadow-lg shadow-border border bg-card text-card-foreground transition-colors hover:bg-accent hover:text-accent-foreground sm:px-4 px-2 py-3'
               >
                 <Component className='sm:w-6 sm:h-6 h-5 w-5' /> Browse Component
               </a>
@@ -639,8 +637,8 @@ function HeroSec({ blocksData }: { blocksData: any[] }) {
                   <ReviewCard key={review.username} {...review} />
                 ))}
               </Marquee>
-              <div className='pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-linear-to-r from-white dark:from-neutral-950'></div>
-              <div className='pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-linear-to-l from-white dark:from-neutral-950'></div>
+              <div className='pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-linear-to-r from-background'></div>
+              <div className='pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-linear-to-l from-background'></div>
             </div>
           </div>
           <GapPattern />

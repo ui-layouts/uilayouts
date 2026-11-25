@@ -1,4 +1,5 @@
-import { siteConfig } from '@/lib/utils';
+import { serializeJsonLd } from '@/lib/seo';
+import { absoluteUrl, siteConfig } from '@/lib/utils';
 
 interface StructuredDataProps {
   type: 'homepage' | 'component' | 'organization' | 'website';
@@ -8,313 +9,92 @@ interface StructuredDataProps {
     image?: string;
     path?: string;
     itemType?: 'component' | 'block';
+    items?: { name: string; path: string }[];
   };
 }
 
 export function StructuredData({ type, componentData }: StructuredDataProps) {
-  const canonicalPath = componentData?.path?.startsWith('/')
-    ? componentData.path
-    : componentData?.path
-      ? `/${componentData.path}`
-      : undefined;
-  const canonicalUrl = canonicalPath
-    ? `${siteConfig.url}${canonicalPath}`
-    : `${siteConfig.url}/components/${componentData?.name?.toLowerCase()}`;
-
-  const getStructuredData = () => {
-    switch (type) {
-      case 'homepage':
-        return {
-          '@context': 'https://schema.org',
-          '@graph': [
-            {
-              '@type': 'Organization',
-              name: 'UI Layouts',
-              url: siteConfig.url,
-              logo: {
-                '@type': 'ImageObject',
-                url: `${siteConfig.url}/logo.png`,
-                width: 512,
-                height: 512,
-              },
-              description: siteConfig.description,
-              sameAs: [
-                siteConfig.links.twitter,
-                siteConfig.links.linkedin,
-                siteConfig.links.github,
-              ],
-              contactPoint: {
-                '@type': 'ContactPoint',
-                contactType: 'customer service',
-                availableLanguage: ['English'],
-                url: siteConfig.links.twitter,
-              },
-              foundingDate: '2024',
-              areaServed: 'Worldwide',
-              knowsAbout: [
-                'React Components',
-                'Next.js Development',
-                'Tailwind CSS',
-                'UI/UX Design',
-                'Frontend Development',
-                'TypeScript',
-                'Framer Motion',
-                'Web Development',
-              ],
-            },
-            {
-              '@type': 'WebSite',
-              name: siteConfig.name,
-              url: siteConfig.url,
-              description: siteConfig.description,
-              inLanguage: 'en-US',
-              potentialAction: {
-                '@type': 'SearchAction',
-                target: `${siteConfig.url}/search?q={search_term_string}`,
-                'query-input': 'required name=search_term_string',
-              },
-              publisher: {
-                '@type': 'Organization',
-                name: 'UI Layouts',
-              },
-              about: [
-                'UI Components',
-                'React Library',
-                'Frontend Development',
-                'Web Design',
-                'Component Library',
-              ],
-            },
-            {
-              '@type': 'SoftwareApplication',
-              name: siteConfig.name,
-              description: siteConfig.description,
-              url: siteConfig.url,
-              applicationCategory: 'DeveloperApplication',
-              operatingSystem: 'Web',
-              offers: {
-                '@type': 'Offer',
-                price: '0',
-                priceCurrency: 'USD',
-                description: 'Free open-source UI components and blocks',
-                availability: 'https://schema.org/InStock',
-                validFrom: '2024-01-01',
-              },
-              aggregateRating: {
-                '@type': 'AggregateRating',
-                ratingValue: '4.9',
-                reviewCount: '1500',
-                bestRating: '5',
-                worstRating: '1',
-                ratingExplanation: 'Based on user reviews and GitHub stars',
-              },
-              creator: {
-                '@type': 'Person',
-                name: 'Naymur Rahman',
-                url: 'https://naymur.com/',
-                jobTitle: 'Frontend Developer',
-                knowsAbout: ['React', 'Next.js', 'TypeScript', 'UI Design'],
-              },
-              featureList: [
-                '60+ Ready-to-use Components',
-                '100+ Production-ready Blocks',
-                'TypeScript Support',
-                'Tailwind CSS Integration',
-                'Framer Motion Animations',
-                'Responsive Design',
-                'Accessible Components',
-                'Modern UI Patterns',
-                'Easy Customization',
-                'Open Source',
-                'Regular Updates',
-                'Community Support',
-              ],
-              screenshot: siteConfig.ogImage,
-              downloadUrl: siteConfig.url,
-              softwareVersion: '1.0.0',
-              dateModified: new Date().toISOString(),
-            },
-            {
-              '@type': 'ItemList',
-              name: 'UI Components and Blocks',
-              description: 'Collection of modern UI components and blocks for React and Next.js',
-              numberOfItems: 160,
-              itemListElement: [
-                {
-                  '@type': 'SoftwareApplication',
-                  name: 'Accordion Component',
-                  description: 'Multi-expand accordion with smooth animations',
-                  url: `${siteConfig.url}/components/accordion`,
-                },
-                {
-                  '@type': 'SoftwareApplication',
-                  name: 'Carousel Component',
-                  description: 'Interactive carousel with Embla Carousel',
-                  url: `${siteConfig.url}/components/carousel`,
-                },
-                {
-                  '@type': 'SoftwareApplication',
-                  name: 'Dialog Component',
-                  description: 'Animated dialog with Framer Motion',
-                  url: `${siteConfig.url}/components/dialog`,
-                },
-              ],
-            },
-          ],
-        };
-
-      case 'component':
-        return {
-          '@context': 'https://schema.org',
-          '@type': 'SoftwareApplication',
-          name: componentData?.name,
-          description: componentData?.description,
-          url: canonicalUrl,
-          applicationCategory: 'DeveloperApplication',
-          applicationSubCategory: componentData?.itemType === 'block' ? 'UI Block' : 'UI Component',
-          operatingSystem: 'Web',
-          mainEntityOfPage: canonicalUrl,
-          isAccessibleForFree: true,
-          offers: {
-            '@type': 'Offer',
-            price: '0',
-            priceCurrency: 'USD',
-            description: 'Free open-source UI component',
-            availability: 'https://schema.org/InStock',
-            validFrom: '2024-01-01',
-            seller: {
-              '@type': 'Organization',
-              name: 'UI Layouts',
-              url: siteConfig.url,
-            },
-          },
-          screenshot: componentData?.image || siteConfig.ogImage,
-          creator: {
-            '@type': 'Organization',
-            name: 'UI Layouts',
-            url: siteConfig.url,
-          },
-          isPartOf: {
-            '@type': 'SoftwareApplication',
-            name: siteConfig.name,
-            url: siteConfig.url,
-          },
-          programmingLanguage: 'TypeScript',
-          runtimePlatform: 'React',
-          browserRequirements: 'Requires JavaScript. Requires HTML5.',
-          softwareVersion: '1.0.0',
-          dateModified: new Date().toISOString(),
-          datePublished: '2024-01-01',
-          downloadUrl: canonicalUrl,
-          installUrl: canonicalUrl,
-          featureList: [
-            'TypeScript Support',
-            'Responsive Design',
-            'Accessible',
-            'Customizable',
-            'Modern UI',
-            'Well Documented',
-            'Copy & Paste',
-            'No Dependencies',
-            'Open Source',
-            'MIT License',
-          ],
-          license: 'https://opensource.org/licenses/MIT',
-          maintainer: {
-            '@type': 'Organization',
-            name: 'UI Layouts',
-            url: siteConfig.url,
-          },
-          keywords: [
-            'React Component',
-            'TypeScript',
-            'Tailwind CSS',
-            'UI Component',
-            'Frontend Development',
-            'Modern UI',
-            'Accessible Design',
-          ],
-        };
-
-      case 'organization':
-        return {
-          '@context': 'https://schema.org',
-          '@type': 'Organization',
-          name: 'UI Layouts',
-          url: siteConfig.url,
-          logo: {
-            '@type': 'ImageObject',
-            url: `${siteConfig.url}/logo.png`,
-            width: 512,
-            height: 512,
-          },
-          description: siteConfig.description,
-          sameAs: [siteConfig.links.twitter, siteConfig.links.linkedin, siteConfig.links.github],
-          contactPoint: {
-            '@type': 'ContactPoint',
-            contactType: 'customer service',
-            availableLanguage: ['English'],
-            url: siteConfig.links.twitter,
-          },
-          founder: {
-            '@type': 'Person',
-            name: 'Naymur Rahman',
-            url: 'https://naymur.com/',
-            jobTitle: 'Frontend Developer',
-          },
-          foundingDate: '2024',
-          areaServed: 'Worldwide',
-          knowsAbout: [
-            'React Components',
-            'Next.js Development',
-            'Tailwind CSS',
-            'UI/UX Design',
-            'Frontend Development',
-            'TypeScript',
-            'Framer Motion',
-            'Web Development',
-          ],
-        };
-
-      case 'website':
-        return {
-          '@context': 'https://schema.org',
-          '@type': 'WebSite',
-          name: siteConfig.name,
-          url: siteConfig.url,
-          description: siteConfig.description,
-          inLanguage: 'en-US',
-          potentialAction: {
-            '@type': 'SearchAction',
-            target: `${siteConfig.url}/search?q={search_term_string}`,
-            'query-input': 'required name=search_term_string',
-          },
-          publisher: {
-            '@type': 'Organization',
-            name: 'UI Layouts',
-          },
-          about: [
-            'UI Components',
-            'React Library',
-            'Frontend Development',
-            'Web Design',
-            'Component Library',
-          ],
-        };
-
-      default:
-        return {};
-    }
+  const organization = {
+    '@type': 'Organization',
+    '@id': `${siteConfig.url}/#organization`,
+    name: 'UI Layouts',
+    url: siteConfig.url,
+    description: siteConfig.description,
+    sameAs: ['https://github.com/ui-layouts/uilayouts', siteConfig.links.twitter],
   };
-
-  const structuredData = getStructuredData();
-
+  const website = {
+    '@type': 'WebSite',
+    '@id': `${siteConfig.url}/#website`,
+    name: 'UI Layouts',
+    url: siteConfig.url,
+    description: siteConfig.description,
+    inLanguage: 'en',
+    publisher: { '@id': organization['@id'] },
+  };
+  let data: Record<string, unknown>;
+  if (type === 'homepage') {
+    data = { '@context': 'https://schema.org', '@graph': [organization, website] };
+  } else if (type === 'organization') {
+    data = { '@context': 'https://schema.org', ...organization };
+  } else if (type === 'website') {
+    data = { '@context': 'https://schema.org', '@graph': [organization, website] };
+  } else {
+    if (!componentData?.path) return null;
+    const url = absoluteUrl(componentData.path);
+    const isBlockCollection = componentData.itemType === 'block';
+    data = {
+      '@context': 'https://schema.org',
+      '@type': isBlockCollection ? 'CollectionPage' : 'TechArticle',
+      '@id': `${url}#page`,
+      url,
+      name: componentData.name,
+      headline: componentData.name,
+      description: componentData.description,
+      inLanguage: 'en',
+      isPartOf: {
+        '@type': 'WebSite',
+        '@id': website['@id'],
+        url: siteConfig.url,
+        name: 'UI Layouts',
+      },
+      publisher: {
+        '@type': 'Organization',
+        '@id': organization['@id'],
+        name: 'UI Layouts',
+        url: siteConfig.url,
+      },
+      ...(componentData.image ? { image: componentData.image } : {}),
+      ...(isBlockCollection && componentData.items?.length
+        ? {
+            mainEntity: {
+              '@type': 'ItemList',
+              itemListElement: componentData.items.map(({ name, path }, index) => ({
+                '@type': 'ListItem',
+                position: index + 1,
+                name,
+                url: absoluteUrl(path),
+              })),
+            },
+          }
+        : {}),
+      ...(!isBlockCollection
+        ? {
+            about: {
+              '@type': 'SoftwareSourceCode',
+              name: componentData.name,
+              description: componentData.description,
+              codeRepository: 'https://github.com/ui-layouts/uilayouts',
+              programmingLanguage: 'TypeScript',
+              runtimePlatform: 'React',
+            },
+          }
+        : {}),
+    };
+  }
   return (
     <script
       type='application/ld+json'
-      dangerouslySetInnerHTML={{
-        __html: JSON.stringify(structuredData, null, 2),
-      }}
+      dangerouslySetInnerHTML={{ __html: serializeJsonLd(data) }}
     />
   );
 }

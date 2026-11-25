@@ -32,6 +32,11 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: '/profitables',
+        destination: 'https://profitables.ui-layouts.com/',
+        permanent: true,
+      },
+      {
         source: '/components/animated-slider',
         destination: '/components/range-slider',
         permanent: true,

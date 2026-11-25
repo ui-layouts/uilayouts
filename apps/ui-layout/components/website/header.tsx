@@ -22,7 +22,7 @@ function Header() {
               <div className='relative hidden gap-2 pl-0.5 lg:flex'>
                 <svg
                   width='288'
-                  className='xl:w-40 w-28 h-full dark:fill-white fill-black'
+                  className='xl:w-40 w-28 h-full fill-current text-foreground'
                   height='63'
                   viewBox='0 0 288 63'
                   fill='none'
@@ -69,7 +69,7 @@ function Header() {
               className={`flex gap-2 group font-medium items-center py-1 transition-all text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white`}
             >
               Blocks
-              <span className='text-xs font-normal inline-block -translate-y-2 italic text-blue-600'>
+              <span className='text-xs font-normal inline-block -translate-y-2 italic text-muted-foreground'>
                 New
               </span>
             </a> */}
@@ -80,7 +80,7 @@ function Header() {
               rel='noreferrer noopener'
             >
               Blocks
-              <span className='text-xs font-normal inline-block -translate-y-2 -translate-x-2 italic text-blue-600'>
+              <span className='text-xs font-normal inline-block -translate-y-2 -translate-x-2 italic text-muted-foreground'>
                 (Pro)
               </span>
             </a>
@@ -93,7 +93,7 @@ function Header() {
             <a
               target='_blank'
               href='https://x.com/naymur_dev'
-              className='border shrink-0 bg-primary  text-primary-foreground text-2xl w-12 grid place-content-center rounded-md'
+              className='border shrink-0 bg-muted text-muted-foreground hover:bg-accent hover:text-accent-foreground text-2xl w-12 grid place-content-center rounded-md'
               rel='noreferrer noopener'
             >
               <svg
@@ -102,14 +102,14 @@ function Header() {
                 viewBox='0 0 120 109'
                 fill='none'
                 xmlns='http://www.w3.org/2000/svg'
-                className=' fill-primary-foreground w-6 h-5'
+                className=' fill-current w-6 h-5'
               >
                 <path d='M94.5068 0H112.907L72.7076 46.172L120 109H82.9692L53.9674 70.8942L20.7818 109H2.3693L45.3666 59.6147L0 0H37.9685L64.1848 34.8292L94.5068 0ZM88.0484 97.9318H98.2448L32.4288 10.4872H21.4882L88.0484 97.9318Z' />
               </svg>
             </a>
 
-            <ThemeCustomizer className='bg-secondary border w-12 rounded-md h-11 shrink-0' />
-            <ThemeSwitch className='bg-secondary border w-12 rounded-md h-11 shrink-0' />
+            <ThemeCustomizer className='bg-muted text-muted-foreground border w-12 rounded-md h-11 shrink-0' />
+            <ThemeSwitch className='bg-muted text-muted-foreground border w-12 rounded-md h-11 shrink-0' />
           </div>
         </div>
         <GapPattern className='absolute left-0 top-0 2xl:h-15 lg:h-15 h-14 border-t-0 -z-1' />

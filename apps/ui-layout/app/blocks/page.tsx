@@ -1,6 +1,5 @@
 import { getMinimalBlocksBySection } from '@/blocks-docs';
 import { BreadcrumbStructuredData } from '@/components/seo/breadcrumb-structured-data';
-import { FaqStructuredData } from '@/components/seo/faq-structured-data';
 import BlocksHomeClient from '@/components/website/blocks-components/blocks-page';
 import { absoluteUrl, siteConfig } from '@/lib/utils';
 import type { Metadata } from 'next';
@@ -209,30 +208,20 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  verification: {
-    google: 'google-site-verification-code',
-    yandex: 'yandex-verification-code',
-    yahoo: 'yahoo-site-verification-code',
-  },
   alternates: {
     canonical: siteConfig.blocksUrl,
-    languages: {
-      'en-US': siteConfig.blocksUrl,
-      'en-GB': siteConfig.blocksUrl,
-    },
   },
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon-16x16.png',
     apple: '/apple-touch-icon.png',
   },
-  manifest: `${siteConfig.url}/site.webmanifest`,
+  manifest: '/manifest.webmanifest',
   other: {
     'theme-color': '#000000',
     'msapplication-TileColor': '#000000',
     'apple-mobile-web-app-title': 'UI-Layouts Blocks',
     'application-name': 'UI-Layouts Blocks',
-    'msapplication-config': '/browserconfig.xml',
   },
   category: 'technology',
   classification: 'Web Development',
@@ -240,18 +229,6 @@ export const metadata: Metadata = {
 };
 export default function BlocksHome() {
   const blocksData = getMinimalBlocksBySection();
-  const blocksFaqs = [
-    {
-      question: 'What are UI Layouts blocks?',
-      answer:
-        'UI Layouts blocks are production-ready page sections like hero, pricing, testimonial, and footer layouts for React and Next.js apps.',
-    },
-    {
-      question: 'Can I customize blocks for my brand?',
-      answer:
-        'Yes. Every block can be edited to match your brand colors, copy, spacing, and layout requirements.',
-    },
-  ];
 
   return (
     <>
@@ -261,7 +238,6 @@ export default function BlocksHome() {
           { name: 'Blocks', url: absoluteUrl('/blocks') },
         ]}
       />
-      <FaqStructuredData items={blocksFaqs} />
       <BlocksHomeClient blocksData={blocksData} />
     </>
   );

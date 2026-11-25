@@ -70,10 +70,10 @@ function HomeFooter({
 
                     {/* Center - Content */}
                     <div className='flex-1 pl-7'>
-                      <h3 className='font-librecaslon text-xl font-medium text-primary mb-1'>
+                      <h3 className='font-librecaslon text-xl font-medium text-foreground mb-1'>
                         Got a Project?
                       </h3>
-                      <p className='text-primary/90 text-sm font-medium'>
+                      <p className='text-muted-foreground text-sm font-medium'>
                         Book a free discovery call.
                       </p>
                     </div>
@@ -103,7 +103,7 @@ function HomeFooter({
                 </div>
               </div>
 
-              <span className='text-primary/90 sm:w-[94%] w-[85%] mx-auto flex gap-1 sm:text-sm text-xs items-center font-medium border px-4 bg-muted py-1.5 rounded-b-xl'>
+              <span className='text-muted-foreground sm:w-[94%] w-[85%] mx-auto flex gap-1 sm:text-sm text-xs items-center font-medium border px-4 bg-muted py-1.5 rounded-b-xl'>
                 We believe in people, not forms. Book a call and let’s talk directly.
                 <picture className='shrink-0'>
                   <source
@@ -128,12 +128,12 @@ function HomeFooter({
           <article className='relative overflow-hidden border bg-linear-to-r from-secondary/50 to-secondary/30 p-6'>
             <div className='absolute bottom-0 left-0 right-0 top-0 dark:bg-[radial-gradient(#ededed33_1px,#171717_1px)] bg-[radial-gradient(#0000001a_1px,#f8fafc_1px)] bg-size-[16px_16px] mask-[radial-gradient(ellipse_85%_55%_at_100%_0%,#000_70%,transparent_110%)]'></div>
             <a
-              href='http://pro.ui-layouts.com/blocks'
+              href='https://pro.ui-layouts.com/blocks'
               target='_blank'
               className='space-y-2 relative z-4'
               rel='noreferrer noopener'
             >
-              <div className='flex items-center text-primary/70'>
+              <div className='flex items-center text-muted-foreground'>
                 <span className='hover:underline flex gap-1'>Pro Blocks</span>
               </div>
               <h2 className='not-prose flex items-center gap-2 text-2xl lg:text-3xl font-medium'>
@@ -193,10 +193,10 @@ function HomeFooter({
         <div className='flex items-center gap-4'>
           <div className='sm:flex hidden gap-4 items-center'>
             <SearchDialog
-              classname='sm:w-14 xl:w-12 sm:pr-0 sm:pl-2.5 bg-secondary border'
+              classname='sm:w-14 xl:w-12 sm:pr-0 sm:pl-2.5 bg-secondary text-secondary-foreground border'
               searchBar={true}
             />
-            <ThemeSwitch className='bg-secondary border w-12 rounded-md h-11 shrink-0' />
+            <ThemeSwitch className='bg-secondary text-secondary-foreground border w-12 rounded-md h-11 shrink-0' />
           </div>
           <HomeGitHubButton />
         </div>
@@ -253,9 +253,9 @@ function HomeFooter({
         className='
         absolute
         pointer-events-none
-    w-full 
-    h-[630px] 
-    left-0 
+    w-full
+    h-[630px]
+    left-0
     bottom-0
     bg-[radial-gradient(108.09%_118.89%_at_50%_-23.55%,var(--primary)_20.88%,color-mix(in_oklab,var(--primary),white_40%)_31.25%,rgba(0,0,0,0)_51.21%,rgba(0,0,0,0)_100%)]
     dark:bg-[radial-gradient(108.09%_118.89%_at_50%_-23.55%,var(--primary)_20.88%,color-mix(in_oklab,var(--primary),black_40%)_31.25%,rgba(0,0,0,0)_51.21%,rgba(0,0,0,0)_100%)]

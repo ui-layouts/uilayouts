@@ -1,14 +1,17 @@
+import { readNotes } from '@/lib/changelog.mjs';
+import { join } from 'node:path';
 import { cn } from '@/lib/utils';
 import { Component } from 'lucide-react';
-import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Changelog | UI Layouts',
   description:
-    'Track major UI Layouts updates. We only include meaningful additions and improvements, not every small commit.',
-};
+    'Track major UI Layouts updates, new components, blocks, and documentation improvements.',
+  path: '/changelog',
+});
 
 type ChangeDetail = {
   label: string;
@@ -16,13 +19,14 @@ type ChangeDetail = {
 };
 
 type ChangeItem = {
+  id?: string;
   date: string;
   title: string;
   description: string;
   details: ChangeDetail[];
 };
 
-const changes: ChangeItem[] = [
+const previousChanges: ChangeItem[] = [
   {
     date: 'April 30, 2026',
     title: 'CLI and registry support expanded for components',
@@ -106,6 +110,8 @@ const changes: ChangeItem[] = [
 ];
 
 export default function ChangelogPage() {
+  const changes: ChangeItem[] = [...readNotes(join(process.cwd(), 'content/changelog')), ...previousChanges]
+    .sort((a, b) => Date.parse(b.date) - Date.parse(a.date));
   return (
     <section className='mx-auto w-full'>
       <article className='relative overflow-hidden p-10 py-12 border-b'>
@@ -124,14 +130,16 @@ export default function ChangelogPage() {
                 'mb-0 flex font-medium items-center md:text-3xl sm:text-2xl text-xl sm:gap-3 gap-2 tracking-tight capitalize'
               )}
             >
-              <div className='sm:w-9 w-7 sm:h-9 h-7 bg-base-orange grid place-content-center  text-white rounded-lg'>
+              <span
+                className='sm:w-9 w-7 sm:h-9 h-7 bg-base-orange grid place-content-center text-white rounded-lg'
+                aria-hidden='true'
+              >
                 <Component />
-              </div>
+              </span>
               Changelog
             </h1>
             <p className='md:w-140 sm:text-sm text-xs pt-2'>
-              We publish <strong>major updates only</strong> here, so the changelog stays concise
-              and helpful.
+              Follow new components, improvements, and fixes in UI Layouts.
             </p>
           </div>
         </div>
@@ -155,7 +163,7 @@ export default function ChangelogPage() {
         <div className='mt-8 space-y-6'>
           {changes.map((change) => (
             <article
-              key={change.title}
+              key={change.id ?? change.title}
               className='rounded-xl border bg-neutral-100 dark:bg-neutral-900 p-5'
             >
               <p className='text-lg uppercase tracking-wide text-muted-foreground'>{change.date}</p>

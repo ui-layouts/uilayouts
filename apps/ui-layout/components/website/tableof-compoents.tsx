@@ -118,8 +118,8 @@ export default function TableOfContents({ toc }: TableOfContentsProps) {
     <>
       <aside className='hidden lg:block xl:w-[170px] w-[150px] shrink-0'>
         <div className='sticky top-14 h-[calc(100vh-2em)]'>
-          <div className='absolute bottom-0 left-0 z-2 xl:w-[162px] w-[142px] h-20 bg-linear-to-t dark:from-neutral-950 from-white dark:via-neutral-950 via-white'></div>
-          <div className='absolute -top-5 left-0 xl:w-[162px] w-[142px] h-20 z-2 bg-linear-to-b dark:from-neutral-950 from-white dark:via-neutral-950 via-white'></div>
+          <div className='absolute bottom-0 left-0 z-2 xl:w-[162px] w-[142px] h-20 bg-linear-to-t from-background via-background pointer-events-none'></div>
+          <div className='absolute -top-5 left-0 xl:w-[162px] w-[142px] h-20 z-2 bg-linear-to-b from-background via-background pointer-events-none'></div>
           <ScrollArea className='h-[calc(100vh-2em)] px-3 py-3 rounded-md'>
             <div className='flex flex-col h-full pt-10 pb-10'>
               <style jsx global>{`
@@ -130,10 +130,10 @@ export default function TableOfContents({ toc }: TableOfContentsProps) {
               `}</style>
               {tocItems?.length !== 0 && (
                 <nav aria-label='On this page'>
-                  <span className='text-sm px-1 text-primary font-semibold pb-1 inline-block'>
+                  <span className='text-sm px-1 text-foreground font-semibold pb-1 inline-block'>
                     On This Page
                   </span>
-                  <hr className='dark:border-neutral-800' />
+                  <hr className='border-border' />
                   <ul className=' list-none m-0 ml-0 xl:text-base text-sm space-y-0.5 pt-2 pl-0'>
                     {tocItems?.map((item) => {
                       return (
@@ -142,9 +142,9 @@ export default function TableOfContents({ toc }: TableOfContentsProps) {
                             href={item.url}
                             className={`${
                               activeId === item.url.slice(1)
-                                ? ' font-semibold  text-primary py-1'
-                                : ''
-                            } no-underline rounded-xs px-1 hover:text-primary text-muted-foreground `}
+                                ? 'font-semibold text-foreground py-1'
+                                : 'text-muted-foreground'
+                            } no-underline rounded-xs px-1 hover:text-foreground `}
                           >
                             {item.title}
                           </a>
@@ -156,9 +156,9 @@ export default function TableOfContents({ toc }: TableOfContentsProps) {
                                     href={subItem.url}
                                     className={`${
                                       activeId === subItem.url.slice(1)
-                                        ? ' font-semibold text-primary'
-                                        : ' '
-                                    } no-underline  hover:text-primary text-muted-foreground`}
+                                        ? 'font-semibold text-foreground'
+                                        : 'text-muted-foreground'
+                                    } no-underline hover:text-foreground`}
                                   >
                                     {subItem.title}
                                   </a>
@@ -174,17 +174,17 @@ export default function TableOfContents({ toc }: TableOfContentsProps) {
               )}
 
               <div className='pt-4'>
-                <span className='text-sm px-1 text-primary font-semibold pb-1 inline-block'>
+                <span className='text-sm px-1 text-foreground font-semibold pb-1 inline-block'>
                   Contribute
                 </span>
-                <hr className='dark:border-neutral-800' />
+                <hr className='border-border' />
                 <div className='m-0  text-[0.8em] space-y-2 pt-2 pl-0'>
                   {contribute?.map((nav) => (
                     <a
                       href={nav?.href}
                       key={nav?.label}
                       target='_blank'
-                      className='hover:text-primary text-muted-foreground flex items-center gap-1'
+                      className='hover:text-foreground text-muted-foreground flex items-center gap-1'
                       rel='noreferrer noopener'
                     >
                       {nav?.icon}
@@ -197,10 +197,10 @@ export default function TableOfContents({ toc }: TableOfContentsProps) {
               <div className='mt-auto relative pt-10'>
                 {/* add something for the pro version */}
                 {/* <div className='m-0 mt-3 text-[0.8em] space-y-2 text-muted-foreground mb-6 p-3 rounded-xl bg-muted dark:border-neutral-800 backdrop-blur-md border'>
-                  <p className='text-primary font-semibold'>
+                  <p className='text-foreground font-semibold'>
                     Unlock advanced{' '}
                     <a
-                      className='italic text-blue-600 hover:underline'
+                      className='italic text-foreground hover:underline'
                       href='https://pro.ui-layouts.com/blocks'
                     >
                       blocks
@@ -223,7 +223,7 @@ export default function TableOfContents({ toc }: TableOfContentsProps) {
 
                   <a
                     href='https://pro.ui-layouts.com/'
-                    className='inline-flex items-center hover:underline gap-1 text-primary font-medium '
+                    className='inline-flex items-center hover:underline gap-1 text-foreground font-medium '
                   >
                     Upgrade to Pro →
                   </a>

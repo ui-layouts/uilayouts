@@ -1,3 +1,7 @@
+import { noIndexMetadata } from '@/lib/seo';
+
+export const metadata = noIndexMetadata;
+
 import NotificationLiquid from '@/registry/components/liquid-glass/notification';
 // import * as SwitchPrimitive from '@radix-ui/react-switch';
 import React from 'react';
