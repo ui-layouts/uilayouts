@@ -1,9 +1,10 @@
 'use client';
 
+import { Accordion as SDKAccordion, AccordionItem as SDKItem, AccordionHeader as SDKHeader, AccordionTrigger as SDKTrigger, AccordionPanel as SDKPanel } from '@ui-sdk/react/accordion';
 import { cn } from '@/lib/utils';
 import { ChevronDown } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
-import React, { type ReactNode, useCallback } from 'react';
+import React, { type ReactNode } from 'react';
 
 /**
  * Interface for AccordionContext values
@@ -13,14 +14,6 @@ interface AccordionContextType {
    * Whether the accordion item is active
    */
   isActive?: boolean;
-  /**
-   * The value of the accordion item
-   */
-  value?: string;
-  /**
-   * Function to change the active index
-   */
-  onChangeIndex?: (value: string) => void;
 }
 
 /**
@@ -74,51 +67,22 @@ interface AccordionProps {
  * Accordion component
  */
 export function Accordion({ children, multiple, defaultValue }: AccordionProps) {
-  /**
-   * State for active index
-   */
-  const [activeIndex, setActiveIndex] = React.useState<string | string[] | null>(
-    multiple ? (Array.isArray(defaultValue) ? defaultValue : []) : defaultValue || null
+  const initial = multiple ? (Array.isArray(defaultValue) ? defaultValue : []) : typeof defaultValue === 'string' ? [defaultValue] : [];
+  const [openValues, setOpenValues] = React.useState(initial);
+
+  return (
+    <SDKAccordion multiple={multiple} collapsible value={openValues} onValueChange={setOpenValues} render={<div className='contents' />}>
+      {React.Children.map(children, (child) => {
+        if (!React.isValidElement(child)) return null;
+        const { value } = child.props as { value: string };
+        return (
+          <AccordionContext.Provider value={{ isActive: openValues.includes(value) }}>
+            {child}
+          </AccordionContext.Provider>
+        );
+      })}
+    </SDKAccordion>
   );
-
-  /**
-   * Function to change the active index
-   */
-  const onChangeIndex = useCallback(
-    (value: string) => {
-      setActiveIndex((currentActiveIndex) => {
-        if (!multiple) {
-          return value === currentActiveIndex ? null : value;
-        }
-
-        if (Array.isArray(currentActiveIndex)) {
-          if (currentActiveIndex.includes(value)) {
-            return currentActiveIndex.filter((i) => i !== value);
-          }
-          return [...currentActiveIndex, value];
-        }
-
-        return [value];
-      });
-    },
-    [multiple]
-  );
-
-  return React.Children.map(children, (child) => {
-    if (!React.isValidElement(child)) return null;
-
-    const childProps = child.props as { value: string };
-    const value = childProps.value;
-    const isActive = multiple
-      ? Array.isArray(activeIndex) && activeIndex.includes(value)
-      : activeIndex === value;
-
-    return (
-      <AccordionContext.Provider value={{ isActive, value, onChangeIndex }}>
-        {child}
-      </AccordionContext.Provider>
-    );
-  });
 }
 
 /**
@@ -143,7 +107,8 @@ export function AccordionItem({ children, value, className }: AccordionItemProps
   const { isActive } = useAccordion();
 
   return (
-    <div
+    <SDKItem
+      value={value}
       data-active={isActive || undefined}
       className={cn(
         'rounded-lg overflow-hidden mb-2 group border',
@@ -151,7 +116,7 @@ export function AccordionItem({ children, value, className }: AccordionItemProps
       )}
     >
       {children}
-    </div>
+    </SDKItem>
   );
 }
 
@@ -174,24 +139,18 @@ interface AccordionHeaderProps {
  * Accordion header component
  */
 export function AccordionHeader({ children, customIcon, className }: AccordionHeaderProps) {
-  const { isActive, value, onChangeIndex } = useAccordion();
-
-  const handleClick = useCallback(() => {
-    if (value && onChangeIndex) {
-      onChangeIndex(value);
-    }
-  }, [onChangeIndex, value]);
+  const { isActive } = useAccordion();
 
   return (
-    <motion.button
+    <SDKHeader className='contents'>
+    <SDKTrigger
+      render={<motion.button />}
       type='button'
       data-active={isActive || undefined}
-      aria-expanded={isActive}
       className={cn(
         'p-4 cursor-pointer w-full transition-all font-semibold text-muted-foreground data-active:text-foreground data-active:bg-muted hover:bg-secondary hover:text-foreground flex justify-between gap-2 items-center text-left',
         className
       )}
-      onClick={handleClick}
     >
       {children}
       {!customIcon && (
@@ -203,7 +162,8 @@ export function AccordionHeader({ children, customIcon, className }: AccordionHe
           aria-hidden='true'
         />
       )}
-    </motion.button>
+    </SDKTrigger>
+    </SDKHeader>
   );
 }
 /**
@@ -228,20 +188,19 @@ interface AccordionPanelProps {
  * Accordion panel component
  */
 export function AccordionPanel({ children, className, articleClassName }: AccordionPanelProps) {
-  const { isActive, value } = useAccordion();
+  const { isActive } = useAccordion();
 
   return (
     <AnimatePresence initial={true}>
       {isActive && (
-        <motion.div
+        <SDKPanel
+          render={<motion.div
+            initial={{ height: 0, overflow: 'hidden' }}
+            animate={{ height: 'auto', overflow: 'hidden' }}
+            exit={{ height: 0 }}
+            transition={{ type: 'spring', duration: 0.3, bounce: 0 }}
+          />}
           data-active={isActive || undefined}
-          role='region'
-          id={`accordion-panel-${value}`}
-          aria-labelledby={`accordion-header-${value}`}
-          initial={{ height: 0, overflow: 'hidden' }}
-          animate={{ height: 'auto', overflow: 'hidden' }}
-          exit={{ height: 0 }}
-          transition={{ type: 'spring', duration: 0.3, bounce: 0 }}
           className={cn(
             'bg-secondary px-2 data-active:bg-muted text-foreground',
             className
@@ -262,7 +221,7 @@ export function AccordionPanel({ children, className, articleClassName }: Accord
           >
             {children}
           </motion.div>
-        </motion.div>
+        </SDKPanel>
       )}
     </AnimatePresence>
   );
