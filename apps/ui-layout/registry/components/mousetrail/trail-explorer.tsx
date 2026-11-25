@@ -6,12 +6,12 @@ import { stampEffects } from './trail-stamp-effects';
 
 const TrailCanvas = lazy(() => import('./trail-canvas'));
 
-type StampPreviewId = Exclude<keyof typeof stampEffects, 'cursor-trailer'>;
+type PhotoPreviewId = Exclude<keyof typeof stampEffects, 'cursor-trailer' | 'image-shrink'>;
 
 type Example = { title: string; description: string } & (
   | { id: 'cursor-trailer'; group: 'codepen' }
   | {
-      id: StampPreviewId | 'motion-gooey';
+      id: PhotoPreviewId | 'image-shrink' | 'motion-gooey';
       group: 'image' | 'motion';
       demo: number;
     }
@@ -27,7 +27,7 @@ const examples: Example[] = [
   {
     id: 'image-shrink',
     title: 'Shrink Away',
-    description: 'Playful 3D emoji slide to the pointer, then shrink away.',
+    description: 'Travel stickers slide to the pointer, then shrink away.',
     group: 'image',
     demo: 1,
   },
@@ -41,7 +41,7 @@ const examples: Example[] = [
   {
     id: 'image-fall',
     title: 'Gravity Drop',
-    description: 'Photos settle at the pointer and take turns falling out of frame.',
+    description: 'Photos settle at the pointer, then drop out of frame.',
     group: 'image',
     demo: 3,
   },
@@ -74,77 +74,42 @@ const examples: Example[] = [
   },
 ];
 
-const photoUrls = (...ids: string[]) =>
-  ids.map((id) => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=480&q=80`);
+const photos = [
+  '1635776063043-ab23b4c226f6',
+  '1795258566246-ae94d575fb80',
+  '1720462393492-046dfa56b1d1',
+  '1792655282510-7c34839d0b2b',
+  '1795169972131-f816a82536a8',
+  '1795153624227-49ec391b973e',
+  '1793911166330-08fd4bfe75c6',
+  '1788802906864-37fe089b2aff',
+  '1794350325792-c83741409cc7',
+  '1793033259489-200bd4af74e4',
+  '1793034574913-b8c21bbd13fb',
+  '1792081863451-1236a1248831',
+].map((id) => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=480&q=80`);
 
-// Fluent Emoji artwork © Microsoft Corporation, MIT licensed.
-// https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE
-const emojiRoot =
-  'https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@1ffb34c752ecf5d402f04cfb4b392c77f57c54bc/assets';
-const shrinkEmoji = [
-  'Melting%20face/3D/melting_face_3d.png',
-  'Face%20with%20spiral%20eyes/3D/face_with_spiral_eyes_3d.png',
-  'Face%20with%20peeking%20eye/3D/face_with_peeking_eye_3d.png',
-  'Star-struck/3D/star-struck_3d.png',
-  'Zany%20face/3D/zany_face_3d.png',
-  'Sparkling%20heart/3D/sparkling_heart_3d.png',
-].map((path) => `${emojiRoot}/${path}`);
-
-type StampPreview = {
-  items: string[];
-  className: string;
-  imgClass?: string;
-  duration: number;
-  threshold?: number;
-  minInterval?: number;
+const photoTitles: Record<PhotoPreviewId, string> = {
+  'image-bloom': 'Let color bloom.',
+  'image-fall': 'Let it fall.',
+  'motion-classic': 'Motion never stops.',
+  'motion-innerscape': 'See it differently.',
 };
 
-const stampPreviews: Record<StampPreviewId, StampPreview> = {
-  'image-shrink': {
-    items: shrinkEmoji,
-    className: 'bg-[#fff1e8] text-[#493029]',
-    imgClass: 'size-[clamp(74px,14cqw,122px)] object-contain',
-    duration: 1420,
-  },
-  'image-bloom': {
-    items: photoUrls(
-      '1795169972131-f816a82536a8',
-      '1794350325792-c83741409cc7',
-      '1793034574913-b8c21bbd13fb'
-    ),
-    className: 'bg-[#edf0e3] text-[#293127] bg-[radial-gradient(ellipse_at_28%_0%,#faf9f0,transparent_75%)]',
-    duration: 1420,
-  },
-  'image-fall': {
-    items: photoUrls(
-      '1793911166330-08fd4bfe75c6',
-      '1793033259489-200bd4af74e4',
-      '1792081863451-1236a1248831'
-    ),
-    className: 'bg-[#e6edf3] text-[#25303a] bg-[radial-gradient(ellipse_at_30%_0%,#f7fafc,transparent_74%)]',
-    duration: 950,
-    threshold: 50,
-    minInterval: 195,
-  },
-  'motion-classic': {
-    items: photoUrls(
-      '1795258566246-ae94d575fb80',
-      '1720462393492-046dfa56b1d1',
-      '1792655282510-7c34839d0b2b'
-    ),
-    className: 'bg-[#202226] text-[#f6f3ed] bg-[repeating-linear-gradient(0deg,transparent_0px,transparent_3px,#ffffff0a_3px,#ffffff0a_4px)]',
-    duration: 800,
-  },
-  'motion-innerscape': {
-    items: photoUrls(
-      '1635776063043-ab23b4c226f6',
-      '1795153624227-49ec391b973e',
-      '1788802906864-37fe089b2aff'
-    ),
-    className: 'bg-[#ddd3ee] text-[#332642] bg-[radial-gradient(ellipse_at_50%_12%,#faf6ff,transparent_74%),repeating-linear-gradient(135deg,transparent_0px,transparent_7px,#31244a14_7px,#31244a14_8px)]',
-    duration: 1420,
-  },
-};
+const travelStickers = [
+  'airplane',
+  'suitcase',
+  'compass',
+  'binoculars',
+  'tent',
+  'canoe',
+  'bicycle',
+  'hiking-boot',
+  'sailboat',
+  'cable-car',
+  'lighthouse',
+  'hot-air-balloon',
+];
 
 const clayStickers = [
   'alarm-clock',
@@ -162,6 +127,13 @@ const clayStickers = [
 ];
 
 const trailFonts = `
+  @font-face {
+    font-family: 'Trail Inter';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('https://fonts.gstatic.com/s/inter/v20/UcCo3FwrK3iLTcviYwY.woff2') format('woff2');
+  }
   @font-face {
     font-family: 'Trail Instrument Serif';
     font-style: normal;
@@ -193,11 +165,17 @@ const hint = (
   </p>
 );
 
-function ExampleStage({ example, stickers }: { example: Example; stickers: string[] }) {
+function ExampleStage({
+  example,
+  stickers,
+}: {
+  example: Example;
+  stickers: { clay: string[]; travel: string[] };
+}) {
   if (example.group === 'codepen') {
     return (
       <ImageMouseTrail
-        items={stickers}
+        items={stickers.clay}
         effect={stampEffects[example.id]}
         threshold={44}
         maxNumberOfImages={20}
@@ -214,18 +192,30 @@ function ExampleStage({ example, stickers }: { example: Example; stickers: strin
   }
 
   if (example.id !== 'motion-gooey') {
-    const { className, imgClass, threshold = 64, ...preview } = stampPreviews[example.id];
+    const { id } = example;
+    const shrink = id === 'image-shrink';
     return (
       <ImageMouseTrail
-        {...preview}
+        items={shrink ? stickers.travel : photos}
         effect={stampEffects[example.id]}
-        threshold={threshold}
+        threshold={64}
         maxNumberOfImages={11}
+        duration={example.id === 'motion-classic' ? 800 : 1420}
         touchAction='none'
-        imgClass={imgClass ?? 'h-32 w-24 rounded-sm border border-white/30 shadow-lg sm:h-48 sm:w-36'}
-        className={`@container h-[clamp(300px,55vw,520px)] ${className}`}
+        imgClass={
+          shrink
+            ? 'size-[clamp(74px,14cqw,122px)] object-contain'
+            : 'h-32 w-24 rounded-sm border border-white/30 shadow-lg sm:h-48 sm:w-36'
+        }
+        className='@container h-[clamp(300px,55vw,520px)] bg-white text-[#151510] [&>[aria-hidden=true]]:z-20'
       >
-        {hint}
+        {shrink ? (
+          hint
+        ) : (
+          <h2 className='pointer-events-none text-balance px-4 text-center text-[clamp(2.75rem,11cqw,8rem)] leading-[0.9] font-bold tracking-[-0.08em] [font-family:Trail_Inter,Arial,sans-serif]'>
+            {photoTitles[id]}
+          </h2>
+        )}
       </ImageMouseTrail>
     );
   }
@@ -235,7 +225,7 @@ function ExampleStage({ example, stickers }: { example: Example; stickers: strin
       <h2 className='pointer-events-none px-4 text-center text-[clamp(2.5rem,8cqw,5rem)] leading-none font-semibold tracking-[-0.08em] [font-family:Trail_Space_Grotesk,sans-serif]'>
         Soft shapes.
       </h2>
-      <TrailCanvas images={stickers} />
+      <TrailCanvas images={stickers.clay} />
     </div>
   );
 }
@@ -268,7 +258,10 @@ export default function MousetrailExplorer({
   const [index, setIndex] = useState(0);
   const stickers = useMemo(() => {
     const baseUrl = stickerBaseUrl.replace(/\/$/, '');
-    return clayStickers.map((name) => `${baseUrl}/${name}.webp`);
+    return {
+      clay: clayStickers.map((name) => `${baseUrl}/${name}.webp`),
+      travel: travelStickers.map((name) => `${baseUrl}/travel/${name}.webp`),
+    };
   }, [stickerBaseUrl]);
   const example = examples[index];
   const source = exampleSource(example);

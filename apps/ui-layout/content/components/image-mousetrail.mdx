@@ -45,7 +45,7 @@ The explorer has seven options. Shrink Away, Bloom Out, and Gravity Drop adapt [
 
 Gooey uses twelve clay stickers on a white stage with “Soft shapes.” in Space Grotesk. Canvas 2D draws soft links between nearby stickers as they appear and recede.
 
-Bloom Out, Gravity Drop, Classic, and Innerscape each use three photos from the Unsplash collection. Gravity Drop spaces its falls so each photo has time to clear the stage. Shrink Away uses [Microsoft Fluent Emoji](https://github.com/microsoft/fluentui-emoji) artwork under the [MIT license](https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE).
+Bloom Out, Gravity Drop, Classic, and Innerscape each cycle through all twelve Unsplash photos over an Inter headline on a white stage. Shrink Away uses twelve travel and outdoor clay stickers.
 
 ## Installation
 
@@ -93,7 +93,7 @@ export default function App() {
 
 In a Next.js App Router page, you can import the explorer directly. Its source already declares the client boundary.
 
-The explorer loads the clay WebP files from UI Layouts. To use your own copies, pass their folder URL as `stickerBaseUrl`.
+The explorer loads the clay WebP files from UI Layouts. To use your own copies, pass the folder URL as `stickerBaseUrl` and place the Shrink Away stickers in its `travel` subfolder.
 
 ## Usage
 
