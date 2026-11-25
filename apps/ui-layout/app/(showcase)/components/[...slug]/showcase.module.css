@@ -37,12 +37,13 @@
 .details h1 {
   font-weight: 600;
   letter-spacing: -0.045em;
-  font-size: clamp(2rem, 5vw, 3.8rem);
-  line-height: 1.06;
+  font-size: clamp(1.625rem, 2.4vw, 2.25rem);
+  margin-block: 0 0.75rem;
+  line-height: 1.2;
 }
 .details :where(p, li) { max-inline-size: 78ch; }
 .description {
-  margin: 0 0 1.2rem;
+  margin: 0 0 2rem;
   line-height: 1.65;
   color: var(--muted-foreground);
 }
@@ -59,7 +60,7 @@
   transform: none;
 }
 
-.stage[data-demo='image-effect-motion-hover'] .frame {
+.stage[data-demo='image-effect-motion-hover'] :is(.frame, .edgeBlur) {
   width: min(100%, 110svh);
 }
 /* Share the reading edge across the specimen and its notes. */
@@ -67,7 +68,7 @@
   --study-gutter: clamp(16px, 3vw, 48px);
   --study-width: min(calc(100% - 2 * var(--study-gutter)), 1280px);
 }
-.stage[data-demo='image-effect-sprite-morph'] .frame,
+.stage[data-demo='image-effect-sprite-morph'] :is(.frame, .edgeBlur),
 .page:has(.stage[data-demo='image-effect-sprite-morph']) .details {
   width: var(--study-width);
   margin-inline: auto;
@@ -79,6 +80,36 @@
 
 
 .details { scroll-margin-top: 72px; }
-@media (min-width: 1440px) {
-  :global(body:has([data-docked])) .page { margin-inline-start: 280px; }
+
+.frame, .edgeBlur { grid-area: 1 / 1; }
+
+.edgeBlur {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  max-width: var(--content-width);
+  overflow: hidden;
+  pointer-events: none;
+  --edge-width: clamp(12px, 2.4vw, 36px);
+}
+.edgeBlur i {
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  mask-image: linear-gradient(var(--inward), black, transparent);
+}
+.edgeBlur i:nth-child(1) { bottom: auto; height: var(--edge-width); --inward: to bottom; }
+.edgeBlur i:nth-child(2) { left: auto; width: var(--edge-width); --inward: to left; }
+.edgeBlur i:nth-child(3) {
+  top: auto;
+  height: clamp(22px, 5svh, 54px);
+  --inward: to top;
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+}
+.edgeBlur i:nth-child(4) { right: auto; width: var(--edge-width); --inward: to right; }
+@media (prefers-reduced-transparency: reduce), (forced-colors: active) {
+  .edgeBlur { display: none; }
 }

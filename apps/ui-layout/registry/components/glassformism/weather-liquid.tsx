@@ -5,10 +5,10 @@ const WeatherLiquid = () => {
   return (
     <>
       <div
-        className='p-8 relative z-30 w-full gap-8 py-16 rounded-xl'
+        className='p-3 sm:p-8 relative z-30 grid items-center min-h-svh w-full'
         style={{
           background:
-            'url("https://images.unsplash.com/photo-1590867286251-8e26d9f255c0?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") center / cover no-repeat',
+            'url("https://images.unsplash.com/photo-1590867286251-8e26d9f255c0?q=80&w=2400&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") center / cover no-repeat',
         }}
       >
         <div className='grid w-full max-w-xl grid-cols-2 gap-4 mx-auto'>
@@ -17,7 +17,7 @@ const WeatherLiquid = () => {
             shadowIntensity='xs'
             borderRadius='8px'
             glowIntensity='none'
-            className='col-span-2 p-6 text-white bg-white/8'
+            className='col-span-2 p-3 sm:p-6 text-white bg-white/8'
           >
             <div className='flex justify-between relative z-30 text-sm font-medium'>
               <div className='flex flex-col items-center gap-2'>
@@ -58,7 +58,7 @@ const WeatherLiquid = () => {
             shadowIntensity='xs'
             borderRadius='8px'
             glowIntensity='none'
-            className='rounded-3xl p-6 text-white bg-white/8 '
+            className='rounded-3xl p-3 sm:p-6 text-white bg-white/8 '
           >
             <div className='relative z-30 flex flex-col items-start justify-center h-full w-full'>
               <div className='text-6xl font-semibold'>+18°C</div>
@@ -71,7 +71,7 @@ const WeatherLiquid = () => {
             shadowIntensity='xs'
             borderRadius='8px'
             glowIntensity='none'
-            className='rounded-3xl p-6 text-white bg-white/8'
+            className='rounded-3xl p-3 sm:p-6 text-white bg-white/8'
           >
             <div className='relative z-30 flex flex-col items-start justify-center h-full w-full'>
               <div className='text-6xl font-semibold'>17:32</div>
@@ -88,7 +88,7 @@ const WeatherLiquid = () => {
             shadowIntensity='xs'
             borderRadius='8px'
             glowIntensity='none'
-            className='col-span-2 rounded-3xl bg-white/8 p-6 text-white'
+            className='col-span-2 rounded-3xl bg-white/8 p-3 sm:p-6 text-white'
           >
             <div className='relative z-30 flex flex-col gap-4 h-full w-full'>
               <div className='flex items-center justify-between'>

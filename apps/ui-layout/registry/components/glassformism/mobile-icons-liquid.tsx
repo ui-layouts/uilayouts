@@ -16,13 +16,13 @@ const MobileIcons = () => {
   return (
     <>
       <div
-        className='p-8 flex relative z-30 w-full mx-auto rounded-xl flex-wrap gap-8 items-start justify-center'
+        className='px-2 py-4 flex relative z-30 min-h-svh w-full items-center justify-center'
         style={{
           background:
-            'url("https://images.unsplash.com/photo-1669369229708-68021c85f849?q=80&w=1631&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") center / cover no-repeat',
+            'url("https://images.unsplash.com/photo-1669369229708-68021c85f849?q=80&w=2400&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") center / cover no-repeat',
         }}
       >
-        <div className='grid grid-cols-4 gap-4 p-6 rounded-3xl '>
+        <div className='grid grid-cols-4 gap-1 sm:gap-4 p-1 sm:p-6 rounded-3xl '>
           <Glassformism className='w-16 h-16 rounded-ful '>
             <div className='relative z-30 flex items-center justify-center text-white text-2xl w-full h-full '>
               <RotateCcw className='w-8 h-8' />

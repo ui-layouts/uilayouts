@@ -5,10 +5,10 @@ const NotificationLiquid = () => {
   return (
     <>
       <div
-        className='p-8 w-fit mx-auto gap-2 h-160 flex flex-col justify-end pt-2 pb-10 rounded-xl'
+        className='px-4 sm:px-8 w-full min-h-svh gap-2 flex flex-col items-center justify-end py-10'
         style={{
           background:
-            'url("https://images.unsplash.com/photo-1534259070436-a95806b8621a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") center / cover no-repeat',
+            'url("https://images.unsplash.com/photo-1534259070436-a95806b8621a?q=80&w=2400&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") center / cover no-repeat',
         }}
       >
         <Glassformism
@@ -18,9 +18,9 @@ const NotificationLiquid = () => {
           glowIntensity='xl'
           draggable={false}
           expandable
-          expandedWidth='410px'
+          expandedWidth='min(410px, 100%)'
           expandedHeight='335px'
-          width='410px'
+          width='min(410px, 100%)'
           height='90px'
           className='z-10 flex flex-col items-start relative overflow-hidden'
         >
@@ -52,7 +52,7 @@ const NotificationLiquid = () => {
           />
         </Glassformism>
         <Glassformism
-          width='410px'
+          width='min(410px, 100%)'
           height='90px'
           shadowIntensity='md'
           blurIntensity='lg'

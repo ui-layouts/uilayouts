@@ -10,11 +10,9 @@ import {
   PanelLeft,
 } from 'lucide-react';
 import Link from 'next/link';
-import { Fragment } from 'react';
-import { basePath } from './sidebar';
+import DocsSidebar from './sidebar';
 import { SearchDialog } from './searchbar';
 import { useEffect, useRef, useState } from 'react';
-import type { DocsNavigationCategory } from '@/types/docs';
 import { Bun, NPM, Pnpm, Yarn } from './icons';
 import styles from './showcase-toolbar.module.css';
 
@@ -38,109 +36,31 @@ const managers = {
 };
 type Manager = keyof typeof managers;
 
-function NavigationDrawer({ slug, navigation }: Pick<ShowcaseToolbarProps, 'slug' | 'navigation'>) {
+function NavigationDrawer({ navigation }: Pick<ShowcaseToolbarProps, 'navigation'>) {
   const [open, setOpen] = useState(false);
-  const [wide, setWide] = useState(false);
-  useEffect(() => {
-    const viewport = matchMedia('(min-width: 1440px)');
-    const sync = () => {
-      setWide(viewport.matches);
-      setOpen(viewport.matches && sessionStorage.getItem('showcase-sidebar') === 'open');
-    };
-    sync();
-    viewport.addEventListener('change', sync);
-    return () => viewport.removeEventListener('change', sync);
-  }, []);
-  function changeOpen(value: boolean) {
-    setOpen(value);
-    if (wide) sessionStorage.setItem('showcase-sidebar', value ? 'open' : 'closed');
-  }
-  const [catalog, setCatalog] = useState<Record<
-    string,
-    DocsNavigationCategory[]
-  > | null>(null);
-  const [loadFailed, setLoadFailed] = useState(false);
-  useEffect(() => {
-    if (!open || catalog) return;
-    let active = true;
-    setLoadFailed(false);
-    import('@/lib/grouped-docs').then(
-      ({ groupedDocsNavigationCategories }) => {
-        if (active) setCatalog(groupedDocsNavigationCategories);
-      },
-      () => {
-        if (active) setLoadFailed(true);
-      }
-    );
-    return () => {
-      active = false;
-    };
-  }, [open, catalog]);
-  const groups = Object.entries(catalog ?? {}).map(([label, items]) => ({ label, items }));
+  const toggle = <span><PanelLeft size={20} strokeWidth={1.55} aria-hidden /></span>;
   return (
-    <Dialog.Root
-      open={open}
-      modal={!wide}
-      onOpenChange={changeOpen}
-    >
+    <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger asChild>
-        <button
-          type='button'
-          className={styles.launcher}
-          aria-label={open ? 'Close component navigation' : 'Open component navigation'}
-          title={open ? 'Close navigation' : 'Open navigation'}
-        >
-          <PanelLeft size={22} strokeWidth={1.55} />
-        </button>
+        <button type="button" className={styles.launcher} aria-label="Open component navigation">{toggle}</button>
       </Dialog.Trigger>
       <Dialog.Portal>
-        {!wide && <Dialog.Overlay className={styles.overlay} />}
-        <Dialog.Content className={styles.drawer} aria-describedby={undefined}
-          data-docked={wide || undefined}
-          onInteractOutside={event => { if (wide) event.preventDefault(); }}>
+        <Dialog.Overlay className={styles.overlay} />
+        <Dialog.Content className={styles.drawer} aria-describedby={undefined}>
           <header className={styles.drawerHeader}>
-            {!wide && <Dialog.Close asChild>
-              <button type="button" className={styles.launcher} aria-label="Close component navigation" aria-expanded={open} title="Close navigation">
-                <PanelLeft size={22} strokeWidth={1.55} />
-              </button>
-            </Dialog.Close>}
-            <Dialog.Title><Link href="/components"><img src="/showcase-wordmark.svg" alt="UI Layouts" width={144} /></Link></Dialog.Title>
-
+            <Dialog.Title><Link href="/components" onClick={() => setOpen(false)}><img src="/showcase-wordmark.svg" alt="UI Layouts" width={144} /></Link></Dialog.Title>
+            <Dialog.Close asChild>
+              <button type="button" className={styles.launcher} aria-label="Close component navigation">{toggle}</button>
+            </Dialog.Close>
           </header>
-          <nav className={styles.links} aria-label='Component navigation'>
-            {basePath.map(link => <Link key={link.href} href={link.href} className={styles.sectionLink}>{link.icon}{link.name}</Link>)}
-            {groups.map(({ label, items }) => (
-              <section key={label}>
-                <h3>{label}</h3>
-                {items.map((item) => (
-                  <Fragment key={item.href}><Link
-                    href={item.href}
-                    prefetch={false}
-                    aria-current={
-                      item.href === '/components/' + slug ? 'page' : undefined
-                    }
-                    onClick={() => {
-                      if (!wide) setOpen(false);
-                    }}
-                  >
-                    {item.name}
-                  </Link>
-                  {item.href === '/components/' + slug && navigation.examples.length > 1 && <div className={styles.tree}>
-                    {navigation.examples.map((example, index) => <button key={example.name} type="button" aria-current={index === navigation.index ? 'page' : undefined} onClick={() => { navigation.select(index); if (!wide) setOpen(false); }}>{example.label}</button>)}
-                  </div>}</Fragment>
-                ))}
-              </section>
-            ))}
-            {!groups.length && (
-              <p role='status'>
-                {catalog
-                  ? 'No matching components.'
-                  : loadFailed
-                    ? 'Could not load the component list.'
-                    : 'Loading components…'}
-              </p>
-            )}
-          </nav>
+          <DocsSidebar floating onNavigate={() => setOpen(false)} exampleTree={navigation.examples.length > 1 && (
+            <div className={styles.tree} aria-label="Examples" role="group">
+              {navigation.examples.map((example, index) => (
+                <button key={example.name} type="button" aria-current={index === navigation.index ? 'page' : undefined}
+                  onClick={() => { navigation.select(index); setOpen(false); }}>{example.label}</button>
+              ))}
+            </div>
+          )} />
         </Dialog.Content>
       </Dialog.Portal>
     </Dialog.Root>
@@ -262,7 +182,7 @@ export function ShowcaseToolbar({
     feedback?.action === action && feedback.success;
   return (
     <div className={styles.toolbar} aria-label='Component tools' role='group'>
-      <NavigationDrawer slug={slug} navigation={navigation} />
+      <NavigationDrawer navigation={navigation} />
       {pager}
       <div className={styles.center}>
         <SearchDialog searchBar classname={styles.searchTrigger} />

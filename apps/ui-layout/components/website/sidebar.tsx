@@ -57,31 +57,37 @@ export const basePath = [
   },
 ];
 
-function DocsSidebar() {
+type SidebarProps = {
+  floating?: boolean;
+  exampleTree?: React.ReactNode;
+  onNavigate?: () => void;
+};
+
+function DocsSidebar({ floating = false, exampleTree, onNavigate }: SidebarProps) {
   const pathname = usePathname();
 
   const { addVisitedPage } = useRecentPagesStore();
   return (
     <>
-      <aside aria-label='Documentation sidebar' className='h-full lg:block hidden'>
+      <aside aria-label='Documentation sidebar' className={floating ? 'min-h-0 flex-1' : 'h-full lg:block hidden'}>
         <div className='h-full w-full'>
-          <nav aria-label='Documentation navigation'>
-          <ScrollArea className='h-[calc(100vh-6em)] px-3'>
-            <ul className='pb-1 pt-12'>
+          <nav aria-label='Documentation navigation' className={floating ? 'h-full' : undefined}>
+          <ScrollArea className={floating ? 'h-full px-3' : 'h-[calc(100vh-6em)] px-3'}>
+            <ul className={floating ? 'pb-3' : 'pb-1 pt-12'}>
               {basePath?.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    onClick={() => addVisitedPage(link.href, link.name)}
+                    onClick={() => { addVisitedPage(link.href, link.name); onNavigate?.(); }}
                     className={`flex gap-2 group font-medium items-center py-1 transition-all ${
-                      link.href === pathname
+                      (link.href === pathname || (floating && link.href === '/components'))
                         ? 'active-nav'
                         : 'text-muted-foreground hover:text-foreground'
                     }`}
                   >
                     {React.cloneElement(link?.icon, {
                       className: `${
-                        link.href === pathname
+                        (link.href === pathname || (floating && link.href === '/components'))
                           ? 'bg-primary text-primary-foreground'
                           : 'bg-secondary text-secondary-foreground group-hover:bg-primary group-hover:text-primary-foreground'
                       } h-7 w-7 border transition-all rounded-md p-1`,
@@ -138,6 +144,9 @@ function DocsSidebar() {
             <div className='pb-16'>
               {Object.entries(groupedDocsNavigationCategories).map(([group, items], index) => (
                 <ItemsWithName
+                  floating={floating}
+                  exampleTree={exampleTree}
+                  onNavigate={onNavigate}
                   group={group}
                   items={items}
                   key={index}
@@ -155,11 +164,12 @@ function DocsSidebar() {
 }
 
 export const ItemsWithName = ({
+  floating, exampleTree, onNavigate,
   group,
   items,
   pathname,
   addVisitedPage,
-}: {
+}: SidebarProps & {
   group: string | null;
   items: any[];
   pathname: string;
@@ -173,6 +183,7 @@ export const ItemsWithName = ({
   const itemRefs = useRef<(HTMLLIElement | null)[]>([]);
 
   useEffect(() => {
+    if (floating) return;
     const activeItemIndex = items.findIndex((item: { href: string }) => item.href === pathname);
 
     if (activeItemIndex !== -1 && itemRefs.current[activeItemIndex]) {
@@ -181,7 +192,7 @@ export const ItemsWithName = ({
         block: 'nearest',
       });
     }
-  }, [pathname, items]);
+  }, [pathname, items, floating]);
 
   return (
     <div ref={groupRef} key={group}>
@@ -221,8 +232,8 @@ export const ItemsWithName = ({
           <div className='absolute w-full bottom-0 left-0 h-7 bg-linear-to-t dark:from-neutral-950 from-zinc-50 from-20%' />
         )} */}
         {itemsToShow.map((link, index) => (
+          <React.Fragment key={link.href}>
           <li
-            key={link.href}
             ref={(el) => {
               itemRefs.current[index] = el;
             }}
@@ -232,7 +243,7 @@ export const ItemsWithName = ({
                 : 'text-muted-foreground 2xl:font-normal font-medium border-border hover:border-foreground/60 hover:text-foreground'
             }`}
           >
-            <Link href={link.href} onClick={() => addVisitedPage(link.href, link.name)}>
+            <Link href={link.href} onClick={() => { addVisitedPage(link.href, link.name); onNavigate?.(); }}>
               {link.name}
             </Link>
             {link?.updated && (
@@ -240,6 +251,8 @@ export const ItemsWithName = ({
             )}
             {link?.new && <span className='2xl:text-xs text-[0.74em] text-green-500'>(New)</span>}
           </li>
+          {link.href === pathname && exampleTree && <li>{exampleTree}</li>}
+          </React.Fragment>
         ))}
       </ul>
     </div>

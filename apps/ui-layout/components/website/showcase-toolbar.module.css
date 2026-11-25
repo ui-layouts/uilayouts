@@ -17,9 +17,10 @@
   pointer-events: auto;
 }
 .launcher,
+.pager,
 .center,
 .actions {
-  background: color-mix(in srgb, var(--foreground, #151515) 16%, var(--background, white));
+  background: color-mix(in srgb, var(--foreground, #151515) 6%, var(--background, white));
   box-shadow: 0 1px 2px #0000000f;
   border-radius: 12px;
 }
@@ -53,8 +54,16 @@
   place-items: center;
   width: 43px;
   height: 43px;
-  border: 3px solid color-mix(in srgb, var(--foreground, #151515) 12%, var(--background, white));
-  background: var(--background, white);
+  padding: 5px;
+  border: 0;
+}
+.launcher > span {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  border-radius: 7px;
+  background: var(--background);
 }
 .center,
 .actions,
@@ -63,10 +72,11 @@
   align-items: center;
   min-width: 0;
 }
+.pager,
 .center,
 .actions {
   gap: 3px;
-  padding: 3px;
+  padding: 5px;
 }
 .install,
 .progress,
@@ -166,84 +176,30 @@
   position: fixed;
   z-index: 90;
   inset: 0;
-  background: #12121240;
+  background: transparent;
 }
 .drawer {
   position: fixed;
   z-index: 91;
-  inset: 0 auto 0 0;
+  inset: max(16px, env(safe-area-inset-top)) auto max(16px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));
   display: flex;
   flex-direction: column;
-  width: min(344px, calc(100vw - 26px));
-  padding: max(18px, env(safe-area-inset-top)) 16px max(12px, env(safe-area-inset-bottom));
-  color: var(--foreground, #171717);
-  background: var(--background, white);
-  box-shadow: 4px 0 30px #0002;
-}
-.drawerHeader,
-.search {
-  display: flex;
-  align-items: center;
+  width: min(280px, calc(100% - 28px));
+  padding-block: 10px 14px;
+  border-radius: 16px;
+  background: var(--background);
+  color: var(--foreground);
+  box-shadow: 0 8px 32px #0002, 0 1px 8px #0001;
 }
 .drawerHeader {
+  display: flex;
+  align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  margin-bottom: 14px;
+  padding-inline: 12px;
+  margin-bottom: 4px;
 }
-.drawerHeader h2 {
-  margin: 0;
-  font-size: 18px;
-  font-weight: 650;
-}
-.drawer:not([data-docked]) .drawerHeader {
-  min-height: 48px;
-  padding-left: calc(max(10px, 3vw) + 44px);
-}
-.drawerHeader .launcher { left: max(10px, 3vw); }
-.search {
-  gap: 8px;
-  padding: 8px 10px;
-  background: var(--muted, #f4f4f4);
-  border: 1px solid var(--border, #ddd);
-  border-radius: 8px;
-}
-.search input {
-  min-width: 0;
-  flex: 1;
-  background: transparent;
-  font-size: 14px;
-}
-.links {
-  flex: 1;
-  margin-top: 10px;
-  overflow-y: auto;
-  overscroll-behavior: contain;
-}
-.links h3 {
-  margin: 18px 8px 5px;
-  font-size: 12px;
-  font-weight: 650;
-  color: var(--muted-foreground, #606060);
-}
-.links a {
-  display: block;
-  padding: 7px 9px;
-  border-radius: 6px;
-  color: inherit;
-  font-size: 14px;
-  text-decoration: none;
-}
-.links a:hover,
-.links a[aria-current="page"] {
-  background: var(--muted, #f4f4f4);
-}
-.links a[aria-current="page"] {
-  font-weight: 650;
-}
-.links p {
-  margin: 14px 8px;
-  font-size: 14px;
-}
+.drawerHeader .launcher { position: static; }
+.toolbar > .launcher[data-state="open"] { visibility: hidden; }
 .error {
   position: absolute;
   right: 0;
@@ -275,10 +231,10 @@
   .toolbar {
     gap: 4px;
   }
+  .pager,
   .center,
   .actions {
     gap: 2px;
-    padding: 2px;
   }
   .command {
     max-width: 24vw;
@@ -291,7 +247,7 @@
     min-width: 33px;
   }
   .launcher {
-    width: 37px;
+    width: 40px;
     height: 40px;
   }
   .icon,
@@ -321,13 +277,11 @@
 
 .toolbar { --edge: max(10px, 3vw, calc((100% - 1280px) / 2)); inset-inline: var(--edge); }
 .launcher { position: fixed; top: 24px; left: var(--edge); }
-.pager { display: flex; justify-self: start; gap: 2px; }
-.pager :is(a, button) { display: grid; place-items: center; width: 38px; height: 40px; border: 2px solid var(--border); border-radius: 9px; background: var(--background); }
+.pager { display: flex; justify-self: start; flex: none; }
+.pager :is(a, button) { display: grid; place-items: center; width: 37px; height: 37px; border: 0; border-radius: 9px; background: var(--background); }
 .tree { margin-left: 16px; padding-left: 8px; border-left: 1px solid var(--border); }
 .tree button { display: block; text-align: left; width: 100%; padding: 5px 8px; font-size: 14px; }
 .tree button[aria-current] { background: var(--muted); font-weight: 600; border-radius: 5px; }
-.links .sectionLink { display: flex; align-items: center; gap: 8px; padding-block: 4px; }
-.sectionLink svg { width: 25px; height: 25px; padding: 4px; border: 1px solid var(--border); border-radius: 5px; }
 @media (max-width: 500px) {
   .toolbar { inset-inline: 5px; gap: 3px; }
   .pager :is(a, button) { width: 28px; }
@@ -335,15 +289,6 @@
   .command { max-width: 18vw; }
 }
 
-
-@media (min-width: 1440px) {
-  .drawer[data-docked] { width: 280px; background: var(--background); box-shadow: none; border-right: 1px solid var(--border); }
-  :global(body:has([data-docked])) .toolbar {
-    --edge: max(3vw, calc((100% - 280px - 1280px) / 2));
-    inset-inline-start: calc(280px + var(--edge));
-  }
-  :global(body:has([data-docked])) .launcher { left: calc(280px + var(--edge)); }
-}
 
 .center .searchTrigger {
   display: grid;
