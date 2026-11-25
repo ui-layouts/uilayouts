@@ -1,31 +1,16 @@
 'use client';
 
-import { lazy, Suspense, useMemo, useState } from 'react';
+import { lazy, Suspense, useMemo } from 'react';
 import ImageMouseTrail from '@/components/ui/mousetrail';
 import { stampEffects } from './trail-stamp-effects';
 
 const TrailCanvas = lazy(() => import('./trail-canvas'));
 
 type PhotoPreviewId = Exclude<keyof typeof stampEffects, 'cursor-trailer' | 'image-shrink'>;
-type ExampleId = keyof typeof stampEffects | 'motion-gooey';
-
-const examples: { id: ExampleId; title: string }[] = [
-  { id: 'image-shrink', title: 'Shrink Away' },
-  { id: 'image-bloom', title: 'Bloom Out' },
-  { id: 'image-fall', title: 'Gravity Drop' },
-  { id: 'motion-classic', title: 'Classic' },
-  { id: 'motion-innerscape', title: 'Innerscape' },
-  { id: 'motion-gooey', title: 'Gooey' },
-  { id: 'cursor-trailer', title: 'Cursor Trailer' },
-];
+export type ImageTrailPreviewVariant = keyof typeof stampEffects | 'motion-gooey';
 
 const photos = [
   '1635776063043-ab23b4c226f6',
-  '1795258566246-ae94d575fb80',
-  '1720462393492-046dfa56b1d1',
-  '1792655282510-7c34839d0b2b',
-  '1795169972131-f816a82536a8',
-  '1795153624227-49ec391b973e',
   '1793911166330-08fd4bfe75c6',
   '1788802906864-37fe089b2aff',
   '1794350325792-c83741409cc7',
@@ -114,13 +99,13 @@ function ExampleStage({
   id,
   stickers,
 }: {
-  id: ExampleId;
-  stickers: { clay: string[]; travel: string[] };
+  id: ImageTrailPreviewVariant;
+  stickers: string[];
 }) {
   if (id === 'cursor-trailer') {
     return (
       <ImageMouseTrail
-        items={stickers.clay}
+        items={stickers}
         effect={stampEffects[id]}
         threshold={44}
         maxNumberOfImages={20}
@@ -140,7 +125,7 @@ function ExampleStage({
     const shrink = id === 'image-shrink';
     return (
       <ImageMouseTrail
-        items={shrink ? stickers.travel : photos}
+        items={shrink ? stickers : photos}
         effect={stampEffects[id]}
         threshold={64}
         maxNumberOfImages={11}
@@ -169,58 +154,39 @@ function ExampleStage({
       <h2 className='pointer-events-none px-4 text-center text-[clamp(2.5rem,8cqw,5rem)] leading-none font-semibold tracking-[-0.08em] [font-family:Trail_Space_Grotesk,sans-serif]'>
         Soft shapes.
       </h2>
-      <TrailCanvas images={stickers.clay} />
+      <TrailCanvas images={stickers} />
     </div>
   );
 }
 
-export function MousetrailExplorerPreview() {
-  return <MousetrailExplorer stickerBaseUrl='/image-trail/clay' />;
+export function LocalImageTrailPreview({ variant }: { variant?: ImageTrailPreviewVariant }) {
+  return <ImageTrailPreview variant={variant} stickerBaseUrl='/image-trail/clay' />;
 }
 
-export default function MousetrailExplorer({
+export default function ImageTrailPreview({
+  variant = 'motion-gooey',
   stickerBaseUrl = 'https://www.ui-layouts.com/image-trail/clay',
-}: { stickerBaseUrl?: string } = {}) {
-  const [selectedId, setSelectedId] = useState<ExampleId>(examples[0].id);
+}: { variant?: ImageTrailPreviewVariant; stickerBaseUrl?: string } = {}) {
   const stickers = useMemo(() => {
     const baseUrl = stickerBaseUrl.replace(/\/$/, '');
-    return {
-      clay: clayStickers.map((name) => `${baseUrl}/${name}.webp`),
-      travel: travelStickers.map((name) => `${baseUrl}/travel/${name}.webp`),
-    };
-  }, [stickerBaseUrl]);
+    const isTravel = variant === 'image-shrink';
+    const names = isTravel ? travelStickers : clayStickers;
+    const folder = isTravel ? `${baseUrl}/travel` : baseUrl;
+    return names.map((name) => `${folder}/${name}.webp`);
+  }, [stickerBaseUrl, variant]);
+
   return (
-    <section aria-label='Image trail explorer' className='not-prose grid w-full gap-3'>
+    <div data-trail-example={variant} className='not-prose w-full'>
       <style>{trailFonts}</style>
-      <select
-        aria-label='Trail example'
-        value={selectedId}
-        onChange={(event) => {
-          const next = examples.find((example) => example.id === event.target.value);
-          if (next) setSelectedId(next.id);
-        }}
-        className='h-10 w-full max-w-xs rounded-md border bg-background px-2.5 text-sm text-foreground'
+      <Suspense
+        fallback={
+          <p role='status' className='grid min-h-80 place-items-center rounded-lg bg-muted text-sm'>
+            Loading preview…
+          </p>
+        }
       >
-        {examples.map(({ id, title }) => (
-          <option key={id} value={id}>
-            {title}
-          </option>
-        ))}
-      </select>
-      <div data-trail-example={selectedId}>
-        <Suspense
-          fallback={
-            <p
-              role='status'
-              className='grid min-h-80 place-items-center rounded-lg bg-muted text-sm'
-            >
-              Loading preview…
-            </p>
-          }
-        >
-          <ExampleStage key={selectedId} id={selectedId} stickers={stickers} />
-        </Suspense>
-      </div>
-    </section>
+        <ExampleStage key={variant} id={variant} stickers={stickers} />
+      </Suspense>
+    </div>
   );
 }

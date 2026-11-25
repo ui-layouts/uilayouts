@@ -35,17 +35,39 @@ export const metadata = {
   ],
 };
 
-Choose a trail from the dropdown, then move or drag across the preview to reveal images.
+Move or drag across a preview to reveal the trail.
 
-## Explore image trails
+## Gooey Sticker Trail
 
 <ComponentCodePreview name='image-mousetrail-explorer' jsonName='image-mousetrail-explorer.json' typescriptOnly hasReTrigger isFitheight />
 
-The explorer has seven options. Shrink Away, Bloom Out, and Gravity Drop adapt [Image Trail Effects](https://github.com/codrops/ImageTrailEffects). Classic, Innerscape, and Gooey adapt [Motion Trail Animations](https://github.com/codrops/MotionTrailAnimations). Cursor Trailer sends closely spaced clay stickers across “Beyond the Limit” in Instrument Serif. Each sticker pops in, settles, then shrinks away. The motion is inspired by [Nemanja Kočović’s CodePen](https://codepen.io/thingbynemanja/full/ogjaaNE).
+## Examples
 
-Gooey uses twelve clay stickers on a white stage with “Soft shapes.” in Space Grotesk. Canvas 2D draws soft links between nearby stickers as they appear and recede.
+### Cursor Trailer – Shrink Away
 
-Bloom Out, Gravity Drop, Classic, and Innerscape each cycle through all twelve Unsplash photos over an Inter headline on a white stage. Shrink Away uses twelve travel and outdoor clay stickers.
+<ComponentCodePreview name='image-mousetrail-shrink-away' typescriptOnly hasReTrigger isFitheight />
+
+### Cursor Trailer – Bloom Out
+
+<ComponentCodePreview name='image-mousetrail-bloom-out' typescriptOnly hasReTrigger isFitheight />
+
+### Cursor Trailer – Gravity Drop
+
+<ComponentCodePreview name='image-mousetrail-gravity-drop' typescriptOnly hasReTrigger isFitheight />
+
+### Cursor Trailer – Classic
+
+<ComponentCodePreview name='image-mousetrail-classic' typescriptOnly hasReTrigger isFitheight />
+
+### Cursor Trailer – Innerscape
+
+<ComponentCodePreview name='image-mousetrail-innerscape' typescriptOnly hasReTrigger isFitheight />
+
+### Cursor Trailer – Clay Stickers
+
+<ComponentCodePreview name='image-mousetrail-clay-stickers' typescriptOnly hasReTrigger isFitheight />
+
+Shrink Away, Bloom Out, and Gravity Drop adapt [Image Trail Effects](https://github.com/codrops/ImageTrailEffects). Classic, Innerscape, and Gooey adapt [Motion Trail Animations](https://github.com/codrops/MotionTrailAnimations). The Clay Stickers preview draws on [Nemanja Kočović’s CodePen](https://codepen.io/thingbynemanja/full/ogjaaNE).
 
 ## Installation
 
@@ -77,23 +99,23 @@ npm install tailwind-merge
   </TabsContent>
 </Tabs>
 
-The trail is a React component written in TypeScript. The examples use Tailwind CSS 4 for styling. Use the `@/` alias for your source directory, or adjust the imports to match your project. The themed controls use the standard shadcn background, foreground, and muted color tokens.
+The trail is a React component written in TypeScript. The examples use Tailwind CSS 4 for styling. Use the `@/` alias for your source directory, or adjust the imports to match your project.
 
-To install the full explorer and its supporting TypeScript files:
+Install the previews and their supporting TypeScript files with shadcn.
 
 ```bash
 npx shadcn@latest add 'https://www.ui-layouts.com/r/image-mousetrail-explorer.json'
 ```
 
-<PreCode typescriptOnly codeblock={{ lang: 'tsx', meta: '', value: `import ImageTrailExplorer from '@/components/trail-explorer/trail-explorer';
+<PreCode typescriptOnly codeblock={{ lang: 'tsx', meta: '', value: `import ImageTrailPreview from '@/components/trail-explorer/trail-explorer';
 
 export default function App() {
-  return <ImageTrailExplorer />;
+  return <ImageTrailPreview variant="image-bloom" />;
 }` }} />
 
-In a Next.js App Router page, you can import the explorer directly. Its source already declares the client boundary.
+The preview defaults to Gooey. Each example’s Code tab shows the variant to use. In a Next.js App Router page, you can import the preview directly.
 
-The explorer loads the clay WebP files from UI Layouts. To use your own copies, pass the folder URL as `stickerBaseUrl` and place the Shrink Away stickers in its `travel` subfolder.
+The previews load the clay WebP files from UI Layouts. To use your own copies, pass the folder URL as `stickerBaseUrl` and place the Shrink Away stickers in its `travel` subfolder.
 
 ## Usage
 
