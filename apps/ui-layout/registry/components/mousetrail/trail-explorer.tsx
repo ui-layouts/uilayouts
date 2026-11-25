@@ -1,77 +1,22 @@
 'use client';
 
-import { lazy, Suspense, useId, useMemo, useState } from 'react';
+import { lazy, Suspense, useMemo, useState } from 'react';
 import ImageMouseTrail from '@/components/ui/mousetrail';
 import { stampEffects } from './trail-stamp-effects';
 
 const TrailCanvas = lazy(() => import('./trail-canvas'));
 
 type PhotoPreviewId = Exclude<keyof typeof stampEffects, 'cursor-trailer' | 'image-shrink'>;
+type ExampleId = keyof typeof stampEffects | 'motion-gooey';
 
-type Example = { title: string; description: string } & (
-  | { id: 'cursor-trailer'; group: 'codepen' }
-  | {
-      id: PhotoPreviewId | 'image-shrink' | 'motion-gooey';
-      group: 'image' | 'motion';
-      demo: number;
-    }
-);
-
-const groups = {
-  image: 'Image Trail Effects',
-  motion: 'Motion Trail Animations',
-  codepen: 'CodePen',
-};
-
-const examples: Example[] = [
-  {
-    id: 'image-shrink',
-    title: 'Shrink Away',
-    description: 'Travel stickers slide to the pointer, then shrink away.',
-    group: 'image',
-    demo: 1,
-  },
-  {
-    id: 'image-bloom',
-    title: 'Bloom Out',
-    description: 'Photos grow outward as they dissolve.',
-    group: 'image',
-    demo: 2,
-  },
-  {
-    id: 'image-fall',
-    title: 'Gravity Drop',
-    description: 'Photos settle at the pointer, then drop out of frame.',
-    group: 'image',
-    demo: 3,
-  },
-  {
-    id: 'motion-classic',
-    title: 'Classic',
-    description: 'Photos glide from behind the pointer and shrink as they exit.',
-    group: 'motion',
-    demo: 1,
-  },
-  {
-    id: 'motion-innerscape',
-    title: 'Innerscape',
-    description: 'A bright cropped view opens to reveal the full picture.',
-    group: 'motion',
-    demo: 2,
-  },
-  {
-    id: 'motion-gooey',
-    title: 'Gooey',
-    description: 'Clay stickers swell into view and connect as they pass each other.',
-    group: 'motion',
-    demo: 15,
-  },
-  {
-    id: 'cursor-trailer',
-    title: 'Cursor Trailer',
-    description: 'Move or drag to send clay stickers across the title.',
-    group: 'codepen',
-  },
+const examples: { id: ExampleId; title: string }[] = [
+  { id: 'image-shrink', title: 'Shrink Away' },
+  { id: 'image-bloom', title: 'Bloom Out' },
+  { id: 'image-fall', title: 'Gravity Drop' },
+  { id: 'motion-classic', title: 'Classic' },
+  { id: 'motion-innerscape', title: 'Innerscape' },
+  { id: 'motion-gooey', title: 'Gooey' },
+  { id: 'cursor-trailer', title: 'Cursor Trailer' },
 ];
 
 const photos = [
@@ -166,17 +111,17 @@ const hint = (
 );
 
 function ExampleStage({
-  example,
+  id,
   stickers,
 }: {
-  example: Example;
+  id: ExampleId;
   stickers: { clay: string[]; travel: string[] };
 }) {
-  if (example.group === 'codepen') {
+  if (id === 'cursor-trailer') {
     return (
       <ImageMouseTrail
         items={stickers.clay}
-        effect={stampEffects[example.id]}
+        effect={stampEffects[id]}
         threshold={44}
         maxNumberOfImages={20}
         duration={560}
@@ -191,16 +136,15 @@ function ExampleStage({
     );
   }
 
-  if (example.id !== 'motion-gooey') {
-    const { id } = example;
+  if (id !== 'motion-gooey') {
     const shrink = id === 'image-shrink';
     return (
       <ImageMouseTrail
         items={shrink ? stickers.travel : photos}
-        effect={stampEffects[example.id]}
+        effect={stampEffects[id]}
         threshold={64}
         maxNumberOfImages={11}
-        duration={example.id === 'motion-classic' ? 800 : 1420}
+        duration={id === 'motion-classic' ? 800 : 1420}
         touchAction='none'
         imgClass={
           shrink
@@ -230,23 +174,6 @@ function ExampleStage({
   );
 }
 
-function exampleSource(example: Example) {
-  if (example.group === 'codepen') {
-    return {
-      href: 'https://codepen.io/thingbynemanja/full/ogjaaNE',
-      label: 'CodePen by Nemanja Kočović',
-    };
-  }
-
-  const { group, demo } = example;
-  const collection =
-    group === 'image' ? 'ImageTrailEffects/blob/master' : 'MotionTrailAnimations/blob/main';
-  return {
-    href: `https://github.com/codrops/${collection}/index${demo === 1 ? '' : demo}.html`,
-    label: `Codrops demo ${demo}`,
-  };
-}
-
 export function MousetrailExplorerPreview() {
   return <MousetrailExplorer stickerBaseUrl='/image-trail/clay' />;
 }
@@ -254,8 +181,7 @@ export function MousetrailExplorerPreview() {
 export default function MousetrailExplorer({
   stickerBaseUrl = 'https://www.ui-layouts.com/image-trail/clay',
 }: { stickerBaseUrl?: string } = {}) {
-  const id = useId();
-  const [index, setIndex] = useState(0);
+  const [selectedId, setSelectedId] = useState<ExampleId>(examples[0].id);
   const stickers = useMemo(() => {
     const baseUrl = stickerBaseUrl.replace(/\/$/, '');
     return {
@@ -263,69 +189,25 @@ export default function MousetrailExplorer({
       travel: travelStickers.map((name) => `${baseUrl}/travel/${name}.webp`),
     };
   }, [stickerBaseUrl]);
-  const example = examples[index];
-  const source = exampleSource(example);
-
-  function step(amount: number) {
-    setIndex((value) => (value + amount + examples.length) % examples.length);
-  }
-
   return (
     <section aria-label='Image trail explorer' className='not-prose grid w-full gap-3'>
       <style>{trailFonts}</style>
-      <div className='flex flex-wrap items-end justify-between gap-3'>
-        <div className='grid min-w-0 flex-1 gap-1.5'>
-          <label htmlFor={id} className='text-sm font-medium'>
-            Explore examples
-          </label>
-          <select
-            id={id}
-            value={example.id}
-            onChange={(event) => {
-              const next = examples.findIndex((entry) => entry.id === event.target.value);
-              if (next >= 0) setIndex(next);
-            }}
-            className='h-10 w-full max-w-xs rounded-md border bg-background px-2.5 text-sm text-foreground'
-          >
-            {(Object.keys(groups) as (keyof typeof groups)[]).map((group) => (
-              <optgroup key={group} label={groups[group]}>
-                {examples
-                  .filter((entry) => entry.group === group)
-                  .map((entry) => (
-                    <option key={entry.id} value={entry.id}>
-                      {entry.title}
-                    </option>
-                  ))}
-              </optgroup>
-            ))}
-          </select>
-        </div>
-        <div className='flex shrink-0 items-center gap-2'>
-          <button
-            type='button'
-            aria-label='Previous example'
-            onClick={() => step(-1)}
-            className='grid size-10 cursor-pointer place-items-center rounded-md border text-lg hover:bg-muted'
-          >
-            <span aria-hidden='true'>←</span>
-          </button>
-          <span
-            aria-hidden='true'
-            className='min-w-12 text-center text-sm tabular-nums text-muted-foreground'
-          >
-            {index + 1}/{examples.length}
-          </span>
-          <button
-            type='button'
-            aria-label='Next example'
-            onClick={() => step(1)}
-            className='grid size-10 cursor-pointer place-items-center rounded-md border text-lg hover:bg-muted'
-          >
-            <span aria-hidden='true'>→</span>
-          </button>
-        </div>
-      </div>
-      <div data-trail-example={example.id}>
+      <select
+        aria-label='Trail example'
+        value={selectedId}
+        onChange={(event) => {
+          const next = examples.find((example) => example.id === event.target.value);
+          if (next) setSelectedId(next.id);
+        }}
+        className='h-10 w-full max-w-xs rounded-md border bg-background px-2.5 text-sm text-foreground'
+      >
+        {examples.map(({ id, title }) => (
+          <option key={id} value={id}>
+            {title}
+          </option>
+        ))}
+      </select>
+      <div data-trail-example={selectedId}>
         <Suspense
           fallback={
             <p
@@ -336,22 +218,8 @@ export default function MousetrailExplorer({
             </p>
           }
         >
-          <ExampleStage key={example.id} example={example} stickers={stickers} />
+          <ExampleStage key={selectedId} id={selectedId} stickers={stickers} />
         </Suspense>
-      </div>
-      <div className='flex flex-wrap items-baseline justify-between gap-2 text-sm text-muted-foreground'>
-        <p aria-live='polite'>
-          {example.title}. {example.description}
-          {example.id === 'motion-gooey' && ' Canvas adaptation.'}
-        </p>
-        <a
-          href={source.href}
-          target='_blank'
-          rel='noreferrer'
-          className='underline underline-offset-4'
-        >
-          {source.label}
-        </a>
       </div>
     </section>
   );
