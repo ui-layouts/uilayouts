@@ -81,7 +81,7 @@ function FramerCarousel() {
     <>
       <motion.div
         layoutId={'activeItems'}
-        className='rounded-md w-fit pb-4 gap-2 items-center mx-auto cursor-auto '
+        className='rounded-md w-[calc(100%-1rem)] max-w-3xl pb-4 gap-2 items-center mx-auto cursor-auto '
         onClick={(e) => e.stopPropagation()}
       >
         <>
@@ -125,7 +125,7 @@ function FramerCarousel() {
             </>
           ))}
         </>
-        <motion.div className='w-[550px] mt-4 mx-auto overflow-hidden   bg-muted/60 border rounded-md'>
+        <motion.div className='w-full max-w-[550px] mt-4 mx-auto overflow-hidden   bg-muted/60 border rounded-md'>
           <motion.div
             ref={carousel}
             drag='x'

@@ -29,7 +29,7 @@ const FileUploadDropzone = () => {
       <div
         className={`${
           files?.length == 0 && 'flex gap-0'
-        } relative border bg-muted rounded-md p-2 w-96 mx-auto`}
+        } relative border bg-muted rounded-md p-2 mx-auto w-[calc(100%-1rem)] max-w-sm`}
       >
         <FileUploader
           value={files}

@@ -74,14 +74,14 @@ interface GaleryProps {
 }
 function Gallery({ items, setIndex, index }: GaleryProps) {
   return (
-    <div className='w-fit mx-auto gap-1 flex pb-20 pt-10 '>
+    <div className='mx-auto w-[calc(100%-1rem)] max-w-[670px] gap-1 flex pb-20 pt-10 '>
       {items.slice(0, 5).map((item: item, i: number) => {
         return (
           <motion.div
             whileTap={{ scale: 0.95 }}
             className={`rounded-xl relative ${
-              index === i ? 'w-[450px] ' : 'w-[50px]'
-            } h-[400px] shrink-0  transition-[width] ease-in-linear duration-500 origin-center  `}
+              index === i ? 'min-w-0 flex-1' : 'w-[7.5%]'
+            } h-[400px] shrink-0  transition-[width,flex-grow] ease-in-linear duration-500 origin-center  `}
             key={item.id ?? item.title}
             onClick={() => {
               setIndex(i);

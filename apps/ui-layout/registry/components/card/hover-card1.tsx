@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 function HoverCard1() {
   return (
     <>
-      <article className={` relative pb-4  overflow-hidden`}>
+      <article className={`mx-auto w-[calc(100%-1rem)] max-w-2xl relative pb-4  overflow-hidden`}>
         <div className='w-full rounded-md h-full overflow-hidden'>
           <Image
             src={

@@ -61,7 +61,7 @@ const PasswordInput = () => {
   }, [password]);
 
   return (
-    <div className='w-96 mx-auto py-14'>
+    <div className='mx-auto w-[calc(100%-1rem)] max-w-sm py-14'>
       <form className='space-y-2'>
         <div className='flex justify-between'>
           <label htmlFor='password' className='block text-sm font-medium'>

@@ -10,7 +10,7 @@ import React from 'react';
 
 function SingleLayout() {
   return (
-    <>
+    <div className='mx-auto w-[calc(100%-1rem)] max-w-3xl'>
       <Accordion defaultValue={'item-2'} multiple>
         <AccordionItem value='item-1' className='w-full bg-background'>
           <AccordionHeader className='text-muted-foreground hover:text-foreground'>
@@ -44,7 +44,7 @@ function SingleLayout() {
           </AccordionPanel>
         </AccordionItem>
       </Accordion>
-    </>
+    </div>
   );
 }
 

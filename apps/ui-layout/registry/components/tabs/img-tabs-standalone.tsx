@@ -38,7 +38,7 @@ function ImageTabsStandalone() {
 
   return (
     <>
-      <div className=' md:grid grid-cols-12 p-2 items-center justify-center w-full h-full'>
+      <div className=' md:grid grid-cols-12 p-2 items-center justify-center mx-auto w-[calc(100%-1rem)] max-w-5xl h-full'>
         <div className='rounded-xs   col-span-5'>
           {tabs.map((tab, index) => (
             <motion.div

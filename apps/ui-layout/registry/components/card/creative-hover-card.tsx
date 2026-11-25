@@ -5,7 +5,7 @@ import React from 'react';
 function CreativeHoverCard() {
   return (
     <>
-      <section className='grid md:grid-cols-3 gap-6 max-md:max-w-xs mx-auto '>
+      <section className='mx-auto w-[calc(100%-1rem)] max-w-xs md:max-w-5xl grid grid-cols-1 md:grid-cols-3 gap-6 '>
         <div className="group  bg-linear-to-t from-[#242424] to-[#020202] hover:from-[#182135] hover:to-[#080808] relative before:absolute before:inset-0 before:bg-[url('/noise.gif')] before:opacity-5 rounded-2xl border ">
           <div className='relative'>
             <div className='px-6 py-5'>

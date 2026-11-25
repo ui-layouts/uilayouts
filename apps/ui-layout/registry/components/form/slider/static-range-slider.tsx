@@ -7,7 +7,7 @@ export default function StaticRangeSlider() {
   const [values, setValues] = useState([0, 100]);
   return (
     <>
-      <div className=' w-3/5 mx-auto py-20'>
+      <div className='mx-auto w-[calc(100%-1rem)] max-w-xl py-20'>
         <DualRangeSlider
           label={() => <>℃</>}
           value={[celPer]}

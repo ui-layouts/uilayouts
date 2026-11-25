@@ -100,7 +100,7 @@ const LinearCardDialog: React.FC = () => {
   const currentItem = items[index];
 
   return (
-    <div className='relative h-full p-4'>
+    <div className='relative h-full overflow-x-clip p-4'>
       <MotionConfig transition={transition}>
         <motion.div
           ref={carousel}

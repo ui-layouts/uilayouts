@@ -12,7 +12,7 @@ import React from 'react';
 
 function SingleLayout() {
   return (
-    <AccordionContainer className='md:grid-cols-2 grid-cols-1'>
+    <AccordionContainer className='mx-auto w-[calc(100%-1rem)] max-w-5xl md:grid-cols-2 grid-cols-1'>
       <AccordionWrapper>
         <Accordion defaultValue={'item-2'}>
           <AccordionItem value='item-1' className='bg-background'>

@@ -5,7 +5,7 @@ import React from 'react';
 function StripeCard() {
   return (
     <>
-      <div className='w-[400px] relative mt-4 h-[400px] group mx-auto bg-background border overflow-hidden rounded-md text-foreground '>
+      <div className='w-[calc(100%-1rem)] max-w-[400px] relative mt-4 h-[400px] group mx-auto bg-background border overflow-hidden rounded-md text-foreground '>
         <figure className='w-full h-full rounded-md  overflow-hidden'>
           <Image
             src={

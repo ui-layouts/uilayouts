@@ -3,7 +3,7 @@ import React from 'react';
 
 function CodeTabsCompponent() {
   return (
-    <div className='w-full p-4 rounded-lg'>
+    <div className='mx-auto w-[calc(100%-1rem)] max-w-3xl py-4 rounded-lg'>
       <CodeTabs
         tabs={[
           { id: 'npm', label: 'npm', code: 'npm i thing', lang: 'bash' },

@@ -6,7 +6,7 @@ const PasswordInput = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   return (
-    <div className='w-96 mx-auto py-14'>
+    <div className='mx-auto w-[calc(100%-1rem)] max-w-sm py-14'>
       <label htmlFor='pass' className='text-sm font-normal'>
         Password
       </label>

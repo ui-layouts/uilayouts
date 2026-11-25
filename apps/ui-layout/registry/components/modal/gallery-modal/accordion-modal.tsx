@@ -114,7 +114,7 @@ function Gallery({
             <motion.img
               whileTap={{ scale: 0.95 }}
               className={`rounded-2xl ${
-                index === i ? 'w-[250px] ' : 'xl:w-[50px] md:w-[30px] sm:w-[20px] w-[14px]'
+                index === i ? 'w-[min(250px,45vw)]' : 'xl:w-[50px] md:w-[30px] sm:w-[20px] w-[14px]'
               } h-[200px] shrink-0  object-cover transition-[width] ease-in-out duration-300`}
               key={item}
               onMouseEnter={() => {
@@ -176,7 +176,7 @@ export default function AccordionModal() {
             <div onClick={(e) => e.stopPropagation()}>
               <motion.div
                 layoutId={itemsArr[index].id}
-                className='w-[400px] h-[400px] rounded-2xl relative cursor-default overflow-hidden'
+                className='w-[min(400px,95vw)] aspect-square rounded-2xl relative cursor-default overflow-hidden'
               >
                 <Image
                   src={itemsArr[index].url}

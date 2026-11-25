@@ -157,7 +157,9 @@ export function NewIntroSequence({ onComplete, className, style }: IntroSequence
           flexDirection: 'column',
           gap: 10,
           fontFamily: "'Cascadia Code', 'Fira Code', 'Consolas', monospace",
-          minWidth: 520,
+          width: 'calc(100% - 1rem)',
+          maxWidth: 520,
+          marginInline: 'auto',
           ...style,
         }}
       >

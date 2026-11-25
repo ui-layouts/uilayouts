@@ -51,7 +51,7 @@ const FileUploaderTest = () => {
         value={files}
         onValueChange={setFiles}
         dropzoneOptions={dropZoneConfig}
-        className='relative  rounded-lg p-2 w-96 mx-auto'
+        className='relative  rounded-lg p-2 mx-auto w-[calc(100%-1rem)] max-w-sm'
       >
         <FileInput className='outline-dashed outline-2 bg-muted outline-primary/40'>
           <div className='flex items-center justify-center flex-col pt-3 pb-4 w-full '>

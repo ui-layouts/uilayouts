@@ -7,7 +7,7 @@ export default function DualRangeSliderDemo() {
   const [values, setValues] = useState([0, 100]);
   return (
     <>
-      <div className=' w-3/5 mx-auto space-y-20 py-20'>
+      <div className='mx-auto w-[calc(100%-1rem)] max-w-xl space-y-20 py-20'>
         <DualRangeSlider
           label={() => <>℃</>}
           value={values}

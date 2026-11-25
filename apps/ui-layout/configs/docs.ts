@@ -2234,12 +2234,8 @@ export const AllComponents: IAllComponents[] = [
     slug: 'tags-input',
     description: 'TAGS INPUT - tags input component',
     filesrc: require('../registry/components/form/tags-input/index.tsx?raw'),
-    sourcePath: 'registry/components/terminal-ui.tsx',
-    componentSrc: React.lazy(() =>
-      import('@/registry/components/terminal-ui').then((module) => ({
-        default: module.NewIntroSequence,
-      }))
-    ),
+    sourcePath: 'registry/components/form/tags-input/index.tsx',
+    componentSrc: React.lazy(() => import('@/registry/components/form/tags-input')),
     iframeSrc: 'live-components/tags-input',
     tags: ['Tags Input', 'Youtube Tags', 'Github Like Tags', 'github tags', 'input tags'],
   },

@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "./registry/components/form/tags-input/index.tsx",
-      "content": "'use client';\nimport { TagsInput } from '@/components/ui/tags-input';\nimport React, { useEffect, useRef, useState } from 'react';\n\nexport default function App() {\n  const [tags, setTags] = useState<string[]>([]);\n\n  return (\n    <div className='max-w-xl mx-auto py-16'>\n      <TagsInput tags={tags} setTags={setTags} className='lg:w-96' />\n    </div>\n  );\n}\n",
+      "content": "'use client';\nimport { TagsInput } from '@/components/ui/tags-input';\nimport React, { useEffect, useRef, useState } from 'react';\n\nexport default function App() {\n  const [tags, setTags] = useState<string[]>([]);\n\n  return (\n    <div className='mx-auto w-[calc(100%-1rem)] max-w-sm py-16'>\n      <TagsInput tags={tags} setTags={setTags} />\n    </div>\n  );\n}\n",
       "type": "registry:component"
     },
     {

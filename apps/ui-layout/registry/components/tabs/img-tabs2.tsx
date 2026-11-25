@@ -38,7 +38,7 @@ const tabs = [
 function ImageTabs2() {
   return (
     <>
-      <div className=' w-full  h-full'>
+      <div className='mx-auto w-[calc(100%-1rem)] max-w-5xl h-full'>
         <TabsProvider
           defaultValue='improve'
           className='md:grid md:grid-cols-12 items-center justify-center'

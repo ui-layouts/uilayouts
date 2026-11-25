@@ -52,7 +52,7 @@ function SingleLayout() {
   };
 
   return (
-    <div className='container mx-auto pb-10 pt-2'>
+    <div className='mx-auto w-[calc(100%-1rem)] max-w-3xl pb-10 pt-2'>
       <h2 className='uppercase text-center text-4xl font-bold pt-2 pb-4'>
         FAQ
       </h2>

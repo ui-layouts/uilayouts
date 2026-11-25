@@ -13,30 +13,41 @@
   line-height: 1.15;
   font-weight: 500;
 }
-/* Anchor the fade to the controls as their height changes. */
-.toolbar::before, .toolbar::after {
-  content: '';
-  position: absolute;
-  inset: -32px 0 calc(0px - var(--toolbar-bottom));
+/* Both edges use the same blur distances, measured from the adjacent controls. */
+.toolbar { --fade-reach: 32px; }
+.toolbar > * { pointer-events: auto; }
+.toolbar > .topBlur {
+  position: fixed;
+  inset: 0 var(--edge) auto;
+  height: calc(var(--toolbar-top) + var(--toolbar-height) + var(--fade-reach));
   z-index: -1;
   pointer-events: none;
+  --fade-direction: to top;
 }
-.toolbar::before {
+.toolbar::before, .toolbar::after,
+.topBlur::before, .topBlur::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.toolbar::before, .toolbar::after {
+  inset: calc(-1 * var(--fade-reach)) 0 calc(0px - var(--toolbar-bottom));
+  z-index: -1;
+}
+.toolbar::before, .topBlur::before {
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
-  mask-image: linear-gradient(to bottom, transparent, black 68%);
+  mask-image: linear-gradient(var(--fade-direction, to bottom), transparent, black 68%);
 }
-.toolbar::after {
-  background: linear-gradient(to bottom, transparent 24%, var(--background));
+.toolbar::after, .topBlur::after {
+  background: linear-gradient(var(--fade-direction, to bottom), transparent 24%, var(--background));
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  mask-image: linear-gradient(to bottom, transparent 12%, #0003 40%, #000b 72%, black 96%);
+  mask-image: linear-gradient(var(--fade-direction, to bottom), transparent 12%, #0003 40%, #000b 72%, black 96%);
 }
 @media (prefers-reduced-transparency: reduce), (forced-colors: active) {
-  .toolbar::before, .toolbar::after { display: none; }
-}
-.toolbar > * {
-  pointer-events: auto;
+  .toolbar::before, .toolbar::after, .topBlur { display: none; }
 }
 .headerLinks,
 .launcher,

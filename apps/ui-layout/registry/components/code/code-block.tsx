@@ -44,7 +44,7 @@ for i in range(10):
 
 export default function CodeBlockDemo() {
   return (
-    <div className='p-6 w-full rounded-xl mx-auto space-y-8'>
+    <div className='mx-auto w-[calc(100%-1rem)] max-w-3xl py-6 rounded-xl space-y-8'>
       <div>
         <h3 className='text-lg font-semibold mb-3'>TypeScript Example</h3>
         <CodeBlock code={typescriptCode} lang='tsx' className='mb-6' />

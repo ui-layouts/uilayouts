@@ -2,8 +2,9 @@
   --nav-size: 37px;
   --shell-inset: 5px;
   --toolbar-height: calc(var(--nav-size) + 2 * var(--shell-inset));
-  --toolbar-top: max(24px, env(safe-area-inset-top));
-  --toolbar-bottom: max(16px, env(safe-area-inset-bottom));
+  --toolbar-inset: 16px;
+  --toolbar-top: max(var(--toolbar-inset), env(safe-area-inset-top));
+  --toolbar-bottom: max(var(--toolbar-inset), env(safe-area-inset-bottom));
   --bottom-controls: var(--toolbar-height);
   --preview-gap: clamp(12px, 1.5vw, 20px);
   min-height: 100svh;
@@ -82,7 +83,7 @@
   padding-inline: 0;
 }
 @media (max-width: 680px) {
-  .page { --toolbar-bottom: max(8px, env(safe-area-inset-bottom)); }
+  .page { --toolbar-inset: 8px; }
 }
 @media (max-width: 500px) {
   .page { --nav-size: 30px; }

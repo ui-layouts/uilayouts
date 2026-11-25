@@ -21,7 +21,7 @@ function Card2() {
   };
 
   return (
-    <div className='w-[350px] mx-auto '>
+    <div className='w-[calc(100%-1rem)] max-w-[350px] mx-auto '>
       <div className='dark:bg-white bg-neutral-100 rounded-md'>
         <div className='w-full h-52 relative'>
           <motion.button

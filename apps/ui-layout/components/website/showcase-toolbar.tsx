@@ -195,6 +195,7 @@ export function ShowcaseToolbar({
     feedback?.action === action && feedback.success;
   return (
     <div className={styles.toolbar} aria-label='Component tools' role='group'>
+      <span className={styles.topBlur} aria-hidden="true" />
       <NavigationDrawer navigation={navigation} />
       <div className={styles.headerLinks}>
         <HomeGitHubButton iconOnly className={styles.github} />

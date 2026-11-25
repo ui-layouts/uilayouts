@@ -6,8 +6,8 @@ export default function App() {
   const [tags, setTags] = useState<string[]>([]);
 
   return (
-    <div className='max-w-xl mx-auto py-16'>
-      <TagsInput tags={tags} setTags={setTags} className='lg:w-96' />
+    <div className='mx-auto w-[calc(100%-1rem)] max-w-sm py-16'>
+      <TagsInput tags={tags} setTags={setTags} />
     </div>
   );
 }

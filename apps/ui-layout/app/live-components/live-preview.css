@@ -10,6 +10,10 @@
   min-width: 0;
   transform-origin: center;
 }
+.live-demo-content:has(> button:only-child) {
+  width: fit-content;
+  max-width: 100%;
+}
 .live-demo-stage[data-fitted] {
   height: 100svh;
   min-height: 0;

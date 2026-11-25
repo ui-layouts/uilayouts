@@ -21,7 +21,7 @@ function Card() {
   return (
     <div
       // whileTap={{ scale: 0.9 }}
-      className="w-[350px] mx-auto relative rounded-md border before:content-[''] before:border before:h-full before:w-full before:absolute before:top-0 before:left-0 before:bg-white before:translate-y-8 before:scale-90 before:rounded-md before:shadow-md after:content-[''] after:h-full after:border after:w-full after:absolute after:top-0 after:left-0 after:bg-white after:shadow-md after:translate-y-4 after:z-2 after:scale-95 after:rounded-md "
+      className="w-[calc(100%-1rem)] max-w-[350px] mx-auto relative rounded-md border before:content-[''] before:border before:h-full before:w-full before:absolute before:top-0 before:left-0 before:bg-white before:translate-y-8 before:scale-90 before:rounded-md before:shadow-md after:content-[''] after:h-full after:border after:w-full after:absolute after:top-0 after:left-0 after:bg-white after:shadow-md after:translate-y-4 after:z-2 after:scale-95 after:rounded-md "
     >
       <div className='dark:bg-white bg-neutral-100 rounded-md relative z-4 shadow-lg'>
         <div className='w-full h-60 relative'>

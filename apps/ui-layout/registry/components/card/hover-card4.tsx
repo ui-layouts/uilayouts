@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 function HoverCard4() {
   return (
     <>
-      <div className='w-[90%] relative mt-4  group mx-auto bg-background border overflow-hidden rounded-md text-foreground '>
+      <div className='w-[calc(100%-1rem)] max-w-[420px] relative mt-4  group mx-auto bg-background border overflow-hidden rounded-md text-foreground '>
         <figure className='w-full h-62 rounded-md  overflow-hidden'>
           <Image
             src={
