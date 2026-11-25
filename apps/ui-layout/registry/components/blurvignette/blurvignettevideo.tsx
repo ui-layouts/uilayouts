@@ -11,7 +11,7 @@ function Blurvignettevideo() {
         inset='10px'
         transitionLength='100px'
         blur='15px'
-        classname='h-96 w-full overflow-hidden'
+        classname='mx-auto w-[calc(100%-1rem)] max-w-3xl aspect-video overflow-hidden'
       >
         <video
           autoPlay={true}

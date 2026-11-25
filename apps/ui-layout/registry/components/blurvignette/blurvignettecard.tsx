@@ -6,7 +6,7 @@ import React from 'react';
 function Blurvignettecard() {
   return (
     <>
-      <div className='w-fit mx-auto sm:flex gap-2 justify-center md:p-8 sm:p-4'>
+      <div className='mx-auto grid w-[calc(100%-1rem)] max-w-3xl gap-2 sm:grid-cols-2'>
         <BlurVignette radius='15px' inset='100px' transitionLength='200px' blur='15px'>
           <Image
             src='https://img.freepik.com/free-photo/cartoon-superhero-illustration_23-2151732547.jpg'

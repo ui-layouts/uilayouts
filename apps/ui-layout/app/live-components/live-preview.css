@@ -29,7 +29,3 @@ html:has(.live-demo-stage[data-fitted]) {
 }
 
 .live-demo-stage[data-fitted] [data-original-credit] { display: none; }
-
-.live-demo-stage[data-category="image-reveal"] {
-  background: color-mix(in srgb, var(--foreground) 6%, var(--background));
-}

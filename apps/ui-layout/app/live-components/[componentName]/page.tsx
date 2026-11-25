@@ -30,7 +30,7 @@ export default async function SectionPage(props: { params: Promise<{ componentNa
   const ComponentPreview = component.componentSrc;
 
   return (
-    <section className="live-demo-stage" data-category={component.category}>
+    <section className="live-demo-stage">
       <ShowcaseFit documentScroll={isFramerScrolling}>
         <Suspense fallback={null}>
           <ComponentPreview />

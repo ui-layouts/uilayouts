@@ -6,7 +6,7 @@ import React from 'react';
 function Blurvignetteimg() {
   return (
     <>
-      <div className='w-fit mx-auto sm:flex gap-2 justify-center md:p-8 sm:p-4'>
+      <div className='mx-auto grid w-[calc(100%-1rem)] max-w-3xl gap-2 sm:grid-cols-2'>
         <BlurVignette radius='24px' inset='10px' transitionLength='80px' blur='15px'>
           <Image
             src='https://img.freepik.com/free-photo/african-kid-enjoying-life_23-2151447718.jpg'
