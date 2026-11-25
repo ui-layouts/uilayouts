@@ -39,14 +39,14 @@
 .toolbar > * {
   pointer-events: auto;
 }
-.original,
+.headerLinks,
 .launcher,
 .pager,
 .center,
 .actions {
   background: color-mix(in srgb, var(--foreground, #151515) 14%, var(--background, white));
   box-shadow: 0 0 0 1px color-mix(in srgb, var(--foreground) 13%, transparent), 0 2px 6px #00000016;
-  --shell-radius: 12px;
+  --shell-radius: 8px;
   --shell-inset: 5px;
   --control-radius: calc(var(--shell-radius) - var(--shell-inset));
   border-radius: var(--shell-radius);
@@ -197,7 +197,7 @@
   .toolbar :is(.command, .prompt, .icon, .searchTrigger, .manager):hover,
   .toolbar .pager :is(a, button:enabled):hover,
   .launcher:hover > span,
-  .original:hover > span {
+  .toolbar .pro:hover {
     background: color-mix(in srgb, var(--foreground) 2.5%, var(--background));
   }
 }
@@ -228,7 +228,30 @@
   margin-bottom: 4px;
 }
 .drawerHeader .launcher { position: static; }
-.toolbar > .launcher[data-state="open"] { visibility: hidden; }
+.wordmark {
+  position: absolute;
+  left: calc(100% + 12px);
+  width: min(154px, 38vw);
+  max-width: none;
+  height: auto;
+}
+.toolbar > .launcher[data-state="open"] { opacity: 0; filter: blur(10px); pointer-events: none; }
+@media (prefers-reduced-motion: no-preference) {
+  .toolbar > .launcher { transition: opacity 200ms ease-in-out, filter 200ms ease-in-out; }
+}
+.github {
+  position: relative;
+  overflow: hidden;
+  width: var(--nav-size);
+  height: var(--nav-size);
+  border: 1px solid #45449e;
+  border-radius: var(--control-radius);
+  background: #21196e;
+}
+.github :global(.rounded-lg) { border-radius: var(--control-radius); }
+.pro { font-size: 16px; font-weight: 600; text-decoration: none; }
+.pro em { font-style: italic; }
+.pro sup { top: -.38em; margin-left: 1px; font: 600 12px/1 sans-serif; }
 .error {
   position: absolute;
   right: 0;
@@ -335,14 +358,16 @@
 @media (max-width: 500px) {
   .toolbar, .drawer { --nav-size: 30px; }
 }
-.original {
+.headerLinks {
+  display: flex;
+  gap: 5px;
   position: fixed;
   top: 24px;
   right: var(--edge);
   padding: var(--shell-inset);
   text-decoration: none;
 }
-.original > span {
+.pro {
   display: flex;
   align-items: center;
   gap: 4px;

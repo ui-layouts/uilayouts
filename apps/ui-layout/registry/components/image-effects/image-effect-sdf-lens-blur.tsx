@@ -11,7 +11,7 @@ export default function Demo() {
   return <figure className='m-0 w-full'>
     <SdfLensBlur variation={selected} />
     <figcaption className='flex items-center justify-between px-3 py-2 text-xs'>
-      Move your pointer across a shape.
+      <span className="sr-only">Move your pointer across a shape.</span>
       <div className='flex gap-1' role='group' aria-label='Shape variation'>
         {variations.map(index => <button key={index} type='button' onClick={() => setSelected(index)}
           aria-label={'Variation '+(index+1)} aria-pressed={selected === index}

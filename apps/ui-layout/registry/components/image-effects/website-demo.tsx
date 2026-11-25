@@ -37,7 +37,7 @@ export function WebsiteDemo({ effect: Effect, kind, label, photographs, sourceUr
   }, [photographs]);
   const collection = photographs ? resolved : images;
   const figure = 'm-0 min-w-0 overflow-hidden rounded-sm text-neutral-900 [&_[role=status]]:text-neutral-700!';
-  const legend = 'px-1 py-3 text-xs leading-relaxed text-neutral-600';
+  const legend = 'sr-only';
 
   if (!collection) return <div className='grid aspect-video w-full place-items-center text-sm' role='status'>Loading photographs…</div>;
   if (kind === 'gooey') return <figure className='relative m-0 w-full overflow-hidden [&_[role=status]]:text-neutral-700! px-8 py-10 text-[#181625]'>

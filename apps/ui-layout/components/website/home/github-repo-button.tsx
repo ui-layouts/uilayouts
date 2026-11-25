@@ -24,13 +24,16 @@ const COLORS: Colors = {
   color16: '#290ECB',
   color17: '#3F4CC0',
 };
-const HomeGitHubButton: React.FC = () => {
+const HomeGitHubButton = ({ iconOnly = false, className }: { iconOnly?: boolean; className?: string }) => {
   const [isHovered, setIsHovered] = useState(false);
   return (
     <a
       href='https://github.com/ui-layouts/uilayouts'
       target='_blank'
-      className='relative inline-block md:w-32 w-12 h-[2.7em] mx-auto group bg-background border-foreground border-2 rounded-lg'
+      aria-label="Star UI Layouts on GitHub"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className={className ?? 'relative inline-block md:w-32 w-12 h-[2.7em] mx-auto group bg-background border-foreground border-2 rounded-lg'}
       rel='noreferrer noopener'
     >
       <div className='absolute w-[112.81%] h-[128.57%] top-[8.57%] left-1/2 -translate-x-1/2 filter blur-[19px] opacity-70'>
@@ -54,13 +57,9 @@ const HomeGitHubButton: React.FC = () => {
         ))}
         <span className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[40%] w-[70.8%] h-[42.85%] rounded-lg filter blur-[15px] bg-[#006]'></span>
       </div>
-      <button
-        className='absolute inset-0 rounded-lg bg-transparent cursor-pointer'
-        aria-label='Get Started'
-        type='button'
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
+      {iconOnly ? <span className="absolute inset-0 grid place-items-center bg-black/20 text-white">
+        <Github width={20} height={20} aria-hidden />
+      </span> : <span className="absolute inset-0 grid place-items-center">
         <span className='md:flex hidden items-center justify-center px-2 gap-2 rounded-lg group-hover:text-yellow-400 text-white text-xl font-semibold tracking-wide whitespace-nowrap'>
           <Star className='inline-block group-hover:fill-yellow-400 fill-white w-6 h-6 shrink-0' />
           <span>Github</span>
@@ -68,7 +67,7 @@ const HomeGitHubButton: React.FC = () => {
         <span className='md:hidden flex items-center justify-center px-2 gap-2 rounded-lg group-hover:text-yellow-400 text-white text-xl font-semibold tracking-wide whitespace-nowrap'>
           <Github className='inline-block group-hover:fill-yellow-400 fill-white w-6 h-6 shrink-0' />
         </span>
-      </button>
+      </span>}
     </a>
   );
 };

@@ -2,7 +2,6 @@
 
 import * as Dialog from '@radix-ui/react-dialog';
 import {
-  ArrowUpRight,
   Check,
   ChevronsUpDown,
   Copy,
@@ -11,6 +10,7 @@ import {
   PanelLeft,
 } from 'lucide-react';
 import Link from 'next/link';
+import HomeGitHubButton from './home/github-repo-button';
 import DocsSidebar from './sidebar';
 import { SearchDialog } from './searchbar';
 import { useEffect, useRef, useState } from 'react';
@@ -44,13 +44,15 @@ function NavigationDrawer({ navigation }: Pick<ShowcaseToolbarProps, 'navigation
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger asChild>
-        <button type="button" className={styles.launcher} aria-label="Open component navigation">{toggle}</button>
+        <button type="button" className={styles.launcher} aria-label="Open component navigation">{toggle}
+          <img className={styles.wordmark} src="/showcase-wordmark.svg" alt="" width={154} />
+        </button>
       </Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Overlay className={styles.overlay} />
         <Dialog.Content className={styles.drawer} aria-describedby={undefined}>
           <header className={styles.drawerHeader}>
-            <Dialog.Title><Link href="/components" onClick={() => setOpen(false)}><img src="/showcase-wordmark.svg" alt="UI Layouts" width={144} /></Link></Dialog.Title>
+            <Dialog.Title><Link href="/components" onClick={() => setOpen(false)}><img src="/showcase-wordmark.svg" alt="UI Layouts" width={154} /></Link></Dialog.Title>
             <Dialog.Close asChild>
               <button type="button" className={styles.launcher} aria-label="Close component navigation">{toggle}</button>
             </Dialog.Close>
@@ -135,7 +137,6 @@ export function ShowcaseToolbar({
   installUrl,
   sourceCode,
   expandUrl,
-  originalUrl,
   navigation,
   pager,
 }: ShowcaseToolbarProps) {
@@ -195,9 +196,10 @@ export function ShowcaseToolbar({
   return (
     <div className={styles.toolbar} aria-label='Component tools' role='group'>
       <NavigationDrawer navigation={navigation} />
-      {originalUrl && <a className={styles.original} href={originalUrl} target="_blank" rel="noreferrer">
-        <span>View original <ArrowUpRight size={16} aria-hidden /></span>
-      </a>}
+      <div className={styles.headerLinks}>
+        <HomeGitHubButton iconOnly className={styles.github} />
+        <a href="https://pro.ui-layouts.com/blocks" className={styles.pro} aria-label="Explore UI Layouts Pro"><em>Pro<sup>+</sup></em></a>
+      </div>
       {pager}
       <div className={styles.center}>
         <SearchDialog searchBar classname={styles.searchTrigger} />
