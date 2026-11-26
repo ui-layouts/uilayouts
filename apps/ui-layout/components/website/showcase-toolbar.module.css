@@ -335,7 +335,17 @@
   .actions { justify-self: end; }
 }
 
-.toolbar { --edge: max(10px, 3vw, calc((100% - 1280px) / 2)); inset-inline: var(--edge); }
+.toolbar {
+  --container-edge: max(10px, 3vw, calc((100% - 1280px) / 2));
+  --edge: var(--container-edge);
+  inset-inline: var(--edge);
+}
+@media (min-width: 900px) {
+  .toolbar {
+    --split-edge: max(16px, env(safe-area-inset-left), env(safe-area-inset-right));
+    --edge: calc(var(--container-edge) + (var(--split-edge) - var(--container-edge)) * var(--reveal, 0));
+  }
+}
 .launcher { position: fixed; top: var(--toolbar-top); left: var(--edge); }
 .pager { display: flex; justify-self: start; flex: none; }
 .pager :is(a, button) { display: grid; place-items: center; width: var(--nav-size); height: var(--nav-size); border: 0; border-radius: var(--control-radius); background: var(--background); }
