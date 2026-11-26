@@ -1347,9 +1347,15 @@ export default function GenieEffect() {
 
     startAnim("minimize", a, win, () => {
       stateRef.current = { phase: "idle", activeApp: null };
-      setPhase("idle");
-      setActiveApp(null);
+      const returnFocus = windowRef.current?.contains(document.activeElement);
+      flushSync(() => {
+        setPhase("idle");
+        setActiveApp(null);
+      });
       clearCanvas();
+      if (returnFocus && document.activeElement === document.body) {
+        dockRefs.current[a]?.focus({ preventScroll: true });
+      }
     });
   }, [setupCanvas, getDockCenter, getWinPos, getContainerSize, startAnim, clearCanvas, zoomed]);
 
