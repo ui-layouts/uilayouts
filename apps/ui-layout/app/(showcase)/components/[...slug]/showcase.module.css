@@ -11,9 +11,13 @@
   --toolbar-bottom: max(var(--toolbar-inset), env(safe-area-inset-bottom));
   --bottom-controls: var(--toolbar-height);
   --preview-gap: clamp(12px, 1.5vw, 20px);
+  --split-transition: 220ms cubic-bezier(.22, 1, .36, 1);
   min-height: 100svh;
   background: var(--background);
   color: var(--foreground);
+}
+@media (prefers-reduced-motion: reduce) {
+  .page { --split-transition: 0ms; }
 }
 .stage {
   isolation: isolate;
@@ -129,9 +133,11 @@
     z-index: 1;
     margin-left: 0;
     background: var(--background);
+    transition: margin-left var(--split-transition);
   }
 
   .split[data-open="true"] .stage { margin-left: var(--docs-width); }
+  .split[data-resizing="true"] .stage { transition: none; }
   /* Catch native scroll intent, including scroll chained from an iframe. */
   .split[data-open="false"] {
     overflow-y: auto;

@@ -12,7 +12,7 @@ import Link from 'next/link';
 import HomeGitHubButton from './home/github-repo-button';
 import DocsSidebar from './sidebar';
 import { SearchDialog } from './searchbar';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, type Ref } from 'react';
 import { Bun, NPM, Pnpm, Yarn } from './icons';
 import styles from './showcase-toolbar.module.css';
 
@@ -27,6 +27,7 @@ export interface ShowcaseToolbarProps {
   originalUrl?: string;
   splitOpen: boolean;
   onToggleSplit: () => void;
+  splitToggleRef: Ref<HTMLButtonElement>;
   pager: React.ReactNode;
   navigation: { index: number; examples: { name: string; label: string }[]; select: (index: number) => void };
 }
@@ -170,6 +171,7 @@ export function ShowcaseToolbar({
   pager,
   splitOpen,
   onToggleSplit,
+  splitToggleRef,
 }: ShowcaseToolbarProps) {
   const [manager, setManager] = useState<Manager>('npm');
   const [feedback, setFeedback] = useState<{
@@ -292,7 +294,7 @@ export function ShowcaseToolbar({
             <FolderCode size={18} />
           </a>
         )}
-        <button type="button" className={styles.icon} aria-label="Documentation view"
+        <button ref={splitToggleRef} type="button" className={styles.icon} aria-label="Documentation view"
           aria-pressed={splitOpen} aria-controls="component-details" onClick={onToggleSplit}>
           <PanelIcon open={splitOpen} />
         </button>
