@@ -5,7 +5,7 @@ const NotificationLiquid = () => {
   return (
     <>
       <div
-        className='p-8 w-fit mx-auto gap-2 h-160 flex flex-col justify-end pt-2 pb-10 rounded-xl'
+        className='px-3 sm:px-8 w-full max-w-[474px] mx-auto gap-2 h-160 flex flex-col justify-end pt-2 pb-10 rounded-xl'
         style={{
           background:
             'url("https://images.unsplash.com/photo-1534259070436-a95806b8621a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") center / cover no-repeat',
@@ -18,61 +18,61 @@ const NotificationLiquid = () => {
           glowIntensity='xl'
           draggable={false}
           expandable
-          expandedWidth='410px'
-          expandedHeight='335px'
-          width='410px'
-          height='90px'
-          className='z-10 flex flex-col items-start relative overflow-hidden'
+          expandedWidth='100%'
+          expandedHeight='auto'
+          width='100%'
+          height='104px'
+          className='bg-black/45 z-10 flex flex-col items-start relative overflow-hidden'
         >
-          <div className='relative z-30 flex items-center p-4  text-white h-full'>
+          <div className='relative z-30 flex items-center w-full min-h-[104px] shrink-0 px-3 py-2 sm:px-4 text-white'>
             {/* App Icon */}
-            <div className='shrink-0 mr-4'>
+            <div className='shrink-0 mr-3'>
               <Image
                 src={'/apple-touch-icon.png'}
                 alt={`icon`}
                 width={56}
                 height={56}
-                className='rounded-xl'
+                className='w-10 sm:w-14 rounded-xl'
               />
             </div>
 
-            <div className='grow pr-4'>
+            <div className='min-w-0 grow'>
               <div className='font-semibold text-lg'>UI-Layouts</div>
-              <div className='text-sm'>New components are available for you</div>
-              <div className='text-sm text-muted-foreground'>Liquid-Glass</div>
+              <div className='text-sm leading-tight'>New components are available for you</div>
+              <div className='text-sm text-white drop-shadow-sm'>Liquid-Glass</div>
             </div>
-            <div className='shrink-0 ml-4 text-sm text-muted-foreground self-start pt-1'>12:34</div>
+            <div className='shrink-0 ml-2 text-xs font-medium tabular-nums text-white drop-shadow-sm self-start pt-2'>12:34</div>
           </div>
           <Image
             src='/og.jpg'
-            alt='og'
-            width={400}
-            height={400}
-            className='rounded-xl w-[92%] mx-auto h-full z-20'
+            alt='UI Layouts component gallery'
+            width={1200}
+            height={630}
+            className='relative z-20 mx-auto mb-4 h-auto w-[92%] shrink-0 rounded-xl'
           />
         </LiquidGlassCard>
         <LiquidGlassCard
-          width='410px'
-          height='90px'
+          width='100%'
+          height='104px'
           shadowIntensity='md'
           blurIntensity='lg'
           borderRadius='18px'
           glowIntensity='xl'
-          className='z-10 flex items-start relative mt-2'
+          className='bg-black/45 z-10 flex items-start relative mt-2'
         >
-          <div className='relative z-30 flex items-center p-4 text-white z-10'>
+          <div className='relative z-30 flex items-center w-full h-full px-3 py-2 sm:px-4 text-white'>
             {/* App Icon */}
-            <div className='shrink-0 mr-4'>
+            <div className='shrink-0 mr-3'>
               <Image
                 src={'/apple-touch-icon.png'}
                 alt={`icon`}
                 width={56}
                 height={56}
-                className='rounded-xl'
+                className='w-10 sm:w-14 rounded-xl'
               />
             </div>
 
-            <div className='grow pr-4'>
+            <div className='min-w-0 grow'>
               <div className='font-semibold text-lg'>
                 <svg
                   width='160'
@@ -101,9 +101,9 @@ const NotificationLiquid = () => {
                   />
                 </svg>
               </div>
-              <div className='text-sm'>New components are available for you</div>
+              <div className='text-sm leading-tight'>New components are available for you</div>
             </div>
-            <div className='shrink-0 ml-4 text-sm text-muted-foreground self-start pt-1'>12:34</div>
+            <div className='shrink-0 ml-2 text-xs font-medium tabular-nums text-white drop-shadow-sm self-start pt-2'>12:34</div>
           </div>
         </LiquidGlassCard>
       </div>
