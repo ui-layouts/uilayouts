@@ -12,7 +12,7 @@ import Link from 'next/link';
 import HomeGitHubButton from './home/github-repo-button';
 import DocsSidebar from './sidebar';
 import { SearchDialog } from './searchbar';
-import { useEffect, useRef, useState, type Ref } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Bun, NPM, Pnpm, Yarn } from './icons';
 import styles from './showcase-toolbar.module.css';
 
@@ -26,8 +26,6 @@ export interface ShowcaseToolbarProps {
   expandUrl: string;
   originalUrl?: string;
   splitOpen: boolean;
-  onToggleSplit: () => void;
-  splitToggleRef: Ref<HTMLButtonElement>;
   pager: React.ReactNode;
   navigation: { index: number; examples: { name: string; label: string }[]; select: (index: number) => void };
 }
@@ -39,16 +37,6 @@ const managers = {
   bun: { Icon: Bun, run: 'bunx shadcn@latest add' },
 };
 type Manager = keyof typeof managers;
-
-function PanelIcon({ open }: { open: boolean }) {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M3.89124 3.89124C5.28249 2.5 7.52166 2.5 12 2.5C16.4783 2.5 18.7175 2.5 20.1088 3.89124C21.5 5.28249 21.5 7.52166 21.5 12C21.5 16.4783 21.5 18.7175 20.1088 20.1088C18.7175 21.5 16.4783 21.5 12 21.5C7.52166 21.5 5.28249 21.5 3.89124 20.1088C2.5 18.7175 2.5 16.4783 2.5 12C2.5 7.52166 2.5 5.28249 3.89124 3.89124Z" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" stroke="currentColor" />
-      <path d="M12 2.5V21.5" strokeWidth="1.5" strokeLinecap="round" stroke="currentColor" />
-      {open && <path d="M3 7C3 4.79086 4.79086 3 7 3H12V21H7C4.79086 21 3 19.2091 3 17V7Z" fill="currentColor" fillOpacity=".72" />}
-    </svg>
-  );
-}
 
 function NavigationIcon({ open }: { open: boolean }) {
   const outline = 'M13.5556 2H11.4444C7.46369 2 5.47332 2 4.23666 3.23666C3 4.47332 3 6.46369 3 10.4444V12.5556C3 16.5363 3 18.5267 4.23666 19.7633C5.47332 21 7.46369 21 11.4444 21H13.5556C17.5363 21 19.5267 21 20.7633 19.7633C22 18.5267 22 16.5363 22 12.5556V10.4444C22 6.46369 22 4.47332 20.7633 3.23666C19.5267 2 17.5363 2 13.5556 2Z';
@@ -170,8 +158,6 @@ export function ShowcaseToolbar({
   navigation,
   pager,
   splitOpen,
-  onToggleSplit,
-  splitToggleRef,
 }: ShowcaseToolbarProps) {
   const [manager, setManager] = useState<Manager>('npm');
   const [feedback, setFeedback] = useState<{
@@ -294,10 +280,6 @@ export function ShowcaseToolbar({
             <FolderCode size={18} />
           </a>
         )}
-        <button ref={splitToggleRef} type="button" className={styles.icon} aria-label="Documentation view"
-          aria-pressed={splitOpen} aria-controls="component-details" onClick={onToggleSplit}>
-          <PanelIcon open={splitOpen} />
-        </button>
         {expandUrl && (
           <a
             className={styles.icon}

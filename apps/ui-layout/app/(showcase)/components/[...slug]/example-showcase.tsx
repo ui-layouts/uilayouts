@@ -10,11 +10,21 @@ import { ClientPreCode } from '@/components/website/code-components/client-pre-c
 import styles from './showcase.module.css';
 import documentation from './example-documentation.module.css';
 
-type Example = Omit<ShowcaseToolbarProps, 'slug' | 'title' | 'navigation' | 'pager' | 'splitOpen' | 'onToggleSplit' | 'splitToggleRef'> & { label: string; usageFile: string; usageCode: string; usageHtml: string; description?: string };
+type Example = Omit<ShowcaseToolbarProps, 'slug' | 'title' | 'navigation' | 'pager' | 'splitOpen'> & { label: string; usageFile: string; usageCode: string; usageHtml: string; description?: string };
 
 const DEFAULT_DOCS_WIDTH = 50;
 const COLLAPSE_DOCS_WIDTH = 25;
 const MAX_DOCS_WIDTH = 70;
+
+function PanelIcon({ open }: { open: boolean }) {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M3.89124 3.89124C5.28249 2.5 7.52166 2.5 12 2.5C16.4783 2.5 18.7175 2.5 20.1088 3.89124C21.5 5.28249 21.5 7.52166 21.5 12C21.5 16.4783 21.5 18.7175 20.1088 20.1088C18.7175 21.5 16.4783 21.5 12 21.5C7.52166 21.5 5.28249 21.5 3.89124 20.1088C2.5 18.7175 2.5 16.4783 2.5 12C2.5 7.52166 2.5 5.28249 3.89124 3.89124Z" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" stroke="currentColor" />
+      <path d="M12 2.5V21.5" strokeWidth="1.5" strokeLinecap="round" stroke="currentColor" />
+      {open && <path d="M3 7C3 4.79086 4.79086 3 7 3H12V21H7C4.79086 21 3 19.2091 3 17V7Z" fill="currentColor" fillOpacity=".72" />}
+    </svg>
+  );
+}
 
 export default function ExampleShowcase({ slug, title, examples, neighbors, children }: {
   neighbors: { previousComponent: { href: string; name: string } | null; nextComponent: { href: string; name: string } | null };
@@ -99,6 +109,12 @@ export default function ExampleShowcase({ slug, title, examples, neighbors, chil
   }
   const pager = (
     <nav className={toolbarStyles.pager} aria-label="Browse examples and components">
+      {current && (
+        <button ref={splitToggle} type="button" className={toolbarStyles.icon} aria-label="Documentation view"
+          aria-pressed={splitOpen} aria-controls="component-details" onClick={toggleSplit}>
+          <PanelIcon open={splitOpen} />
+        </button>
+      )}
       {[-1, 1].map(step => {
         const previous = step < 0;
         const direction = previous ? 'Previous' : 'Next';
@@ -171,7 +187,7 @@ export default function ExampleShowcase({ slug, title, examples, neighbors, chil
           </article>}
         </ScrollArea>
       </div>
-      <ShowcaseToolbar splitOpen={splitOpen} onToggleSplit={toggleSplit} splitToggleRef={splitToggle} slug={slug} title={name} {...current} navigation={{ index, examples, select }} pager={pager} />
+      <ShowcaseToolbar splitOpen={splitOpen} slug={slug} title={name} {...current} navigation={{ index, examples, select }} pager={pager} />
     </div>
   </>;
 }
