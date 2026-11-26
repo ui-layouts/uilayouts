@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import toolbarStyles from '@/components/website/showcase-toolbar.module.css';
-import { useEffect, useState, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react';
 import ShowcaseToolbar, { type ShowcaseToolbarProps } from '@/components/website/showcase-toolbar';
 import { ClientPreCode } from '@/components/website/code-components/client-pre-code';
 import styles from './showcase.module.css';
@@ -27,6 +27,35 @@ export default function ExampleShowcase({ slug, title, examples, neighbors, chil
   }, [examples]);
   const current = examples[index];
 
+  const layout = useRef<HTMLDivElement>(null);
+  const [docsWidth, setDocsWidth] = useState(50);
+  const [splitReady, setSplitReady] = useState(false);
+
+  useEffect(() => {
+    const element = layout.current;
+    if (!element) return;
+    const scroller = element.closest<HTMLElement>('[data-showcase-scroll]');
+    const target = scroller ?? window;
+    const update = () => {
+      const height = scroller?.clientHeight ?? window.innerHeight;
+      const offset = (scroller?.getBoundingClientRect().top ?? 0) - element.getBoundingClientRect().top;
+      const progress = Math.min(1, Math.max(0, offset / Math.max(1, height * 0.75)));
+      element.style.setProperty('--reveal', String(progress));
+      setSplitReady(progress === 1);
+    };
+    update();
+    target.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    return () => {
+      target.removeEventListener('scroll', update);
+      window.removeEventListener('resize', update);
+    };
+  }, [current?.name]);
+
+  function resize(width: number) {
+    setDocsWidth(Math.min(70, Math.max(30, Math.round(width))));
+  }
+
   function select(next: number) {
     if (!examples[next]) return;
     const url = new URL(location.href);
@@ -35,7 +64,8 @@ export default function ExampleShowcase({ slug, title, examples, neighbors, chil
     else url.searchParams.delete('example');
     history.pushState(null, '', url);
     setIndex(next);
-    window.scrollTo({ top: 0, behavior: 'instant' });
+    const scroller = layout.current?.closest<HTMLElement>('[data-showcase-scroll]');
+    (scroller ?? window).scrollTo({ top: 0, behavior: 'instant' });
   }
   const pager = (
     <nav className={toolbarStyles.pager} aria-label="Browse examples and components">
@@ -66,14 +96,41 @@ export default function ExampleShowcase({ slug, title, examples, neighbors, chil
   </section>;
   return <>
     <a className={styles.skip} href="#component-details">Skip to documentation</a>
-    <section className={styles.stage} data-demo={current.name} aria-label={name + ' preview'}>
-      <iframe key={current.name} data-showcase-preview scrolling="no" className={styles.frame} src={current.expandUrl} title={name + ' interactive preview'} />
-    </section>
+    <div ref={layout} className={styles.split} style={{ '--docs-width': docsWidth + '%' } as CSSProperties}>
+      <section className={styles.stage} data-demo={current.name} aria-label={name + ' preview'}>
+        <iframe key={current.name} data-showcase-preview scrolling="no" className={styles.frame} src={current.expandUrl} title={name + ' interactive preview'} />
+        <div role="separator" aria-label="Documentation width" aria-orientation="vertical"
+          aria-controls="component-details" aria-valuemin={30} aria-valuemax={70} aria-valuenow={docsWidth}
+          aria-valuetext={docsWidth + '% documentation width'} hidden={!splitReady} tabIndex={0}
+          className={styles.divider}
+          onPointerDown={event => {
+            if (event.button !== 0) return;
+            event.currentTarget.setPointerCapture(event.pointerId);
+            event.currentTarget.focus({ preventScroll: true });
+          }}
+          onPointerMove={event => {
+            if (!event.currentTarget.hasPointerCapture(event.pointerId) || !layout.current) return;
+            const bounds = layout.current.getBoundingClientRect();
+            resize((event.clientX - bounds.left) * 100 / bounds.width);
+          }}
+          onKeyDown={event => {
+            const values: Record<string, number> = {
+              ArrowLeft: docsWidth - 5, ArrowRight: docsWidth + 5, Home: 30, End: 70,
+            };
+            if (!(event.key in values)) return;
+            event.preventDefault();
+            resize(values[event.key]);
+          }}
+        />
+      </section>
+      <div className={styles.notes}>
+        {index === 0 ? children : <article id="component-details" tabIndex={-1} className={styles.details} aria-labelledby="component-title">
+          <h1 id="component-title">{name}</h1>
+          <p className={styles.description}>{current.description}</p>
+          {usage}
+        </article>}
+      </div>
+    </div>
     <ShowcaseToolbar slug={slug} title={name} {...current} navigation={{ index, examples, select }} pager={pager} />
-    {index === 0 ? children : <article id="component-details" tabIndex={-1} className={styles.details} aria-labelledby="component-title">
-      <h1 id="component-title">{name}</h1>
-      <p className={styles.description}>{current.description}</p>
-      {usage}
-    </article>}
   </>;
 }
