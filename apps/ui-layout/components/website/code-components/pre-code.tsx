@@ -38,7 +38,7 @@ export async function PreCode({
         )}
 
         <div className={styles.shell}>
-          {checkNpm ? (
+          {checkNpm && singleLine ? (
             <CopyNpmCommandButton code={value} classname={copyPosition} />
           ) : (
             <CopyButton code={value} classname={copyPosition} />
