@@ -119,6 +119,7 @@
 @media (min-width: 900px) {
   .split {
     --reveal: 0;
+    --visible-docs-width: calc(var(--reveal) * var(--docs-width));
     position: relative;
   }
 
@@ -126,7 +127,7 @@
     position: sticky;
     top: 0;
     z-index: 1;
-    margin-left: calc(var(--reveal) * var(--docs-width));
+    margin-left: var(--visible-docs-width);
     background: var(--background);
   }
 
@@ -144,9 +145,12 @@
   }
 
   .notes {
-    width: var(--docs-width);
+    width: var(--visible-docs-width);
+    box-sizing: border-box;
+    isolation: isolate;
+    overflow-x: clip;
     min-height: 100svh;
-    padding: calc(var(--toolbar-top) + var(--toolbar-height)) clamp(12px, 2vw, 36px) 0;
+    padding: calc(var(--toolbar-top) + var(--toolbar-height)) min(clamp(12px, 2vw, 36px), calc(var(--visible-docs-width) / 4)) 0;
     overflow-wrap: anywhere;
   }
 
