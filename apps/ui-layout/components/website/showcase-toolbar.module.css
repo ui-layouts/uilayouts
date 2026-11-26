@@ -249,7 +249,7 @@
   max-width: none;
 }
 .wordmark img { width: 100%; height: auto; }
-.toolbar:has(> .launcher[data-state="open"]) > :is(.launcher, .wordmark, .headerLinks) {
+.toolbar:has(> .launcher[data-state="open"]) > :is(.launcher, .wordmark) {
   opacity: 0;
   filter: blur(10px);
   pointer-events: none;
