@@ -248,7 +248,6 @@
   max-width: none;
 }
 .wordmark img { width: 100%; height: auto; }
-.toolbar .icon[aria-pressed="true"] { background: #171717; color: white; }
 .toolbar > .launcher[data-state="open"] { opacity: 0; filter: blur(10px); pointer-events: none; }
 @media (prefers-reduced-motion: no-preference) {
   .toolbar > .launcher { transition: opacity 200ms ease-in-out, filter 200ms ease-in-out; }

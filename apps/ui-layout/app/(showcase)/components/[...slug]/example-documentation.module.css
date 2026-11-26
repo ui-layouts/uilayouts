@@ -26,3 +26,14 @@
   line-height: 20px;
   padding-block: 6px;
 }
+
+.page article :is(h1, h2, h3, h4, h5, h6, strong, b, th, :global(.font-bold), :global(.font-extrabold), :global(.font-black)) { font-weight: 600; }
+.page article :is(h2, h3) { margin-block: 1.5rem .75rem; }
+.page article blockquote { margin-block: 1.25rem; }
+@media (min-width: 900px) {
+  .page [data-showcase-notes] article[aria-labelledby="component-title"] {
+    width: 100%;
+    margin-inline: 0;
+    padding-top: 0;
+  }
+}

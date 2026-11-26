@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { ScrollArea } from '@/components/website/ui/scroll-area';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import toolbarStyles from '@/components/website/showcase-toolbar.module.css';
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react';
@@ -151,11 +152,13 @@ export default function ExampleShowcase({ slug, title, examples, neighbors, chil
         />
       </section>
       <div className={styles.notes} data-showcase-notes>
-        {index === 0 ? children : <article id="component-details" tabIndex={-1} className={styles.details} aria-labelledby="component-title">
-          <h1 id="component-title">{name}</h1>
-          <p className={styles.description}>{current.description}</p>
-          {usage}
-        </article>}
+        <ScrollArea type="hover" className={styles.notesScroll}>
+          {index === 0 ? children : <article id="component-details" tabIndex={-1} className={styles.details} aria-labelledby="component-title">
+            <h1 id="component-title">{name}</h1>
+            <p className={styles.description}>{current.description}</p>
+            {usage}
+          </article>}
+        </ScrollArea>
       </div>
       <ShowcaseToolbar splitOpen={splitOpen} onToggleSplit={toggleSplit} slug={slug} title={name} {...current} navigation={{ index, examples, select }} pager={pager} />
     </div>
