@@ -21,6 +21,7 @@ import { cn } from '@/lib/utils';
 import { getPreviewUrl } from '@/lib/preview-url';
 import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover';
 import { findLabComponent, labComponentKey } from './component-selection';
+import HomeHeader from '../home/home-header';
 import LabSidebar from './labs-sidebar';
 
 const defaults = {
@@ -97,9 +98,11 @@ export default function ComponentSection() {
     : getPreviewUrl(undefined, current?.iframelink);
 
   return (
+    <div className="flex h-dvh flex-col">
+      {!recording && <HomeHeader />}
     <div
       className={cn(
-        'relative grid h-dvh min-h-0 w-full overflow-hidden',
+        'relative grid flex-1 min-h-0 w-full overflow-hidden',
         !isSidebarOpen &&
           !recording &&
           'md:grid-cols-[minmax(0,1fr)_320px] 2xl:grid-cols-[minmax(0,1fr)_400px]'
@@ -356,6 +359,7 @@ export default function ComponentSection() {
         )}
       </div>
       {!recording && <LabSidebar />}
+    </div>
     </div>
   );
 }

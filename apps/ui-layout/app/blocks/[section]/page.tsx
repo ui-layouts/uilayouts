@@ -1,12 +1,11 @@
-import { Blocks, Code, Component, Expand, Eye, FileText } from 'lucide-react';
+import { Code, Component, Expand, Eye, FileText } from 'lucide-react';
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { blocksDesign, getBlocksDesignMeta } from '@/blocks-docs';
 import { BreadcrumbStructuredData } from '@/components/seo/breadcrumb-structured-data';
 import { StructuredData } from '@/components/seo/structured-data';
-import { Container } from '@/components/ui/container';
+
 import { BlockTabContent } from '@/components/website/blocks-components/block-tab-content';
 import CliCopyBtn from '@/components/website/blocks-components/cli-copy-btn';
 import DynamicPreviewIframe from '@/components/website/blocks-components/dynamic-preview-Iframe';
@@ -79,42 +78,18 @@ export default async function SectionPage(props: { params: Promise<{ section?: s
         ]}
       />
       <TableOfContents />
-      <Container className='pb-10 pt-28 -mt-20'>
-        <article
-          className='2xl:max-w-7xl w-full relative overflow-hidden
-       mx-auto border dark:border-neutral-800 bg-linear-to-r from-neutral-100 to-neutral-50 dark:from-neutral-800 dark:to-neutral-900 p-6 2xl:w-[90%] flex items-center'
-        >
-          <div className='absolute bottom-0 left-0 right-0 top-0 dark:bg-[radial-gradient(#ededed33_1px,#171717_1px)] bg-[radial-gradient(#0000001a_1px,#f8fafc_1px)] bg-size-[16px_16px] mask-[radial-gradient(ellipse_85%_55%_at_100%_0%,#000_70%,transparent_110%)]'></div>
-          <div className='space-y-2 relative z-4 w-fit'>
-            <div className='flex items-center text-primary/70'>
-              <Link href='/blocks' className='hover:underline flex gap-1'>
-                blocks
-              </Link>
-              /{sectionData.id}
-            </div>
-            <h1 className='not-prose flex items-center gap-2 text-2xl lg:text-3xl font-medium'>
-              <span
-                className='h-6 w-6 xl:h-8 xl:w-8 bg-primary text-primary-foreground p-1 grid place-content-center'
-                aria-hidden='true'
-              >
-                <Blocks className='xl:w-5 xl:h-5 w-4 h-4' />
-              </span>
-              {sectionData.name}
-            </h1>
-            <p className='text-xs sm:text-sm'>{sectionData.des}</p>
+      <div className="mx-auto w-[94%] max-w-[1280px] py-10">
+        <header className="flex flex-wrap items-end justify-between gap-6">
+          <div>
+            <Link href="/blocks" className="text-sm text-muted-foreground hover:underline">Blocks</Link>
+            <h1 className="mt-2 text-4xl font-medium tracking-tight">{sectionData.name}</h1>
+            <p className="mt-3 max-w-prose text-muted-foreground">{sectionData.des}</p>
           </div>
-          <div className='absolute -top-14 right-0 md:flex hidden items-center xl:gap-2 gap-0'>
-            <div className='w-fit mx-auto xl:scale-90 scale-80 xl:translate-x-10 translate-x-20'>
-              <CarbonAd />
-            </div>
-            <a href='https://pro.ui-layouts.com/pricing' target='_blank' rel='noreferrer noopener'>
-              <Image src='/20perc.png' className='w-72 h-full' alt='' width={288} height={96} />
-            </a>
-          </div>
-        </article>
-      </Container>
+          <CarbonAd />
+        </header>
+      </div>
       {/* BLOCKS */}
-      <Container>
+      <div className="mx-auto w-[94%] max-w-[1280px]">
         <div className='space-y-5 pb-10 prose max-w-full relative'>
           {sectionData.blocks.map((block, index) => (
             <div key={block.id} id={block.id} className='relative'>
@@ -229,11 +204,8 @@ export default async function SectionPage(props: { params: Promise<{ section?: s
             </div>
           ))}
         </div>
-        <HomeFooter
-          className='bg-linear-to-t dark:from-neutral-800 from-neutral-200 to-transparent'
-          isHideCollaboration={true}
-        />
-      </Container>
+        <HomeFooter isHideCollaboration />
+      </div>
     </section>
   );
 }

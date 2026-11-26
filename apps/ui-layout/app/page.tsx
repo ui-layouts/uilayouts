@@ -1,69 +1,51 @@
-import { pageMetadata } from '@/lib/seo';
-import { siteConfig } from '@/lib/utils';
-import { getMinimalBlocksBySection } from '@/blocks-docs';
+import Link from 'next/link';
+import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { StructuredData } from '@/components/seo/structured-data';
-import { Container } from '@/components/ui/container';
-import HeroSec from '@/components/website/home/hero-sec';
+import { BlurVignette, BlurVignetteArticle } from '@/components/ui/blur-vignette';
 import HomeFooter from '@/components/website/home/home-footer';
 import HomeHeader from '@/components/website/home/home-header';
-import { Banner } from '@/components/website/ui/banner';
-import { cn } from '@/lib/utils';
-import { ArrowUpRight } from 'lucide-react';
+import { pageMetadata } from '@/lib/seo';
+import { siteConfig } from '@/lib/utils';
+import styles from './home.module.css';
 
-export const metadata = pageMetadata({
-  title: siteConfig.name,
-  description: siteConfig.description,
-  path: '/',
-});
+export const metadata = pageMetadata({ title: siteConfig.name, description: siteConfig.description, path: '/' });
+
+const collections = [
+  { name: 'Components', href: '/components', detail: 'Inputs, navigation, cards, and more' },
+  { name: 'Image effects', href: '/components/image-effect-motion-hover', detail: 'Motion, shaders, and image reveals' },
+  { name: 'Blocks', href: '/blocks', detail: 'Ready-to-use page sections' },
+];
 
 export default function Home() {
-  const blocksData = getMinimalBlocksBySection();
   return (
     <>
-      <StructuredData type='homepage' />
-      <Container>
-        <div className='relative bg-black'>
-          <div
-            className={cn(
-              'border-b dark:border-neutral-700 w-full dark:bg-neutral-900 bg-white h-12',
-              'absolute top-0 left-0 ',
-              'dark:bg-[repeating-linear-gradient(135deg,#2f2f2f_0px_1px,transparent_1px_10px)] bg-[repeating-linear-gradient(135deg,#f0f0f0_0px_1px,transparent_1px_10px)]'
-            )}
-          />
-          <Banner variant='rainbow' className='h-11 md:text-base sm:text-sm text-xs'>
-            <p className='group-hover:underline underline-offset-4 flex flex-wrap gap-1 items-center'>
-              <picture>
-                <source
-                  srcSet='https://fonts.gstatic.com/s/e/notoemoji/latest/1f680/512.webp'
-                  type='image/webp'
-                />
-                <img
-                  src='https://fonts.gstatic.com/s/e/notoemoji/latest/1f680/512.gif'
-                  alt='🚀'
-                  className='w-6 h-6'
-                  width='32'
-                  height='32'
-                />
-              </picture>
-              Ship faster with <span className='font-semibold'>UI-Layouts Pro</span>
-              <span className='md:inline-block hidden'>
-                – 100+ production-ready blocks waiting for you
-              </span>
-            </p>
-            <ArrowUpRight
-              className='size-5 ml-1 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200 ease-out shrink-0'
-              strokeWidth={2}
-            />
-          </Banner>
-        </div>
-        <section className='relative'>
-          <HomeHeader />
-          <main>
-            <HeroSec blocksData={blocksData} />
-          </main>
+      <StructuredData type="homepage" />
+      <HomeHeader />
+      <main className={styles.main}>
+        <section className={styles.hero} aria-labelledby="home-title">
+          <div>
+            <h1 id="home-title">A library of<br />UI in motion.</h1>
+            <p>Explore React components and Tailwind layouts. Open a live example, copy the code, and make it yours.</p>
+            <Link className={styles.cta} href="/components">Browse components <ArrowRight size={17} /></Link>
+          </div>
+          <Link href="/components/blur-vignette" className={styles.feature}>
+            <BlurVignette classname="aspect-[3/2]" radius="16px" inset="10px" transitionLength="72px" blur="10px">
+              <img src="/image-effects/forest.webp" alt="" className={styles.photo} />
+              <BlurVignetteArticle />
+            </BlurVignette>
+            <span className={styles.caption}>Blur Vignette <ArrowUpRight size={17} /></span>
+          </Link>
         </section>
-        <HomeFooter />
-      </Container>
+        <section aria-labelledby="collections-title" className={styles.collections}>
+          <h2 id="collections-title">Explore the library</h2>
+          <div>{collections.map(({ name, href, detail }) => (
+            <Link href={href} key={name} className={styles.row}>
+              <strong>{name}</strong><span>{detail}</span><ArrowUpRight size={18} />
+            </Link>
+          ))}</div>
+        </section>
+      </main>
+      <HomeFooter />
     </>
   );
 }

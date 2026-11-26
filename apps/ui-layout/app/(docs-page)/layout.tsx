@@ -1,37 +1,15 @@
-import { Container } from '@/components/ui/container';
-import { GapPattern } from '@/components/ui/gap-pattern';
-import Header from '@/components/website/header';
+import HomeHeader from '@/components/website/home/home-header';
 import DocsSidebar from '@/components/website/sidebar';
-import type React from 'react';
 
-export default async function ComponentLayout({ children }: { children: React.ReactNode }) {
+export default function DocsLayout({ children }: { children: React.ReactNode }) {
   return (
-    <Container>
-      <a
-        href='#main-content'
-        className='sr-only focus:not-sr-only focus:absolute focus:z-50 focus:rounded focus:bg-background focus:p-3'
-      >
-        Skip to content
-      </a>
-      <Header />
-      <div className='relative'>
-        <div className='mx-auto w-full lg:grid 2xl:grid-cols-[240px_minmax(0,1fr)] xl:grid-cols-[220px_minmax(0,1fr)] lg:grid-cols-[170px_minmax(0,1fr)] grid-cols-1 lg:gap-3'>
-          <div className='lg:sticky top-14 lg:h-[calc(100vh-6rem)]'>
-            <div className='absolute -bottom-5 left-0 z-2 w-full h-20 bg-linear-to-t dark:from-neutral-950 from-white dark:via-neutral-950 via-white'></div>
-            <DocsSidebar />
-            <div className='absolute -top-5 left-0 w-full h-20 bg-linear-to-b dark:from-neutral-950 from-white dark:via-neutral-950 via-white'></div>
-          </div>
-          <main
-            id='main-content'
-            tabIndex={-1}
-            className='min-w-0 max-w-full 2xl:px-4 px-2 relative'
-          >
-            <GapPattern className='2xl:h-full lg:h-full h-full lg:block hidden 2xl:w-10 lg:w-7 w-5 border-x border-y-0 absolute -left-2 top-0' />
-            {children}
-            {/* <Footer /> */}
-          </main>
-        </div>
+    <>
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-background focus:p-3">Skip to content</a>
+      <HomeHeader />
+      <div className="mx-auto grid w-[94%] max-w-[1280px] gap-6 lg:grid-cols-[200px_minmax(0,1fr)]">
+        <aside className="hidden lg:block lg:sticky lg:top-20 lg:h-[calc(100svh-6rem)]"><DocsSidebar /></aside>
+        <main id="main-content" tabIndex={-1} className="min-w-0">{children}</main>
       </div>
-    </Container>
+    </>
   );
 }

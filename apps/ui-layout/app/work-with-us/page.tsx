@@ -55,50 +55,11 @@ const WorkWithUs = () => {
   return (
     <>
       <HomeHeader />
-      <section className='pt-32 font-poppins relative xl:px-0 px-4 pb-40'>
-        <article className='text-center max-w-3xl mx-auto space-y-3 relative z-2'>
-          {/* 🔥 */}
-          <span className='text-center md:text-base sm:text-sm text-xs w-full flex items-center justify-center'>
-            We’re Open-Source but now taking custom projects
-            <picture className='shrink-0'>
-              <source
-                srcSet='https://fonts.gstatic.com/s/e/notoemoji/latest/1f525/512.webp'
-                type='image/webp'
-              />
-              <img
-                src='https://fonts.gstatic.com/s/e/notoemoji/latest/1f525/512.gif'
-                alt='🔥'
-                width={24}
-                className='sm:w-6 w-5 sm:h-6 h-5 shrink-0'
-                height={24}
-              />
-            </picture>
-          </span>
-          <h1 className='lg:text-5xl md:text-5xl sm:text-4xl text-3xl font-medium leading-[130%]! '>
-            <span className=']'>
-              {' '}
-              Got an{' '}
-              <span className='text-blue-600 text-shadow-lg dark:text-shadow-blue-950 text-shadow-blue-200 capitalize'>
-                Idea
-              </span>
-              , Have a{' '}
-              <span className='text-blue-600 text-shadow-lg dark:text-shadow-blue-950 text-shadow-blue-200 capitalize'>
-                Project?
-              </span>
-            </span>{' '}
-            <br className='sm:inline-block hidden' />{' '}
-            <span className='dark:bg-zinc-900 bg-zinc-100 text-blue-600 py-0 px-2 rounded-lg inline-block lg:h-[4.2rem] border relative text-shadow-lg dark:text-shadow-blue-900 text-shadow-blue-200'>
-              {/* <div className="absolute bottom-0 left-0 right-0 top-0 bg-[repeating-linear-gradient(45deg,#86868633_0px_1px,transparent_1px_10px)]"></div> */}
-              We’re Ready
-            </span>{' '}
-            <span>to Bring It to Life.</span>
-          </h1>
-          <p className='md:w-[86%] sm:w-[75%] w-[90%] lg:text-base text-xs mx-auto'>
-            Ui-Layouts isn’t just about components library, we help businesses craft stunning,
-            high-performing web experiences. Whether you need a custom UI, a full-scale project, or
-            tailored solutions, our team is ready to make it happen.
-          </p>
-        </article>
+      <section className="mx-auto w-[92%] max-w-4xl py-16 sm:py-24">
+        <header className="max-w-prose">
+          <h1 className="text-4xl font-medium tracking-tight sm:text-5xl">Work with UI Layouts</h1>
+          <p className="mt-4 leading-relaxed text-muted-foreground">We design and build custom interfaces and web experiences. Tell us about your project or book a discovery call.</p>
+        </header>
         <div className=' max-w-4xl mx-auto my-10'>
           <div className='w-full dark:bg-zinc-950 bg-zinc-50 border rounded-3xl relative'>
             <div className='flex lg:flex-row flex-col lg:items-center lg:justify-between lg:gap-0 gap-4 py-6 px-4'>

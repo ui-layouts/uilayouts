@@ -555,7 +555,7 @@ export default function Home() {
           { name: 'Components', url: absoluteUrl('/components') },
         ]}
       />
-      <section aria-labelledby='components-title' className='lg:pt-8 pt-16 pl-10 pb-5'>
+      <section aria-labelledby='components-title' className='py-8'>
         <header>
           <h1
             id='components-title'
@@ -578,7 +578,7 @@ export default function Home() {
               <li key={component.id}>
                 <Link
                   href={component?.url}
-                  className='block h-full border p-2 transition-all rounded-lg dark:bg-black/40 bg-primary-foreground backdrop-blur-xs'
+                  className='group block h-full rounded-lg'
                 >
                   <>
                     {component.imgSrc && (
@@ -598,7 +598,7 @@ export default function Home() {
                       </AspectRatio.Root>
                     )}
                   </>
-                  <div className='sm:py-2 py-1 sm:px-4 px-2'>
+                  <div className='py-2 group-hover:underline'>
                     <h2 className='2xl:text-xl xl:text-xl md:text-lg text-sm font-medium leading-[140%] capitalize'>
                       {component.name}
                     </h2>
