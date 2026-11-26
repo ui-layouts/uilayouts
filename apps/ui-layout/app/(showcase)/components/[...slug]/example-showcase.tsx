@@ -130,7 +130,7 @@ export default function ExampleShowcase({ slug, title, examples, neighbors, chil
           {usage}
         </article>}
       </div>
+      <ShowcaseToolbar slug={slug} title={name} {...current} navigation={{ index, examples, select }} pager={pager} />
     </div>
-    <ShowcaseToolbar slug={slug} title={name} {...current} navigation={{ index, examples, select }} pager={pager} />
   </>;
 }
