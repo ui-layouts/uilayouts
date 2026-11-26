@@ -1,3 +1,5 @@
+import { CodeSurface } from './code-surface';
+import styles from './code-surface.module.css';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/website/ui/tabs';
 import { highlightCode } from '@/lib/shiki-highlighter';
 import { cn } from '@/lib/utils';
@@ -35,17 +37,14 @@ export async function PreCode({
           </div>
         )}
 
-        <div className='relative'>
+        <div className={styles.shell}>
           {checkNpm ? (
             <CopyNpmCommandButton code={value} classname={copyPosition} />
           ) : (
             <CopyButton code={value} classname={copyPosition} />
           )}
 
-          <div
-            className={cn('not-prose max-h-[550px] overflow-x-hidden rounded-md text-sm border dark:border-neutral-800', singleLine && 'bg-code-background pr-12')}
-            dangerouslySetInnerHTML={{ __html: tsHtml }}
-          />
+          <CodeSurface html={tsHtml} />
         </div>
       </div>
     );
@@ -93,26 +92,20 @@ export async function PreCode({
 
         {/* Typescript Block */}
         <TabsContent value='typescript'>
-          <div className='relative'>
+          <div className={styles.shell}>
             <CopyButton code={value} classname='right-2 bg-card border' />
-            <div
-              className='not-prose max-h-[550px] overflow-x-hidden rounded-md text-sm border dark:border-neutral-800'
-              dangerouslySetInnerHTML={{ __html: tsHtml }}
-            />
+            <CodeSurface html={tsHtml} />
           </div>
         </TabsContent>
 
         {/* Javascript Block */}
         <TabsContent value='javascript'>
-          <div className='relative'>
+          <div className={styles.shell}>
             <CopyButton
               code={formattedJsCode}
               classname='right-2 bg-card border'
             />
-            <div
-              className='not-prose max-h-[550px] overflow-x-hidden rounded-md text-sm border dark:border-neutral-800'
-              dangerouslySetInnerHTML={{ __html: jsHtml }}
-            />
+            <CodeSurface html={jsHtml} />
           </div>
         </TabsContent>
       </Tabs>

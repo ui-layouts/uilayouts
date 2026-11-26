@@ -1,3 +1,5 @@
+import { CodeSurface } from './code-surface';
+import styles from './code-surface.module.css';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/website/ui/tabs';
 import { highlightCode } from '@/lib/shiki-highlighter';
 import { CopyButton } from './copy-button';
@@ -29,10 +31,7 @@ export default async function CodeTabsMdx({ children }: any) {
   // -------------------------
   if (parsed.length === 1) {
     return (
-      <div
-        className='rounded bg-zinc-900 p-4'
-        dangerouslySetInnerHTML={{ __html: highlighted[0] }}
-      />
+      <div className={styles.shell}><CodeSurface html={highlighted[0]} /></div>
     );
   }
 
@@ -47,9 +46,9 @@ export default async function CodeTabsMdx({ children }: any) {
   return (
     <Tabs
       defaultValue='ui-layouts'
-      className='rounded-xl bg-muted backdrop-blur-md border relative p-1 my-5'
+      className={`${styles.shell} my-5`}
     >
-      <TabsList className='rounded-lg mt-1 mx-1 dark:bg-transparent bg-transparent border-0'>
+      <TabsList className='rounded-lg dark:bg-transparent bg-transparent border-0'>
         {tabs.map((tab) => (
           <TabsTrigger
             key={tab.meta}
@@ -96,10 +95,7 @@ export default async function CodeTabsMdx({ children }: any) {
       {tabs.map((tab) => (
         <TabsContent key={tab.meta} value={tab.meta} className='mt-1 border-none'>
           <CopyButton code={tab.code} classname='top-1.5 border bg-card absolute right-3' />
-          <div
-            className='cliblocks rounded-xl p-1 px-2 border-none'
-            dangerouslySetInnerHTML={{ __html: tab.html }}
-          />
+          <CodeSurface html={tab.html} />
         </TabsContent>
       ))}
     </Tabs>

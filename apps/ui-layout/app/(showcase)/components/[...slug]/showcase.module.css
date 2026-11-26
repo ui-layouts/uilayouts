@@ -1,4 +1,8 @@
 .page {
+  --panel-shell: color-mix(in srgb, var(--foreground, #151515) 6%, var(--background, white));
+  --panel-rim: inset 0 1px 0 color-mix(in srgb, white 30%, transparent),
+    inset 0 -1px 0 rgb(0 0 0 / 5%), 0 0 0 1px color-mix(in srgb, var(--foreground) 7%, transparent),
+    0 2px 4px rgb(0 0 0 / 5%);
   --nav-size: 37px;
   --shell-inset: 5px;
   --toolbar-height: calc(var(--nav-size) + 2 * var(--shell-inset));
@@ -126,6 +130,19 @@
     background: var(--background);
   }
 
+  .split .stage::before {
+    content: '';
+    position: absolute;
+    inset: 0 100% 0 auto;
+    width: clamp(24px, 3vw, 56px);
+    pointer-events: none;
+    opacity: clamp(0, min(calc(var(--reveal) * 9), calc((1 - var(--reveal)) * 9)), 1);
+    background: linear-gradient(to right, transparent, var(--background));
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    mask-image: linear-gradient(to right, transparent, black);
+  }
+
   .notes {
     width: var(--docs-width);
     min-height: 100svh;
@@ -138,8 +155,7 @@
     display: grid;
     place-items: center;
     left: -12px;
-    top: calc(var(--toolbar-top) + var(--toolbar-height) + var(--preview-gap));
-    bottom: calc(var(--toolbar-bottom) + var(--bottom-controls) + var(--preview-gap));
+    inset-block: 0;
     width: 24px;
     cursor: col-resize;
     touch-action: none;

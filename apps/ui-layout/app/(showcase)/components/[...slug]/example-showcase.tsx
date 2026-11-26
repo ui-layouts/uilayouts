@@ -90,8 +90,6 @@ export default function ExampleShowcase({ slug, title, examples, neighbors, chil
   if (!current) return <>{children}<div className={toolbarStyles.toolbar}>{pager}</div></>;
   const name = index === 0 ? title : title + ' / ' + current.label;
   const usage = <section className={documentation.source} aria-label="Example source">
-    <h2 className="mb-3 text-xl font-semibold">Example source</h2>
-    <div className={documentation.filename}>{current.usageFile}</div>
     <ClientPreCode raw={current.usageCode} html={current.usageHtml} />
   </section>;
   return <>

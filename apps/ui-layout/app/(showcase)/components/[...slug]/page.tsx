@@ -139,8 +139,6 @@ export default async function DocPage(props: {
           }} />
         </div>
         {showcase && <section className={documentation.source} aria-label="Example source">
-          <h2 className="mb-3 text-xl font-semibold">Example source</h2>
-          <div className={documentation.filename}>{showcase.usageFile}</div>
           <ClientPreCode raw={showcase.usageCode} html={showcase.usageHtml} />
         </section>}
       </article>
