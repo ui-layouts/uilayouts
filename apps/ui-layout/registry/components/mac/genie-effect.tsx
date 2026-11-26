@@ -968,6 +968,7 @@ const MacWindow = ({
 function MagnifiedDockIcon({
   app,
   isActive,
+  isMinimized,
   showDot,
   disabled,
   btnRef,
@@ -976,6 +977,7 @@ function MagnifiedDockIcon({
 }: {
   app: App;
   isActive: boolean;
+  isMinimized: boolean;
   showDot: boolean;
   disabled: boolean;
   btnRef: (el: HTMLButtonElement | null) => void;
@@ -1019,7 +1021,7 @@ function MagnifiedDockIcon({
       <TooltipTrigger asChild>
         <motion.button
           ref={setRefs}
-          aria-label={app.label}
+          aria-label={isMinimized ? `${app.label}, minimized` : app.label}
           onClick={onClick}
           disabled={disabled}
           style={{
@@ -1304,6 +1306,7 @@ export default function GenieEffect() {
         // runs the MacWindow (z-40) is already on top of the canvas (z-30),
         // so the clear is visually invisible.
         flushSync(() => {
+          setWinPos(getWinPos(restoreZoom));
           setPhase("open");
         });
         clearCanvas();
@@ -1493,6 +1496,7 @@ export default function GenieEffect() {
                   key={a.id}
                   app={a}
                   isActive={activeApp === i}
+                  isMinimized={activeApp !== i && i in minimized}
                   showDot={(phase === "open" && activeApp === i) || i in minimized}
                   disabled={isAnimating || !snapshotsReady}
                   btnRef={(el) => {
