@@ -51,11 +51,10 @@ function PanelIcon({ open }: { open: boolean }) {
 
 function NavigationIcon({ open }: { open: boolean }) {
   const outline = 'M13.5556 2H11.4444C7.46369 2 5.47332 2 4.23666 3.23666C3 4.47332 3 6.46369 3 10.4444V12.5556C3 16.5363 3 18.5267 4.23666 19.7633C5.47332 21 7.46369 21 11.4444 21H13.5556C17.5363 21 19.5267 21 20.7633 19.7633C22 18.5267 22 16.5363 22 12.5556V10.4444C22 6.46369 22 4.47332 20.7633 3.23666C19.5267 2 17.5363 2 13.5556 2Z';
-  const rightPanel = 'M9 2H13.5556C17.5363 2 19.5267 2 20.7633 3.23666C22 4.47332 22 6.46369 22 10.4444V12.5556C22 16.5363 22 18.5267 20.7633 19.7633C19.5267 21 17.5363 21 13.5556 21H9Z';
   const leftPanel = 'M3 6C3 3.79086 4.79086 2 7 2H9V21H7C4.79086 21 3 19.2091 3 17V6Z';
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" strokeLinecap="round" strokeLinejoin="round">
-      <path d={open ? rightPanel : leftPanel} fill="#484848" />
+      {open && <path d={leftPanel} fill="#484848" />}
       <path d={outline} stroke="currentColor" strokeWidth="1.5" />
       <path d="M9 3V21" stroke="currentColor" strokeWidth="1.5" />
     </svg>
