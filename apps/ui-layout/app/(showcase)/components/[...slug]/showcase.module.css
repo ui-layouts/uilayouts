@@ -207,4 +207,5 @@
   border-radius: 10px;
   color: var(--muted-foreground);
   background: var(--muted);
+  box-shadow: var(--panel-rim);
 }
