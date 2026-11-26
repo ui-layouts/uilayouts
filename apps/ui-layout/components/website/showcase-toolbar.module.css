@@ -248,10 +248,18 @@
   max-width: none;
 }
 .wordmark img { width: 100%; height: auto; }
-.toolbar > .launcher[data-state="open"] { opacity: 0; filter: blur(10px); pointer-events: none; }
+.toolbar:has(> .launcher[data-state="open"]) > :is(.launcher, .wordmark, .headerLinks) {
+  opacity: 0;
+  filter: blur(10px);
+  pointer-events: none;
+}
 @media (prefers-reduced-motion: no-preference) {
-  .toolbar > .launcher {
-    transition: left var(--split-transition), opacity 200ms ease-in-out, filter 200ms ease-in-out;
+  .toolbar > :is(.launcher, .wordmark, .headerLinks) {
+    transition:
+      left var(--split-transition),
+      right var(--split-transition),
+      opacity 200ms ease-in-out,
+      filter 200ms ease-in-out;
   }
 }
 .github {
@@ -349,8 +357,6 @@
   .toolbar, .toolbar > .topBlur {
     transition: left var(--split-transition), right var(--split-transition);
   }
-  .toolbar > .wordmark { transition: left var(--split-transition); }
-  .toolbar > .headerLinks { transition: right var(--split-transition); }
 }
 .launcher { position: fixed; top: var(--toolbar-top); left: var(--edge); }
 .pager { display: flex; justify-self: start; flex: none; }
