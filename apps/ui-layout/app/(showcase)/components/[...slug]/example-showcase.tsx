@@ -40,7 +40,7 @@ export default function ExampleShowcase({ slug, title, examples, neighbors, chil
     const sync = () => {
       const offset = (scroller?.getBoundingClientRect().top ?? 0) - element.getBoundingClientRect().top;
       if (desktop.matches) {
-        if (offset > 0 || location.hash === '#component-details') setSplitOpen(true);
+        if (location.hash === '#component-details') setSplitOpen(true);
       } else {
         setSplitOpen(offset >= element.querySelector('section')!.offsetHeight - 72);
       }
@@ -68,7 +68,12 @@ export default function ExampleShowcase({ slug, title, examples, neighbors, chil
   }
 
   function resize(width: number) {
-    setDocsWidth(Math.min(70, Math.max(30, Math.round(width))));
+    if (width <= 15) {
+      setDocsWidth(50);
+      toggleSplit();
+      return;
+    }
+    setDocsWidth(Math.min(70, Math.max(15, Math.round(width))));
   }
 
   function select(next: number) {
@@ -110,11 +115,17 @@ export default function ExampleShowcase({ slug, title, examples, neighbors, chil
   </section>;
   return <>
     <a className={styles.skip} href="#component-details" onClick={() => setSplitOpen(true)}>Skip to documentation</a>
-    <div ref={layout} className={styles.split} data-open={splitOpen} style={{ '--docs-width': docsWidth + '%' } as CSSProperties}>
+    <div ref={layout} onScroll={event => {
+      const view = event.currentTarget;
+      if (!splitOpen && view.scrollTop > 0 && window.matchMedia('(min-width: 900px)').matches) {
+        view.scrollTop = 0;
+        setSplitOpen(true);
+      }
+    }} className={styles.split} data-open={splitOpen} style={{ '--docs-width': docsWidth + '%' } as CSSProperties}>
       <section className={styles.stage} data-demo={current.name} aria-label={name + ' preview'}>
         <iframe key={current.name} data-showcase-preview scrolling="no" className={styles.frame} src={current.expandUrl} title={name + ' interactive preview'} />
         <div role="separator" aria-label="Documentation width" aria-orientation="vertical"
-          aria-controls="component-details" aria-valuemin={30} aria-valuemax={70} aria-valuenow={docsWidth}
+          aria-controls="component-details" aria-valuemin={15} aria-valuemax={70} aria-valuenow={docsWidth}
           aria-valuetext={docsWidth + '% documentation width'} hidden={!splitOpen} tabIndex={0}
           className={styles.divider}
           onPointerDown={event => {
@@ -125,11 +136,13 @@ export default function ExampleShowcase({ slug, title, examples, neighbors, chil
           onPointerMove={event => {
             if (!event.currentTarget.hasPointerCapture(event.pointerId) || !layout.current) return;
             const bounds = layout.current.getBoundingClientRect();
-            resize((event.clientX - bounds.left) * 100 / bounds.width);
+            const width = (event.clientX - bounds.left) * 100 / bounds.width;
+            if (width <= 15) event.currentTarget.releasePointerCapture(event.pointerId);
+            resize(width);
           }}
           onKeyDown={event => {
             const values: Record<string, number> = {
-              ArrowLeft: docsWidth - 5, ArrowRight: docsWidth + 5, Home: 30, End: 70,
+              ArrowLeft: docsWidth - 5, ArrowRight: docsWidth + 5, Home: 15, End: 70,
             };
             if (!(event.key in values)) return;
             event.preventDefault();
@@ -137,7 +150,7 @@ export default function ExampleShowcase({ slug, title, examples, neighbors, chil
           }}
         />
       </section>
-      <div className={styles.notes}>
+      <div className={styles.notes} data-showcase-notes>
         {index === 0 ? children : <article id="component-details" tabIndex={-1} className={styles.details} aria-labelledby="component-title">
           <h1 id="component-title">{name}</h1>
           <p className={styles.description}>{current.description}</p>

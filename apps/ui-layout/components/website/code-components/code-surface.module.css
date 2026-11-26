@@ -7,7 +7,10 @@
   background: var(--panel-shell, var(--muted));
   box-shadow: var(--panel-rim, inset 0 0 0 1px var(--border));
 }
-.shell button[aria-label='Copy code'], .shell button[aria-label='Copied'] { z-index: 2; }
+.shell button[aria-label='Copy code'], .shell button[aria-label='Copied'] {
+  z-index: 2;
+  border-radius: calc(12px - var(--pad));
+}
 .shell [role='tab'] { border-radius: calc(12px - var(--pad)); }
 .surface {
   min-width: 0;
@@ -31,11 +34,6 @@
 }
 .surface [data-orientation] { z-index: 1; }
 
-.shell button[aria-label='Copy code'], .shell button[aria-label='Copied'] {
-  background: var(--muted);
-  border: 0;
-  border-radius: 7px;
-}
 .languages {
   position: absolute;
   top: 8px;

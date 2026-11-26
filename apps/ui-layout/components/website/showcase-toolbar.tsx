@@ -72,14 +72,18 @@ function NavigationDrawer({ navigation }: Pick<ShowcaseToolbarProps, 'navigation
   );
 }
 
-function ReadingProgress({ slug }: { slug: string }) {
+function ReadingProgress({ slug, splitOpen }: { slug: string; splitOpen: boolean }) {
   const [progress, setProgress] = useState(0);
   useEffect(() => {
-    const scroller = document.querySelector<HTMLElement>(
-      '[data-showcase-scroll]'
-    );
-    const target = scroller ?? window;
+    const page = document.querySelector<HTMLElement>('[data-showcase-scroll]');
+    const notes = document.querySelector<HTMLElement>('[data-showcase-notes]');
+    const desktop = window.matchMedia('(min-width: 900px)');
     const measure = () => {
+      const scroller = desktop.matches ? notes : page;
+      if (desktop.matches && !splitOpen) {
+        setProgress(0);
+        return;
+      }
       const height = scroller ? scroller.clientHeight : window.innerHeight;
       const extent =
         (scroller ?? document.documentElement).scrollHeight - height;
@@ -91,18 +95,21 @@ function ReadingProgress({ slug }: { slug: string }) {
       );
     };
     const observer = new ResizeObserver(measure);
-    observer.observe(scroller ?? document.body);
-    if (scroller?.firstElementChild)
-      observer.observe(scroller.firstElementChild);
+    observer.observe(page ?? document.body);
+    if (notes) observer.observe(notes);
+    if (notes?.firstElementChild) observer.observe(notes.firstElementChild);
+    const target = page ?? window;
     target.addEventListener('scroll', measure, { passive: true });
+    notes?.addEventListener('scroll', measure, { passive: true });
     window.addEventListener('resize', measure);
     measure();
     return () => {
       observer.disconnect();
+      notes?.removeEventListener('scroll', measure);
       target.removeEventListener('scroll', measure);
       window.removeEventListener('resize', measure);
     };
-  }, [slug]);
+  }, [slug, splitOpen]);
   return (
     <div
       className={styles.progress}
@@ -240,7 +247,7 @@ export function ShowcaseToolbar({
             </CopyLabel>
           </button>
         </div>
-        <ReadingProgress slug={slug} />
+        <ReadingProgress slug={slug} splitOpen={splitOpen} />
       </div>
       <div className={styles.actions}>
         <button
