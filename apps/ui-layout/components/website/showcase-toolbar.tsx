@@ -26,6 +26,8 @@ export interface ShowcaseToolbarProps {
   sourceCode: string;
   expandUrl: string;
   originalUrl?: string;
+  splitOpen: boolean;
+  onToggleSplit: () => void;
   pager: React.ReactNode;
   navigation: { index: number; examples: { name: string; label: string }[]; select: (index: number) => void };
 }
@@ -44,15 +46,14 @@ function NavigationDrawer({ navigation }: Pick<ShowcaseToolbarProps, 'navigation
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger asChild>
-        <button type="button" className={styles.launcher} aria-label="Open component navigation">{toggle}
-          <img className={styles.wordmark} src="/showcase-wordmark.svg" alt="" width={154} />
-        </button>
+        <button type="button" className={styles.launcher} aria-label="Open component navigation">{toggle}</button>
       </Dialog.Trigger>
+      <Link className={styles.wordmark} href="/" aria-label="UI Layouts home"><img src="/showcase-wordmark.svg" alt="" width={154} /></Link>
       <Dialog.Portal>
         <Dialog.Overlay className={styles.overlay} />
         <Dialog.Content className={styles.drawer} aria-describedby={undefined}>
           <header className={styles.drawerHeader}>
-            <Dialog.Title><Link href="/components" onClick={() => setOpen(false)}><img src="/showcase-wordmark.svg" alt="UI Layouts" width={154} /></Link></Dialog.Title>
+            <Dialog.Title><Link href="/" onClick={() => setOpen(false)}><img src="/showcase-wordmark.svg" alt="UI Layouts" width={154} /></Link></Dialog.Title>
             <Dialog.Close asChild>
               <button type="button" className={styles.launcher} aria-label="Close component navigation">{toggle}</button>
             </Dialog.Close>
@@ -139,6 +140,8 @@ export function ShowcaseToolbar({
   expandUrl,
   navigation,
   pager,
+  splitOpen,
+  onToggleSplit,
 }: ShowcaseToolbarProps) {
   const [manager, setManager] = useState<Manager>('npm');
   const [feedback, setFeedback] = useState<{
@@ -194,7 +197,7 @@ export function ShowcaseToolbar({
   const copied = (action: 'command' | 'prompt') =>
     feedback?.action === action && feedback.success;
   return (
-    <div className={styles.toolbar} aria-label='Component tools' role='group'>
+    <div className={styles.toolbar} data-split-open={splitOpen} aria-label='Component tools' role='group'>
       <span className={styles.topBlur} aria-hidden="true" />
       <NavigationDrawer navigation={navigation} />
       <div className={styles.headerLinks}>
@@ -261,6 +264,14 @@ export function ShowcaseToolbar({
             <FolderCode size={18} />
           </a>
         )}
+        <button type="button" className={styles.icon} aria-label="Documentation view"
+          aria-pressed={splitOpen} aria-controls="component-details" onClick={onToggleSplit}>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M3.89124 3.89124C5.28249 2.5 7.52166 2.5 12 2.5C16.4783 2.5 18.7175 2.5 20.1088 3.89124C21.5 5.28249 21.5 7.52166 21.5 12C21.5 16.4783 21.5 18.7175 20.1088 20.1088C18.7175 21.5 16.4783 21.5 12 21.5C7.52166 21.5 5.28249 21.5 3.89124 20.1088C2.5 18.7175 2.5 16.4783 2.5 12C2.5 7.52166 2.5 5.28249 3.89124 3.89124Z" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" stroke="currentColor" />
+            <path d="M12 2.5V21.5" strokeWidth="1.5" strokeLinecap="round" stroke="currentColor" />
+            <path d="M3 7C3 4.79086 4.79086 3 7 3H12V21H7C4.79086 21 3 19.2091 3 17V7Z" fill="currentColor" fillOpacity=".72" />
+          </svg>
+        </button>
         {expandUrl && (
           <a
             className={styles.icon}

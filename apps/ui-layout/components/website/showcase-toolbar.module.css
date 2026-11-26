@@ -238,12 +238,17 @@
 }
 .drawerHeader .launcher { position: static; }
 .wordmark {
-  position: absolute;
-  left: calc(100% + 12px);
+  position: fixed;
+  display: flex;
+  align-items: center;
+  top: var(--toolbar-top);
+  height: var(--toolbar-height);
+  left: calc(var(--edge) + var(--toolbar-height) + 12px);
   width: min(154px, 38vw);
   max-width: none;
-  height: auto;
 }
+.wordmark img { width: 100%; height: auto; }
+.toolbar .icon[aria-pressed="true"] { background: #171717; color: white; }
 .toolbar > .launcher[data-state="open"] { opacity: 0; filter: blur(10px); pointer-events: none; }
 @media (prefers-reduced-motion: no-preference) {
   .toolbar > .launcher { transition: opacity 200ms ease-in-out, filter 200ms ease-in-out; }
@@ -337,9 +342,8 @@
   inset-inline: var(--edge);
 }
 @media (min-width: 900px) {
-  .toolbar {
-    --split-edge: max(16px, env(safe-area-inset-left), env(safe-area-inset-right));
-    --edge: calc(var(--container-edge) + (var(--split-edge) - var(--container-edge)) * var(--reveal, 0));
+  .toolbar[data-split-open="true"] {
+    --edge: max(16px, env(safe-area-inset-left), env(safe-area-inset-right));
   }
 }
 .launcher { position: fixed; top: var(--toolbar-top); left: var(--edge); }
@@ -434,7 +438,9 @@
   .command { max-width: 44vw; }
 }
 
-@media (min-width: 900px) and (prefers-reduced-motion: no-preference) {
-  .toolbar, .toolbar > .topBlur, .headerLinks { transition: left 140ms ease-out, right 140ms ease-out; }
-  .toolbar > .launcher { transition: left 140ms ease-out, opacity 200ms ease-in-out, filter 200ms ease-in-out; }
+@media (max-width: 500px) {
+  .command { max-width: max(20px, min(18vw, calc(100vw - 336px))); }
+}
+@media (max-width: 374px) {
+  .command { max-width: 44vw; }
 }

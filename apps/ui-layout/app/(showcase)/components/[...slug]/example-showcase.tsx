@@ -9,7 +9,7 @@ import { ClientPreCode } from '@/components/website/code-components/client-pre-c
 import styles from './showcase.module.css';
 import documentation from './example-documentation.module.css';
 
-type Example = Omit<ShowcaseToolbarProps, 'slug' | 'title' | 'navigation' | 'pager'> & { label: string; usageFile: string; usageCode: string; usageHtml: string; description?: string };
+type Example = Omit<ShowcaseToolbarProps, 'slug' | 'title' | 'navigation' | 'pager' | 'splitOpen' | 'onToggleSplit'> & { label: string; usageFile: string; usageCode: string; usageHtml: string; description?: string };
 
 export default function ExampleShowcase({ slug, title, examples, neighbors, children }: {
   neighbors: { previousComponent: { href: string; name: string } | null; nextComponent: { href: string; name: string } | null };
@@ -29,28 +29,43 @@ export default function ExampleShowcase({ slug, title, examples, neighbors, chil
 
   const layout = useRef<HTMLDivElement>(null);
   const [docsWidth, setDocsWidth] = useState(50);
-  const [splitReady, setSplitReady] = useState(false);
+  const [splitOpen, setSplitOpen] = useState(false);
 
   useEffect(() => {
     const element = layout.current;
     if (!element) return;
     const scroller = element.closest<HTMLElement>('[data-showcase-scroll]');
     const target = scroller ?? window;
-    const update = () => {
-      const height = scroller?.clientHeight ?? window.innerHeight;
+    const desktop = window.matchMedia('(min-width: 900px)');
+    const sync = () => {
       const offset = (scroller?.getBoundingClientRect().top ?? 0) - element.getBoundingClientRect().top;
-      const progress = Math.min(1, Math.max(0, offset / Math.max(1, height * 0.75)));
-      element.style.setProperty('--reveal', String(progress));
-      setSplitReady(progress === 1);
+      if (desktop.matches) {
+        if (offset > 0 || location.hash === '#component-details') setSplitOpen(true);
+      } else {
+        setSplitOpen(offset >= element.querySelector('section')!.offsetHeight - 72);
+      }
     };
-    update();
-    target.addEventListener('scroll', update, { passive: true });
-    window.addEventListener('resize', update);
+    sync();
+    target.addEventListener('scroll', sync, { passive: true });
+    window.addEventListener('hashchange', sync);
+    desktop.addEventListener('change', sync);
     return () => {
-      target.removeEventListener('scroll', update);
-      window.removeEventListener('resize', update);
+      target.removeEventListener('scroll', sync);
+      window.removeEventListener('hashchange', sync);
+      desktop.removeEventListener('change', sync);
     };
   }, [current?.name]);
+
+  function toggleSplit() {
+    const target = layout.current?.closest<HTMLElement>('[data-showcase-scroll]') ?? window;
+    if (splitOpen) {
+      if (location.hash === '#component-details') history.replaceState(null, '', location.pathname + location.search);
+      target.scrollTo({ top: 0, behavior: 'instant' });
+    } else if (!window.matchMedia('(min-width: 900px)').matches) {
+      document.getElementById('component-details')?.scrollIntoView();
+    }
+    setSplitOpen(!splitOpen);
+  }
 
   function resize(width: number) {
     setDocsWidth(Math.min(70, Math.max(30, Math.round(width))));
@@ -63,6 +78,7 @@ export default function ExampleShowcase({ slug, title, examples, neighbors, chil
     if (next) url.searchParams.set('example', examples[next].name);
     else url.searchParams.delete('example');
     history.pushState(null, '', url);
+    setSplitOpen(false);
     setIndex(next);
     const scroller = layout.current?.closest<HTMLElement>('[data-showcase-scroll]');
     (scroller ?? window).scrollTo({ top: 0, behavior: 'instant' });
@@ -93,13 +109,13 @@ export default function ExampleShowcase({ slug, title, examples, neighbors, chil
     <ClientPreCode raw={current.usageCode} html={current.usageHtml} />
   </section>;
   return <>
-    <a className={styles.skip} href="#component-details">Skip to documentation</a>
-    <div ref={layout} className={styles.split} style={{ '--docs-width': docsWidth + '%' } as CSSProperties}>
+    <a className={styles.skip} href="#component-details" onClick={() => setSplitOpen(true)}>Skip to documentation</a>
+    <div ref={layout} className={styles.split} data-open={splitOpen} style={{ '--docs-width': docsWidth + '%' } as CSSProperties}>
       <section className={styles.stage} data-demo={current.name} aria-label={name + ' preview'}>
         <iframe key={current.name} data-showcase-preview scrolling="no" className={styles.frame} src={current.expandUrl} title={name + ' interactive preview'} />
         <div role="separator" aria-label="Documentation width" aria-orientation="vertical"
           aria-controls="component-details" aria-valuemin={30} aria-valuemax={70} aria-valuenow={docsWidth}
-          aria-valuetext={docsWidth + '% documentation width'} hidden={!splitReady} tabIndex={0}
+          aria-valuetext={docsWidth + '% documentation width'} hidden={!splitOpen} tabIndex={0}
           className={styles.divider}
           onPointerDown={event => {
             if (event.button !== 0) return;
@@ -128,7 +144,7 @@ export default function ExampleShowcase({ slug, title, examples, neighbors, chil
           {usage}
         </article>}
       </div>
-      <ShowcaseToolbar slug={slug} title={name} {...current} navigation={{ index, examples, select }} pager={pager} />
+      <ShowcaseToolbar splitOpen={splitOpen} onToggleSplit={toggleSplit} slug={slug} title={name} {...current} navigation={{ index, examples, select }} pager={pager} />
     </div>
   </>;
 }

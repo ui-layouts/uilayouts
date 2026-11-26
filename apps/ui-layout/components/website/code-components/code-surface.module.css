@@ -30,3 +30,30 @@
   white-space: pre;
 }
 .surface [data-orientation] { z-index: 1; }
+
+.shell button[aria-label='Copy code'], .shell button[aria-label='Copied'] {
+  background: var(--muted);
+  border: 0;
+  border-radius: 7px;
+}
+.languages {
+  position: absolute;
+  top: 8px;
+  right: 48px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 5px;
+  border-radius: 12px;
+  background: var(--muted);
+}
+.language {
+  position: relative;
+  z-index: 2;
+  display: block;
+  padding: 3px 8px;
+  border-radius: 7px;
+  font-size: 12px;
+  line-height: 18px;
+}

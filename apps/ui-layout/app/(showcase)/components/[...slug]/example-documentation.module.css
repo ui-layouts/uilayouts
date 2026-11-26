@@ -15,3 +15,14 @@
 .page article [role="tablist"]:has([aria-controls$="-content-cli"]) [role="tab"] {
   border-radius: calc(12px - var(--shell-inset));
 }
+
+.page article [role="tablist"]:has([aria-controls$="-content-cli"]) {
+  display: flex;
+  align-items: stretch;
+  height: auto;
+}
+.page article [role="tablist"]:has([aria-controls$="-content-cli"]) [role="tab"] {
+  margin: 0;
+  line-height: 20px;
+  padding-block: 6px;
+}
