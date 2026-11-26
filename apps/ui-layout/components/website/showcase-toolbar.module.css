@@ -54,6 +54,7 @@
 .pager,
 .center,
 .actions {
+  box-sizing: border-box;
   background: var(--panel-shell);
   box-shadow: var(--panel-rim);
   --shell-radius: 12px;
@@ -88,14 +89,14 @@
   flex: none;
   display: grid;
   place-items: center;
-  width: calc(var(--nav-size) + 2 * var(--shell-inset));
-  height: calc(var(--nav-size) + 2 * var(--shell-inset));
+  width: var(--toolbar-height, calc(var(--nav-size) + 2 * var(--shell-inset)));
+  height: var(--toolbar-height, calc(var(--nav-size) + 2 * var(--shell-inset)));
   padding: var(--shell-inset);
   border: 0;
 }
 .launcher > span {
-  width: 100%;
-  height: 100%;
+  width: var(--nav-size);
+  height: var(--nav-size);
   display: grid;
   place-items: center;
   border-radius: var(--control-radius);
@@ -396,6 +397,8 @@
   .drawer { --nav-size: 30px; }
 }
 .headerLinks {
+  height: var(--toolbar-height);
+  align-items: center;
   display: flex;
   gap: 5px;
   position: fixed;

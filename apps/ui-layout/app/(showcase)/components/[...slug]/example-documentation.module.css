@@ -41,14 +41,16 @@
 .page article :is(h2, h3, h4, h5, h6) {
   font-weight: 500;
   line-height: 1.3;
-  margin-block: 2.25rem .5rem;
+  margin-block: 3rem .75rem;
 }
 .page article :is(h2, h3, h4, h5, h6) :is(strong, b) { font-weight: inherit; }
 .page article :is(h2, h3, h4, h5, h6) + :where(p, ul, ol) { margin-block-start: 0; }
 @media (min-width: 900px) {
   .page [data-showcase-notes] article[aria-labelledby="component-title"] {
     width: 100%;
-    margin-inline: 0;
+    margin-inline: auto;
     padding-top: 0;
   }
 }
+
+.page article > p + :is(:global(.prose), .source) { margin-top: 3rem; }

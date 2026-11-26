@@ -164,7 +164,7 @@
   }
   .notesScroll > [data-radix-scroll-area-viewport] > div {
     display: block !important; /* Radix defaults to a table that can grow to a code line's width. */
-    padding: clamp(9rem, 27svh, 18rem) clamp(16px, 1.8vw, 32px) 0;
+    padding: clamp(96px, 12.2svh, 124px) clamp(16px, 9.5%, 90px) 0;
   }
   .notesScroll > [data-orientation='vertical'] { right: 12px !important; }
 
@@ -191,4 +191,20 @@
 
   .divider:focus-visible { outline: 2px solid var(--ring); }
   .stage:has(.divider:active) iframe { pointer-events: none; }
+}
+
+.details .componentHeading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.headingTile {
+  flex: 0 0 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  color: var(--muted-foreground);
+  background: var(--muted);
 }

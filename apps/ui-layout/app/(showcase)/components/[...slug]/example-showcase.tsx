@@ -7,6 +7,7 @@ import toolbarStyles from '@/components/website/showcase-toolbar.module.css';
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react';
 import ShowcaseToolbar, { type ShowcaseToolbarProps } from '@/components/website/showcase-toolbar';
 import { ClientPreCode } from '@/components/website/code-components/client-pre-code';
+import ComponentHeading from './component-heading';
 import styles from './showcase.module.css';
 import documentation from './example-documentation.module.css';
 
@@ -181,7 +182,7 @@ export default function ExampleShowcase({ slug, title, examples, neighbors, chil
       <div className={styles.notes} data-showcase-notes>
         <ScrollArea type="hover" className={styles.notesScroll}>
           {index === 0 ? children : <article id="component-details" tabIndex={-1} className={styles.details} aria-labelledby="component-title">
-            <h1 id="component-title">{name}</h1>
+            <ComponentHeading title={name} />
             <p className={styles.description}>{current.description}</p>
             {usage}
           </article>}
