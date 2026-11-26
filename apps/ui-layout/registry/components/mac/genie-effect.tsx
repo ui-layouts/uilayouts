@@ -23,6 +23,9 @@ interface Pt {
   x: number;
   y: number;
 }
+interface WindowFrame extends Pt {
+  scale: number;
+}
 interface App {
   id: string;
   Icon: React.FC;
@@ -391,32 +394,25 @@ function renderGenie(
   rawT: number,
   dir: Dir,
   dock: Pt,
-  win: Pt,
+  win: WindowFrame,
 ): void {
   ctx.clearRect(0, 0, W, H);
+  // Restore follows the same funnel as minimize, played backwards.
+  const t = dir === "minimize" ? rawT : 1 - rawT;
   for (let y = 0; y < WIN_H; y++) {
     const r = y / WIN_H;
-    const rowXStart = dir === "minimize" ? (1 - r) * 0.65 : r * 0.65;
-    const xP = clamp((rawT - rowXStart) / (1 - rowXStart), 0, 1);
-    const xE = eioC(xP);
-    const rowYStart = dir === "minimize" ? (1 - r) * 0.2 : r * 0.2;
-    const yP = clamp((rawT - rowYStart) / (1 - rowYStart), 0, 1);
-    const yE = eIn2(yP);
-    let left: number, right: number, destY: number;
-    if (dir === "minimize") {
-      left = lerp(win.x, dock.x, xE);
-      right = lerp(win.x + WIN_W, dock.x, xE);
-      destY = lerp(win.y + y, dock.y, yE);
-    } else {
-      left = lerp(dock.x, win.x, xE);
-      right = lerp(dock.x, win.x + WIN_W, xE);
-      destY = lerp(dock.y, win.y + y, yE);
-    }
+    const rowXStart = (1 - r) * 0.65;
+    const xE = eioC(clamp((t - rowXStart) / (1 - rowXStart), 0, 1));
+    const rowYStart = (1 - r) * 0.2;
+    const yE = eIn2(clamp((t - rowYStart) / (1 - rowYStart), 0, 1));
+    const left = lerp(win.x, dock.x, xE);
+    const right = lerp(win.x + WIN_W * win.scale, dock.x, xE);
+    const destY = lerp(win.y + y * win.scale, dock.y, yE);
     const rowW = right - left;
     if (rowW < 0.8) continue;
-    ctx.drawImage(off, 0, y, WIN_W, 1, left, destY, rowW, 1);
+    ctx.drawImage(off, 0, y, WIN_W, 1, left, destY, rowW, Math.max(1, win.scale));
   }
-  const glowRaw = dir === "minimize" ? rawT : 1 - rawT;
+  const glowRaw = t;
   if (glowRaw > 0.75) {
     const a = eOut2((glowRaw - 0.75) / 0.25) * 0.3;
     const hex = Math.round(a * 255)
@@ -636,7 +632,7 @@ function TrelloContent() {
                 className="rounded-md p-2 bg-white"
                 style={{ boxShadow: "0 1px 0 rgba(0,0,0,.1)" }}
               >
-                <div className="text-[11px] text-foreground leading-tight mb-1.5">
+                <div className="text-[11px] text-neutral-800 leading-tight mb-1.5">
                   {c.title}
                 </div>
                 <span
@@ -886,11 +882,17 @@ const MacWindow = ({
   app,
   winPos,
   onClose,
+  onMinimize,
+  onZoom,
+  zoomed = false,
   domRef,
 }: {
   app: App;
-  winPos: Pt;
-  onClose: () => void;
+  winPos: WindowFrame;
+  onClose?: () => void;
+  onMinimize?: () => void;
+  onZoom?: () => void;
+  zoomed?: boolean;
   domRef: React.RefCallback<HTMLDivElement>;
 }) => {
   const Content = WindowContent[app.id];
@@ -901,6 +903,8 @@ const MacWindow = ({
       style={{
         width: WIN_W,
         height: WIN_H,
+        transformOrigin: "top left",
+        transform: `scale(${winPos.scale})`,
         left: winPos.x,
         top: winPos.y,
         borderRadius: 13,
@@ -918,21 +922,26 @@ const MacWindow = ({
           borderBottom: "1px solid rgba(0,0,0,.45)",
         }}
       >
-        <div className="flex items-center gap-2 z-10">
-          <button
-            onClick={onClose}
-            className="w-3.5 h-3.5 rounded-full border-none cursor-pointer hover:brightness-90 transition-all"
-            style={{ background: "#ff5f57", boxShadow: "0 0 0 0.5px #e0443e" }}
-          />
-          <button
-            onClick={onClose}
-            className="w-3.5 h-3.5 rounded-full border-none cursor-pointer hover:brightness-90 transition-all"
-            style={{ background: "#febc2e", boxShadow: "0 0 0 0.5px #d4a017" }}
-          />
-          <div
-            className="w-3.5 h-3.5 rounded-full"
-            style={{ background: "#28c840", boxShadow: "0 0 0 0.5px #1aab29" }}
-          />
+        <div className="group flex items-center gap-2 z-10">
+          {[
+            { label: "Close", color: "#ff5f57", path: "M3 3l6 6m0-6L3 9", action: onClose },
+            { label: "Minimize", color: "#febc2e", path: "M2 6h8", action: onMinimize },
+            { label: zoomed ? "Restore" : "Zoom", color: "#28c840", path: zoomed ? "M1 5h4V1m6 6H7v4" : "M2 6V2h4m4 4v4H6", action: onZoom },
+          ].map(({ label, color, path, action }) => (
+            <button
+              key={color}
+              type="button"
+              aria-label={label}
+              title={label}
+              onClick={action}
+              className="grid size-3.5 cursor-pointer place-items-center rounded-full focus-visible:outline-white"
+              style={{ background: color }}
+            >
+              <svg aria-hidden="true" viewBox="0 0 12 12" className="size-2.5 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 [@media(hover:none)]:opacity-100">
+                <path d={path} fill="none" stroke="#352719" strokeWidth="1.6" />
+              </svg>
+            </button>
+          ))}
         </div>
         <span
           className="absolute inset-x-0 text-center text-xs font-medium pointer-events-none"
@@ -1010,6 +1019,7 @@ function MagnifiedDockIcon({
       <TooltipTrigger asChild>
         <motion.button
           ref={setRefs}
+          aria-label={app.label}
           onClick={onClick}
           disabled={disabled}
           style={{
@@ -1113,6 +1123,7 @@ function SnapshotStage({
   return (
     <div
       aria-hidden
+      inert
       style={{
         position: "fixed",
         left: -10000,
@@ -1132,8 +1143,7 @@ function SnapshotStage({
         >
           <MacWindow
             app={a}
-            winPos={{ x: 0, y: 0 }}
-            onClose={() => {}}
+            winPos={{ x: 0, y: 0, scale: 1 }}
             domRef={(el) => {
               refs.current[i] = el;
             }}
@@ -1157,7 +1167,9 @@ export default function GenieEffect() {
 
   const [phase, setPhase] = useState<Phase>("idle");
   const [activeApp, setActiveApp] = useState<number | null>(null);
-  const [winPos, setWinPos] = useState<Pt>({ x: 0, y: 0 });
+  const [winPos, setWinPos] = useState<WindowFrame>({ x: 0, y: 0, scale: 1 });
+  const [minimized, setMinimized] = useState<Record<number, boolean>>({});
+  const [zoomed, setZoomed] = useState(false);
   const [snapshotsReady, setSnapshotsReady] = useState(false);
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -1192,11 +1204,14 @@ export default function GenieEffect() {
     return { w: el.clientWidth, h: el.clientHeight };
   }, []);
 
-  const getWinPos = useCallback((): Pt => {
+  const getWinPos = useCallback((expanded = false): WindowFrame => {
     const { w, h } = getContainerSize();
+    const fit = Math.min((w - 16) / WIN_W, (h - 128) / WIN_H);
+    const scale = expanded ? fit : Math.min(1, fit * 0.92);
     return {
-      x: (w - WIN_W) / 2,
-      y: (h - WIN_H) / 2 - 20,
+      scale,
+      x: (w - WIN_W * scale) / 2,
+      y: 28 + (h - 128 - WIN_H * scale) / 2,
     };
   }, [getContainerSize]);
 
@@ -1232,12 +1247,15 @@ export default function GenieEffect() {
   }, []);
 
   const startAnim = useCallback(
-    (dir: Dir, appIdx: number, onDone: () => void) => {
+    (dir: Dir, appIdx: number, win: WindowFrame, onDone: () => void) => {
       cancelAnimationFrame(rafRef.current);
       const dock = getDockCenter(appIdx);
-      const win = getWinPos();
       const { w: cw, h: ch } = getContainerSize();
       const off = offRef.current[appIdx];
+      if (!off) {
+        onDone();
+        return;
+      }
       let start: number | null = null;
       function frame(ts: number) {
         if (!start) start = ts;
@@ -1262,19 +1280,21 @@ export default function GenieEffect() {
       }
       rafRef.current = requestAnimationFrame(frame);
     },
-    [getDockCenter, getWinPos, getContainerSize],
+    [getDockCenter, getContainerSize],
   );
 
   const doOpen = useCallback(
     (idx: number) => {
       if (stateRef.current.phase !== "idle") return;
-      const wp = getWinPos();
+      const restoreZoom = minimized[idx] ?? false;
+      const wp = getWinPos(restoreZoom);
       setupCanvas();
       stateRef.current = { phase: "opening", activeApp: idx };
+      setZoomed(restoreZoom);
       setWinPos(wp);
       setPhase("opening");
       setActiveApp(idx);
-      startAnim("open", idx, () => {
+      startAnim("open", idx, wp, () => {
         stateRef.current.phase = "open";
         // flushSync forces React to commit the MacWindow into the DOM
         // synchronously, before clearCanvas runs. Without this, setPhase
@@ -1289,10 +1309,10 @@ export default function GenieEffect() {
         clearCanvas();
       });
     },
-    [getWinPos, setupCanvas, startAnim, clearCanvas],
+    [getWinPos, setupCanvas, startAnim, clearCanvas, minimized],
   );
 
-  const doMinimize = useCallback(() => {
+  const hideWindow = useCallback((minimize: boolean) => {
     const { phase: p, activeApp: a } = stateRef.current;
     if (p !== "open" || a === null) return;
 
@@ -1301,10 +1321,10 @@ export default function GenieEffect() {
 
     setupCanvas();
     const dock = getDockCenter(a);
-    const win = getWinPos();
+    const win = getWinPos(zoomed);
     const { w: cw, h: ch } = getContainerSize();
     const ctx = cvs?.getContext("2d");
-    if (ctx && cvs) {
+    if (ctx && cvs && offRef.current[a]) {
       renderGenie(ctx, offRef.current[a], cw, ch, 0, "minimize", dock, win);
     }
 
@@ -1313,16 +1333,22 @@ export default function GenieEffect() {
       windowRef.current.style.pointerEvents = "none";
     }
 
+    setMinimized(previous => {
+      const next = { ...previous };
+      if (minimize) next[a] = zoomed;
+      else delete next[a];
+      return next;
+    });
     stateRef.current.phase = "closing";
     setPhase("closing");
 
-    startAnim("minimize", a, () => {
+    startAnim("minimize", a, win, () => {
       stateRef.current = { phase: "idle", activeApp: null };
       setPhase("idle");
       setActiveApp(null);
       clearCanvas();
     });
-  }, [setupCanvas, getDockCenter, getWinPos, getContainerSize, startAnim, clearCanvas]);
+  }, [setupCanvas, getDockCenter, getWinPos, getContainerSize, startAnim, clearCanvas, zoomed]);
 
   useEffect(() => {
     return () => {
@@ -1338,12 +1364,12 @@ export default function GenieEffect() {
     if (!el || typeof ResizeObserver === "undefined") return;
     const ro = new ResizeObserver(() => {
       if (stateRef.current.phase === "open") {
-        setWinPos(getWinPos());
+        setWinPos(getWinPos(zoomed));
       }
     });
     ro.observe(el);
     return () => ro.disconnect();
-  }, [getWinPos]);
+  }, [getWinPos, zoomed]);
 
   const isAnimating = phase === "opening" || phase === "closing";
   const app = activeApp !== null ? APPS[activeApp] : null;
@@ -1351,12 +1377,12 @@ export default function GenieEffect() {
   return (
     <div
       ref={containerRef}
-      className="relative w-full h-150 overflow-hidden select-none"
+      className="relative isolate w-full h-150 overflow-hidden select-none bg-neutral-900"
     >
       <img
         src="/macos.jpg"
         alt="macos"
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 size-full max-w-none object-cover"
       />
 
       <style>{`@keyframes blink { 0%,49% { opacity: 1 } 50%,100% { opacity: 0 } }`}</style>
@@ -1426,7 +1452,13 @@ export default function GenieEffect() {
         <MacWindow
           app={app}
           winPos={winPos}
-          onClose={doMinimize}
+          onMinimize={() => hideWindow(true)}
+          onClose={() => hideWindow(false)}
+          zoomed={zoomed}
+          onZoom={() => {
+            setWinPos(getWinPos(!zoomed));
+            setZoomed(!zoomed);
+          }}
           domRef={(el) => {
             windowRef.current = el;
           }}
@@ -1461,7 +1493,7 @@ export default function GenieEffect() {
                   key={a.id}
                   app={a}
                   isActive={activeApp === i}
-                  showDot={phase === "open" && activeApp === i}
+                  showDot={(phase === "open" && activeApp === i) || i in minimized}
                   disabled={isAnimating || !snapshotsReady}
                   btnRef={(el) => {
                     dockRefs.current[i] = el;

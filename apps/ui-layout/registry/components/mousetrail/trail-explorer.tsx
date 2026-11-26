@@ -107,7 +107,7 @@ function ExampleStage({
         duration={560}
         touchAction='none'
         imgClass='size-[clamp(72px,12.5cqw,128px)] object-contain'
-        className='@container h-[clamp(300px,45vw,430px)] bg-[#fdfdfc] text-[#151510] [&>[aria-hidden=true]]:z-20'
+        className='@container h-[clamp(300px,45vw,430px)] bg-[#fdfdfc] text-[#151510] dark:bg-card dark:text-card-foreground [&>[aria-hidden=true]]:z-20'
       >
         <h2 className={displayTitle}>
           <em>Beyond the</em> Limit
@@ -131,7 +131,7 @@ function ExampleStage({
             ? 'size-[clamp(74px,14cqw,122px)] object-contain'
             : 'h-32 w-24 rounded-sm border border-white/30 shadow-lg sm:h-48 sm:w-36'
         }
-        className='@container h-[clamp(300px,55vw,520px)] bg-white text-[#151510] [&>[aria-hidden=true]]:z-20'
+        className='@container h-[clamp(300px,55vw,520px)] bg-white text-[#151510] dark:bg-card dark:text-card-foreground [&>[aria-hidden=true]]:z-20'
       >
         <h2 className='pointer-events-none text-balance px-4 text-center text-[clamp(2.75rem,11cqw,8rem)] leading-[0.9] font-bold tracking-[-0.08em] [font-family:Trail_Inter,Arial,sans-serif]'>
           {trailTitles[id]}
@@ -141,7 +141,7 @@ function ExampleStage({
   }
 
   return (
-    <div className='@container relative isolate grid h-[clamp(300px,45vw,430px)] touch-none place-items-center overflow-hidden rounded-lg bg-white text-[#151510]'>
+    <div className='@container relative isolate grid h-[clamp(300px,45vw,430px)] touch-none place-items-center overflow-hidden rounded-lg bg-white text-[#151510] dark:bg-card dark:text-card-foreground'>
       <h2 className='pointer-events-none px-4 text-center text-[clamp(2.5rem,8cqw,5rem)] leading-none font-semibold tracking-[-0.08em] [font-family:Trail_Space_Grotesk,sans-serif]'>
         Soft shapes.
       </h2>
