@@ -55,8 +55,8 @@
 }
 .details :where(p, li) { max-inline-size: 78ch; }
 .description {
-  margin: 0 0 2rem;
-  line-height: 1.65;
+  margin: 0 0 1rem;
+  line-height: 1.5;
   color: var(--muted-foreground);
 }
 .skip {
@@ -158,7 +158,8 @@
   }
   .notesScroll > [data-radix-scroll-area-viewport] > div {
     display: block !important; /* Radix defaults to a table that can grow to a code line's width. */
-    padding: clamp(120px, 19svh, 176px) clamp(16px, 1.8vw, 32px) 0;
+    padding: calc(var(--toolbar-top) + var(--toolbar-height) + var(--preview-gap) + 1rem)
+      clamp(16px, 1.8vw, 32px) 0;
   }
   .notesScroll > [data-orientation='vertical'] { right: 12px !important; }
 
