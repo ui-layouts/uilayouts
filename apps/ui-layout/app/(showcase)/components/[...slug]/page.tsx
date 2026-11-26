@@ -6,6 +6,7 @@ import { getAdjacentComponents } from '@/components/website/code-components/pagi
 import ExampleShowcase from './example-showcase';
 import { getShowcase } from '@/lib/showcase';
 import Link from 'next/link';
+import ComponentHeading from './component-heading';
 import styles from './showcase.module.css';
 import documentation from './example-documentation.module.css';
 import { getAllDocs, getDocBySlug } from '@/lib/docs';
@@ -125,7 +126,7 @@ export default async function DocPage(props: {
       <ExampleShowcase key={slug} slug={slug} title={title} examples={examples} neighbors={getAdjacentComponents(slug)}>
       <article id="component-details" tabIndex={-1} className={styles.details} aria-labelledby='component-title'>
         {!showcase && <Link href='/components'>← Components</Link>}
-        <h1 id='component-title'>{title}</h1>
+        <ComponentHeading title={title} />
         <p className={styles.description}>{description}</p>
         <div className='prose prose-zinc dark:prose-invert max-w-none prose-table:block prose-table:overflow-x-auto'>
           <Content components={{
@@ -139,8 +140,6 @@ export default async function DocPage(props: {
           }} />
         </div>
         {showcase && <section className={documentation.source} aria-label="Example source">
-          <h2 className="mb-3 text-xl font-semibold">Example source</h2>
-          <div className={documentation.filename}>{showcase.usageFile}</div>
           <ClientPreCode raw={showcase.usageCode} html={showcase.usageHtml} />
         </section>}
       </article>

@@ -54,12 +54,9 @@
 .pager,
 .center,
 .actions {
-  background: color-mix(in srgb, var(--foreground, #151515) 6%, var(--background, white));
-  box-shadow:
-    inset 0 1px 0 color-mix(in srgb, white 30%, transparent),
-    inset 0 -1px 0 rgb(0 0 0 / 5%),
-    0 0 0 1px color-mix(in srgb, var(--foreground) 7%, transparent),
-    0 2px 4px rgb(0 0 0 / 5%);
+  box-sizing: border-box;
+  background: var(--panel-shell);
+  box-shadow: var(--panel-rim);
   --shell-radius: 12px;
   --control-radius: max(0px, var(--shell-radius) - var(--shell-inset));
   border-radius: var(--shell-radius);
@@ -92,14 +89,14 @@
   flex: none;
   display: grid;
   place-items: center;
-  width: calc(var(--nav-size) + 2 * var(--shell-inset));
-  height: calc(var(--nav-size) + 2 * var(--shell-inset));
+  width: var(--toolbar-height, calc(var(--nav-size) + 2 * var(--shell-inset)));
+  height: var(--toolbar-height, calc(var(--nav-size) + 2 * var(--shell-inset)));
   padding: var(--shell-inset);
   border: 0;
 }
 .launcher > span {
-  width: 100%;
-  height: 100%;
+  width: var(--nav-size);
+  height: var(--nav-size);
   display: grid;
   place-items: center;
   border-radius: var(--control-radius);
@@ -242,15 +239,29 @@
 }
 .drawerHeader .launcher { position: static; }
 .wordmark {
-  position: absolute;
-  left: calc(100% + 12px);
+  position: fixed;
+  display: flex;
+  align-items: center;
+  top: var(--toolbar-top);
+  height: var(--toolbar-height);
+  left: calc(var(--edge) + var(--toolbar-height) + 12px);
   width: min(154px, 38vw);
   max-width: none;
-  height: auto;
 }
-.toolbar > .launcher[data-state="open"] { opacity: 0; filter: blur(10px); pointer-events: none; }
+.wordmark img { width: 100%; height: auto; }
+.toolbar:has(> .launcher[data-state="open"]) > :is(.launcher, .wordmark) {
+  opacity: 0;
+  filter: blur(10px);
+  pointer-events: none;
+}
 @media (prefers-reduced-motion: no-preference) {
-  .toolbar > .launcher { transition: opacity 200ms ease-in-out, filter 200ms ease-in-out; }
+  .toolbar > :is(.launcher, .wordmark, .headerLinks) {
+    transition:
+      left var(--split-transition),
+      right var(--split-transition),
+      opacity 200ms ease-in-out,
+      filter 200ms ease-in-out;
+  }
 }
 .github {
   position: relative;
@@ -261,6 +272,10 @@
   border: var(--github-border) solid #45449e;
   border-radius: var(--control-radius);
   background: #21196e;
+}
+.github > span > svg {
+  width: 18px;
+  height: 18px;
 }
 .github :global(.rounded-lg) {
   border-radius: max(0px, var(--control-radius) - var(--github-border));
@@ -335,7 +350,19 @@
   .actions { justify-self: end; }
 }
 
-.toolbar { --edge: max(10px, 3vw, calc((100% - 1280px) / 2)); inset-inline: var(--edge); }
+.toolbar {
+  --container-edge: max(10px, 3vw, calc((100% - 1280px) / 2));
+  --edge: var(--container-edge);
+  inset-inline: var(--edge);
+}
+@media (min-width: 900px) {
+  .toolbar[data-split-open="true"] {
+    --edge: max(16px, env(safe-area-inset-left), env(safe-area-inset-right));
+  }
+  .toolbar, .toolbar > .topBlur {
+    transition: left var(--split-transition), right var(--split-transition);
+  }
+}
 .launcher { position: fixed; top: var(--toolbar-top); left: var(--edge); }
 .pager { display: flex; justify-self: start; flex: none; }
 .pager :is(a, button) { display: grid; place-items: center; width: var(--nav-size); height: var(--nav-size); border: 0; border-radius: var(--control-radius); background: var(--background); }
@@ -374,6 +401,8 @@
   .drawer { --nav-size: 30px; }
 }
 .headerLinks {
+  height: var(--toolbar-height);
+  align-items: center;
   display: flex;
   gap: 5px;
   position: fixed;
@@ -425,5 +454,12 @@
   .center { grid-column: 1 / -1; grid-row: 1; justify-self: center; }
   .pager, .actions { grid-row: 2; }
   .actions { justify-self: end; }
+  .command { max-width: 44vw; }
+}
+
+@media (max-width: 500px) {
+  .command { max-width: max(20px, min(18vw, calc(100vw - 336px))); }
+}
+@media (max-width: 374px) {
   .command { max-width: 44vw; }
 }

@@ -1,0 +1,57 @@
+.shell {
+  --pad: var(--shell-inset, 5px);
+  position: relative;
+  min-width: 0;
+  padding: var(--pad);
+  border-radius: 12px;
+  background: var(--panel-shell, var(--muted));
+  box-shadow: var(--panel-rim, inset 0 0 0 1px var(--border));
+}
+.shell button[aria-label='Copy code'], .shell button[aria-label='Copied'] {
+  z-index: 2;
+  border-radius: calc(12px - var(--pad));
+}
+.shell [role='tab'] { border-radius: calc(12px - var(--pad)); }
+.surface {
+  min-width: 0;
+  border-radius: calc(12px - var(--pad, 5px));
+  background: var(--background);
+}
+.surface [data-radix-scroll-area-viewport] {
+  height: auto;
+  max-height: min(34rem, 65svh);
+}
+.surface pre {
+  margin: 0;
+  width: max-content;
+  min-width: 100%;
+  max-height: none;
+  overflow: visible;
+  padding: 14px 3.25rem 14px 14px;
+  background: transparent !important;
+  border: 0;
+  white-space: pre;
+}
+.surface [data-orientation] { z-index: 1; }
+
+.languages {
+  position: absolute;
+  top: 8px;
+  right: 48px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 5px;
+  border-radius: 12px;
+  background: var(--muted);
+}
+.language {
+  position: relative;
+  z-index: 2;
+  display: block;
+  padding: 3px 8px;
+  border-radius: 7px;
+  font-size: 12px;
+  line-height: 18px;
+}

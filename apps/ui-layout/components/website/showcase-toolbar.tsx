@@ -7,7 +7,6 @@ import {
   Copy,
   Expand,
   FolderCode,
-  PanelLeft,
 } from 'lucide-react';
 import Link from 'next/link';
 import HomeGitHubButton from './home/github-repo-button';
@@ -26,6 +25,7 @@ export interface ShowcaseToolbarProps {
   sourceCode: string;
   expandUrl: string;
   originalUrl?: string;
+  splitOpen: boolean;
   pager: React.ReactNode;
   navigation: { index: number; examples: { name: string; label: string }[]; select: (index: number) => void };
 }
@@ -38,21 +38,32 @@ const managers = {
 };
 type Manager = keyof typeof managers;
 
+function NavigationIcon({ open }: { open: boolean }) {
+  const outline = 'M3.89124 3.89124C5.28249 2.5 7.52166 2.5 12 2.5C16.4783 2.5 18.7175 2.5 20.1088 3.89124C21.5 5.28249 21.5 7.52166 21.5 12C21.5 16.4783 21.5 18.7175 20.1088 20.1088C18.7175 21.5 16.4783 21.5 12 21.5C7.52166 21.5 5.28249 21.5 3.89124 20.1088C2.5 18.7175 2.5 16.4783 2.5 12C2.5 7.52166 2.5 5.28249 3.89124 3.89124Z';
+  const leftPanel = 'M2.5 7C2.5 4.5 4.5 2.5 7 2.5H9V21.5H7C4.5 21.5 2.5 19.5 2.5 17V7Z';
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" strokeLinecap="round" strokeLinejoin="round">
+      {open && <path d={leftPanel} fill="#484848" />}
+      <path d={outline} stroke="currentColor" strokeWidth="1.5" />
+      <path d="M9 2.5V21.5" stroke="currentColor" strokeWidth="1.5" />
+    </svg>
+  );
+}
+
 function NavigationDrawer({ navigation }: Pick<ShowcaseToolbarProps, 'navigation'>) {
   const [open, setOpen] = useState(false);
-  const toggle = <span><PanelLeft size={20} strokeWidth={1.55} aria-hidden /></span>;
+  const toggle = <span><NavigationIcon open={open} /></span>;
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger asChild>
-        <button type="button" className={styles.launcher} aria-label="Open component navigation">{toggle}
-          <img className={styles.wordmark} src="/showcase-wordmark.svg" alt="" width={154} />
-        </button>
+        <button type="button" className={styles.launcher} aria-label="Open component navigation">{toggle}</button>
       </Dialog.Trigger>
+      <Link className={styles.wordmark} href="/" aria-label="UI Layouts home"><img src="/showcase-wordmark.svg" alt="" width={154} /></Link>
       <Dialog.Portal>
         <Dialog.Overlay className={styles.overlay} />
         <Dialog.Content className={styles.drawer} aria-describedby={undefined}>
           <header className={styles.drawerHeader}>
-            <Dialog.Title><Link href="/components" onClick={() => setOpen(false)}><img src="/showcase-wordmark.svg" alt="UI Layouts" width={154} /></Link></Dialog.Title>
+            <Dialog.Title><Link href="/" onClick={() => setOpen(false)}><img src="/showcase-wordmark.svg" alt="UI Layouts" width={154} /></Link></Dialog.Title>
             <Dialog.Close asChild>
               <button type="button" className={styles.launcher} aria-label="Close component navigation">{toggle}</button>
             </Dialog.Close>
@@ -71,14 +82,18 @@ function NavigationDrawer({ navigation }: Pick<ShowcaseToolbarProps, 'navigation
   );
 }
 
-function ReadingProgress({ slug }: { slug: string }) {
+function ReadingProgress({ slug, splitOpen }: { slug: string; splitOpen: boolean }) {
   const [progress, setProgress] = useState(0);
   useEffect(() => {
-    const scroller = document.querySelector<HTMLElement>(
-      '[data-showcase-scroll]'
-    );
-    const target = scroller ?? window;
+    const page = document.querySelector<HTMLElement>('[data-showcase-scroll]');
+    const notes = document.querySelector<HTMLElement>('[data-showcase-notes] [data-radix-scroll-area-viewport]');
+    const desktop = window.matchMedia('(min-width: 900px)');
     const measure = () => {
+      const scroller = desktop.matches ? notes : page;
+      if (desktop.matches && !splitOpen) {
+        setProgress(0);
+        return;
+      }
       const height = scroller ? scroller.clientHeight : window.innerHeight;
       const extent =
         (scroller ?? document.documentElement).scrollHeight - height;
@@ -90,18 +105,21 @@ function ReadingProgress({ slug }: { slug: string }) {
       );
     };
     const observer = new ResizeObserver(measure);
-    observer.observe(scroller ?? document.body);
-    if (scroller?.firstElementChild)
-      observer.observe(scroller.firstElementChild);
+    observer.observe(page ?? document.body);
+    if (notes) observer.observe(notes);
+    if (notes?.firstElementChild) observer.observe(notes.firstElementChild);
+    const target = page ?? window;
     target.addEventListener('scroll', measure, { passive: true });
+    notes?.addEventListener('scroll', measure, { passive: true });
     window.addEventListener('resize', measure);
     measure();
     return () => {
       observer.disconnect();
+      notes?.removeEventListener('scroll', measure);
       target.removeEventListener('scroll', measure);
       window.removeEventListener('resize', measure);
     };
-  }, [slug]);
+  }, [slug, splitOpen]);
   return (
     <div
       className={styles.progress}
@@ -139,6 +157,7 @@ export function ShowcaseToolbar({
   expandUrl,
   navigation,
   pager,
+  splitOpen,
 }: ShowcaseToolbarProps) {
   const [manager, setManager] = useState<Manager>('npm');
   const [feedback, setFeedback] = useState<{
@@ -194,7 +213,7 @@ export function ShowcaseToolbar({
   const copied = (action: 'command' | 'prompt') =>
     feedback?.action === action && feedback.success;
   return (
-    <div className={styles.toolbar} aria-label='Component tools' role='group'>
+    <div className={styles.toolbar} data-split-open={splitOpen} aria-label='Component tools' role='group'>
       <span className={styles.topBlur} aria-hidden="true" />
       <NavigationDrawer navigation={navigation} />
       <div className={styles.headerLinks}>
@@ -237,7 +256,7 @@ export function ShowcaseToolbar({
             </CopyLabel>
           </button>
         </div>
-        <ReadingProgress slug={slug} />
+        <ReadingProgress slug={slug} splitOpen={splitOpen} />
       </div>
       <div className={styles.actions}>
         <button

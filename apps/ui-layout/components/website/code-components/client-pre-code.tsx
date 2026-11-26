@@ -1,5 +1,7 @@
 'use client';
 
+import { CodeSurface } from './code-surface';
+import styles from './code-surface.module.css';
 import { cn } from '@/lib/utils';
 import { CopyButton } from './copy-button';
 
@@ -13,13 +15,10 @@ export function ClientPreCode({
   className?: string;
 }) {
   return (
-    <div className={cn('relative', className)}>
+    <div className={cn(styles.shell, className)}>
       <CopyButton code={raw} classname='right-2 top-2 bg-card' />
 
-      <div
-        className='not-prose max-h-[550px] overflow-x-hidden rounded-md text-sm border dark:border-neutral-800'
-        dangerouslySetInnerHTML={{ __html: html }}
-      />
+      <CodeSurface html={html} />
     </div>
   );
 }

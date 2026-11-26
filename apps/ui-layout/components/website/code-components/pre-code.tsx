@@ -1,4 +1,6 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/website/ui/tabs';
+import { CodeSurface } from './code-surface';
+import styles from './code-surface.module.css';
+import { TabsBtn, TabsContent, TabsProvider } from '@/components/ui/tab';
 import { highlightCode } from '@/lib/shiki-highlighter';
 import { cn } from '@/lib/utils';
 import prettier from 'prettier';
@@ -35,17 +37,14 @@ export async function PreCode({
           </div>
         )}
 
-        <div className='relative'>
-          {checkNpm ? (
+        <div className={styles.shell}>
+          {checkNpm && singleLine ? (
             <CopyNpmCommandButton code={value} classname={copyPosition} />
           ) : (
             <CopyButton code={value} classname={copyPosition} />
           )}
 
-          <div
-            className={cn('not-prose max-h-[550px] overflow-x-hidden rounded-md text-sm border dark:border-neutral-800', singleLine && 'bg-code-background pr-12')}
-            dangerouslySetInnerHTML={{ __html: tsHtml }}
-          />
+          <CodeSurface html={tsHtml} />
         </div>
       </div>
     );
@@ -81,41 +80,34 @@ export async function PreCode({
         </div>
       )}
 
-      <Tabs defaultValue={'typescript'} className='relative'>
-        <TabsList className='absolute bg-muted right-14 top-2 z-1 h-9 p-0.5 border dark:border-background'>
-          <TabsTrigger value='typescript' className='h-8'>
-            Ts
-          </TabsTrigger>
-          <TabsTrigger value='javascript' className='h-8'>
-            Js
-          </TabsTrigger>
-        </TabsList>
+      <TabsProvider defaultValue="typescript" wobbly>
+        <div className={styles.languages} role="group" aria-label="Code language">
+          {['typescript', 'javascript'].map(language => (
+            <TabsBtn key={language} value={language} className="p-0 2xl:p-0">
+              <button type="button" className={styles.language}>{language === 'typescript' ? 'TS' : 'JS'}</button>
+            </TabsBtn>
+          ))}
+        </div>
 
         {/* Typescript Block */}
-        <TabsContent value='typescript'>
-          <div className='relative'>
+        <TabsContent className="p-0 px-0" value='typescript'>
+          <div className={styles.shell}>
             <CopyButton code={value} classname='right-2 bg-card border' />
-            <div
-              className='not-prose max-h-[550px] overflow-x-hidden rounded-md text-sm border dark:border-neutral-800'
-              dangerouslySetInnerHTML={{ __html: tsHtml }}
-            />
+            <CodeSurface html={tsHtml} />
           </div>
         </TabsContent>
 
         {/* Javascript Block */}
-        <TabsContent value='javascript'>
-          <div className='relative'>
+        <TabsContent className="p-0 px-0" value='javascript'>
+          <div className={styles.shell}>
             <CopyButton
               code={formattedJsCode}
               classname='right-2 bg-card border'
             />
-            <div
-              className='not-prose max-h-[550px] overflow-x-hidden rounded-md text-sm border dark:border-neutral-800'
-              dangerouslySetInnerHTML={{ __html: jsHtml }}
-            />
+            <CodeSurface html={jsHtml} />
           </div>
         </TabsContent>
-      </Tabs>
+      </TabsProvider>
     </div>
   );
 }

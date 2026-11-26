@@ -1,6 +1,56 @@
 .page { --content-width: min(94%, 1280px); }
 .page iframe[data-showcase-preview] { max-width: var(--content-width); }
 .page article[aria-labelledby="component-title"] { width: var(--content-width); max-width: 750px; margin-inline: auto; padding-inline: 0; }
-.source { margin-block: 2rem; min-width: 0; }
-.filename { font: 500 13px/1.4 ui-monospace, monospace; background: var(--muted); padding: 10px 16px; border: 1px solid var(--border); border-bottom: 0; border-radius: 8px 8px 0 0; }
-.source pre { overflow: auto; max-height: 34rem; padding: 18px; font: 13px/1.7 ui-monospace, monospace; tab-size: 2; }
+.source { margin-block: 1.25rem; min-width: 0; }
+
+.page article :global(.prose) { line-height: 1.5; }
+.page article :global(.prose) :where(p, ul, ol, blockquote) { margin-block: .75rem; }
+.page article :global(.prose) :where(p, li) { line-height: inherit; }
+.page article :global(.prose) p { padding-block: 0; }
+.page article :global(.prose) > :first-child { margin-block-start: 0; }
+.page article blockquote p { margin-block: 0; }
+
+/* The outer CLI / Manual selector is part of the installation panel. */
+.page article [role="tablist"]:has([aria-controls$="-content-cli"]),
+.page article [role="tabpanel"][id$="-content-manual"] {
+  padding: var(--shell-inset);
+  border: 0;
+  border-radius: 12px;
+  background: var(--panel-shell);
+  box-shadow: var(--panel-rim);
+}
+.page article [role="tablist"]:has([aria-controls$="-content-cli"]) [role="tab"] {
+  border-radius: calc(12px - var(--shell-inset));
+}
+
+.page article [role="tablist"]:has([aria-controls$="-content-cli"]) {
+  display: flex;
+  align-items: stretch;
+  height: auto;
+  margin-block-start: 0;
+}
+.page article [role="tablist"]:has([aria-controls$="-content-cli"]) [role="tab"] {
+  margin: 0;
+  line-height: 20px;
+  padding-block: 6px;
+}
+
+.page article [role="tabpanel"][id$="-content-cli"] > :first-child { margin-block: 0; }
+
+.page article :is(h1, strong, b, th, :global(.font-bold), :global(.font-extrabold), :global(.font-black)) { font-weight: 600; }
+.page article :is(h2, h3, h4, h5, h6) {
+  font-weight: 500;
+  line-height: 1.3;
+  margin-block: 3rem .75rem;
+}
+.page article :is(h2, h3, h4, h5, h6) :is(strong, b) { font-weight: inherit; }
+.page article :is(h2, h3, h4, h5, h6) + :where(p, ul, ol) { margin-block-start: 0; }
+@media (min-width: 900px) {
+  .page [data-showcase-notes] article[aria-labelledby="component-title"] {
+    width: 100%;
+    margin-inline: auto;
+    padding-top: 0;
+  }
+}
+
+.page article > p + :is(:global(.prose), .source) { margin-top: 3rem; }
