@@ -93,6 +93,55 @@ export const TabsProvider: React.FC<TabsProviderProps> = React.memo(
   }
 );
 
+export function TabIndicator({ active, wobbly = true }: { active: boolean; wobbly?: boolean }) {
+  return (
+    <AnimatePresence mode='wait'>
+      {active && (
+        <>
+          <motion.div
+            transition={{
+              layout: {
+                duration: 0.2,
+                ease: 'easeInOut',
+                delay: 0.2,
+              },
+            }}
+            layoutId='indicator'
+            className='absolute w-full h-full left-0 top-0 bg-card dark:bg-secondary rounded-md z-1'
+          />
+
+          {wobbly && (
+            <>
+              <motion.div
+                transition={{
+                  layout: {
+                    duration: 0.4,
+                    ease: 'easeInOut',
+                    delay: 0.04,
+                  },
+                }}
+                layoutId='trail-front'
+                className='absolute w-full h-full left-0 top-0 bg-card rounded-md z-1 tab-shadow'
+              />
+              <motion.div
+                transition={{
+                  layout: {
+                    duration: 0.4,
+                    ease: 'easeOut',
+                    delay: 0.2,
+                  },
+                }}
+                layoutId='trail-back'
+                className='absolute w-full h-full left-0 top-0 bg-card rounded-md z-1 tab-shadow'
+              />
+            </>
+          )}
+        </>
+      )}
+    </AnimatePresence>
+  );
+}
+
 // Memoized TabsBtn component
 export const TabsBtn: React.FC<TabsBtnProps> = React.memo(({ children, className, value }) => {
   const { activeTab, setPrevIndex, setActiveTab, hover, wobbly, tabsOrder } =
@@ -113,50 +162,7 @@ export const TabsBtn: React.FC<TabsBtnProps> = React.memo(({ children, className
     >
       {children}
 
-      <AnimatePresence mode='wait'>
-        {activeTab === value && (
-          <>
-            <motion.div
-              transition={{
-                layout: {
-                  duration: 0.2,
-                  ease: 'easeInOut',
-                  delay: 0.2,
-                },
-              }}
-              layoutId='indicator'
-              className='absolute w-full h-full left-0 top-0 bg-card dark:bg-secondary rounded-md z-1'
-            />
-
-            {wobbly && (
-              <>
-                <motion.div
-                  transition={{
-                    layout: {
-                      duration: 0.4,
-                      ease: 'easeInOut',
-                      delay: 0.04,
-                    },
-                  }}
-                  layoutId='trail-front'
-                  className='absolute w-full h-full left-0 top-0 bg-card rounded-md z-1 tab-shadow'
-                />
-                <motion.div
-                  transition={{
-                    layout: {
-                      duration: 0.4,
-                      ease: 'easeOut',
-                      delay: 0.2,
-                    },
-                  }}
-                  layoutId='trail-back'
-                  className='absolute w-full h-full left-0 top-0 bg-card rounded-md z-1 tab-shadow'
-                />
-              </>
-            )}
-          </>
-        )}
-      </AnimatePresence>
+      <TabIndicator active={activeTab === value} wobbly={wobbly} />
     </motion.div>
   );
 });
