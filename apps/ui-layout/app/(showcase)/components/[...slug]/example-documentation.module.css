@@ -41,7 +41,7 @@
 .page article :is(h2, h3, h4, h5, h6) {
   font-weight: 500;
   line-height: 1.3;
-  margin-block: 1.125rem .5rem;
+  margin-block: 2.25rem .5rem;
 }
 .page article :is(h2, h3, h4, h5, h6) :is(strong, b) { font-weight: inherit; }
 .page article :is(h2, h3, h4, h5, h6) + :where(p, ul, ol) { margin-block-start: 0; }

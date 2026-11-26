@@ -164,8 +164,7 @@
   }
   .notesScroll > [data-radix-scroll-area-viewport] > div {
     display: block !important; /* Radix defaults to a table that can grow to a code line's width. */
-    padding: calc(var(--toolbar-top) + var(--toolbar-height) + var(--preview-gap) + 1rem)
-      clamp(16px, 1.8vw, 32px) 0;
+    padding: clamp(9rem, 27svh, 18rem) clamp(16px, 1.8vw, 32px) 0;
   }
   .notesScroll > [data-orientation='vertical'] { right: 12px !important; }
 
