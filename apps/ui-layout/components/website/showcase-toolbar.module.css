@@ -273,6 +273,10 @@
   border-radius: var(--control-radius);
   background: #21196e;
 }
+.github > span > svg {
+  width: 18px;
+  height: 18px;
+}
 .github :global(.rounded-lg) {
   border-radius: max(0px, var(--control-radius) - var(--github-border));
 }
