@@ -1,0 +1,32 @@
+Liquid glass is more than a translucent background: the surface needs to remain readable while the scenery behind it changes. The UI Layouts sidebar example gives us a practical starting point for controls that sit above colorful content.
+
+## Live component
+
+<ComponentCodePreview name='liquid-glass-sidebar-menu' jsonName='liquid-glass-sidebar-menu.json' isFitheight />
+
+## Start with a translucent surface
+
+Use a slightly tinted fill and a subtle border before adding blur. The tint establishes contrast even over a bright image. Keep the label and icon above the decorative layers, and use a solid fallback when backdrop filtering is unavailable.
+
+## Separate blur from refraction
+
+A backdrop filter softens what is behind the control; it does not reproduce optical refraction by itself. For a lens-like effect, add a separate distortion layer and clip it to the outline. Avoid applying distortion to the text or focus ring.
+
+## Keep glass responsive
+
+Test the surface over white, black and high-frequency photography. Avoid nesting many large backdrop filters because compositing can become expensive. The sidebar preview lets you compare a glass treatment with a real navigation use case.
+
+## Implementation example
+
+The following focused example illustrates the technique. Use the linked component or block for the complete implementation.
+
+```css
+.glass { background: rgb(255 255 255 / 0.16); border: 1px solid rgb(255 255 255 / 0.25); border-radius: 20px; }
+@supports (backdrop-filter: blur(12px)) { .glass { backdrop-filter: blur(12px) saturate(1.2); } }
+```
+
+## Before shipping
+
+Check keyboard focus, text contrast and touch targets in both themes. This CSS is a baseline, not a claim of exact Apple optical behavior.
+
+[Explore the full component documentation and source code](/components/liquid-glass).

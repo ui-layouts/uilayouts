@@ -1,0 +1,31 @@
+A footer is a second navigation opportunity after the main content. It should help a reader find documentation, support and legal information without turning into a duplicate sitemap.
+
+## Group links by intent
+
+Separate product, resources and company information into small lists with clear headings. Use the same destination names as the header so users do not have to learn a different vocabulary.
+
+## Plan the bottom row
+
+Place copyright, legal links and optional theme or language controls in a secondary region. Allow the row to wrap instead of shrinking text to fit. If you add a newsletter, label the field and explain what subscribers receive.
+
+## Use the footer as a crawlable navigation aid
+
+Render ordinary links with meaningful labels, rather than buttons that trigger navigation. Avoid adding every component URL to the footer; use collection and article index pages for broad discovery.
+
+## Implementation example
+
+The following focused example illustrates the technique. Use the linked component or block for the complete implementation.
+
+```tsx
+<footer className='border-t px-6 py-12'>
+  <nav aria-label='Footer' className='flex flex-wrap gap-6'>
+    <a href='/components'>Components</a><a href='/blocks'>Blocks</a><a href='/blog'>Blog</a>
+  </nav>
+</footer>
+```
+
+## Before shipping
+
+Verify links, focus indicators, wrapping and contrast. Add legal links that match your actual site policies.
+
+[Explore the full block and its source](/blocks/footer-section#footer-detailed).

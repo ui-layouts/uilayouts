@@ -87,6 +87,9 @@ function HomeHeader({
             <HeaderNavLink href='/components' pathname={pathName} icon={<Component />}>
               Components
             </HeaderNavLink>
+            <HeaderNavLink href='/blog' pathname={pathName} icon={<Component />}>
+              Blog
+            </HeaderNavLink>
             <HeaderNavLink href='/blocks' pathname={pathName} icon={<Blocks />}>
               Blocks
             </HeaderNavLink>

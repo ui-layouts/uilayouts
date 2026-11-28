@@ -1,0 +1,31 @@
+A bento feature grid creates a hierarchy among capabilities without forcing every card to have the same weight. The Feature Bento block is a starting point for arranging a handful of related product features.
+
+## Rank the features
+
+Identify the primary capability and assign it the largest card. Supporting cards should tell a different part of the same story. Use descriptive headings instead of repeating a generic product slogan.
+
+## Plan the small-screen grid
+
+Start with a single-column layout and add spans at wider breakpoints. Avoid reordering the DOM with CSS when that would make keyboard and visual order diverge. Allow text to wrap without cutting off graphics.
+
+## Keep card geometry consistent
+
+Choose a common gap, outer radius and padding. Use nested radii only when an inset panel follows the outer contour; an outer radius of 20px and 6px gap gives a 14px inner radius.
+
+## Implementation example
+
+The following focused example illustrates the technique. Use the linked component or block for the complete implementation.
+
+```tsx
+<div className='grid grid-cols-1 gap-4 md:grid-cols-3'>
+  <article className='rounded-2xl border p-6 md:col-span-2'>Primary feature</article>
+  <article className='rounded-2xl border p-6'>Supporting feature</article>
+  <article className='rounded-2xl border p-6'>Another capability</article>
+</div>
+```
+
+## Before shipping
+
+Check long headings, different content lengths and mobile reading order. Do not use a large card unless it conveys a higher-priority feature.
+
+[Explore the full block and its source](/blocks/feature-section#feature-bento).

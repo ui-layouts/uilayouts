@@ -1,0 +1,35 @@
+A spotlight card draws attention to the area under a pointer without replacing the normal card hierarchy. It works particularly well for feature grids when the light is restrained.
+
+## Live component
+
+<ComponentCodePreview name='spotlight-card1' jsonName='spotlight-card1' isFitheight />
+
+## Use local coordinates
+
+Subtract the element's bounding rectangle from the pointer's client coordinates. Feed the result into CSS custom properties so the gradient is positioned relative to the card, not the browser window.
+
+## Paint a separate highlight
+
+Place a radial gradient in a decorative pseudo-element. Reduce its opacity when the pointer leaves. Do not use a global document listener for every card; handle events locally and avoid triggering a React render for every pointer sample.
+
+## Respect static states
+
+Give the card a visible border and usable content without the glow. On keyboard focus show a conventional focus ring, and on touch avoid a sticky hover highlight.
+
+## Implementation example
+
+The following focused example illustrates the technique. Use the linked component or block for the complete implementation.
+
+```css
+.spotlight { position: relative; isolation: isolate; overflow: hidden; }
+.spotlight::before { content: ''; position: absolute; inset: 0; pointer-events: none; z-index: -1;
+  background: radial-gradient(180px circle at var(--x, 50%) var(--y, 50%), rgb(120 120 120 / .18), transparent 70%);
+  opacity: 0; }
+.spotlight:hover::before { opacity: 1; }
+```
+
+## Before shipping
+
+Set --x and --y in the pointer handler. Check contrast without glow, and profile the effect in a dense grid.
+
+[Explore the full component documentation and source code](/components/spotlight-cards).
