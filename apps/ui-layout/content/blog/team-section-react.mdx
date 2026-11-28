@@ -1,0 +1,29 @@
+A team section introduces people who are accountable for the work. Consistent card geometry helps readers scan names and roles without treating every person as interchangeable.
+
+## Define useful content fields
+
+Use a real name, role and optional short description. Include profile links only when appropriate and approved. Avoid filler job titles and duplicated social icons that add no information.
+
+## Standardize portraits
+
+Use a common aspect ratio with object-fit cover and allow per-person object positioning when needed. Reserve dimensions before loading to avoid shifting the surrounding cards.
+
+## Choose responsive density
+
+Use one or two columns on small screens and increase density as space permits. Keep each person's name next to their portrait in the DOM; a visual hover treatment should never be the only way to reveal it.
+
+## Implementation example
+
+The following focused example illustrates the technique. Use the linked component or block for the complete implementation.
+
+```tsx
+<ul className='grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3'>
+  {people.map(person => <li key={person.id}><p className='font-medium'>{person.name}</p><p>{person.role}</p></li>)}
+</ul>
+```
+
+## Before shipping
+
+The snippet assumes an existing people array. Verify portrait consent, long roles and links with descriptive accessible names.
+
+[Explore the full block and its source](/blocks/team-section#team-classic).

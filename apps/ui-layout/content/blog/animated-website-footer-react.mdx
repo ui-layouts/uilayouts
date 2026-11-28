@@ -1,0 +1,29 @@
+An animated footer gives a page a memorable ending without interrupting the main navigation.
+
+## Live example from UI Layouts
+
+<ComponentCodePreview name='animated-logo-footer' isFitheight hasReTrigger />
+
+## Make the footer useful first
+
+Keep legal, support and product links in ordinary accessible navigation. The animated logo example is a separate visual layer, not a replacement for those links.
+
+## Reveal near the end
+
+An entrance tied to visibility can avoid spending animation work while the user is reading the top of a long page. Keep the logo's dimensions reserved so the footer does not jump.
+
+## Keep pointer effects optional
+
+Mouse-following effects should not intercept links. On touch devices or reduced-motion settings, show the finished logo without requiring interaction.
+
+## Implementation pattern
+
+The following focused snippet demonstrates the principle, not the complete UI Layouts implementation. The live example and linked documentation contain the full source.
+
+```css
+.footer-logo { pointer-events: none; width: 100%; height: auto; }
+```
+
+## Explore the source
+
+[Open the footers component documentation](/components/footers) for the full implementation, examples and any required dependencies. Test the interaction on a narrow screen and with keyboard navigation before adapting it to production.

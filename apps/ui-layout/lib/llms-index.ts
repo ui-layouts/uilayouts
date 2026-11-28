@@ -1,3 +1,4 @@
+import { blogPosts } from '@/lib/blog';
 import { getBlocksDesignMeta } from '@/blocks-docs';
 import { getAllDocs } from '@/lib/docs';
 import { absoluteUrl } from '@/lib/utils';
@@ -19,6 +20,7 @@ export async function llmsIndex(extended = false) {
     '- [Components](https://www.ui-layouts.com/components): Browse the component documentation.',
     '- [Blocks](https://www.ui-layouts.com/blocks): Browse website sections.',
     '- [MCP](https://www.ui-layouts.com/mcp): Use real components and documentation in AI editors.',
+    '- [Blog](https://www.ui-layouts.com/blog): Tutorials and design guides.',
     '- [Changelog](https://www.ui-layouts.com/changelog): Project updates.',
     '- [Source repository](https://github.com/ui-layouts/uilayouts): Project code and contributions.',
     '',
@@ -36,6 +38,9 @@ export async function llmsIndex(extended = false) {
       (block) =>
         `- [${label(block.name)}](${absoluteUrl(block.url)})${extended ? `: ${label(block.des)}` : ''}`
     ),
+    '',
+    '## Blog articles',
+    ...blogPosts.map((post) => `- [${label(post.title)}](${absoluteUrl(`/blog/${post.slug}`)})${extended ? `: ${label(post.description)}` : ''}`),
     '',
     '## Code distribution and discovery',
     '- [Registry index](https://www.ui-layouts.com/r/registry.json): Installable component definitions; this is a registry index, not a JSON Schema.',

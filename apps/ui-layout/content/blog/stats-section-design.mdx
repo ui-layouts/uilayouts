@@ -1,0 +1,29 @@
+A stats section communicates evidence, not decoration. A large number without a definition or time period can be visually impressive but difficult to trust.
+
+## Choose the metric and denominator
+
+Decide which outcome each number represents. For percentages include the population or comparison baseline; for totals include a reporting date or interval. Avoid presenting estimates as verified counts.
+
+## Create a clear typographic hierarchy
+
+Place the value next to its unit and label. Use tabular numerals when values update to prevent width shifts. Keep explanatory context visible rather than hiding it in a hover tooltip.
+
+## Animate without changing meaning
+
+A count-up can emphasize a value once, but the server-rendered content should still communicate the final number. Disable motion for users who request it and avoid repeatedly restarting when the section enters the viewport.
+
+## Implementation example
+
+The following focused example illustrates the technique. Use the linked component or block for the complete implementation.
+
+```html
+<dl>
+  <div><dt>Completed projects in 2025</dt><dd class='text-4xl tabular-nums'>24</dd></div>
+</dl>
+```
+
+## Before shipping
+
+The number is illustrative. Replace it with a verified metric and source or methodology before publication.
+
+[Explore the full block and its source](/blocks/stats-section#stats-bento).

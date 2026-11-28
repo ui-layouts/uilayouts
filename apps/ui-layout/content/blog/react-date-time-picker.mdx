@@ -1,0 +1,40 @@
+A date-time picker makes scheduling easier when its time-zone assumptions are explicit.
+
+## Live example from UI Layouts
+
+<ComponentCodePreview name='datetime-picke-default' isFitheight hasReTrigger />
+
+## Installation
+
+Use the documented UI Layouts registry command in your React project:
+
+```bash
+npx shadcn@latest add 'https://www.ui-layouts.com/r/datetime-input.json'
+```
+
+The component documentation includes the full setup and dependency details.
+
+## Distinguish calendar dates from instants
+
+A birthday is a local date, while a meeting may represent an instant in a particular time zone. Choose the data model before formatting the picker value.
+
+## Compose date and time controls
+
+The library shows combined, date-only and time-only examples. Keep the selected date when the time changes, and preserve a user's typed value until it is valid.
+
+## Handle boundaries
+
+Test midnight, minimum and maximum dates, locale formatting and daylight-saving transitions. When a time zone matters, show it next to the selected time.
+
+## Implementation pattern
+
+The following focused snippet demonstrates the principle, not the complete UI Layouts implementation. The live example and linked documentation contain the full source.
+
+```html
+<label for='meeting'>Meeting time (local)</label>
+<input id='meeting' type='datetime-local' />
+```
+
+## Explore the source
+
+[Open the datetime picker component documentation](/components/datetime-picker) for the full implementation, examples and any required dependencies. Test the interaction on a narrow screen and with keyboard navigation before adapting it to production.

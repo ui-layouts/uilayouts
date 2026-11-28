@@ -1,0 +1,253 @@
+A water ripple makes an image react to the pointer through a displacement field rather than moving the whole image.
+
+## Live example from UI Layouts
+
+<IframeComponentPrieview name='img-ripple-effect' hasReTrigger responsive hideDeviceOpt previewComp>
+
+```index.tsx
+
+'use client';
+import dynamic from 'next/dynamic';
+const Scene = dynamic(() => import('./scene'), {
+  loading: () => (
+    <div
+      role='status'
+      className='flex w-full h-screen justify-center items-center'
+    >
+      <svg
+        aria-hidden='true'
+        className='w-8 h-8 text-neutral-200 animate-spin dark:text-neutral-600 fill-blue-600'
+        viewBox='0 0 100 101'
+        fill='none'
+        xmlns='http://www.w3.org/2000/svg'
+      >
+        <path
+          d='M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z'
+          fill='currentColor'
+        />
+        <path
+          d='M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z'
+          fill='currentFill'
+        />
+      </svg>
+      <span className='sr-only'>Loading...</span>
+    </div>
+  ),
+});
+
+export default function Home() {
+  return (
+    <>
+      <Scene />
+    </>
+  );
+}
+```
+
+```scene.tsx 
+import { Canvas } from '@react-three/fiber';
+import Model from './model';
+
+export default function Scene() {
+  return (
+    <div className='relative h-screen w-full bg-neutral-950 text-white'>
+      <Canvas orthographic dpr={[1, 2]} camera={{ position: [0, 0, 2] }}>
+        <Model />
+      </Canvas>
+      <article className='pointer-events-none absolute bottom-14 w-full text-center'>
+        <h1 className='text-7xl uppercase tracking-tighter 2xl:text-8xl'>Independent</h1>
+        <p className='text-xl 2xl:text-2xl'>Live for yourself, not for society.</p>
+      </article>
+    </div>
+  );
+}
+```
+
+```model.tsx 
+import { createPortal, useFrame, useLoader, useThree } from '@react-three/fiber';
+import { useEffect, useMemo, useRef } from 'react';
+import * as THREE from 'three';
+import { vertex, fragment } from './shaders';
+
+const waveIndices = Array.from({ length: 100 }, (_, index) => index);
+const imageUrls = ['/picture1.jpeg', '/picture2.jpeg', '/picture3.jpeg'];
+type WaveMesh = THREE.Mesh<THREE.PlaneGeometry, THREE.MeshBasicMaterial>;
+
+export default function Model() {
+  const { width, height } = useThree((state) => state.size);
+  const brush = useLoader(THREE.TextureLoader, '/brush.png');
+  const [first, second, third] = useLoader(THREE.TextureLoader, imageUrls);
+  const waves = useRef<Array<WaveMesh | null>>([]);
+  const previousPointer = useRef(new THREE.Vector2());
+  const nextWave = useRef(0);
+
+  const waveScene = useMemo(() => new THREE.Scene(), []);
+  const imageGeometry = useMemo(() => new THREE.PlaneGeometry(1, 1), []);
+  const imageMaterials = useMemo(
+    () => [first, second, third].map((map) => new THREE.MeshBasicMaterial({ map })),
+    [first, second, third]
+  );
+  const imageScene = useMemo(() => {
+    const scene = new THREE.Scene();
+    imageMaterials.forEach((material, index) => {
+      const mesh = new THREE.Mesh(imageGeometry, material);
+      mesh.position.set(((index - 1) * width) / 4, 0, 1);
+      mesh.scale.set(width / 5, width / 4, 1);
+      scene.add(mesh);
+    });
+    return scene;
+  }, [imageGeometry, imageMaterials, width]);
+  const imageCamera = useMemo(() => {
+    const camera = new THREE.OrthographicCamera(
+      -width / 2, width / 2, height / 2, -height / 2, 0.1, 100
+    );
+    camera.position.z = 2;
+    return camera;
+  }, [width, height]);
+
+  const waveBuffer = useMemo(() => new THREE.WebGLRenderTarget(1, 1), []);
+  const imageBuffer = useMemo(() => new THREE.WebGLRenderTarget(1, 1), []);
+  const uniforms = useMemo(
+    () => ({
+      uDisplacement: { value: waveBuffer.texture },
+      uTexture: { value: imageBuffer.texture },
+      winResolution: { value: new THREE.Vector2() },
+    }),
+    [imageBuffer, waveBuffer]
+  );
+
+  useEffect(() => () => imageGeometry.dispose(), [imageGeometry]);
+  useEffect(() => () => {
+    // The loader caches the shared textures. Only dispose the materials we created.
+    imageMaterials.forEach((material) => material.dispose());
+  }, [imageMaterials]);
+  useEffect(() => () => {
+    waveBuffer.dispose();
+    imageBuffer.dispose();
+  }, [imageBuffer, waveBuffer]);
+
+  useFrame(({ gl, scene, camera, pointer }) => {
+    const x = pointer.x * width / 2;
+    const y = pointer.y * height / 2;
+    if (Math.abs(x - previousPointer.current.x) > 0.1 || Math.abs(y - previousPointer.current.y) > 0.1) {
+      const wave = waves.current[nextWave.current];
+      if (wave) {
+        wave.position.set(x, y, 0);
+        wave.visible = true;
+        wave.material.opacity = 1;
+        wave.scale.set(1.75, 1.75, 1);
+      }
+      nextWave.current = (nextWave.current + 1) % waveIndices.length;
+    }
+    previousPointer.current.set(x, y);
+
+    for (const wave of waves.current) {
+      if (!wave?.visible) continue;
+      wave.rotation.z += 0.025;
+      wave.material.opacity *= 0.95;
+      wave.scale.x = 0.98 * wave.scale.x + 0.155;
+      wave.scale.y = 0.98 * wave.scale.y + 0.155;
+      if (wave.material.opacity < 0.01) wave.visible = false;
+    }
+
+    // Measure the resized drawing buffer before rendering any of this frame's passes.
+    const resolution = gl.getDrawingBufferSize(uniforms.winResolution.value);
+    if (waveBuffer.width !== resolution.x || waveBuffer.height !== resolution.y) {
+      waveBuffer.setSize(resolution.x, resolution.y);
+      imageBuffer.setSize(resolution.x, resolution.y);
+    }
+
+    gl.setRenderTarget(waveBuffer);
+    gl.clear();
+    gl.render(waveScene, camera);
+    gl.setRenderTarget(imageBuffer);
+    gl.clear();
+    gl.render(imageScene, imageCamera);
+    gl.setRenderTarget(null);
+    gl.render(scene, camera);
+  }, 1);
+
+  return (
+    <>
+      {createPortal(
+        <group>
+          {waveIndices.map((index) => (
+            <mesh key={index} visible={false} ref={(mesh) => {
+              waves.current[index] = mesh as WaveMesh | null;
+            }}>
+              <planeGeometry args={[60, 60]} />
+              <meshBasicMaterial transparent map={brush} />
+            </mesh>
+          ))}
+        </group>,
+        waveScene
+      )}
+      <mesh>
+        <planeGeometry args={[width, height]} />
+        <shaderMaterial vertexShader={vertex} fragmentShader={fragment} uniforms={uniforms} />
+      </mesh>
+    </>
+  );
+}
+```
+
+```shaders.tsx 
+export const fragment = `
+uniform sampler2D uTexture;
+uniform sampler2D uDisplacement;
+uniform vec2 winResolution;
+varying vec2 vUv;
+float PI = 3.141592653589793238;
+
+void main() {
+  vec2 vUvScreen = gl_FragCoord.xy / winResolution;
+
+  vec4 displacement = texture2D(uDisplacement, vUvScreen);
+  float theta = displacement.r*2.0*PI;
+
+  vec2 dir = vec2(sin(theta),cos(theta));
+  vec2 uv = vUvScreen + dir*displacement.r*0.075;
+  vec4 color = texture2D(uTexture,uv);
+
+  gl_FragColor = color;
+}
+`;
+
+export const vertex = `
+varying vec2 vUv;
+
+void main() {
+  vUv = uv;
+  gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+}
+`;
+```
+
+</IframeComponentPrieview>
+
+To run the code, install `three` and `@react-three/fiber`. Save the [brush texture](/brush.png) as `public/brush.png` and put three photos in `public` named `picture1.jpeg`, `picture2.jpeg`, and `picture3.jpeg`.
+
+## Map the pointer into image coordinates
+
+Normalize pointer positions relative to the canvas. Account for the image crop so the ripple originates where the user actually interacted.
+
+## Animate displacement in a shader
+
+A ripple can be modeled as a traveling sine wave whose strength decays with distance and time. Use a texture sampling offset rather than modifying the original source image.
+
+## Fallback to the original image
+
+Do not require WebGL for content access. Keep a still image for reduced motion or failed context creation, and release resources when the effect unmounts.
+
+## Implementation pattern
+
+The following focused snippet demonstrates the principle, not the complete UI Layouts implementation. The live example and linked documentation contain the full source.
+
+```glsl
+float wave = sin(distance(uv, center) * 32.0 - time * 5.0);
+float strength = wave * exp(-distance(uv, center) * 5.0);
+```
+
+## Explore the source
+
+[Open the image ripple effect component documentation](/components/image-ripple-effect) for the full implementation, examples and any required dependencies. Test the interaction on a narrow screen and with keyboard navigation before adapting it to production.

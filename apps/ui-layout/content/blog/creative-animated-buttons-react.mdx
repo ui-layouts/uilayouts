@@ -1,0 +1,31 @@
+An animated button should clarify its affordance rather than disguise its label.
+
+## Live example from UI Layouts
+
+<BoxComponentPreview name='button-background-shine' />
+
+## Choose the interaction feedback
+
+The button collection includes shine and spotlight variants. Pick one effect that supports the action: a traveling highlight suits a primary CTA, while a small press scale communicates activation.
+
+## Separate decoration from the hit target
+
+Use a real button or link, with the decorative element behind the label and pointer-events disabled. Keep the focus outline distinct from the hover treatment.
+
+## Design the non-hover state first
+
+Touch users may never see hover. Keep the label legible and contrast sufficient without effects; avoid animating disabled buttons as if they were interactive.
+
+## Implementation pattern
+
+The following focused snippet demonstrates the principle, not the complete UI Layouts implementation. The live example and linked documentation contain the full source.
+
+```css
+.cta { transition: transform 150ms ease; }
+.cta:active { transform: scale(.98); }
+@media (prefers-reduced-motion: reduce) { .cta { transition: none; } }
+```
+
+## Explore the source
+
+[Open the buttons component documentation](/components/buttons) for the full implementation, examples and any required dependencies. Test the interaction on a narrow screen and with keyboard navigation before adapting it to production.

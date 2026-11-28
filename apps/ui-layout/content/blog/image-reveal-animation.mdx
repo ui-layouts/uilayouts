@@ -1,0 +1,36 @@
+An image reveal should feel like an image being uncovered, rather than an image moving into a changing box. This distinction matters on portfolios where the crop and subject need to remain stable.
+
+## Live component
+
+<ComponentCodePreview name='image-reveal' jsonName='image-reveal' isFitheight />
+
+## Reserve the image area
+
+Set an aspect ratio on the container and let the image fill it with object-fit cover. This prevents a late image load from changing the layout, and preserves the intended crop during the reveal.
+
+## Animate a mask, not layout
+
+An inset clip path can expose the image from an edge without changing its dimensions. Start with one predictable direction; for multiple directions, keep the same resting shape so transitions can be interrupted cleanly.
+
+## Make the reveal optional
+
+Use hover only as an enhancement. On a touch device or when reduced motion is requested, show the complete image. Avoid concealing a link label inside the reveal or relying on motion to communicate its destination.
+
+## Implementation example
+
+The following focused example illustrates the technique. Use the linked component or block for the complete implementation.
+
+```css
+.reveal { overflow: hidden; aspect-ratio: 4 / 3; }
+.reveal img { width: 100%; height: 100%; object-fit: cover; clip-path: inset(0); }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .reveal img { clip-path: inset(0 0 12%); transition: clip-path 400ms ease; }
+  .reveal:hover img, .reveal:focus-within img { clip-path: inset(0); }
+}
+```
+
+## Before shipping
+
+Check that the image has a descriptive alt attribute when meaningful, no layout flash occurs, and the final crop works on narrow screens.
+
+[Explore the full component documentation and source code](/components/image-reveal).

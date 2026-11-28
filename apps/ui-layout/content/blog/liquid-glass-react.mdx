@@ -1,0 +1,42 @@
+import { LiquidGlassFlow } from '@/components/website/blog/liquid-glass-flow';
+import { LiquidGlassPlayground } from '@/components/website/blog/liquid-glass-playground';
+
+We built Liquid Glass so a control could pick up the image behind it and still keep its icon legible. Try the effect on a single surface, then see how the layers fit together.
+
+## Change the values
+
+Switch between **Frosted** and **Liquid glass** over the same backdrop. Change the blur, edge highlight, or radius to see what each prop does. The JSX updates alongside the preview. Browsers without backdrop-filter support get an opaque fill so the label stays readable.
+
+<LiquidGlassPlayground />
+
+## Understand the three visual layers
+
+<LiquidGlassFlow />
+
+Start with a backdrop that has a clear edge. The **bend** layer blurs it, then uses red and green channels from an SVG noise map to shift pixels horizontally and vertically. The **face** casts a soft shadow around the control. The **edge** adds an inset highlight along the same radius. The icon sits above all three layers and stays sharp.
+
+In the filter, `scale='0'` leaves the pixels where they are. Increasing `scale` lets the same noise map push them farther.
+
+```tsx
+<feTurbulence
+  type='fractalNoise'
+  baseFrequency='0.003 0.007'
+  numOctaves='1'
+  result='turbulence'
+/>
+<feDisplacementMap
+  in='SourceGraphic'
+  in2='turbulence'
+  scale='200'
+  xChannelSelector='R'
+  yChannelSelector='G'
+/>
+```
+
+## Why choose liquid glass?
+
+A solid fill gives controls predictable contrast. Frosted glass softens the detail behind a label. We added displacement because we wanted the backdrop to take part in the effect. A line changes direction as it passes through the surface, while the inset highlight makes the rim visible over both light and dark areas. The same layer stack can follow a circle or a rectangular card by changing the radius.
+
+## Explore the component
+
+[Explore Liquid Glass](/components/liquid-glass) for the source, installation instructions, and the full set of examples.

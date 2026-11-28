@@ -1,0 +1,29 @@
+An FAQ accordion makes a long answer list easier to scan, as long as the questions remain discoverable.
+
+## Live example from UI Layouts
+
+<ComponentCodePreview name='faq-accordion' isFitheight hasReTrigger />
+
+## Write questions as headings
+
+Use plain user-facing language and avoid hiding the purpose of each item. Answers should be concise and link to detailed documentation when needed.
+
+## Choose the disclosure state
+
+Allow independent opening when users compare answers, or use a single-open state when space is constrained. Animate expansion without clipping long content.
+
+## Preserve keyboard access
+
+Use a real button or details element, expose the open state, and keep closed panel controls out of the tab order. Avoid automatic closing while the reader is interacting with an answer.
+
+## Implementation pattern
+
+The following focused snippet demonstrates the principle, not the complete UI Layouts implementation. The live example and linked documentation contain the full source.
+
+```html
+<details><summary>Can I customize the source?</summary><p>Yes, adapt the component to your own project.</p></details>
+```
+
+## Explore the source
+
+[Open the faqs component documentation](/components/faqs) for the full implementation, examples and any required dependencies. Test the interaction on a narrow screen and with keyboard navigation before adapting it to production.

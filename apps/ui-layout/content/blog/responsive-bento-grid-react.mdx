@@ -1,0 +1,29 @@
+A responsive grid lets content determine the hierarchy without requiring separate desktop and mobile markup.
+
+## Live example from UI Layouts
+
+<ComponentCodePreview name='boxgrid' isFitheight hasReTrigger />
+
+## Start with a layout model
+
+Assign each item a stable ID and a priority. Choose larger spans for important content rather than creating arbitrary holes to fill.
+
+## Use breakpoint-based spans
+
+Start with one column and add columns only when content fits. Use minmax with zero minimum to prevent long text or code from expanding the grid unexpectedly.
+
+## Preserve document order
+
+Avoid CSS reordering that creates a different keyboard order. Check translated text, images with different proportions and cards with unexpected content length.
+
+## Implementation pattern
+
+The following focused snippet demonstrates the principle, not the complete UI Layouts implementation. The live example and linked documentation contain the full source.
+
+```css
+.bento { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); gap: 1rem; }
+```
+
+## Explore the source
+
+[Open the grid component documentation](/components/grid) for the full implementation, examples and any required dependencies. Test the interaction on a narrow screen and with keyboard navigation before adapting it to production.

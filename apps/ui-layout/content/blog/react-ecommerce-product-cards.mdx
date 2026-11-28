@@ -1,0 +1,29 @@
+A product card should let customers compare items before they visit a detail page.
+
+## Live example from UI Layouts
+
+<ComponentCodePreview name='productcard1' isFitheight hasReTrigger />
+
+## Keep commerce data structured
+
+Store product ID, title, image, price, currency and availability in one object. Format prices consistently and avoid displaying a discount without a valid comparison price.
+
+## Reserve image space
+
+Use a shared aspect ratio and meaningful alt text. Keep titles flexible for long product names and avoid cropping details users need to evaluate.
+
+## Separate navigation from purchasing
+
+A product link opens the detail page, while Add to cart is a real button. Do not nest interactive elements inside one another, and communicate stock state explicitly.
+
+## Implementation pattern
+
+The following focused snippet demonstrates the principle, not the complete UI Layouts implementation. The live example and linked documentation contain the full source.
+
+```tsx
+<article><a href={product.href}>{product.name}</a><p>{formatPrice(product.price)}</p><button type='button' disabled={!product.inStock}>Add to cart</button></article>
+```
+
+## Explore the source
+
+[Open the product cards component documentation](/components/product-cards) for the full implementation, examples and any required dependencies. Test the interaction on a narrow screen and with keyboard navigation before adapting it to production.

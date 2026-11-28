@@ -1,0 +1,37 @@
+Animated tabs are useful when the selected state needs to be easy to track across nearby controls. The visual indicator should move independently of the labels, and content changes should not feel like a second selection event.
+
+## Live component
+
+<ComponentCodePreview name='creative-tab' isFitheight />
+
+Tab to a control and press Enter or Space to select its panel. Each control exposes its pressed state.
+
+## Use one source of truth
+
+Store the selected tab ID once. Derive the selected label, visible panel and indicator position from that value. Keep stable keys so an animation system can identify the same indicator across selections.
+
+## Move the indicator, not the text
+
+For equal-width tabs a translated background works. For variable widths, measure the selected button or use a shared layout animation. Keep text above the background and avoid animating layout properties every frame.
+
+## Preserve tab semantics
+
+For an ARIA tablist, use an accessible tab primitive that handles arrow keys, `aria-selected`, and panel association. The selected state and panel should remain available when animations are disabled.
+
+## Implementation example
+
+The following focused example illustrates the technique. Use the linked component or block for the complete implementation.
+
+```tsx
+import { motion } from 'motion/react';
+
+export function Indicator({ active }: { active: boolean }) {
+  return active ? <motion.span layoutId='active-tab' className='absolute inset-0 rounded-lg bg-neutral-200' transition={{ type: 'spring', stiffness: 400, damping: 32 }} /> : null;
+}
+```
+
+## Before shipping
+
+Scope shared layout IDs when several tab groups exist on one page. Test arrow keys, rapid selection and long translated labels.
+
+[Explore the full component documentation and source code](/components/tabs).

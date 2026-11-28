@@ -1,0 +1,32 @@
+When an inset surface follows the contour of its outer shell, choosing independent corner radii can create a visibly uneven gap. A simple geometric relationship gives a more consistent starting point.
+
+## Live component
+
+<ComponentCodePreview name='gradient-border' isFitheight />
+
+## Derive the inner radius
+
+For concentric circular corners with a uniform inset, subtract the inset from the outer radius. An 18px outer radius and a 5px inset give a 13px inner radius. Include border thickness in the inset if the gap is measured from the outer edge.
+
+## Know where the rule stops
+
+CSS can scale radii when they exceed the box dimensions, and asymmetric padding or elliptical corners changes the geometry. Use the rule for matching contours, not as a mandatory radius for every nested object.
+
+## Translate into tokens
+
+Define the outer radius and inset once, then derive the inner radius with CSS. This keeps a family of buttons and cards consistent while allowing the entire shell to be resized. The gradient border preview offers a surface to compare edge treatments.
+
+## Implementation example
+
+The following focused example illustrates the technique. Use the linked component or block for the complete implementation.
+
+```css
+.shell { --outer: 18px; --gap: 5px; border-radius: var(--outer); padding: var(--gap); }
+.shell > .inner { border-radius: max(0px, calc(var(--outer) - var(--gap))); }
+```
+
+## Before shipping
+
+Inspect the real geometry at several sizes and zoom levels; optically adjust if the design uses non-concentric corners.
+
+[Explore the full component documentation and source code](/components/gradient-border).

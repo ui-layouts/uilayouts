@@ -1,0 +1,97 @@
+Mesh gradients create soft color transitions that feel less linear than a two-stop CSS gradient.
+
+## Live example from UI Layouts
+
+<IframeComponentPrieview name='mesh-shadergradient' hasReTrigger responsive>
+
+```tsx 
+'use client';
+import React from 'react';
+import { ShaderGradientCanvas, ShaderGradient } from '@shadergradient/react';
+
+function index() {
+  return (
+    <>
+      <div className='relative h-screen w-screen'>
+        <ShaderGradientCanvas
+          style={{
+            width: '100%',
+            height: '100%',
+          }}
+          lazyLoad={undefined}
+          fov={undefined}
+          pixelDensity={1}
+          pointerEvents='none'
+        >
+          <ShaderGradient
+            animate='on'
+            type='sphere'
+            wireframe={false}
+            shader='defaults'
+            uTime={0}
+            uSpeed={0.3}
+            uStrength={0.3}
+            uDensity={0.8}
+            uFrequency={5.5}
+            uAmplitude={3.2}
+            positionX={-0.1}
+            positionY={0}
+            positionZ={0}
+            rotationX={0}
+            rotationY={130}
+            rotationZ={70}
+            color1='#73bfc4'
+            color2='#ff810a'
+            color3='#8da0ce'
+            reflection={0.4}
+            // View (camera) props
+            cAzimuthAngle={270}
+            cPolarAngle={180}
+            cDistance={0.5}
+            cameraZoom={15.1}
+            // Effect props
+            lightType='env'
+            brightness={0.8}
+            envPreset='city'
+            grain='on'
+            // Tool props
+            toggleAxis={false}
+            zoomOut={false}
+            hoverState=''
+            // Optional - if using transition features
+            enableTransition={false}
+          />
+        </ShaderGradientCanvas>
+      </div>
+    </>
+  );
+}
+
+export default index;
+```
+
+</IframeComponentPrieview>
+
+## Select an ordered palette
+
+Choose three or four colors with one dominant tone and one accent. Ensure any text placed over the gradient remains readable as its hues move.
+
+## Choose CSS or a shader
+
+Layered radial gradients work for a static baseline. The library's WebGL demos offer more organic motion and configurable shader colors; use them only when the effect warrants a canvas.
+
+## Constrain the rendering cost
+
+Keep the canvas behind content, cap pixel density and stop motion when offscreen or reduced motion is requested. Provide a static gradient fallback.
+
+## Implementation pattern
+
+The following focused snippet demonstrates the principle, not the complete UI Layouts implementation. The live example and linked documentation contain the full source.
+
+```css
+.mesh { background: radial-gradient(at 15% 20%, #83a9ff, transparent 55%), radial-gradient(at 80% 75%, #f0a9dc, transparent 55%), #5146aa; }
+```
+
+## Explore the source
+
+[Open the mesh gradients component documentation](/components/mesh-gradients) for the full implementation, examples and any required dependencies. Test the interaction on a narrow screen and with keyboard navigation before adapting it to production.

@@ -1,0 +1,39 @@
+A searchable multi-select helps users choose several values from a long list without losing context.
+
+## Live example from UI Layouts
+
+<ComponentCodePreview name='multi-selector-default' isFitheight hasReTrigger />
+
+## Installation
+
+Use the documented UI Layouts registry command in your React project:
+
+```bash
+npx shadcn@latest add 'https://www.ui-layouts.com/r/multi-selector.json'
+```
+
+The component documentation includes the full setup and dependency details.
+
+## Store stable option IDs
+
+Labels may change and may not be unique. Store IDs in the selected array and derive the displayed chips from the option map.
+
+## Filter without losing selections
+
+The search query should narrow visible options, not remove selected values. Show an explicit empty-result state and support asynchronous loading without replacing the current selection.
+
+## Handle keyboard navigation
+
+Use an accessible listbox or established command/popover primitive. Ensure selected state, removal controls and the active option are available to assistive technology.
+
+## Implementation pattern
+
+The following focused snippet demonstrates the principle, not the complete UI Layouts implementation. The live example and linked documentation contain the full source.
+
+```ts
+const toggle = (ids: string[], id: string) => ids.includes(id) ? ids.filter(x => x !== id) : [...ids, id];
+```
+
+## Explore the source
+
+[Open the multi selector component documentation](/components/multi-selector) for the full implementation, examples and any required dependencies. Test the interaction on a narrow screen and with keyboard navigation before adapting it to production.

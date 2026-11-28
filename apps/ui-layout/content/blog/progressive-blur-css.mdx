@@ -1,0 +1,36 @@
+A hard blur boundary can look like a separate strip pasted on an image. A masked blur layer softens the transition instead. The Blur Vignette example uses a related technique around the edges of visual content.
+
+## Live component
+
+<ComponentCodePreview name='blur-vignette-img' jsonName='blur-vignette-img' isFitheight />
+
+## Establish the layer order
+
+Keep the image or scroll content in its normal flow and place a non-interactive overlay above it. Position that overlay relative to the container, not to the entire document.
+
+## Mask the backdrop
+
+Use a linear gradient mask for a single edge. The mask controls the opacity of the filtered layer rather than changing the filter radius itself. To simulate a blur radius that varies spatially, use several overlapping masked layers with different radii.
+
+## Protect interaction and text
+
+The overlay should have pointer-events set to none. Keep navigation and critical text above it, and reserve enough space so the fade does not obscure focus indicators or the last item in a scroll region.
+
+## Implementation example
+
+The following focused example illustrates the technique. Use the linked component or block for the complete implementation.
+
+```css
+.edge-fade {
+  position: absolute; inset: auto 0 0; height: 64px;
+  pointer-events: none;
+  backdrop-filter: blur(12px);
+  mask-image: linear-gradient(to bottom, transparent, black);
+}
+```
+
+## Before shipping
+
+Check Safari and Chromium, test against a moving image and verify that content remains usable with filters disabled.
+
+[Explore the full component documentation and source code](/components/blur-vignette).

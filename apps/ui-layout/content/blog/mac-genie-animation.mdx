@@ -1,0 +1,33 @@
+A typical minimize animation only scales a rectangle. A Genie-style transition instead suggests that a window is being pulled into a much smaller destination. UI Layouts provides a working animation to study before adapting the technique to your own window manager.
+
+## Live component
+
+<ComponentCodePreview name='mac-genie' jsonName='mac-genie' isFitheight />
+
+## Measure both endpoints
+
+Capture the window and destination bounding rectangles in the same coordinate space before the animation begins. Recalculate after resizing rather than relying on hard-coded screen coordinates.
+
+## Deform the silhouette
+
+Interpolate the edges toward the target as a function of normalized progress. A simple easing curve controls timing, but deformation controls the shape: the lower edge can travel sooner than the upper edge to suggest a funnel.
+
+## Reverse without a jump
+
+Use a single progress value from zero to one and reverse from the current value if the user reopens mid-animation. Only hide the real window after the closing transition finishes, and restore focus when it opens.
+
+## Implementation example
+
+The following focused example illustrates the technique. Use the linked component or block for the complete implementation.
+
+```js
+const lerp = (a, b, t) => a + (b - a) * t;
+const smooth = (t) => t * t * (3 - 2 * t);
+const edgeX = (start, end, progress) => lerp(start, end, smooth(progress));
+```
+
+## Before shipping
+
+The snippet illustrates interpolation, not the full mesh deformation. Verify resize, rapid toggling and reduced-motion behavior; offer an instant minimize option.
+
+[Explore the full component documentation and source code](/components/mac-genie).

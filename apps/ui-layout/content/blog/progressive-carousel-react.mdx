@@ -1,0 +1,39 @@
+A progressive carousel communicates which item is active and how far an automatic transition has progressed.
+
+## Live example from UI Layouts
+
+<ComponentCodePreview name='horizontal-progressive-carousel' isFitheight hasReTrigger />
+
+## Installation
+
+Use the documented UI Layouts registry command in your React project:
+
+```bash
+npx shadcn@latest add 'https://www.ui-layouts.com/r/progressive-carousel.json'
+```
+
+The component documentation includes the full setup and dependency details.
+
+## Keep slide state separate from progress
+
+Use a selected slide index and a progress value for its indicator. Reset progress when a user deliberately selects another item; avoid changing selection because of a stale timer.
+
+## Use the appropriate orientation
+
+The library includes horizontal and vertical examples. Match indicator direction to the content flow and leave space for readable labels.
+
+## Provide manual control
+
+Pause automatic transitions on interaction and offer accessible previous, next and pause controls. Do not repeatedly announce progress percentages to screen readers.
+
+## Implementation pattern
+
+The following focused snippet demonstrates the principle, not the complete UI Layouts implementation. The live example and linked documentation contain the full source.
+
+```tsx
+<progress value={progress} max={100} aria-label='Current slide progress' />
+```
+
+## Explore the source
+
+[Open the progressive carousel component documentation](/components/progressive-carousel) for the full implementation, examples and any required dependencies. Test the interaction on a narrow screen and with keyboard navigation before adapting it to production.

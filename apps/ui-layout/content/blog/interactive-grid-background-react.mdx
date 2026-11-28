@@ -1,0 +1,39 @@
+An interactive grid of blocks can turn a quiet background into a subtle pointer-driven texture.
+
+## Live example from UI Layouts
+
+<ComponentCodePreview name='bg-blocks-one' isFitheight hasReTrigger />
+
+## Installation
+
+Install the example and its `@/components/ui/blocks` dependency together:
+
+```bash
+npx shadcn@latest add 'https://www.ui-layouts.com/r/bg-blocks-one.json'
+```
+
+The component documentation includes the full setup and dependency details.
+
+## Calculate grid geometry from the container
+
+Choose a cell size and derive rows and columns from the available area. Cap the number of cells on large displays to prevent excessive DOM work.
+
+## Animate only affected cells
+
+Use CSS hover or a bounded active neighborhood rather than updating every cell each frame. Keep the interactive decoration behind foreground text and links.
+
+## Make decoration optional
+
+The grid must not create a keyboard stop for every decorative cell. Disable unnecessary motion for touch or reduced-motion users, and keep a static background available.
+
+## Implementation pattern
+
+The following focused snippet demonstrates the principle, not the complete UI Layouts implementation. The live example and linked documentation contain the full source.
+
+```css
+.grid-bg { background-size: 32px 32px; background-image: linear-gradient(#8882 1px, transparent 1px), linear-gradient(90deg, #8882 1px, transparent 1px); }
+```
+
+## Explore the source
+
+[Open the blocks component documentation](/components/blocks) for the full implementation, examples and any required dependencies. Test the interaction on a narrow screen and with keyboard navigation before adapting it to production.

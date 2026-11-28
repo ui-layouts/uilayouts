@@ -45,6 +45,12 @@ export const basePath = [
     tags: ['mcp', 'mcp', 'mcp', 'mcp'],
   },
   {
+    href: '/blog',
+    name: 'Blog',
+    icon: <PenTool />,
+    tags: ['blog', 'articles', 'tutorials', 'guides'],
+  },
+  {
     href: '/changelog',
     name: 'Changelog',
     icon: <PenTool />,

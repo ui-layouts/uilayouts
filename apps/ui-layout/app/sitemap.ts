@@ -1,3 +1,4 @@
+import { blogPosts } from '@/lib/blog';
 import { getBlocksDesignMeta } from '@/blocks-docs';
 import { DocsNavigationCategories } from '@/configs/docs';
 import type { MetadataRoute } from 'next';
@@ -16,6 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/work-with-us',
     '/mcp',
     '/changelog',
+    '/blog',
   ];
 
   return [
@@ -23,6 +25,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${normalizedBaseUrl}${path === '/' ? '' : path}`,
       changeFrequency: index === 0 ? ('weekly' as const) : ('monthly' as const),
       priority: index === 0 ? 1 : 0.8,
+    })),
+    ...blogPosts.map((post) => ({
+      url: `${normalizedBaseUrl}/blog/${post.slug}`,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
     })),
     ...componentPaths.map((path) => ({
       url: `${normalizedBaseUrl}${path}`,

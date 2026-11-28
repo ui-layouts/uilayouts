@@ -1,0 +1,30 @@
+A card can reveal a secondary visual on hover while its main message remains stable.
+
+## Live example from UI Layouts
+
+<BoxComponentPreview name='creative-hover-card' />
+
+## Start with a useful resting state
+
+Keep the title, destination and key description visible without interaction. Hover is not a substitute for content hierarchy.
+
+## Animate a decorative layer
+
+Use transforms and opacity for a secondary image or highlight. Keep the hit target stable, and avoid changing card dimensions in a grid when one item is hovered.
+
+## Support focus and touch
+
+Use focus-within to mirror relevant hover feedback. If the hidden content is essential, reveal it by a deliberate control instead of a pointer-only effect.
+
+## Implementation pattern
+
+The following focused snippet demonstrates the principle, not the complete UI Layouts implementation. The live example and linked documentation contain the full source.
+
+```css
+.card-art { transition: transform 250ms ease; }
+.card:hover .card-art, .card:focus-within .card-art { transform: translateY(-4px); }
+```
+
+## Explore the source
+
+[Open the hover cards component documentation](/components/hover-cards) for the full implementation, examples and any required dependencies. Test the interaction on a narrow screen and with keyboard navigation before adapting it to production.

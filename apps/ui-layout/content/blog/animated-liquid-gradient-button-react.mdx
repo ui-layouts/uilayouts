@@ -1,0 +1,47 @@
+A liquid gradient border creates a flowing color highlight around a button; it is the effect behind UI Layouts' GitHub-style button, distinct from our Liquid Glass material.
+
+## Live example from UI Layouts
+
+<ComponentCodePreview name='liquid-button' isFitheight hasReTrigger jsonName='liquid-button' />
+
+The background variant uses the same visual language outside a button.
+
+<ComponentCodePreview name='liquid-gradient' isFitheight jsonName='liquid-gradient-components' hasReTrigger />
+
+The source documentation credits [Oni](https://x.com/0ni_x4) for the original inspiration.
+
+## Installation
+
+Use the documented UI Layouts registry command in your React project:
+
+```bash
+npx shadcn@latest add 'https://www.ui-layouts.com/r/liquid-gradient.json'
+```
+
+The component documentation includes the full setup and dependency details.
+
+## Start with the actual component
+
+The documentation exposes two examples: the liquid button and the liquid gradient background. Use the shared registry implementation rather than substituting a generic gradient animation.
+
+## Control the animation state
+
+The documented gradient takes isHovered and colors. Treat hover as a presentation state and keep the color map stable. For keyboard navigation, the equivalent focus state should reveal the highlight too.
+
+## Compose the button layers
+
+Keep the outer animated material separate from the inner label and click target. Use consistent radii, an opaque enough label surface and a subtle static state. The effect should not depend on color alone to communicate interaction.
+
+## Implementation pattern
+
+The following focused snippet demonstrates the principle, not the complete UI Layouts implementation. The live example and linked documentation contain the full source.
+
+```tsx
+const [highlight, setHighlight] = useState(false);
+// Pass highlight to the documented gradient isHovered prop.
+<button onPointerEnter={() => setHighlight(true)} onPointerLeave={() => setHighlight(false)} onFocus={() => setHighlight(true)} onBlur={() => setHighlight(false)}>Explore components</button>
+```
+
+## Explore the source
+
+[Open the liquid gradient component documentation](/components/liquid-gradient) for the full implementation, examples and any required dependencies. Test the interaction on a narrow screen and with keyboard navigation before adapting it to production.

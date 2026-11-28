@@ -1,0 +1,30 @@
+A continuous marquee uses a repeating strip of content to avoid an obvious jump at the loop boundary.
+
+## Live example from UI Layouts
+
+<ComponentCodePreview name='default-marquee' isFitheight hasReTrigger />
+
+## Duplicate one full sequence
+
+Render two equal-width repetitions and move the track by exactly one repetition. Include consistent gaps at the seam.
+
+## Choose a speed by distance
+
+A fixed duration produces different speeds for short and long strips. Measure the content width when consistent visual speed matters.
+
+## Provide a static and pause state
+
+Hide duplicate decorative content from assistive technology, pause long-running motion when users request it and keep meaningful links reachable without a moving target.
+
+## Implementation pattern
+
+The following focused snippet demonstrates the principle, not the complete UI Layouts implementation. The live example and linked documentation contain the full source.
+
+```css
+@keyframes marquee { to { transform: translateX(-50%); } }
+.track { display: flex; width: max-content; animation: marquee 20s linear infinite; }
+```
+
+## Explore the source
+
+[Open the marquee component documentation](/components/marquee) for the full implementation, examples and any required dependencies. Test the interaction on a narrow screen and with keyboard navigation before adapting it to production.

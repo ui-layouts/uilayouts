@@ -105,7 +105,9 @@ export const TabsBtn: React.FC<TabsBtnProps> = React.memo(({ children, className
   }, [setPrevIndex, tabsOrder, activeTab, setActiveTab, value]);
 
   return (
-    <motion.div
+    <motion.button
+      type='button'
+      aria-pressed={activeTab === value}
       className={cn(`cursor-pointer 2xl:p-2 p-2 2xl:px-4 px-2 rounded-md relative`, className)}
       onFocus={() => hover && handleClick()}
       onMouseEnter={() => hover && handleClick()}
@@ -116,7 +118,8 @@ export const TabsBtn: React.FC<TabsBtnProps> = React.memo(({ children, className
       <AnimatePresence mode='wait'>
         {activeTab === value && (
           <>
-            <motion.div
+            <motion.span
+              aria-hidden='true'
               transition={{
                 layout: {
                   duration: 0.2,
@@ -130,7 +133,8 @@ export const TabsBtn: React.FC<TabsBtnProps> = React.memo(({ children, className
 
             {wobbly && (
               <>
-                <motion.div
+                <motion.span
+                  aria-hidden='true'
                   transition={{
                     layout: {
                       duration: 0.4,
@@ -141,7 +145,8 @@ export const TabsBtn: React.FC<TabsBtnProps> = React.memo(({ children, className
                   layoutId='trail-front'
                   className='absolute w-full h-full left-0 top-0 bg-card rounded-md z-1 tab-shadow'
                 />
-                <motion.div
+                <motion.span
+                  aria-hidden='true'
                   transition={{
                     layout: {
                       duration: 0.4,
@@ -157,7 +162,7 @@ export const TabsBtn: React.FC<TabsBtnProps> = React.memo(({ children, className
           </>
         )}
       </AnimatePresence>
-    </motion.div>
+    </motion.button>
   );
 });
 

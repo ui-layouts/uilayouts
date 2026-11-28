@@ -1,0 +1,39 @@
+An expanding card creates a continuous transition from a compact item to a detailed view.
+
+## Live example from UI Layouts
+
+<ComponentCodePreview name='linear-modal-default' isFitheight hasReTrigger />
+
+## Installation
+
+Use the documented UI Layouts registry command in your React project:
+
+```bash
+npx shadcn@latest add 'https://www.ui-layouts.com/r/linear-modal.json'
+```
+
+The component documentation includes the full setup and dependency details.
+
+## Preserve identity across layouts
+
+Use a stable item ID to associate the compact card and expanded view. Shared layout transitions work best when the same visual element is identifiable on both sides.
+
+## Manage the overlay separately
+
+Keep the backdrop fade and the card geometry separate. The open state controls what is interactive, regardless of whether the motion has completed.
+
+## Prepare for interruption
+
+Test rapid opening and closing, scrolling and viewport changes. Restore focus to the original card and avoid a large geometry transition under reduced motion.
+
+## Implementation pattern
+
+The following focused snippet demonstrates the principle, not the complete UI Layouts implementation. The live example and linked documentation contain the full source.
+
+```tsx
+<motion.div layoutId={`card-${item.id}`}><h3>{item.title}</h3></motion.div>
+```
+
+## Explore the source
+
+[Open the linear modal component documentation](/components/linear-modal) for the full implementation, examples and any required dependencies. Test the interaction on a narrow screen and with keyboard navigation before adapting it to production.

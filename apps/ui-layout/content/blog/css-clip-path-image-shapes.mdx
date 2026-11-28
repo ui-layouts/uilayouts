@@ -1,0 +1,29 @@
+Clipping lets a rectangular image occupy a custom silhouette without exporting a different raster for every breakpoint.
+
+## Live example from UI Layouts
+
+<ComponentCodePreview name='creative-clippath' isFitheight hasReTrigger />
+
+## Choose a scalable outline
+
+A polygon using percentages adapts naturally to the box. For more elaborate curves, an SVG clip path offers a reusable shape with precise coordinates.
+
+## Separate clipping from cropping
+
+Use object-fit cover to choose the crop, then clip the visible area. A clip path does not change the underlying layout dimensions.
+
+## Preserve meaningful content
+
+Keep important faces or details inside the visible shape at all breakpoints. Avoid clipping a focusable link's focus ring; put the outline on the outer wrapper.
+
+## Implementation pattern
+
+The following focused snippet demonstrates the principle, not the complete UI Layouts implementation. The live example and linked documentation contain the full source.
+
+```css
+.shape { aspect-ratio: 4 / 3; object-fit: cover; clip-path: polygon(0 0, 100% 0, 100% 78%, 76% 100%, 0 100%); }
+```
+
+## Explore the source
+
+[Open the clip path component documentation](/components/clip-path) for the full implementation, examples and any required dependencies. Test the interaction on a narrow screen and with keyboard navigation before adapting it to production.

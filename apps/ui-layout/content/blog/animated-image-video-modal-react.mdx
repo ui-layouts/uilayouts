@@ -1,0 +1,39 @@
+A media lightbox gives an image or video room to be viewed without navigating away.
+
+## Live example from UI Layouts
+
+<ComponentCodePreview name='media-modal-default' isFitheight hasReTrigger />
+
+## Installation
+
+Use the documented UI Layouts registry command in your React project:
+
+```bash
+npx shadcn@latest add 'https://www.ui-layouts.com/r/media-modal.json'
+```
+
+The component documentation includes the full setup and dependency details.
+
+## Keep the media type explicit
+
+Store whether an item is an image or video along with its source, title and accessible description. Do not infer playback behavior from a file extension alone.
+
+## Connect the trigger to the overlay
+
+A shared layout transition can visually link the thumbnail to the enlarged media. Preserve the aspect ratio so the transition does not stretch the content.
+
+## Manage playback and focus
+
+Pause video when the modal closes, provide controls for meaningful video, and return focus to the triggering thumbnail. Support Escape and an explicit close button.
+
+## Implementation pattern
+
+The following focused snippet demonstrates the principle, not the complete UI Layouts implementation. The live example and linked documentation contain the full source.
+
+```html
+<video controls playsinline preload='metadata' poster='/poster.jpg'><source src='/demo.mp4' type='video/mp4' /></video>
+```
+
+## Explore the source
+
+[Open the media modal component documentation](/components/media-modal) for the full implementation, examples and any required dependencies. Test the interaction on a narrow screen and with keyboard navigation before adapting it to production.

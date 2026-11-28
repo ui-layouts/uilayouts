@@ -1,0 +1,39 @@
+A code block should preserve exact source text while making its structure easier to read.
+
+## Live example from UI Layouts
+
+<ComponentCodePreview name='code-block' isFitheight hasReTrigger />
+
+## Installation
+
+Use the documented UI Layouts registry command in your React project:
+
+```bash
+npx shadcn@latest add 'https://www.ui-layouts.com/r/shiki-code.json'
+```
+
+The component documentation includes the full setup and dependency details.
+
+## Choose highlighting at the right boundary
+
+Shiki can highlight code on the server or at build time. Reuse the highlighter rather than loading a new engine per snippet, and choose a supported language explicitly.
+
+## Keep copying separate from presentation
+
+Copy the original plain source, not the rendered HTML or line numbers. Show feedback after clipboard success, and offer selection as a fallback.
+
+## Protect the rendering boundary
+
+Only insert trusted highlighter output, do not treat arbitrary HTML as code markup, and allow long lines to scroll horizontally without widening the article.
+
+## Implementation pattern
+
+The following focused snippet demonstrates the principle, not the complete UI Layouts implementation. The live example and linked documentation contain the full source.
+
+```tsx
+<pre><code>{source}</code></pre>
+```
+
+## Explore the source
+
+[Open the code block component documentation](/components/code-block) for the full implementation, examples and any required dependencies. Test the interaction on a narrow screen and with keyboard navigation before adapting it to production.

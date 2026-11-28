@@ -1,0 +1,34 @@
+Accordions trade vertical space for progressive disclosure. A useful accordion opens the requested information without moving focus or making the answer depend on a decorative animation.
+
+## Live component
+
+<ComponentCodePreview name='grid-layout-accordion' isFitheight />
+
+## Choose the interaction model
+
+Decide whether several sections can be open simultaneously. A single-open accordion is useful for short menus, while independent sections are better for technical FAQs that readers compare.
+
+## Animate intrinsic content carefully
+
+A grid row can transition from zero to one fractional unit with an inner overflow-hidden wrapper. Avoid guessing a maximum height: long answers can clip or finish their animations too early.
+
+## Keep controls semantic
+
+Use a real button inside a heading and connect it to its panel using aria-expanded and aria-controls. When a panel is closed, ensure interactive descendants cannot receive focus. A native details element is another simple baseline.
+
+## Implementation example
+
+The following focused example illustrates the technique. Use the linked component or block for the complete implementation.
+
+```html
+<details>
+  <summary>Can I customize the component?</summary>
+  <p>Yes. Start with the source and change the design tokens.</p>
+</details>
+```
+
+## Before shipping
+
+Test long content, keyboard activation and screen-reader announcements. The native snippet is a baseline; the live example demonstrates a more styled layout.
+
+[Explore the full component documentation and source code](/components/accordion).
