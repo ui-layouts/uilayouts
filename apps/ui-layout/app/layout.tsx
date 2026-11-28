@@ -4,30 +4,49 @@ import Progressbar from '@/lib/progressbar';
 import { siteConfig } from '@/lib/utils';
 import { Analytics } from '@vercel/analytics/next';
 import type { Metadata } from 'next';
-import { DM_Sans, Manrope, Poppins, Space_Grotesk } from 'next/font/google';
+import localFont from 'next/font/local';
 import Script from 'next/script';
 import { Toaster } from 'sonner';
 
-const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['200', '300', '400', '500', '600', '700', '800', '900'],
+// Self-host the same font families so builds do not depend on Google Fonts availability.
+const poppins = localFont({
+  src: [
+    { path: './fonts/Poppins-ExtraLight.ttf', weight: '200', style: 'normal' },
+    { path: './fonts/Poppins-Light.ttf', weight: '300', style: 'normal' },
+    { path: './fonts/Poppins-Regular.ttf', weight: '400', style: 'normal' },
+    { path: './fonts/Poppins-Medium.ttf', weight: '500', style: 'normal' },
+    { path: './fonts/Poppins-SemiBold.ttf', weight: '600', style: 'normal' },
+    { path: './fonts/Poppins-Bold.ttf', weight: '700', style: 'normal' },
+    { path: './fonts/Poppins-ExtraBold.ttf', weight: '800', style: 'normal' },
+    { path: './fonts/Poppins-Black.ttf', weight: '900', style: 'normal' },
+  ],
   variable: '--font-poppins',
+  display: 'swap',
+  preload: false,
 });
 
-const spaceGrotesk = Space_Grotesk({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
+const spaceGrotesk = localFont({
+  src: './fonts/Space-Grotesk-Variable.ttf',
+  weight: '300 700',
   variable: '--font-spaceGrotesk',
+  display: 'swap',
+  preload: false,
 });
-const dmSans = DM_Sans({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700', '800', '900', '1000'],
+
+const dmSans = localFont({
+  src: './fonts/DM-Sans-Variable.ttf',
+  weight: '100 1000',
   variable: '--font-dmSans',
+  display: 'swap',
+  preload: false,
 });
-const manrope = Manrope({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700', '800'],
+
+const manrope = localFont({
+  src: './fonts/Manrope-Variable.ttf',
+  weight: '200 800',
   variable: '--font-manrope',
+  display: 'swap',
+  preload: false,
 });
 
 export const metadata: Metadata = {
