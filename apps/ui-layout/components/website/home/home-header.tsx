@@ -1,10 +1,10 @@
 'use client';
 
 import * as Dialog from '@radix-ui/react-dialog';
-import { PanelLeft, X } from 'lucide-react';
+import { PanelLeft, SearchIcon, X } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import { SearchDialog } from '../searchbar';
 import { ThemeCustomizer } from '../theme-customizer';
 import ThemeSwitch from '../theme-switch';
@@ -17,11 +17,31 @@ const destinations = [
   ['Changelog', '/changelog'], ['Work with us', '/work-with-us'],
 ];
 
-export default function HomeHeader() {
+export default function HomeHeader({ compact = false }: { compact?: boolean }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const searchAfterNavigation = useRef(false);
+
+  const changeSearchOpen = useCallback((nextOpen: boolean) => {
+    if (nextOpen && open) {
+      searchAfterNavigation.current = true;
+      setOpen(false);
+      return;
+    }
+    setSearchOpen(nextOpen);
+  }, [open]);
+
+  function handleNavigationClose(event: Event) {
+    if (searchAfterNavigation.current) {
+      event.preventDefault();
+      searchAfterNavigation.current = false;
+      setSearchOpen(true);
+    }
+  }
+
   return (
-    <header className={styles.header}>
+    <header className={compact ? `${styles.header} ${styles.compact}` : styles.header}>
       <div className={styles.bar}>
         <Dialog.Root open={open} onOpenChange={setOpen}>
           <Dialog.Trigger className={styles.menu} aria-label="Open site navigation">
@@ -29,12 +49,17 @@ export default function HomeHeader() {
           </Dialog.Trigger>
           <Dialog.Portal>
             <Dialog.Overlay className={styles.overlay} />
-            <Dialog.Content className={styles.drawer} aria-describedby={undefined}>
+            <Dialog.Content className={styles.drawer} aria-describedby={undefined} onCloseAutoFocus={handleNavigationClose}>
               <div className={styles.drawerHead}>
                 <Dialog.Title>Navigation</Dialog.Title>
                 <Dialog.Close aria-label="Close navigation"><X size={18} /></Dialog.Close>
               </div>
               <nav aria-label="Site">
+                {compact && (
+                  <button type="button" className={styles.drawerSearch} onClick={() => changeSearchOpen(true)}>
+                    <SearchIcon size={16} aria-hidden /> Search components
+                  </button>
+                )}
                 {destinations.map(([label, href]) => (
                   <Link key={href} href={href} aria-current={pathname === href ? 'page' : undefined}
                     onClick={() => setOpen(false)}>{label}</Link>
@@ -53,7 +78,11 @@ export default function HomeHeader() {
           <img src="/showcase-wordmark.svg" width="154" height="34" alt="UI Layouts" className={styles.logo} />
         </Link>
         <div className={styles.actions}>
-          <SearchDialog searchBar classname={styles.search} />
+          {compact ? (
+            <SearchDialog hideTrigger open={searchOpen} onOpenChange={changeSearchOpen} />
+          ) : (
+            <SearchDialog searchBar classname={styles.search} />
+          )}
           <HomeGitHubButton iconOnly className={styles.github} />
           <a className={styles.pro} href="https://pro.ui-layouts.com/blocks" aria-label="UI Layouts Pro">Pro<sup>+</sup></a>
         </div>

@@ -3,8 +3,12 @@
 import Link from 'next/link';
 import { useState, type FormEvent } from 'react';
 import useNewsLetter from '@/hooks/useNewsLetter';
+import { cn } from '@/lib/utils';
 
-export default function HomeFooter({ isHideCollaboration = false }: { isHideCollaboration?: boolean }) {
+export default function HomeFooter({ isHideCollaboration = false, className }: {
+  isHideCollaboration?: boolean;
+  className?: string;
+}) {
   const [subscribe, response] = useNewsLetter();
   const [pending, setPending] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -21,7 +25,7 @@ export default function HomeFooter({ isHideCollaboration = false }: { isHideColl
   }
 
   return (
-    <footer className="mx-auto mt-12 flex w-[94%] max-w-[1100px] flex-wrap items-start justify-between gap-6 border-t py-8 text-sm">
+    <footer className={cn('mx-auto mt-12 flex w-[94%] max-w-[1100px] flex-wrap items-start justify-between gap-6 border-t py-8 text-sm', className)}>
       <nav aria-label="Footer" className="flex flex-wrap gap-4 text-muted-foreground">
         <Link href="/get-started">Getting started</Link><Link href="/mcp">MCP</Link>
         <Link href="/changelog">Changelog</Link>

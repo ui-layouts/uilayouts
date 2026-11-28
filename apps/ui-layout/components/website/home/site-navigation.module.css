@@ -1,5 +1,7 @@
 .header { position: sticky; top: 0; z-index: 45; padding-block: max(16px, env(safe-area-inset-top)) 16px; background: var(--background); }
 .bar { width: min(94%, 1280px); margin-inline: auto; display: flex; align-items: center; gap: 12px; }
+.compact { padding-block: max(11px, env(safe-area-inset-top)) 11px; }
+.compact .bar { width: auto; margin-inline: clamp(10px, 2.25vw, 32px); }
 .logo { width: clamp(104px, 14vw, 154px); height: auto; }
 .menu, .actions { padding: 5px; border-radius: 12px; background: color-mix(in srgb, var(--foreground) 6%, var(--background)); box-shadow: inset 0 1px 0 #ffffff4d, 0 0 0 1px color-mix(in srgb, var(--foreground) 7%, transparent), 0 2px 4px #0000000d; }
 .menu { display: grid; place-content: center; width: 47px; height: 47px; cursor: pointer; }
@@ -16,6 +18,20 @@
 .drawerHead button, .settings button { min-height: 36px; min-width: 36px; display: grid; place-items: center; }
 .drawer nav a { display: block; padding: 8px 12px; border-radius: 6px; }
 .drawer nav a:hover, .drawer nav a[aria-current] { background: var(--muted); }
+.drawerSearch {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--muted-foreground);
+  font-size: .875rem;
+  cursor: pointer;
+}
+.drawerSearch:hover { background: var(--muted); }
 .resources { display: flex; flex-wrap: wrap; gap: 12px; color: var(--muted-foreground); font-size: .85rem; margin-top: auto; padding-top: 16px; }
 .settings { padding-top: 16px; justify-content: flex-start; gap: 8px; }
 .bar :focus-visible, .drawer :focus-visible { outline: 2px solid #4164ff; outline-offset: 2px; }

@@ -45,14 +45,22 @@ export type SearchItem = {
 export function SearchDialog({
   classname,
   searchBar = false,
+  hideTrigger = false,
+  open,
+  onOpenChange,
 }: {
   classname?: string;
   searchBar?: boolean;
+  hideTrigger?: boolean;
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
 }) {
   const router = useRouter();
   const { setTheme } = useTheme();
   const inputRef = React.useRef<HTMLInputElement>(null);
-  const [searchOpen, setSearchOpen] = React.useState(false);
+  const [internalOpen, setInternalOpen] = React.useState(false);
+  const searchOpen = open ?? internalOpen;
+  const setSearchOpen = onOpenChange ?? setInternalOpen;
   const [search, setSearch] = React.useState('');
 
   const groupedItems = Object.entries(groupedDocsNavigationCategories);
@@ -75,14 +83,14 @@ export function SearchDialog({
         if (e.key === '/') {
           setSearchOpen(true);
         } else {
-          setSearchOpen((open) => !open);
+          setSearchOpen(!searchOpen);
         }
       }
     };
 
     document.addEventListener('keydown', down);
     return () => document.removeEventListener('keydown', down);
-  }, []);
+  }, [searchOpen, setSearchOpen]);
 
   React.useEffect(() => {
     if (searchOpen) {
@@ -93,11 +101,11 @@ export function SearchDialog({
   const runCommand = React.useCallback((command: () => unknown) => {
     setSearchOpen(false);
     command();
-  }, []);
+  }, [setSearchOpen]);
 
   return (
     <>
-      <button
+      {!hideTrigger && <button
         type="button"
         aria-label="Search components"
         aria-haspopup="dialog"
@@ -119,7 +127,7 @@ export function SearchDialog({
             </kbd>
           </>
         )}
-      </button>
+      </button>}
       <ResponsiveModal
         classname='rounded-lg border-2 border-border p-0 lg:max-w-lg xl:max-w-xl bg-background'
         open={searchOpen}
