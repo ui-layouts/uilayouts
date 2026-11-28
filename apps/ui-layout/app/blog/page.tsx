@@ -10,7 +10,7 @@ export default function BlogPage() {
   return (
     <>
       <BreadcrumbStructuredData items={[{ name: 'Home', url: absoluteUrl('/') }, { name: 'Blog', url: absoluteUrl('/blog') }]} />
-      <header><p className='mb-3 text-sm text-neutral-500'>UI Layouts / Blog</p><h1 className='text-3xl font-medium tracking-tight sm:text-4xl'>Notes on building interfaces.</h1><p className='mt-4 max-w-xl text-base leading-7 text-neutral-600 dark:text-neutral-400'>Practical tutorials, design engineering and website block guides. Learn the techniques behind our components, then explore the source.</p></header>
+      <header><p className='mb-3 text-sm text-neutral-500'>UI Layouts / Blog</p><h1 className='text-3xl font-medium tracking-tight sm:text-4xl'>Notes on building interfaces.</h1><p className='mt-4 text-base leading-7 text-neutral-600 dark:text-neutral-400'>Practical tutorials, design engineering and website block guides. Learn the techniques behind our components, then explore the source.</p></header>
       <BlogList posts={blogPosts} />
     </>
   );

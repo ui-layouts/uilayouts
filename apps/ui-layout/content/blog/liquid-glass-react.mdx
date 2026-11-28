@@ -1,32 +1,82 @@
-Liquid glass is more than a translucent background: the surface needs to remain readable while the scenery behind it changes. The UI Layouts sidebar example gives us a practical starting point for controls that sit above colorful content.
+The Liquid Glass component in UI Layouts is a reusable React surface with an SVG displacement filter, backdrop blur, inset edge highlights and elastic drag motion. This tutorial uses the same examples and source code as our [Liquid Glass component page](/components/liquid-glass), not a separate recreation of Apple's interface.
 
-## Live component
+## Start with the mobile controls
+
+The mobile icons example uses the shared LiquidGlassCard for circular controls, tall brightness and volume tiles, and a wider Focus control. Drag a tile and release it to see the elastic return motion. The image behind the controls makes the edge highlights and distortion easier to observe.
+
+<ComponentCodePreview name='liquid-glass-mobile-icons' jsonName='liquid-glass-mobile-icons.json' isFitheight />
+
+## Install the actual component
+
+Use the existing registry installation command. In a new project, initialize the shadcn registry tooling first if needed.
+
+```bash
+npx shadcn@latest add 'https://www.ui-layouts.com/r/liquid-glass.json'
+```
+
+The alternative UI Layouts CLI command is:
+
+```bash
+npx uilayouts@latest add liquid-glass
+```
+
+The shared component exports LiquidGlassCard. Its source uses Motion for dragging and expansion; the registry documentation also lists Motion as a manual installation dependency.
+
+## Understand the three visual layers
+
+The bend layer combines backdrop blur with an SVG displacement filter. The filter uses fractal noise from feTurbulence and feDisplacementMap to offset the sampled pixels. This is a stylized optical effect, not a physically accurate glass simulation.
+
+Above it, the face layer adds the outer shadow and glow. The edge layer adds inset highlights so the curved boundary remains visible over photographs. All three layers follow the same borderRadius. Content in the examples is positioned above those decorative layers.
+
+## Build a draggable navigation surface
+
+The actual sidebar example uses a 280px-wide card with a 12px radius, small blur, small glow and small inner shadow. Its active Dashboard button uses a solid background to maintain a clear selection state.
 
 <ComponentCodePreview name='liquid-glass-sidebar-menu' jsonName='liquid-glass-sidebar-menu.json' isFitheight />
 
-## Start with a translucent surface
+A compact example using the real component API:
 
-Use a slightly tinted fill and a subtle border before adding blur. The tint establishes contrast even over a bright image. Keep the label and icon above the decorative layers, and use a solid fallback when backdrop filtering is unavailable.
+```tsx
+'use client';
 
-## Separate blur from refraction
+import { LiquidGlassCard } from '@/components/ui/liquid-glass';
 
-A backdrop filter softens what is behind the control; it does not reproduce optical refraction by itself. For a lens-like effect, add a separate distortion layer and clip it to the outline. Avoid applying distortion to the text or focus ring.
-
-## Keep glass responsive
-
-Test the surface over white, black and high-frequency photography. Avoid nesting many large backdrop filters because compositing can become expensive. The sidebar preview lets you compare a glass treatment with a real navigation use case.
-
-## Implementation example
-
-The following focused example illustrates the technique. Use the linked component or block for the complete implementation.
-
-```css
-.glass { background: rgb(255 255 255 / 0.16); border: 1px solid rgb(255 255 255 / 0.25); border-radius: 20px; }
-@supports (backdrop-filter: blur(12px)) { .glass { backdrop-filter: blur(12px) saturate(1.2); } }
+export function GlassNavigation() {
+  return (
+    <LiquidGlassCard
+      draggable
+      borderRadius='12px'
+      blurIntensity='sm'
+      glowIntensity='sm'
+      shadowIntensity='sm'
+      className='w-[280px] p-4'
+    >
+      <nav aria-label='Dashboard' className='relative z-30'>
+        <button type='button' className='rounded-lg bg-background px-4 py-3 text-foreground'>
+          Dashboard
+        </button>
+      </nav>
+    </LiquidGlassCard>
+  );
+}
 ```
+
+Place this surface over a photograph or gradient with enough detail to show the glass effect. The drag implementation constrains movement around the starting position, uses an elastic distance, and springs back on release. Pass draggable explicitly to control that behavior.
+
+## Apply glass to a weather dashboard
+
+The weather example uses smaller radii and subtle inner shadows. Its cards share the same material but differ in size and layout. Try the example to see how the glass treatment behaves across the hourly forecast, current conditions and daily forecast.
+
+<ComponentCodePreview name='liquid-glass-weather' jsonName='liquid-glass-weather.json' isFitheight />
+
+## Create an expandable notification
+
+The notification example disables dragging on the first card and enables expansion. The card begins at 104px in height and grows to its content height when opened.
+
+<ComponentCodePreview name='liquid-glass-notification' jsonName='liquid-glass-notification.json' isFitheight />
+
+Use the expandable, width, height, expandedWidth and expandedHeight props to adapt the same behavior. The source excludes nested interactive elements from the card's expansion click handler. For a production interface, provide a keyboard-operable expansion control and expose its state; the visual demo alone is not a complete accessibility guarantee.
 
 ## Before shipping
 
-Check keyboard focus, text contrast and touch targets in both themes. This CSS is a baseline, not a claim of exact Apple optical behavior.
-
-[Explore the full component documentation and source code](/components/liquid-glass).
+Test the glass over light and dark imagery, confirm keyboard focus is visible, and provide a static fallback for reduced motion and unsupported filters. Profile several glass surfaces on lower-powered devices. If adapting the filter to multiple independent instances, use unique SVG filter IDs to avoid collisions. The exact source and the four working examples are available on our [Liquid Glass component page](/components/liquid-glass).

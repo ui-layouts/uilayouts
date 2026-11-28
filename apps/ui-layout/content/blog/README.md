@@ -1,3 +1,5 @@
 # Editorial workflow
 
 Write a standalone MDX article with no H1 (the route owns the title). Add its entry in `lib/blog.ts` and explicit import in `lib/blog-content.ts`. Use the live preview keys from existing component docs, or a validated block preview path. Each article should teach a distinct technique, give a focused example, and include accessibility and testing advice. Link to the actual source and avoid claims about accessibility, performance or search rankings that have not been verified. Before release, run the app build and check each live preview and canonical route. Update the post date only when appropriate. The index, related links and sitemap derive from the metadata.
+
+Every post must have a cover in `components/website/blog/blog-cover.tsx`. Prefer existing library artwork and block images; use clearly illustrative diagrams where an actual screenshot is not available. Do not use unrelated third-party UI screenshots. Live examples should use the exact preview keys in the component documentation. The blog uses the shared website Container, not a separate page width.

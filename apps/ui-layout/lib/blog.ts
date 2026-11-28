@@ -15,7 +15,7 @@ export const blogPosts: readonly BlogPost[] = [
     "slug": "liquid-glass-react",
     "title": "How to build an Apple-inspired liquid glass effect in React",
     "category": "Tutorials",
-    "description": "Liquid glass is more than a translucent background: the surface needs to remain readable while the scenery behind it changes.",
+    "description": "Build draggable glass controls, weather cards and expandable notifications with UI Layouts’ LiquidGlassCard, SVG displacement and Motion.",
     "date": "2026-11-28",
     "href": "/components/liquid-glass"
   },

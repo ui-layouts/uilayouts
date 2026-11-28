@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
+import BlogCover from './blog-cover';
 import { blogCategories, type BlogPost } from '@/lib/blog';
 
 export default function BlogList({ posts }: { posts: readonly BlogPost[] }) {
@@ -18,7 +19,34 @@ export default function BlogList({ posts }: { posts: readonly BlogPost[] }) {
       </div>
       <p role='status' className='mb-2 text-xs text-neutral-500'>{filtered.length} articles</p>
       <div className='divide-y divide-border'>
-        {filtered.map((post) => <article key={post.slug}><Link href={`/blog/${post.slug}`} className='group block py-6 focus-visible:outline-2'><div className='mb-2 text-xs text-neutral-600 dark:text-neutral-400'>{post.category} · <time dateTime={post.date}>{post.date}</time></div><div className='flex items-start justify-between gap-4'><h2 className='text-lg font-medium leading-snug sm:text-xl'>{post.title}</h2><ArrowUpRight aria-hidden='true' className='mt-1 size-4 shrink-0 text-neutral-500 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5' /></div><p className='mt-2 text-sm leading-6 text-neutral-600 dark:text-neutral-400'>{post.description}</p></Link></article>)}
+        {filtered.map((post) => (
+          <article key={post.slug}>
+            <Link
+              href={`/blog/${post.slug}`}
+              className='group flex items-start gap-3 py-6 focus-visible:outline-2 sm:items-center sm:gap-6 lg:gap-8'
+            >
+              <BlogCover
+                slug={post.slug}
+                className='aspect-[16/10] w-28 shrink-0 sm:w-44 lg:w-56'
+              />
+              <div className='min-w-0 flex-1'>
+                <h2 className='text-base font-medium leading-snug sm:text-xl'>
+                  {post.title}
+                </h2>
+                <p className='mt-1.5 text-xs text-neutral-600 dark:text-neutral-400 sm:text-sm'>
+                  {post.category} · <time dateTime={post.date}>{post.date}</time>
+                </p>
+                <p className='mt-2 text-sm leading-6 text-neutral-600 dark:text-neutral-400'>
+                  {post.description}
+                </p>
+              </div>
+              <ArrowUpRight
+                aria-hidden='true'
+                className='mt-1 hidden size-4 shrink-0 text-neutral-500 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 sm:block'
+              />
+            </Link>
+          </article>
+        ))}
       </div>
       {filtered.length === 0 && <p className='py-12 text-center text-sm text-muted-foreground'>No matching articles. Try a different search.</p>}
     </div>
