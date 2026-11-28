@@ -4,6 +4,8 @@ Animated tabs are useful when the selected state needs to be easy to track acros
 
 <ComponentCodePreview name='creative-tab' isFitheight />
 
+Tab to a control and press Enter or Space to select its panel. Each control exposes its pressed state.
+
 ## Use one source of truth
 
 Store the selected tab ID once. Derive the selected label, visible panel and indicator position from that value. Keep stable keys so an animation system can identify the same indicator across selections.
@@ -14,7 +16,7 @@ For equal-width tabs a translated background works. For variable widths, measure
 
 ## Preserve tab semantics
 
-Use an established accessible tab primitive for keyboard navigation, aria-selected, panel association and focus. Animation is supplementary; the selected state and panel should be correct even with animations disabled.
+For an ARIA tablist, use an accessible tab primitive that handles arrow keys, `aria-selected`, and panel association. The selected state and panel should remain available when animations are disabled.
 
 ## Implementation example
 

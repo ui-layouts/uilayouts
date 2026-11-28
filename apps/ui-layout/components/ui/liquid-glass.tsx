@@ -37,11 +37,13 @@ export const LiquidGlassCard = ({
 }: LiquidGlassCardProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const handleToggleExpansion = (e: { target: { closest: (arg0: string) => any } }) => {
+  const toggleExpansion = () => setIsExpanded((expanded) => !expanded);
+
+  const handleToggleExpansion = (e: React.MouseEvent<HTMLElement>) => {
     if (!expandable) return;
     // Don't toggle if clicking on interactive elements
-    if (e.target.closest('a, button, input, select, textarea')) return;
-    setIsExpanded(!isExpanded);
+    if (e.target instanceof Element && e.target.closest('a, button, input, select, textarea')) return;
+    toggleExpansion();
   };
 
   const blurClasses = {
@@ -186,6 +188,16 @@ export const LiquidGlassCard = ({
             boxShadow: shadowStyles[shadowIntensity],
           }}
         />
+
+        {expandable && (
+          <button
+            type='button'
+            aria-label='Toggle card details'
+            aria-expanded={isExpanded}
+            onClick={toggleExpansion}
+            className='pointer-events-none absolute inset-0 z-40 rounded-[inherit] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-foreground'
+          />
+        )}
 
         {/* Content */}
         {children}

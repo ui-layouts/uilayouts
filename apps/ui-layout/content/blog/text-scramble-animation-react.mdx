@@ -21,7 +21,13 @@ Assistive technology should receive the target text rather than dozens of meanin
 The following focused snippet demonstrates the principle, not the complete UI Layouts implementation. The live example and linked documentation contain the full source.
 
 ```js
-const frame = (target, count, alphabet) => Array.from(target, (char, i) => i < count || char === ' ' ? char : alphabet[Math.floor(Math.random() * alphabet.length)]).join('');
+const segmenter = new Intl.Segmenter(undefined, { granularity: 'grapheme' });
+const frame = (target, count, alphabet) =>
+  Array.from(segmenter.segment(target), ({ segment }, index) =>
+    index < count || segment === ' '
+      ? segment
+      : alphabet[Math.floor(Math.random() * alphabet.length)]
+  ).join('');
 ```
 
 ## Explore the source

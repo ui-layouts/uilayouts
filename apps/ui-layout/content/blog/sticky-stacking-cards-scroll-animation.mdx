@@ -53,7 +53,7 @@ const projects = [
     color: '#fd521a',
   },
 ];
-export default function index(): JSX.Element {
+export default function StackingCards() {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
     target: container,
@@ -190,13 +190,13 @@ export const Card: React.FC<CardProps> = ({
 };
 ```
 
-Install the Dependency and check [smooth scroll](https://www.ui-layouts.com/components/smooth-scroll)
-
 ```bash
 npm install motion
 ```
 
 </IframeComponentPrieview>
+
+The example also imports `ReactLenis` from `lenis/react`. Install `lenis` and see the [smooth scroll setup](/components/smooth-scroll) for details.
 
 ## Use sticky positioning for the baseline
 

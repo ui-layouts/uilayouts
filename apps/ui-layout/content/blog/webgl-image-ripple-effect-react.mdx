@@ -46,44 +46,17 @@ export default function Home() {
 
 ```scene.tsx 
 import { Canvas } from '@react-three/fiber';
-import { OrthographicCamera } from '@react-three/drei';
 import Model from './model';
-import useDimension from './hooks/useDimension';
 
 export default function Scene() {
-  const device = useDimension();
-
-  if (!device.width || !device.height) {
-    return null;
-  }
-
-  const frustumSize = device.height;
-  const aspect = device.width / device.height;
-
   return (
-    <div className='h-screen w-full relative bg-neutral-950 text-white'>
-      <Canvas>
-        <OrthographicCamera
-          makeDefault
-          args={[
-            (frustumSize * aspect) / -2,
-            (frustumSize * aspect) / 2,
-            frustumSize / 2,
-            frustumSize / -2,
-            -1000,
-            1000,
-          ]}
-          position={[0, 0, 2]}
-        />
+    <div className='relative h-screen w-full bg-neutral-950 text-white'>
+      <Canvas orthographic dpr={[1, 2]} camera={{ position: [0, 0, 2] }}>
         <Model />
       </Canvas>
-      <article className='absolute w-full bottom-14  text-center'>
-        <h1 className='2xl:text-8xl text-7xl tracking-tighter uppercase'>
-          Independent
-        </h1>
-        <p className='2xl:text-2xl text-xl'>
-          Live for yourself, not for society.
-        </p>
+      <article className='pointer-events-none absolute bottom-14 w-full text-center'>
+        <h1 className='text-7xl uppercase tracking-tighter 2xl:text-8xl'>Independent</h1>
+        <p className='text-xl 2xl:text-2xl'>Live for yourself, not for society.</p>
       </article>
     </div>
   );
@@ -91,193 +64,129 @@ export default function Scene() {
 ```
 
 ```model.tsx 
-// @ts-nocheck
-import React, { useRef, useEffect, useState } from 'react';
-import { useFrame, useThree } from '@react-three/fiber';
-import { useFBO, useTexture } from '@react-three/drei';
+import { createPortal, useFrame, useLoader, useThree } from '@react-three/fiber';
+import { useEffect, useMemo, useRef } from 'react';
 import * as THREE from 'three';
-import useMouse from './hooks/useMouse';
-import useDimension from './hooks/useDimension';
 import { vertex, fragment } from './shaders';
 
+const waveIndices = Array.from({ length: 100 }, (_, index) => index);
+const imageUrls = ['/picture1.jpeg', '/picture2.jpeg', '/picture3.jpeg'];
+type WaveMesh = THREE.Mesh<THREE.PlaneGeometry, THREE.MeshBasicMaterial>;
+
 export default function Model() {
-  const { viewport } = useThree();
-  const texture = useTexture('/brush.png');
-  const meshRefs = useRef([]);
-  const [meshes, setMeshes] = useState([]);
-  const mouse = useMouse();
-  const device = useDimension();
-  const [prevMouse, setPrevMouse] = useState({ x: 0, y: 0 });
-  const [currentWave, setCurrentWave] = useState(0);
-  const { gl, camera } = useThree();
+  const { width, height } = useThree((state) => state.size);
+  const brush = useLoader(THREE.TextureLoader, '/brush.png');
+  const [first, second, third] = useLoader(THREE.TextureLoader, imageUrls);
+  const waves = useRef<Array<WaveMesh | null>>([]);
+  const previousPointer = useRef(new THREE.Vector2());
+  const nextWave = useRef(0);
 
-  const scene = new THREE.Scene();
-  const max = 100;
-
-  const uniforms = useRef({
-    uDisplacement: { value: null },
-    uTexture: { value: null },
-    winResolution: {
-      value: new THREE.Vector2(0, 0),
-    },
-  });
-
-  const fboBase = useFBO(device.width, device.height);
-  const fboTexture = useFBO(device.width, device.height);
-
-  const { scene: imageScene, camera: imageCamera } = Images(viewport);
-
-  useEffect(() => {
-    const generatedMeshes = Array.from({ length: max }).map((_, i) => (
-      <mesh
-        key={i}
-        position={[0, 0, 0]}
-        ref={(el) => (meshRefs.current[i] = el)}
-        rotation={[0, 0, Math.random()]}
-        visible={false}
-      >
-        <planeGeometry args={[60, 60, 1, 1]} />
-        <meshBasicMaterial transparent={true} map={texture} />
-      </mesh>
-    ));
-    setMeshes(generatedMeshes);
-  }, [texture]);
-
-  function setNewWave(x, y, currentWave) {
-    const mesh = meshRefs.current[currentWave];
-    if (mesh) {
-      mesh.position.x = x;
-      mesh.position.y = y;
-      mesh.visible = true;
-      mesh.material.opacity = 1;
-      mesh.scale.x = 1.75;
-      mesh.scale.y = 1.75;
-    }
-  }
-
-  function trackMousePos(x, y) {
-    if (Math.abs(x - prevMouse.x) > 0.1 || Math.abs(y - prevMouse.y) > 0.1) {
-      setCurrentWave((currentWave + 1) % max);
-      setNewWave(x, y, currentWave);
-    }
-    setPrevMouse({ x: x, y: y });
-  }
-
-  useFrame(({ gl, scene: finalScene }) => {
-    const x = mouse.x - device.width / 2;
-    const y = -mouse.y + device.height / 2;
-    trackMousePos(x, y);
-    meshRefs.current.forEach((mesh) => {
-      if (mesh.visible) {
-        mesh.rotation.z += 0.025;
-        mesh.material.opacity *= 0.95;
-        mesh.scale.x = 0.98 * mesh.scale.x + 0.155;
-        mesh.scale.y = 0.98 * mesh.scale.y + 0.155;
-      }
-    });
-
-    if (device.width > 0 && device.height > 0) {
-      // uniforms.current.uTexture.value = imageTexture;
-
-      // Render to base texture with meshes
-      gl.setRenderTarget(fboBase);
-      gl.clear();
-      meshRefs.current.forEach((mesh) => {
-        if (mesh.visible) {
-          scene.add(mesh);
-        }
-      });
-      gl.render(scene, camera);
-      meshRefs.current.forEach((mesh) => {
-        if (mesh.visible) {
-          scene.remove(mesh);
-        }
-      });
-      uniforms.current.uTexture.value = fboTexture.texture;
-
-      gl.setRenderTarget(fboTexture);
-      gl.render(imageScene, imageCamera);
-      uniforms.current.uDisplacement.value = fboBase.texture;
-
-      gl.setRenderTarget(null);
-      gl.render(finalScene, camera);
-      // Render the scene with updated displacement
-      // gl.setRenderTarget(fboTexture);
-      // gl.clear();
-      // gl.render(scene, camera);
-      // uniforms.current.uTexture.value = fboTexture.texture;
-      // gl.setRenderTarget(null);
-
-      uniforms.current.winResolution.value = new THREE.Vector2(
-        device.width,
-        device.height
-      ).multiplyScalar(device.pixelRatio);
-    }
-  }, 1);
-
-  function Images(viewport) {
+  const waveScene = useMemo(() => new THREE.Scene(), []);
+  const imageGeometry = useMemo(() => new THREE.PlaneGeometry(1, 1), []);
+  const imageMaterials = useMemo(
+    () => [first, second, third].map((map) => new THREE.MeshBasicMaterial({ map })),
+    [first, second, third]
+  );
+  const imageScene = useMemo(() => {
     const scene = new THREE.Scene();
+    imageMaterials.forEach((material, index) => {
+      const mesh = new THREE.Mesh(imageGeometry, material);
+      mesh.position.set(((index - 1) * width) / 4, 0, 1);
+      mesh.scale.set(width / 5, width / 4, 1);
+      scene.add(mesh);
+    });
+    return scene;
+  }, [imageGeometry, imageMaterials, width]);
+  const imageCamera = useMemo(() => {
     const camera = new THREE.OrthographicCamera(
-      viewport.width / -2,
-      viewport.width / 2,
-      viewport.height / 2,
-      viewport.height / -2,
-      -1000,
-      1000
+      -width / 2, width / 2, height / 2, -height / 2, 0.1, 100
     );
     camera.position.z = 2;
-    scene.add(camera);
-    const geometry = new THREE.PlaneGeometry(1, 1);
-    const group = new THREE.Group();
-    const texture1 = useTexture('/picture1.jpeg');
-    const material1 = new THREE.MeshBasicMaterial({ map: texture1 });
-    const image1 = new THREE.Mesh(geometry, material1);
-    image1.position.x = -0.25 * viewport.width;
-    image1.position.y = 0;
-    image1.position.z = 1;
-    image1.scale.x = viewport.width / 5;
-    image1.scale.y = viewport.width / 4;
-    group.add(image1);
+    return camera;
+  }, [width, height]);
 
-    const texture2 = useTexture('/picture2.jpeg');
-    const material2 = new THREE.MeshBasicMaterial({ map: texture2 });
-    const image2 = new THREE.Mesh(geometry, material2);
-    image2.position.x = 0;
-    image2.position.y = 0;
-    image2.position.z = 1;
-    image2.scale.x = viewport.width / 5;
-    image2.scale.y = viewport.width / 4;
-    group.add(image2);
+  const waveBuffer = useMemo(() => new THREE.WebGLRenderTarget(1, 1), []);
+  const imageBuffer = useMemo(() => new THREE.WebGLRenderTarget(1, 1), []);
+  const uniforms = useMemo(
+    () => ({
+      uDisplacement: { value: waveBuffer.texture },
+      uTexture: { value: imageBuffer.texture },
+      winResolution: { value: new THREE.Vector2() },
+    }),
+    [imageBuffer, waveBuffer]
+  );
 
-    const texture3 = useTexture('/picture3.jpeg');
-    const material3 = new THREE.MeshBasicMaterial({ map: texture3 });
-    const image3 = new THREE.Mesh(geometry, material3);
-    image3.position.x = 0.25 * viewport.width;
-    image3.position.y = 0;
-    image3.position.z = 1;
-    image3.scale.x = viewport.width / 5;
-    image3.scale.y = viewport.width / 4;
-    group.add(image3);
+  useEffect(() => () => imageGeometry.dispose(), [imageGeometry]);
+  useEffect(() => () => {
+    // The loader caches the shared textures. Only dispose the materials we created.
+    imageMaterials.forEach((material) => material.dispose());
+  }, [imageMaterials]);
+  useEffect(() => () => {
+    waveBuffer.dispose();
+    imageBuffer.dispose();
+  }, [imageBuffer, waveBuffer]);
 
-    scene.add(group);
-    return { scene, camera };
-  }
+  useFrame(({ gl, scene, camera, pointer }) => {
+    const x = pointer.x * width / 2;
+    const y = pointer.y * height / 2;
+    if (Math.abs(x - previousPointer.current.x) > 0.1 || Math.abs(y - previousPointer.current.y) > 0.1) {
+      const wave = waves.current[nextWave.current];
+      if (wave) {
+        wave.position.set(x, y, 0);
+        wave.visible = true;
+        wave.material.opacity = 1;
+        wave.scale.set(1.75, 1.75, 1);
+      }
+      nextWave.current = (nextWave.current + 1) % waveIndices.length;
+    }
+    previousPointer.current.set(x, y);
+
+    for (const wave of waves.current) {
+      if (!wave?.visible) continue;
+      wave.rotation.z += 0.025;
+      wave.material.opacity *= 0.95;
+      wave.scale.x = 0.98 * wave.scale.x + 0.155;
+      wave.scale.y = 0.98 * wave.scale.y + 0.155;
+      if (wave.material.opacity < 0.01) wave.visible = false;
+    }
+
+    // Measure the resized drawing buffer before rendering any of this frame's passes.
+    const resolution = gl.getDrawingBufferSize(uniforms.winResolution.value);
+    if (waveBuffer.width !== resolution.x || waveBuffer.height !== resolution.y) {
+      waveBuffer.setSize(resolution.x, resolution.y);
+      imageBuffer.setSize(resolution.x, resolution.y);
+    }
+
+    gl.setRenderTarget(waveBuffer);
+    gl.clear();
+    gl.render(waveScene, camera);
+    gl.setRenderTarget(imageBuffer);
+    gl.clear();
+    gl.render(imageScene, imageCamera);
+    gl.setRenderTarget(null);
+    gl.render(scene, camera);
+  }, 1);
 
   return (
-    <group>
-      {meshes}
-      {/* <Images /> */}
+    <>
+      {createPortal(
+        <group>
+          {waveIndices.map((index) => (
+            <mesh key={index} visible={false} ref={(mesh) => {
+              waves.current[index] = mesh as WaveMesh | null;
+            }}>
+              <planeGeometry args={[60, 60]} />
+              <meshBasicMaterial transparent map={brush} />
+            </mesh>
+          ))}
+        </group>,
+        waveScene
+      )}
       <mesh>
-        <planeGeometry args={[device.width, device.height, 1, 1]} />
-        <shaderMaterial
-          // args={[device.width, device.height, 1]}
-          vertexShader={vertex}
-          fragmentShader={fragment}
-          transparent={true}
-          uniforms={uniforms.current}
-        ></shaderMaterial>
+        <planeGeometry args={[width, height]} />
+        <shaderMaterial vertexShader={vertex} fragmentShader={fragment} uniforms={uniforms} />
       </mesh>
-    </group>
+    </>
   );
 }
 ```
@@ -286,12 +195,12 @@ export default function Model() {
 export const fragment = `
 uniform sampler2D uTexture;
 uniform sampler2D uDisplacement;
-uniform vec4 winResolution;
+uniform vec2 winResolution;
 varying vec2 vUv;
 float PI = 3.141592653589793238;
 
 void main() {
-  vec2 vUvScreen = gl_FragCoord.xy / winResolution.xy;
+  vec2 vUvScreen = gl_FragCoord.xy / winResolution;
 
   vec4 displacement = texture2D(uDisplacement, vUvScreen);
   float theta = displacement.r*2.0*PI;
@@ -314,67 +223,9 @@ void main() {
 `;
 ```
 
-```useDimension.tsx 
-
-import * as React from 'react';
-
-export default function useDimension() {
-  const [dimension, setDimension] = React.useState({
-    width: 0,
-    height: 0,
-    pixelRatio: 1,
-  });
-
-  React.useEffect(() => {
-    // Check if the code is running on the client side
-    if (typeof window !== 'undefined') {
-      const resize = () => {
-        setDimension({
-          width: window.innerWidth,
-          height: window.innerHeight,
-          pixelRatio: window.devicePixelRatio,
-        });
-      };
-
-      resize();
-
-      window.addEventListener('resize', resize);
-
-      return () => window.removeEventListener('resize', resize);
-    }
-  }, []);
-
-  return dimension;
-}
-```
-
-```useMouse.tsx 
-import * as React from 'react';
-export default function useMouse() {
-  const [mouse, setMouse] = React.useState({ x: 0, y: 0, pixelRatio: 0 });
-
-  const mouseMove = (e: { clientX: any; clientY: any }) => {
-    const { clientX, clientY } = e;
-    setMouse({
-      x: clientX,
-      y: clientY,
-      pixelRatio: Math.min(window.devicePixelRatio, 2),
-    });
-  };
-
-  React.useEffect(() => {
-    window.addEventListener('mousemove', mouseMove);
-    return () => {
-      window.removeEventListener('mousemove', mouseMove);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  return mouse;
-}
-```
-
 </IframeComponentPrieview>
+
+To run the code, install `three` and `@react-three/fiber`. Save the [brush texture](/brush.png) as `public/brush.png` and put three photos in `public` named `picture1.jpeg`, `picture2.jpeg`, and `picture3.jpeg`.
 
 ## Map the pointer into image coordinates
 

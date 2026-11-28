@@ -31,7 +31,9 @@ Provide the complete text to assistive technology and avoid live announcements f
 The following focused snippet demonstrates the principle, not the complete UI Layouts implementation. The live example and linked documentation contain the full source.
 
 ```ts
-const visibleText = Array.from(message).slice(0, index).join('');
+const segmenter = new Intl.Segmenter(undefined, { granularity: 'grapheme' });
+const characters = Array.from(segmenter.segment(message), ({ segment }) => segment);
+const visibleText = characters.slice(0, index).join('');
 ```
 
 ## Explore the source

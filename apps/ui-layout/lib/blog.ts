@@ -418,9 +418,9 @@ export const blogPosts: readonly BlogPost[] = [
   },
   {
     "slug": "scroll-linked-text-animation-react",
-    "title": "How to Create Scroll-Linked Text Animations in React",
+    "title": "How to Reveal Text on Scroll in React",
     "category": "Tutorials",
-    "description": "Scroll-linked text moves in relation to the user's progress rather than running on an unrelated timer.",
+    "description": "Reveal text as it enters the viewport with Motion’s whileInView, direction variants, and optional letter staggering.",
     "date": "2026-11-28",
     "href": "/components/scroll-text"
   },

@@ -14,7 +14,7 @@ export default function BlogList({ posts }: { posts: readonly BlogPost[] }) {
     <div className='mt-10'>
       <label htmlFor='blog-search' className='sr-only'>Search articles</label>
       <input id='blog-search' type='search' placeholder='Search articles…' value={query} onChange={(event) => setQuery(event.target.value)} className='w-full rounded-xl border border-border bg-background px-4 py-3 text-sm shadow-sm outline-none focus-visible:ring-2 focus-visible:ring-foreground' />
-      <div className='my-6 flex flex-wrap gap-2' aria-label='Filter articles'>
+      <div className='my-6 flex flex-wrap gap-2' role='group' aria-label='Filter articles'>
         {['All', ...blogCategories].map((item) => <button key={item} type='button' aria-pressed={category === item} onClick={() => setCategory(item)} className={`rounded-lg px-3 py-2 text-sm transition-colors focus-visible:outline-2 ${category === item ? 'bg-foreground text-background' : 'text-neutral-600 hover:bg-muted dark:text-neutral-400'}`}>{item}</button>)}
       </div>
       <p role='status' className='mb-2 text-xs text-neutral-500'>{filtered.length} articles</p>

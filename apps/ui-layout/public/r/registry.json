@@ -3298,6 +3298,10 @@
         {
           "path": "./registry/components/bg-blocks/blocksone.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "./components/ui/blocks.tsx",
+          "type": "registry:ui"
         }
       ]
     },

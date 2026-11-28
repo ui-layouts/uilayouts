@@ -7,7 +7,7 @@ Sticky storytelling keeps one visual in view while accompanying explanations adv
 ```tsx
 'use client';
 import { ReactLenis } from 'lenis/react';
-export default function index(): JSX.Element {
+export default function StickyStory {
   return (
     <ReactLenis root>
       <main className='bg-black'>
@@ -36,78 +36,78 @@ export default function index(): JSX.Element {
         </div>
 
         <section className='text-white   w-full bg-slate-950  '>
-          <div className='grid grid-cols-2'>
-            <div className='sticky top-0 h-screen flex items-center justify-center'>
+          <div className='grid grid-cols-1 lg:grid-cols-2'>
+            <div className='flex min-w-0 items-center justify-center lg:sticky lg:top-0 lg:h-screen'>
               <h1 className='2xl:text-7xl text-5xl px-8 font-semibold text-center tracking-tight leading-[120%]'>
                 Thanks To Scroll.
                 <br /> Now Scroll Up Again☝️🏿
               </h1>
             </div>
             <div className='grid gap-2'>
-              <figure className='grid place-content-center -skew-x-12'>
+              <figure className='grid min-w-0 place-items-center lg:-skew-x-12'>
                 <img
                   src='https://images.unsplash.com/photo-1718838541476-d04e71caa347?w=500&auto=format&fit=crop'
                   alt=''
-                  className='transition-all duration-300 w-80 h-96  align-bottom object-cover '
+                  className='transition-all duration-300 h-96 w-full max-w-80  align-bottom object-cover '
                 />
               </figure>
-              <figure className='grid place-content-center skew-x-12'>
+              <figure className='grid min-w-0 place-items-center lg:skew-x-12'>
                 <img
                   src='https://images.unsplash.com/photo-1715432362539-6ab2ab480db2?w=500&auto=format&fit=crop'
                   alt=''
-                  className='transition-all duration-300 w-80 h-96  align-bottom object-cover '
+                  className='transition-all duration-300 h-96 w-full max-w-80  align-bottom object-cover '
                 />
               </figure>
-              <figure className='grid place-content-center -skew-x-12'>
+              <figure className='grid min-w-0 place-items-center lg:-skew-x-12'>
                 <img
                   src='https://images.unsplash.com/photo-1718601980986-0ce75101d52d?w=500&auto=format&fit=crop'
                   alt=''
-                  className='transition-all duration-300 w-80 h-96  align-bottom object-cover '
+                  className='transition-all duration-300 h-96 w-full max-w-80  align-bottom object-cover '
                 />
               </figure>
-              <figure className='grid place-content-center skew-x-12'>
+              <figure className='grid min-w-0 place-items-center lg:skew-x-12'>
                 <img
                   src='https://images.unsplash.com/photo-1685904042960-66242a0ac352?w=500&auto=format&fit=crop'
                   alt=''
-                  className='transition-all duration-300 w-80 h-96  align-bottom object-cover '
+                  className='transition-all duration-300 h-96 w-full max-w-80  align-bottom object-cover '
                 />
               </figure>
             </div>
           </div>
         </section>
         <section className='text-white   w-full bg-slate-950  '>
-          <div className='grid grid-cols-2 px-8'>
+          <div className='grid grid-cols-1 lg:grid-cols-2 px-8'>
             <div className='grid gap-2'>
-              <figure className='sticky top-0 h-screen grid place-content-center'>
+              <figure className='grid min-w-0 place-items-center lg:sticky lg:top-0 lg:h-screen'>
                 <img
                   src='https://images.unsplash.com/photo-1718183120769-ece47f31045b?w=500&auto=format&fit=crop'
                   alt=''
-                  className='transition-all duration-300 w-96 h-96  align-bottom object-cover rounded-md'
+                  className='transition-all duration-300 h-96 w-full max-w-96  align-bottom object-cover rounded-md'
                 />
               </figure>
-              <figure className='sticky top-0 h-screen grid place-content-center'>
+              <figure className='grid min-w-0 place-items-center lg:sticky lg:top-0 lg:h-screen'>
                 <img
                   src='https://images.unsplash.com/photo-1715432362539-6ab2ab480db2?w=500&auto=format&fit=crop'
                   alt=''
-                  className='transition-all duration-300  w-96 h-96   align-bottom object-cover rounded-md'
+                  className='transition-all duration-300  h-96 w-full max-w-96   align-bottom object-cover rounded-md'
                 />
               </figure>
-              <figure className='sticky top-0 h-screen grid place-content-center'>
+              <figure className='grid min-w-0 place-items-center lg:sticky lg:top-0 lg:h-screen'>
                 <img
                   src='https://images.unsplash.com/photo-1685904042960-66242a0ac352?w=500&auto=format&fit=crop'
                   alt=''
-                  className='transition-all duration-300 w-96 h-96   align-bottom object-cover rounded-md'
+                  className='transition-all duration-300 h-96 w-full max-w-96   align-bottom object-cover rounded-md'
                 />
               </figure>
-              <figure className='sticky top-0 h-screen grid place-content-center'>
+              <figure className='grid min-w-0 place-items-center lg:sticky lg:top-0 lg:h-screen'>
                 <img
                   src='https://images.unsplash.com/photo-1718838541476-d04e71caa347?w=500&auto=format&fit=crop'
                   alt=''
-                  className='transition-all duration-300  w-96 h-96   align-bottom object-cover rounded-md'
+                  className='transition-all duration-300  h-96 w-full max-w-96   align-bottom object-cover rounded-md'
                 />
               </figure>
             </div>
-            <div className='sticky top-0 h-screen grid place-content-center'>
+            <div className='grid min-w-0 place-items-center lg:sticky lg:top-0 lg:h-screen'>
               <h1 className='text-4xl px-8 font-medium text-right tracking-tight leading-[120%]'>
                 Copied & Paste Every Component you want and make an creative
                 website 😎

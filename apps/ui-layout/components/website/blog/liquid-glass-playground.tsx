@@ -12,7 +12,9 @@ const blurClasses = {
 } as const;
 const edgeOptions = ['none', 'xs', 'sm', 'md', 'lg', 'xl'] as const;
 const cardClass = 'grid h-32 w-40 place-items-center text-white';
-const frostClass = 'border border-white/25 bg-white/10';
+const solidFill = 'bg-[#193349]';
+const frostClass = `border border-white/25 ${solidFill} supports-[backdrop-filter:blur(1px)]:bg-white/10`;
+const liquidClass = `${solidFill} supports-[backdrop-filter:blur(1px)]:bg-transparent`;
 const fieldClass = 'h-9 min-w-0 w-full rounded-md border border-input bg-background px-2 text-sm';
 
 const finishes = {
@@ -45,7 +47,8 @@ export function LiquidGlassPlayground() {
   borderRadius="${borderRadius}"
   blurIntensity="${blur}"
   shadowIntensity="${edge}"
-  className="${cardClass}"
+  className="${cardClass}
+    ${liquidClass}"
 >
   <span className="relative z-30">
     Glass surface
@@ -98,7 +101,7 @@ export function LiquidGlassPlayground() {
               borderRadius={borderRadius}
               blurIntensity={blur}
               shadowIntensity={edge}
-              className={cardClass}
+              className={`${cardClass} ${liquidClass}`}
             >
               {sample}
             </LiquidGlassCard>
