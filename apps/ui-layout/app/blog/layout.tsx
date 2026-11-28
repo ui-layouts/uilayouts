@@ -10,10 +10,10 @@ export default function BlogLayout({ children }: { children: ReactNode }) {
         Skip to content
       </a>
       <Header />
-      <main id='blog-main' className='relative min-w-0 w-full pb-20 pt-12 sm:pt-20'>
+      <main id='blog-main' className='relative min-w-0 w-full px-4 pb-20 pt-12 sm:px-6 sm:pt-20 lg:px-8'>
         {children}
       </main>
-      <footer className='relative flex flex-wrap gap-6 border-t border-border py-8 text-sm text-neutral-600 dark:text-neutral-400'>
+      <footer className='relative mx-4 flex flex-wrap gap-6 border-t border-border py-8 text-sm sm:mx-6 lg:mx-8 text-neutral-600 dark:text-neutral-400'>
         <Link href='/'>UI Layouts</Link>
         <Link href='/components'>Components</Link>
         <Link href='/blocks'>Blocks</Link>
