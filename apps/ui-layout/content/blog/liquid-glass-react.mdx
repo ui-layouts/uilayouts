@@ -1,4 +1,41 @@
-The Liquid Glass component in UI Layouts is a reusable React surface with an SVG displacement filter, backdrop blur, inset edge highlights and elastic drag motion. This tutorial uses the same examples and source code as our [Liquid Glass component page](/components/liquid-glass), not a separate recreation of Apple's interface.
+import { LiquidGlassFlow } from '@/components/website/blog/liquid-glass-flow';
+import { LiquidGlassPlayground } from '@/components/website/blog/liquid-glass-playground';
+
+The [Liquid Glass component](/components/liquid-glass) starts with a practical design question: how can a control pick up the image behind it and still keep its icon legible? The effect comes from building the material and the controls in separate layers.
+
+## Understand the three visual layers
+
+<LiquidGlassFlow />
+
+Start with a backdrop that has a clear edge so there’s something to bend. The **bend** layer samples and blurs that backdrop. SVG `feTurbulence` supplies a noise map, and `feDisplacementMap` uses its red and green channels to offset the pixels horizontally and vertically. The **face** adds an outer shadow, and the **edge** adds inset highlights. All three share the same corner radius. The icon sits above them, so it stays sharp.
+
+The filter in `LiquidGlassCard` uses this pair of SVG primitives. A `scale` of `0` keeps the pixels in place. Higher values let the same noise map push them farther.
+
+```tsx
+<feTurbulence
+  type='fractalNoise'
+  baseFrequency='0.003 0.007'
+  numOctaves='1'
+  result='turbulence'
+/>
+<feDisplacementMap
+  in='SourceGraphic'
+  in2='turbulence'
+  scale='200'
+  xChannelSelector='R'
+  yChannelSelector='G'
+/>
+```
+
+## Why choose liquid glass?
+
+A solid fill gives controls predictable contrast. Frosted glass keeps a hint of the backdrop and softens the detail behind the label. For the mobile controls, the backdrop is part of the effect. Displacement makes the lines change direction through the surface, and an inset highlight keeps the rim visible. The same stack fits a circular button, a long slider, or a card because the content sits above the effect.
+
+## Change the values
+
+Switch between **Frosted** and **Liquid glass** over the same backdrop. Increase blur to soften the diagonal lines, change the edge highlight to see how much the rim stands out, or move the radius slider to change the silhouette. The JSX follows the preview as you make changes.
+
+<LiquidGlassPlayground />
 
 ## Start with the mobile controls
 
@@ -21,12 +58,6 @@ npx uilayouts@latest add liquid-glass
 ```
 
 The shared component exports LiquidGlassCard. Its source uses Motion for dragging and expansion; the registry documentation also lists Motion as a manual installation dependency.
-
-## Understand the three visual layers
-
-The bend layer combines backdrop blur with an SVG displacement filter. The filter uses fractal noise from feTurbulence and feDisplacementMap to offset the sampled pixels. This is a stylized optical effect, not a physically accurate glass simulation.
-
-Above it, the face layer adds the outer shadow and glow. The edge layer adds inset highlights so the curved boundary remains visible over photographs. All three layers follow the same borderRadius. Content in the examples is positioned above those decorative layers.
 
 ## Build a draggable navigation surface
 
