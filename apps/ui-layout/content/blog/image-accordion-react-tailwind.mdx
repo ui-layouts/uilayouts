@@ -1,0 +1,30 @@
+An image accordion expands the selected panel while neighboring images remain as context.
+
+## Live example from UI Layouts
+
+<ComponentCodePreview name='tailwind-image-accordion' isFitheight hasReTrigger />
+
+## Define active state separately
+
+Choose a stable ID for the expanded panel. Set the flex basis or grid sizing from that selection rather than relying on pointer position alone.
+
+## Preserve image focus
+
+Use object-fit cover and intentional object-position values. Avoid an extreme collapse that hides the subject completely or makes other panels impossible to activate.
+
+## Use explicit selection on touch
+
+Hover can enhance desktop interaction, but taps and keyboard actions should select panels. Keep each panel's meaningful label visible and provide a static fallback.
+
+## Implementation pattern
+
+The following focused snippet demonstrates the principle, not the complete UI Layouts implementation. The live example and linked documentation contain the full source.
+
+```css
+.image-panel { flex: 1; transition: flex-grow 300ms ease; min-width: 0; }
+.image-panel[data-active='true'] { flex-grow: 4; }
+```
+
+## Explore the source
+
+[Open the image accordions component documentation](/components/image-accordions) for the full implementation, examples and any required dependencies. Test the interaction on a narrow screen and with keyboard navigation before adapting it to production.

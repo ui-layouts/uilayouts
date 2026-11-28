@@ -1,0 +1,39 @@
+A dialog focuses attention on one decision without losing the context of the page behind it.
+
+## Live example from UI Layouts
+
+<ComponentCodePreview name='dialog-default' isFitheight hasReTrigger />
+
+## Installation
+
+Use the documented UI Layouts registry command in your React project:
+
+```bash
+npx shadcn@latest add 'https://www.ui-layouts.com/r/dialog.json'
+```
+
+The component documentation includes the full setup and dependency details.
+
+## Start with modal semantics
+
+The trigger opens a dialog with a meaningful title and description. Keep focus inside a modal, return it on close and allow Escape unless a genuine workflow constraint prevents it.
+
+## Animate opacity and scale separately
+
+A subtle entrance combines a backdrop fade with a small scale change. Do not use animation state as the source of truth for whether the dialog is open.
+
+## Handle long content
+
+Constrain the dialog to the available viewport, let its body scroll and keep close controls reachable. Test reduced motion and focus restoration after an interrupted transition.
+
+## Implementation pattern
+
+The following focused snippet demonstrates the principle, not the complete UI Layouts implementation. The live example and linked documentation contain the full source.
+
+```css
+.dialog-panel { max-height: calc(100dvh - 2rem); overflow-y: auto; }
+```
+
+## Explore the source
+
+[Open the dialog component documentation](/components/dialog) for the full implementation, examples and any required dependencies. Test the interaction on a narrow screen and with keyboard navigation before adapting it to production.

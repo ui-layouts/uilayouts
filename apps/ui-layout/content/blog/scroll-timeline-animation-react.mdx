@@ -1,0 +1,39 @@
+A timeline makes an ordered process easier to understand when its animation follows the content sequence.
+
+## Live example from UI Layouts
+
+<ComponentCodePreview name='timeline-animation-default' isFitheight hasReTrigger />
+
+## Installation
+
+Use the documented UI Layouts registry command in your React project:
+
+```bash
+npx shadcn@latest add 'https://www.ui-layouts.com/r/timeline-animation.json'
+```
+
+The component documentation includes the full setup and dependency details.
+
+## Define the sequence explicitly
+
+Represent stages with stable IDs and descriptive headings. The documented animationNum prop coordinates the sequence; use it for presentation, not as the data model.
+
+## Choose a visibility trigger
+
+Reveal each stage when it enters the viewport instead of playing the entire story at page load. Do not hide the timeline permanently if JavaScript is unavailable.
+
+## Keep the order meaningful
+
+Render the sequence as an ordered list and keep connector lines decorative. On reduced motion, display all stages without delay.
+
+## Implementation pattern
+
+The following focused snippet demonstrates the principle, not the complete UI Layouts implementation. The live example and linked documentation contain the full source.
+
+```tsx
+<ol>{steps.map(step => <li key={step.id}><h3>{step.title}</h3><p>{step.detail}</p></li>)}</ol>
+```
+
+## Explore the source
+
+[Open the timeline animation component documentation](/components/timeline-animation) for the full implementation, examples and any required dependencies. Test the interaction on a narrow screen and with keyboard navigation before adapting it to production.

@@ -1,0 +1,29 @@
+Draggable cards add direct manipulation to an otherwise static canvas.
+
+## Live example from UI Layouts
+
+<ComponentCodePreview name='drag-items' isFitheight hasReTrigger />
+
+## Distinguish free drag from sorting
+
+Dragging an item visually does not automatically update a list order. Decide whether the item returns, keeps its position or commits a reordered model.
+
+## Set constraints at the container
+
+Use a reference to a bounding region and test it after resize. Preserve a clear grab handle if the card contains buttons or inputs.
+
+## Handle touch and keyboard
+
+Do not disable scrolling on the entire page just to make a card draggable. Provide keyboard actions for any drag operation that changes saved application state.
+
+## Implementation pattern
+
+The following focused snippet demonstrates the principle, not the complete UI Layouts implementation. The live example and linked documentation contain the full source.
+
+```tsx
+<motion.div drag dragConstraints={containerRef} dragElastic={0.12}>Drag me</motion.div>
+```
+
+## Explore the source
+
+[Open the drag items component documentation](/components/drag-items) for the full implementation, examples and any required dependencies. Test the interaction on a narrow screen and with keyboard navigation before adapting it to production.

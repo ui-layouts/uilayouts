@@ -1,0 +1,29 @@
+Image tabs let visitors compare product workflows without leaving the section.
+
+## Live example from UI Layouts
+
+<ComponentCodePreview name='image-tab1' isFitheight hasReTrigger />
+
+## Use tabs for related views
+
+Each tab should identify a meaningful product feature and have a corresponding panel. The image should illustrate the feature rather than repeat text inside a screenshot.
+
+## Keep the image crop stable
+
+Reserve a common aspect ratio and swap media without shifting the surrounding controls. Preload only the next likely image when it makes sense.
+
+## Preserve tab keyboard behavior
+
+Use a tab primitive with arrow-key navigation and labeled panels. In reduced motion, switch content immediately rather than hiding the new panel behind a transition.
+
+## Implementation pattern
+
+The following focused snippet demonstrates the principle, not the complete UI Layouts implementation. The live example and linked documentation contain the full source.
+
+```tsx
+const activeFeature = features.find(feature => feature.id === selectedId);
+```
+
+## Explore the source
+
+[Open the image tabs component documentation](/components/image-tabs) for the full implementation, examples and any required dependencies. Test the interaction on a narrow screen and with keyboard navigation before adapting it to production.

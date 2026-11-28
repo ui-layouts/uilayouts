@@ -1,0 +1,29 @@
+A responsive header keeps the same navigation destinations available as space changes.
+
+## Live example from UI Layouts
+
+<ComponentCodePreview name='responsive-header-default' isFitheight hasReTrigger />
+
+## Design from available space
+
+Start with essential destinations and move secondary actions into a mobile menu when the header no longer fits. Keep the brand and menu trigger distinct.
+
+## Use a single navigation model
+
+Render links from shared data so desktop and mobile do not diverge. Reflect the current route with aria-current where appropriate.
+
+## Keep the mobile menu usable
+
+Support keyboard access, focus restoration and an explicit close control. Test long translations, narrow displays and browser zoom before choosing breakpoints.
+
+## Implementation pattern
+
+The following focused snippet demonstrates the principle, not the complete UI Layouts implementation. The live example and linked documentation contain the full source.
+
+```tsx
+<nav aria-label='Main navigation'>{links.map(link => <a key={link.href} href={link.href}>{link.label}</a>)}</nav>
+```
+
+## Explore the source
+
+[Open the responsive header component documentation](/components/responsive-header) for the full implementation, examples and any required dependencies. Test the interaction on a narrow screen and with keyboard navigation before adapting it to production.

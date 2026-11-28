@@ -1,0 +1,39 @@
+A globe can communicate geographic presence without loading a complete mapping interface.
+
+## Live example from UI Layouts
+
+<ComponentCodePreview name='card-globe-default' isFitheight hasReTrigger />
+
+## Installation
+
+Use the documented UI Layouts registry command in your React project:
+
+```bash
+npx shadcn@latest add 'https://www.ui-layouts.com/r/globe.json'
+```
+
+The component documentation includes the full setup and dependency details.
+
+## Separate data from rotation
+
+Store marker coordinates as latitude and longitude, and keep camera rotation separate from the dataset. The Cobe-powered UI Layouts examples give you a place to experiment with geographic markers and appearance.
+
+## Control canvas resolution
+
+Set a bounded pixel density and resize the canvas when its container changes. A small card does not need a full-screen render buffer.
+
+## Offer a textual alternative
+
+List the places represented by important markers outside the canvas. Pause optional automatic rotation when reduced motion is requested and avoid implying a precise map if the globe is decorative.
+
+## Implementation pattern
+
+The following focused snippet demonstrates the principle, not the complete UI Layouts implementation. The live example and linked documentation contain the full source.
+
+```ts
+const markers = [{ location: [51.5, -0.12] as [number, number], size: 0.04 }];
+```
+
+## Explore the source
+
+[Open the globe component documentation](/components/globe) for the full implementation, examples and any required dependencies. Test the interaction on a narrow screen and with keyboard navigation before adapting it to production.

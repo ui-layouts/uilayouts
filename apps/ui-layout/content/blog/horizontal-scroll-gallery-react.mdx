@@ -1,0 +1,30 @@
+A horizontal gallery can present a sequence of wide images while preserving a natural vertical page flow.
+
+## Live example from UI Layouts
+
+<ComponentCodePreview name='framerhorizontalscroll' isFitheight hasReTrigger />
+
+## Choose a native baseline
+
+Use an overflow-x container with scroll snapping for direct horizontal interaction. For vertical-to-horizontal motion, pin a bounded region and map page progress to the required horizontal travel.
+
+## Measure real content width
+
+Calculate the scrollable distance as content width minus viewport width. Recalculate on resize rather than assuming every item occupies the entire viewport.
+
+## Keep navigation accessible
+
+Do not trap keyboard users in a pinned section or hide content beyond a scroll boundary. Provide direct links or controls and disable forced scroll motion when requested.
+
+## Implementation pattern
+
+The following focused snippet demonstrates the principle, not the complete UI Layouts implementation. The live example and linked documentation contain the full source.
+
+```css
+.gallery { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; }
+.gallery > * { flex: 0 0 80%; scroll-snap-align: start; }
+```
+
+## Explore the source
+
+[Open the horizontal scroll component documentation](/components/horizontal-scroll) for the full implementation, examples and any required dependencies. Test the interaction on a narrow screen and with keyboard navigation before adapting it to production.

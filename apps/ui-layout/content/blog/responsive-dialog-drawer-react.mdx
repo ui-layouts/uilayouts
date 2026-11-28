@@ -1,0 +1,39 @@
+A desktop dialog and a mobile bottom sheet can present the same task in forms that suit each viewport.
+
+## Live example from UI Layouts
+
+<ComponentCodePreview name='responsive-modal-default' isFitheight hasReTrigger />
+
+## Installation
+
+Use the documented UI Layouts registry command in your React project:
+
+```bash
+npx shadcn@latest add 'https://www.ui-layouts.com/r/responsive-modal.json'
+```
+
+The component documentation includes the full setup and dependency details.
+
+## Share one open state
+
+Keep the data and completion action outside the presentation choice. A viewport change should not reset a partially completed form or create two visible overlays.
+
+## Adapt the layout rather than the task
+
+Use the responsive modal's desktop and mobile presentations for the same content. Account for mobile safe areas and on-screen keyboards.
+
+## Preserve dismissal and focus behavior
+
+Make swipe-to-dismiss optional, offer a close button and avoid silently discarding unsaved input. Test focus restoration at both breakpoints.
+
+## Implementation pattern
+
+The following focused snippet demonstrates the principle, not the complete UI Layouts implementation. The live example and linked documentation contain the full source.
+
+```css
+.sheet-body { max-height: calc(100dvh - 3rem); overflow-y: auto; padding-bottom: env(safe-area-inset-bottom); }
+```
+
+## Explore the source
+
+[Open the responsive modal component documentation](/components/responsive-modal) for the full implementation, examples and any required dependencies. Test the interaction on a narrow screen and with keyboard navigation before adapting it to production.

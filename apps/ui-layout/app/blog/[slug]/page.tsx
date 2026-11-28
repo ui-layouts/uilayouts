@@ -24,8 +24,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function BlogArticle({ params }: Props) {
   const post = getBlogPost((await params).slug);
   if (!post) notFound();
-  const Content = blogContent[post.slug as keyof typeof blogContent];
-  if (!Content) notFound();
+  const loadContent = blogContent[post.slug as keyof typeof blogContent];
+  if (!loadContent) notFound();
+  const { default: Content } = await loadContent();
   const path = `/blog/${post.slug}`;
   const image = absoluteUrl(`/og?title=${encodeURIComponent(post.title)}&description=${encodeURIComponent(post.description)}`);
   return (

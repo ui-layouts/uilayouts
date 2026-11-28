@@ -1,0 +1,39 @@
+A folding device mockup makes a product screenshot part of the interaction instead of a flat image.
+
+## Live example from UI Layouts
+
+<ComponentCodePreview name='iphone-duo-slider' isFitheight hasReTrigger jsonName='iphone-duo-slider' />
+
+## Installation
+
+Use the documented UI Layouts registry command in your React project:
+
+```bash
+npx shadcn@latest add 'https://www.ui-layouts.com/r/iphone-duo.json'
+```
+
+The component documentation includes the full setup and dependency details.
+
+## Drive the hinge with one angle
+
+The documented angle runs from 0 degrees closed to 180 degrees open. Store it as a controlled value so a slider, scroll progress or a reset button can drive the same geometry.
+
+## Keep the screens aligned
+
+Use the documented imageSrc override to place your own product screenshot on the displays. Test the crop as the hinge closes; a fixed screen aspect ratio is more reliable than changing image dimensions during the transition.
+
+## Make the demo usable
+
+Offer a labeled range input for keyboard users and a static fully open state when reduced motion is requested. Profile the fold on a lower-powered phone.
+
+## Implementation pattern
+
+The following focused snippet demonstrates the principle, not the complete UI Layouts implementation. The live example and linked documentation contain the full source.
+
+```tsx
+<input type='range' min={0} max={180} aria-label='Fold angle' value={angle} onChange={e => setAngle(Number(e.target.value))} />
+```
+
+## Explore the source
+
+[Open the iphone duo component documentation](/components/iphone-duo) for the full implementation, examples and any required dependencies. Test the interaction on a narrow screen and with keyboard navigation before adapting it to production.

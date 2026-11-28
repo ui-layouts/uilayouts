@@ -1,0 +1,30 @@
+Gradient borders make a card or control stand out without filling the entire surface with color.
+
+## Live example from UI Layouts
+
+<ComponentCodePreview name='gradient-border' isFitheight hasReTrigger />
+
+## Separate outer and inner surfaces
+
+Use a gradient on the shell, and place a solid content panel inside it. Derive matching radii from the inset so the visible border stays consistent around corners.
+
+## Choose an animation mechanism
+
+A conic gradient can suggest rotating light, while a static linear gradient is simpler. Animate only a decorative layer so the content does not move or change contrast.
+
+## Keep the outline meaningful
+
+Use a conventional focus ring for keyboard interaction and do not rely on a moving gradient to indicate error or selection. Disable optional rotation under reduced motion.
+
+## Implementation pattern
+
+The following focused snippet demonstrates the principle, not the complete UI Layouts implementation. The live example and linked documentation contain the full source.
+
+```css
+.gradient-shell { padding: 2px; border-radius: 18px; background: conic-gradient(from 90deg, #8b5cf6, #22d3ee, #8b5cf6); }
+.gradient-shell > * { border-radius: 16px; background: #171717; }
+```
+
+## Explore the source
+
+[Open the gradient border component documentation](/components/gradient-border) for the full implementation, examples and any required dependencies. Test the interaction on a narrow screen and with keyboard navigation before adapting it to production.

@@ -1,0 +1,39 @@
+Scroll-linked text moves in relation to the user's progress rather than running on an unrelated timer.
+
+## Live example from UI Layouts
+
+<ComponentCodePreview name='text-scroll-animation' isFitheight hasReTrigger />
+
+## Installation
+
+Use the documented UI Layouts registry command in your React project:
+
+```bash
+npx shadcn@latest add 'https://www.ui-layouts.com/r/scroll-text.json'
+```
+
+The component documentation includes the full setup and dependency details.
+
+## Map progress to a distance
+
+Use a normalized scroll progress value and convert it into a horizontal translation. Keep the text in a clipping container so it does not create page-wide overflow.
+
+## Decide what direction means
+
+A one-way decorative label can move with progress. If direction reverses with scroll, preserve continuity at the reversal rather than restarting from the beginning.
+
+## Keep text readable
+
+Provide an ordinary static version of meaningful content. Avoid linking headline legibility to a particular scroll position or requiring a user to scroll to read a sentence.
+
+## Implementation pattern
+
+The following focused snippet demonstrates the principle, not the complete UI Layouts implementation. The live example and linked documentation contain the full source.
+
+```tsx
+const x = useTransform(scrollYProgress, [0, 1], ['0%', '-30%']);
+```
+
+## Explore the source
+
+[Open the scroll text component documentation](/components/scroll-text) for the full implementation, examples and any required dependencies. Test the interaction on a narrow screen and with keyboard navigation before adapting it to production.

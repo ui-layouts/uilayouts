@@ -1,0 +1,40 @@
+A color picker needs to synchronize its visual selection and the value an application actually saves.
+
+## Live example from UI Layouts
+
+<ComponentCodePreview name='default-color-picker' isFitheight hasReTrigger />
+
+## Installation
+
+Use the documented UI Layouts registry command in your React project:
+
+```bash
+npx shadcn@latest add 'https://www.ui-layouts.com/r/color-picker.json'
+```
+
+The component documentation includes the full setup and dependency details.
+
+## Choose a canonical representation
+
+The UI Layouts picker documents a color prop and onChange callback. Keep a single canonical string in state and derive hue or RGB controls from it instead of keeping several independently editable copies.
+
+## Validate typed input
+
+Allow incomplete hex input while editing, but only commit a valid value. Show the exact saved color beside the swatch; browser eyedropper support should be an optional enhancement.
+
+## Check contrast in context
+
+The chosen accent may be readable on one surface but not another. Preview text against both themes and make the hue and text controls operable with a keyboard.
+
+## Implementation pattern
+
+The following focused snippet demonstrates the principle, not the complete UI Layouts implementation. The live example and linked documentation contain the full source.
+
+```tsx
+const [color, setColor] = useState('#6366f1');
+const validHex = /^#[0-9a-f]{6}$/i.test(color);
+```
+
+## Explore the source
+
+[Open the color picker component documentation](/components/color-picker) for the full implementation, examples and any required dependencies. Test the interaction on a narrow screen and with keyboard navigation before adapting it to production.

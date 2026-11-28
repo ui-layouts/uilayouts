@@ -1,0 +1,69 @@
+A sparkling heading draws attention to a short phrase without requiring the letters themselves to move.
+
+## Live example from UI Layouts
+
+<IframeComponentPrieview name='sparkles-title' hasReTrigger isFitheight responsive>
+
+```tsx
+import React from 'react';
+import { Sparkles } from '@/components/sparkles';
+
+function index() {
+  return (
+    <>
+      <div className='min-h-screen w-screen overflow-hidden bg-black'>
+        <div className='relative  h-80 w-screen overflow-hidden mask-[radial-gradient(50%_50%,white,transparent)] before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_bottom_center,#369eff,transparent_90%)] before:opacity-100  after:absolute after:border-2 after:-left-1/2 after:top-1/2 after:aspect-[1/1.8] after:w-[200%] after:rounded-[50%] after:border-b after:border-[#7876c566] after:bg-zinc-900'>
+          <div className='absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#ffffff2c_1px,transparent_1px),linear-gradient(to_bottom,#3a3a3a01_1px,transparent_1px)] bg-size-[70px_80px] '></div>
+          <Sparkles
+            density={400}
+            size={1.4}
+            direction='top'
+            className='absolute inset-x-0 top-0 h-full w-full mask-[radial-gradient(50%_50%,white,transparent_85%)]'
+          />
+        </div>
+        <div className='mx-auto -mt-52  w-screen max-w-2xl relative z-10'>
+          <div className='bg-white backdrop-blur-lg border border-neutral-800 p-4  w-28 h-28 mx-auto grid place-content-center rounded-full'>
+            <div className=' w-12 h-12 translate-x-1 translate-y-1 mx-auto bg-black rounded-lg before:absolute relative before:w-full before:h-full before:bg-black/50 before:rounded-lg before:-top-2 before:-left-2'></div>
+          </div>
+        </div>
+        <article className='text-white  pt-2 w-2/3 mx-auto block text-center z-10 relative '>
+          <h1 className='text-center text-5xl text-white font-medium py-3'>
+            UI-LAYOUT
+          </h1>
+          It is a modern and minimalist UI component library designed to
+          simplify the process of building responsive and visually appealing web
+          interfaces.
+        </article>
+      </div>
+    </>
+  );
+}
+
+export default index;
+```
+
+</IframeComponentPrieview>
+
+## Keep the heading semantic
+
+Render the words as an ordinary heading. Position the particle canvas around or over it, marked decorative so it does not duplicate the title for assistive technology.
+
+## Use a local particle budget
+
+The documented examples use tsParticles. Choose restrained particle size, density and speed, and keep the effect bounded to the heading instead of the entire viewport.
+
+## Protect readability
+
+Avoid low-contrast text and rapid flashes. Provide a static heading for reduced motion or when the particle engine cannot load.
+
+## Implementation pattern
+
+The following focused snippet demonstrates the principle, not the complete UI Layouts implementation. The live example and linked documentation contain the full source.
+
+```html
+<h1 class='relative'>Build something expressive</h1>
+```
+
+## Explore the source
+
+[Open the sparkles title component documentation](/components/sparkles-title) for the full implementation, examples and any required dependencies. Test the interaction on a narrow screen and with keyboard navigation before adapting it to production.

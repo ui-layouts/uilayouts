@@ -1,0 +1,30 @@
+Masonry organizes images of different heights into a balanced collection without forcing identical aspect ratios.
+
+## Live example from UI Layouts
+
+<ComponentCodePreview name='unsplashGrid' isFitheight hasReTrigger />
+
+## Choose the layout trade-off
+
+CSS columns are simple but flow vertically before the next column. A measured masonry layout can balance heights, but needs resize and loading logic.
+
+## Reserve each image ratio
+
+Use known width and height metadata before loading to reduce layout shifts. Maintain the original aspect ratio where the image itself is the content.
+
+## Keep order understandable
+
+Preserve a meaningful DOM order for keyboard and screen-reader users. Test narrow screens and dynamic insertion without jumping the current scroll position.
+
+## Implementation pattern
+
+The following focused snippet demonstrates the principle, not the complete UI Layouts implementation. The live example and linked documentation contain the full source.
+
+```css
+.masonry { columns: 3 15rem; column-gap: 1rem; }
+.masonry > * { break-inside: avoid; margin-bottom: 1rem; }
+```
+
+## Explore the source
+
+[Open the masonry grid component documentation](/components/masonary-grid) for the full implementation, examples and any required dependencies. Test the interaction on a narrow screen and with keyboard navigation before adapting it to production.

@@ -1,0 +1,39 @@
+Embla provides carousel mechanics while your interface supplies the slide layout and navigation.
+
+## Live example from UI Layouts
+
+<ComponentCodePreview name='default-slider' isFitheight hasReTrigger />
+
+## Installation
+
+Use the documented UI Layouts registry command in your React project:
+
+```bash
+npx shadcn@latest add 'https://www.ui-layouts.com/r/carousel.json'
+```
+
+The component documentation includes the full setup and dependency details.
+
+## Choose slide sizing
+
+Use a predictable flex basis and gap, then let the carousel measure snap positions. Show a partial next slide only when it helps indicate more content.
+
+## Connect controls to carousel state
+
+Use the carousel API to navigate and reflect whether previous and next actions are available. Update indicators on selection rather than guessing from a translated pixel value.
+
+## Make motion optional
+
+Avoid automatic advancement for essential content, or offer a pause control. Test keyboard navigation, focus visibility, touch swipes and long slide content.
+
+## Implementation pattern
+
+The following focused snippet demonstrates the principle, not the complete UI Layouts implementation. The live example and linked documentation contain the full source.
+
+```css
+.slide { flex: 0 0 80%; min-width: 0; }
+```
+
+## Explore the source
+
+[Open the carousel component documentation](/components/carousel) for the full implementation, examples and any required dependencies. Test the interaction on a narrow screen and with keyboard navigation before adapting it to production.

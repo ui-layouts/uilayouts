@@ -1,0 +1,40 @@
+A directional drawer can reveal navigation or contextual content from the edge that best fits the layout.
+
+## Live example from UI Layouts
+
+<ComponentCodePreview name='directional-drawer-default' isFitheight hasReTrigger />
+
+## Installation
+
+Use the documented UI Layouts registry command in your React project:
+
+```bash
+npx shadcn@latest add 'https://www.ui-layouts.com/r/directional-drawer.json'
+```
+
+The component documentation includes the full setup and dependency details.
+
+## Choose a direction based on purpose
+
+A side drawer works well for navigation or inspector controls. A bottom sheet suits compact mobile actions. Avoid making users guess which edge will open.
+
+## Keep a single controlled state
+
+The trigger, overlay and dismissal gestures should all update the same open value. Persist the underlying task state outside the drawer.
+
+## Handle scroll and gestures
+
+Ensure a long drawer scrolls internally without trapping page scrolling after it closes. Offer a visible close control in addition to any swipe gesture.
+
+## Implementation pattern
+
+The following focused snippet demonstrates the principle, not the complete UI Layouts implementation. The live example and linked documentation contain the full source.
+
+```tsx
+const [open, setOpen] = useState(false);
+<button onClick={() => setOpen(true)} aria-expanded={open}>Open panel</button>
+```
+
+## Explore the source
+
+[Open the directional drawer component documentation](/components/directional-drawer) for the full implementation, examples and any required dependencies. Test the interaction on a narrow screen and with keyboard navigation before adapting it to production.
