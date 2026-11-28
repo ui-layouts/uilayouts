@@ -1,6 +1,9 @@
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import { BlogTableOfContents } from '@/components/website/blog/blog-table-of-contents';
+import {
+  BlogContentsProvider,
+  BlogTableOfContents,
+} from '@/components/website/blog/blog-table-of-contents';
 import BlogCover from '@/components/website/blog/blog-cover';
 import { BreadcrumbStructuredData } from '@/components/seo/breadcrumb-structured-data';
 import { blogPosts, getBlogPost, relatedBlogPosts } from '@/lib/blog';
@@ -88,72 +91,76 @@ export default async function BlogArticle({ params }: Props) {
         >
           ← All articles
         </Link>
-        <div className='grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_13rem]'>
-          <article className='mx-auto w-full min-w-0 max-w-[48rem]'>
-            <header className='mb-6'>
-              <p className='mb-3 text-sm text-muted-foreground'>
-                {post.category} · <time dateTime={post.date}>{post.date}</time>
-              </p>
-              <h1 className='text-3xl font-medium leading-tight tracking-tight sm:text-4xl'>
-                {post.title}
-              </h1>
-              <p className='mt-4 text-sm text-muted-foreground'>UI Layouts</p>
-            </header>
-            {items.length > 0 && (
-              <details className='mb-6 rounded-lg border border-border px-4 py-3 lg:hidden'>
-                <summary className='cursor-pointer text-sm font-medium'>On this page</summary>
-                <div className='mt-3'>
-                  <BlogTableOfContents items={items} />
-                </div>
-              </details>
-            )}
-            <BlogCover slug={post.slug} hero className='mb-6 aspect-[16/9] max-h-96 w-full' />
-            {post.preview && (
-              <figure className='mb-8'>
-                <iframe
-                  title={`Live preview: ${post.title}`}
-                  src={post.preview}
-                  loading='lazy'
-                  className='h-[480px] w-full rounded-xl border border-border bg-background'
-                />
-                <figcaption className='mt-2 flex flex-wrap justify-between gap-3 text-xs text-muted-foreground'>
-                  <Link className='underline' href={post.href}>
-                    View block and source
-                  </Link>
-                  <a className='underline' href={post.preview} target='_blank' rel='noreferrer'>
-                    Open full preview
-                  </a>
-                </figcaption>
-              </figure>
-            )}
-            <div className='prose prose-theme max-w-none prose-headings:scroll-mt-24 prose-headings:font-medium prose-h2:text-xl prose-h2:tracking-tight prose-p:leading-7 prose-a:font-medium prose-pre:overflow-x-auto dark:prose-invert'>
-              <Content />
-            </div>
-            <aside aria-labelledby='related-title' className='mt-16 border-t border-border pt-8'>
-              <h2 id='related-title' className='text-xl font-medium'>
-                Related articles
-              </h2>
-              <div className='mt-4 divide-y divide-border'>
-                {relatedBlogPosts(post).map((item) => (
-                  <Link
-                    key={item.slug}
-                    href={`/blog/${item.slug}`}
-                    className='flex items-center gap-4 py-4 text-sm hover:underline'
-                  >
-                    <BlogCover slug={item.slug} className='aspect-[16/10] w-28 shrink-0' />
-                    <span>{item.title}</span>
-                  </Link>
-                ))}
+        <BlogContentsProvider items={items}>
+          <div className='grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_13rem]'>
+            <article className='mx-auto w-full min-w-0 max-w-[48rem]'>
+              <header className='mb-6'>
+                <p className='mb-3 text-sm text-muted-foreground'>
+                  {post.category} · <time dateTime={post.date}>{post.date}</time>
+                </p>
+                <h1 className='text-3xl font-medium leading-tight tracking-tight sm:text-4xl'>
+                  {post.title}
+                </h1>
+                <p className='mt-4 text-sm text-muted-foreground'>UI Layouts</p>
+              </header>
+              {items.length > 0 && (
+                <details className='mb-6 rounded-lg border border-border px-4 py-3 lg:hidden'>
+                  <summary className='cursor-pointer text-sm font-medium'>On this page</summary>
+                  <div className='mt-3'>
+                    <BlogTableOfContents />
+                  </div>
+                </details>
+              )}
+              {post.showArticleCover !== false && (
+                <BlogCover slug={post.slug} hero className='mb-6 aspect-[16/9] max-h-96 w-full' />
+              )}
+              {post.preview && (
+                <figure className='mb-8'>
+                  <iframe
+                    title={`Live preview: ${post.title}`}
+                    src={post.preview}
+                    loading='lazy'
+                    className='h-[480px] w-full rounded-xl border border-border bg-background'
+                  />
+                  <figcaption className='mt-2 flex flex-wrap justify-between gap-3 text-xs text-muted-foreground'>
+                    <Link className='underline' href={post.href}>
+                      View block and source
+                    </Link>
+                    <a className='underline' href={post.preview} target='_blank' rel='noreferrer'>
+                      Open full preview
+                    </a>
+                  </figcaption>
+                </figure>
+              )}
+              <div className='prose prose-theme max-w-none prose-headings:scroll-mt-24 prose-headings:font-medium prose-h2:text-xl prose-h2:tracking-tight prose-p:leading-7 prose-a:font-medium prose-pre:overflow-x-auto dark:prose-invert'>
+                <Content />
               </div>
-            </aside>
-          </article>
-          {items.length > 0 && (
-            <aside className='sticky top-24 hidden max-h-[calc(100dvh-7rem)] overflow-y-auto border-l border-border pl-5 lg:block'>
-              <p className='mb-3 text-sm font-medium'>On this page</p>
-              <BlogTableOfContents items={items} />
-            </aside>
-          )}
-        </div>
+              <aside aria-labelledby='related-title' className='mt-16 border-t border-border pt-8'>
+                <h2 id='related-title' className='text-xl font-medium'>
+                  Related articles
+                </h2>
+                <div className='mt-4 divide-y divide-border'>
+                  {relatedBlogPosts(post).map((item) => (
+                    <Link
+                      key={item.slug}
+                      href={`/blog/${item.slug}`}
+                      className='flex items-center gap-4 py-4 text-sm hover:underline'
+                    >
+                      <BlogCover slug={item.slug} className='aspect-[16/10] w-28 shrink-0' />
+                      <span>{item.title}</span>
+                    </Link>
+                  ))}
+                </div>
+              </aside>
+            </article>
+            {items.length > 0 && (
+              <aside className='sticky top-24 hidden max-h-[calc(100dvh-7rem)] overflow-y-auto border-l border-border pl-5 lg:block'>
+                <p className='mb-3 text-sm font-medium'>On this page</p>
+                <BlogTableOfContents />
+              </aside>
+            )}
+          </div>
+        </BlogContentsProvider>
       </div>
     </>
   );

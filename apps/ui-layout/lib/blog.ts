@@ -8,6 +8,7 @@ export type BlogPost = {
   date: string;
   href: string;
   preview?: string;
+  showArticleCover?: boolean;
 };
 
 export const blogPosts: readonly BlogPost[] = [
@@ -15,9 +16,10 @@ export const blogPosts: readonly BlogPost[] = [
     "slug": "liquid-glass-react",
     "title": "How to build an Apple-inspired liquid glass effect in React",
     "category": "Tutorials",
-    "description": "Build draggable glass controls, weather cards and expandable notifications with UI Layouts’ LiquidGlassCard, SVG displacement and Motion.",
+    "description": "See how LiquidGlassCard layers SVG displacement, backdrop blur and edge light. Tune the effect in a live React example.",
     "date": "2026-11-28",
-    "href": "/components/liquid-glass"
+    "href": "/components/liquid-glass",
+    "showArticleCover": false
   },
   {
     "slug": "mac-genie-animation",

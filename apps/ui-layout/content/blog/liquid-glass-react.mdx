@@ -1,15 +1,21 @@
 import { LiquidGlassFlow } from '@/components/website/blog/liquid-glass-flow';
 import { LiquidGlassPlayground } from '@/components/website/blog/liquid-glass-playground';
 
-The [Liquid Glass component](/components/liquid-glass) starts with a practical design question: how can a control pick up the image behind it and still keep its icon legible? The effect comes from building the material and the controls in separate layers.
+We built Liquid Glass so a control could pick up the image behind it and still keep its icon legible. Try the effect on a single surface, then see how the layers fit together.
+
+## Change the values
+
+Switch between **Frosted** and **Liquid glass** over the same backdrop. Change the blur, edge highlight, or radius to see what each prop does. The JSX updates alongside the preview.
+
+<LiquidGlassPlayground />
 
 ## Understand the three visual layers
 
 <LiquidGlassFlow />
 
-Start with a backdrop that has a clear edge so there’s something to bend. The **bend** layer samples and blurs that backdrop. SVG `feTurbulence` supplies a noise map, and `feDisplacementMap` uses its red and green channels to offset the pixels horizontally and vertically. The **face** adds an outer shadow, and the **edge** adds inset highlights. All three share the same corner radius. The icon sits above them, so it stays sharp.
+Start with a backdrop that has a clear edge. The **bend** layer blurs it, then uses red and green channels from an SVG noise map to shift pixels horizontally and vertically. The **face** casts a soft shadow around the control. The **edge** adds an inset highlight along the same radius. The icon sits above all three layers and stays sharp.
 
-The filter in `LiquidGlassCard` uses this pair of SVG primitives. A `scale` of `0` keeps the pixels in place. Higher values let the same noise map push them farther.
+In the filter, `scale='0'` leaves the pixels where they are. Increasing `scale` lets the same noise map push them farther.
 
 ```tsx
 <feTurbulence
@@ -29,85 +35,8 @@ The filter in `LiquidGlassCard` uses this pair of SVG primitives. A `scale` of `
 
 ## Why choose liquid glass?
 
-A solid fill gives controls predictable contrast. Frosted glass keeps a hint of the backdrop and softens the detail behind the label. For the mobile controls, the backdrop is part of the effect. Displacement makes the lines change direction through the surface, and an inset highlight keeps the rim visible. The same stack fits a circular button, a long slider, or a card because the content sits above the effect.
+A solid fill gives controls predictable contrast. Frosted glass softens the detail behind a label. We added displacement because we wanted the backdrop to take part in the effect. A line changes direction as it passes through the surface, while the inset highlight makes the rim visible over both light and dark areas. The same layer stack can follow a circle or a rectangular card by changing the radius.
 
-## Change the values
+## Explore the component
 
-Switch between **Frosted** and **Liquid glass** over the same backdrop. Increase blur to soften the diagonal lines, change the edge highlight to see how much the rim stands out, or move the radius slider to change the silhouette. The JSX follows the preview as you make changes.
-
-<LiquidGlassPlayground />
-
-## Start with the mobile controls
-
-The mobile icons example uses the shared LiquidGlassCard for circular controls, tall brightness and volume tiles, and a wider Focus control. Drag a tile and release it to see the elastic return motion. The image behind the controls makes the edge highlights and distortion easier to observe.
-
-<ComponentCodePreview name='liquid-glass-mobile-icons' jsonName='liquid-glass-mobile-icons.json' isFitheight />
-
-## Install the actual component
-
-Use the existing registry installation command. In a new project, initialize the shadcn registry tooling first if needed.
-
-```bash
-npx shadcn@latest add 'https://www.ui-layouts.com/r/liquid-glass.json'
-```
-
-The alternative UI Layouts CLI command is:
-
-```bash
-npx uilayouts@latest add liquid-glass
-```
-
-The shared component exports LiquidGlassCard. Its source uses Motion for dragging and expansion; the registry documentation also lists Motion as a manual installation dependency.
-
-## Build a draggable navigation surface
-
-The actual sidebar example uses a 280px-wide card with a 12px radius, small blur, small glow and small inner shadow. Its active Dashboard button uses a solid background to maintain a clear selection state.
-
-<ComponentCodePreview name='liquid-glass-sidebar-menu' jsonName='liquid-glass-sidebar-menu.json' isFitheight />
-
-A compact example using the real component API:
-
-```tsx
-'use client';
-
-import { LiquidGlassCard } from '@/components/ui/liquid-glass';
-
-export function GlassNavigation() {
-  return (
-    <LiquidGlassCard
-      draggable
-      borderRadius='12px'
-      blurIntensity='sm'
-      glowIntensity='sm'
-      shadowIntensity='sm'
-      className='w-[280px] p-4'
-    >
-      <nav aria-label='Dashboard' className='relative z-30'>
-        <button type='button' className='rounded-lg bg-background px-4 py-3 text-foreground'>
-          Dashboard
-        </button>
-      </nav>
-    </LiquidGlassCard>
-  );
-}
-```
-
-Place this surface over a photograph or gradient with enough detail to show the glass effect. The drag implementation constrains movement around the starting position, uses an elastic distance, and springs back on release. Pass draggable explicitly to control that behavior.
-
-## Apply glass to a weather dashboard
-
-The weather example uses smaller radii and subtle inner shadows. Its cards share the same material but differ in size and layout. Try the example to see how the glass treatment behaves across the hourly forecast, current conditions and daily forecast.
-
-<ComponentCodePreview name='liquid-glass-weather' jsonName='liquid-glass-weather.json' isFitheight />
-
-## Create an expandable notification
-
-The notification example disables dragging on the first card and enables expansion. The card begins at 104px in height and grows to its content height when opened.
-
-<ComponentCodePreview name='liquid-glass-notification' jsonName='liquid-glass-notification.json' isFitheight />
-
-Use the expandable, width, height, expandedWidth and expandedHeight props to adapt the same behavior. The source excludes nested interactive elements from the card's expansion click handler. For a production interface, provide a keyboard-operable expansion control and expose its state; the visual demo alone is not a complete accessibility guarantee.
-
-## Before shipping
-
-Test the glass over light and dark imagery, confirm keyboard focus is visible, and provide a static fallback for reduced motion and unsupported filters. Profile several glass surfaces on lower-powered devices. If adapting the filter to multiple independent instances, use unique SVG filter IDs to avoid collisions. The exact source and the four working examples are available on our [Liquid Glass component page](/components/liquid-glass).
+[Explore Liquid Glass](/components/liquid-glass) for the source, installation instructions, and the full set of examples.
